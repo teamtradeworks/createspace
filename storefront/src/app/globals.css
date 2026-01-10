@@ -2,14 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Outfit";
-  src: url("/fonts/Outfit-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
 :root {
   --navy: #0c1446;
   --cs-red: #f70b28;
@@ -22,7 +14,7 @@
 }
 
 body {
-  font-family: "Outfit", sans-serif;
+  font-family: var(--font-outfit), sans-serif;
 }
 
 @layer utilities {

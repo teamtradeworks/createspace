@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    // AVIF/WebP formats enabled for production builds
+    // AVIF/WebP formats enabled
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
