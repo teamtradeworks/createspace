@@ -78,10 +78,88 @@ For detailed brand strategy, customer personas, and messaging guidance: see `ass
  - Our brand-aligned icons are in `assets/design/ICONS/`.  Use icons from the `DARK/` subfolder when against a dark background and icons from the `LIGHT/` against light (white) backgrounds. These icons are very simple images which can be used, for example, as trust badges, social media links, beside contact details, etc.
 
 ## Guidelines
- - Always use the appropriate file format considering this is a website.  
- - Do not reference images from `assets/` on the website - they must be copied into `storefront/images/`.
+ - Always use the appropriate file format considering this is a website.
+ - Do not reference images from `assets/` on the website - they must be copied into `storefront/public/images/`.
  - Resize images (or request that they be resized) if they have inappropriately large dimensions.
  - Use SVGs when appropriate as they are vector-based and dont need to be rescaled or resized.
+
+## Image Organisation
+
+All website images must be stored locally in `storefront/public/images/`. Never link to external image URLs (except Shopify CDN for product images).
+
+### Folder Structure
+```
+storefront/public/images/
+├── brand/              # Logos and brand assets
+│   ├── logo-dark.png   # Logo for light backgrounds
+│   └── logo-light.png  # Logo for dark backgrounds
+├── illustrations/      # Brand illustrations (robots, atoms, etc.)
+├── home/               # Homepage images
+├── education/          # Education section images
+├── about/              # About page images
+└── shop/               # Shop page images (non-product)
+```
+
+When adding new pages, create a corresponding subfolder (e.g., `images/contact/` for `/contact` page).
+
+### Naming Conventions (SEO-friendly)
+- Use lowercase with hyphens: `stem-tutoring-workshop.jpg` (not `STEMTutoringWorkshop.jpg`)
+- Be descriptive: `children-robotics-classroom.jpg` (not `IMG_1234.jpg`)
+- Include context: `hero-stem-education.jpg`, `team-createspace.jpg`
+- For sequences: `stem-workshop-1.png`, `stem-workshop-2.png`
+
+### Image Optimisation Requirements
+
+**Before adding any image:**
+1. **Resize** to appropriate dimensions (max 1920px width for hero images, 1200px for content images)
+2. **Compress** using sharp-cli or similar tool
+3. **Choose correct format**: JPEG for photos, PNG for graphics with transparency
+
+**Target file sizes:**
+- Hero images: < 200KB
+- Content images: < 100KB
+- Illustrations/icons: < 50KB
+- Logos: < 30KB
+
+**Compression commands:**
+```bash
+# Resize large images (from storefront/public/images/)
+sips --resampleWidth 1200 path/to/image.jpg
+
+# Compress JPEGs
+npx sharp-cli --input image.jpg --output image.jpg --quality 80
+
+# Compress PNGs
+npx sharp-cli --input image.png --output image.png --compressionLevel 9
+```
+
+### Using Images in Code
+
+Always use Next.js `Image` component for automatic optimisation:
+
+```tsx
+import Image from "next/image";
+
+// For fixed-size images
+<Image
+  src="/images/illustrations/robot-orange.png"
+  alt="Robot illustration"
+  width={128}
+  height={128}
+/>
+
+// For responsive/fill images
+<Image
+  src="/images/home/hero-stem-education.jpg"
+  alt="Children learning STEM"
+  fill
+  className="object-cover"
+  sizes="(max-width: 768px) 100vw, 50vw"
+  priority  // Add for above-the-fold images
+/>
+```
+
+**Important:** Add `priority` prop to hero/above-the-fold images for better LCP.
 
 # Design
 
