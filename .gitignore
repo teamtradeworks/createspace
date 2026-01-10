@@ -1,0 +1,30 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Credentials and secrets
+*.credentials*
+*credentials*.txt
+*.secret*
+.env
+.env.*
+!.env.example
+
+# Claude Code
+.claude/
+
+# Editor and IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
