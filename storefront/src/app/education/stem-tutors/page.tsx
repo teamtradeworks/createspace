@@ -173,7 +173,7 @@ export default function StemTutorsPage() {
                   <div className="text-center">
                     <div className="w-24 h-24 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center">
                       <Image
-                        src="/images/ROBOT-1.png"
+                        src="/images/illustrations/robot-orange.png"
                         alt="Robotics"
                         width={64}
                         height={64}

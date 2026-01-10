@@ -30,7 +30,7 @@ export default function AboutPage() {
         {/* Decorative illustrations */}
         <div className="hidden lg:block absolute right-20 top-1/2 -translate-y-1/2 w-48 h-48 opacity-20">
           <Image
-            src="/images/ROBOT-1.png"
+            src="/images/illustrations/robot-orange.png"
             alt=""
             width={192}
             height={192}
@@ -39,7 +39,7 @@ export default function AboutPage() {
         </div>
         <div className="hidden lg:block absolute right-64 bottom-10 w-24 h-24 opacity-15">
           <Image
-            src="/images/ATOM-1.png"
+            src="/images/illustrations/atom.png"
             alt=""
             width={96}
             height={96}
@@ -96,7 +96,7 @@ export default function AboutPage() {
         {/* Decorative illustrations */}
         <div className="hidden lg:block absolute left-10 top-20 w-20 h-20 opacity-15">
           <Image
-            src="/images/BEAKER-1.png"
+            src="/images/illustrations/beaker.png"
             alt=""
             width={80}
             height={80}
@@ -105,7 +105,7 @@ export default function AboutPage() {
         </div>
         <div className="hidden lg:block absolute right-10 bottom-20 w-24 h-24 opacity-15">
           <Image
-            src="/images/MICROSCOPE.png"
+            src="/images/illustrations/microscope.png"
             alt=""
             width={96}
             height={96}
@@ -202,7 +202,7 @@ export default function AboutPage() {
 
           <div className="relative rounded-2xl overflow-hidden">
             <Image
-              src="https://thecreatespace.co.za/cdn/shop/files/Team_Tags_-_Compressed.jpg?v=1756296285"
+              src="/images/about/team-createspace.jpg"
               alt="The CREATESPACE Team"
               width={1200}
               height={600}
@@ -217,7 +217,7 @@ export default function AboutPage() {
         {/* Decorative illustrations */}
         <div className="hidden lg:block absolute right-10 top-20 w-28 h-28 opacity-10">
           <Image
-            src="/images/EARTH.png"
+            src="/images/illustrations/earth.png"
             alt=""
             width={112}
             height={112}
@@ -226,7 +226,7 @@ export default function AboutPage() {
         </div>
         <div className="hidden lg:block absolute left-10 bottom-20 w-20 h-20 opacity-10">
           <Image
-            src="/images/CODE-1.png"
+            src="/images/illustrations/code.png"
             alt=""
             width={80}
             height={80}

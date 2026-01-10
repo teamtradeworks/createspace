@@ -118,7 +118,7 @@ export default function EducationPage() {
         {/* Decorative illustrations */}
         <div className="hidden lg:block absolute right-20 top-1/2 -translate-y-1/2 w-48 h-48 opacity-20">
           <Image
-            src="/images/ROBOT-1.png"
+            src="/images/illustrations/robot-orange.png"
             alt=""
             width={192}
             height={192}
@@ -127,7 +127,7 @@ export default function EducationPage() {
         </div>
         <div className="hidden lg:block absolute right-64 bottom-10 w-24 h-24 opacity-15">
           <Image
-            src="/images/CODE-1.png"
+            src="/images/illustrations/code.png"
             alt=""
             width={96}
             height={96}

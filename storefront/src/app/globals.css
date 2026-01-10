@@ -30,3 +30,31 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Hero Carousel - CSS-first approach for LCP optimization */
+.hero-carousel-wrapper {
+  position: relative;
+  min-height: 500px;
+}
+
+/* All slides hidden by default */
+.hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* First slide visible by default (before JS hydrates) */
+.hero-slide[data-index="0"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* JS-controlled visibility via data attribute */
+.hero-carousel-wrapper[data-current-slide="0"] .hero-slide { opacity: 0; pointer-events: none; }
+.hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] { opacity: 1; pointer-events: auto; }
+
+.hero-carousel-wrapper[data-current-slide="1"] .hero-slide { opacity: 0; pointer-events: none; }
+.hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] { opacity: 1; pointer-events: auto; }
+
+.hero-carousel-wrapper[data-current-slide="2"] .hero-slide { opacity: 0; pointer-events: none; }
+.hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] { opacity: 1; pointer-events: auto; }

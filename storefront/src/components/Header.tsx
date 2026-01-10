@@ -113,7 +113,7 @@ export default function Header({ products = [] }: HeaderProps) {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/logo-dark.png"
+              src="/images/brand/logo-dark.png"
               alt="CREATESPACE"
               width={120}
               height={24}

@@ -62,7 +62,7 @@ export default function Footer() {
           {/* Logo and description */}
           <div className="col-span-2 md:col-span-1">
             <Image
-              src="/images/logo-dark.png"
+              src="/images/brand/logo-dark.png"
               alt="CREATESPACE"
               width={150}
               height={27}

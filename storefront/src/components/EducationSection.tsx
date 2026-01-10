@@ -7,7 +7,7 @@ const educationOptions = [
     title: "STEM Tutors",
     description:
       "Expert facilitators from our partner Robotixkids bring robotics and coding programmes directly to your school. After-school clubs, workshops, and holiday camps available.",
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?w=600&h=400&fit=crop",
+    image: "/images/education/stem-tutors-classroom.jpg",
     link: "/education/stem-tutors",
     linkText: "Learn More",
   },
@@ -16,7 +16,7 @@ const educationOptions = [
     title: "Curriculum for Teachers",
     description:
       "Empower your educators with our partner Inspire Africa's comprehensive training platform. CAPS-aligned lesson plans and ongoing support included.",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop",
+    image: "/images/education/teacher-curriculum-training.jpg",
     link: "/education/curriculum",
     linkText: "View Training",
   },
@@ -25,7 +25,7 @@ const educationOptions = [
     title: "Classroom Kits",
     description:
       "Equip your classroom with multi-learner STEM kits designed for group work. Teacher guides included with bulk pricing for schools.",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop",
+    image: "/images/education/classroom-kits-students.jpg",
     link: "/education/classroom-kits",
     linkText: "Shop Kits",
   },

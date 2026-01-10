@@ -1,15 +1,16 @@
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { getProducts, Product } from "@/lib/shopify";
 import FeaturedProducts from "@/components/FeaturedProducts";
+import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
 import AgeGroups from "@/components/AgeGroups";
 import TrustBadges from "@/components/TrustBadges";
 import EducationSection from "@/components/EducationSection";
 import HeroCarousel from "@/components/HeroCarousel";
 
-export default async function Home() {
-  // Fetch products - in a real scenario, you'd filter by age group tags
-  // For now, we'll split the products across age groups for demo purposes
+// Async component that fetches and renders featured products
+async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
 
   try {
@@ -35,13 +36,19 @@ export default async function Home() {
     productsByAge["13+"] = allProducts.slice(0, productsPerGroup);
   }
 
+  return <FeaturedProducts productsByAge={productsByAge} />;
+}
+
+export default function Home() {
   return (
     <>
-      {/* Hero Carousel */}
+      {/* Hero Carousel - Renders immediately, no data dependency */}
       <HeroCarousel />
 
-      {/* Featured Products with Age Group Tabs */}
-      <FeaturedProducts productsByAge={productsByAge} />
+      {/* Featured Products with Age Group Tabs - Streamed after hero */}
+      <Suspense fallback={<FeaturedProductsSkeleton />}>
+        <FeaturedProductsLoader />
+      </Suspense>
 
       {/* Age Groups - Visual Cards */}
       <AgeGroups />
@@ -51,7 +58,7 @@ export default async function Home() {
         {/* Decorative illustrations */}
         <div className="hidden lg:block absolute -left-16 top-1/4 w-32 h-32 opacity-20">
           <Image
-            src="/images/ROBOT-1.png"
+            src="/images/illustrations/robot-orange.png"
             alt=""
             width={128}
             height={128}
@@ -60,7 +67,7 @@ export default async function Home() {
         </div>
         <div className="hidden lg:block absolute -right-8 bottom-1/4 w-24 h-24 opacity-20">
           <Image
-            src="/images/ATOM-1.png"
+            src="/images/illustrations/atom.png"
             alt=""
             width={96}
             height={96}
@@ -112,10 +119,12 @@ export default async function Home() {
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100">
                 <Image
-                  src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop"
+                  src="/images/home/children-robotics-workshop.jpg"
                   alt="Children building robots in a STEM workshop"
                   fill
                   className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  loading="lazy"
                 />
               </div>
               {/* Decorative element */}
@@ -137,7 +146,7 @@ export default async function Home() {
         {/* Decorative illustrations */}
         <div className="hidden lg:block absolute right-12 top-16 w-28 h-28 opacity-15">
           <Image
-            src="/images/ROBOT-2.png"
+            src="/images/illustrations/robot-blue.png"
             alt=""
             width={112}
             height={112}
@@ -146,7 +155,7 @@ export default async function Home() {
         </div>
         <div className="hidden lg:block absolute left-8 bottom-24 w-20 h-20 opacity-15">
           <Image
-            src="/images/LIGHTBULB.png"
+            src="/images/illustrations/lightbulb.png"
             alt=""
             width={80}
             height={80}
@@ -268,7 +277,7 @@ export default async function Home() {
         {/* Decorative illustration */}
         <div className="hidden lg:block absolute left-12 top-1/2 -translate-y-1/2 w-32 h-32 opacity-10">
           <Image
-            src="/images/ROBOT-3.png"
+            src="/images/illustrations/robot-green.png"
             alt=""
             width={128}
             height={128}
