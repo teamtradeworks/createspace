@@ -92,6 +92,16 @@ export default async function ArduinoStarterKitPage() {
         background="gray"
       />
 
+      {/* Learn Together Section */}
+      <ImageTextBlock
+        image="/images/products/arduino-starter-kit/kids_working_on_project.jpg"
+        imageAlt="Children working together on an Arduino project"
+        title="Learn Together, Build Together"
+        body="Arduino projects are perfect for collaborative learning. Work through the projects with a friend, sibling, or parent. Share ideas, solve problems together, and celebrate when your creation comes to life."
+        layout="image-left"
+        background="white"
+      />
+
       {/* Features Grid */}
       <FeatureGrid
         title="Everything You Need to Get Started"
@@ -183,6 +193,16 @@ export default async function ArduinoStarterKitPage() {
         background="gray"
       />
 
+      {/* Guided Learning Section */}
+      <ImageTextBlock
+        image="/images/products/arduino-starter-kit/booklet_open_with_arduino_breadboard_on_top.jpg"
+        imageAlt="Arduino project book open with breadboard and components on top"
+        title="Your Guide to Every Project"
+        body="The 170-page project book isn't just instructions - it's a complete learning resource. Each project explains the 'why' behind every step, introducing electronics concepts and coding principles as you build. Clear diagrams show exactly where every wire goes."
+        layout="image-right"
+        background="white"
+      />
+
       {/* Project Showcase */}
       <ProjectShowcase
         title="Projects You'll Build"
@@ -221,6 +241,16 @@ export default async function ArduinoStarterKitPage() {
         ]}
         moreText="Plus 9 more projects covering LCD displays, keyboards, and more advanced concepts"
         background="white"
+      />
+
+      {/* Hands-On Experience Section */}
+      <ImageTextBlock
+        image="/images/products/arduino-starter-kit/arduino_boardboard_led_finger_press.jpg"
+        imageAlt="Finger pressing button on Arduino breadboard with LED circuit"
+        title="The Magic of Making It Work"
+        body="There's nothing quite like pressing a button and watching your LED light up for the first time. Each project brings that moment of discovery - the instant your code becomes something real you can see, hear, and touch."
+        layout="image-left"
+        background="gray"
       />
 
       {/* Specifications */}

@@ -357,6 +357,62 @@ On mobile, stack everything vertically:
 
 ---
 
+## Product Imagery
+
+Product-specific images are stored in `assets/product/[product-handle]/` and should be copied to `storefront/public/images/products/[handle]/` before use.
+
+### Image Categories
+
+| Folder | Quality | Display Size | Best Components |
+|--------|---------|--------------|-----------------|
+| `lifestyle/` | Professional | Full-width, large | ImageTextBlock, hero backgrounds, FeatureGrid |
+| `end-user/` | User-generated | Small, grouped | Gallery grids, testimonial sections, social proof |
+| `animations/` | User-generated | Small, inline | Feature highlights, inline demos |
+| `logo/` | Official | Small, badge-style | Brand attribution, partnerships |
+
+### Usage by Component
+
+**ImageTextBlock** - Use `lifestyle/` photos for the main image. Filenames describe content, so match to section topic:
+```tsx
+<ImageTextBlock
+  image="/images/products/arduino-starter-kit/kids_working_on_project.jpg"
+  title="Learn Together"
+  body="Perfect for parent-child projects..."
+  layout="image-right"
+/>
+```
+
+**End-user photo galleries** - Group 3-4 `end-user/` photos in a grid within sections to show real-world usage:
+```tsx
+// Small thumbnail grid showing customer creations
+<div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+  <Image src="/images/products/handle/end-user/project-1.jpg" ... />
+  <Image src="/images/products/handle/end-user/project-2.jpg" ... />
+</div>
+```
+
+**Animations/GIFs** - Use sparingly within content sections to show movement:
+```tsx
+// Small inline GIF demonstrating a feature
+<Image
+  src="/images/products/handle/animations/led-blink.gif"
+  width={200}
+  height={150}
+  alt="LED blinking demonstration"
+  className="rounded-lg"
+  unoptimized  // Required for GIFs
+/>
+```
+
+### Selection Guidelines
+
+- **Don't use all images** - Select the most relevant 3-5 for the page
+- **Match filenames to content** - `arduino_board_laptop_on_desk.jpg` goes with a "getting started" section
+- **Alternate image types** - Mix lifestyle (professional) with end-user (authentic) for variety
+- **Keep animations small** - User-generated GIFs work best at thumbnail size
+
+---
+
 ## Checklist
 
 Before launching a product page:
@@ -367,8 +423,9 @@ Before launching a product page:
 - [ ] "What's Included" is complete
 - [ ] "You'll Also Need" is present (even if empty)
 - [ ] Adult supervision requirement is addressed
-- [ ] At least one lifestyle photo is included
-- [ ] Short video/GIF included (if applicable)
+- [ ] At least one lifestyle photo is included (from `assets/product/[handle]/lifestyle/`)
+- [ ] End-user photos used for social proof (from `assets/product/[handle]/end-user/`)
+- [ ] Short video/GIF included if available (from `assets/product/[handle]/animations/`)
 - [ ] Reviews section is functional
 - [ ] Related products are populated
 - [ ] Mobile layout has been tested

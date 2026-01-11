@@ -8,6 +8,7 @@ import {
   NumberedSteps,
   LearningOutcomes,
   WhatsIncluded,
+  ImageTextBlock,
   ProductFAQ,
   VideoEmbed,
   Specifications,
@@ -90,6 +91,16 @@ export default async function MicrobitGoPage() {
         background="gray"
       />
 
+      {/* Code in Your Browser Section */}
+      <ImageTextBlock
+        image="/images/products/bbc-micro-bit-go/blocks-coding-example-in-makecode.png"
+        imageAlt="MakeCode block-based coding interface showing a micro:bit program"
+        title="Code in Your Browser"
+        body="No software to install - just open MakeCode in any web browser and start coding. Drag colourful blocks to create programs, then flash them to your micro:bit with one click. When you're ready, switch to JavaScript or Python to see real code."
+        layout="image-left"
+        background="white"
+      />
+
       {/* Features Grid */}
       <FeatureGrid
         title="Packed with Possibilities"
@@ -130,6 +141,16 @@ export default async function MicrobitGoPage() {
         background="gray"
       />
 
+      {/* Learn Together Section */}
+      <ImageTextBlock
+        image="/images/products/bbc-micro-bit-go/kids-holding-microbits.jpg"
+        imageAlt="Two children holding micro:bit boards and smiling"
+        title="Learn Together, Build Together"
+        body="The micro:bit's built-in radio lets devices talk to each other wirelessly. Create multiplayer games, send secret messages, or build collaborative projects. Learning is always more fun with friends."
+        layout="image-right"
+        background="white"
+      />
+
       {/* Learning Outcomes */}
       <LearningOutcomes
         title="Skills They'll Develop"
@@ -156,6 +177,16 @@ export default async function MicrobitGoPage() {
           "Quick Start Guide",
         ]}
         background="gray"
+      />
+
+      {/* Expand Your Projects Section */}
+      <ImageTextBlock
+        image="/images/products/bbc-micro-bit-go/board-connected-wires-with-hand.jpg"
+        imageAlt="Hands connecting wires to a micro:bit board on a breadboard"
+        title="Expand When You're Ready"
+        body="Start with the built-in features, then grow. The edge connector lets you add motors, sensors, and LEDs. Use crocodile clips for quick experiments, or connect to breakout boards for more advanced projects."
+        layout="image-left"
+        background="white"
       />
 
       {/* Project Showcase */}
@@ -214,6 +245,16 @@ export default async function MicrobitGoPage() {
           { label: "Programming", value: "MakeCode, Python, Scratch" },
         ]}
         background="white"
+      />
+
+      {/* Young Makers Section */}
+      <ImageTextBlock
+        image="/images/products/bbc-micro-bit-go/boy-holding-microbit.jpg"
+        imageAlt="Young boy proudly holding his micro:bit creation"
+        title="From First Program to Proud Maker"
+        body="There's nothing quite like seeing your code come to life. The micro:bit transforms abstract concepts into tangible results - LEDs light up, sounds play, and sensors respond. Every project builds confidence and sparks curiosity for the next challenge."
+        layout="image-right"
+        background="gray"
       />
 
       {/* FAQ Section */}

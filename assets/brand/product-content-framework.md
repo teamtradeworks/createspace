@@ -99,7 +99,25 @@ Product photos alone aren't enough. Lifestyle imagery is essential.
 - Include a mix of ages within the product's range
 - Capture the "aha moment" where possible
 
-**Short videos / GIFs:**
+### Image Sources
+
+Product-specific images are stored in `assets/product/[product-handle]/` with four subfolders:
+
+| Folder | Content | Best For |
+|--------|---------|----------|
+| `lifestyle/` | Professional lifestyle photography | Hero sections, ImageTextBlock, full-width features |
+| `end-user/` | Customer photos of projects and creations | Social proof galleries, small-format groups, testimonial sections |
+| `animations/` | Short animated GIFs of product in action | "Wow" moments, small inline demos, feature highlights |
+| `logo/` | Official brand logos | Brand attribution, partnership callouts |
+
+**Usage guidelines:**
+- **Lifestyle photos** are studio quality - use these for primary visual content at any scale
+- **End-user photos** add authenticity but aren't studio quality - display in groups, at smaller sizes, or in gallery formats
+- **Animations** are often from customers - use sparingly, keep small, great for showing movement
+- **Filenames describe content** - use this to match images with relevant sections (e.g., `kids_working_on_project.jpg` pairs with a "Learning Together" section)
+- **Select, don't use all** - choose the most relevant images for each section; quality over quantity
+
+### Short videos / GIFs
 
 A 5-15 second clip is worth a thousand photos. Video shows what static images can't:
 - Movement and action (robots walking, circuits lighting up)
@@ -111,7 +129,7 @@ A 5-15 second clip is worth a thousand photos. Video shows what static images ca
 - Keep it short - reels, not tutorials (5-15 seconds)
 - No audio required - should work on mute
 - Loop cleanly where possible
-- Can be sourced online or created in-house
+- Can be sourced from `assets/product/[handle]/animations/` or created in-house
 - Prioritise for products with movement or a "wow" moment
 
 ---

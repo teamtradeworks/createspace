@@ -8,6 +8,7 @@ import {
   NumberedSteps,
   LearningOutcomes,
   WhatsIncluded,
+  ImageTextBlock,
   ProductFAQ,
   VideoEmbed,
   Specifications,
@@ -91,6 +92,16 @@ export default async function ElecfreaksTinkerKitPage() {
         background="gray"
       />
 
+      {/* MakeCode Section */}
+      <ImageTextBlock
+        image="/images/products/elecfreaks-micro-bit-tinker-kit/makecode-screenshot.jpg"
+        imageAlt="MakeCode block coding interface showing a micro:bit program"
+        title="Drag, Drop, and Code"
+        body="Microsoft MakeCode makes coding visual and intuitive. Snap colourful blocks together to create programs, then download to your micro:bit with one click. Custom blocks for every Tinker Kit sensor are included - no complex setup required."
+        layout="image-left"
+        background="white"
+      />
+
       {/* Features Grid */}
       <FeatureGrid
         title="Everything Connects in Seconds"
@@ -131,6 +142,16 @@ export default async function ElecfreaksTinkerKitPage() {
         background="gray"
       />
 
+      {/* Hands-On Interaction Section */}
+      <ImageTextBlock
+        image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_project_with_interacting_hand.jpg"
+        imageAlt="Hand interacting with a micro:bit expansion project showing LEDs and sensors"
+        title="See Your Code Come to Life"
+        body="There's something magical about writing code that controls real hardware. LEDs light up, sensors respond, servos move - every project creates a tangible result you can touch and show off."
+        layout="image-right"
+        background="white"
+      />
+
       {/* Learning Outcomes */}
       <LearningOutcomes
         title="Skills They'll Develop"
@@ -166,6 +187,16 @@ export default async function ElecfreaksTinkerKitPage() {
           "Analog Rotation Potentiometer",
         ]}
         background="gray"
+      />
+
+      {/* Plant Monitor Project Section */}
+      <ImageTextBlock
+        image="/images/products/elecfreaks-micro-bit-tinker-kit/plant-monitoring-example.jpg"
+        imageAlt="Plant monitoring project using micro:bit with soil moisture sensor"
+        title="Build Projects That Matter"
+        body="The Tinker Kit isn't just about learning - it's about creating useful things. Build a plant monitor that tells you when to water, a motion-activated alarm for your room, or a game controller for the arcade game you'll code yourself."
+        layout="image-left"
+        background="white"
       />
 
       {/* Project Showcase */}
@@ -222,6 +253,16 @@ export default async function ElecfreaksTinkerKitPage() {
           { label: "Outputs", value: "Buzzer, Servo, RGB LEDs, OLED" },
         ]}
         background="white"
+      />
+
+      {/* Controller Experience Section */}
+      <ImageTextBlock
+        image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_buttons_in_both_hands.jpg"
+        imageAlt="Hands holding micro:bit expansion board with button controls like a game controller"
+        title="Gaming Meets Learning"
+        body="Build your own game controller with the ADKeypad, then code games to play on the OLED display. Snake, Flappy Bird, reaction games - you'll learn programming concepts while creating something genuinely fun to play."
+        layout="image-right"
+        background="gray"
       />
 
       {/* FAQ Section */}

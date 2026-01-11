@@ -118,6 +118,22 @@ To enable add-ons on a product page:
 
 For detailed brand strategy, customer personas, and messaging guidance: see `assets/brand/brand-strategy.md`
 
+**Product imagery:**
+Product-specific images are stored in `assets/product/[product-handle]/` with the following subfolders:
+
+| Folder | Content | Usage |
+|--------|---------|-------|
+| `animations/` | Short animated GIFs of product in action | Use sparingly, small format, great for "wow" moments |
+| `end-user/` | Customer photos of projects and creations | Social proof, use in groups at small scale (not studio quality) |
+| `lifestyle/` | Professional lifestyle photography | Hero images, large format, primary visual content |
+| `logo/` | Official brand logos | Brand attribution, partnerships |
+
+**Guidelines:**
+- Filenames describe the photo content - use this to pair images with relevant sections
+- Lifestyle photos can be used full-width; end-user and animations should be smaller/grouped
+- Not all images need to be used - select the most relevant ones
+- Copy images to `storefront/public/images/products/[handle]/` before using on the website
+
 # Visual assets
 
  - Find logo assets in `assets/design/LOGO`. Use logos from the `DARK/` subfolder when against a dark background and logos from the `LIGHT/` against light (white) backgrounds.
