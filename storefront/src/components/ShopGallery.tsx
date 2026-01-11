@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Product } from "@/lib/shopify";
+import { Product, formatPrice } from "@/lib/shopify";
 
 interface ShopGalleryProps {
   products: Product[];
@@ -17,13 +17,6 @@ const ageGroups = [
   { id: "9-12", label: "Ages 9-12", range: [9, 12] },
   { id: "13+", label: "Ages 13+", range: [13, 99] },
 ];
-
-function formatPrice(amount: string, currencyCode: string) {
-  return new Intl.NumberFormat("en-ZA", {
-    style: "currency",
-    currency: currencyCode,
-  }).format(parseFloat(amount));
-}
 
 export default function ShopGallery({ products, initialAge }: ShopGalleryProps) {
   const [selectedAge, setSelectedAge] = useState(initialAge || "all");

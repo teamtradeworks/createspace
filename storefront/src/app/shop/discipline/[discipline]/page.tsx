@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getProducts, Product } from "@/lib/shopify";
+import { getProducts, Product, formatPrice } from "@/lib/shopify";
 
 const disciplines: Record<
   string,
@@ -87,13 +87,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export function generateStaticParams() {
   return Object.keys(disciplines).map((discipline) => ({ discipline }));
-}
-
-function formatPrice(amount: string, currencyCode: string) {
-  return new Intl.NumberFormat("en-ZA", {
-    style: "currency",
-    currency: currencyCode,
-  }).format(parseFloat(amount));
 }
 
 export default async function DisciplineCategoryPage({ params }: Props) {

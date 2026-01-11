@@ -5,6 +5,7 @@ export interface AddonConfig {
   parentHandle: string;
   addonHandle: string;
   discountPercent: number;
+  description?: string;
 }
 
 export interface ResolvedAddon {
@@ -18,6 +19,7 @@ export interface ResolvedAddon {
   formattedDiscountedPrice: string;
   savings: number;
   formattedSavings: string;
+  description?: string;
 }
 
 /**
@@ -83,6 +85,7 @@ export async function resolveAddonsForHandle(
         savings.toFixed(2),
         variant.price.currencyCode
       ),
+      description: config.description,
     });
   }
 
@@ -107,6 +110,7 @@ export interface SerializedAddon {
   savings: number;
   formattedSavings: string;
   available: boolean;
+  description?: string;
 }
 
 /**
@@ -128,5 +132,6 @@ export function serializeAddons(addons: ResolvedAddon[]): SerializedAddon[] {
     savings: addon.savings,
     formattedSavings: addon.formattedSavings,
     available: addon.product.availableForSale,
+    description: addon.description,
   }));
 }

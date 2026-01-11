@@ -23,6 +23,7 @@ export async function shopifyFetch<T>({
       "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
     },
     body: JSON.stringify({ query, variables }),
+    next: { revalidate: 60 }, // Revalidate every 60 seconds
   });
 
   const json: ShopifyResponse<T> = await response.json();
@@ -225,8 +226,8 @@ export async function getProductsByTag(
 
 // Helper to format price consistently (avoids hydration mismatch)
 // Uses manual formatting to ensure identical output on server and client
-export function formatPrice(amount: string, currencyCode: string): string {
-  const num = parseFloat(amount);
+export function formatPrice(amount: string | number, currencyCode: string): string {
+  const num = typeof amount === "number" ? amount : parseFloat(amount);
   const [whole, decimal = "00"] = num.toFixed(2).split(".");
   const withCommas = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   // Format as R1,234.56 per CLAUDE.md spec

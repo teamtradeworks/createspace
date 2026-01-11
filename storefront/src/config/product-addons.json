@@ -3,7 +3,8 @@
     {
       "parentHandle": "elecfreaks-micro-bit-tinker-kit",
       "addonHandle": "bbc-micro-bit-go",
-      "discountPercent": 15
+      "discountPercent": 15,
+      "description": "The Tinker Kit requires a micro:bit board to function. Add one here at a discounted price."
     }
   ]
 }

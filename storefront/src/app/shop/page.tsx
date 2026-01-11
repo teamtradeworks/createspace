@@ -1,4 +1,4 @@
-import { getProducts, Product } from "@/lib/shopify";
+import { getProducts, Product, formatPrice } from "@/lib/shopify";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -106,13 +106,6 @@ const disciplines = [
     ),
   },
 ];
-
-function formatPrice(amount: string, currencyCode: string) {
-  return new Intl.NumberFormat("en-ZA", {
-    style: "currency",
-    currency: currencyCode,
-  }).format(parseFloat(amount));
-}
 
 export default async function ShopPage() {
   const products = await getProducts(8);

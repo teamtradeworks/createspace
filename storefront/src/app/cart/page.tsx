@@ -3,19 +3,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { formatPrice } from "@/lib/shopify";
 import {
   DELIVERY_CONFIG,
   qualifiesForFreeDelivery,
   calculateDeliveryCost,
   amountToFreeDelivery,
 } from "@/config/delivery";
-
-function formatPrice(amount: number, currencyCode: string = "ZAR") {
-  return new Intl.NumberFormat("en-ZA", {
-    style: "currency",
-    currency: currencyCode,
-  }).format(amount);
-}
 
 export default function CartPage() {
   const { items, itemCount, subtotal, currencyCode, updateQuantity, removeItem } = useCart();

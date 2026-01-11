@@ -9,6 +9,7 @@ import {
   LearningOutcomes,
   WhatsIncluded,
   ProductFAQ,
+  VideoEmbed,
   Specifications,
   ProjectShowcase,
   CallToAction,
@@ -81,6 +82,13 @@ export default async function ElecfreaksTinkerKitPage() {
           },
         ]}
         background="navy-card"
+      />
+
+      {/* Video Section */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=SXRV5hiZTlY"
+        title="See the Tinker Kit in Action"
+        background="gray"
       />
 
       {/* Features Grid */}
