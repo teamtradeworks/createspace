@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "@/context/CartContext";
+import { SerializedAddon } from "@/lib/product-addons";
 
 interface ProductActionsProps {
   productId: string;
@@ -12,6 +15,7 @@ interface ProductActionsProps {
   currencyCode: string;
   image?: string;
   handle: string;
+  addons?: SerializedAddon[];
 }
 
 export default function ProductActions({
@@ -23,15 +27,33 @@ export default function ProductActions({
   currencyCode,
   image,
   handle,
+  addons = [],
 }: ProductActionsProps) {
   const [quantity, setQuantity] = useState(1);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [isBuyingNow, setIsBuyingNow] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set());
   const { addItem } = useCart();
 
   const handleQuantityChange = (delta: number) => {
     setQuantity((prev) => Math.max(1, prev + delta));
+  };
+
+  const toggleAddon = (handle: string) => {
+    setSelectedAddons((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(handle)) {
+        newSet.delete(handle);
+      } else {
+        newSet.add(handle);
+      }
+      return newSet;
+    });
+  };
+
+  const getSelectedAddonsData = () => {
+    return addons.filter((addon) => selectedAddons.has(addon.handle));
   };
 
   const handleAddToCart = async () => {
@@ -39,16 +61,36 @@ export default function ProductActions({
 
     setIsAddingToCart(true);
 
-    // Add item to cart
-    addItem({
-      id: productId,
-      variantId,
-      title,
-      price,
-      currencyCode,
-      image,
-      handle,
-    }, quantity);
+    // Add main product to cart
+    addItem(
+      {
+        id: productId,
+        variantId,
+        title,
+        price,
+        currencyCode,
+        image,
+        handle,
+      },
+      quantity
+    );
+
+    // Add selected add-ons to cart (with discounted price)
+    const selectedAddonsData = getSelectedAddonsData();
+    for (const addon of selectedAddonsData) {
+      addItem(
+        {
+          id: addon.productId,
+          variantId: addon.variantId,
+          title: addon.title,
+          price: addon.discountedPrice,
+          currencyCode: addon.currencyCode,
+          image: addon.image || undefined,
+          handle: addon.handle,
+        },
+        quantity
+      );
+    }
 
     // Show success state briefly
     await new Promise((resolve) => setTimeout(resolve, 300));
@@ -64,16 +106,36 @@ export default function ProductActions({
 
     setIsBuyingNow(true);
 
-    // Add item to cart first
-    addItem({
-      id: productId,
-      variantId,
-      title,
-      price,
-      currencyCode,
-      image,
-      handle,
-    }, quantity);
+    // Add main product to cart first
+    addItem(
+      {
+        id: productId,
+        variantId,
+        title,
+        price,
+        currencyCode,
+        image,
+        handle,
+      },
+      quantity
+    );
+
+    // Add selected add-ons to cart (with discounted price)
+    const selectedAddonsData = getSelectedAddonsData();
+    for (const addon of selectedAddonsData) {
+      addItem(
+        {
+          id: addon.productId,
+          variantId: addon.variantId,
+          title: addon.title,
+          price: addon.discountedPrice,
+          currencyCode: addon.currencyCode,
+          image: addon.image || undefined,
+          handle: addon.handle,
+        },
+        quantity
+      );
+    }
 
     // Redirect to cart/checkout
     await new Promise((resolve) => setTimeout(resolve, 300));
@@ -107,6 +169,77 @@ export default function ProductActions({
           </button>
         </div>
       </div>
+
+      {/* Add-ons Section */}
+      {addons.length > 0 && (
+        <div className="border rounded-lg p-4 bg-gray-50">
+          <p className="text-sm font-semibold text-navy mb-3">Complete your purchase:</p>
+          <div className="space-y-3">
+            {addons.map((addon) => (
+              <label
+                key={addon.handle}
+                className={`flex items-start gap-3 p-3 rounded-lg border-2 cursor-pointer transition-all ${
+                  selectedAddons.has(addon.handle)
+                    ? "border-cs-orange bg-white shadow-sm"
+                    : "border-transparent bg-white hover:border-gray-200"
+                } ${!addon.available ? "opacity-50 cursor-not-allowed" : ""}`}
+              >
+                <input
+                  type="checkbox"
+                  checked={selectedAddons.has(addon.handle)}
+                  onChange={() => addon.available && toggleAddon(addon.handle)}
+                  disabled={!addon.available}
+                  className="mt-1 w-4 h-4 text-cs-orange border-gray-300 rounded focus:ring-cs-orange"
+                />
+                {addon.image && (
+                  <div className="relative w-14 h-14 flex-shrink-0 rounded overflow-hidden bg-white border">
+                    <Image
+                      src={addon.image}
+                      alt={addon.title}
+                      fill
+                      className="object-contain p-1"
+                    />
+                  </div>
+                )}
+                <div className="flex-grow min-w-0">
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <Link
+                        href={`/product/${addon.handle}`}
+                        className="text-sm font-medium text-navy hover:text-cs-orange line-clamp-2"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {addon.title}
+                      </Link>
+                      {!addon.available && (
+                        <p className="text-xs text-cs-red mt-0.5">Out of stock</p>
+                      )}
+                    </div>
+                    <div className="text-right flex-shrink-0">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-gray-400 line-through">
+                          {addon.formattedOriginalPrice}
+                        </span>
+                        <span className="text-sm font-bold text-navy">
+                          {addon.formattedDiscountedPrice}
+                        </span>
+                      </div>
+                      <span className="inline-block mt-0.5 px-1.5 py-0.5 text-xs font-semibold bg-cs-green/10 text-cs-green rounded">
+                        Save {addon.discountPercent}%
+                      </span>
+                    </div>
+                  </div>
+                  {quantity > 1 && selectedAddons.has(addon.handle) && (
+                    <p className="text-xs text-gray-500 mt-1">
+                      {quantity}x @ {addon.formattedDiscountedPrice} each
+                    </p>
+                  )}
+                </div>
+              </label>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Action Buttons */}
       <div className="flex flex-col gap-3">

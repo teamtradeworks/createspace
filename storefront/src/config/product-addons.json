@@ -1,0 +1,9 @@
+{
+  "addons": [
+    {
+      "parentHandle": "elecfreaks-micro-bit-tinker-kit",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 15
+    }
+  ]
+}

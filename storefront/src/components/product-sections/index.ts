@@ -1,0 +1,15 @@
+export { ProductHero } from "./ProductHero";
+export { FeatureGrid } from "./FeatureGrid";
+export { AgeSkillBadges } from "./AgeSkillBadges";
+export { LearningOutcomes } from "./LearningOutcomes";
+export { WhatsIncluded } from "./WhatsIncluded";
+export { ImageTextBlock } from "./ImageTextBlock";
+export { ProductFAQ } from "./ProductFAQ";
+export { VideoEmbed } from "./VideoEmbed";
+export { Specifications } from "./Specifications";
+export { ProductTestimonials } from "./ProductTestimonials";
+export { SkillTags } from "./SkillTags";
+export { NumberedSteps } from "./NumberedSteps";
+export { ProjectShowcase } from "./ProjectShowcase";
+export { CallToAction } from "./CallToAction";
+export { RelatedProducts } from "./RelatedProducts";

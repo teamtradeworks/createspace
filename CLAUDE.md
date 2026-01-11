@@ -59,14 +59,62 @@ The education pages target teachers, principals, and educators (B2B audience). W
    - Bulk pricing for schools (10+ units)
    - Reusable materials for ongoing use
 
-## Product Content Guidelines
-When writing product descriptions, ensure clarity on:
-- Age/grade appropriateness
-- Skill level (beginner, intermediate, advanced)
-- What the finished product is
-- Learning outcomes
-- Whether adult supervision is required
-- Any extras required (batteries, software, tools)
+## Product Pages
+
+When creating, improving, or modifying product pages, you MUST follow these two documents:
+
+1. **Content Framework** - `assets/brand/product-content-framework.md`
+   - What information to include (age, skill level, learning outcomes)
+   - Skill tag taxonomy (STEM Skills + Life Skills)
+   - Writing guidelines and tone
+   - Imagery requirements (lifestyle photos, videos/GIFs)
+
+2. **Page Design Spec** - `assets/brand/product-page-design.md`
+   - Page structure with 15 component sections
+   - Component usage examples with TSX code
+   - Required vs optional sections
+   - Minimal vs full page guidance
+
+**Finding content:**
+When writing product page content, gather information from these sources:
+
+1. **Shopify product data** - First, fetch the product from the Shopify API to get existing title, description, images, and metafields
+2. **Official product pages** - Search the web for the manufacturer's official product page (e.g., arduino.cc for Arduino products)
+3. **Other retailers** - Search for the product on other shops and marketplaces (Amazon.com, etc.) to find additional details, specs, and customer insights
+
+Combine these sources to write comprehensive, accurate content following the content framework guidelines.
+
+**Key rules:**
+- Custom product pages live in `storefront/src/app/product/[handle]/page.tsx` (folder name = product handle = URL slug)
+- Use `getProductByHandle("product-handle")` from `@/lib/shopify` to fetch product data
+- Use only the components from `storefront/src/components/product-sections/`
+- Never write inline JSX for product page sections - use the existing components
+- Reference `storefront/src/app/product/arduino-starter-kit/page.tsx` as the canonical example
+
+**Creating a new custom product page:**
+1. Create folder: `storefront/src/app/product/[handle]/page.tsx` (folder name must match Shopify handle)
+2. Define `PRODUCT_SKU` constant for add-on resolution
+3. Use `getProductByHandle("handle")` to fetch product data
+
+**Product add-ons:**
+Add-on relationships are configured in `storefront/src/config/product-addons.json` using SKUs:
+```json
+{
+  "addons": [
+    {
+      "parentSku": "EF08183",
+      "addonSku": "MEFV22G",
+      "discountPercent": 15
+    }
+  ]
+}
+```
+
+To enable add-ons on a product page:
+1. Import `resolveAddonsForSku` and `serializeAddons` from `@/lib/product-addons`
+2. Resolve add-ons: `const resolvedAddons = await resolveAddonsForSku(PRODUCT_SKU)`
+3. Serialize for client: `const addons = serializeAddons(resolvedAddons)`
+4. Pass to ProductHero: `<ProductHero product={product} addons={addons} />`
 
 For detailed brand strategy, customer personas, and messaging guidance: see `assets/brand/brand-strategy.md`
 

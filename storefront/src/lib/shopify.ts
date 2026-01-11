@@ -359,3 +359,130 @@ export async function getProductByHandle(
 
   return data.product;
 }
+
+// Product type for SKU lookup (includes SKU in variants)
+export type ProductWithSku = Omit<ProductDetail, "variants"> & {
+  variants: {
+    edges: {
+      node: {
+        id: string;
+        title: string;
+        sku: string | null;
+        availableForSale: boolean;
+        price: {
+          amount: string;
+          currencyCode: string;
+        };
+        compareAtPrice: {
+          amount: string;
+          currencyCode: string;
+        } | null;
+      };
+    }[];
+  };
+};
+
+const PRODUCTS_WITH_SKU_QUERY = `
+  query ProductsWithSku($first: Int!, $after: String) {
+    products(first: $first, after: $after) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          id
+          title
+          handle
+          description
+          descriptionHtml
+          vendor
+          productType
+          tags
+          availableForSale
+          priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+            maxVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          compareAtPriceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          images(first: 10) {
+            edges {
+              node {
+                url
+                altText
+              }
+            }
+          }
+          variants(first: 10) {
+            edges {
+              node {
+                id
+                title
+                sku
+                availableForSale
+                price {
+                  amount
+                  currencyCode
+                }
+                compareAtPrice {
+                  amount
+                  currencyCode
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+type ProductsWithSkuResponse = {
+  products: {
+    pageInfo: { hasNextPage: boolean; endCursor: string };
+    edges: { node: ProductWithSku }[];
+  };
+};
+
+// Get single product by SKU (exact match)
+// Note: Shopify's SKU search is unreliable, so we fetch products and filter by exact SKU
+export async function getProductBySku(
+  sku: string
+): Promise<ProductWithSku | null> {
+  let hasNextPage = true;
+  let cursor: string | null = null;
+
+  while (hasNextPage) {
+    const response: ProductsWithSkuResponse = await shopifyFetch<ProductsWithSkuResponse>({
+      query: PRODUCTS_WITH_SKU_QUERY,
+      variables: { first: 50, after: cursor },
+    });
+
+    // Find product with matching SKU in variants
+    for (const edge of response.products.edges) {
+      const product = edge.node;
+      const hasMatchingSku = product.variants.edges.some(
+        (variantEdge) => variantEdge.node.sku === sku
+      );
+      if (hasMatchingSku) {
+        return product;
+      }
+    }
+
+    hasNextPage = response.products.pageInfo.hasNextPage;
+    cursor = response.products.pageInfo.endCursor;
+  }
+
+  return null;
+}
