@@ -45,13 +45,13 @@ export default function Home() {
       {/* Hero Carousel - Renders immediately, no data dependency */}
       <HeroCarousel />
 
+      {/* Age Groups - Visual Cards */}
+      <AgeGroups />
+
       {/* Featured Products with Age Group Tabs - Streamed after hero */}
       <Suspense fallback={<FeaturedProductsSkeleton />}>
         <FeaturedProductsLoader />
       </Suspense>
-
-      {/* Age Groups - Visual Cards */}
-      <AgeGroups />
 
       {/* Why STEM Section */}
       <section className="py-16 relative overflow-hidden">
