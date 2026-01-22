@@ -21,31 +21,42 @@ Each section maps to a specific component. Build pages by composing these compon
 
 ---
 
-### 1. ProductHero (Required)
+### 1. HeroSection (Required)
 
 Everything a parent needs for a quick "yes/no" decision.
 
 ```tsx
-<ProductHero
+<HeroSection
   product={product}
   tagline="Your gateway to electronics and coding"
   highlights={[
     "15 hands-on projects included",
     "No prior experience needed",
   ]}
+  heroImage="/images/products/slug/custom-hero.jpg"
+  addons={addons}
 />
 ```
 
-**Includes:** Image gallery, title, price, availability, delivery info, Add to Cart button.
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `product` | `ProductDetail` | Yes | Shopify product data |
+| `tagline` | `string` | No | Short description below title |
+| `highlights` | `string[]` | No | Key selling points with checkmarks |
+| `heroImage` | `string` | No | Custom hero image to prepend to gallery |
+| `addons` | `SerializedAddon[]` | No | Product add-ons for upselling |
+
+**Includes:** Breadcrumb, image gallery, title, price, availability, delivery info, Add to Cart button.
 
 ---
 
-### 2. AgeSkillBadges (Required)
+### 2. QuickInfoBadges (Required)
 
 Quick-reference badges immediately after the hero. Displays as "At a Glance" section.
 
 ```tsx
-<AgeSkillBadges
+<QuickInfoBadges
   age="8-12"
   skill="beginner"
   supervision={false}
@@ -58,6 +69,15 @@ Quick-reference badges immediately after the hero. Displays as "At a Glance" sec
   ]}
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `age` | `string` | No | Age range (auto-creates badge) |
+| `skill` | `"beginner" \| "intermediate" \| "advanced"` | No | Skill level (auto-creates badge) |
+| `supervision` | `boolean` | No | Adult supervision required (auto-creates badge) |
+| `batteries` | `string` | No | Battery requirements (auto-creates badge) |
+| `badges` | `BadgeConfig[]` | No | Additional custom badges |
 
 **Available icons:**
 | Icon | Use for |
@@ -77,7 +97,30 @@ Quick-reference badges immediately after the hero. Displays as "At a Glance" sec
 
 ---
 
-### 3. NumberedSteps (Optional)
+### 3. SkillTags (Optional)
+
+Display skill tags from the product content framework taxonomy.
+
+```tsx
+<SkillTags
+  tags={["Circuits", "Coding", "Problem Solving", "Creativity"]}
+  title="Skills"
+  background="white"
+/>
+```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `tags` | `string[]` | Yes | Array of skill tag names |
+| `title` | `string` | No | Label before tags (default: "Skills") |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
+
+**Pre-styled tags:** Circuits, Coding, Robotics, Mechanical Engineering, Electronics, Science, Mathematics, Problem Solving, Logical Thinking, Creativity, Following Instructions, Fine Motor Skills, Patience & Focus
+
+---
+
+### 4. NumberedSteps (Optional)
 
 "Why choose this?" style benefits with numbered circles. Good for explaining value proposition.
 
@@ -90,9 +133,19 @@ Quick-reference badges immediately after the hero. Displays as "At a Glance" sec
     { title: "Industry Standard", description: "..." },
     { title: "Massive Community", description: "..." },
   ]}
-  background="navy"
+  background="navy-card"
+  columns={3}
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | Yes | Section heading |
+| `subtitle` | `string` | No | Descriptive text below heading |
+| `steps` | `Step[]` | Yes | Array of `{ title, description }` |
+| `background` | `"white" \| "gray" \| "navy" \| "navy-card"` | No | Background style |
+| `columns` | `2 \| 3 \| 4` | No | Grid columns (default: 3) |
 
 ---
 
@@ -104,8 +157,18 @@ Show the product in action. A 15-60 second video is worth a thousand photos.
 <VideoEmbed
   url="https://youtube.com/watch?v=..."
   title="See it in action"
+  aspectRatio="16:9"
+  background="gray"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `url` | `string` | Yes | YouTube or Vimeo URL |
+| `title` | `string` | No | Section heading |
+| `aspectRatio` | `"16:9" \| "4:3" \| "1:1"` | No | Video aspect ratio (default: "16:9") |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
 
 ---
 
@@ -116,13 +179,29 @@ Grid of features with icons. Good for highlighting key selling points.
 ```tsx
 <FeatureGrid
   title="Everything You Need"
+  subtitle="Complete kit for beginners"
   features={[
     { icon: "book", title: "Project Book", description: "..." },
     { icon: "puzzle", title: "15 Projects", description: "..." },
   ]}
   columns={3}
+  background="gray"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Section heading (default: "Features") |
+| `subtitle` | `string` | No | Descriptive text below heading |
+| `features` | `Feature[]` | Yes | Array of `{ icon, title, description }` |
+| `columns` | `2 \| 3 \| 4` | No | Grid columns (default: 3) |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
+
+**Available icons:**
+`code`, `sensor`, `battery`, `book`, `app`, `tools`, `lightbulb`, `puzzle`, `brain`, `globe`, `shield`, `robot`, `wifi`, `star`, `music`, `microphone`, `compass`, `touch`, `bluetooth`
+
+Can also use image paths (e.g., `/images/icons/custom.svg`).
 
 ---
 
@@ -133,19 +212,32 @@ Image + text side-by-side. Alternate `layout` for visual rhythm.
 ```tsx
 <ImageTextBlock
   image="/images/products/kit-unboxed.jpg"
+  imageAlt="Kit unboxed showing all components"
   title="Everything in One Box"
   body="Open the box and you're ready to start..."
   layout="image-left"
+  background="white"
 />
 
 <ImageTextBlock
   image="/images/products/kit-built.jpg"
+  imageAlt="Completed project"
   title="From Beginner to Maker"
   body="Build confidence with each project..."
   layout="image-right"
   background="gray"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `image` | `string` | Yes | Image path |
+| `imageAlt` | `string` | No | Alt text (defaults to title) |
+| `title` | `string` | Yes | Section heading |
+| `body` | `string \| React.ReactNode` | Yes | Description text or JSX |
+| `layout` | `"image-left" \| "image-right"` | No | Image position (default: "image-left") |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
 
 ---
 
@@ -164,8 +256,20 @@ Show exactly what's in the box. Removes uncertainty.
     "70+ jumper wires",
     "LEDs, resistors, sensors...",
   ]}
+  image="/images/products/slug/whats-included.jpg"
+  imageAlt="All kit components laid out"
+  background="gray"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Section heading (default: "What's in the Box") |
+| `items` | `string[]` | Yes | List of included items |
+| `image` | `string` | No | Optional image of contents |
+| `imageAlt` | `string` | No | Alt text for image |
+| `background` | `"white" \| "gray"` | No | Background color |
 
 **Important:** Always include a "You'll Also Need" section in the product description if batteries, tools, or software are required.
 
@@ -178,14 +282,28 @@ Expand on skill tags with specific learning outcomes.
 ```tsx
 <LearningOutcomes
   title="Skills They'll Develop"
+  subtitle="Foundational STEM skills for future success"
   outcomes={[
     "Basic electronics - circuits, voltage, resistance",
     "Programming fundamentals - variables, loops, functions",
     "Problem-solving and debugging",
     "Reading technical documentation",
   ]}
+  image="/images/products/slug/learning.jpg"
+  imageAlt="Child learning with the kit"
+  background="white"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Section heading (default: "What They'll Learn") |
+| `subtitle` | `string` | No | Descriptive text below heading |
+| `outcomes` | `string[]` | Yes | List of learning outcomes |
+| `image` | `string` | No | Optional side image |
+| `imageAlt` | `string` | No | Alt text for image |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
 
 ---
 
@@ -202,8 +320,20 @@ For kits with multiple projects/builds. Shows progression and variety.
     { name: "Temperature Sensor", description: "...", concepts: "Analog input" },
   ]}
   moreText="Plus 9 more projects..."
+  columns={3}
+  background="white"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | Yes | Section heading |
+| `subtitle` | `string` | No | Descriptive text below heading |
+| `projects` | `Project[]` | Yes | Array of `{ name, description, concepts?, image? }` |
+| `moreText` | `string` | No | Text showing additional projects |
+| `columns` | `2 \| 3` | No | Grid columns (default: 3) |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
 
 ---
 
@@ -219,8 +349,16 @@ Technical specs for products where it matters.
     { label: "Operating Voltage", value: "5V" },
     { label: "Dimensions", value: "68.6 x 53.4 mm" },
   ]}
+  background="white"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Section heading (default: "Specifications") |
+| `specs` | `Spec[]` | Yes | Array of `{ label, value }` |
+| `background` | `"white" \| "gray"` | No | Background color |
 
 ---
 
@@ -241,8 +379,16 @@ Address common concerns and questions.
       answer: "Most children 10+ can work independently...",
     },
   ]}
+  background="gray"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Section heading (default: "Frequently Asked Questions") |
+| `faqs` | `FAQ[]` | Yes | Array of `{ question, answer }` |
+| `background` | `"white" \| "gray"` | No | Background color |
 
 ---
 
@@ -259,10 +405,21 @@ Curated testimonials from parents and educators.
       author: "Sarah M.",
       role: "Parent",
       rating: 5,
+      avatar: "/images/testimonials/sarah.jpg",
     },
   ]}
+  background="white"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Section heading (default: "What Parents Are Saying") |
+| `testimonials` | `Testimonial[]` | Yes | Array of testimonial objects |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
+
+**Testimonial object:** `{ quote, author, role?, avatar?, rating? }`
 
 ---
 
@@ -282,6 +439,17 @@ Final push to purchase. Always include.
 />
 ```
 
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | Yes | Main heading |
+| `subtitle` | `string` | No | Supporting text |
+| `primaryLabel` | `string` | Yes | Primary button text |
+| `primaryHref` | `string` | Yes | Primary button link |
+| `secondaryLabel` | `string` | No | Secondary button text |
+| `secondaryHref` | `string` | No | Secondary button link |
+| `background` | `"navy" \| "gray" \| "white"` | No | Background color |
+
 ---
 
 ### 15. RelatedProducts (Required)
@@ -292,8 +460,16 @@ Keep them browsing if this isn't the right fit.
 <RelatedProducts
   products={relatedProducts}
   title="You May Also Like"
+  background="gray"
 />
 ```
+
+**Props:**
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `title` | `string` | No | Section heading (default: "You May Also Like") |
+| `products` | `RelatedProduct[]` | Yes | Array of product objects from Shopify |
+| `background` | `"white" \| "gray" \| "navy"` | No | Background color |
 
 **Logic for "related":**
 - Same skill tags
@@ -308,15 +484,15 @@ Keep them browsing if this isn't the right fit.
 Not every product needs every component. Here's guidance:
 
 **Minimal page** (simple products):
-1. ProductHero
-2. AgeSkillBadges
+1. HeroSection
+2. QuickInfoBadges
 3. WhatsIncluded
 4. ProductFAQ
 5. CallToAction
 6. RelatedProducts
 
 **Full page** (flagship products like Arduino Starter Kit):
-All 14 sections as needed.
+All 15 sections as needed.
 
 ---
 
@@ -376,6 +552,7 @@ Product-specific images are stored in `assets/product/[product-handle]/` and sho
 ```tsx
 <ImageTextBlock
   image="/images/products/arduino-starter-kit/kids_working_on_project.jpg"
+  imageAlt="Children working together on an Arduino project"
   title="Learn Together"
   body="Perfect for parent-child projects..."
   layout="image-right"
@@ -439,20 +616,21 @@ All components are in `storefront/src/components/product-sections/`.
 
 | Component | Required? | Background Options |
 |-----------|-----------|-------------------|
-| ProductHero | Yes | - |
-| AgeSkillBadges | Yes | gray (fixed) |
+| HeroSection | Yes | - |
+| QuickInfoBadges | Yes | gray (fixed) |
+| SkillTags | Optional | white, gray, navy |
 | NumberedSteps | Optional | white, gray, navy, navy-card |
-| VideoEmbed | Recommended | white, gray |
-| FeatureGrid | Optional | white, gray |
+| VideoEmbed | Recommended | white, gray, navy |
+| FeatureGrid | Optional | white, gray, navy |
 | ImageTextBlock | Optional | white, gray, navy |
 | WhatsIncluded | Yes | white, gray |
-| LearningOutcomes | Recommended | white, gray |
+| LearningOutcomes | Recommended | white, gray, navy |
 | ProjectShowcase | Optional | white, gray, navy |
 | Specifications | Optional | white, gray |
 | ProductFAQ | Recommended | white, gray |
-| ProductTestimonials | Optional | white, gray |
+| ProductTestimonials | Optional | white, gray, navy |
 | CallToAction | Yes | navy, gray, white |
-| RelatedProducts | Yes | white, gray |
+| RelatedProducts | Yes | white, gray, navy |
 
 ### Components to Consider Adding
 
