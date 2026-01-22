@@ -1,0 +1,40 @@
+{
+  "id": "test-storefront",
+  "version": "1.2.0",
+  "category": "testing",
+  "keywords": [
+    "test",
+    "browser",
+    "qa",
+    "visual",
+    "e2e",
+    "storefront",
+    "chrome",
+    "lighthouse",
+    "performance",
+    "accessibility",
+    "quick",
+    "flow",
+    "mobile"
+  ],
+  "semanticTags": {
+    "primary": [
+      "browser-testing",
+      "qa",
+      "visual-testing",
+      "performance-testing"
+    ],
+    "secondary": [
+      "e2e",
+      "console-errors",
+      "screenshots",
+      "lighthouse",
+      "core-web-vitals"
+    ],
+    "domains": [
+      "testing",
+      "frontend",
+      "performance"
+    ]
+  }
+}

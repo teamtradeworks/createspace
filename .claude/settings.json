@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest storefront --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --no-turbopack --use-npm)",
+      "Bash(mkdir:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "WebFetch(domain:robotixkids.co.za)",
+      "WebFetch(domain:www.makerzoid.com)",
+      "WebFetch(domain:thecreatespace.co.za)",
+      "WebFetch(domain:*)",
+      "Bash(curl:*)",
+      "Bash(find:*)",
+      "WebFetch(domain:www.makeblock.com)",
+      "Skill(test-storefront)",
+      "Bash(~/.zshrc)",
+      "Bash(git rm:*)",
+      "Bash(git add:*)",
+      "Bash(sips:*)",
+      "Bash(identify:*)",
+      "Bash(ls:*)",
+      "Bash(npx lighthouse:*)",
+      "Bash(python3:*)",
+      "Bash(npx sharp-cli:*)",
+      "Bash(for file in home/*.png)",
+      "Bash(do npx sharp-cli --input \"$file\" --output \"$file\" --compressionLevel 9)",
+      "Bash(done)",
+      "Bash(for file in illustrations/*.png)",
+      "Bash(for file in brand/*.png)",
+      "Bash(sort:*)",
+      "WebFetch(domain:pagespeed.web.dev)"
+    ]
+  }
+}
