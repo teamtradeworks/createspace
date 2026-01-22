@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "createspace-shopify": {
+      "type": "http",
+      "url": "https://thecreatespace.co.za/api/mcp"
+    },
+    "shopify-dev-mcp": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@shopify/dev-mcp@latest"
+      ],
+      "env": {}
+    }
+  }
+}

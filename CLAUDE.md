@@ -2,12 +2,6 @@
 
 This is a Shopify headless ecommerce store for our online store.  The website is in `storefront/` and is deployed to Vercel through a GitHub integration.  This is going to replace our existing website at https://thecreatespace.co.za.
 
- - This is a South African business and we only sell locally.
- - Currency is Rand (ZAR).  For example, use R1,200.
- - Number formats use commas for thousand seperation and period for decimals, e.g. 2,500.99
- - We use The Courier Guy for deliveries - https://thecourierguy.co.za/
- - We use Stitch for secure payments - https://stitch.money/
-
 # Technical
 
  - Built with Next.js
@@ -17,125 +11,39 @@ This is a Shopify headless ecommerce store for our online store.  The website is
 
 # General Conventions
 
+ - This is a South African business and we only sell locally.
+ - Currency is Rand (ZAR).  For example, use R1,200.
+ - Number formats use commas for thousand seperation and period for decimals, e.g. 2,500.99
+ - We use The Courier Guy for deliveries - https://thecourierguy.co.za/
+ - We use Stitch for secure payments - https://stitch.money/
+
 ## Naming
 - Company name is always "CREATESPACE" (all caps)
-- Use the word "Delivery" and not "Shipping"
+- Use the word "Delivery" and not "Shipping" when referring to delivering of orders
 - Use the word "VAT" and not "Tax"
 
 ## Delivery Rates
 
-Delivery pricing is configured in `storefront/src/config/site.json`. Update that file to change thresholds across the site.
-- Next day delivery option available at checkout (additional cost)
+Delivery pricing is configured in `storefront/src/config/site.json`. Update that file to change thresholds across the site when prompted. Next day delivery option is also available at checkout at an additional cost.
 
 # Brand and Tone
 
-See our full brand strategy document at `assets/brand/brand-strategy.md`.
+See our full brand strategy document at `assets/brand/brand-strategy.md`.  When writing content, always refer to our brand strategy to ensure correct tone, correct audience, appropriate messaging, etc.
 
 ## Brand Voice
 - **Personality**: Fun, playful, enthusiastic, trustworthy, knowledgeable, inviting, integral
 - **NOT**: Elitist, complicated, nerdy/stereotypical, dry/boring, gimmicky, corporate, childish
 
 ## Key Messaging
-- Vision: Ignite a passion for STEM
+- Vision: Ignite a passion for STEM in children
+- STEM is a crucial skill for children to develop early
 - STEM is for everyone—regardless of background, gender, or ability
 - Play is a powerful tool for learning and discovery
 - We are specialists, not a general toy store
 
-## Education Section
-The education pages target teachers, principals, and educators (B2B audience). We offer three education solutions:
+# Brand 
 
-1. **STEM Tutors** (`/education/stem-tutors`)
-   - Partner: Robotixkids (https://robotixkids.co.za/)
-   - Trained facilitators deliver robotics and coding programmes at schools
-
-2. **Curriculum for Teachers** (`/education/curriculum`)
-   - Partner: Inspire Africa (https://inspire.africa/)
-   - Online teacher training platform with CAPS-aligned content
-   - Ready-to-use lesson plans and resources
-   - Empowers educators to teach STEM independently
-
-3. **Classroom Kits** (`/education/classroom-kits`)
-   - Multi-learner STEM kits designed for group work
-   - Bulk pricing for schools (10+ units)
-   - Reusable materials for ongoing use
-
-## Product Pages
-
-When creating, improving, or modifying product pages, you MUST follow these two documents:
-
-1. **Content Framework** - `assets/brand/product-content-framework.md`
-   - What information to include (age, skill level, learning outcomes)
-   - Skill tag taxonomy (STEM Skills + Life Skills)
-   - Writing guidelines and tone
-   - Imagery requirements (lifestyle photos, videos/GIFs)
-
-2. **Page Design Spec** - `assets/brand/product-page-design.md`
-   - Page structure with 15 component sections
-   - Component usage examples with TSX code
-   - Required vs optional sections
-   - Minimal vs full page guidance
-
-**Finding content:**
-When writing product page content, gather information from these sources:
-
-1. **Shopify product data** - First, fetch the product from the Shopify API to get existing title, description, images, and metafields
-2. **Official product pages** - Search the web for the manufacturer's official product page (e.g., arduino.cc for Arduino products)
-3. **Other retailers** - Search for the product on other shops and marketplaces (Amazon.com, etc.) to find additional details, specs, and customer insights
-
-Combine these sources to write comprehensive, accurate content following the content framework guidelines.
-
-**Key rules:**
-- Custom product pages live in `storefront/src/app/product/[handle]/page.tsx` (folder name = product handle = URL slug)
-- Use `getProductByHandle("product-handle")` from `@/lib/shopify` to fetch product data
-- Use only the components from `storefront/src/components/product-sections/`
-- Never write inline JSX for product page sections - use the existing components
-- Reference `storefront/src/app/product/arduino-starter-kit/page.tsx` as the canonical example
-
-**Creating a new custom product page:**
-1. Create folder: `storefront/src/app/product/[handle]/page.tsx` (folder name must match Shopify handle)
-2. Define `PRODUCT_SKU` constant for add-on resolution
-3. Use `getProductByHandle("handle")` to fetch product data
-
-**Product add-ons:**
-Add-on relationships are configured in `storefront/src/config/product-addons.json` using SKUs:
-```json
-{
-  "addons": [
-    {
-      "parentSku": "EF08183",
-      "addonSku": "MEFV22G",
-      "discountPercent": 15
-    }
-  ]
-}
-```
-
-To enable add-ons on a product page:
-1. Import `resolveAddonsForSku` and `serializeAddons` from `@/lib/product-addons`
-2. Resolve add-ons: `const resolvedAddons = await resolveAddonsForSku(PRODUCT_SKU)`
-3. Serialize for client: `const addons = serializeAddons(resolvedAddons)`
-4. Pass to ProductHero: `<ProductHero product={product} addons={addons} />`
-
-For detailed brand strategy, customer personas, and messaging guidance: see `assets/brand/brand-strategy.md`
-
-**Product imagery:**
-Product-specific images are stored in `assets/product/[product-handle]/` with the following subfolders:
-
-| Folder        | Content                                   | Usage                                                           |
-| ------------- | ----------------------------------------- | --------------------------------------------------------------- |
-| `animations/` | Short animated GIFs of product in action  | Use sparingly, small format, great for "wow" moments            |
-| `end-user/`   | Customer photos of projects and creations | Social proof, use in groups at small scale (not studio quality) |
-| `lifestyle/`  | Professional lifestyle photography        | Hero images, large format, primary visual content               |
-| `logo/`       | Official brand logos                      | Brand attribution, partnerships                                 |
-
-**Guidelines:**
-- Filenames describe the photo content - use this to pair images with relevant sections
-- Lifestyle photos can be used full-width; end-user and animations should be smaller/grouped
-- Not all images need to be used - select the most relevant ones
-- Copy images to `storefront/public/images/products/[handle]/` before using on the website
-
-# Visual assets
-
+## Visual assets
  - Find logo assets in `assets/design/LOGO`. Use logos from the `DARK/` subfolder when against a dark background and logos from the `LIGHT/` against light (white) backgrounds.
  - For Typography, use Outfit Semi Bold for headlines and Outfit Regular for body copy and headlines. Fonts can be found in `assets/design/Outfit/`.
  - Our brand-aligned illustrations are in `assets/design/ILLUSTRATIONS/ELEMENTS` - these are images of robots, cogs, beakers, planets, etc. which represent our brand in a fun way.  These can be used sparingly on web pages in between content.
@@ -147,7 +55,23 @@ Product-specific images are stored in `assets/product/[product-handle]/` with th
  - Resize images (or request that they be resized) if they have inappropriately large dimensions.
  - Use SVGs when appropriate as they are vector-based and dont need to be rescaled or resized.
 
-## Image Organisation
+## Colours
+Navy and white serve as the primary background colours, interchangeably.
+Red, orange, blue, yellow, green, purple and grey act as accent colours and are used more sparingly, and in illustrations.
+Text is navy on white and white on navy. Accent colours can be used as as accents and highlights for text.
+
+ - NAVY: #0C1446
+ - RED: #F70B28
+ - BLUE: #3CC7F7
+ - PURPLE: #AC4DFF
+ - ORANGE: #FF8B00
+ - GREEN: #93DB21
+ - YELLOW: #FFD500
+ - GREY: #B3B3B3
+ - WHITE: #ffffff
+
+
+# Image Organisation
 
 All website images must be stored locally in `storefront/public/images/`. Never link to external image URLs (except Shopify CDN for product images).
 
@@ -157,7 +81,7 @@ storefront/public/images/
 ├── brand/              # Logos and brand assets
 │   ├── logo-dark.png   # Logo for light backgrounds
 │   └── logo-light.png  # Logo for dark backgrounds
-├── illustrations/      # Brand illustrations (robots, atoms, etc.)
+├── illustrations/      # Reusable brand illustrations (robots, atoms, etc.)
 ├── home/               # Homepage images
 ├── education/          # Education section images
 ├── about/              # About page images
@@ -225,20 +149,115 @@ import Image from "next/image";
 
 **Important:** Add `priority` prop to hero/above-the-fold images for better LCP.
 
-# Design
+# Website Content and Structure
 
-## Colours
-Navy and white serve as the primary background colours, interchangeably.
-Red, orange, blue, yellow, green, purple and grey act as accent colours and are used more sparingly, and in illustrations.
-Text is navy on white and white on navy. Accent colours can be used as as accents and highlights for text.
+## Education Section
+The education pages target teachers, principals, and educators (B2B audience). We offer three education solutions:
 
-NAVY: #0C1446
-RED: #F70B28
-BLUE: #3CC7F7
-PURPLE: #AC4DFF
-ORANGE: #FF8B00
-GREEN: #93DB21
-YELLOW: #FFD500
-GREY: #B3B3B3
-WHITE: #ffffff
+1. **STEM Tutors** (`/education/stem-tutors`)
+   - Partner: Robotixkids (https://robotixkids.co.za/)
+   - Trained facilitators deliver robotics and coding programmes at schools
+
+2. **Curriculum for Teachers** (`/education/curriculum`)
+   - Partner: Inspire Africa (https://inspire.africa/)
+   - Online teacher training platform with CAPS-aligned content
+   - Ready-to-use lesson plans and resources
+   - Empowers educators to teach STEM independently
+
+3. **Classroom Kits** (`/education/classroom-kits`)
+   - Multi-learner STEM kits designed for group work
+   - Bulk pricing for schools (10+ units)
+   - Reusable materials for ongoing use
+
+## Product Pages
+
+When creating, improving, or modifying product pages, you MUST follow this section and referenced documents.
+
+We often differentiate and reference products by their unique slug (`{slug}`), which comes from the Shopify API (e.g. arduino-starter-kit).
+
+Working on product pages has two parts:
+ 1. Content research: 
+    - Triggered by the Claude command `/research {slug}`.
+    - This involved gathering written content about a product from online sources.
+    - There should be more than enough content gathered for us to write product pages.
+    - The content doesn't need to be rewritten with our tone or style yet.
+    - There should be enough content to satisfy the guidelines in `assets/brand/product-content-framework.md`.
+    - The content is to be stored in `assets/product/{slug}/content.md`.
+ 2. Turning research content into a suitable product page:
+    - This involved uses the researched content in `assets/product/{slug}/content.md` and the following two documents to create product pages:
+      - `assets/brand/product-content-framework.md`
+      - `assets/brand/product-page-design.md`
+    - Rewrite the content from `assets/product/{slug}/content.md` using the product-content-framework.md. 
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page {slug}`
+   
+We keep these two parts above seperate so that we don't need to repeat researching online while reworking the product page.
+
+**Content Framework** - `assets/brand/product-content-framework.md`
+   - What information to include (age, skill level, learning outcomes)
+   - Skill tag taxonomy (STEM Skills + Life Skills)
+   - Writing guidelines and tone
+   - Imagery requirements (lifestyle photos, videos/GIFs)
+
+**Page Design Spec** - `assets/brand/product-page-design.md`
+   - Page structure with 15 component sections
+   - Component usage examples with TSX code
+   - Required vs optional sections
+   - Minimal vs full page guidance
+
+**Rules to always obey:**
+- Research content lives in `assets/product/{slug}/content.md`
+- Custom product pages live in `storefront/src/app/product/{slug}/page.tsx` (folder name = product handle = URL slug = Shopify slug)
+- Use only the components from `storefront/src/components/product-sections/` 
+- Never write inline JSX for product page sections - use the existing components
+
+**Creating a new custom product page:**
+1. Create folder: `storefront/src/app/product/{slug}/page.tsx` (folder name must match Shopify handle/slug)
+2. Define `PRODUCT_SKU` constant for add-on resolution
+3. Use `getProductByHandle("handle")` to fetch product data
+
+### Product add-ons
+
+Product add-ons are other related products which we want to upsell on a product page.  These can be included when adding to cart.
+
+Add-on relationships are configured in `storefront/src/config/product-addons.json` using SKUs:
+```json
+{
+  "addons": [
+    {
+      "parentSku": "EF08183",
+      "addonSku": "MEFV22G",
+      "discountPercent": 15
+    }
+  ]
+}
+```
+
+To enable add-ons on a product page:
+1. Import `resolveAddonsForSku` and `serializeAddons` from `@/lib/product-addons`
+2. Resolve add-ons: `const resolvedAddons = await resolveAddonsForSku(PRODUCT_SKU)`
+3. Serialize for client: `const addons = serializeAddons(resolvedAddons)`
+4. Pass to ProductHero: `<ProductHero product={product} addons={addons} />`
+
+For detailed brand strategy, customer personas, and messaging guidance: see `assets/brand/brand-strategy.md`
+
+### Product imagery
+
+Product-specific images are stored in `assets/product/[product-handle]/` with the following subfolders:
+
+| Folder        | Content                                   | Usage                                                           |
+| ------------- | ----------------------------------------- | --------------------------------------------------------------- |
+| `animations/` | Short animated GIFs of product in action  | Use sparingly, small format, great for "wow" moments            |
+| `end-user/`   | Customer photos of projects and creations | Social proof, use in groups at small scale (not studio quality) |
+| `lifestyle/`  | Professional lifestyle photography        | Hero images, large format, primary visual content               |
+| `logo/`       | Official brand logos                      | Brand attribution, partnerships                                 |
+
+**Guidelines:**
+- Filenames describe the photo content - use this to pair images with relevant sections
+- Lifestyle photos can be used full-width; end-user and animations should be smaller/grouped
+- Not all images need to be used - select the most relevant ones
+- Copy images to `storefront/public/images/products/[handle]/` before using on the website
+
+
+
 

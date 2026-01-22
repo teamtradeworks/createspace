@@ -12,7 +12,7 @@ Parents shopping for STEM products often feel overwhelmed. The terminology is un
 
 ## Audience
 
-The audience for this page are parents as highlighted in the brand-strategy.md:
+The audience for this page are parents as highlighted in the `brand-strategy.md`:
  - Parents with STEM-curious children (Children already show interest in science, building, coding, or how things work)
  - Parents who value STEM education (They appreciate the sciences and want their child to develop STEM skills for future success)
  - Parents unfamiliar with STEM (Not familiar with STEM but open to learning about its value for their child)
@@ -105,54 +105,28 @@ Product photos alone aren't enough. Lifestyle imagery is essential.
 - Include a mix of ages within the product's range
 - Capture the "aha moment" where possible
 
-### Image Sources
-
-Product-specific images are stored in `assets/product/[product-handle]/` with four subfolders:
-
-| Folder        | Content                                   | Best For                                                          |
-| ------------- | ----------------------------------------- | ----------------------------------------------------------------- |
-| `lifestyle/`  | Professional lifestyle photography        | Hero sections, ImageTextBlock, full-width features                |
-| `end-user/`   | Customer photos of projects and creations | Social proof galleries, small-format groups, testimonial sections |
-| `animations/` | Short animated GIFs of product in action  | "Wow" moments, small inline demos, feature highlights             |
-| `logo/`       | Official brand logos                      | Brand attribution, partnership callouts                           |
-
-**Usage guidelines:**
-- **Lifestyle photos** are studio quality - use these for primary visual content at any scale
-- **End-user photos** add authenticity but aren't studio quality - display in groups, at smaller sizes, or in gallery formats
-- **Animations** are often from customers - use sparingly, keep small, great for showing movement
-- **Filenames describe content** - use this to match images with relevant sections (e.g., `kids_working_on_project.jpg` pairs with a "Learning Together" section)
-- **Select, don't use all** - choose the most relevant images for each section; quality over quantity
-
-### GIFs
-
-A 5-15 second clip is worth a thousand photos. Video shows what static images can't:
-- Movement and action (robots walking, circuits lighting up)
-- The building process in timelapse
-- Scale and how pieces fit together
-- Genuine reactions and engagement
-- Can be sourced from `assets/product/[handle]/animations/` 
-- Prioritise for products with movement or a "wow" moment
-
 ---
 
 ## Writing Guidelines
 
 ### Do
 - Lead with benefits, follow with features
+- Write specifically to our audience (parents)
 - Use "your child" not "the user"
 - Be specific: "Ages 8-12" not "Kids"
 - Show outcomes: "Build a walking robot" not "Robotics kit"
 - Address concerns directly: "No soldering required"
 
 ### Don't
-- Use unexplained jargon (STEM, coding, Arduino without context)
+- Use unexplained jargon (programming, C++, Arduino without context)
 - Write walls of text - use bullets and white space
 - Assume knowledge - explain what makes this special
 - Hide requirements - batteries, apps, tools go upfront
 - Oversell - honest descriptions build trust
 
 ### Tone
-Fun and enthusiastic, but not childish. Knowledgeable, but not intimidating. We're the helpful friend who happens to know about STEM toys.
+
+For brand voice, tone, and messaging guidance, see [brand-strategy.md](./brand-strategy.md).
 
 ---
 
@@ -189,8 +163,3 @@ Before publishing, verify:
 ### Poor: Overwhelming and Vague
 > This advanced STEM robotics kit leverages servo motor technology and introduces young makers to the fundamentals of mechatronics and kinematic principles through our proprietary curriculum-aligned learning pathway...
 
----
-
-## Reference
-
-For brand voice and messaging guidance, see [brand-strategy.md](./brand-strategy.md).

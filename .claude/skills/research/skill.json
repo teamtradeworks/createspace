@@ -1,0 +1,50 @@
+{
+  "id": "research",
+  "version": "1.0.0",
+  "category": "content",
+  "keywords": [
+    "product",
+    "research",
+    "content",
+    "shopify",
+    "web-search"
+  ],
+  "semanticTags": {
+    "primary": [
+      "product-research",
+      "content-gathering",
+      "web-research"
+    ],
+    "secondary": [
+      "shopify-api",
+      "manufacturer-data",
+      "product-specs"
+    ],
+    "domains": [
+      "e-commerce",
+      "content"
+    ]
+  },
+  "capabilities": {
+    "inputs": [
+      "product_slug",
+      "product_handle"
+    ],
+    "outputs": [
+      "product_content_markdown"
+    ],
+    "actions": [
+      "fetch_shopify_product",
+      "search_manufacturer_site",
+      "search_retailer_sites",
+      "compile_content"
+    ]
+  },
+  "orchestration": {
+    "priority": 7,
+    "cooperationLevel": "medium",
+    "parallelizable": true,
+    "estimatedTokens": 3500,
+    "activationThreshold": 0.8
+  }
+}

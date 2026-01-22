@@ -16,6 +16,7 @@
       "Bash(find:*)",
       "WebFetch(domain:www.makeblock.com)",
       "Skill(test-storefront)",
+      "Skill(research)",
       "Bash(~/.zshrc)",
       "Bash(git rm:*)",
       "Bash(git add:*)",
