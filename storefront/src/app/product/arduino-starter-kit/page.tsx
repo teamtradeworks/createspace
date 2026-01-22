@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { getProductByHandle, getProducts } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import {
-  ProductHero,
+  HeroSection,
   FeatureGrid,
-  AgeSkillBadges,
+  QuickInfoBadges,
   NumberedSteps,
   LearningOutcomes,
   WhatsIncluded,
@@ -39,7 +39,7 @@ export default async function ArduinoStarterKitPage() {
   return (
     <>
       {/* Hero Section */}
-      <ProductHero
+      <HeroSection
         product={product}
         tagline="Your gateway to electronics, coding, and endless creativity"
         highlights={[
@@ -52,7 +52,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <AgeSkillBadges
+      <QuickInfoBadges
         age="10+"
         skill="beginner"
         supervision={false}

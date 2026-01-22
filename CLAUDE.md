@@ -19,14 +19,17 @@ This is a Shopify headless ecommerce store for our online store.  The website is
 
 ## Naming
 - Company name is always "CREATESPACE" (all caps)
-- Use "Delivery" and not "Shipping"
-- Use "VAT" and not "Tax"
+- Use the word "Delivery" and not "Shipping"
+- Use the word "VAT" and not "Tax"
 
 ## Delivery Rates
+
 Delivery pricing is configured in `storefront/src/config/site.json`. Update that file to change thresholds across the site.
 - Next day delivery option available at checkout (additional cost)
 
 # Brand and Tone
+
+See our full brand strategy document at `assets/brand/brand-strategy.md`.
 
 ## Brand Voice
 - **Personality**: Fun, playful, enthusiastic, trustworthy, knowledgeable, inviting, integral
@@ -44,8 +47,6 @@ The education pages target teachers, principals, and educators (B2B audience). W
 1. **STEM Tutors** (`/education/stem-tutors`)
    - Partner: Robotixkids (https://robotixkids.co.za/)
    - Trained facilitators deliver robotics and coding programmes at schools
-   - Options: After-school clubs, workshops, holiday camps, curriculum integration
-   - All equipment provided - no upfront investment from schools
 
 2. **Curriculum for Teachers** (`/education/curriculum`)
    - Partner: Inspire Africa (https://inspire.africa/)
@@ -55,7 +56,6 @@ The education pages target teachers, principals, and educators (B2B audience). W
 
 3. **Classroom Kits** (`/education/classroom-kits`)
    - Multi-learner STEM kits designed for group work
-   - Teacher guides included
    - Bulk pricing for schools (10+ units)
    - Reusable materials for ongoing use
 
@@ -121,12 +121,12 @@ For detailed brand strategy, customer personas, and messaging guidance: see `ass
 **Product imagery:**
 Product-specific images are stored in `assets/product/[product-handle]/` with the following subfolders:
 
-| Folder | Content | Usage |
-|--------|---------|-------|
-| `animations/` | Short animated GIFs of product in action | Use sparingly, small format, great for "wow" moments |
-| `end-user/` | Customer photos of projects and creations | Social proof, use in groups at small scale (not studio quality) |
-| `lifestyle/` | Professional lifestyle photography | Hero images, large format, primary visual content |
-| `logo/` | Official brand logos | Brand attribution, partnerships |
+| Folder        | Content                                   | Usage                                                           |
+| ------------- | ----------------------------------------- | --------------------------------------------------------------- |
+| `animations/` | Short animated GIFs of product in action  | Use sparingly, small format, great for "wow" moments            |
+| `end-user/`   | Customer photos of projects and creations | Social proof, use in groups at small scale (not studio quality) |
+| `lifestyle/`  | Professional lifestyle photography        | Hero images, large format, primary visual content               |
+| `logo/`       | Official brand logos                      | Brand attribution, partnerships                                 |
 
 **Guidelines:**
 - Filenames describe the photo content - use this to pair images with relevant sections

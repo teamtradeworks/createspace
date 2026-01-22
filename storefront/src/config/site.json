@@ -1,7 +1,7 @@
 {
   "delivery": {
     "freeDeliveryThreshold": 1500,
-    "standardDeliveryCost": 135,
+    "standardDeliveryCost": 115,
     "provider": "The Courier Guy",
     "estimatedDays": "1-3 days"
   }

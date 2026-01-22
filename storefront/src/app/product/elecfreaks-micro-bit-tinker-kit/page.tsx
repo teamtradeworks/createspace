@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { getProductByHandle, getProducts } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import {
-  ProductHero,
+  HeroSection,
   FeatureGrid,
-  AgeSkillBadges,
+  QuickInfoBadges,
   NumberedSteps,
   LearningOutcomes,
   WhatsIncluded,
@@ -38,7 +38,7 @@ export default async function ElecfreaksTinkerKitPage() {
   return (
     <>
       {/* Hero Section */}
-      <ProductHero
+      <HeroSection
         product={product}
         tagline="Discover creative ways to learn coding and electronics with micro:bit"
         highlights={[
@@ -51,7 +51,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <AgeSkillBadges
+      <QuickInfoBadges
         age="12+"
         skill="beginner"
         supervision={false}

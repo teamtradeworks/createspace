@@ -1,6 +1,6 @@
-export { ProductHero } from "./ProductHero";
+export { HeroSection } from "./HeroSection";
 export { FeatureGrid } from "./FeatureGrid";
-export { AgeSkillBadges } from "./AgeSkillBadges";
+export { QuickInfoBadges } from "./QuickInfoBadges";
 export { LearningOutcomes } from "./LearningOutcomes";
 export { WhatsIncluded } from "./WhatsIncluded";
 export { ImageTextBlock } from "./ImageTextBlock";

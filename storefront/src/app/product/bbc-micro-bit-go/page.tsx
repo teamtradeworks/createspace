@@ -2,9 +2,9 @@ import { notFound } from "next/navigation";
 import { getProductByHandle, getProducts } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import {
-  ProductHero,
+  HeroSection,
   FeatureGrid,
-  AgeSkillBadges,
+  QuickInfoBadges,
   NumberedSteps,
   LearningOutcomes,
   WhatsIncluded,
@@ -38,7 +38,7 @@ export default async function MicrobitGoPage() {
   return (
     <>
       {/* Hero Section */}
-      <ProductHero
+      <HeroSection
         product={product}
         tagline="The pocket-sized computer that teaches coding through play"
         highlights={[
@@ -51,7 +51,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Quick Info Badges */}
-      <AgeSkillBadges
+      <QuickInfoBadges
         age="8+"
         skill="beginner"
         supervision={false}

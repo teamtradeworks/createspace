@@ -10,30 +10,36 @@ Parents shopping for STEM products often feel overwhelmed. The terminology is un
 
 ---
 
+## Audience
+
+The audience for this page are parents as highlighted in the brand-strategy.md:
+ - Parents with STEM-curious children (Children already show interest in science, building, coding, or how things work)
+ - Parents who value STEM education (They appreciate the sciences and want their child to develop STEM skills for future success)
+ - Parents unfamiliar with STEM (Not familiar with STEM but open to learning about its value for their child)
+
 ## The Three Questions
 
 Every product page must answer three parent questions:
 
 ### 1. "Is this right for my child?"
 
-| Element | Purpose | Format |
-|---------|---------|--------|
-| **Age/Grade** | Immediate filtering | Badge or prominent label |
-| **Skill Level** | Match to child's confidence | Beginner / Intermediate / Advanced |
-| **Time to Complete** | Set expectations | "Build time: 2-3 hours" |
-| **Adult Help Required?** | Address supervision concerns | Clear yes/no with reassurance |
+| Element                  | Purpose                      | Format                             |
+| ------------------------ | ---------------------------- | ---------------------------------- |
+| **Age/Grade**            | Immediate filtering          | Badge or prominent label           |
+| **Skill Level**          | Match to child's confidence  | Beginner / Intermediate / Advanced |
+| **Adult Help Required?** | Address supervision concerns | Clear yes/no with reassurance      |
 
 **Note on adult help:** Many parents are intimidated by the assumption they'll need to assist. Where possible, reassure: "Clear step-by-step instructions - most children complete independently."
 
 ### 2. "What do they get?"
 
-| Element | Purpose | Format |
-|---------|---------|--------|
-| **End Result** | Show the finished product | Hero image + one-line description |
-| **Learning Outcomes** | Justify educational value | 3-5 bullet points or tags |
-| **What's Included** | Set expectations | Component list |
-| **What's Required** | Remove purchase barriers | Batteries, tools, software, OS compatibility |
-| **Longevity** | Justify investment | Replayability, expansion options |
+| Element               | Purpose                   | Format                                       |
+| --------------------- | ------------------------- | -------------------------------------------- |
+| **End Result**        | Show the finished product | Hero image + one-line description            |
+| **Learning Outcomes** | Justify educational value | 3-5 bullet points or tags                    |
+| **What's Included**   | Set expectations          | Component list                               |
+| **What's Required**   | Remove purchase barriers  | Batteries, tools, software, OS compatibility |
+| **Longevity**         | Justify investment        | Replayability, expansion options             |
 
 **Note on learning outcomes:** Use accessible language. Not "introduces computational thinking" but "teaches problem-solving and logical sequencing."
 
@@ -42,25 +48,25 @@ Every product page must answer three parent questions:
 Skill tags make learning outcomes tangible and scannable. They answer "what will my child learn?" at a glance - like a nutritional label for education.
 
 **STEM Skills** (the technical stuff)
-| Tag | Use for |
-|-----|---------|
-| Circuits | Understanding electricity, components, connections |
-| Coding | Programming, algorithms, sequences |
-| Robotics | Building and programming robots |
-| Mechanical Engineering | Gears, motors, movement, structures |
-| Electronics | Sensors, microcontrollers, hardware |
-| Science | Experiments, scientific method, physics, chemistry |
-| Mathematics | Numbers, patterns, measurement, geometry |
+| Tag                    | Use for                                            |
+| ---------------------- | -------------------------------------------------- |
+| Circuits               | Understanding electricity, components, connections |
+| Coding                 | Programming, algorithms, sequences                 |
+| Robotics               | Building and programming robots                    |
+| Mechanical Engineering | Gears, motors, movement, structures                |
+| Electronics            | Sensors, microcontrollers, hardware                |
+| Science                | Experiments, scientific method, physics, chemistry |
+| Mathematics            | Numbers, patterns, measurement, geometry           |
 
 **Life Skills** (the transferable stuff)
-| Tag | Use for |
-|-----|---------|
-| Problem Solving | Troubleshooting, debugging, finding solutions |
-| Logical Thinking | Sequencing, cause and effect, reasoning |
-| Creativity | Design, open-ended building, imagination |
-| Following Instructions | Technical reading, step-by-step processes |
-| Fine Motor Skills | Precision work, hand-eye coordination |
-| Patience & Focus | Projects requiring sustained attention |
+| Tag                    | Use for                                       |
+| ---------------------- | --------------------------------------------- |
+| Problem Solving        | Troubleshooting, debugging, finding solutions |
+| Logical Thinking       | Sequencing, cause and effect, reasoning       |
+| Creativity             | Design, open-ended building, imagination      |
+| Following Instructions | Technical reading, step-by-step processes     |
+| Fine Motor Skills      | Precision work, hand-eye coordination         |
+| Patience & Focus       | Projects requiring sustained attention        |
 
 **Usage guidelines:**
 - Assign 2-4 skill tags per product (more dilutes meaning)
@@ -70,12 +76,12 @@ Skill tags make learning outcomes tangible and scannable. They answer "what will
 
 ### 3. "Can I trust this?"
 
-| Element | Purpose | Format |
-|---------|---------|--------|
-| **Quality Signals** | Build confidence | Brand reputation, materials, origin |
-| **Safety** | Address parent concerns | Age warnings, certifications, materials |
-| **Social Proof** | Reduce risk perception | Reviews, ratings, endorsements |
-| **Gift-Worthiness** | Support gift buyers | Packaging quality, presentation |
+| Element             | Purpose                 | Format                                  |
+| ------------------- | ----------------------- | --------------------------------------- |
+| **Quality Signals** | Build confidence        | Brand reputation, materials, origin     |
+| **Safety**          | Address parent concerns | Age warnings, certifications, materials |
+| **Social Proof**    | Reduce risk perception  | Reviews, ratings, endorsements          |
+| **Gift-Worthiness** | Support gift buyers     | Packaging quality, presentation         |
 
 ---
 
@@ -103,12 +109,12 @@ Product photos alone aren't enough. Lifestyle imagery is essential.
 
 Product-specific images are stored in `assets/product/[product-handle]/` with four subfolders:
 
-| Folder | Content | Best For |
-|--------|---------|----------|
-| `lifestyle/` | Professional lifestyle photography | Hero sections, ImageTextBlock, full-width features |
-| `end-user/` | Customer photos of projects and creations | Social proof galleries, small-format groups, testimonial sections |
-| `animations/` | Short animated GIFs of product in action | "Wow" moments, small inline demos, feature highlights |
-| `logo/` | Official brand logos | Brand attribution, partnership callouts |
+| Folder        | Content                                   | Best For                                                          |
+| ------------- | ----------------------------------------- | ----------------------------------------------------------------- |
+| `lifestyle/`  | Professional lifestyle photography        | Hero sections, ImageTextBlock, full-width features                |
+| `end-user/`   | Customer photos of projects and creations | Social proof galleries, small-format groups, testimonial sections |
+| `animations/` | Short animated GIFs of product in action  | "Wow" moments, small inline demos, feature highlights             |
+| `logo/`       | Official brand logos                      | Brand attribution, partnership callouts                           |
 
 **Usage guidelines:**
 - **Lifestyle photos** are studio quality - use these for primary visual content at any scale
@@ -117,35 +123,15 @@ Product-specific images are stored in `assets/product/[product-handle]/` with fo
 - **Filenames describe content** - use this to match images with relevant sections (e.g., `kids_working_on_project.jpg` pairs with a "Learning Together" section)
 - **Select, don't use all** - choose the most relevant images for each section; quality over quantity
 
-### Short videos / GIFs
+### GIFs
 
 A 5-15 second clip is worth a thousand photos. Video shows what static images can't:
 - Movement and action (robots walking, circuits lighting up)
 - The building process in timelapse
 - Scale and how pieces fit together
 - Genuine reactions and engagement
-
-**Video guidelines:**
-- Keep it short - reels, not tutorials (5-15 seconds)
-- No audio required - should work on mute
-- Loop cleanly where possible
-- Can be sourced from `assets/product/[handle]/animations/` or created in-house
+- Can be sourced from `assets/product/[handle]/animations/` 
 - Prioritise for products with movement or a "wow" moment
-
----
-
-## Content Hierarchy
-
-Structure information by scanning behaviour - most important first:
-
-1. **Hero image** - Shows the finished product clearly (lifestyle preferred)
-2. **Title + price** - What it is and what it costs
-3. **Key specs** - Age, skill level, time (visible without scrolling)
-4. **One-sentence pitch** - What this product does and why it matters
-5. **Learning outcomes** - Educational value at a glance
-6. **Full description** - For those who want detail
-7. **Requirements** - What else they need
-8. **Reviews/proof** - Social validation
 
 ---
 
