@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getProducts, Product, formatPrice } from "@/lib/shopify";
+import { getProducts, formatPrice } from "@/lib/shopify";
 
 const disciplines: Record<
   string,

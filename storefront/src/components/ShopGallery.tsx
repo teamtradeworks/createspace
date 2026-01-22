@@ -71,7 +71,7 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
     }
 
     return result;
-  }, [products, selectedAge, selectedBrand, sortBy]);
+  }, [products, selectedBrand, sortBy]);
 
   return (
     <section className="py-12">
