@@ -80,7 +80,7 @@ export function ProductTestimonials({
 
               {/* Quote */}
               <blockquote className={`${quoteClass} mb-6`}>
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
 
               {/* Author */}

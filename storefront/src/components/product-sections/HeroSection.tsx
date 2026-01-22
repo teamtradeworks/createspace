@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ProductDetail, formatPrice } from "@/lib/shopify";
 import ProductGallery from "@/components/ProductGallery";
