@@ -74,10 +74,15 @@ These are the **static content** items that need to be gathered from external so
    - OS compatibility (Windows, Mac, iOS, Android)
    - Additional tools needed
 
-5. **Learning Outcomes**
-   - Technical skills taught (circuits, coding, robotics, etc.)
-   - Life skills developed (problem-solving, creativity, etc.)
+5. **Learning Outcomes & Benefits** (HIGH PRIORITY - research thoroughly)
+   - Technical/STEM skills taught (circuits, coding, robotics, etc.)
+   - Life skills developed (problem-solving, creativity, resilience, etc.)
    - Specific concepts covered
+   - Project-to-skill mapping (what each project/activity teaches)
+   - Research-backed educational benefits (look for studies, statistics)
+   - Future career connections (how skills apply to jobs/industries)
+   - What parents/educators will observe in children
+   - Developmental benefits (confidence, growth mindset, emotional regulation)
 
 6. **Features & Specifications**
    - Technical specifications
@@ -151,6 +156,30 @@ For STEM products, look for:
 - Teacher reviews
 - Classroom usage examples
 
+### 5. Educational Research & Benefits (HIGH PRIORITY)
+Search for research-backed information about the educational value of this type of product:
+
+**Search queries to use:**
+- "[Product type] learning benefits children STEM education"
+- "[Product type] hands-on learning cognitive development research"
+- "[Technology/skill] future careers children coding robotics job market"
+- "hands-on learning benefits children confidence growth mindset"
+
+**Look for:**
+- Academic studies on learning outcomes (PMC, ResearchGate, ScienceDirect, MDPI)
+- Statistics on skill development and test score improvements
+- Research on hands-on vs passive learning
+- Job market projections for related skills
+- Developmental psychology insights (growth mindset, resilience, emotional regulation)
+- Parent testimonials and observed changes in children
+
+**Key questions to answer:**
+- Why does hands-on learning work better than passive learning?
+- What specific cognitive benefits does this type of product provide?
+- How do these skills prepare children for future careers?
+- What will parents observe in their children after using this product?
+- Are there any studies showing measurable learning improvements?
+
 ## Output Format
 
 Save all research to: `assets/product/{slug}/content.md`
@@ -218,16 +247,65 @@ The following sections contain researched static content for the product page.
 - **OS Compatibility:** [Windows/Mac/iOS/Android/Web]
 - **Tools:** [screwdrivers, etc.]
 
-## Learning Outcomes
+## Learning Outcomes (Expanded)
+
+### Why Hands-On Learning Works
+[Research-backed evidence on why this type of learning is effective]
+[Statistics on learning improvements if available]
+[Key insight or quote from research]
 
 ### STEM Skills
-- [specific technical skills taught]
+**[Category 1, e.g., Electronics Fundamentals]:**
+- [specific skill]
+- [specific skill]
 
-### Life Skills
-- [problem-solving, creativity, etc.]
+**[Category 2, e.g., Programming Concepts]:**
+- [specific skill]
+- [specific skill]
 
-### Concepts Covered
-- [specific educational concepts]
+**[Category 3, e.g., Engineering Principles]:**
+- [specific skill]
+- [specific skill]
+
+### Project-to-Skill Mapping
+[If product has multiple projects/activities, create a table:]
+
+| Project/Activity | Key Skills Learned |
+|-----------------|-------------------|
+| [Project 1] | [Skills taught] |
+| [Project 2] | [Skills taught] |
+
+### Life Skills & Character Development
+
+**Critical Thinking & Problem-Solving:**
+- [specific benefit]
+
+**Resilience & Growth Mindset:**
+- [specific benefit]
+
+**Emotional Regulation:**
+- [how product helps with frustration tolerance, etc.]
+
+**Confidence & Self-Esteem:**
+- [specific benefit]
+
+**Creativity & Innovation:**
+- [specific benefit]
+
+### Future-Ready Skills & Career Connections
+[How these skills prepare children for future opportunities]
+[Job market statistics if found]
+[Specific career pathways these skills support]
+
+### What Parents Will Observe
+[Concrete, observable outcomes parents can expect to see:]
+- [Observable change 1]
+- [Observable change 2]
+- [Observable change 3]
+
+### Curriculum Alignment
+- [Educational standards this aligns with]
+- [Age/grade level appropriateness]
 
 ## Additional Notes
 
@@ -249,9 +327,22 @@ The following sections contain researched static content for the product page.
 
 ## Sources
 
+### Product Information
 1. [Manufacturer URL]
 2. [Retailer URL]
-3. [Additional URLs]
+
+### Reviews & Recommendations
+3. [Review site URL]
+
+### Educational Research
+4. [Academic study or research article URL]
+5. [Educational benefits research URL]
+
+### Hands-On Learning Benefits
+6. [Developmental psychology or learning research URL]
+
+### Future Skills & Careers
+7. [Career/job market research URL]
 ```
 
 ## Workflow
@@ -282,12 +373,20 @@ The following sections contain researched static content for the product page.
    - Look for additional specs and customer insights
    - Note age recommendations and requirements
 
-6. **Compile research**
+6. **Research educational benefits** (HIGH PRIORITY)
+   - Search for research studies on this type of product/learning
+   - Look for statistics on learning outcomes and skill development
+   - Find information on future career connections
+   - Research hands-on learning benefits (growth mindset, confidence, resilience)
+   - Document what parents can expect to observe
+   - Map specific projects/activities to skills learned
+
+7. **Compile research**
    - Organize all findings into structured markdown
    - Note any information gaps
    - Save to `assets/product/{slug}/content.md`
 
-7. **Confirm completion**
+8. **Confirm completion**
    - Report what was found
    - Highlight any missing information
    - Provide path to saved research file
@@ -302,6 +401,12 @@ The following sections contain researched static content for the product page.
 - **Note gaps** - if critical information is missing, document it
 - **Multiple searches** - try different search terms if initial results are poor
 - **Official sources first** - prioritize manufacturer data over retailer data
+- **PRIORITIZE LEARNING OUTCOMES** - Parents buy STEM products for the benefits, not just features. Research:
+  - Why hands-on learning is effective (find studies/statistics)
+  - What specific skills each project/activity develops
+  - How these skills connect to future opportunities
+  - What observable changes parents will see in their children
+  - Developmental benefits (confidence, growth mindset, resilience)
 
 ## Success Criteria
 
@@ -311,6 +416,12 @@ Research is complete when:
 - ✅ Manufacturer's official page is found and content extracted
 - ✅ At least one retailer source is checked
 - ✅ All essential information categories are addressed
+- ✅ **Learning outcomes are thoroughly researched** including:
+  - Research-backed benefits of this type of learning
+  - Project-to-skill mapping (if applicable)
+  - Life skills and character development benefits
+  - Future career connections
+  - What parents will observe
 - ✅ Content is saved to `assets/product/{slug}/content.md`
 - ✅ Any information gaps are documented
 
