@@ -49,6 +49,8 @@ Example usage:
 
 The research must gather enough information to satisfy the Product Content Framework (`assets/brand/product-content-framework.md`):
 
+The slug must be provided as an argument and it MUST be pulled from the shopify MCP and be a valid match.
+
 ### Essential Information to Research
 
 These are the **static content** items that need to be gathered from external sources:
@@ -271,9 +273,9 @@ The following sections contain researched static content for the product page.
 [If product has multiple projects/activities, create a table:]
 
 | Project/Activity | Key Skills Learned |
-|-----------------|-------------------|
-| [Project 1] | [Skills taught] |
-| [Project 2] | [Skills taught] |
+| ---------------- | ------------------ |
+| [Project 1]      | [Skills taught]    |
+| [Project 2]      | [Skills taught]    |
 
 ### Life Skills & Character Development
 
