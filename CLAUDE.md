@@ -9,6 +9,26 @@ This is a Shopify headless ecommerce store for our online store.  The website is
  - Uses the Shopify GraphQL storefront API
  - Design must work on desktop and mobile
 
+## Product Metafields
+
+Product attributes are configured in Shopify admin via metafield definitions. These are accessible via the Storefront API.
+
+| Metafield Key | Type | Description |
+|---------------|------|-------------|
+| `custom.minimum_age` | Integer | Minimum recommended age |
+| `custom.maximum_age` | Integer | Maximum recommended age (leave empty for "X+" products) |
+| `custom.batteries_required` | Boolean | Whether the product requires batteries |
+| `custom.batteries_included` | Boolean | Whether batteries are included in the box |
+| `custom.batteries_list` | Metaobject reference | Reference to a battery type metaobject |
+
+**Querying metafields in GraphQL:**
+```graphql
+product(handle: "example") {
+  minAge: metafield(namespace: "custom", key: "minimum_age") { value }
+  maxAge: metafield(namespace: "custom", key: "maximum_age") { value }
+}
+```
+
 # General Conventions
 
  - This is a South African business and we only sell locally.
