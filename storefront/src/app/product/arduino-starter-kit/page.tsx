@@ -5,6 +5,7 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
+  SkillTags,
   NumberedSteps,
   LearningOutcomes,
   WhatsIncluded,
@@ -62,6 +63,19 @@ export default async function ArduinoStarterKitPage() {
           { icon: "no-soldering", label: "Soldering", value: "Not Required" },
           { icon: "guide", label: "Guide", value: "170-page book" },
         ]}
+      />
+
+      {/* Skill Tags */}
+      <SkillTags
+        tags={[
+          "Circuits",
+          "Coding",
+          "Electronics",
+          "Problem Solving",
+          "Logical Thinking",
+          "Creativity",
+        ]}
+        background="white"
       />
 
       {/* Why Arduino Section */}
@@ -165,6 +179,16 @@ export default async function ArduinoStarterKitPage() {
           "Creative design and iteration",
         ]}
         background="white"
+      />
+
+      {/* Life Skills Section */}
+      <ImageTextBlock
+        image="/images/products/arduino-starter-kit/arduino_board_laptop_on_desk_guidebook_open.jpg"
+        imageAlt="Arduino setup with laptop and open guidebook on desk"
+        title="More Than Just Technical Skills"
+        body="When your child works through Arduino projects, they're building character alongside circuits. They'll develop resilience by learning that mistakes aren't failures - just opportunities to try a different approach. They'll build confidence as each completed project proves they can tackle unfamiliar challenges. And they'll experience the satisfaction that comes from creating something real with their own hands."
+        layout="image-right"
+        background="gray"
       />
 
       {/* What's Included */}
