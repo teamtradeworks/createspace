@@ -8,35 +8,33 @@ This document specifies all reusable components for product pages. Components ar
 
 ## QuickInfoBadges
 
-Displays key product information at a glance using icon badges.
+Displays key product information at a glance using icon badges. All info badges are derived from Shopify metafields.
 
 **Props:**
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `age` | `string` | No | - | Age range (e.g., "10+", "8-12") |
+| `product` | `ProductDetail` | No | - | Product object with metafields (all badges derived automatically) |
 | `skill` | `"beginner" \| "intermediate" \| "advanced"` | No | - | Skill level with color coding |
 | `supervision` | `boolean` | No | - | Whether adult supervision is required |
-| `batteries` | `string` | No | - | Battery requirements |
-| `badges` | `BadgeConfig[]` | No | `[]` | Custom badges |
 
-**BadgeConfig:**
-```ts
-{ icon: IconName; label: string; value: string }
-```
+**Badges from Metafields:**
+All info badges are **automatically derived** from Shopify metafields. If a metafield is not set, that badge is hidden.
 
-**Available Icons:** `age`, `skill`, `supervision`, `battery`, `time`, `projects`, `no-soldering`, `guide`, `no-tools`, `app`, `scratch`, `tag`
+| Badge | Metafield(s) | Display |
+|-------|--------------|---------|
+| Age | `custom.minimum_age`, `custom.maximum_age` | "X+" or "X-Y" |
+| Batteries | `custom.batteries_required`, `custom.batteries_included`, `custom.batteries_list` | "No batteries required" / "{type} (included)" / "{type} (not included)" |
+| Projects | `custom.projects` | Value as-is (e.g., "15+") |
+| Guide | `custom.guide` | Value as-is (e.g., "170-page book") |
+| Soldering | `custom.soldering` | "Required" / "Not Required" |
+| Coding | `custom.coding_platform` | Value as-is (e.g., "Scratch") |
 
 **Example:**
 ```tsx
 <QuickInfoBadges
-  age="10+"
+  product={product}
   skill="beginner"
   supervision={false}
-  batteries="4x AA (not included)"
-  badges={[
-    { icon: "time", label: "Build Time", value: "2-3 hours" },
-    { icon: "projects", label: "Projects", value: "15+" },
-  ]}
 />
 ```
 

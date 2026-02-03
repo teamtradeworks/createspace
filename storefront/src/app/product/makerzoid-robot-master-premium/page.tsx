@@ -51,16 +51,9 @@ export default async function MakerzoidRobotMasterPremiumPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges
-        age="6+"
+        product={product}
         skill="beginner"
         supervision={false}
-        batteries="2x AA (not included)"
-        badges={[
-          { icon: "projects", label: "Robot Models", value: "200+ Designs" },
-          { icon: "guide", label: "Video Lessons", value: "47 Courses" },
-          { icon: "app", label: "App", value: "Free Required" },
-          { icon: "no-tools", label: "Tools", value: "Not Needed" },
-        ]}
       />
 
       {/* Why Makerzoid Section */}

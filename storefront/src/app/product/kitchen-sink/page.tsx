@@ -69,18 +69,9 @@ export default function KitchenSinkPage() {
       {/* QuickInfoBadges */}
       <ComponentWrapper
         name="QuickInfoBadges"
-        description="Displays key product info at a glance: age, skill level, supervision, batteries, and custom badges"
+        description="Displays key product info at a glance: all badges derived from product metafields, plus skill level and supervision props"
       >
-        <QuickInfoBadges
-          age="10+"
-          skill="beginner"
-          supervision={false}
-          batteries="4x AA (not included)"
-          badges={[
-            { icon: "time", label: "Build Time", value: "2-3 hours" },
-            { icon: "projects", label: "Projects", value: "15+" },
-          ]}
-        />
+        <QuickInfoBadges skill="beginner" supervision={false} />
       </ComponentWrapper>
 
       {/* SkillTags */}

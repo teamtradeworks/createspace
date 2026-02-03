@@ -54,15 +54,9 @@ export default async function ArduinoStarterKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges
-        age="10+"
+        product={product}
         skill="beginner"
         supervision={false}
-        batteries="9V battery"
-        badges={[
-          { icon: "projects", label: "Projects", value: "15 Included" },
-          { icon: "no-soldering", label: "Soldering", value: "Not Required" },
-          { icon: "guide", label: "Guide", value: "170-page book" },
-        ]}
       />
 
       {/* Skill Tags */}
