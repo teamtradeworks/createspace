@@ -236,6 +236,20 @@ export function formatPrice(amount: string | number, currencyCode: string): stri
     : `${currencyCode} ${withCommas}.${decimal}`;
 }
 
+// Metafield type
+export type Metafield = {
+  value: string;
+} | null;
+
+// Metaobject reference for battery type
+export type BatteryMetaobject = {
+  type: string;
+  fields: {
+    key: string;
+    value: string | null;
+  }[];
+} | null;
+
 // Extended product type for product detail page
 export type ProductDetail = {
   id: string;
@@ -288,6 +302,18 @@ export type ProductDetail = {
       };
     }[];
   };
+  // Metafields for QuickInfoBadges
+  minAge: Metafield;
+  maxAge: Metafield;
+  batteriesRequired: Metafield;
+  batteriesIncluded: Metafield;
+  batteriesList: {
+    reference: BatteryMetaobject;
+  } | null;
+  projects: Metafield;
+  guide: Metafield;
+  soldering: Metafield;
+  codingPlatform: Metafield;
 };
 
 const PRODUCT_BY_HANDLE_QUERY = `
@@ -342,6 +368,41 @@ const PRODUCT_BY_HANDLE_QUERY = `
             }
           }
         }
+      }
+      minAge: metafield(namespace: "custom", key: "minimum_age") {
+        value
+      }
+      maxAge: metafield(namespace: "custom", key: "maximum_age") {
+        value
+      }
+      batteriesRequired: metafield(namespace: "custom", key: "batteries_required") {
+        value
+      }
+      batteriesIncluded: metafield(namespace: "custom", key: "batteries_included") {
+        value
+      }
+      batteriesList: metafield(namespace: "custom", key: "batteries_list") {
+        reference {
+          ... on Metaobject {
+            type
+            fields {
+              key
+              value
+            }
+          }
+        }
+      }
+      projects: metafield(namespace: "custom", key: "projects") {
+        value
+      }
+      guide: metafield(namespace: "custom", key: "guide") {
+        value
+      }
+      soldering: metafield(namespace: "custom", key: "soldering") {
+        value
+      }
+      codingPlatform: metafield(namespace: "custom", key: "coding_platform") {
+        value
       }
     }
   }
@@ -486,4 +547,52 @@ export async function getProductBySku(
   }
 
   return null;
+}
+
+// Helper function to format age range from product metafields
+export function getProductAgeRange(product: ProductDetail): string | undefined {
+  const minAge = product.minAge?.value;
+  const maxAge = product.maxAge?.value;
+
+  if (!minAge) return undefined;
+
+  // If no maxAge, format as "X+"
+  if (!maxAge) {
+    return `${minAge}+`;
+  }
+
+  // Format as "X-Y"
+  return `${minAge}-${maxAge}`;
+}
+
+// Helper function to format battery info from product metafields
+export function getProductBatteryInfo(product: ProductDetail): string | undefined {
+  // If the metafield doesn't exist at all, don't show the badge
+  if (product.batteriesRequired === null) return undefined;
+
+  const batteriesRequired = product.batteriesRequired?.value === "true";
+  const batteriesIncluded = product.batteriesIncluded?.value === "true";
+  const batteryMetaobject = product.batteriesList?.reference;
+
+  // If batteries not required
+  if (!batteriesRequired) return "No batteries required";
+
+  // Get battery type label from metaobject if available
+  let batteryType = "";
+  if (batteryMetaobject?.fields) {
+    const labelField = batteryMetaobject.fields.find(
+      (f) => f.key === "label" || f.key === "name" || f.key === "title" || f.key === "type"
+    );
+    batteryType = labelField?.value || "";
+  }
+
+  // Format: "{battery type} (included)" or "{battery type} (not included)"
+  const suffix = batteriesIncluded ? "(included)" : "(not included)";
+
+  if (batteryType) {
+    return `${batteryType} ${suffix}`;
+  }
+
+  // Fallback if no battery type specified
+  return batteriesIncluded ? "Included" : "Required";
 }

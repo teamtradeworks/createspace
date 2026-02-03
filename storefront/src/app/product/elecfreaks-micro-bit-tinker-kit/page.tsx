@@ -52,16 +52,9 @@ export default async function ElecfreaksTinkerKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges
-        age="12+"
+        product={product}
         skill="beginner"
         supervision={false}
-        batteries="2x AAA (not included)"
-        badges={[
-          { icon: "projects", label: "Projects", value: "39 Included" },
-          { icon: "no-soldering", label: "Soldering", value: "Not Required" },
-          { icon: "scratch", label: "Coding", value: "Block-based" },
-          { icon: "tag", label: "micro:bit", value: "Not Included" },
-        ]}
       />
 
       {/* Why micro:bit Section */}

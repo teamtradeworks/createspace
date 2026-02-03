@@ -52,15 +52,9 @@ export default async function MicrobitGoPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges
-        age="8+"
+        product={product}
         skill="beginner"
         supervision={false}
-        batteries="2x AAA (included)"
-        badges={[
-          { icon: "projects", label: "Projects", value: "200+ Free" },
-          { icon: "no-soldering", label: "Soldering", value: "Not Required" },
-          { icon: "scratch", label: "Coding", value: "Block & Text" },
-        ]}
       />
 
       {/* Why micro:bit Section */}

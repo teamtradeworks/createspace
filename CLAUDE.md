@@ -20,12 +20,17 @@ Product attributes are configured in Shopify admin via metafield definitions. Th
 | `custom.batteries_required` | Boolean | Whether the product requires batteries |
 | `custom.batteries_included` | Boolean | Whether batteries are included in the box |
 | `custom.batteries_list` | Metaobject reference | Reference to a battery type metaobject |
+| `custom.projects` | Single line text | Number of projects included (e.g., "15+", "200+") |
+| `custom.guide` | Single line text | Guide/manual description (e.g., "170-page book") |
+| `custom.soldering` | Boolean | Whether soldering is required |
+| `custom.coding_platform` | Single line text | Coding platform/language (e.g., "Scratch", "Block & Text") |
 
 **Querying metafields in GraphQL:**
 ```graphql
 product(handle: "example") {
   minAge: metafield(namespace: "custom", key: "minimum_age") { value }
   maxAge: metafield(namespace: "custom", key: "maximum_age") { value }
+  projects: metafield(namespace: "custom", key: "projects") { value }
 }
 ```
 

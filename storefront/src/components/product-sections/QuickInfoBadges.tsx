@@ -1,3 +1,9 @@
+import {
+  ProductDetail,
+  getProductAgeRange,
+  getProductBatteryInfo,
+} from "@/lib/shopify";
+
 type IconName =
   | "age"
   | "skill"
@@ -19,11 +25,10 @@ interface BadgeConfig {
 }
 
 interface QuickInfoBadgesProps {
-  age?: string;
+  /** Product to read metafields from (all info badges are derived automatically) */
+  product?: ProductDetail;
   skill?: "beginner" | "intermediate" | "advanced";
   supervision?: boolean;
-  batteries?: string;
-  badges?: BadgeConfig[];
 }
 
 const icons: Record<IconName, React.ReactNode> = {
@@ -105,15 +110,21 @@ const skillLabels = {
 };
 
 export function QuickInfoBadges({
-  age,
+  product,
   skill,
   supervision,
-  batteries,
-  badges = [],
 }: QuickInfoBadgesProps) {
   const allBadges: BadgeConfig[] = [];
 
-  // Add core badges if provided
+  // Get values from product metafields (hidden if not set)
+  const age = product ? getProductAgeRange(product) : undefined;
+  const batteries = product ? getProductBatteryInfo(product) : undefined;
+  const projects = product?.projects?.value;
+  const guide = product?.guide?.value;
+  const soldering = product?.soldering?.value;
+  const codingPlatform = product?.codingPlatform?.value;
+
+  // Add age badge if metafield exists
   if (age) {
     allBadges.push({ icon: "age", label: "Age", value: age });
   }
@@ -130,12 +141,35 @@ export function QuickInfoBadges({
     });
   }
 
+  // Add batteries badge if metafield exists
   if (batteries) {
     allBadges.push({ icon: "battery", label: "Batteries", value: batteries });
   }
 
-  // Add custom badges
-  allBadges.push(...badges);
+  // Add projects badge if metafield exists
+  if (projects) {
+    allBadges.push({ icon: "projects", label: "Projects", value: projects });
+  }
+
+  // Add guide badge if metafield exists
+  if (guide) {
+    allBadges.push({ icon: "guide", label: "Guide", value: guide });
+  }
+
+  // Add soldering badge if metafield exists
+  if (soldering !== undefined) {
+    const solderingRequired = soldering === "true";
+    allBadges.push({
+      icon: "no-soldering",
+      label: "Soldering",
+      value: solderingRequired ? "Required" : "Not Required",
+    });
+  }
+
+  // Add coding platform badge if metafield exists
+  if (codingPlatform) {
+    allBadges.push({ icon: "scratch", label: "Coding", value: codingPlatform });
+  }
 
   if (allBadges.length === 0) return null;
 
