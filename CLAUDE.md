@@ -225,6 +225,12 @@ We keep these two parts above seperate so that we don't need to repeat researchi
    - Required vs optional sections
    - Minimal vs full page guidance
 
+**Component Reference** - `assets/brand/product-page-components.md`
+   - Detailed specification for every product section component
+   - Props, types, defaults, and usage examples
+   - **Must be updated whenever a component is modified**
+   - Kitchen sink preview available at `/product/kitchen-sink`
+
 **Rules to always obey:**
 - Research content lives in `assets/product/{slug}/content.md`
 - Custom product pages live in `storefront/src/app/product/{slug}/page.tsx` (folder name = product handle = URL slug = Shopify slug)
