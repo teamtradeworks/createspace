@@ -263,7 +263,7 @@ Gallery of end-user/customer photos with labels and hover descriptions.
 **Layout Behavior:**
 - **1 image:** Full width, 16:9 aspect ratio
 - **2 images:** Equal 2-column grid, 4:3 aspect ratio
-- **3 images:** Large square left (row-span-2), 2 stacked right (16:9 each)
+- **3 images:** Large square left, 2 stacked right (equal height split)
 - **4 images:** Single row of 4 squares
 - **5 images:** 2 images top row (4:3), 3 images bottom row (squares)
 - **6 images:** 3x2 grid of squares

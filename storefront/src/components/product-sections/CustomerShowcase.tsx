@@ -113,31 +113,35 @@ export function CustomerShowcase({
       );
     }
 
-    // 3 images: 1 large left, 2 stacked right
+    // 3 images: 1 large left, 2 stacked right (using flex for perfect height alignment)
     if (count === 3) {
       return (
-        <div className="grid grid-cols-2 gap-4">
-          <ImageCard
-            image={images[0]}
-            isHovered={hoveredIndex === 0}
-            onHover={() => setHoveredIndex(0)}
-            onLeave={() => setHoveredIndex(null)}
-            className="aspect-square row-span-2"
-          />
-          <ImageCard
-            image={images[1]}
-            isHovered={hoveredIndex === 1}
-            onHover={() => setHoveredIndex(1)}
-            onLeave={() => setHoveredIndex(null)}
-            className="aspect-video"
-          />
-          <ImageCard
-            image={images[2]}
-            isHovered={hoveredIndex === 2}
-            onHover={() => setHoveredIndex(2)}
-            onLeave={() => setHoveredIndex(null)}
-            className="aspect-video"
-          />
+        <div className="flex gap-4">
+          <div className="w-1/2">
+            <ImageCard
+              image={images[0]}
+              isHovered={hoveredIndex === 0}
+              onHover={() => setHoveredIndex(0)}
+              onLeave={() => setHoveredIndex(null)}
+              className="aspect-square h-full"
+            />
+          </div>
+          <div className="w-1/2 flex flex-col gap-4">
+            <ImageCard
+              image={images[1]}
+              isHovered={hoveredIndex === 1}
+              onHover={() => setHoveredIndex(1)}
+              onLeave={() => setHoveredIndex(null)}
+              className="flex-1"
+            />
+            <ImageCard
+              image={images[2]}
+              isHovered={hoveredIndex === 2}
+              onHover={() => setHoveredIndex(2)}
+              onLeave={() => setHoveredIndex(null)}
+              className="flex-1"
+            />
+          </div>
         </div>
       );
     }
