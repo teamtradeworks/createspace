@@ -35,7 +35,7 @@ const ageCategories = [
     icon: "🧑",
   },
   {
-    id: "13+",
+    id: "13-plus",
     title: "Ages 13+",
     subtitle: "Teen Innovators",
     description: "Advanced robotics and electronics",

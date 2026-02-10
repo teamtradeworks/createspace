@@ -68,6 +68,8 @@ export type Product = {
       };
     }[];
   };
+  minAge: Metafield;
+  maxAge: Metafield;
 };
 
 export type Collection = {
@@ -117,6 +119,12 @@ const PRODUCTS_QUERY = `
                 }
               }
             }
+          }
+          minAge: metafield(namespace: "custom", key: "minimum_age") {
+            value
+          }
+          maxAge: metafield(namespace: "custom", key: "maximum_age") {
+            value
           }
         }
       }

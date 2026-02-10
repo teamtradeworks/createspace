@@ -303,7 +303,7 @@ export default async function DisciplineCategoryPage({ params }: Props) {
                 color: "bg-cs-orange",
               },
               {
-                age: "13+",
+                age: "13-plus",
                 title: "Teen Innovators",
                 subtitle: "Ages 13+",
                 color: "bg-cs-purple",
