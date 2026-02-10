@@ -42,7 +42,7 @@ const ageCategories: Record<
     color: "cs-orange",
     bgGradient: "from-cs-orange to-cs-orange/80",
   },
-  "13+": {
+  "13-plus": {
     title: "Teen Innovators",
     subtitle: "Ages 13+",
     description:
@@ -85,9 +85,17 @@ export default async function AgeCategoryPage({ params }: Props) {
 
   const allProducts = await getProducts(100);
 
-  // For now, show all products since we don't have age tags set up in Shopify
-  // In production, filter by age-related tags
-  const products = allProducts;
+  // Filter products by age metafields — show if the product's age range overlaps with the group's range
+  const [minRange, maxRange] = category.range;
+  const products = allProducts.filter((product) => {
+    const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
+    if (minAge === null) return false;
+    const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
+    // Product range [minAge, maxAge] must overlap with group range [minRange, maxRange]
+    // If no maxAge, treat as unbounded (minAge+)
+    const productMax = maxAge ?? Infinity;
+    return minAge <= maxRange && productMax >= minRange;
+  });
 
   return (
     <main className="min-h-screen bg-white">
