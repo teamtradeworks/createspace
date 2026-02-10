@@ -178,9 +178,9 @@ export default async function ClassroomKitsPage() {
               <Link
                 key={product.id}
                 href={`/product/${product.handle}`}
-                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                className="group"
               >
-                <div className="aspect-square relative bg-gray-50">
+                <div className="bg-gray-50 rounded-xl overflow-hidden mb-3 aspect-square relative">
                   {product.images.edges[0] ? (
                     <Image
                       src={product.images.edges[0].node.url}
@@ -206,17 +206,20 @@ export default async function ClassroomKitsPage() {
                     </div>
                   )}
                 </div>
-                <div className="p-4">
-                  <h3 className="font-medium text-navy group-hover:text-cs-purple transition-colors line-clamp-2 mb-1">
-                    {product.title}
-                  </h3>
-                  <p className="text-cs-purple font-semibold">
-                    {formatPrice(
-                      product.priceRange.minVariantPrice.amount,
-                      product.priceRange.minVariantPrice.currencyCode
-                    )}
+                <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2 mb-1">
+                  {product.title}
+                </h3>
+                {product.vendor && (
+                  <p className="text-xs text-gray-500 mb-1">
+                    {product.vendor}
                   </p>
-                </div>
+                )}
+                <p className="text-cs-orange font-semibold">
+                  {formatPrice(
+                    product.priceRange.minVariantPrice.amount,
+                    product.priceRange.minVariantPrice.currencyCode
+                  )}
+                </p>
               </Link>
             ))}
           </div>
