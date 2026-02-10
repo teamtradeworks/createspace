@@ -14,26 +14,28 @@ async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
 
   try {
-    allProducts = await getProducts(24);
+    allProducts = await getProducts(100);
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
 
-  // Distribute products across age groups (in production, use actual tags)
-  const productsByAge: Record<string, Product[]> = {
-    "3-5": allProducts.slice(0, 6),
-    "6-8": allProducts.slice(6, 12),
-    "9-12": allProducts.slice(12, 18),
-    "13+": allProducts.slice(18, 24),
+  // Filter products by age metafields — show if the product's age range overlaps with the group's range
+  const ageRanges: Record<string, [number, number]> = {
+    "3-5": [3, 5],
+    "6-8": [6, 8],
+    "9-12": [9, 12],
+    "13+": [13, 99],
   };
 
-  // If not enough products, fill each category with available products
-  if (allProducts.length > 0 && allProducts.length < 24) {
-    const productsPerGroup = Math.ceil(allProducts.length / 4);
-    productsByAge["3-5"] = allProducts.slice(0, productsPerGroup);
-    productsByAge["6-8"] = allProducts.slice(0, productsPerGroup);
-    productsByAge["9-12"] = allProducts.slice(0, productsPerGroup);
-    productsByAge["13+"] = allProducts.slice(0, productsPerGroup);
+  const productsByAge: Record<string, Product[]> = {};
+  for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
+    productsByAge[groupId] = allProducts.filter((product) => {
+      const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
+      if (minAge === null) return false;
+      const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
+      const productMax = maxAge ?? Infinity;
+      return minAge <= maxRange && productMax >= minRange;
+    });
   }
 
   return <FeaturedProducts productsByAge={productsByAge} />;
