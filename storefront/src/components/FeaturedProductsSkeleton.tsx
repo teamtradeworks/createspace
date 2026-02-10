@@ -8,7 +8,7 @@ export default function FeaturedProductsSkeleton() {
             Featured Products
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular STEM kits, organized by age group
+            Discover our most popular STEM kits, organised by age group
           </p>
         </div>
 
