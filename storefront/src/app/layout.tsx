@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 // Async component that fetches products for the header
 async function HeaderWithProducts() {
-  const menuProducts = await getProducts(15).catch((error) => {
+  const menuProducts = await getProducts(50).catch((error) => {
     console.error("Failed to fetch menu products:", error);
     return [];
   });
