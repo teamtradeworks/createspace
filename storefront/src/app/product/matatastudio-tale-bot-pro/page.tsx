@@ -304,6 +304,8 @@ export default async function TaleBotProPage() {
       {/* What's in the Box */}
       <WhatsIncluded
         title="What's in the Box"
+        image="/images/products/matatastudio-tale-bot-pro/3-bots-with-different-arm-attachments.png"
+        imageAlt="Tale-Bot Pro robot with different accessory attachments showing customization options"
         items={[
           "1x Tale-Bot Pro Robot",
           "2x Wings",
