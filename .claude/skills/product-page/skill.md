@@ -229,6 +229,7 @@ Based on the research content, determine:
 - WhatsIncluded
 - CallToAction
 - RelatedProducts
+- CustomerShowcase (if end-user photos exist in `assets/product/{slug}/end-user/` - must come immediately after ProjectShowcase and include ALL end-user images)
 
 **Recommended sections (include if content available):**
 - VideoEmbed (if video URL in research)
@@ -360,18 +361,27 @@ From `assets/product/{slug}/`:
    - Large feature images
 
 2. **End-user photos** (from `end-user/`) - Use for:
+   - CustomerShowcase component
+   - **IMPORTANT:** Include ALL end-user photos (do not cherry-pick)
    - Social proof sections
    - Gallery grids
-   - Testimonial backgrounds
 
-3. **Animations/GIFs** (from `animations/`) - Use for:
+3. **Project images** (from `projects/`) - Use for:
+   - ProjectShowcase component ONLY
+   - **IMPORTANT:** Strictly source ProjectShowcase thumbnails from `projects/` folder
+   - One thumbnail per project card
+   - Images display at 120% of base thumbnail size
+
+4. **Animations/GIFs** (from `animations/`) - Use for:
    - Feature highlights
    - "Wow moment" demonstrations
    - Keep small
 
 **Selection criteria:**
 - Match image content to section topic
-- Select 3-5 images per page (don't use all)
+- Select 3-5 lifestyle images per page for ImageTextBlock (don't use all)
+- Use ALL end-user photos for CustomerShowcase
+- Use 6 representative project images from projects/ folder for ProjectShowcase
 - Ensure variety (professional + authentic)
 - Check filename descriptions for context
 

@@ -66,17 +66,17 @@ Grid of features with icons. Good for highlighting what's included and why it ma
 
 #### 7. ProjectShowcase (Optional)
 
-Show off the projects, challenges, and activities included with the product. The total count is a powerful selling point — make it prominent in the subtitle and moreText. Show 6 representative items with image thumbnails sourced from `assets/product/[slug]/projects/`. Best for products with 5+ distinct projects.
+Show off the projects, challenges, and activities included with the product. The total count is a powerful selling point — make it prominent in the subtitle and moreText. Show 6 representative items with image thumbnails sourced **strictly from `assets/product/[slug]/projects/` folder**. Best for products with 5+ distinct projects.
 
-**Component:** `ProjectShowcase` — use subtitle to state totals (e.g. "This kit includes 39 projects. Here are a few favourites:") and moreText to reinforce breadth.
+**Component:** `ProjectShowcase` — use subtitle to state totals (e.g. "This kit includes 39 projects. Here are a few favourites:") and moreText to reinforce breadth. Images display at 120% of base thumbnail size for better visibility.
 
 ### Reassure
 
-#### 8. CustomerShowcase (Optional)
+#### 8. CustomerShowcase (Required if end-user photos available)
 
-Gallery of real customer/end-user photos. Social proof from real families using the product.
+Gallery of real customer/end-user photos. Social proof from real families using the product. **IMPORTANT: If end-user photos exist in `assets/product/[slug]/end-user/`, CustomerShowcase MUST be included and MUST come immediately after ProjectShowcase. Include ALL available end-user photos — do not cherry-pick or limit the number.**
 
-**Component:** `CustomerShowcase` — use images from `assets/product/[slug]/end-user/`.
+**Component:** `CustomerShowcase` — use ALL images from `assets/product/[slug]/end-user/`.
 
 #### 9. ProductTestimonials (Optional)
 

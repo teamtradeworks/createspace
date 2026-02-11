@@ -69,13 +69,13 @@ export function ProjectShowcase({
               className={`${cardBgClass} rounded-xl p-6 border ${cardBorderClass}`}
             >
               {project.image && (
-                <div className="w-20 h-20 relative rounded-lg overflow-hidden mb-4">
+                <div className="w-24 h-24 relative rounded-lg overflow-hidden mb-4">
                   <Image
                     src={project.image}
                     alt={project.name}
                     fill
                     className="object-cover"
-                    sizes="80px"
+                    sizes="96px"
                   />
                 </div>
               )}
