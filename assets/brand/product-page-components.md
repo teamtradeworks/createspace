@@ -128,6 +128,7 @@ Gallery of end-user/customer photos with labels and hover descriptions. Adaptive
 
 **Image guidelines:**
 - Only use end-user photos from `assets/product/[slug]/end-user/`
+- **IMPORTANT:** Include ALL available end-user photos — do not cherry-pick or limit the number
 - Labels should be short (1-2 words): "First Build", "Classroom"
 - Descriptions show on hover
 
@@ -385,7 +386,7 @@ Grid of project cards with image thumbnails. Shows off projects, challenges, and
 { name: string; description: string; concepts?: string; image?: string }
 ```
 
-- `image` — Path to a small thumbnail image for the project card. Source from `assets/product/[slug]/projects/` and copy to `storefront/public/images/products/[slug]/projects/`. When provided, the image renders as a rounded thumbnail at the top of the card. When omitted, no thumbnail is shown.
+- `image` — Path to a small thumbnail image for the project card. **IMPORTANT:** Strictly source images from `assets/product/[slug]/projects/` folder and copy to `storefront/public/images/products/[slug]/`. When provided, the image renders as a rounded thumbnail at 120% of base thumbnail size for better visibility at the top of the card. When omitted, no thumbnail is shown.
 
 **Highlight text:** Renders between the title and subtitle in a larger, semibold accent colour (blue on white/gray, orange on navy). Use free-form text to communicate what's included — e.g. "39 hands-on projects with step-by-step online tutorials" or "15 real-world projects in a 170-page printed guidebook". This is more flexible than rigid count badges and reads naturally.
 
