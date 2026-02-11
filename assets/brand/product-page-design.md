@@ -66,9 +66,9 @@ Grid of features with icons. Good for highlighting what's included and why it ma
 
 #### 7. ProjectShowcase (Optional)
 
-For kits with multiple projects/builds. Shows progression and variety. Best for products with 5+ distinct projects.
+Show off the projects, challenges, and activities included with the product. The total count is a powerful selling point — make it prominent in the subtitle and moreText. Show 6 representative items with image thumbnails sourced from `assets/product/[slug]/projects/`. Best for products with 5+ distinct projects.
 
-**Component:** `ProjectShowcase`
+**Component:** `ProjectShowcase` — use subtitle to state totals (e.g. "This kit includes 39 projects. Here are a few favourites:") and moreText to reinforce breadth.
 
 ### Reassure
 
@@ -86,23 +86,23 @@ Curated testimonials from parents and educators. 2-3 testimonials from different
 
 ### Details & Objections
 
-#### 10. WhatsIncluded (Required)
-
-Show exactly what's in the box. Removes uncertainty and sets expectations. Important but lower down — parents want to know *why* before *what*.
-
-**Component:** `WhatsIncluded`
-
-#### 11. ProductFAQ (Recommended)
+#### 10. ProductFAQ (Recommended)
 
 Address common concerns and questions. FAQs are conversion tools — the last barrier before the CTA. See the content framework for high-priority topics.
 
 **Component:** `ProductFAQ`
 
-#### 12. Specifications (Optional)
+#### 11. Specifications (Optional)
 
-Technical specs for products where it matters (microcontrollers, connectivity, dimensions). Skip for simple products. At the very bottom because only technical-minded parents need this.
+Technical specs for products where it matters (microcontrollers, connectivity, dimensions). Skip for simple products.
 
 **Component:** `Specifications`
+
+#### 12. WhatsIncluded (Required)
+
+Show exactly what's in the box. Removes uncertainty and sets expectations. Placed low on the page — parents want to know *why* before *what*. By this point they're already convinced and just confirming details.
+
+**Component:** `WhatsIncluded`
 
 ### Close
 
@@ -120,16 +120,19 @@ Keep them browsing if this isn't the right fit.
 
 ### ImageTextBlock (Floating — use throughout)
 
-Image + text side-by-side for storytelling. **Not a fixed position** — scatter 3-5 of these throughout the page between denser sections to create visual breathing room. Each one should pair a lifestyle photo with compelling, benefit-led copy.
+Image + text side-by-side for storytelling. **Not a fixed position** — scatter 2-3 of these throughout the page between denser sections to create visual breathing room. Each one should pair a lifestyle photo with compelling, benefit-led copy.
 
 **Component:** `ImageTextBlock` — alternate `layout` between `"image-left"` and `"image-right"`.
 
+**Rules:**
+- **Maximum 2-3 per page** — be selective, not exhaustive
+- **Never place two ImageTextBlocks directly below one another** — always have at least one other section between them
+- **Always above the details/reassure sections** — ImageTextBlocks must appear above Specifications, ProductFAQ, ProductTestimonials, and WhatsIncluded
+
 **Good placement spots:**
+- Between VideoEmbed and FeatureGrid
 - Between NumberedSteps and FeatureGrid
 - Between FeatureGrid and ProjectShowcase
-- Between ProjectShowcase and CustomerShowcase
-- Between ProductTestimonials and WhatsIncluded
-- Between WhatsIncluded and ProductFAQ
 
 ---
 
@@ -161,7 +164,7 @@ Alternate `layout` on consecutive ImageTextBlocks for visual rhythm:
 
 - Break up dense sections (FeatureGrid, ProjectShowcase, WhatsIncluded) with ImageTextBlocks between them
 - Don't place two grid/list-style components back-to-back without a visual break
-- Use 3-5 ImageTextBlocks across a full product page, scattered throughout
+- Use 2-3 ImageTextBlocks across a full product page, scattered throughout
 - Each ImageTextBlock should pair a lifestyle photo with meaningful content — not filler
 
 ---
@@ -178,8 +181,8 @@ Use when the product is straightforward with fewer features to highlight:
 2. QuickInfoBadges
 3. NumberedSteps
 4. FeatureGrid
-5. WhatsIncluded
-6. ProductFAQ
+5. ProductFAQ
+6. WhatsIncluded
 7. CallToAction
 8. RelatedProducts
 
@@ -239,9 +242,9 @@ All components are in `storefront/src/components/product-sections/`. For full pr
 | ProjectShowcase     | Optional    | 7. Educate        | white, gray, navy            |
 | CustomerShowcase    | Optional    | 8. Reassure       | white, gray                  |
 | ProductTestimonials | Optional    | 9. Reassure       | white, gray, navy            |
-| WhatsIncluded       | Yes         | 10. Details       | white, gray                  |
-| ProductFAQ          | Recommended | 11. Details       | white, gray                  |
-| Specifications      | Optional    | 12. Details       | white, gray                  |
+| ProductFAQ          | Recommended | 10. Details       | white, gray                  |
+| Specifications      | Optional    | 11. Details       | white, gray                  |
+| WhatsIncluded       | Yes         | 12. Details       | white, gray                  |
 | CallToAction        | Yes         | 13. Close         | navy, gray, white            |
 | RelatedProducts     | Yes         | 14. Close         | white, gray, navy            |
 | ImageTextBlock      | Optional    | Floating          | white, gray, navy            |

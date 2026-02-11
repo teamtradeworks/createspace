@@ -80,12 +80,12 @@ export default async function ElecfreaksTinkerKitPage() {
         background="gray"
       />
 
-      {/* MakeCode Section */}
+      {/* What Is the Tinker Kit Section */}
       <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-tinker-kit/makecode-screenshot.jpg"
         imageAlt="MakeCode block coding interface showing a micro:bit program"
-        title="Drag, Drop, and Code"
-        body="Microsoft MakeCode makes coding visual and intuitive. Snap colourful blocks together to create programs, then download to your micro:bit with one click. Custom blocks for every Tinker Kit sensor are included - no complex setup required."
+        title="An Accessory Pack That Unlocks Your micro:bit"
+        body="The ELECFREAKS Tinker Kit is a sensor and component pack that expands what you can do with a BBC micro:bit. It includes 14 plug-and-play modules — from a PIR motion sensor and soil moisture probe to an OLED display and servo motor — all connected through the Octopus:bit breakout board. Every component uses simple colour-coded 3-pin connectors that click into place, so there's no breadboard, no loose wiring, and no confusion. You program everything with Microsoft MakeCode's drag-and-drop blocks, and custom blocks for every Tinker Kit sensor are included."
         layout="image-left"
         background="white"
       />
@@ -140,41 +140,10 @@ export default async function ElecfreaksTinkerKitPage() {
         background="white"
       />
 
-      {/* What's Included */}
-      <WhatsIncluded
-        title="What's in the Box"
-        items={[
-          "Octopus:bit Breakout Board",
-          "Crystal Battery Box (2x AAA)",
-          "Micro-USB Cable",
-          "OLED Display Module",
-          "Mini Servo Motor (1.6kg)",
-          "PIR Motion Sensor",
-          "Soil Moisture Sensor",
-          "ADKeypad (5 Buttons)",
-          "Crash Sensor",
-          "Passive Buzzer",
-          "Red LED Brick",
-          "Green LED Brick",
-          "Blue LED Brick",
-          "Analog Rotation Potentiometer",
-        ]}
-        background="gray"
-      />
-
-      {/* Plant Monitor Project Section */}
-      <ImageTextBlock
-        image="/images/products/elecfreaks-micro-bit-tinker-kit/plant-monitoring-example.jpg"
-        imageAlt="Plant monitoring project using micro:bit with soil moisture sensor"
-        title="Build Projects That Matter"
-        body="The Tinker Kit isn't just about learning - it's about creating useful things. Build a plant monitor that tells you when to water, a motion-activated alarm for your room, or a game controller for the arcade game you'll code yourself."
-        layout="image-left"
-        background="white"
-      />
-
       {/* Project Showcase */}
       <ProjectShowcase
         title="Projects You'll Build"
+        highlight="39 hands-on projects with step-by-step online tutorials"
         subtitle="Start simple and progress to more complex builds. Each project teaches new concepts while creating something useful or fun."
         projects={[
           {
@@ -228,16 +197,6 @@ export default async function ElecfreaksTinkerKitPage() {
         background="white"
       />
 
-      {/* Controller Experience Section */}
-      <ImageTextBlock
-        image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_buttons_in_both_hands.jpg"
-        imageAlt="Hands holding micro:bit expansion board with button controls like a game controller"
-        title="Gaming Meets Learning"
-        body="Build your own game controller with the ADKeypad, then code games to play on the OLED display. Snake, Flappy Bird, reaction games - you'll learn programming concepts while creating something genuinely fun to play."
-        layout="image-right"
-        background="gray"
-      />
-
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"
@@ -274,6 +233,30 @@ export default async function ElecfreaksTinkerKitPage() {
           },
         ]}
         background="gray"
+      />
+
+      {/* What's in the Box */}
+      <WhatsIncluded
+        title="What's in the Box"
+        image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_project_with_interacting_hand.jpg"
+        imageAlt="ELECFREAKS Tinker Kit components and expansion board"
+        items={[
+          "Octopus:bit Breakout Board",
+          "Crystal Battery Box (2x AAA)",
+          "Micro-USB Cable",
+          "OLED Display Module",
+          "Mini Servo Motor (1.6kg)",
+          "PIR Motion Sensor",
+          "Soil Moisture Sensor",
+          "ADKeypad (5 Buttons)",
+          "Crash Sensor",
+          "Passive Buzzer",
+          "Red LED Brick",
+          "Green LED Brick",
+          "Blue LED Brick",
+          "Analog Rotation Potentiometer",
+        ]}
+        background="white"
       />
 
       {/* Final CTA */}

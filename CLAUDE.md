@@ -282,6 +282,7 @@ Product-specific images are stored in `assets/product/[product-handle]/` with th
 | `end-user/`   | Customer photos of projects and creations | Social proof, use in groups at small scale (not studio quality) |
 | `lifestyle/`  | Professional lifestyle photography        | Hero images, large format, primary visual content               |
 | `logo/`       | Official brand logos                      | Brand attribution, partnerships                                 |
+| `projects/`   | Small images representing individual projects/activities | ProjectShowcase card thumbnails, one per project  |
 
 **Guidelines:**
 - Filenames describe the photo content - use this to pair images with relevant sections

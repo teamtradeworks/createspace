@@ -366,14 +366,15 @@ Customer reviews with star ratings.
 
 ## ProjectShowcase
 
-Grid of project cards with numbered badges. Shows progression and variety.
+Grid of project cards with image thumbnails. Shows off projects, challenges, and activities included in the kit. Use the `highlight` prop to emphasise what's included (counts, format, etc.) and `moreText` to reinforce breadth.
 
 **Props:**
 
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
 | `title` | `string` | Yes | — | Section heading |
-| `subtitle` | `string` | No | — | Section subtitle |
+| `highlight` | `string` | No | — | Emphasised text below title — use for project counts and format (rendered larger, bold, in accent colour) |
+| `subtitle` | `string` | No | — | Section subtitle — use to describe progression or selection |
 | `projects` | `Project[]` | Yes | — | Array of projects |
 | `moreText` | `string` | No | — | Text below grid (e.g. "Plus 12 more!") |
 | `columns` | `2 \| 3` | No | `3` | Grid columns |
@@ -384,15 +385,20 @@ Grid of project cards with numbered badges. Shows progression and variety.
 { name: string; description: string; concepts?: string; image?: string }
 ```
 
+- `image` — Path to a small thumbnail image for the project card. Source from `assets/product/[slug]/projects/` and copy to `storefront/public/images/products/[slug]/projects/`. When provided, the image renders as a rounded thumbnail at the top of the card. When omitted, no thumbnail is shown.
+
+**Highlight text:** Renders between the title and subtitle in a larger, semibold accent colour (blue on white/gray, orange on navy). Use free-form text to communicate what's included — e.g. "39 hands-on projects with step-by-step online tutorials" or "15 real-world projects in a 170-page printed guidebook". This is more flexible than rigid count badges and reads naturally.
+
 **Example:**
 ```tsx
 <ProjectShowcase
-  title="Sample Projects"
-  subtitle="Just a few of the many projects you can build"
+  title="Projects You'll Build"
+  highlight="15 real-world projects in a 170-page printed guidebook"
+  subtitle="Each project builds on the last, gradually introducing new concepts."
   columns={3}
   projects={[
-    { name: "Line-Following Robot", description: "Follows a black line", concepts: "Sensors, loops" },
-    { name: "Remote Control Car", description: "Drive with your phone", concepts: "Motors, Bluetooth" },
+    { name: "Line-Following Robot", description: "Follows a black line", concepts: "Sensors, loops", image: "/images/products/example/projects/line-follower.jpg" },
+    { name: "Remote Control Car", description: "Drive with your phone", concepts: "Motors, Bluetooth", image: "/images/products/example/projects/remote-car.jpg" },
   ]}
   moreText="Plus 12 more projects included!"
 />
@@ -553,14 +559,21 @@ Checklist of box contents with optional image.
 |------|------|----------|---------|-------------|
 | `title` | `string` | No | `"What's in the Box"` | Section heading |
 | `items` | `string[]` | Yes | — | List of included items |
-| `image` | `string` | No | — | Optional product image |
+| `image` | `string` | Yes | — | Product image (unboxed kit, components laid out, or product shot) |
 | `imageAlt` | `string` | No | `"Box contents"` | Alt text |
 | `background` | `"white" \| "gray"` | No | `"gray"` | Background colour |
+
+**Image guidelines:**
+- Prefer an image showing the kit unboxed with all components laid out
+- If no dedicated unboxed image exists, use a lifestyle photo showing the product and its components
+- The image renders at square aspect ratio with `object-contain` so product shots work well
 
 **Example:**
 ```tsx
 <WhatsIncluded
   title="What's in the Box"
+  image="/images/products/example/kit-unboxed.jpg"
+  imageAlt="Kit unboxed showing all components"
   background="gray"
   items={[
     "Main controller unit",

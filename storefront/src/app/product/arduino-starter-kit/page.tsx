@@ -95,12 +95,12 @@ export default async function ArduinoStarterKitPage() {
         background="gray"
       />
 
-      {/* Learn Together Section */}
+      {/* What Is Arduino Section */}
       <ImageTextBlock
         image="/images/products/arduino-starter-kit/kids_working_on_project.jpg"
         imageAlt="Children working together on an Arduino project"
-        title="Learn Together, Build Together"
-        body="Arduino projects are perfect for collaborative learning. Work through the projects with a friend, sibling, or parent. Share ideas, solve problems together, and celebrate when your creation comes to life."
+        title="A Complete Electronics Lab in a Box"
+        body="The official Arduino Starter Kit is built around the Arduino UNO — the world's most popular learning board for electronics and coding. Inside you'll find over 100 components including LEDs, sensors, motors, a breadboard, and jumper wires, along with a 170-page printed guidebook that walks you through 15 real projects. Each project teaches actual C/C++ programming and hands-on circuit building, starting from absolute basics and gradually introducing more advanced concepts. No prior experience with electronics or coding is needed — the book explains everything from what a resistor does to how to write your first loop."
         layout="image-left"
         background="white"
       />
@@ -145,16 +145,6 @@ export default async function ArduinoStarterKitPage() {
         background="gray"
       />
 
-      {/* Everything Included Section */}
-      <ImageTextBlock
-        image="/images/products/arduino-starter-kit/kit-unboxed.jpg"
-        imageAlt="Arduino Starter Kit unboxed showing all components including Arduino board, breadboard, LCD display, motors, sensors, and project book"
-        title="Everything You Need in One Box"
-        body="Open the box and you're ready to start. The Arduino Starter Kit includes the Arduino UNO board, a full-colour 170-page project book, breadboard, jumper wires, LCD display, motors, sensors, LEDs, and over 100 components. No hunting for parts - just unbox and build."
-        layout="image-left"
-        background="white"
-      />
-
       {/* Life Skills Section */}
       <ImageTextBlock
         image="/images/products/arduino-starter-kit/arduino_board_laptop_on_desk_guidebook_open.jpg"
@@ -165,45 +155,10 @@ export default async function ArduinoStarterKitPage() {
         background="gray"
       />
 
-      {/* What's Included */}
-      <WhatsIncluded
-        title="What's in the Box"
-        items={[
-          "Arduino UNO R3 Board",
-          "170-page full-colour project book",
-          "USB cable for programming",
-          "Wooden base for building",
-          "Breadboard for prototyping",
-          "Jumper wires (70+ pieces)",
-          "LEDs (various colours)",
-          "Resistors (various values)",
-          "Pushbuttons and switches",
-          "Potentiometers",
-          "Light sensor (photoresistor)",
-          "Temperature sensor",
-          "Tilt sensor",
-          "LCD display",
-          "DC motor with propeller",
-          "Servo motor",
-          "Piezo buzzer",
-          "And many more components...",
-        ]}
-        background="gray"
-      />
-
-      {/* Guided Learning Section */}
-      <ImageTextBlock
-        image="/images/products/arduino-starter-kit/booklet_open_with_arduino_breadboard_on_top.jpg"
-        imageAlt="Arduino project book open with breadboard and components on top"
-        title="Your Guide to Every Project"
-        body="The 170-page project book isn't just instructions - it's a complete learning resource. Each project explains the 'why' behind every step, introducing electronics concepts and coding principles as you build. Clear diagrams show exactly where every wire goes."
-        layout="image-right"
-        background="white"
-      />
-
       {/* Project Showcase */}
       <ProjectShowcase
         title="Projects You'll Build"
+        highlight="15 real-world projects in a 170-page printed guidebook"
         subtitle="Each project builds on the last, gradually introducing new concepts and components."
         projects={[
           {
@@ -241,16 +196,6 @@ export default async function ArduinoStarterKitPage() {
         background="white"
       />
 
-      {/* Hands-On Experience Section */}
-      <ImageTextBlock
-        image="/images/products/arduino-starter-kit/arduino_boardboard_led_finger_press.jpg"
-        imageAlt="Finger pressing button on Arduino breadboard with LED circuit"
-        title="The Magic of Making It Work"
-        body="There's nothing quite like pressing a button and watching your LED light up for the first time. Each project brings that moment of discovery - the instant your code becomes something real you can see, hear, and touch."
-        layout="image-left"
-        background="gray"
-      />
-
       {/* Specifications */}
       <Specifications
         title="Technical Details"
@@ -267,16 +212,6 @@ export default async function ArduinoStarterKitPage() {
           { label: "Book Languages", value: "English (multi-language available)" },
         ]}
         background="white"
-      />
-
-      {/* From Beginner to Maker Section */}
-      <ImageTextBlock
-        image="/images/products/arduino-starter-kit/kit-iso.jpg"
-        imageAlt="Arduino Starter Kit box"
-        title="From Beginner to Maker"
-        body="Whether you're 10 or 60, the Arduino Starter Kit meets you where you are. The structured projects build confidence progressively - by the time you finish, you'll have the skills and creativity to design your own inventions."
-        layout="image-right"
-        background="gray"
       />
 
       {/* FAQ Section */}
@@ -344,6 +279,34 @@ export default async function ArduinoStarterKitPage() {
           },
         ]}
         background="white"
+      />
+
+      {/* What's in the Box */}
+      <WhatsIncluded
+        title="What's in the Box"
+        image="/images/products/arduino-starter-kit/kit-unboxed.jpg"
+        imageAlt="Arduino Starter Kit unboxed showing all components"
+        items={[
+          "Arduino UNO R3 Board",
+          "170-page full-colour project book",
+          "USB cable for programming",
+          "Wooden base for building",
+          "Breadboard for prototyping",
+          "Jumper wires (70+ pieces)",
+          "LEDs (various colours)",
+          "Resistors (various values)",
+          "Pushbuttons and switches",
+          "Potentiometers",
+          "Light sensor (photoresistor)",
+          "Temperature sensor",
+          "Tilt sensor",
+          "LCD display",
+          "DC motor with propeller",
+          "Servo motor",
+          "Piezo buzzer",
+          "And many more components...",
+        ]}
+        background="gray"
       />
 
       {/* Final CTA */}

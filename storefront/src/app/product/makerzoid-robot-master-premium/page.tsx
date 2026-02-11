@@ -75,12 +75,12 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         background="navy-card"
       />
 
-      {/* Hands-On Learning Section */}
+      {/* What Is Makerzoid Section */}
       <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/boy-coding-on-tablet-with-robot-on-floor.jpg"
         imageAlt="Child programming a Makerzoid robot using a tablet"
-        title="Code on Screen, Create in the Real World"
-        body="Watch your child's code come to life. They write a program on their tablet or phone, then see their robot respond instantly. This immediate feedback loop makes programming concepts click - loops make robots repeat actions, conditionals help them make decisions, and sensors let them react to the environment."
+        title="A Complete Robotics Learning System"
+        body="The Makerzoid Robot Master Premium is a programmable robotics kit with over 600 building blocks that lets your child build and code more than 200 different robot designs. From simple mechanical structures to Bluetooth-controlled robots with sensors, the kit spans three skill levels — Structural, Dynamics, and Programmable — each with dedicated video lessons. Children program their robots using Scratch 3.0, a visual drag-and-drop language designed for young learners, and see their code come to life instantly as their robot responds. The blocks are fully compatible with LEGO and LEGO Technic, so your child can combine them with pieces they already own."
         layout="image-left"
         background="white"
       />
@@ -152,16 +152,6 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         image="/images/products/makerzoid-robot-master-premium/kit-with-example-project-builds.jpg"
         imageAlt="Makerzoid Robot Master Premium kit contents with example robot builds"
         background="white"
-      />
-
-      {/* Years of Building Section */}
-      <ImageTextBlock
-        image="/images/products/makerzoid-robot-master-premium/robot-and-crane-builds.jpg"
-        imageAlt="Examples of robot and crane builds made with the Makerzoid kit"
-        title="Years of Building Possibilities"
-        body="With 200+ robot designs and three progressive skill levels, the Makerzoid Robot Master grows with your child. Start with simple structures, advance to motorised builds, then graduate to fully programmable robots. And when they've mastered all 47 lessons? The open-ended design lets them invent their own creations."
-        layout="image-left"
-        background="gray"
       />
 
       {/* Specifications */}

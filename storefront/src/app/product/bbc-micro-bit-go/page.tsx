@@ -80,12 +80,12 @@ export default async function MicrobitGoPage() {
         background="gray"
       />
 
-      {/* Code in Your Browser Section */}
+      {/* What Is micro:bit Section */}
       <ImageTextBlock
         image="/images/products/bbc-micro-bit-go/blocks-coding-example-in-makecode.png"
         imageAlt="MakeCode block-based coding interface showing a micro:bit program"
-        title="Code in Your Browser"
-        body="No software to install - just open MakeCode in any web browser and start coding. Drag colourful blocks to create programs, then flash them to your micro:bit with one click. When you're ready, switch to JavaScript or Python to see real code."
+        title="A Pocket-Sized Programmable Computer"
+        body="The BBC micro:bit V2 is a tiny computer — about the size of a credit card — designed from the ground up to teach coding. Despite its size, the board packs a 25-LED display, built-in speaker, microphone, accelerometer, compass, temperature sensor, and wireless connectivity. You program it directly in your web browser using Microsoft MakeCode's drag-and-drop blocks — no software to install. The Go bundle includes the micro:bit V2 board, a USB cable, battery holder, and batteries, so everything you need to start coding is right in the box."
         layout="image-left"
         background="white"
       />
@@ -140,32 +140,10 @@ export default async function MicrobitGoPage() {
         background="white"
       />
 
-      {/* What's Included */}
-      <WhatsIncluded
-        title="What's in the Box"
-        items={[
-          "BBC micro:bit V2 Board",
-          "Micro USB Cable",
-          "Battery Holder with JST Connector",
-          "2x AAA Batteries",
-          "Quick Start Guide",
-        ]}
-        background="gray"
-      />
-
-      {/* Expand Your Projects Section */}
-      <ImageTextBlock
-        image="/images/products/bbc-micro-bit-go/board-connected-wires-with-hand.jpg"
-        imageAlt="Hands connecting wires to a micro:bit board on a breadboard"
-        title="Expand When You're Ready"
-        body="Start with the built-in features, then grow. The edge connector lets you add motors, sensors, and LEDs. Use crocodile clips for quick experiments, or connect to breakout boards for more advanced projects."
-        layout="image-left"
-        background="white"
-      />
-
       {/* Project Showcase */}
       <ProjectShowcase
         title="Projects to Get Started"
+        highlight="200+ free projects available on microbit.org"
         subtitle="No extra parts needed - these projects use only what's built into the micro:bit."
         projects={[
           {
@@ -221,16 +199,6 @@ export default async function MicrobitGoPage() {
         background="white"
       />
 
-      {/* Young Makers Section */}
-      <ImageTextBlock
-        image="/images/products/bbc-micro-bit-go/boy-holding-microbit.jpg"
-        imageAlt="Young boy proudly holding his micro:bit creation"
-        title="From First Program to Proud Maker"
-        body="There's nothing quite like seeing your code come to life. The micro:bit transforms abstract concepts into tangible results - LEDs light up, sounds play, and sensors respond. Every project builds confidence and sparks curiosity for the next challenge."
-        layout="image-right"
-        background="gray"
-      />
-
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"
@@ -267,6 +235,21 @@ export default async function MicrobitGoPage() {
           },
         ]}
         background="gray"
+      />
+
+      {/* What's in the Box */}
+      <WhatsIncluded
+        title="What's in the Box"
+        image="/images/products/bbc-micro-bit-go/board-connected-wires-with-hand.jpg"
+        imageAlt="BBC micro:bit V2 board with connected wires"
+        items={[
+          "BBC micro:bit V2 Board",
+          "Micro USB Cable",
+          "Battery Holder with JST Connector",
+          "2x AAA Batteries",
+          "Quick Start Guide",
+        ]}
+        background="white"
       />
 
       {/* Final CTA */}
