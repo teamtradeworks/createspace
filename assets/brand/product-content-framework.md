@@ -89,7 +89,7 @@ Every product page must answer three parent questions. If a parent can't answer 
 | Element               | Purpose                   | Where it appears                                    |
 | --------------------- | ------------------------- | --------------------------------------------------- |
 | **End result**        | Show the finished product | Hero image + tagline                                |
-| **Learning outcomes** | Justify educational value | LearningOutcomes component + SkillTags              |
+| **Learning outcomes** | Justify educational value | Woven into page content (ImageTextBlocks, NumberedSteps, FeatureGrid) + SkillTags |
 | **What's included**   | Set expectations          | WhatsIncluded component                             |
 | **What's required**   | Remove purchase barriers  | FAQ or hero highlights (batteries, tools, software) |
 | **Longevity**         | Justify investment        | Body copy, NumberedSteps, or FeatureGrid            |
@@ -214,13 +214,6 @@ The storytelling component. Use for emotional, narrative content.
 - **Title:** Benefit-led, aspirational ("Learn Together, Build Together")
 - **Body:** 2-3 sentences. Paint a picture. Address a parent concern or aspiration
 - Match the image to the message — use lifestyle photos from `assets/product/[slug]/lifestyle/`
-
-### LearningOutcomes content
-
-4-6 specific learning outcomes.
-- Start each with a skill area, then specifics: "Basic electronics — circuits, voltage, resistance"
-- Mix technical skills with transferable skills
-- Use language parents understand, not curriculum jargon
 
 ### WhatsIncluded content
 

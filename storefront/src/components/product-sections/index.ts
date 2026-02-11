@@ -1,7 +1,6 @@
 export { HeroSection } from "./HeroSection";
 export { FeatureGrid } from "./FeatureGrid";
 export { QuickInfoBadges } from "./QuickInfoBadges";
-export { LearningOutcomes } from "./LearningOutcomes";
 export { WhatsIncluded } from "./WhatsIncluded";
 export { ImageTextBlock } from "./ImageTextBlock";
 export { ProductFAQ } from "./ProductFAQ";

@@ -63,7 +63,6 @@ These are fetched at runtime via `getProductByHandle()` and passed to `HeroSecti
 **Local images (from assets - for all sections except hero gallery):**
 - ImageTextBlock images
 - FeatureGrid custom icons
-- LearningOutcomes images
 - WhatsIncluded images
 - Any other section images
 
@@ -99,7 +98,6 @@ import {
   FeatureGrid,
   ImageTextBlock,
   WhatsIncluded,
-  LearningOutcomes,
   ProjectShowcase,
   Specifications,
   ProductFAQ,
@@ -234,7 +232,6 @@ Based on the research content, determine:
 
 **Recommended sections (include if content available):**
 - VideoEmbed (if video URL in research)
-- LearningOutcomes (if learning outcomes documented)
 - ProductFAQ (if FAQ content available)
 
 **Optional sections (include for flagship products):**
@@ -336,18 +333,6 @@ Add custom badges for:
 - Guide included
 - App required
 
-### Learning Outcomes
-
-Transform technical outcomes into parent-friendly language:
-
-```
-Research: "Introduces computational thinking and algorithmic problem-solving"
-Result: "Problem-solving and logical sequencing"
-
-Research: "Learn C/C++ programming fundamentals including variables, loops, and functions"
-Result: "Programming fundamentals - variables, loops, and functions"
-```
-
 ### What's Included
 
 List all items from research, grouped logically:
@@ -404,7 +389,6 @@ Before completing, verify:
 - [ ] All required sections included (HeroSection, QuickInfoBadges, WhatsIncluded, CallToAction, RelatedProducts)
 - [ ] HeroSection receives `product` prop (dynamic data) - no hardcoded prices/availability
 - [ ] Age/skill/supervision information present
-- [ ] Learning outcomes use parent-friendly language
 - [ ] No unexplained jargon
 - [ ] Images copied to public folder
 - [ ] Images optimized (resized and compressed to target sizes)
@@ -443,7 +427,7 @@ Output:
 > - Video embed
 > - 4 ImageTextBlock sections with lifestyle photos
 > - FeatureGrid (6 features)
-> - Learning outcomes (6 skills)
+> - Learning outcomes woven into ImageTextBlocks and content
 > - What's Included (18 items)
 > - Project showcase (6 projects + more)
 > - Specifications (10 specs)

@@ -6,7 +6,6 @@ import {
   FeatureGrid,
   QuickInfoBadges,
   NumberedSteps,
-  LearningOutcomes,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -138,21 +137,6 @@ export default async function ElecfreaksTinkerKitPage() {
         title="See Your Code Come to Life"
         body="There's something magical about writing code that controls real hardware. LEDs light up, sensors respond, servos move - every project creates a tangible result you can touch and show off."
         layout="image-right"
-        background="white"
-      />
-
-      {/* Learning Outcomes */}
-      <LearningOutcomes
-        title="Skills They'll Develop"
-        subtitle="The Tinker Kit builds foundational STEM skills through hands-on projects that combine coding with electronics."
-        outcomes={[
-          "Block-based programming with MakeCode",
-          "Understanding inputs and outputs (sensors, LEDs, servos)",
-          "Logical thinking through cause-and-effect projects",
-          "Reading and following technical instructions",
-          "Debugging and problem-solving",
-          "Creative project design and iteration",
-        ]}
         background="white"
       />
 

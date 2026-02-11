@@ -6,7 +6,6 @@ import {
   FeatureGrid,
   QuickInfoBadges,
   NumberedSteps,
-  LearningOutcomes,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -134,21 +133,6 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         body="Choose your learning style. The detailed paper manual guides step-by-step building with clear diagrams. Or use the Makerzoid app for interactive instructions plus video lessons. Most children can build independently - the instructions are designed for success without adult help."
         layout="image-right"
         background="white"
-      />
-
-      {/* Learning Outcomes */}
-      <LearningOutcomes
-        title="Skills They'll Develop"
-        subtitle="Research shows hands-on robotics education leads to 89% gains in coding skills and 67% gains in engineering understanding."
-        outcomes={[
-          "Programming fundamentals - variables, loops, and conditionals through Scratch",
-          "Mechanical engineering - gears, transmission, and structural design",
-          "Problem-solving - debugging code and fixing builds that don't work",
-          "Computational thinking - breaking complex tasks into simple steps",
-          "Patience and focus - following multi-step instructions to completion",
-          "Creativity - designing original robots beyond the 200 included",
-        ]}
-        background="gray"
       />
 
       {/* What's Included */}
