@@ -80,14 +80,33 @@ These are the **static content** items that need to be gathered from external so
 4. **Product Attributes**
    - Age range / recommended ages
    - Battery requirements (type, quantity, included or not)
-   - Number of projects or activities included
    - Guide/manual details (page count, format, language)
    - Whether soldering is required
    - Coding platform / programming language used
 
 > **Note:** These attributes are also displayed as QuickInfoBadges from Shopify metafields, but they must still be researched because they are referenced throughout the written product page content (FAQs, hero highlights, features, learning outcomes, etc.).
 
-5. **Learning Outcomes & Benefits** (HIGH PRIORITY - research thoroughly)
+5. **Projects, Challenges & Activities** (HIGH PRIORITY — research exhaustively)
+
+   This is critical for the ProjectShowcase section and a key selling point on every product page. The number of projects/challenges/activities is one of the most compelling reasons parents buy STEM kits.
+
+   - **Complete inventory** — list every single project, challenge, and activity included with the product. Not just a sample — the full list.
+   - **Categorise each item** as a project (guided build with a defined outcome), challenge (open-ended problem to solve), or activity (shorter exercise or experiment).
+   - **Total counts** — provide exact counts for each type (e.g. "15 projects, 8 challenges, 5 activities") and a combined total.
+   - **Brief description** of each item — one sentence covering what the child builds/does.
+   - **Concepts/skills taught** — what each item teaches (e.g. "loops, sensors, conditionals").
+   - **Difficulty progression** — note if items are ordered by difficulty or grouped by theme.
+
+   **Where to find this information:**
+   - Manufacturer product pages and documentation
+   - Official project guides, wikis, or tutorial sites
+   - Retailer listings (often list project names)
+   - Curriculum guides or teacher resources
+   - YouTube unboxing/review videos that show the project list
+
+   **Why this matters:** The project count and variety are among the strongest selling points. "39 hands-on projects" in a hero highlight is far more compelling than "learn to code." The complete list also feeds directly into the ProjectShowcase component on product pages.
+
+6. **Learning Outcomes & Benefits** (HIGH PRIORITY - research thoroughly)
    - Technical/STEM skills taught (circuits, coding, robotics, etc.)
    - Life skills developed (problem-solving, creativity, resilience, etc.)
    - Specific concepts covered
@@ -97,19 +116,19 @@ These are the **static content** items that need to be gathered from external so
    - What parents/educators will observe in children
    - Developmental benefits (confidence, growth mindset, emotional regulation)
 
-6. **Features & Specifications**
+7. **Features & Specifications**
    - Technical specifications
    - Key features and capabilities
    - Unique selling points
    - Build/project time estimates
 
-7. **Quality & Safety**
+8. **Quality & Safety**
    - Safety certifications
    - Materials used
    - Quality indicators
    - Durability information
 
-8. **Longevity & Expansion**
+9. **Longevity & Expansion**
    - Replayability information
    - Expansion packs or add-ons available
    - Community/support resources
@@ -283,13 +302,23 @@ The following sections contain researched static content for the product page.
 - [specific skill]
 - [specific skill]
 
-### Project-to-Skill Mapping
-[If product has multiple projects/activities, create a table:]
+### Complete Project, Challenge & Activity List
 
-| Project/Activity | Key Skills Learned |
-| ---------------- | ------------------ |
-| [Project 1]      | [Skills taught]    |
-| [Project 2]      | [Skills taught]    |
+**This section is critical.** List every project, challenge, and activity included — not just a sample. This feeds directly into the ProjectShowcase section and hero highlights on the product page.
+
+**Summary:**
+- **Projects:** [X] (guided builds with a defined outcome)
+- **Challenges:** [X] (open-ended problems to solve)
+- **Activities:** [X] (shorter exercises or experiments)
+- **Total:** [X]
+
+| # | Name | Type | Description | Skills/Concepts Taught |
+|---|------|------|-------------|----------------------|
+| 1 | [Name] | Project/Challenge/Activity | [One-sentence description] | [Key skills] |
+| 2 | [Name] | Project/Challenge/Activity | [One-sentence description] | [Key skills] |
+| ... | ... | ... | ... | ... |
+
+**Difficulty Progression:** [Note whether items are ordered by difficulty, grouped by theme, or independent]
 
 ### Life Skills & Character Development
 
@@ -434,6 +463,11 @@ Research is complete when:
 - ✅ Manufacturer's official page is found and content extracted
 - ✅ At least one retailer source is checked
 - ✅ All essential information categories are addressed
+- ✅ **Complete project/challenge/activity inventory** including:
+  - Every project, challenge, and activity listed (not just a sample)
+  - Each categorised as project, challenge, or activity
+  - Total counts for each type and overall
+  - Brief description and skills/concepts for each
 - ✅ **Learning outcomes are thoroughly researched** including:
   - Research-backed benefits of this type of learning
   - Project-to-skill mapping (if applicable)

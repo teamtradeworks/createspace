@@ -215,6 +215,29 @@ The storytelling component. Use for emotional, narrative content.
 - **Body:** 2-3 sentences. Paint a picture. Address a parent concern or aspiration
 - Match the image to the message — use lifestyle photos from `assets/product/[slug]/lifestyle/`
 
+### LearningOutcomes content
+
+4-6 specific learning outcomes.
+- Start each with a skill area, then specifics: "Basic electronics — circuits, voltage, resistance"
+- Mix technical skills with transferable skills
+- Use language parents understand, not curriculum jargon
+
+### ProjectShowcase content
+
+Show off the projects, challenges, and activities included with the product. This is a key selling point — parents want to see the breadth and variety of what their child will do.
+
+- **Title:** Action-oriented ("Projects You'll Build", "Projects, Challenges & Activities")
+- **Highlight:** Free-form emphasised text communicating what's included — counts, format, and context (e.g. "15 real-world projects in a 170-page printed guidebook", "39 hands-on projects with step-by-step online tutorials")
+- **Subtitle:** Supporting context about progression or selection (e.g. "Each project builds on the last, gradually introducing new concepts.")
+- **Projects array:** 6 items is the sweet spot — enough to show variety, not so many it overwhelms
+- **moreText:** Reinforce the full count and what else is included ("Plus 33 more projects including games, alarms, and displays")
+- **Images:** Source from `assets/product/[slug]/projects/` — one thumbnail per card
+
+The total project/challenge/activity count should also be highlighted in:
+- **Hero highlights** (e.g. "39 hands-on projects with online tutorials")
+- **FeatureGrid** (e.g. a feature card about the number of projects)
+- **NumberedSteps** (if project variety is a key differentiator)
+
 ### WhatsIncluded content
 
 Complete box contents list. Be specific.
@@ -255,6 +278,7 @@ Product-specific images are stored in `assets/product/[slug]/` with subfolders:
 | `end-user/`   | Customer photos of creations | CustomerShowcase (grouped, small format)            |
 | `animations/` | Short GIFs of product in use | Inline demos, feature highlights (small, sparingly) |
 | `logo/`       | Official brand logos         | Brand attribution                                   |
+| `projects/`   | Project/activity thumbnails  | ProjectShowcase (small, per-card thumbnails)        |
 
 **Guidelines:**
 - Select 3-5 most relevant images per page — don't use everything

@@ -244,11 +244,12 @@ export default function KitchenSinkPage() {
       {/* ProjectShowcase */}
       <ComponentWrapper
         name="ProjectShowcase"
-        description="Grid of project cards with numbered badges and 'Learn:' concepts. Supports 2 or 3 columns"
+        description="Grid of project cards with image thumbnails and 'Learn:' concepts. Highlight text emphasises project counts"
       >
         <ProjectShowcase
           title="Sample Projects"
-          subtitle="Just a few of the many projects you can build"
+          highlight="15+ projects, 8 challenges, and 5 activities in a full-colour guidebook"
+          subtitle="Here are a few favourites from the kit:"
           columns={3}
           background="gray"
           projects={[
@@ -256,16 +257,19 @@ export default function KitchenSinkPage() {
               name: "Line-Following Robot",
               description: "Build a robot that follows a black line on the floor",
               concepts: "Sensors, loops, conditionals",
+              image: "/images/illustrations/robot-orange.png",
             },
             {
               name: "Remote Control Car",
               description: "Create a car you can drive using your phone",
               concepts: "Motors, Bluetooth, controls",
+              image: "/images/illustrations/robot-orange.png",
             },
             {
               name: "Alarm System",
               description: "Design a motion-detecting security system",
               concepts: "Sensors, sounds, events",
+              image: "/images/illustrations/robot-orange.png",
             },
           ]}
           moreText="Plus 12 more projects included in the guidebook!"
@@ -344,11 +348,13 @@ export default function KitchenSinkPage() {
       {/* WhatsIncluded */}
       <ComponentWrapper
         name="WhatsIncluded"
-        description="Checklist of box contents in a responsive grid. Optional image on left"
+        description="Checklist of box contents with product image. Image is required"
       >
         <WhatsIncluded
           title="What's in the Box"
           background="gray"
+          image="/images/products/kitchen-sink/kit-contents.jpg"
+          imageAlt="Kit contents"
           items={[
             "Main controller unit",
             "2x DC motors",
@@ -359,28 +365,6 @@ export default function KitchenSinkPage() {
             "USB charging cable",
             "Project guidebook",
             "Quick start guide",
-          ]}
-        />
-      </ComponentWrapper>
-
-      {/* WhatsIncluded with Image */}
-      <ComponentWrapper
-        name="WhatsIncluded (with image)"
-        description="Box contents with product image. Image uses object-contain with padding"
-      >
-        <WhatsIncluded
-          title="Kit Contents"
-          background="white"
-          image="/images/products/kitchen-sink/kit-contents.jpg"
-          imageAlt="Kit contents"
-          items={[
-            "Arduino UNO board",
-            "USB cable",
-            "Breadboard",
-            "LED lights",
-            "Resistors",
-            "Sensors",
-            "Project book",
           ]}
         />
       </ComponentWrapper>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface Project {
   name: string;
   description: string;
@@ -7,6 +9,7 @@ interface Project {
 
 interface ProjectShowcaseProps {
   title: string;
+  highlight?: string;
   subtitle?: string;
   projects: Project[];
   moreText?: string;
@@ -16,6 +19,7 @@ interface ProjectShowcaseProps {
 
 export function ProjectShowcase({
   title,
+  highlight,
   subtitle,
   projects,
   moreText,
@@ -29,6 +33,7 @@ export function ProjectShowcase({
   }[background];
 
   const titleClass = background === "navy" ? "text-white" : "text-navy";
+  const highlightClass = background === "navy" ? "text-cs-orange" : "text-cs-blue";
   const subtitleClass = background === "navy" ? "text-white/70" : "text-gray-600";
   const cardBgClass = background === "navy" ? "bg-white/10" : "bg-gray-50";
   const cardBorderClass = background === "navy" ? "border-white/10" : "border-gray-100";
@@ -46,20 +51,34 @@ export function ProjectShowcase({
         <h2 className={`text-3xl font-semibold ${titleClass} text-center mb-4`}>
           {title}
         </h2>
+        {highlight && (
+          <p className={`text-xl font-semibold ${highlightClass} text-center max-w-2xl mx-auto mb-4`}>
+            {highlight}
+          </p>
+        )}
         {subtitle && (
-          <p className={`${subtitleClass} text-center max-w-2xl mx-auto mb-12`}>
+          <p className={`${subtitleClass} text-center max-w-2xl mx-auto mb-10`}>
             {subtitle}
           </p>
         )}
+        {!highlight && !subtitle && <div className="mb-6" />}
         <div className={`grid ${gridCols} gap-6`}>
           {projects.map((project, index) => (
             <div
               key={index}
               className={`${cardBgClass} rounded-xl p-6 border ${cardBorderClass}`}
             >
-              <div className="w-10 h-10 bg-cs-blue/10 rounded-full flex items-center justify-center mb-4">
-                <span className="text-cs-blue font-bold">{index + 1}</span>
-              </div>
+              {project.image && (
+                <div className="w-20 h-20 relative rounded-lg overflow-hidden mb-4">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover"
+                    sizes="80px"
+                  />
+                </div>
+              )}
               <h3 className={`text-lg font-semibold ${projectTitleClass} mb-2`}>
                 {project.name}
               </h3>
