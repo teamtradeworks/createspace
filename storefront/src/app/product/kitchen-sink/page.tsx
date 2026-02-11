@@ -69,9 +69,9 @@ export default function KitchenSinkPage() {
       {/* QuickInfoBadges */}
       <ComponentWrapper
         name="QuickInfoBadges"
-        description="Displays key product info at a glance: all badges derived from product metafields, plus skill level and supervision props"
+        description="Displays key product info at a glance: all badges derived automatically from product metafields"
       >
-        <QuickInfoBadges skill="beginner" supervision={false} />
+        <QuickInfoBadges />
       </ComponentWrapper>
 
       {/* SkillTags */}

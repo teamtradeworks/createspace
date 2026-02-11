@@ -50,11 +50,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges
-        product={product}
-        skill="beginner"
-        supervision={false}
-      />
+      <QuickInfoBadges product={product} />
 
       {/* Why Makerzoid Section */}
       <NumberedSteps

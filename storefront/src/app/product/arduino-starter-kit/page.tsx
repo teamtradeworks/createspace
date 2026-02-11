@@ -53,11 +53,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges
-        product={product}
-        skill="beginner"
-        supervision={false}
-      />
+      <QuickInfoBadges product={product} />
 
       {/* Skill Tags */}
       <SkillTags

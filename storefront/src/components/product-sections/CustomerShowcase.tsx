@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useEffect, useState } from "react";
 
 interface CustomerImage {
   src: string;
   alt: string;
   label?: string;
   description?: string;
+  /** Path to an mp4 video that plays on hover. The static image acts as the poster frame. */
+  animation?: string;
 }
 
 interface CustomerShowcaseProps {
@@ -30,6 +32,18 @@ function ImageCard({
   onLeave: () => void;
   className?: string;
 }) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (!image.animation || !videoRef.current) return;
+    if (isHovered) {
+      videoRef.current.play();
+    } else {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  }, [isHovered, image.animation]);
+
   return (
     <div
       className={`relative overflow-hidden rounded-xl ${className}`}
@@ -43,9 +57,23 @@ function ImageCard({
         className="object-cover transition-transform duration-300 hover:scale-105"
       />
 
+      {/* Animation video overlay — plays on hover */}
+      {image.animation && (
+        <video
+          ref={videoRef}
+          src={image.animation}
+          muted
+          loop
+          playsInline
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
+        />
+      )}
+
       {/* Label badge */}
       {image.label && (
-        <div className="absolute top-3 left-3 px-3 py-1 bg-navy/80 text-white text-xs font-medium rounded-full backdrop-blur-sm">
+        <div className="absolute top-3 left-3 px-3 py-1 bg-navy/80 text-white text-xs font-medium rounded-full backdrop-blur-sm z-10">
           {image.label}
         </div>
       )}
@@ -53,7 +81,7 @@ function ImageCard({
       {/* Hover overlay with description */}
       {image.description && (
         <div
-          className={`absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent flex items-end p-4 transition-opacity duration-300 ${
+          className={`absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/50 to-transparent flex items-end p-4 transition-opacity duration-300 z-10 ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         >

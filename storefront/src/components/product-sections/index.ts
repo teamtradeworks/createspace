@@ -12,4 +12,5 @@ export { SkillTags } from "./SkillTags";
 export { NumberedSteps } from "./NumberedSteps";
 export { ProjectShowcase } from "./ProjectShowcase";
 export { CallToAction } from "./CallToAction";
+export { CustomerShowcase } from "./CustomerShowcase";
 export { RelatedProducts } from "./RelatedProducts";
