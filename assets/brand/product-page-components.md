@@ -1,65 +1,226 @@
 # Product Page Components
 
-This document specifies all reusable components for product pages. Components are located in `storefront/src/components/product-sections/`.
+Technical reference for all reusable product page components. This is the **single source of truth** for component specs — do not duplicate props or examples elsewhere.
+
+Components are located in `storefront/src/components/product-sections/`.
 
 **Kitchen Sink Preview:** View all components at `/product/kitchen-sink`
 
 ---
 
-## QuickInfoBadges
+## Page Boilerplate
 
-Displays key product information at a glance using icon badges. All info badges are derived from Shopify metafields.
+Every custom product page follows this pattern. Create the file at `storefront/src/app/product/[slug]/page.tsx`.
+
+```tsx
+import { notFound } from "next/navigation";
+import { getProductByHandle, getProducts } from "@/lib/shopify";
+import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import {
+  HeroSection,
+  QuickInfoBadges,
+  // ... other components as needed
+  CallToAction,
+  RelatedProducts,
+} from "@/components/product-sections";
+
+const PRODUCT_HANDLE = "your-product-slug";
+
+export default async function ProductPage() {
+  const product = await getProductByHandle(PRODUCT_HANDLE);
+
+  if (!product) {
+    notFound();
+  }
+
+  const [allProducts, resolvedAddons] = await Promise.all([
+    getProducts(8),
+    resolveAddonsForHandle(PRODUCT_HANDLE),
+  ]);
+
+  const relatedProducts = allProducts
+    .filter((p) => p.handle !== product.handle)
+    .slice(0, 4);
+  const addons = serializeAddons(resolvedAddons);
+
+  return (
+    <>
+      {/* Components go here */}
+    </>
+  );
+}
+
+export async function generateMetadata() {
+  const product = await getProductByHandle(PRODUCT_HANDLE);
+
+  if (!product) {
+    return { title: "Product Not Found" };
+  }
+
+  return {
+    title: `${product.title} | CREATESPACE`,
+    description: "Product description under 160 characters.",
+  };
+}
+```
+
+---
+
+## CallToAction
+
+Call-to-action section with primary and optional secondary buttons.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `product` | `ProductDetail` | No | - | Product object with metafields (all badges derived automatically) |
-| `skill` | `"beginner" \| "intermediate" \| "advanced"` | No | - | Skill level with color coding |
-| `supervision` | `boolean` | No | - | Whether adult supervision is required |
-
-**Badges from Metafields:**
-All info badges are **automatically derived** from Shopify metafields. If a metafield is not set, that badge is hidden.
-
-| Badge | Metafield(s) | Display |
-|-------|--------------|---------|
-| Age | `custom.minimum_age`, `custom.maximum_age` | "X+" or "X-Y" |
-| Batteries | `custom.batteries_required`, `custom.batteries_included`, `custom.batteries_list` | "No batteries required" / "{type} (included)" / "{type} (not included)" |
-| Projects | `custom.projects` | Value as-is (e.g., "15+") |
-| Guide | `custom.guide` | Value as-is (e.g., "170-page book") |
-| Soldering | `custom.soldering` | "Required" / "Not Required" |
-| Coding | `custom.coding_platform` | Value as-is (e.g., "Scratch") |
+| `title` | `string` | Yes | — | Heading text |
+| `subtitle` | `string` | No | — | Subheading text |
+| `primaryLabel` | `string` | Yes | — | Primary button text |
+| `primaryHref` | `string` | Yes | — | Primary button link |
+| `secondaryLabel` | `string` | No | — | Secondary button text |
+| `secondaryHref` | `string` | No | — | Secondary button link |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"navy"` | Background colour |
 
 **Example:**
 ```tsx
-<QuickInfoBadges
-  product={product}
-  skill="beginner"
-  supervision={false}
+<CallToAction
+  title="Ready to Start the STEM Journey?"
+  subtitle="Order now and inspire a love of learning"
+  primaryLabel="Add to Cart"
+  primaryHref="#product-actions"
+  secondaryLabel="View All Kits"
+  secondaryHref="/shop"
+  background="navy"
 />
 ```
 
 ---
 
-## SkillTags
+## CustomerShowcase
 
-Displays STEM and life skill tags with color-coded styling.
+Gallery of end-user/customer photos with labels and hover descriptions. Adaptive grid layout based on image count.
+
+> **Note:** This component exists but is not yet exported from `index.ts`. Import directly from `@/components/product-sections/CustomerShowcase`.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `tags` | `string[]` | Yes | - | Array of skill tag names |
-| `title` | `string` | No | `"Skills"` | Label before tags |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background color |
+| `title` | `string` | No | `"Customer Creations"` | Section heading |
+| `subtitle` | `string` | No | — | Section subtitle |
+| `images` | `CustomerImage[]` | Yes | — | Array of customer images |
+| `background` | `"white" \| "gray"` | No | `"white"` | Background colour |
 
-**Pre-defined Tag Colors:**
-- **STEM Skills:** Circuits (blue), Coding (purple), Robotics (orange), Mechanical Engineering (green), Electronics (blue), Science (purple), Mathematics (orange)
-- **Life Skills:** Problem Solving (navy), Logical Thinking (navy), Creativity (yellow), Following Instructions (gray), Fine Motor Skills (gray), Patience & Focus (gray)
+**CustomerImage:**
+```ts
+{ src: string; alt: string; label?: string; description?: string }
+```
+
+**Layout behaviour:**
+- 1 image: full width, 16:9
+- 2 images: equal 2-column grid, 4:3
+- 3 images: large square left, 2 stacked right
+- 4 images: single row of 4 squares
+- 5 images: 2 top row (4:3), 3 bottom row (squares)
+- 6 images: 3x2 grid of squares
+- 7+ images: responsive 2/3/4-column grid
+
+**Image guidelines:**
+- Only use end-user photos from `assets/product/[slug]/end-user/`
+- Labels should be short (1-2 words): "First Build", "Classroom"
+- Descriptions show on hover
 
 **Example:**
 ```tsx
-<SkillTags
-  title="Skills Developed"
-  tags={["Circuits", "Coding", "Problem Solving", "Creativity"]}
+<CustomerShowcase
+  title="Customer Creations"
+  subtitle="See what our community has built"
+  images={[
+    {
+      src: "/images/products/example/end-user-robot.jpg",
+      alt: "Customer robot build",
+      label: "First Build",
+      description: "Built this robot in just one weekend!",
+    },
+    {
+      src: "/images/products/example/end-user-classroom.jpg",
+      alt: "Classroom project",
+      label: "Classroom",
+    },
+  ]}
+/>
+```
+
+---
+
+## FeatureGrid
+
+Grid of features with icons. Good for highlighting key selling points.
+
+**Props:**
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | No | `"Features"` | Section heading |
+| `subtitle` | `string` | No | — | Section subtitle |
+| `features` | `Feature[]` | Yes | — | Array of features |
+| `columns` | `2 \| 3 \| 4` | No | `3` | Grid columns |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"gray"` | Background colour |
+
+**Feature:**
+```ts
+{ icon: string; title: string; description: string }
+```
+
+**Available icons:**
+`code`, `sensor`, `battery`, `book`, `app`, `tools`, `lightbulb`, `puzzle`, `brain`, `globe`, `shield`, `robot`, `wifi`, `star`, `music`, `microphone`, `compass`, `touch`, `bluetooth`
+
+Can also use image paths (e.g., `/images/icons/custom.svg`).
+
+**Example:**
+```tsx
+<FeatureGrid
+  title="Why Choose This Kit"
+  columns={3}
+  background="gray"
+  features={[
+    { icon: "code", title: "Visual Coding", description: "Block-based programming" },
+    { icon: "robot", title: "Build Robots", description: "Working motors and sensors" },
+    { icon: "book", title: "Guided Learning", description: "Step-by-step instructions" },
+  ]}
+/>
+```
+
+---
+
+## HeroSection
+
+Product hero with image gallery, pricing, delivery info, and add-to-cart. Requires Shopify product data.
+
+**Props:**
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `product` | `ProductDetail` | Yes | — | Shopify product data |
+| `tagline` | `string` | No | — | Short tagline under title |
+| `highlights` | `string[]` | No | — | Key feature bullet points with checkmarks |
+| `heroImage` | `string` | No | — | Custom hero image (prepended to gallery) |
+| `addons` | `SerializedAddon[]` | No | — | Product add-ons for upselling |
+
+**Already includes:** Breadcrumb, image gallery, title, price, availability, delivery info, add-to-cart button.
+
+**Example:**
+```tsx
+<HeroSection
+  product={product}
+  tagline="The perfect introduction to electronics"
+  highlights={[
+    "15+ hands-on projects",
+    "No soldering required",
+    "Comprehensive guidebook included",
+  ]}
+  addons={addons}
 />
 ```
 
@@ -67,22 +228,22 @@ Displays STEM and life skill tags with color-coded styling.
 
 ## ImageTextBlock
 
-Split section with image and text content.
+Split section with image and text content side-by-side. Alternate `layout` for visual rhythm.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `image` | `string` | Yes | - | Image path |
+| `image` | `string` | Yes | — | Image path |
 | `imageAlt` | `string` | No | `""` | Alt text for image |
-| `title` | `string` | Yes | - | Section heading |
-| `body` | `string \| React.ReactNode` | Yes | - | Text content (string or JSX) |
+| `title` | `string` | Yes | — | Section heading |
+| `body` | `string \| React.ReactNode` | Yes | — | Text content (string or JSX) |
 | `layout` | `"image-left" \| "image-right"` | No | `"image-left"` | Image position |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background color |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
 
-**Image Guidelines:**
-- **Only use lifestyle images** - these are high-resolution, professional quality photos
-- Source from `assets/product/[slug]/lifestyle/` folder
-- Do not use end-user photos or animations (too low quality for this component)
+**Image guidelines:**
+- Only use lifestyle photos from `assets/product/[slug]/lifestyle/`
+- End-user photos and animations are too low quality for this component
 
 **Example:**
 ```tsx
@@ -103,14 +264,15 @@ Split section with image and text content.
 Checklist of learning outcomes with checkmark icons.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `outcomes` | `string[]` | Yes | - | List of learning outcomes |
 | `title` | `string` | No | `"What They'll Learn"` | Section heading |
-| `subtitle` | `string` | No | - | Optional subtitle |
-| `image` | `string` | No | - | Optional image path |
+| `subtitle` | `string` | No | — | Section subtitle |
+| `outcomes` | `string[]` | Yes | — | List of learning outcomes |
+| `image` | `string` | No | — | Optional side image |
 | `imageAlt` | `string` | No | `"Learning outcomes illustration"` | Alt text |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background color |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
 
 **Notes:**
 - Green checkmarks on white/gray backgrounds
@@ -132,53 +294,18 @@ Checklist of learning outcomes with checkmark icons.
 
 ---
 
-## FeatureGrid
-
-Grid of features with icons.
-
-**Props:**
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `features` | `Feature[]` | Yes | - | Array of features |
-| `title` | `string` | No | `"Features"` | Section heading |
-| `subtitle` | `string` | No | - | Optional subtitle |
-| `columns` | `2 \| 3 \| 4` | No | `3` | Number of columns |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"gray"` | Background color |
-
-**Feature:**
-```ts
-{ icon: string; title: string; description: string }
-```
-
-**Available Icons:** `code`, `sensor`, `battery`, `book`, `app`, `tools`, `lightbulb`, `puzzle`, `brain`, `globe`, `shield`, `robot`, `wifi`, `star`, `music`, `microphone`, `compass`, `touch`, `bluetooth`
-
-**Example:**
-```tsx
-<FeatureGrid
-  title="Why Choose This Kit"
-  columns={3}
-  background="gray"
-  features={[
-    { icon: "code", title: "Visual Coding", description: "Block-based programming" },
-    { icon: "robot", title: "Build Robots", description: "Working motors and sensors" },
-    { icon: "book", title: "Guided Learning", description: "Step-by-step instructions" },
-  ]}
-/>
-```
-
----
-
 ## NumberedSteps
 
-Sequential steps with numbered circles.
+Sequential steps with numbered circles. Good for "why choose this?" benefits.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `steps` | `Step[]` | Yes | - | Array of steps |
-| `title` | `string` | Yes | - | Section heading |
-| `subtitle` | `string` | No | - | Optional subtitle |
-| `columns` | `2 \| 3 \| 4` | No | `3` | Number of columns |
+| `title` | `string` | Yes | — | Section heading |
+| `subtitle` | `string` | No | — | Section subtitle |
+| `steps` | `Step[]` | Yes | — | Array of steps |
+| `columns` | `2 \| 3 \| 4` | No | `3` | Grid columns |
 | `background` | `"white" \| "gray" \| "navy" \| "navy-card"` | No | `"white"` | Background style |
 
 **Step:**
@@ -186,7 +313,7 @@ Sequential steps with numbered circles.
 { title: string; description: string }
 ```
 
-**Background Options:**
+**Background options:**
 - `navy-card`: Navy card container on white background (great for visual emphasis)
 
 **Example:**
@@ -195,7 +322,7 @@ Sequential steps with numbered circles.
   title="How It Works"
   subtitle="Getting started is easy"
   columns={3}
-  background="white"
+  background="navy-card"
   steps={[
     { title: "Unbox & Explore", description: "Familiarise yourself with components" },
     { title: "Build", description: "Follow guided instructions" },
@@ -206,19 +333,86 @@ Sequential steps with numbered circles.
 
 ---
 
-## ProjectShowcase
+## ProductFAQ
 
-Grid of project cards with numbered badges.
+Accordion-style frequently asked questions.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `projects` | `Project[]` | Yes | - | Array of projects |
-| `title` | `string` | Yes | - | Section heading |
-| `subtitle` | `string` | No | - | Optional subtitle |
-| `moreText` | `string` | No | - | Text below grid (e.g., "Plus 12 more!") |
-| `columns` | `2 \| 3` | No | `3` | Number of columns |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background color |
+| `title` | `string` | No | `"Frequently Asked Questions"` | Section heading |
+| `faqs` | `FAQ[]` | Yes | — | Array of FAQs |
+| `background` | `"white" \| "gray"` | No | `"white"` | Background colour |
+
+**FAQ:**
+```ts
+{ question: string; answer: string }
+```
+
+**Example:**
+```tsx
+<ProductFAQ
+  title="Frequently Asked Questions"
+  background="white"
+  faqs={[
+    { question: "What age is this suitable for?", answer: "Ages 10 and above." },
+    { question: "Are batteries included?", answer: "Yes, rechargeable battery included." },
+  ]}
+/>
+```
+
+---
+
+## ProductTestimonials
+
+Customer reviews with star ratings.
+
+**Props:**
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | No | `"What Parents Are Saying"` | Section heading |
+| `testimonials` | `Testimonial[]` | Yes | — | Array of testimonials |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
+
+**Testimonial:**
+```ts
+{ quote: string; author: string; role?: string; avatar?: string; rating?: number }
+```
+
+**Notes:**
+- Grid auto-adjusts for 1, 2, or 3+ testimonials
+- Star ratings use orange colour
+
+**Example:**
+```tsx
+<ProductTestimonials
+  title="What Parents Are Saying"
+  background="white"
+  testimonials={[
+    { quote: "My son loves it!", author: "Sarah M.", role: "Parent", rating: 5 },
+    { quote: "Great quality.", author: "David K.", rating: 5 },
+  ]}
+/>
+```
+
+---
+
+## ProjectShowcase
+
+Grid of project cards with numbered badges. Shows progression and variety.
+
+**Props:**
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | Yes | — | Section heading |
+| `subtitle` | `string` | No | — | Section subtitle |
+| `projects` | `Project[]` | Yes | — | Array of projects |
+| `moreText` | `string` | No | — | Text below grid (e.g. "Plus 12 more!") |
+| `columns` | `2 \| 3` | No | `3` | Grid columns |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
 
 **Project:**
 ```ts
@@ -241,88 +435,113 @@ Grid of project cards with numbered badges.
 
 ---
 
-## CustomerShowcase
+## QuickInfoBadges
 
-Gallery of end-user/customer photos with labels and hover descriptions.
+Displays key product information at a glance using icon badges. All badges are **derived automatically from Shopify product metafields** — just pass the product object.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `images` | `CustomerImage[]` | Yes | - | Array of customer images |
-| `title` | `string` | No | `"Customer Creations"` | Section heading |
-| `subtitle` | `string` | No | - | Optional subtitle |
-| `background` | `"white" \| "gray"` | No | `"white"` | Background color |
+| `product` | `ProductDetail` | No | — | Shopify product data (badges derived from metafields) |
 
-**CustomerImage:**
-```ts
-{ src: string; alt: string; label?: string; description?: string }
-```
+**Badges derived from metafields:**
 
-**Layout Behavior:**
-- **1 image:** Full width, 16:9 aspect ratio
-- **2 images:** Equal 2-column grid, 4:3 aspect ratio
-- **3 images:** Large square left, 2 stacked right (equal height split)
-- **4 images:** Single row of 4 squares
-- **5 images:** 2 images top row (4:3), 3 images bottom row (squares)
-- **6 images:** 3x2 grid of squares
-- **7+ images:** Responsive 2/3/4-column grid of squares
-
-**Image Guidelines:**
-- **Only use end-user photos** - customer-submitted, real-world usage photos
-- Source from `assets/product/[slug]/end-user/` folder
-- Do not use lifestyle or product photos (those belong in ImageTextBlock)
-- Labels should be short (1-2 words): "First Build", "Classroom", "Weekend Project"
-- Descriptions show on hover and can be longer
+| Badge | Metafield Key | Shown when |
+|-------|---------------|------------|
+| Age | `custom.minimum_age` / `custom.maximum_age` | Age metafield(s) set |
+| Batteries | `custom.batteries_required` / `custom.batteries_included` / `custom.batteries_list` | Battery metafield set |
+| Projects | `custom.projects` | Projects metafield set |
+| Guide | `custom.guide` | Guide metafield set |
+| Soldering | `custom.soldering` | Soldering metafield set |
+| Coding | `custom.coding_platform` | Coding platform metafield set |
 
 **Example:**
 ```tsx
-<CustomerShowcase
-  title="Customer Creations"
-  subtitle="See what our community has built"
-  background="white"
-  images={[
-    {
-      src: "/images/products/example/end-user-robot.jpg",
-      alt: "Customer robot build",
-      label: "First Build",
-      description: "Built this robot in just one weekend!",
-    },
-    {
-      src: "/images/products/example/end-user-classroom.jpg",
-      alt: "Classroom project",
-      label: "Classroom",
-      description: "Grade 6 students showing off their creations.",
-    },
-  ]}
+<QuickInfoBadges product={product} />
+```
+
+---
+
+## RelatedProducts
+
+Grid of related product cards. Requires Shopify product data.
+
+**Props:**
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | No | `"You May Also Like"` | Section heading |
+| `products` | `RelatedProduct[]` | Yes | — | Array of product data from Shopify |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"gray"` | Background colour |
+
+**Notes:**
+- Displays up to 4 products
+- Returns null if products array is empty
+
+**Example:**
+```tsx
+<RelatedProducts
+  title="You May Also Like"
+  products={relatedProducts}
+  background="gray"
 />
 ```
 
 ---
 
-## WhatsIncluded
+## SkillTags
 
-Checklist of box contents.
+Displays STEM and life skill tags with colour-coded styling.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `items` | `string[]` | Yes | - | List of included items |
-| `title` | `string` | No | `"What's in the Box"` | Section heading |
-| `image` | `string` | No | - | Optional product image |
-| `imageAlt` | `string` | No | `"Box contents"` | Alt text |
-| `background` | `"white" \| "gray"` | No | `"gray"` | Background color |
+| `tags` | `string[]` | Yes | — | Array of skill tag names |
+| `title` | `string` | No | `"Skills"` | Label before tags |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
+
+**Pre-defined tag colours:**
+- **STEM Skills:** Circuits (blue), Coding (purple), Robotics (orange), Mechanical Engineering (green), Electronics (blue), Science (purple), Mathematics (orange)
+- **Life Skills:** Problem Solving (navy), Logical Thinking (navy), Creativity (yellow), Following Instructions (gray), Fine Motor Skills (gray), Patience & Focus (gray)
 
 **Example:**
 ```tsx
-<WhatsIncluded
-  title="What's in the Box"
+<SkillTags
+  title="Skills Developed"
+  tags={["Circuits", "Coding", "Problem Solving", "Creativity"]}
+/>
+```
+
+---
+
+## Specifications
+
+Product specifications in table format.
+
+**Props:**
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `title` | `string` | No | `"Specifications"` | Section heading |
+| `specs` | `Spec[]` | Yes | — | Array of specifications |
+| `background` | `"white" \| "gray"` | No | `"gray"` | Background colour |
+
+**Spec:**
+```ts
+{ label: string; value: string }
+```
+
+**Example:**
+```tsx
+<Specifications
+  title="Technical Specifications"
   background="gray"
-  items={[
-    "Main controller unit",
-    "2x DC motors",
-    "Touch sensor",
-    "USB charging cable",
-    "Project guidebook",
+  specs={[
+    { label: "Recommended Age", value: "10+ years" },
+    { label: "Number of Pieces", value: "358 components" },
+    { label: "Battery", value: "Rechargeable Li-ion (included)" },
   ]}
 />
 ```
@@ -331,17 +550,18 @@ Checklist of box contents.
 
 ## VideoEmbed
 
-Embedded YouTube or Vimeo video.
+Embedded YouTube or Vimeo video with privacy-enhanced mode.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `url` | `string` | Yes | - | YouTube or Vimeo URL |
-| `title` | `string` | No | - | Optional section heading |
+| `url` | `string` | Yes | — | YouTube or Vimeo URL |
+| `title` | `string` | No | — | Optional section heading |
 | `aspectRatio` | `"16:9" \| "4:3" \| "1:1"` | No | `"16:9"` | Video aspect ratio |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background color |
+| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
 
-**Supported URL Formats:**
+**Supported URL formats:**
 - `https://www.youtube.com/watch?v=VIDEO_ID`
 - `https://youtu.be/VIDEO_ID`
 - `https://vimeo.com/VIDEO_ID`
@@ -358,181 +578,31 @@ Embedded YouTube or Vimeo video.
 
 ---
 
-## Specifications
+## WhatsIncluded
 
-Product specifications in table format.
+Checklist of box contents with optional image.
 
 **Props:**
+
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `specs` | `Spec[]` | Yes | - | Array of specifications |
-| `title` | `string` | No | `"Specifications"` | Section heading |
-| `background` | `"white" \| "gray"` | No | `"gray"` | Background color |
-
-**Spec:**
-```ts
-{ label: string; value: string }
-```
+| `title` | `string` | No | `"What's in the Box"` | Section heading |
+| `items` | `string[]` | Yes | — | List of included items |
+| `image` | `string` | No | — | Optional product image |
+| `imageAlt` | `string` | No | `"Box contents"` | Alt text |
+| `background` | `"white" \| "gray"` | No | `"gray"` | Background colour |
 
 **Example:**
 ```tsx
-<Specifications
-  title="Technical Specifications"
+<WhatsIncluded
+  title="What's in the Box"
   background="gray"
-  specs={[
-    { label: "Recommended Age", value: "10+ years" },
-    { label: "Number of Pieces", value: "358 components" },
-    { label: "Battery", value: "Rechargeable Li-ion (included)" },
-    { label: "Connectivity", value: "Bluetooth 5.0" },
+  items={[
+    "Main controller unit",
+    "2x DC motors",
+    "Touch sensor",
+    "USB charging cable",
+    "Project guidebook",
   ]}
-/>
-```
-
----
-
-## ProductTestimonials
-
-Customer reviews with star ratings.
-
-**Props:**
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `testimonials` | `Testimonial[]` | Yes | - | Array of testimonials |
-| `title` | `string` | No | `"What Parents Are Saying"` | Section heading |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background color |
-
-**Testimonial:**
-```ts
-{ quote: string; author: string; role?: string; avatar?: string; rating?: number }
-```
-
-**Notes:**
-- Grid auto-adjusts for 1, 2, or 3+ testimonials
-- Star ratings use orange color
-
-**Example:**
-```tsx
-<ProductTestimonials
-  title="What Parents Are Saying"
-  background="white"
-  testimonials={[
-    { quote: "My son loves it!", author: "Sarah M.", role: "Parent", rating: 5 },
-    { quote: "Great quality.", author: "David K.", rating: 5 },
-  ]}
-/>
-```
-
----
-
-## ProductFAQ
-
-Accordion-style frequently asked questions.
-
-**Props:**
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `faqs` | `FAQ[]` | Yes | - | Array of FAQs |
-| `title` | `string` | No | `"Frequently Asked Questions"` | Section heading |
-| `background` | `"white" \| "gray"` | No | `"white"` | Background color |
-
-**FAQ:**
-```ts
-{ question: string; answer: string }
-```
-
-**Example:**
-```tsx
-<ProductFAQ
-  title="Frequently Asked Questions"
-  background="white"
-  faqs={[
-    { question: "What age is this suitable for?", answer: "Ages 10 and above." },
-    { question: "Are batteries included?", answer: "Yes, rechargeable battery included." },
-  ]}
-/>
-```
-
----
-
-## CallToAction
-
-Call to action section with buttons.
-
-**Props:**
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `title` | `string` | Yes | - | Heading text |
-| `subtitle` | `string` | No | - | Subheading text |
-| `primaryLabel` | `string` | Yes | - | Primary button text |
-| `primaryHref` | `string` | Yes | - | Primary button link |
-| `secondaryLabel` | `string` | No | - | Secondary button text |
-| `secondaryHref` | `string` | No | - | Secondary button link |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"navy"` | Background color |
-
-**Example:**
-```tsx
-<CallToAction
-  title="Ready to Start the STEM Journey?"
-  subtitle="Order now and inspire a love of learning"
-  primaryLabel="Add to Cart"
-  primaryHref="#product-actions"
-  secondaryLabel="View All Kits"
-  secondaryHref="/shop"
-  background="navy"
-/>
-```
-
----
-
-## HeroSection
-
-Product hero with gallery, pricing, and add to cart. **Requires Shopify product data.**
-
-**Props:**
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `product` | `ProductDetail` | Yes | - | Shopify product data |
-| `tagline` | `string` | No | - | Short tagline under title |
-| `highlights` | `string[]` | No | - | Bullet points of key features |
-| `heroImage` | `string` | No | - | Custom hero image (prepended to gallery) |
-| `addons` | `SerializedAddon[]` | No | - | Product add-ons for upselling |
-
-**Example:**
-```tsx
-<HeroSection
-  product={product}
-  tagline="The perfect introduction to electronics"
-  highlights={[
-    "15+ hands-on projects",
-    "No soldering required",
-    "Comprehensive guidebook included",
-  ]}
-  addons={addons}
-/>
-```
-
----
-
-## RelatedProducts
-
-Grid of related product cards. **Requires Shopify product data.**
-
-**Props:**
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `products` | `RelatedProduct[]` | Yes | - | Array of product data |
-| `title` | `string` | No | `"You May Also Like"` | Section heading |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"gray"` | Background color |
-
-**Notes:**
-- Displays up to 4 products
-- Returns null if products array is empty
-
-**Example:**
-```tsx
-<RelatedProducts
-  title="You May Also Like"
-  products={relatedProducts}
-  background="gray"
 />
 ```

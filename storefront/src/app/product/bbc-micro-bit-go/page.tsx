@@ -51,11 +51,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges
-        product={product}
-        skill="beginner"
-        supervision={false}
-      />
+      <QuickInfoBadges product={product} />
 
       {/* Why micro:bit Section */}
       <NumberedSteps
