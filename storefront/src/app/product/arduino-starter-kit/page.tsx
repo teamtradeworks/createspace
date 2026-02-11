@@ -7,7 +7,6 @@ import {
   QuickInfoBadges,
   SkillTags,
   NumberedSteps,
-  LearningOutcomes,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -153,21 +152,6 @@ export default async function ArduinoStarterKitPage() {
         title="Everything You Need in One Box"
         body="Open the box and you're ready to start. The Arduino Starter Kit includes the Arduino UNO board, a full-colour 170-page project book, breadboard, jumper wires, LCD display, motors, sensors, LEDs, and over 100 components. No hunting for parts - just unbox and build."
         layout="image-left"
-        background="white"
-      />
-
-      {/* Learning Outcomes */}
-      <LearningOutcomes
-        title="Skills They'll Develop"
-        subtitle="The Arduino Starter Kit builds foundational STEM skills that prepare learners for future studies and careers."
-        outcomes={[
-          "Basic electronics - circuits, voltage, current, and resistance",
-          "Programming fundamentals - variables, loops, conditionals, and functions",
-          "Computational thinking and problem-solving",
-          "Reading schematics and technical documentation",
-          "Debugging and troubleshooting skills",
-          "Creative design and iteration",
-        ]}
         background="white"
       />
 

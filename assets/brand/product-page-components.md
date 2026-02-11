@@ -259,41 +259,6 @@ Split section with image and text content side-by-side. Alternate `layout` for v
 
 ---
 
-## LearningOutcomes
-
-Checklist of learning outcomes with checkmark icons.
-
-**Props:**
-
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `title` | `string` | No | `"What They'll Learn"` | Section heading |
-| `subtitle` | `string` | No | — | Section subtitle |
-| `outcomes` | `string[]` | Yes | — | List of learning outcomes |
-| `image` | `string` | No | — | Optional side image |
-| `imageAlt` | `string` | No | `"Learning outcomes illustration"` | Alt text |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
-
-**Notes:**
-- Green checkmarks on white/gray backgrounds
-- Orange checkmarks on navy background
-
-**Example:**
-```tsx
-<LearningOutcomes
-  title="What They'll Learn"
-  subtitle="Skills developed through hands-on experimentation"
-  outcomes={[
-    "Understand basic electronics and circuit design",
-    "Learn programming fundamentals",
-    "Develop problem-solving skills",
-  ]}
-  background="white"
-/>
-```
-
----
-
 ## NumberedSteps
 
 Sequential steps with numbered circles. Good for "why choose this?" benefits.

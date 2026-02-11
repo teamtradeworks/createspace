@@ -4,7 +4,6 @@ import { useState } from "react";
 import { CallToAction } from "@/components/product-sections/CallToAction";
 import { FeatureGrid } from "@/components/product-sections/FeatureGrid";
 import { ImageTextBlock } from "@/components/product-sections/ImageTextBlock";
-import { LearningOutcomes } from "@/components/product-sections/LearningOutcomes";
 import { NumberedSteps } from "@/components/product-sections/NumberedSteps";
 import { ProductFAQ } from "@/components/product-sections/ProductFAQ";
 import { ProductTestimonials } from "@/components/product-sections/ProductTestimonials";
@@ -131,44 +130,6 @@ export default function KitchenSinkPage() {
           }
           layout="image-right"
           background="gray"
-        />
-      </ComponentWrapper>
-
-      {/* LearningOutcomes */}
-      <ComponentWrapper
-        name="LearningOutcomes"
-        description="Checklist of learning outcomes with green checkmarks. Optional image and subtitle"
-      >
-        <LearningOutcomes
-          title="What They'll Learn"
-          subtitle="Skills developed through hands-on building and experimentation"
-          outcomes={[
-            "Understand basic electronics and circuit design",
-            "Learn programming fundamentals through visual coding",
-            "Develop problem-solving and critical thinking skills",
-            "Gain hands-on experience with mechanical engineering",
-            "Build confidence through completing projects",
-          ]}
-          background="white"
-        />
-      </ComponentWrapper>
-
-      {/* LearningOutcomes with Image */}
-      <ComponentWrapper
-        name="LearningOutcomes (with image, navy)"
-        description="Learning outcomes with accompanying image. Navy background uses orange checkmarks"
-      >
-        <LearningOutcomes
-          title="Skills for the Future"
-          outcomes={[
-            "Computational thinking and logic",
-            "Creative problem-solving approaches",
-            "Patience and attention to detail",
-            "Following instructions accurately",
-          ]}
-          image="/images/products/kitchen-sink/kids-with-electronics.jpg"
-          imageAlt="Kids with electronics"
-          background="navy"
         />
       </ComponentWrapper>
 

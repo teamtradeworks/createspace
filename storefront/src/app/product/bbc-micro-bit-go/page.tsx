@@ -6,7 +6,6 @@ import {
   FeatureGrid,
   QuickInfoBadges,
   NumberedSteps,
-  LearningOutcomes,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -138,21 +137,6 @@ export default async function MicrobitGoPage() {
         title="Learn Together, Build Together"
         body="The micro:bit's built-in radio lets devices talk to each other wirelessly. Create multiplayer games, send secret messages, or build collaborative projects. Learning is always more fun with friends."
         layout="image-right"
-        background="white"
-      />
-
-      {/* Learning Outcomes */}
-      <LearningOutcomes
-        title="Skills They'll Develop"
-        subtitle="Research shows 80% of students feel anyone can learn to code after using micro:bit. Here's what they'll learn along the way."
-        outcomes={[
-          "Computational thinking and problem-solving",
-          "Programming fundamentals - loops, variables, conditionals",
-          "Understanding inputs, outputs, and sensors",
-          "Debugging and iterative development",
-          "Creative design and project planning",
-          "Collaboration through wireless projects",
-        ]}
         background="white"
       />
 
