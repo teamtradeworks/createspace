@@ -244,6 +244,16 @@ export function formatPrice(amount: string | number, currencyCode: string): stri
     : `${currencyCode} ${withCommas}.${decimal}`;
 }
 
+export function formatAgeRange(minAge: Metafield, maxAge: Metafield): string | null {
+  if (!minAge?.value) return null;
+  const min = parseInt(minAge.value, 10);
+  if (isNaN(min)) return null;
+  if (!maxAge?.value) return `Ages ${min}+`;
+  const max = parseInt(maxAge.value, 10);
+  if (isNaN(max)) return `Ages ${min}+`;
+  return `Ages ${min}-${max}`;
+}
+
 // Metafield type
 export type Metafield = {
   value: string;

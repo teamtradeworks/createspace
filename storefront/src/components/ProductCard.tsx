@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Product, formatPrice } from "@/lib/shopify";
+import { Product, formatPrice, formatAgeRange } from "@/lib/shopify";
 
 type ProductCardProps = {
   product: Product;
@@ -9,6 +9,7 @@ type ProductCardProps = {
 export default function ProductCard({ product }: ProductCardProps) {
   const image = product.images.edges[0]?.node;
   const price = product.priceRange.minVariantPrice;
+  const ageRange = formatAgeRange(product.minAge, product.maxAge);
 
   return (
     <Link href={`/product/${product.handle}`} className="group">
@@ -39,6 +40,11 @@ export default function ProductCard({ product }: ProductCardProps) {
                 />
               </svg>
             </div>
+          )}
+          {ageRange && (
+            <span className="absolute top-2 right-2 bg-navy/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">
+              {ageRange}
+            </span>
           )}
         </div>
 

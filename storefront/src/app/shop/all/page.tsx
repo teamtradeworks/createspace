@@ -13,7 +13,7 @@ export default async function AllProductsPage() {
   const products = await getProducts(100);
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
