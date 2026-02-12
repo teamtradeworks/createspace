@@ -2,7 +2,7 @@
 
 **Product Handle:** makerzoid-smart-robot-premium
 **SKU:** MKZ-PF-PM
-**Research Date:** 2026-02-11
+**Research Date:** 2026-02-12 (Updated)
 
 ---
 
@@ -144,6 +144,65 @@ The kit's progressive design allows children to build models of increasing compl
 | Remote-controlled models (IR sensor) | Sensor logic, understanding responsive systems, real-time problem-solving |
 | Programmable models (Scratch Junior) | Coding logic, algorithmic thinking, computational thinking, creative programming |
 | Complex multi-function robots | Systems thinking, integration of multiple concepts, advanced design |
+
+#### Complete Project, Challenge & Activity List
+
+**This section provides a representative sample of the 200+ robot models available with the Smart Robot Premium kit.** The complete catalog of builds is accessible through the Makerzoid app's "Build" section, which provides detailed 3D animated instructions for each model.
+
+**Summary:**
+- **Total Models:** 200+ builds (ranging from basic structures to complex programmable robots)
+- **Instruction Format:** 2D and 3D step-by-step guides via app and paper manual
+- **Model Categories:** Musical, Farming/Agriculture, Training/Sports, Vehicles, Animals, and more
+- **Progressive Difficulty:** Models are organized by complexity level, allowing children to start simple and gradually progress to advanced builds
+
+**Representative Model List:**
+
+The following 18+ models represent the variety available across different categories. Note that this is not an exhaustive list—the Makerzoid app contains the full catalog of 200+ builds.
+
+| # | Name | Category | Description | Skills/Concepts Taught |
+|---|------|----------|-------------|----------------------|
+| 1 | Pianist | Musical | Build a robot that plays piano keyboard | Motors, mechanical movement, automation |
+| 2 | Bassist | Musical | Robot that plays bass guitar | Rhythmic movement, gear systems, control |
+| 3 | Guitarist | Musical | Robot with guitar-playing motion | Sequential actions, timing, mechanical design |
+| 4 | Violinist | Musical | Robot that mimics violin playing | Fine motor control, arm movement, articulation |
+| 5 | Drummer | Musical | Robot that plays drum kit | Repetitive motion, rhythm programming, coordination |
+| 6 | Farmer | Farming | Agricultural robot for farming tasks | Practical applications, work automation, utility design |
+| 7 | Harvester | Farming | Crop harvesting robot | Mechanical arms, collection systems, functional design |
+| 8 | Grinding Machine | Farming | Robot that performs grinding motion | Rotational mechanics, gear ratios, power transmission |
+| 9 | Sawing Machine | Farming | Robot with sawing mechanism | Back-and-forth motion, mechanical advantage, safety |
+| 10 | Rice Huller | Farming | Rice processing robot | Processing mechanics, automation, efficiency |
+| 11 | Boxing Man | Training/Sports | Robot that performs boxing movements | Arm articulation, punching motion, movement sequences |
+| 12 | High Bar Athlete | Training/Sports | Robot performing high bar gymnastics | Complex movement, balance, rotational motion |
+| 13 | Cyclist | Training/Sports | Robot on a bicycle | Wheel mechanics, balance, forward propulsion |
+| 14 | Push-Up Robot | Training/Sports | Robot doing push-up exercises | Up-down motion, structural stability, repetitive actions |
+| 15 | Rowing Machine | Training/Sports | Robot with rowing motion | Pull-push mechanics, bilateral movement, rhythm |
+| 16 | Pull Training Robot | Training/Sports | Robot performing pull exercises | Lever systems, mechanical advantage, motion patterns |
+| 17 | Running Robot | Training/Sports | Robot with running/walking gait | Leg mechanics, walking algorithms, balance systems |
+| 18 | Sit-Up Robot | Training/Sports | Robot doing sit-up motion | Hinge joints, abdominal motion, exercise mechanics |
+| 19+ | SUV / Car | Vehicles | Various vehicle builds | Wheels, steering, motorized movement |
+| 20+ | Dinosaur | Animals | Various dinosaur robot builds | Walking mechanisms, animatronics, creative design |
+| 21+ | Various Animals | Animals | Additional animal-inspired robots | Biomechanics, movement patterns, natural motion |
+
+**Additional Build Categories Available in App:**
+- **Vehicles:** Cars, SUVs, trucks, and other transportation robots
+- **Animals:** Dinosaurs and other creature-inspired builds
+- **Machines & Tools:** Various functional machine builds
+- **Basic Structures:** Simple builds for beginners to learn fundamentals
+- **Advanced Programmable Robots:** Complex multi-function robots with full Bluetooth control
+
+**Difficulty Progression:**
+
+The 200+ models are organized into progressive difficulty levels within the Makerzoid app:
+
+1. **Basic Structures (Beginner):** Simple builds using 20-50 pieces, focusing on fundamental assembly skills and understanding how blocks connect. Typically use Electric Mode (button control).
+
+2. **Simple Modules (Early Intermediate):** Introducing motor control and basic movements. Models have 50-100 pieces and begin incorporating the motor for simple automated actions.
+
+3. **Intermediate Builds (Intermediate):** More complex mechanical systems using 100-200 pieces. Introduction to IR sensor (Intelligent Mode) for interactive responses.
+
+4. **Advanced Robots (Advanced):** Complex multi-function robots using 200+ pieces. Full Bluetooth programming capabilities with Scratch Junior for custom behaviors and sequences.
+
+The progressive structure ensures that children can succeed at their current level and naturally advance to more challenging builds as their skills and confidence grow.
 
 #### Life Skills & Character Development
 
@@ -293,6 +352,7 @@ The kit includes extensive instructional support:
 ## Research Gaps
 
 The following information could not be found but would be valuable for the product page:
+- **Complete list of all 200+ robot models:** Only 18+ representative models could be identified from public sources. The complete catalog is accessible exclusively through the Makerzoid mobile app, which parents and children can download after purchase.
 - Specific build times for beginner vs. advanced models
 - Dimensions and weight of completed robots
 - Number of video courses included with the South African purchase
@@ -337,3 +397,10 @@ The following information could not be found but would be valuable for the produ
 ### Additional Educational Resources
 21. [Cambria Learn - The Benefits of Robotics for Kids](https://cambrilearn.com/blog/the-benefits-of-robotics-for-kids/)
 22. [Makerzoid Instruction Manual - Robot Master Premium](https://manuals.plus/asin/B09X5XWGT1)
+
+### Project and Model Information (2026-02-12 Research Update)
+23. [Makerzoid Smart Robot Premium - Makerzoid Europe](https://makerzoid.eu/en/product/smart-robot-premium-programmable-builder/)
+24. [Makerzoid 4-Product STEM Robot Kits Review - The Geek Church](https://thegeekchurch.com/educational-gadgets/makerzoid-4-product-stem-robot-kits-review/)
+25. [Makerzoid Smart Robot Collection](https://www.makerzoid.com/collections/smart-robot)
+26. [Amazon - Makerzoid Smart Robot 72-in-1](https://www.amazon.com/makerzoid-Educational-Electronic-Building-Robotics/dp/B0BZJFWQWM)
+27. [Makerzoid Smart Robot Premium - Official Product Page](https://www.makerzoid.com/products/makerzoid-smart-robot-premium-kit-scratch-junior-coding-toys-christmas-gift-for-kids)
