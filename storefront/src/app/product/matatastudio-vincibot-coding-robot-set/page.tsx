@@ -135,8 +135,8 @@ export default async function VinciBotPage() {
 
       {/* Block-Based to Python */}
       <ImageTextBlock
-        image="/images/products/matatastudio-vincibot-coding-robot-set/eight-sensors-diagram.jpg"
-        imageAlt="Diagram showing VinciBot's 8 built-in sensors and capabilities"
+        image="/images/products/matatastudio-vincibot-coding-robot-set/coding-interface-tablet.png"
+        imageAlt="MatataCode programming interface showing block-based coding on tablet"
         title="Starts Simple, Goes Deep"
         body="VinciBot uses MatataCode — a free programming app for Windows, Mac, iPad, and Android tablets. Beginners start with colourful drag-and-drop blocks (just like Scratch) to make the robot move, light up, and play sounds. As your child gains confidence, they transition to Python — a professional programming language used at Google, NASA, and universities worldwide. The same robot, the same app, but now they're writing real code. By age 12, they could be programming AI models, building IoT weather stations, or creating games — skills that put them years ahead of their peers."
         layout="image-right"
