@@ -181,22 +181,6 @@ export default async function ElecfreaksTinkerKitPage() {
         background="white"
       />
 
-      {/* Specifications */}
-      <Specifications
-        title="Technical Details"
-        specs={[
-          { label: "Breakout Board", value: "Octopus:bit (3.3V/5V switchable)" },
-          { label: "Compatibility", value: "micro:bit V1 and V2" },
-          { label: "Programming", value: "MakeCode, Scratch, JavaScript, Python" },
-          { label: "Power", value: "2x AAA batteries or USB" },
-          { label: "Servo Torque", value: "1.6kg/cm" },
-          { label: "Display", value: "0.96\" OLED (128x64)" },
-          { label: "Sensors", value: "PIR, Soil Moisture, Crash, Rotation" },
-          { label: "Outputs", value: "Buzzer, Servo, RGB LEDs, OLED" },
-        ]}
-        background="white"
-      />
-
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"
@@ -257,6 +241,22 @@ export default async function ElecfreaksTinkerKitPage() {
           "Analog Rotation Potentiometer",
         ]}
         background="white"
+      />
+
+      {/* Specifications */}
+      <Specifications
+        title="Technical Details"
+        specs={[
+          { label: "Breakout Board", value: "Octopus:bit (3.3V/5V switchable)" },
+          { label: "Compatibility", value: "micro:bit V1 and V2" },
+          { label: "Programming", value: "MakeCode, Scratch, JavaScript, Python" },
+          { label: "Power", value: "2x AAA batteries or USB" },
+          { label: "Servo Torque", value: "1.6kg/cm" },
+          { label: "Display", value: "0.96\" OLED (128x64)" },
+          { label: "Sensors", value: "PIR, Soil Moisture, Crash, Rotation" },
+          { label: "Outputs", value: "Buzzer, Servo, RGB LEDs, OLED" },
+        ]}
+        background="gray"
       />
 
       {/* Final CTA */}

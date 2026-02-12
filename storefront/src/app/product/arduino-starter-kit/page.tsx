@@ -5,7 +5,7 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  SkillTags,
+
   NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
@@ -53,19 +53,6 @@ export default async function ArduinoStarterKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Skill Tags */}
-      <SkillTags
-        tags={[
-          "Circuits",
-          "Coding",
-          "Electronics",
-          "Problem Solving",
-          "Logical Thinking",
-          "Creativity",
-        ]}
-        background="white"
-      />
 
       {/* Why Arduino Section */}
       <NumberedSteps
@@ -196,24 +183,6 @@ export default async function ArduinoStarterKitPage() {
         background="white"
       />
 
-      {/* Specifications */}
-      <Specifications
-        title="Technical Details"
-        specs={[
-          { label: "Microcontroller", value: "ATmega328P" },
-          { label: "Operating Voltage", value: "5V" },
-          { label: "Input Voltage", value: "7-12V recommended" },
-          { label: "Digital I/O Pins", value: "14 (6 provide PWM output)" },
-          { label: "Analog Input Pins", value: "6" },
-          { label: "Flash Memory", value: "32 KB" },
-          { label: "Clock Speed", value: "16 MHz" },
-          { label: "USB Connection", value: "Type-B" },
-          { label: "Dimensions", value: "68.6 x 53.4 mm" },
-          { label: "Book Languages", value: "English (multi-language available)" },
-        ]}
-        background="white"
-      />
-
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"
@@ -307,6 +276,24 @@ export default async function ArduinoStarterKitPage() {
           "And many more components...",
         ]}
         background="gray"
+      />
+
+      {/* Specifications */}
+      <Specifications
+        title="Technical Details"
+        specs={[
+          { label: "Microcontroller", value: "ATmega328P" },
+          { label: "Operating Voltage", value: "5V" },
+          { label: "Input Voltage", value: "7-12V recommended" },
+          { label: "Digital I/O Pins", value: "14 (6 provide PWM output)" },
+          { label: "Analog Input Pins", value: "6" },
+          { label: "Flash Memory", value: "32 KB" },
+          { label: "Clock Speed", value: "16 MHz" },
+          { label: "USB Connection", value: "Type-B" },
+          { label: "Dimensions", value: "68.6 x 53.4 mm" },
+          { label: "Book Languages", value: "English (multi-language available)" },
+        ]}
+        background="white"
       />
 
       {/* Final CTA */}

@@ -36,21 +36,15 @@ Quick-reference badges immediately after the hero. Displays as an "At a Glance" 
 
 **Component:** `QuickInfoBadges`
 
-#### 3. SkillTags (Optional)
-
-Display skill tags from the product content framework taxonomy. Reinforces learning value immediately after the badges.
-
-**Component:** `SkillTags`
-
 ### Convince
 
-#### 4. NumberedSteps (Recommended)
+#### 3. NumberedSteps (Recommended)
 
 "Why choose this?" positioning with numbered benefits. Place early to establish value before diving into details. 3 steps is the sweet spot.
 
 **Component:** `NumberedSteps` — use `background="navy-card"` for visual emphasis.
 
-#### 5. VideoEmbed (Recommended)
+#### 4. VideoEmbed (Recommended)
 
 Show the product in action. A 15-60 second video is worth a thousand photos. Place after the value proposition (NumberedSteps) to provide visual proof.
 
@@ -58,13 +52,13 @@ Show the product in action. A 15-60 second video is worth a thousand photos. Pla
 
 ### Educate
 
-#### 6. FeatureGrid (Optional)
+#### 5. FeatureGrid (Optional)
 
 Grid of features with icons. Good for highlighting what's included and why it matters. 3-6 features, 3 columns.
 
 **Component:** `FeatureGrid`
 
-#### 7. ProjectShowcase (Optional)
+#### 6. ProjectShowcase (Optional)
 
 Show off the projects, challenges, and activities included with the product. The total count is a powerful selling point — make it prominent in the subtitle and moreText. Show 6 representative items with image thumbnails sourced **strictly from `assets/product/[slug]/projects/` folder**. Best for products with 5+ distinct projects.
 
@@ -72,47 +66,47 @@ Show off the projects, challenges, and activities included with the product. The
 
 ### Reassure
 
-#### 8. CustomerShowcase (Required if end-user photos available)
+#### 7. CustomerShowcase (Required if end-user photos available)
 
 Gallery of real customer/end-user photos. Social proof from real families using the product. **IMPORTANT: If end-user photos exist in `assets/product/[slug]/end-user/`, CustomerShowcase MUST be included and MUST come immediately after ProjectShowcase. Include ALL available end-user photos — do not cherry-pick or limit the number.**
 
 **Component:** `CustomerShowcase` — use ALL images from `assets/product/[slug]/end-user/`.
 
-#### 9. ProductTestimonials (Optional)
+#### 8. ProductTestimonials (Optional)
 
-Curated testimonials from parents and educators. 2-3 testimonials from different perspectives. Quotes from real parents are more persuasive than a parts list.
+Curated testimonials from parents and educators. 2-3 testimonials from different perspectives. Quotes from real parents are more persuasive than a parts list. **Must be placed directly below CustomerShowcase when both sections are present.**
 
 **Component:** `ProductTestimonials`
 
 ### Details & Objections
 
-#### 10. ProductFAQ (Recommended)
+#### 9. ProductFAQ (Recommended)
 
 Address common concerns and questions. FAQs are conversion tools — the last barrier before the CTA. See the content framework for high-priority topics.
 
 **Component:** `ProductFAQ`
 
-#### 11. Specifications (Optional)
-
-Technical specs for products where it matters (microcontrollers, connectivity, dimensions). Skip for simple products.
-
-**Component:** `Specifications`
-
-#### 12. WhatsIncluded (Required)
+#### 10. WhatsIncluded (Required)
 
 Show exactly what's in the box. Removes uncertainty and sets expectations. Placed low on the page — parents want to know *why* before *what*. By this point they're already convinced and just confirming details.
 
 **Component:** `WhatsIncluded`
 
+#### 11. Specifications (Optional) — Always Last
+
+Technical specs for products where it matters (microcontrollers, connectivity, dimensions). Skip for simple products. **Specifications must always be the last content section before the Close sections (CallToAction and RelatedProducts).**
+
+**Component:** `Specifications`
+
 ### Close
 
-#### 13. CallToAction (Required)
+#### 12. CallToAction (Required)
 
 Final push to purchase. Always include.
 
 **Component:** `CallToAction` — use `background="navy"`. Primary button links to `#product-actions`, secondary to `/shop`.
 
-#### 14. RelatedProducts (Required)
+#### 13. RelatedProducts (Required)
 
 Keep them browsing if this isn't the right fit.
 
@@ -190,7 +184,7 @@ Use when the product is straightforward with fewer features to highlight:
 
 Use for flagship products with rich content, multiple projects, and available lifestyle imagery:
 
-All 14 sections as needed, with ImageTextBlocks scattered between dense sections for storytelling and visual breathing room.
+All 13 sections as needed, with ImageTextBlocks scattered between dense sections for storytelling and visual breathing room.
 
 ### Decision guide
 
@@ -202,7 +196,6 @@ All 14 sections as needed, with ImageTextBlocks scattered between dense sections
 | Is it a technical product (microcontroller, etc.)? | Add Specifications |
 | Do we have parent/educator testimonials? | Add ProductTestimonials |
 | Are there 3+ lifestyle photos? | Add multiple ImageTextBlocks |
-| Does it teach specific skills? | Add SkillTags |
 
 ---
 
@@ -235,16 +228,15 @@ All components are in `storefront/src/components/product-sections/`. For full pr
 | ------------------- | ----------- | ----------------- | ---------------------------- |
 | HeroSection         | Yes         | 1. Hook           | — (built-in)                 |
 | QuickInfoBadges     | Yes         | 2. Hook           | gray (fixed)                 |
-| SkillTags           | Optional    | 3. Hook           | white, gray, navy            |
-| NumberedSteps       | Recommended | 4. Convince       | white, gray, navy, navy-card |
-| VideoEmbed          | Recommended | 5. Convince       | white, gray, navy            |
-| FeatureGrid         | Optional    | 6. Educate        | white, gray, navy            |
-| ProjectShowcase     | Optional    | 7. Educate        | white, gray, navy            |
-| CustomerShowcase    | Optional    | 8. Reassure       | white, gray                  |
-| ProductTestimonials | Optional    | 9. Reassure       | white, gray, navy            |
-| ProductFAQ          | Recommended | 10. Details       | white, gray                  |
-| Specifications      | Optional    | 11. Details       | white, gray                  |
-| WhatsIncluded       | Yes         | 12. Details       | white, gray                  |
-| CallToAction        | Yes         | 13. Close         | navy, gray, white            |
-| RelatedProducts     | Yes         | 14. Close         | white, gray, navy            |
+| NumberedSteps       | Recommended | 3. Convince       | white, gray, navy, navy-card |
+| VideoEmbed          | Recommended | 4. Convince       | white, gray, navy            |
+| FeatureGrid         | Optional    | 5. Educate        | white, gray, navy            |
+| ProjectShowcase     | Optional    | 6. Educate        | white, gray, navy            |
+| CustomerShowcase    | Optional    | 7. Reassure       | white, gray                  |
+| ProductTestimonials | Optional    | 8. Reassure (after CustomerShowcase) | white, gray, navy            |
+| ProductFAQ          | Recommended | 9. Details        | white, gray                  |
+| WhatsIncluded       | Yes         | 10. Details       | white, gray                  |
+| Specifications      | Optional    | 11. Details (always last) | white, gray                  |
+| CallToAction        | Yes         | 12. Close         | navy, gray, white            |
+| RelatedProducts     | Yes         | 13. Close         | white, gray, navy            |
 | ImageTextBlock      | Optional    | Floating          | white, gray, navy            |
