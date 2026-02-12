@@ -277,7 +277,6 @@ export default async function VinciBotPage() {
       {/* What's Included */}
       <WhatsIncluded
         title="Everything in the Box"
-        subtitle="VinciBot arrives fully assembled and ready to program. Just charge the battery, download the free app, and start coding."
         image="/images/products/matatastudio-vincibot-coding-robot-set/whats-in-box.jpg"
         items={[
           "VinciBot robot (fully assembled with 8 sensors, LED matrix, speaker, motors)",
