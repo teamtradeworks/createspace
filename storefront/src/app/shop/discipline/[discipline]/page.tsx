@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getProducts, formatPrice } from "@/lib/shopify";
+import { getProducts, formatPrice, formatAgeRange } from "@/lib/shopify";
+import QuickAddButton from "@/components/QuickAddButton";
+import ProductCardImage from "@/components/ProductCardImage";
 
 const disciplines: Record<
   string,
@@ -104,7 +105,7 @@ export default async function DisciplineCategoryPage({ params }: Props) {
   const products = allProducts;
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-gray-50">
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
@@ -191,22 +192,20 @@ export default async function DisciplineCategoryPage({ params }: Props) {
           </p>
 
           {products.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {products.map((product) => (
                 <Link
                   key={product.id}
                   href={`/product/${product.handle}`}
-                  className="group"
+                  className="group bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
                 >
-                  <div className="bg-gray-50 rounded-xl overflow-hidden mb-3 aspect-square relative">
+                  <div className="bg-gray-50 aspect-square relative overflow-hidden">
                     {product.images.edges[0] ? (
-                      <Image
-                        src={product.images.edges[0].node.url}
-                        alt={
-                          product.images.edges[0].node.altText || product.title
-                        }
-                        fill
-                        className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      <ProductCardImage
+                        primarySrc={product.images.edges[0].node.url}
+                        primaryAlt={product.images.edges[0].node.altText || product.title}
+                        secondarySrc={product.images.edges[1]?.node.url}
+                        secondaryAlt={product.images.edges[1]?.node.altText || product.title}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
@@ -225,21 +224,37 @@ export default async function DisciplineCategoryPage({ params }: Props) {
                         </svg>
                       </div>
                     )}
-                  </div>
-                  <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2 mb-1">
-                    {product.title}
-                  </h3>
-                  {product.vendor && (
-                    <p className="text-xs text-gray-500 mb-1">
-                      {product.vendor}
-                    </p>
-                  )}
-                  <p className="text-cs-orange font-semibold">
-                    {formatPrice(
-                      product.priceRange.minVariantPrice.amount,
-                      product.priceRange.minVariantPrice.currencyCode
+                    {formatAgeRange(product.minAge, product.maxAge) && (
+                      <span className="absolute top-3 right-3 bg-navy/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                        {formatAgeRange(product.minAge, product.maxAge)}
+                      </span>
                     )}
-                  </p>
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug mb-2">
+                      {product.title}
+                    </h3>
+                    <p className="text-sm text-gray-500 line-clamp-2 mb-4">
+                      {product.description || "Hands-on STEM learning kit"}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      <span className="text-cs-orange font-bold">
+                        {formatPrice(
+                          product.priceRange.minVariantPrice.amount,
+                          product.priceRange.minVariantPrice.currencyCode
+                        )}
+                      </span>
+                      <QuickAddButton
+                        variantId={product.variants.edges[0]?.node.id}
+                        productId={product.id}
+                        title={product.title}
+                        price={parseFloat(product.priceRange.minVariantPrice.amount)}
+                        currencyCode={product.priceRange.minVariantPrice.currencyCode}
+                        handle={product.handle}
+                        image={product.images.edges[0]?.node.url}
+                      />
+                    </div>
+                  </div>
                 </Link>
               ))}
             </div>
