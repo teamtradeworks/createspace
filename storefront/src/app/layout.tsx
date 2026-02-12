@@ -7,6 +7,7 @@ import HeaderSkeleton from "@/components/HeaderSkeleton";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import { getProducts } from "@/lib/shopify";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
@@ -54,6 +55,7 @@ export default function RootLayout({
           </Suspense>
           <main>{children}</main>
           <Footer />
+          <SpeedInsights />
         </CartProvider>
       </body>
     </html>
