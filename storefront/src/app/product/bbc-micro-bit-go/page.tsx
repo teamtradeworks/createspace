@@ -181,24 +181,6 @@ export default async function MicrobitGoPage() {
         background="white"
       />
 
-      {/* Specifications */}
-      <Specifications
-        title="Technical Details"
-        specs={[
-          { label: "Processor", value: "ARM Cortex-M4 @ 64MHz" },
-          { label: "Memory", value: "512KB Flash, 128KB RAM" },
-          { label: "Display", value: "25 LEDs (5x5 grid)" },
-          { label: "Audio", value: "Built-in speaker and microphone" },
-          { label: "Sensors", value: "Accelerometer, compass, temperature, light, touch" },
-          { label: "Connectivity", value: "Bluetooth LE, Radio, USB" },
-          { label: "I/O Pins", value: "25 edge connector pins" },
-          { label: "Power", value: "USB or 2x AAA batteries" },
-          { label: "Dimensions", value: "4cm x 5cm" },
-          { label: "Programming", value: "MakeCode, Python, Scratch" },
-        ]}
-        background="white"
-      />
-
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"
@@ -250,6 +232,24 @@ export default async function MicrobitGoPage() {
           "Quick Start Guide",
         ]}
         background="white"
+      />
+
+      {/* Specifications */}
+      <Specifications
+        title="Technical Details"
+        specs={[
+          { label: "Processor", value: "ARM Cortex-M4 @ 64MHz" },
+          { label: "Memory", value: "512KB Flash, 128KB RAM" },
+          { label: "Display", value: "25 LEDs (5x5 grid)" },
+          { label: "Audio", value: "Built-in speaker and microphone" },
+          { label: "Sensors", value: "Accelerometer, compass, temperature, light, touch" },
+          { label: "Connectivity", value: "Bluetooth LE, Radio, USB" },
+          { label: "I/O Pins", value: "25 edge connector pins" },
+          { label: "Power", value: "USB or 2x AAA batteries" },
+          { label: "Dimensions", value: "4cm x 5cm" },
+          { label: "Programming", value: "MakeCode, Python, Scratch" },
+        ]}
+        background="gray"
       />
 
       {/* Final CTA */}

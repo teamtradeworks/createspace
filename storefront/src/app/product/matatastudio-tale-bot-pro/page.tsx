@@ -5,7 +5,7 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  SkillTags,
+
   NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
@@ -54,18 +54,6 @@ export default async function TaleBotProPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Skill Tags */}
-      <SkillTags
-        tags={[
-          "Coding",
-          "Problem Solving",
-          "Logical Thinking",
-          "Creativity",
-          "Following Instructions",
-        ]}
-        background="white"
-      />
 
       {/* Why Tale-Bot Pro Section */}
       <NumberedSteps
@@ -240,6 +228,35 @@ export default async function TaleBotProPage() {
         background="gray"
       />
 
+      {/* Testimonials */}
+      <ProductTestimonials
+        title="What Parents & Educators Say"
+        testimonials={[
+          {
+            quote:
+              "My 4-year-old loves the microphone feature and creates new stories every day. The screen-free design means I don't have to worry about screen time, and she's learning to code without even realising it.",
+            author: "Emma L.",
+            role: "Parent",
+            rating: 5,
+          },
+          {
+            quote:
+              "As an early childhood educator, I appreciate how Tale-Bot Pro makes coding developmentally appropriate for preschoolers. The interactive maps tie coding to science concepts, and the progression from buttons to Scratch is brilliant.",
+            author: "Hannah Garcia",
+            role: "Purdue University Engineering Educator",
+            rating: 5,
+          },
+          {
+            quote:
+              "Our 6-year-old found the advanced challenges in the booklet engaging, while our 3-year-old enjoys the simple movement and storytelling. One robot works for both children at different skill levels.",
+            author: "Good Play Guide Testers",
+            role: "Family Review",
+            rating: 5,
+          },
+        ]}
+        background="white"
+      />
+
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"
@@ -275,29 +292,6 @@ export default async function TaleBotProPage() {
               "Tale-Bot Pro has excellent replayability. The blank maps allow for open-ended creativity, the voice recording feature enables new storytelling adventures, LEGO compatibility offers limitless building combinations, and the Scratch programming support provides years of advanced learning. You can also add the MatataStudio Activity Box for additional maps and activities.",
           },
         ]}
-        background="white"
-      />
-
-      {/* Specifications */}
-      <Specifications
-        title="Technical Details"
-        specs={[
-          { label: "Battery", value: "Built-in 1500mAh rechargeable lithium battery" },
-          { label: "Battery Life", value: "Up to 4 hours between charges" },
-          { label: "Charging", value: "USB-C cable (included)" },
-          { label: "Recommended Charger", value: "5V/2A adapter" },
-          { label: "Maximum Commands", value: "Supports up to 256 commands" },
-          { label: "Audio Recording", value: "Up to 30 seconds per recording file" },
-          {
-            label: "Languages Supported",
-            value: "11 languages (English, French, German, Spanish, Mandarin, Thai, and more)",
-          },
-          { label: "Compatibility", value: "LEGO/DUPLO block compatible via accessory sets" },
-          { label: "Material", value: "Eco-friendly, food-grade material" },
-          { label: "Safety", value: "Lead-free, sturdy and fall-resistant design" },
-          { label: "Technology", value: "Smart OID interactive technology" },
-          { label: "Scratch Support", value: "Yes — compatible with Scratch programming" },
-        ]}
         background="gray"
       />
 
@@ -327,31 +321,25 @@ export default async function TaleBotProPage() {
         background="white"
       />
 
-      {/* Testimonials */}
-      <ProductTestimonials
-        title="What Parents & Educators Say"
-        testimonials={[
+      {/* Specifications */}
+      <Specifications
+        title="Technical Details"
+        specs={[
+          { label: "Battery", value: "Built-in 1500mAh rechargeable lithium battery" },
+          { label: "Battery Life", value: "Up to 4 hours between charges" },
+          { label: "Charging", value: "USB-C cable (included)" },
+          { label: "Recommended Charger", value: "5V/2A adapter" },
+          { label: "Maximum Commands", value: "Supports up to 256 commands" },
+          { label: "Audio Recording", value: "Up to 30 seconds per recording file" },
           {
-            quote:
-              "My 4-year-old loves the microphone feature and creates new stories every day. The screen-free design means I don't have to worry about screen time, and she's learning to code without even realising it.",
-            author: "Emma L.",
-            role: "Parent",
-            rating: 5,
+            label: "Languages Supported",
+            value: "11 languages (English, French, German, Spanish, Mandarin, Thai, and more)",
           },
-          {
-            quote:
-              "As an early childhood educator, I appreciate how Tale-Bot Pro makes coding developmentally appropriate for preschoolers. The interactive maps tie coding to science concepts, and the progression from buttons to Scratch is brilliant.",
-            author: "Hannah Garcia",
-            role: "Purdue University Engineering Educator",
-            rating: 5,
-          },
-          {
-            quote:
-              "Our 6-year-old found the advanced challenges in the booklet engaging, while our 3-year-old enjoys the simple movement and storytelling. One robot works for both children at different skill levels.",
-            author: "Good Play Guide Testers",
-            role: "Family Review",
-            rating: 5,
-          },
+          { label: "Compatibility", value: "LEGO/DUPLO block compatible via accessory sets" },
+          { label: "Material", value: "Eco-friendly, food-grade material" },
+          { label: "Safety", value: "Lead-free, sturdy and fall-resistant design" },
+          { label: "Technology", value: "Smart OID interactive technology" },
+          { label: "Scratch Support", value: "Yes — compatible with Scratch programming" },
         ]}
         background="gray"
       />

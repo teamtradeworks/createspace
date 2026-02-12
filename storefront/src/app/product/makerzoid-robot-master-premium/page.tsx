@@ -154,25 +154,6 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         background="white"
       />
 
-      {/* Specifications */}
-      <Specifications
-        title="Technical Details"
-        specs={[
-          { label: "Total Pieces", value: "600+ blocks" },
-          { label: "Robot Models", value: "200+ designs" },
-          { label: "Video Lessons", value: "47 courses (3 levels)" },
-          { label: "Dimensions", value: "42 x 30 x 11 cm" },
-          { label: "Weight", value: "1.7 kg" },
-          { label: "Material", value: "ABS plastic (safe, non-toxic)" },
-          { label: "Batteries", value: "2 x AA (not included)" },
-          { label: "Connectivity", value: "Bluetooth" },
-          { label: "Programming", value: "Scratch 3.0 / Blockly" },
-          { label: "App Compatibility", value: "iOS 9+, Android 5+" },
-          { label: "Web Platform", value: "lab.makerzoid.com" },
-        ]}
-        background="white"
-      />
-
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"
@@ -238,6 +219,25 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           },
         ]}
         background="white"
+      />
+
+      {/* Specifications */}
+      <Specifications
+        title="Technical Details"
+        specs={[
+          { label: "Total Pieces", value: "600+ blocks" },
+          { label: "Robot Models", value: "200+ designs" },
+          { label: "Video Lessons", value: "47 courses (3 levels)" },
+          { label: "Dimensions", value: "42 x 30 x 11 cm" },
+          { label: "Weight", value: "1.7 kg" },
+          { label: "Material", value: "ABS plastic (safe, non-toxic)" },
+          { label: "Batteries", value: "2 x AA (not included)" },
+          { label: "Connectivity", value: "Bluetooth" },
+          { label: "Programming", value: "Scratch 3.0 / Blockly" },
+          { label: "App Compatibility", value: "iOS 9+, Android 5+" },
+          { label: "Web Platform", value: "lab.makerzoid.com" },
+        ]}
+        background="gray"
       />
 
       {/* Final CTA */}
