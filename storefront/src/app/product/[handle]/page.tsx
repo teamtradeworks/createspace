@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
-import { getProductByHandle, getProducts, formatPrice, getProductRating } from "@/lib/shopify";
+import { getProductByHandle, formatPrice, getProductRating } from "@/lib/shopify";
 import { StarRating } from "@/components/StarRating";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
@@ -24,10 +23,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const hasDiscount =
     compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
   const ratingData = getProductRating(product.rating, product.ratingCount);
-
-  // Get related products
-  const allProducts = await getProducts(8);
-  const relatedProducts = allProducts.filter((p) => p.handle !== product.handle).slice(0, 4);
 
   // Extract images
   const images = product.images.edges.map((edge) => ({
@@ -277,45 +272,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
         productId={product.id}
         background="gray"
       />
-
-      {/* Related Products */}
-      {relatedProducts.length > 0 && (
-        <section className="py-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold text-navy mb-8">You May Also Like</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {relatedProducts.map((relatedProduct) => (
-                <Link
-                  key={relatedProduct.id}
-                  href={`/product/${relatedProduct.handle}`}
-                  className="group"
-                >
-                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden mb-3">
-                    {relatedProduct.images.edges[0] && (
-                      <Image
-                        src={relatedProduct.images.edges[0].node.url}
-                        alt={relatedProduct.title}
-                        width={300}
-                        height={300}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    )}
-                  </div>
-                  <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2">
-                    {relatedProduct.title}
-                  </h3>
-                  <p className="text-cs-orange font-semibold mt-1">
-                    {formatPrice(
-                      relatedProduct.priceRange.minVariantPrice.amount,
-                      relatedProduct.priceRange.minVariantPrice.currencyCode
-                    )}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
       {/* Final CTA Section */}
       <section className="py-12 bg-gray-50">

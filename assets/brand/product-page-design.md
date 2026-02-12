@@ -92,6 +92,8 @@ Show exactly what's in the box. Removes uncertainty and sets expectations. Place
 
 **Component:** `WhatsIncluded`
 
+**Image:** Use an image titled `whats-in-the-box` from `assets/product/[slug]/lifestyle/` showing the kit contents laid out. If unavailable, use a photo of the product box with some pieces beside it, or any lifestyle photo showing the unboxed kit.
+
 #### 11. Specifications (Optional) — Always Last
 
 Technical specs for products where it matters (microcontrollers, connectivity, dimensions). Skip for simple products. **Specifications must always be the last content section before the Close sections (CallToAction and RelatedProducts).**

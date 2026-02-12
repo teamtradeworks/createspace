@@ -7,7 +7,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Shop | CREATESPACE",
   description:
-    "Browse our curated collection of STEM educational products. Shop by age or discipline - Robotics, Electronics, Nature, Building, and Mathematics.",
+    "Browse our curated collection of STEM educational products. Shop by age or discipline - Robotics, Electronics, Nature, and Building.",
 };
 
 const ageCategories = [
@@ -53,9 +53,14 @@ const disciplines = [
     image: "/images/categories/robotics.jpg",
     color: "bg-cs-orange",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
+      <Image
+        src="/images/icons/robotics.png"
+        alt="Robotics"
+        width={48}
+        height={48}
+        className="brightness-0 invert"
+        style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 0.5px white) drop-shadow(0 0 0.5px white)' }}
+      />
     ),
   },
   {
@@ -77,9 +82,14 @@ const disciplines = [
     image: "/images/categories/nature.jpg",
     color: "bg-cs-green",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
-      </svg>
+      <Image
+        src="/images/icons/nature.png"
+        alt="Nature"
+        width={48}
+        height={48}
+        className="brightness-0 invert"
+        style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 0.5px white) drop-shadow(0 0 0.5px white)' }}
+      />
     ),
   },
   {
@@ -89,21 +99,14 @@ const disciplines = [
     image: "/images/categories/building.jpg",
     color: "bg-amber-500",
     icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
-      </svg>
-    ),
-  },
-  {
-    id: "mathematics",
-    title: "Mathematics",
-    description: "Make maths fun with puzzles and logic games",
-    image: "/images/categories/mathematics.jpg",
-    color: "bg-rose-500",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5v2.25h-7.5V6zM12 2.25c-1.892 0-3.758.11-5.593.322C5.307 2.7 4.5 3.65 4.5 4.757V19.5a2.25 2.25 0 002.25 2.25h10.5a2.25 2.25 0 002.25-2.25V4.757c0-1.108-.806-2.057-1.907-2.185A48.507 48.507 0 0012 2.25z" />
-      </svg>
+      <Image
+        src="/images/icons/building.png"
+        alt="Building"
+        width={48}
+        height={48}
+        className="brightness-0 invert"
+        style={{ filter: 'brightness(0) invert(1) drop-shadow(0 0 0.5px white) drop-shadow(0 0 0.5px white)' }}
+      />
     ),
   },
 ];
@@ -163,24 +166,25 @@ export default async function ShopPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {ageCategories.map((category) => (
               <Link
                 key={category.id}
                 href={`/shop/age/${category.id}`}
-                className="group relative overflow-hidden rounded-2xl p-6 text-white transition-transform hover:scale-[1.02]"
+                className="group rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all"
+                style={{ backgroundColor: '#f9fafb' }}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${category.color}`} />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
-                <div className="relative z-10">
-                  <span className="text-5xl mb-4 block">{category.icon}</span>
-                  <h3 className="text-2xl font-bold mb-1">{category.title}</h3>
-                  <p className="text-white/90 font-medium mb-2">{category.subtitle}</p>
-                  <p className="text-white/70 text-sm">{category.description}</p>
-                  <div className="mt-4 flex items-center text-sm font-medium">
-                    Browse Products
+                <div className="p-6">
+                  <div className={`h-1.5 w-12 rounded-full bg-gradient-to-r ${category.color} mb-4`} />
+                  <h3 className="text-xl font-bold text-navy mb-1">
+                    {category.title}
+                  </h3>
+                  <p className="text-sm text-cs-orange font-medium mb-2">{category.subtitle}</p>
+                  <p className="text-gray-600 text-sm mb-4">{category.description}</p>
+                  <span className="inline-flex items-center text-cs-orange font-medium text-sm">
+                    View Products
                     <svg
-                      className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                      className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -192,7 +196,7 @@ export default async function ShopPage() {
                         d="M13 7l5 5m0 0l-5 5m5-5H6"
                       />
                     </svg>
-                  </div>
+                  </span>
                 </div>
               </Link>
             ))}
@@ -216,7 +220,7 @@ export default async function ShopPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {disciplines.map((discipline) => (
               <Link
                 key={discipline.id}
