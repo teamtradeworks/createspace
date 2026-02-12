@@ -12,7 +12,7 @@ import {
   ProductFAQ,
   VideoEmbed,
   Specifications,
-  ProductTestimonials,
+  ProductReviews,
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
@@ -228,34 +228,8 @@ export default async function TaleBotProPage() {
         background="gray"
       />
 
-      {/* Testimonials */}
-      <ProductTestimonials
-        title="What Parents & Educators Say"
-        testimonials={[
-          {
-            quote:
-              "My 4-year-old loves the microphone feature and creates new stories every day. The screen-free design means I don't have to worry about screen time, and she's learning to code without even realising it.",
-            author: "Emma L.",
-            role: "Parent",
-            rating: 5,
-          },
-          {
-            quote:
-              "As an early childhood educator, I appreciate how Tale-Bot Pro makes coding developmentally appropriate for preschoolers. The interactive maps tie coding to science concepts, and the progression from buttons to Scratch is brilliant.",
-            author: "Hannah Garcia",
-            role: "Purdue University Engineering Educator",
-            rating: 5,
-          },
-          {
-            quote:
-              "Our 6-year-old found the advanced challenges in the booklet engaging, while our 3-year-old enjoys the simple movement and storytelling. One robot works for both children at different skill levels.",
-            author: "Good Play Guide Testers",
-            role: "Family Review",
-            rating: 5,
-          },
-        ]}
-        background="white"
-      />
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
       <ProductFAQ

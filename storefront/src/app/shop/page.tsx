@@ -1,4 +1,5 @@
-import { getProducts, formatPrice } from "@/lib/shopify";
+import { getProducts, formatPrice, getProductRating } from "@/lib/shopify";
+import { StarRating } from "@/components/StarRating";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -324,6 +325,15 @@ export default async function ShopPage() {
                 <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2 mb-1">
                   {product.title}
                 </h3>
+                {(() => {
+                  const ratingData = getProductRating(product.rating, product.ratingCount);
+                  return ratingData ? (
+                    <div className="flex items-center gap-1.5 mb-1">
+                      <StarRating rating={ratingData.average} size="sm" />
+                      <span className="text-xs text-gray-500">({ratingData.count})</span>
+                    </div>
+                  ) : null;
+                })()}
                 <p className="text-cs-orange font-semibold">
                   {formatPrice(
                     product.priceRange.minVariantPrice.amount,

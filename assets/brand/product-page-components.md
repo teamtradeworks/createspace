@@ -330,36 +330,30 @@ Accordion-style frequently asked questions.
 
 ---
 
-## ProductTestimonials
+## ProductReviews
 
-Customer reviews with star ratings.
+Customer reviews powered by Fera. Fetches reviews and ratings client-side from the Fera SDK. Automatically hidden when no reviews exist for the product.
 
 **Props:**
 
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `title` | `string` | No | `"What Parents Are Saying"` | Section heading |
-| `testimonials` | `Testimonial[]` | Yes | — | Array of testimonials |
+| `productId` | `string` | Yes | — | Shopify product GID (e.g. `product.id`) |
 | `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
 
-**Testimonial:**
-```ts
-{ quote: string; author: string; role?: string; avatar?: string; rating?: number }
-```
-
 **Notes:**
-- Grid auto-adjusts for 1, 2, or 3+ testimonials
-- Star ratings use orange colour
+- Reviews are fetched automatically from Fera — no manual content needed
+- Displays rating summary (stars + average + count), then individual review cards
+- Each review shows: customer avatar/initial, name, date, star rating, heading, body text, and photos
+- Paginated with "Show More Reviews" button (5 per page)
+- Component renders nothing while loading or if there are no reviews
+- Requires `NEXT_PUBLIC_FERA_PUBLIC_KEY` environment variable
 
 **Example:**
 ```tsx
-<ProductTestimonials
-  title="What Parents Are Saying"
+<ProductReviews
+  productId={product.id}
   background="white"
-  testimonials={[
-    { quote: "My son loves it!", author: "Sarah M.", role: "Parent", rating: 5 },
-    { quote: "Great quality.", author: "David K.", rating: 5 },
-  ]}
 />
 ```
 

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Product, formatPrice, formatAgeRange } from "@/lib/shopify";
+import { Product, formatPrice, formatAgeRange, getProductRating } from "@/lib/shopify";
+import { StarRating } from "@/components/StarRating";
 
 type ProductCardProps = {
   product: Product;
@@ -10,6 +11,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const image = product.images.edges[0]?.node;
   const price = product.priceRange.minVariantPrice;
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
+  const ratingData = getProductRating(product.rating, product.ratingCount);
 
   return (
     <Link href={`/product/${product.handle}`} className="group">
@@ -53,6 +55,12 @@ export default function ProductCard({ product }: ProductCardProps) {
           <h3 className="font-medium text-navy line-clamp-2 mb-2 group-hover:text-cs-orange transition-colors">
             {product.title}
           </h3>
+          {ratingData && (
+            <div className="flex items-center gap-1.5 mb-1">
+              <StarRating rating={ratingData.average} size="sm" />
+              <span className="text-xs text-gray-500">({ratingData.count})</span>
+            </div>
+          )}
           <p className="text-cs-orange font-semibold">
             {formatPrice(price.amount, price.currencyCode)}
           </p>

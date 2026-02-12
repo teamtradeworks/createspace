@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Product, formatPrice } from "@/lib/shopify";
+import { Product, formatPrice, getProductRating } from "@/lib/shopify";
+import { StarRating } from "@/components/StarRating";
 
 type AgeGroup = {
   id: string;
@@ -217,9 +218,18 @@ export default function FeaturedProducts({
                             {product.title}
                           </h3>
                         </Link>
-                        <p className="text-gray-500 text-sm mb-4 line-clamp-2">
+                        <p className="text-gray-500 text-sm mb-2 line-clamp-2">
                           {product.description || "STEM learning kit"}
                         </p>
+                        {(() => {
+                          const ratingData = getProductRating(product.rating, product.ratingCount);
+                          return ratingData ? (
+                            <div className="flex items-center gap-1.5 mb-2">
+                              <StarRating rating={ratingData.average} size="sm" />
+                              <span className="text-xs text-gray-500">({ratingData.count})</span>
+                            </div>
+                          ) : null;
+                        })()}
 
                         <div className="flex items-center justify-between">
                           <span className="text-xl font-bold text-navy">

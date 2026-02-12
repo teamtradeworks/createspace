@@ -70,6 +70,8 @@ export type Product = {
   };
   minAge: Metafield;
   maxAge: Metafield;
+  rating: Metafield;
+  ratingCount: Metafield;
 };
 
 export type Collection = {
@@ -126,6 +128,12 @@ const PRODUCTS_QUERY = `
           maxAge: metafield(namespace: "custom", key: "maximum_age") {
             value
           }
+          rating: metafield(namespace: "reviews", key: "rating") {
+            value
+          }
+          ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+            value
+          }
         }
       }
     }
@@ -166,6 +174,12 @@ const PRODUCTS_BY_TAG_QUERY = `
                 }
               }
             }
+          }
+          rating: metafield(namespace: "reviews", key: "rating") {
+            value
+          }
+          ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+            value
           }
         }
       }
@@ -332,6 +346,8 @@ export type ProductDetail = {
   guide: Metafield;
   soldering: Metafield;
   codingPlatform: Metafield;
+  rating: Metafield;
+  ratingCount: Metafield;
 };
 
 const PRODUCT_BY_HANDLE_QUERY = `
@@ -420,6 +436,12 @@ const PRODUCT_BY_HANDLE_QUERY = `
         value
       }
       codingPlatform: metafield(namespace: "custom", key: "coding_platform") {
+        value
+      }
+      rating: metafield(namespace: "reviews", key: "rating") {
+        value
+      }
+      ratingCount: metafield(namespace: "reviews", key: "rating_count") {
         value
       }
     }
@@ -522,6 +544,12 @@ const PRODUCTS_WITH_SKU_QUERY = `
               }
             }
           }
+          rating: metafield(namespace: "reviews", key: "rating") {
+            value
+          }
+          ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+            value
+          }
         }
       }
     }
@@ -565,6 +593,26 @@ export async function getProductBySku(
   }
 
   return null;
+}
+
+// Helper to parse Fera review rating from Shopify metafields
+export function getProductRating(
+  rating: Metafield,
+  ratingCount: Metafield
+): { average: number; count: number } | null {
+  if (!rating?.value || !ratingCount?.value) return null;
+
+  try {
+    const parsed = JSON.parse(rating.value);
+    const average = parseFloat(parsed.value);
+    const count = parseInt(ratingCount.value, 10);
+
+    if (isNaN(average) || isNaN(count) || count === 0) return null;
+
+    return { average, count };
+  } catch {
+    return null;
+  }
 }
 
 // Helper function to format age range from product metafields
