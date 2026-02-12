@@ -150,38 +150,37 @@ export default async function VinciBotPage() {
         moreText="After completing the 93 core activities, your child can create unlimited projects: AI gesture recognition, IoT smart home systems, algorithmic art, autonomous vehicles, and more."
         projects={[
           {
-            title: "AI Technology",
+            name: "AI Technology",
             description:
               "Train VinciBot to recognise hand gestures and respond with custom actions using on-device machine learning",
             image: "/images/products/matatastudio-vincibot-coding-robot-set/ai-technology.jpg",
-            featured: true,
           },
           {
-            title: "Obstacle Avoidance",
+            name: "Obstacle Avoidance",
             description:
               "Program VinciBot to navigate around objects using ultrasonic sensors and decision logic",
             image: "/images/products/matatastudio-vincibot-coding-robot-set/avoid-obstacles.jpg",
           },
           {
-            title: "LED Animations",
+            name: "LED Animations",
             description:
               "Create custom pixel art, animations, and emoji on the 18x6 LED matrix display",
             image: "/images/products/matatastudio-vincibot-coding-robot-set/led-display.jpg",
           },
           {
-            title: "Precision Drawing",
+            name: "Precision Drawing",
             description:
               "Use loops and geometry to draw shapes, patterns, and algorithmic art with a pen attachment",
             image: "/images/products/matatastudio-vincibot-coding-robot-set/vincibot-drawing.png",
           },
           {
-            title: "Music & Dance",
+            name: "Music & Dance",
             description:
               "Compose songs with 21 instrument sounds and choreograph dance routines with RGB lights",
             image: "/images/products/matatastudio-vincibot-coding-robot-set/vincitbot-with-lights-dancing-music.png",
           },
           {
-            title: "Remote Control Mode",
+            name: "Remote Control Mode",
             description:
               "Drive VinciBot with the included IR remote — no programming needed for instant fun",
             image: "/images/products/matatastudio-vincibot-coding-robot-set/ir-remote-control-mode.jpg",
@@ -240,7 +239,7 @@ export default async function VinciBotPage() {
       {/* FAQ Section */}
       <ProductFAQ
         title="Your Questions Answered"
-        questions={[
+        faqs={[
           {
             question: "Does my child need prior coding experience?",
             answer:
