@@ -8,6 +8,7 @@ This is a Shopify headless ecommerce store for our online store.  The website is
  - Deployed to Vercel
  - Uses the Shopify GraphQL storefront API
  - Design must work on desktop and mobile
+ - **Before pushing changes**, always run `npm run build` from the `storefront/` directory and verify it succeeds. Do not push if the build fails.
 
 ## Product Metafields
 
