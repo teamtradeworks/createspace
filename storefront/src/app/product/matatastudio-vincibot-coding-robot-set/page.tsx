@@ -150,40 +150,40 @@ export default async function VinciBotPage() {
         moreText="After completing the 93 core activities, your child can create unlimited projects: AI gesture recognition, IoT smart home systems, algorithmic art, autonomous vehicles, and more."
         projects={[
           {
-            name: "8 Built-In Sensors",
+            name: "AI & Machine Learning",
             description:
-              "Explore how VinciBot uses ultrasonic, colour, light, sound, and IR sensors to interact with the world",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/sensors-diagram.jpg",
+              "Train VinciBot to recognise hand gestures and respond with custom actions using on-device AI",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/ai-technology.png",
           },
           {
             name: "Line Following & Navigation",
             description:
               "Program VinciBot to follow lines precisely and navigate complex paths using sensors",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/line-following-project.jpeg",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/line-following.jpeg",
           },
           {
-            name: "Colour Detection & Sorting",
+            name: "LED Matrix Display",
             description:
-              "Use the colour sensor to identify and sort objects, create games, and respond to visual input",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/color-detection.png",
+              "Create custom pixel art, animations, and emoji on the 18x6 LED matrix display",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/led-display.png",
           },
           {
             name: "Precision Drawing",
             description:
               "Use loops and geometry to draw shapes, patterns, and algorithmic art with a pen attachment",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/vincibot-drawing.png",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/drawing.jpeg",
           },
           {
             name: "Music & Dance",
             description:
               "Compose songs with 21 instrument sounds and choreograph dance routines with RGB lights",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/vincitbot-with-lights-dancing-music.png",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/music-dance.jpeg",
           },
           {
-            name: "LEGO Building & Expansion",
+            name: "LEGO Compatible",
             description:
               "Combine VinciBot with LEGO bricks to build custom robots, machines, and creative contraptions",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/lego-building.png",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/lego-compatible.jpeg",
           },
         ]}
         background="gray"
