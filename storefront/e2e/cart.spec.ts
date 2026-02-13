@@ -15,11 +15,7 @@ test.describe("Cart", () => {
     await firstProduct.click();
     await page.waitForURL(/\/product\//);
 
-    const addToCart = page
-      .locator(
-        'button:has-text("Add to Cart"), button:has-text("Add to cart")'
-      )
-      .first();
+    const addToCart = page.getByRole("button", { name: /add to cart/i }).first();
     await expect(addToCart).toBeVisible();
     await addToCart.click();
 
@@ -40,11 +36,7 @@ test.describe("Cart", () => {
     await firstProduct.click();
     await page.waitForURL(/\/product\//);
 
-    const addToCart = page
-      .locator(
-        'button:has-text("Add to Cart"), button:has-text("Add to cart")'
-      )
-      .first();
+    const addToCart = page.getByRole("button", { name: /add to cart/i }).first();
     await expect(addToCart).toBeVisible();
     await addToCart.click();
 
