@@ -14,14 +14,13 @@ Every custom product page follows this pattern. Create the file at `storefront/s
 
 ```tsx
 import { notFound } from "next/navigation";
-import { getProductByHandle, getProducts } from "@/lib/shopify";
+import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import {
   HeroSection,
   QuickInfoBadges,
   // ... other components as needed
   CallToAction,
-  RelatedProducts,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "your-product-slug";
@@ -33,14 +32,7 @@ export default async function ProductPage() {
     notFound();
   }
 
-  const [allProducts, resolvedAddons] = await Promise.all([
-    getProducts(8),
-    resolveAddonsForHandle(PRODUCT_HANDLE),
-  ]);
-
-  const relatedProducts = allProducts
-    .filter((p) => p.handle !== product.handle)
-    .slice(0, 4);
+  const resolvedAddons = await resolveAddonsForHandle(PRODUCT_HANDLE);
   const addons = serializeAddons(resolvedAddons);
 
   return (
@@ -425,33 +417,6 @@ Displays key product information at a glance using icon badges. All badges are *
 **Example:**
 ```tsx
 <QuickInfoBadges product={product} />
-```
-
----
-
-## RelatedProducts
-
-Grid of related product cards. Requires Shopify product data.
-
-**Props:**
-
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `title` | `string` | No | `"You May Also Like"` | Section heading |
-| `products` | `RelatedProduct[]` | Yes | — | Array of product data from Shopify |
-| `background` | `"white" \| "gray" \| "navy"` | No | `"gray"` | Background colour |
-
-**Notes:**
-- Displays up to 4 products
-- Returns null if products array is empty
-
-**Example:**
-```tsx
-<RelatedProducts
-  title="You May Also Like"
-  products={relatedProducts}
-  background="gray"
-/>
 ```
 
 ---

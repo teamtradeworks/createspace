@@ -96,7 +96,7 @@ Show exactly what's in the box. Removes uncertainty and sets expectations. Place
 
 #### 11. Specifications (Optional) — Always Last
 
-Technical specs for products where it matters (microcontrollers, connectivity, dimensions). Skip for simple products. **Specifications must always be the last content section before the Close sections (CallToAction and RelatedProducts).**
+Technical specs for products where it matters (microcontrollers, connectivity, dimensions). Skip for simple products. **Specifications must always be the last content section before CallToAction.**
 
 **Component:** `Specifications`
 
@@ -107,12 +107,6 @@ Technical specs for products where it matters (microcontrollers, connectivity, d
 Final push to purchase. Always include.
 
 **Component:** `CallToAction` — use `background="navy"`. Primary button links to `#product-actions`, secondary to `/shop`.
-
-#### 13. RelatedProducts (Required)
-
-Keep them browsing if this isn't the right fit.
-
-**Component:** `RelatedProducts`
 
 ### ImageTextBlock (Floating — use throughout)
 
@@ -144,7 +138,6 @@ Never use the same background colour on two consecutive sections. Follow this ge
 - **VideoEmbed** → `gray`
 - **Content sections** → alternate `white` and `gray`, using ImageTextBlocks between dense sections
 - **CallToAction** → `navy` (always)
-- **RelatedProducts** → `gray`
 
 Use `navy` backgrounds sparingly — typically only for CallToAction and NumberedSteps (`navy-card`).
 
@@ -180,7 +173,6 @@ Use when the product is straightforward with fewer features to highlight:
 5. ProductFAQ
 6. WhatsIncluded
 7. CallToAction
-8. RelatedProducts
 
 ### Full page (flagship products)
 
@@ -240,5 +232,4 @@ All components are in `storefront/src/components/product-sections/`. For full pr
 | WhatsIncluded       | Yes         | 10. Details       | white, gray                  |
 | Specifications      | Optional    | 11. Details (always last) | white, gray                  |
 | CallToAction        | Yes         | 12. Close         | navy, gray, white            |
-| RelatedProducts     | Yes         | 13. Close         | white, gray, navy            |
 | ImageTextBlock      | Optional    | Floating          | white, gray, navy            |
