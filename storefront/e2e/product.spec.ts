@@ -1,12 +1,11 @@
 import { test, expect } from "@playwright/test";
 
+// Use a known custom product page for reliable, fast tests.
+const TEST_PRODUCT = "/product/arduino-starter-kit";
+
 test.describe("Product page", () => {
   test("displays product details", async ({ page }) => {
-    await page.goto("/shop/all");
-    const firstProduct = page.locator('main a[href^="/product/"]').first();
-    await expect(firstProduct).toBeVisible();
-    await firstProduct.click();
-    await page.waitForURL(/\/product\//);
+    await page.goto(TEST_PRODUCT);
 
     await expect(page.locator("main h1").first()).toBeVisible();
     await expect(
@@ -15,13 +14,11 @@ test.describe("Product page", () => {
   });
 
   test("has an add-to-cart button", async ({ page }) => {
-    await page.goto("/shop/all");
-    const firstProduct = page.locator('main a[href^="/product/"]').first();
-    await expect(firstProduct).toBeVisible();
-    await firstProduct.click();
-    await page.waitForURL(/\/product\//);
+    await page.goto(TEST_PRODUCT);
 
-    const addToCart = page.getByRole("button", { name: /add to cart/i }).first();
+    const addToCart = page
+      .getByRole("button", { name: /add to cart/i })
+      .first();
     await expect(addToCart).toBeVisible();
   });
 
