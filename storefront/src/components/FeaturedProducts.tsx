@@ -1,10 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Product, formatPrice, getProductRating } from "@/lib/shopify";
-import { StarRating } from "@/components/StarRating";
+import { Product } from "@/lib/shopify";
+import ProductCard from "@/components/ProductCard";
 
 type AgeGroup = {
   id: string;
@@ -28,8 +27,6 @@ export default function FeaturedProducts({
 }: FeaturedProductsProps) {
   const [activeTab, setActiveTab] = useState(ageGroups[0].id);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
-
   const products = productsByAge[activeTab] || [];
   const totalProducts = products.length;
   const visibleProducts = products.slice(currentIndex, currentIndex + 3);
@@ -141,122 +138,9 @@ export default function FeaturedProducts({
           {/* Products Grid */}
           {products.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {visibleProducts.map((product, index) => {
-                const isHovered = hoveredProduct === `${product.id}-${index}`;
-                const primaryImage = product.images.edges[0]?.node;
-                const hoverImage =
-                  product.images.edges[1]?.node ||
-                  product.images.edges[2]?.node ||
-                  primaryImage;
-                const price = product.priceRange.minVariantPrice;
-
-                return (
-                  <div
-                    key={`${product.id}-${index}`}
-                    className="group"
-                    onMouseEnter={() =>
-                      setHoveredProduct(`${product.id}-${index}`)
-                    }
-                    onMouseLeave={() => setHoveredProduct(null)}
-                  >
-                    <div className="bg-gradient-to-br from-slate-50 to-blue-50/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl">
-                      {/* Image Container */}
-                      <Link href={`/product/${product.handle}`}>
-                        <div className="aspect-square relative overflow-hidden">
-                          {primaryImage && (
-                            <>
-                              {/* Primary Image */}
-                              <Image
-                                src={primaryImage.url}
-                                alt={primaryImage.altText || product.title}
-                                fill
-                                className={`object-contain p-6 transition-all duration-500 ${
-                                  isHovered
-                                    ? "opacity-0 scale-105"
-                                    : "opacity-100 scale-100"
-                                }`}
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                              />
-                              {/* Hover Image */}
-                              <Image
-                                src={hoverImage.url}
-                                alt={hoverImage.altText || product.title}
-                                fill
-                                className={`object-contain p-6 transition-all duration-500 ${
-                                  isHovered
-                                    ? "opacity-100 scale-100"
-                                    : "opacity-0 scale-95"
-                                }`}
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                              />
-                            </>
-                          )}
-                          {!primaryImage && (
-                            <div className="w-full h-full flex items-center justify-center text-gray-300">
-                              <svg
-                                className="w-20 h-20"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={1}
-                                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                                />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                      </Link>
-
-                      {/* Product Info */}
-                      <div className="p-5">
-                        <Link href={`/product/${product.handle}`}>
-                          <h3 className="font-semibold text-navy text-lg mb-1 line-clamp-1 group-hover:text-cs-orange transition-colors">
-                            {product.title}
-                          </h3>
-                        </Link>
-                        <p className="text-gray-500 text-sm mb-2 line-clamp-2">
-                          {product.description || "STEM learning kit"}
-                        </p>
-                        {(() => {
-                          const ratingData = getProductRating(product.rating, product.ratingCount);
-                          return ratingData ? (
-                            <div className="flex items-center gap-1.5 mb-2">
-                              <StarRating rating={ratingData.average} size="sm" />
-                              <span className="text-xs text-gray-500">({ratingData.count})</span>
-                            </div>
-                          ) : null;
-                        })()}
-
-                        <div className="flex items-center justify-between">
-                          <span className="text-xl font-bold text-navy">
-                            {formatPrice(price.amount, price.currencyCode)}
-                          </span>
-                          <button className="inline-flex items-center text-cs-orange hover:text-cs-red font-medium text-sm transition-colors">
-                            Add to Cart
-                            <svg
-                              className="w-4 h-4 ml-1"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+              {visibleProducts.map((product, index) => (
+                <ProductCard key={`${product.id}-${index}`} product={product} />
+              ))}
             </div>
           ) : (
             <div className="text-center py-16 bg-gray-50 rounded-2xl">
