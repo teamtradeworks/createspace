@@ -8,14 +8,17 @@ test.describe("Homepage", () => {
 
   test("displays featured products", async ({ page }) => {
     await page.goto("/");
-    // Wait for products to load (they come from Shopify API)
-    const productCards = page.locator('[data-testid="product-card"], a[href^="/product/"]');
-    await expect(productCards.first()).toBeVisible({ timeout: 15000 });
+    const productCards = page.locator(
+      '[data-testid="product-card"], a[href^="/product/"]'
+    );
+    await expect(productCards.first()).toBeVisible();
   });
 
   test("header navigation links work", async ({ page }) => {
     await page.goto("/");
-    const shopLink = page.locator('header a[href="/shop"], header a[href="/shop/all"]').first();
+    const shopLink = page
+      .locator('header a[href="/shop"], header a[href="/shop/all"]')
+      .first();
     await expect(shopLink).toBeVisible();
   });
 
