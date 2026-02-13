@@ -109,7 +109,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       if (existingItem) {
         return prevItems.map((item) =>
           item.variantId === newItem.variantId
-            ? { ...item, quantity: item.quantity + quantity }
+            ? { ...item, ...newItem, quantity: item.quantity + quantity }
             : item
         );
       }
