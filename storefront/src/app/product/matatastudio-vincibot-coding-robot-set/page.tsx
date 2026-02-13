@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductByHandle, getProducts } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
@@ -239,18 +240,18 @@ export default async function VinciBotPage() {
           <>
             <p>VinciBot grows with your child through expansion kits that unlock new skills and projects. Add the AI Vision Kit to explore computer vision, face recognition, and object tracking with a 180° flip camera — teaching AI concepts through hands-on experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to design custom robots, moving machines, and mechanical contraptions. Both kits include guided activities and seamlessly integrate with VinciBot&apos;s programming platform. These aren&apos;t just accessories — they&apos;re pathways to advanced STEM learning that keep VinciBot relevant for years.</p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <a
+              <Link
                 href="/product/matatastudio-ai-vision-kit-for-vincibot"
                 className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
               >
                 View AI Vision Kit
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/product/matatastudio-creator-kit-for-vincibot"
                 className="inline-flex items-center justify-center px-6 py-3 bg-cs-orange text-white font-semibold rounded-lg hover:bg-cs-orange/90 transition-colors"
               >
                 View Creator Kit
-              </a>
+              </Link>
             </div>
           </>
         }
