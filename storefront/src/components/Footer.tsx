@@ -6,7 +6,7 @@ const footerLinks = {
     { name: "All Products", href: "/shop" },
     { name: "New Arrivals", href: "/shop/new" },
     { name: "Best Sellers", href: "/shop/best-sellers" },
-    { name: "By Age Group", href: "/shop/age-groups" },
+    { name: "By Age Group", href: "/shop" },
   ],
   support: [
     { name: "Contact Us", href: "/contact" },
