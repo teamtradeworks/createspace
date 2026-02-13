@@ -237,7 +237,7 @@ export default async function VinciBotPage() {
         title="Expand VinciBot's Capabilities"
         body={
           <>
-            <p>VinciBot grows with your child through expansion kits that unlock new skills and projects. Add the AI Vision Kit to explore computer vision, face recognition, and object tracking with a 180° flip camera — teaching AI concepts through hands-on experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to design custom robots, moving machines, and mechanical contraptions. Both kits include guided activities and seamlessly integrate with VinciBot's programming platform. These aren't just accessories — they're pathways to advanced STEM learning that keep VinciBot relevant for years.</p>
+            <p>VinciBot grows with your child through expansion kits that unlock new skills and projects. Add the AI Vision Kit to explore computer vision, face recognition, and object tracking with a 180° flip camera — teaching AI concepts through hands-on experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to design custom robots, moving machines, and mechanical contraptions. Both kits include guided activities and seamlessly integrate with VinciBot&apos;s programming platform. These aren&apos;t just accessories — they&apos;re pathways to advanced STEM learning that keep VinciBot relevant for years.</p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <a
                 href="/product/matatastudio-ai-vision-kit-for-vincibot"
