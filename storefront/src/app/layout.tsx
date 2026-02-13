@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import { getProducts } from "@/lib/shopify";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
@@ -57,6 +58,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <SpeedInsights />
+          <Analytics />
         </CartProvider>
         {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
           <Script
