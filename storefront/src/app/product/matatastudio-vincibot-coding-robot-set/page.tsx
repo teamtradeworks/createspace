@@ -153,13 +153,13 @@ export default async function VinciBotPage() {
             name: "AI Technology",
             description:
               "Train VinciBot to recognise hand gestures and respond with custom actions using on-device machine learning",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/ai-technology.jpg",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/ai-technology.png",
           },
           {
-            name: "Obstacle Avoidance",
+            name: "Line Following & Navigation",
             description:
-              "Program VinciBot to navigate around objects using ultrasonic sensors and decision logic",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/avoid-obstacles.jpg",
+              "Program VinciBot to follow lines precisely and navigate complex paths using sensors",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/line-following-project.jpeg",
           },
           {
             name: "LED Animations",
@@ -180,10 +180,10 @@ export default async function VinciBotPage() {
             image: "/images/products/matatastudio-vincibot-coding-robot-set/vincitbot-with-lights-dancing-music.png",
           },
           {
-            name: "Remote Control Mode",
+            name: "Block-Based Coding",
             description:
-              "Drive VinciBot with the included IR remote — no programming needed for instant fun",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/ir-remote-control-mode.jpg",
+              "Program VinciBot using visual drag-and-drop blocks — no typing required for beginners",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/coding-project.png",
           },
         ]}
         background="gray"
