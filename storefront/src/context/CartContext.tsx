@@ -19,6 +19,7 @@ interface CartContextType {
   itemCount: number;
   subtotal: number;
   currencyCode: string;
+  isHydrated: boolean;
   addItem: (item: Omit<CartItem, "quantity">, quantity?: number) => void;
   removeItem: (variantId: string) => void;
   updateQuantity: (variantId: string, quantity: number) => void;
@@ -145,6 +146,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         itemCount,
         subtotal,
         currencyCode,
+        isHydrated,
         addItem,
         removeItem,
         updateQuantity,
