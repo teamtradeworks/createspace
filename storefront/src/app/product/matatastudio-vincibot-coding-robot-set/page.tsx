@@ -215,6 +215,10 @@ export default async function VinciBotPage() {
             alt: "VinciBot drawing with a pen attachment",
           },
           {
+            src: "/images/products/matatastudio-vincibot-coding-robot-set/vincibot-moving-on-drawn-map.png",
+            alt: "VinciBot navigating on a custom drawn map",
+          },
+          {
             src: "/images/products/matatastudio-vincibot-coding-robot-set/vincibot-in-hand-with-remote-pointing-at-it.jpeg",
             alt: "Hand holding VinciBot with IR remote control",
           },
