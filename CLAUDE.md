@@ -8,6 +8,7 @@ This is a Shopify headless ecommerce store for our online store.  The website is
  - Deployed to Vercel
  - Uses the Shopify GraphQL storefront API
  - Design must work on desktop and mobile
+ - **Internal links must use Next.js `Link` from `next/link`** — never use raw `<a>` tags for internal routes. Raw `<a>` tags cause full page reloads, bypass client-side navigation, and can lose client state (e.g. cart). Reserve `<a>` for external URLs only.
  - **Before pushing changes**, always run `npm run build` from the `storefront/` directory and verify it succeeds. Do not push if the build fails.
  - **Before pushing changes**, always run `npm test` from the `storefront/` directory and verify all unit tests pass. Do not push if tests fail.
 
