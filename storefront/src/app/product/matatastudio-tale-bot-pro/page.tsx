@@ -76,7 +76,7 @@ export default async function TaleBotProPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro/finger-pressing-button-on-tale-bot-pro.png"
         imageAlt="Child's finger pressing command button on Tale-Bot Pro robot"
-        title="Hands-On Coding That Makes Sense"
+        title="How Tale-Bot Pro Works"
         body="Research shows that screen-free programmable robots are more effective than screen-based coding for developing computational thinking in preschoolers. Children benefit from connecting programming concepts to concrete, physical objects — pressing a button to make the robot move forward reinforces cause-and-effect learning in a way that touching a screen cannot. Tale-Bot Pro is designed for children as young as 3, with colour-coded command buttons and LED indicators that make debugging intuitive and visual, no reading required."
         layout="image-left"
         background="white"
@@ -84,7 +84,7 @@ export default async function TaleBotProPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Everything a Young Learner Needs"
+        title="What's Included"
         subtitle="Tale-Bot Pro is packed with features designed to engage, educate, and inspire creativity in preschoolers and early learners."
         features={[
           {
@@ -132,7 +132,7 @@ export default async function TaleBotProPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro/robot-holding-pens-and-drawing.jpeg"
         imageAlt="Tale-Bot Pro robot holding markers and drawing on paper"
-        title="Where Coding Meets Imagination"
+        title="Storytelling Through Code"
         body="Tale-Bot Pro isn't just a coding robot — it's a storytelling companion. Your child can transform the robot with replaceable sides, attach wings and arms, and use the built-in microphone to record imaginative narratives. Pair the robot with double-sided interactive maps featuring themes like frog life cycles and growing plants, or use the blank maps for open-ended exploration. The drawing feature lets children code the robot to create artwork, combining STEM learning with creative expression. Research shows that this kind of cross-curricular play strengthens both computational thinking and communication skills."
         layout="image-right"
         background="white"
@@ -194,7 +194,7 @@ export default async function TaleBotProPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Real Families, Real Learning"
+        title="What Families Are Building"
         subtitle="See how children around the world are learning to code, tell stories, and explore with Tale-Bot Pro."
         images={[
           {
@@ -313,7 +313,7 @@ export default async function TaleBotProPage() {
 
       {/* Final CTA */}
       <CallToAction
-        title="Ready to Start Their Coding Journey?"
+        title="Get Started with Tale-Bot Pro"
         subtitle="Give your child the gift of screen-free STEM learning. Tale-Bot Pro makes coding playful, tangible, and age-appropriate for preschoolers."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
