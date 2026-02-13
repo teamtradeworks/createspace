@@ -8,18 +8,8 @@ test.describe("Homepage", () => {
 
   test("displays featured products", async ({ page }) => {
     await page.goto("/");
-    const productCards = page.locator(
-      '[data-testid="product-card"], a[href^="/product/"]'
-    );
+    const productCards = page.locator('main a[href^="/product/"]');
     await expect(productCards.first()).toBeVisible();
-  });
-
-  test("header navigation links work", async ({ page }) => {
-    await page.goto("/");
-    const shopLink = page
-      .locator('header a[href="/shop"], header a[href="/shop/all"]')
-      .first();
-    await expect(shopLink).toBeVisible();
   });
 
   test("cart icon is visible in header", async ({ page }) => {

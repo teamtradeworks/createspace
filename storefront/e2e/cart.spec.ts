@@ -10,7 +10,7 @@ test.describe("Cart", () => {
 
   test("adding a product updates cart", async ({ page }) => {
     await page.goto("/shop/all");
-    const firstProduct = page.locator('a[href^="/product/"]').first();
+    const firstProduct = page.locator('main a[href^="/product/"]').first();
     await expect(firstProduct).toBeVisible();
     await firstProduct.click();
     await page.waitForURL(/\/product\//);
@@ -23,14 +23,19 @@ test.describe("Cart", () => {
     await expect(addToCart).toBeVisible();
     await addToCart.click();
 
+    // Wait for cart action to complete before navigating
+    await page.waitForTimeout(1000);
     await page.goto("/cart");
-    const cartItem = page.locator("text=/R[\\d,]+\\.\\d{2}/").first();
+    const cartItem = page
+      .locator("main")
+      .locator("text=/R[\\d,]+\\.\\d{2}/")
+      .first();
     await expect(cartItem).toBeVisible();
   });
 
   test("delivery cost shown in cart", async ({ page }) => {
     await page.goto("/shop/all");
-    const firstProduct = page.locator('a[href^="/product/"]').first();
+    const firstProduct = page.locator('main a[href^="/product/"]').first();
     await expect(firstProduct).toBeVisible();
     await firstProduct.click();
     await page.waitForURL(/\/product\//);
@@ -43,6 +48,8 @@ test.describe("Cart", () => {
     await expect(addToCart).toBeVisible();
     await addToCart.click();
 
+    // Wait for cart action to complete before navigating
+    await page.waitForTimeout(1000);
     await page.goto("/cart");
     const deliveryInfo = page
       .locator("text=/deliver|R115|free delivery/i")

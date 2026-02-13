@@ -3,20 +3,20 @@ import { test, expect } from "@playwright/test";
 test.describe("Product page", () => {
   test("displays product details", async ({ page }) => {
     await page.goto("/shop/all");
-    const firstProduct = page.locator('a[href^="/product/"]').first();
+    const firstProduct = page.locator('main a[href^="/product/"]').first();
     await expect(firstProduct).toBeVisible();
     await firstProduct.click();
     await page.waitForURL(/\/product\//);
 
-    await expect(page.locator("h1").first()).toBeVisible();
+    await expect(page.locator("main h1").first()).toBeVisible();
     await expect(
-      page.locator("text=/R[\\d,]+\\.\\d{2}/").first()
+      page.locator("main").locator("text=/R[\\d,]+\\.\\d{2}/").first()
     ).toBeVisible();
   });
 
   test("has an add-to-cart button", async ({ page }) => {
     await page.goto("/shop/all");
-    const firstProduct = page.locator('a[href^="/product/"]').first();
+    const firstProduct = page.locator('main a[href^="/product/"]').first();
     await expect(firstProduct).toBeVisible();
     await firstProduct.click();
     await page.waitForURL(/\/product\//);
