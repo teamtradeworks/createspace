@@ -504,7 +504,7 @@ export default function KitchenSinkPage() {
       <div className="bg-gray-900 text-white py-8 px-4">
         <div className="mx-auto max-w-7xl text-sm text-gray-400">
           <p className="mb-2">
-            <strong className="text-white">Not shown:</strong> HeroSection and RelatedProducts (require Shopify product data)
+            <strong className="text-white">Not shown:</strong> HeroSection (requires Shopify product data)
           </p>
           <p>
             <strong className="text-white">Source:</strong>{" "}

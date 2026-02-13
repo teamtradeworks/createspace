@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getProductByHandle, getProducts } from "@/lib/shopify";
+import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import {
   HeroSection,
@@ -14,7 +14,6 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
-  RelatedProducts,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-vincibot-coding-robot-set";
@@ -26,13 +25,7 @@ export default async function VinciBotPage() {
     notFound();
   }
 
-  // Get related products and add-ons in parallel
-  const [allProducts, resolvedAddons] = await Promise.all([
-    getProducts(8),
-    resolveAddonsForHandle(PRODUCT_HANDLE),
-  ]);
-
-  const relatedProducts = allProducts.filter((p) => p.handle !== product.handle).slice(0, 4);
+  const resolvedAddons = await resolveAddonsForHandle(PRODUCT_HANDLE);
   const addons = serializeAddons(resolvedAddons);
 
   return (
@@ -343,8 +336,6 @@ export default async function VinciBotPage() {
         background="navy"
       />
 
-      {/* Related Products */}
-      <RelatedProducts products={relatedProducts} background="gray" />
     </>
   );
 }
