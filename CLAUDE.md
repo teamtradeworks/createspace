@@ -9,6 +9,30 @@ This is a Shopify headless ecommerce store for our online store.  The website is
  - Uses the Shopify GraphQL storefront API
  - Design must work on desktop and mobile
  - **Before pushing changes**, always run `npm run build` from the `storefront/` directory and verify it succeeds. Do not push if the build fails.
+ - **Before pushing changes**, always run `npm test` from the `storefront/` directory and verify all unit tests pass. Do not push if tests fail.
+
+## Testing
+
+Unit tests use **Vitest** and live in `storefront/src/__tests__/`. E2E tests use **Playwright** and live in `storefront/e2e/`.
+
+**Commands** (run from `storefront/`):
+- `npm test` — run unit tests (must pass before pushing)
+- `npm run test:watch` — run unit tests in watch mode during development
+- `npm run test:e2e` — run E2E tests (requires built app or dev server on localhost:3000)
+- `npm run test:e2e:ui` — interactive Playwright UI
+
+**When to run tests:**
+- Run `npm test` before every push
+- Run `npm test` after modifying any code in `src/lib/`, `src/config/`, or `src/context/`
+
+**When to write/update tests:**
+- When adding or modifying business logic (pricing, delivery, formatting, add-ons)
+- When fixing a bug — add a test that reproduces the bug before fixing it
+- When adding new utility functions or helpers
+- Unit tests go in `src/__tests__/{module}.test.ts`
+- E2E tests go in `e2e/{feature}.spec.ts`
+
+**CI:** GitHub Actions runs lint, unit tests, build, and E2E tests on every PR to `main`. All must pass to merge.
 
 ## Product Metafields
 
