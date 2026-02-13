@@ -230,12 +230,30 @@ export default async function VinciBotPage() {
         background="white"
       />
 
-      {/* LEGO Compatibility */}
+      {/* Expansion Kits */}
       <ImageTextBlock
-        image="/images/products/matatastudio-vincibot-coding-robot-set/lego-compatibility.jpeg"
-        imageAlt="Four VinciBots with different LEGO creations attached"
-        title="Build Beyond the Box with LEGO"
-        body="VinciBot is fully compatible with LEGO bricks, Technic motors, and thousands of third-party electronic modules. Your child can transform VinciBot into a crane, a drawing machine, a soccer robot, or anything they imagine. Multiple VinciBots can even connect and communicate with each other for collaborative projects and competitions. This expandability means VinciBot grows with your child's creativity — it's not a toy they'll outgrow in six months. It's a platform for years of experimentation."
+        image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-expansion-packs.png"
+        imageAlt="VinciBot expansion kits including AI Vision Kit and Creator Kit"
+        title="Expand VinciBot's Capabilities"
+        body={
+          <>
+            <p>VinciBot grows with your child through expansion kits that unlock new skills and projects. Add the AI Vision Kit to explore computer vision, face recognition, and object tracking with a 180° flip camera — teaching AI concepts through hands-on experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to design custom robots, moving machines, and mechanical contraptions. Both kits include guided activities and seamlessly integrate with VinciBot's programming platform. These aren't just accessories — they're pathways to advanced STEM learning that keep VinciBot relevant for years.</p>
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <a
+                href="/product/matatastudio-ai-vision-kit-for-vincibot"
+                className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
+              >
+                View AI Vision Kit
+              </a>
+              <a
+                href="/product/matatastudio-creator-kit-for-vincibot"
+                className="inline-flex items-center justify-center px-6 py-3 bg-cs-orange text-white font-semibold rounded-lg hover:bg-cs-orange/90 transition-colors"
+              >
+                View Creator Kit
+              </a>
+            </div>
+          </>
+        }
         layout="image-left"
         background="gray"
       />
