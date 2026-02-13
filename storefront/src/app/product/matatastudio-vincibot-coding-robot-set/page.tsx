@@ -88,7 +88,7 @@ export default async function VinciBotPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-with-coding-tablet.jpg"
         imageAlt="Child programming VinciBot on tablet with block-based coding"
-        title="AI and Sensors Built In"
+        title="Real AI Your Child Can Touch"
         body="VinciBot includes Tiny Machine Learning — artificial intelligence that runs directly on the robot without needing the internet. Your child will train the robot to recognise hand gestures, identify handwritten letters, and respond to real-world conditions. This isn't simulated AI or a simplified demo — it's the same machine learning technology used in smartphones and self-driving cars, just made accessible for kids. When they program VinciBot to wave when it sees a thumbs-up gesture, they're learning the foundations of computer vision and neural networks. That's an incredible head start for future careers in AI, data science, and robotics."
         layout="image-left"
         background="white"
@@ -96,7 +96,7 @@ export default async function VinciBotPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Sensors and Capabilities"
+        title="8 Sensors Power Real-World Robotics"
         subtitle="VinciBot isn't just programmable — it's aware. Eight built-in sensors let it see, hear, and respond to its environment like a real robot."
         features={[
           {
@@ -137,7 +137,7 @@ export default async function VinciBotPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-vincibot-coding-robot-set/coding-interface-tablet.png"
         imageAlt="MatataCode programming interface showing block-based coding on tablet"
-        title="Grows with Your Child"
+        title="Starts Simple, Goes Deep"
         body="VinciBot uses MatataCode — a free programming app for Windows, Mac, iPad, and Android tablets. Beginners start with colourful drag-and-drop blocks (just like Scratch) to make the robot move, light up, and play sounds. As your child gains confidence, they transition to Python — a professional programming language used at Google, NASA, and universities worldwide. The same robot, the same app, but now they're writing real code. By age 12, they could be programming AI models, building IoT weather stations, or creating games — skills that put them years ahead of their peers."
         layout="image-right"
         background="white"
@@ -150,40 +150,40 @@ export default async function VinciBotPage() {
         moreText="After completing the 93 core activities, your child can create unlimited projects: AI gesture recognition, IoT smart home systems, algorithmic art, autonomous vehicles, and more."
         projects={[
           {
-            name: "AI Technology",
+            name: "AI & Machine Learning",
             description:
-              "Train VinciBot to recognise hand gestures and respond with custom actions using on-device machine learning",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/ai-technology.jpg",
+              "Train VinciBot to recognise hand gestures and respond with custom actions using on-device AI",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/ai-technology.png",
           },
           {
-            name: "Obstacle Avoidance",
+            name: "Line Following & Navigation",
             description:
-              "Program VinciBot to navigate around objects using ultrasonic sensors and decision logic",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/avoid-obstacles.jpg",
+              "Program VinciBot to follow lines precisely and navigate complex paths using sensors",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/line-following.jpeg",
           },
           {
-            name: "LED Animations",
+            name: "LED Matrix Display",
             description:
               "Create custom pixel art, animations, and emoji on the 18x6 LED matrix display",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/led-display.jpg",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/led-display.png",
           },
           {
             name: "Precision Drawing",
             description:
               "Use loops and geometry to draw shapes, patterns, and algorithmic art with a pen attachment",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/vincibot-drawing.png",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/drawing.jpeg",
           },
           {
             name: "Music & Dance",
             description:
               "Compose songs with 21 instrument sounds and choreograph dance routines with RGB lights",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/vincitbot-with-lights-dancing-music.png",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/music-dance.jpeg",
           },
           {
-            name: "Remote Control Mode",
+            name: "LEGO Compatible",
             description:
-              "Drive VinciBot with the included IR remote — no programming needed for instant fun",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/ir-remote-control-mode.jpg",
+              "Combine VinciBot with LEGO bricks to build custom robots, machines, and creative contraptions",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/lego-compatible.jpeg",
           },
         ]}
         background="gray"
@@ -191,7 +191,7 @@ export default async function VinciBotPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="What Families Are Building"
+        title="Real Families, Real Learning"
         subtitle="See how children around the world are exploring coding, robotics, and creativity with VinciBot."
         images={[
           {
@@ -215,6 +215,10 @@ export default async function VinciBotPage() {
             alt: "VinciBot drawing with a pen attachment",
           },
           {
+            src: "/images/products/matatastudio-vincibot-coding-robot-set/vincibot-moving-on-drawn-map.png",
+            alt: "VinciBot navigating on a custom drawn map",
+          },
+          {
             src: "/images/products/matatastudio-vincibot-coding-robot-set/vincibot-in-hand-with-remote-pointing-at-it.jpeg",
             alt: "Hand holding VinciBot with IR remote control",
           },
@@ -226,12 +230,30 @@ export default async function VinciBotPage() {
         background="white"
       />
 
-      {/* LEGO Compatibility */}
+      {/* Expansion Kits */}
       <ImageTextBlock
-        image="/images/products/matatastudio-vincibot-coding-robot-set/lego-compatibility.jpeg"
-        imageAlt="Four VinciBots with different LEGO creations attached"
-        title="Build Beyond the Box with LEGO"
-        body="VinciBot is fully compatible with LEGO bricks, Technic motors, and thousands of third-party electronic modules. Your child can transform VinciBot into a crane, a drawing machine, a soccer robot, or anything they imagine. Multiple VinciBots can even connect and communicate with each other for collaborative projects and competitions. This expandability means VinciBot grows with your child's creativity — it's not a toy they'll outgrow in six months. It's a platform for years of experimentation."
+        image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-expansion-packs.png"
+        imageAlt="VinciBot expansion kits including AI Vision Kit and Creator Kit"
+        title="Expand VinciBot's Capabilities"
+        body={
+          <>
+            <p>VinciBot grows with your child through expansion kits that unlock new skills and projects. Add the AI Vision Kit to explore computer vision, face recognition, and object tracking with a 180° flip camera — teaching AI concepts through hands-on experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to design custom robots, moving machines, and mechanical contraptions. Both kits include guided activities and seamlessly integrate with VinciBot&apos;s programming platform. These aren&apos;t just accessories — they&apos;re pathways to advanced STEM learning that keep VinciBot relevant for years.</p>
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <a
+                href="/product/matatastudio-ai-vision-kit-for-vincibot"
+                className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
+              >
+                View AI Vision Kit
+              </a>
+              <a
+                href="/product/matatastudio-creator-kit-for-vincibot"
+                className="inline-flex items-center justify-center px-6 py-3 bg-cs-orange text-white font-semibold rounded-lg hover:bg-cs-orange/90 transition-colors"
+              >
+                View Creator Kit
+              </a>
+            </div>
+          </>
+        }
         layout="image-left"
         background="gray"
       />
@@ -312,7 +334,7 @@ export default async function VinciBotPage() {
 
       {/* Call to Action */}
       <CallToAction
-        title="Get Started with VinciBot"
+        title="Give Your Child the Gift of Future-Ready Skills"
         subtitle="VinciBot delivers years of learning in coding, AI, and robotics. Invest in your child's future today."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
