@@ -150,10 +150,10 @@ export default async function VinciBotPage() {
         moreText="After completing the 93 core activities, your child can create unlimited projects: AI gesture recognition, IoT smart home systems, algorithmic art, autonomous vehicles, and more."
         projects={[
           {
-            name: "AI Technology",
+            name: "8 Built-In Sensors",
             description:
-              "Train VinciBot to recognise hand gestures and respond with custom actions using on-device machine learning",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/ai-technology.png",
+              "Explore how VinciBot uses ultrasonic, colour, light, sound, and IR sensors to interact with the world",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/sensors-diagram.jpg",
           },
           {
             name: "Line Following & Navigation",
@@ -162,10 +162,10 @@ export default async function VinciBotPage() {
             image: "/images/products/matatastudio-vincibot-coding-robot-set/line-following-project.jpeg",
           },
           {
-            name: "LED Animations",
+            name: "Colour Detection & Sorting",
             description:
-              "Create custom pixel art, animations, and emoji on the 18x6 LED matrix display",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/led-display.jpg",
+              "Use the colour sensor to identify and sort objects, create games, and respond to visual input",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/color-detection.png",
           },
           {
             name: "Precision Drawing",
@@ -180,10 +180,10 @@ export default async function VinciBotPage() {
             image: "/images/products/matatastudio-vincibot-coding-robot-set/vincitbot-with-lights-dancing-music.png",
           },
           {
-            name: "Block-Based Coding",
+            name: "LEGO Building & Expansion",
             description:
-              "Program VinciBot using visual drag-and-drop blocks — no typing required for beginners",
-            image: "/images/products/matatastudio-vincibot-coding-robot-set/coding-project.png",
+              "Combine VinciBot with LEGO bricks to build custom robots, machines, and creative contraptions",
+            image: "/images/products/matatastudio-vincibot-coding-robot-set/lego-building.png",
           },
         ]}
         background="gray"
