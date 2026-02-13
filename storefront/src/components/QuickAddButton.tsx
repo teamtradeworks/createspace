@@ -10,6 +10,7 @@ interface QuickAddButtonProps {
   currencyCode: string;
   handle: string;
   image?: string;
+  available?: boolean;
 }
 
 export default function QuickAddButton({
@@ -20,6 +21,7 @@ export default function QuickAddButton({
   currencyCode,
   handle,
   image,
+  available,
 }: QuickAddButtonProps) {
   const { addItem, openCart } = useCart();
 
@@ -36,6 +38,7 @@ export default function QuickAddButton({
           currencyCode,
           handle,
           image,
+          available,
         });
         openCart();
       }}

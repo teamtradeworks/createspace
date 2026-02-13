@@ -60,6 +60,11 @@ product(handle: "example") {
 }
 ```
 
+# Git & PR Conventions
+
+- Do NOT include `Co-Authored-By: Claude` or any AI co-author lines in commit messages
+- Do NOT mention Claude or AI in pull request descriptions
+
 # General Conventions
 
  - This is a South African business and we only sell locally.

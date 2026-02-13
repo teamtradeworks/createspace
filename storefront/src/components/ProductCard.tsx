@@ -76,6 +76,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             currencyCode={price.currencyCode}
             handle={product.handle}
             image={product.images.edges[0]?.node.url}
+            available={product.availableForSale}
           />
         </div>
       </div>
