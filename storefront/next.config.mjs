@@ -10,6 +10,16 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: "/shop/all", destination: "/shop", permanent: true },
+      { source: "/shop/age/3-5", destination: "/shop?age=3-5", permanent: true },
+      { source: "/shop/age/6-8", destination: "/shop?age=6-8", permanent: true },
+      { source: "/shop/age/9-12", destination: "/shop?age=9-12", permanent: true },
+      { source: "/shop/age/13-plus", destination: "/shop?age=13%2B", permanent: true },
+      { source: "/shop/discipline/:slug", destination: "/shop", permanent: true },
+    ];
+  },
 };
 
 export default withSentryConfig(nextConfig, {

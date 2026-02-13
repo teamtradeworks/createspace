@@ -10,15 +10,25 @@ interface ShopGalleryProps {
 }
 
 const ageGroups = [
-  { id: "all", label: "All Ages", range: null },
-  { id: "3-5", label: "Ages 3-5", range: [3, 5] },
-  { id: "6-8", label: "Ages 6-8", range: [6, 8] },
-  { id: "9-12", label: "Ages 9-12", range: [9, 12] },
-  { id: "13+", label: "Ages 13+", range: [13, 99] },
+  { id: "all", label: "All Ages", range: null as [number, number] | null },
+  { id: "3-5", label: "Ages 3-5", range: [3, 5] as [number, number] },
+  { id: "6-8", label: "Ages 6-8", range: [6, 8] as [number, number] },
+  { id: "9-12", label: "Ages 9-12", range: [9, 12] as [number, number] },
+  { id: "13+", label: "Ages 13+", range: [13, 99] as [number, number] },
+];
+
+const disciplines = [
+  { id: "all", label: "All" },
+  { id: "robotics", label: "Robotics" },
+  { id: "electronics", label: "Electronics" },
+  { id: "nature", label: "Nature" },
+  { id: "building", label: "Building" },
+  { id: "mathematics", label: "Mathematics" },
 ];
 
 export default function ShopGallery({ products, initialAge }: ShopGalleryProps) {
   const [selectedAge, setSelectedAge] = useState(initialAge || "all");
+  const [selectedDiscipline, setSelectedDiscipline] = useState("all");
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [sortBy, setSortBy] = useState("featured");
 
@@ -33,9 +43,33 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
     return Array.from(uniqueBrands).sort();
   }, [products]);
 
-  // Filter products by age group and brand
+  // Filter and sort products
   const filteredProducts = useMemo(() => {
     let result = [...products];
+
+    // Filter by age group
+    if (selectedAge !== "all") {
+      const ageGroup = ageGroups.find((g) => g.id === selectedAge);
+      if (ageGroup?.range) {
+        const [minRange, maxRange] = ageGroup.range;
+        result = result.filter((product) => {
+          const minAge = product.minAge?.value
+            ? parseInt(product.minAge.value, 10)
+            : null;
+          if (minAge === null) return false;
+          const maxAge = product.maxAge?.value
+            ? parseInt(product.maxAge.value, 10)
+            : null;
+          const productMax = maxAge ?? Infinity;
+          return minAge <= maxRange && productMax >= minRange;
+        });
+      }
+    }
+
+    // TODO: Filter by discipline when Shopify metafields are configured
+    // if (selectedDiscipline !== "all") {
+    //   result = result.filter((product) => product.discipline?.value === selectedDiscipline);
+    // }
 
     // Filter by brand
     if (selectedBrand !== "all") {
@@ -65,12 +99,16 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
         result.sort((a, b) => b.title.localeCompare(a.title));
         break;
       default:
-        // Featured - keep original order
         break;
     }
 
     return result;
-  }, [products, selectedBrand, sortBy]);
+  }, [products, selectedAge, selectedDiscipline, selectedBrand, sortBy]);
+
+  const hasActiveFilters =
+    selectedAge !== "all" ||
+    selectedDiscipline !== "all" ||
+    selectedBrand !== "all";
 
   return (
     <section className="py-12">
@@ -95,26 +133,56 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
             ))}
           </div>
 
-          {/* Brand and Sort Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            {/* Brand Filter */}
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-gray-700">Brand:</span>
-              <select
-                value={selectedBrand}
-                onChange={(e) => setSelectedBrand(e.target.value)}
-                className="px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cs-orange bg-white min-w-[160px]"
+          {/* Discipline Filters */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-medium text-gray-700 mr-2">
+              Discipline:
+            </span>
+            {disciplines.map((discipline) => (
+              <button
+                key={discipline.id}
+                onClick={() => setSelectedDiscipline(discipline.id)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  selectedDiscipline === discipline.id
+                    ? "bg-navy text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
               >
-                <option value="all">All Brands</option>
-                {brands.map((brand) => (
-                  <option key={brand} value={brand}>
-                    {brand}
-                  </option>
-                ))}
-              </select>
-            </div>
+                {discipline.label}
+              </button>
+            ))}
+          </div>
 
-            {/* Sort Dropdown */}
+          {/* Brand Filters */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-medium text-gray-700 mr-2">Brand:</span>
+            <button
+              onClick={() => setSelectedBrand("all")}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                selectedBrand === "all"
+                  ? "bg-navy text-white"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              All Brands
+            </button>
+            {brands.map((brand) => (
+              <button
+                key={brand}
+                onClick={() => setSelectedBrand(brand)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  selectedBrand === brand
+                    ? "bg-navy text-white"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                {brand}
+              </button>
+            ))}
+          </div>
+
+          {/* Sort Row */}
+          <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <span className="text-sm text-gray-500">Sort by:</span>
               <select
@@ -168,15 +236,18 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
             <p className="text-gray-600 mb-6">
               Try adjusting your filters to find what you&apos;re looking for.
             </p>
-            <button
-              onClick={() => {
-                setSelectedAge("all");
-                setSelectedBrand("all");
-              }}
-              className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
-            >
-              View All Products
-            </button>
+            {hasActiveFilters && (
+              <button
+                onClick={() => {
+                  setSelectedAge("all");
+                  setSelectedDiscipline("all");
+                  setSelectedBrand("all");
+                }}
+                className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
+              >
+                Clear All Filters
+              </button>
+            )}
           </div>
         )}
 

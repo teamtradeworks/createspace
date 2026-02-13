@@ -12,25 +12,25 @@ const ageGroups = [
   {
     id: "3-5",
     label: "Age 3-5",
-    href: "/shop/age/3-5",
+    href: "/shop?age=3-5",
     handles: ["matatastudio-tale-bot-pro", "matatastudio-vincibot-coding-robot-set", "snap-circuits-beginner"],
   },
   {
     id: "6-8",
     label: "Age 6-8",
-    href: "/shop/age/6-8",
+    href: "/shop?age=6-8",
     handles: ["makerzoid-smart-robot-premium", "matatastudio-vincibot-coding-robot-set", "snap-circuit-junior"],
   },
   {
     id: "9-12",
     label: "Age 9-12",
-    href: "/shop/age/9-12",
+    href: "/shop?age=9-12",
     handles: ["makerzoid-robot-master-premium", "bbc-micro-bit-go", "snap-circuits-300"],
   },
   {
     id: "13+",
     label: "Age 13+",
-    href: "/shop/age/13-plus",
+    href: "/shop?age=13%2B",
     handles: ["ultimate-mega-2560-starter-kit", "arduino-starter-kit", "bbc-micro-bit-go"],
   },
 ];
