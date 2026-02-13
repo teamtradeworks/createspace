@@ -1,0 +1,33 @@
+import { test, expect } from "@playwright/test";
+
+test.describe("Homepage", () => {
+  test("loads and displays the CREATESPACE branding", async ({ page }) => {
+    await page.goto("/");
+    await expect(page).toHaveTitle(/CREATESPACE/i);
+  });
+
+  test("displays featured products", async ({ page }) => {
+    await page.goto("/");
+    // Wait for products to load (they come from Shopify API)
+    const productCards = page.locator('[data-testid="product-card"], a[href^="/product/"]');
+    await expect(productCards.first()).toBeVisible({ timeout: 15000 });
+  });
+
+  test("header navigation links work", async ({ page }) => {
+    await page.goto("/");
+    const shopLink = page.locator('header a[href="/shop"], header a[href="/shop/all"]').first();
+    await expect(shopLink).toBeVisible();
+  });
+
+  test("cart icon is visible in header", async ({ page }) => {
+    await page.goto("/");
+    const cartLink = page.locator('a[href="/cart"]').first();
+    await expect(cartLink).toBeVisible();
+  });
+
+  test("footer is visible", async ({ page }) => {
+    await page.goto("/");
+    const footer = page.locator("footer");
+    await expect(footer).toBeVisible();
+  });
+});
