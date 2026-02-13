@@ -12,7 +12,7 @@ import {
   ProductFAQ,
   VideoEmbed,
   Specifications,
-  ProductTestimonials,
+  ProductReviews,
   ProjectShowcase,
   CallToAction,
 } from "@/components/product-sections";
@@ -79,7 +79,7 @@ export default async function ArduinoStarterKitPage() {
       <ImageTextBlock
         image="/images/products/arduino-starter-kit/kids_working_on_project.jpg"
         imageAlt="Children working together on an Arduino project"
-        title="A Complete Electronics Lab in a Box"
+        title="Your First Electronics Lab"
         body="The official Arduino Starter Kit is built around the Arduino UNO — the world's most popular learning board for electronics and coding. Inside you'll find over 100 components including LEDs, sensors, motors, a breadboard, and jumper wires, along with a 170-page printed guidebook that walks you through 15 real projects. Each project teaches actual C/C++ programming and hands-on circuit building, starting from absolute basics and gradually introducing more advanced concepts. No prior experience with electronics or coding is needed — the book explains everything from what a resistor does to how to write your first loop."
         layout="image-left"
         background="white"
@@ -87,7 +87,7 @@ export default async function ArduinoStarterKitPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Everything You Need to Get Started"
+        title="What's Included"
         subtitle="The Arduino Starter Kit is designed for complete beginners. No soldering, no complex setup - just unbox and start building."
         features={[
           {
@@ -129,7 +129,7 @@ export default async function ArduinoStarterKitPage() {
       <ImageTextBlock
         image="/images/products/arduino-starter-kit/arduino_board_laptop_on_desk_guidebook_open.jpg"
         imageAlt="Arduino setup with laptop and open guidebook on desk"
-        title="More Than Just Technical Skills"
+        title="Skills They'll Develop"
         body="When your child works through Arduino projects, they're building character alongside circuits. They'll develop resilience by learning that mistakes aren't failures - just opportunities to try a different approach. They'll build confidence as each completed project proves they can tackle unfamiliar challenges. And they'll experience the satisfaction that comes from creating something real with their own hands."
         layout="image-right"
         background="gray"
@@ -214,34 +214,8 @@ export default async function ArduinoStarterKitPage() {
         background="gray"
       />
 
-      {/* Testimonials */}
-      <ProductTestimonials
-        title="What Parents & Educators Say"
-        testimonials={[
-          {
-            quote:
-              "My 12-year-old went from knowing nothing about electronics to building his own projects independently. The book explains everything perfectly.",
-            author: "Sarah M.",
-            role: "Parent",
-            rating: 5,
-          },
-          {
-            quote:
-              "We use these kits in our after-school STEM club. The structured projects make it easy to teach, and kids love the hands-on building.",
-            author: "David K.",
-            role: "STEM Educator",
-            rating: 5,
-          },
-          {
-            quote:
-              "As a complete beginner adult, I found this kit approachable and rewarding. Each project builds confidence for the next one.",
-            author: "Michelle T.",
-            role: "Hobbyist",
-            rating: 5,
-          },
-        ]}
-        background="white"
-      />
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="white" />
 
       {/* What's in the Box */}
       <WhatsIncluded
@@ -291,7 +265,7 @@ export default async function ArduinoStarterKitPage() {
 
       {/* Final CTA */}
       <CallToAction
-        title="Ready to Start Building?"
+        title="Get Started"
         subtitle="Join millions of makers worldwide. The Arduino Starter Kit has everything you need to begin your journey into electronics and programming."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"

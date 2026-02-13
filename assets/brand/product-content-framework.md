@@ -102,7 +102,7 @@ Every product page must answer three parent questions. If a parent can't answer 
 | ------------------- | ----------------------- | ------------------------------------- |
 | **Quality signals** | Build confidence        | Brand mentions, FeatureGrid, body copy|
 | **Safety**          | Address parent concerns | FAQ section, hero highlights          |
-| **Social proof**    | Reduce risk perception  | ProductTestimonials, CustomerShowcase |
+| **Social proof**    | Reduce risk perception  | ProductReviews, CustomerShowcase      |
 | **Gift-worthiness** | Support gift buyers     | Hero highlights, ImageTextBlock copy  |
 
 ---
@@ -144,16 +144,24 @@ Skill tags make learning outcomes tangible and scannable. They answer "what will
 
 ## Writing for Conversion
 
-### Benefit-led headlines
+### Section titles
 
-Every section heading should lead with what the parent or child *gets*, not what the product *is*.
+Section titles should be **specific and concrete**. If a title could apply to any STEM kit, rewrite it. Describe what the product *is* or what the child *does* — not how it *feels*.
 
-| Instead of...              | Write...                              |
-| -------------------------- | ------------------------------------- |
-| "Arduino UNO R3 Features"  | "Everything You Need to Get Started"  |
-| "Product Specifications"   | "Technical Details"                   |
-| "Learning Outcomes"        | "Skills They'll Develop"              |
-| "Included Components"      | "What's in the Box"                   |
+Short and functional is fine: "Key Features", "How It Works", "What's Included". Personality is welcome where it adds real meaning, not just flair.
+
+| Do                                       | Don't                                    |
+| ---------------------------------------- | ---------------------------------------- |
+| "A Pocket-Sized Programmable Computer"   | "Packed with Possibilities"              |
+| "Build Beyond the Box with LEGO"         | "From Imagination to Reality"            |
+| "93+ Projects from Beginner to Expert"   | "Everything a Young Learner Needs"       |
+| "What Families Are Building"             | "Real Families, Real Learning"           |
+| "Your First Electronics Lab"             | "A Complete Electronics Lab in a Box"    |
+| "Get Started"                            | "Ready to Start Their Coding Journey?"   |
+| "Technical Details"                       | "Product Specifications"                 |
+| "What's in the Box"                       | "Included Components"                    |
+
+**The test:** read the title out of context. Does it tell you something concrete about this specific product? Keep it. Does it sound like a tagline that could go on any product? Rewrite it.
 
 ### Objection handling in FAQs
 
@@ -179,7 +187,7 @@ The hero is the most important 5 seconds. The tagline and highlights must:
 
 - Primary CTA always links to `#product-actions` (scroll to cart)
 - Secondary CTA links to `/shop` for continued browsing
-- CTA title should create excitement: "Ready to Start Building?" not "Purchase Product"
+- CTA title should be direct: "Get Started" or "Get Started with [Product]" — not "Purchase Product" but also not overwrought ("Ready to Start Their Coding Journey?")
 - CTA subtitle should reinforce social proof or breadth: "Join millions of makers worldwide"
 
 ---
@@ -211,7 +219,7 @@ Best for feature breakdowns with icons. 3-6 features.
 ### ImageTextBlock content
 
 The storytelling component. Use for emotional, narrative content.
-- **Title:** Benefit-led, aspirational ("Learn Together, Build Together")
+- **Title:** Specific and concrete — describe what this section is about ("Built for Group Learning", "LEGO Compatible")
 - **Body:** 2-3 sentences. Paint a picture. Address a parent concern or aspiration
 - Match the image to the message — use lifestyle photos from `assets/product/[slug]/lifestyle/`
 
@@ -252,16 +260,16 @@ Complete box contents list. Be specific.
 - Keep answers concise — 2-3 sentences max
 - Always include age suitability, experience needed, and requirements
 
-### ProductTestimonials content
+### ProductReviews content
 
-2-3 testimonials from different perspectives.
-- Mix: parent + educator + child/hobbyist
-- Include star ratings (always 5 if curated)
-- Keep quotes authentic and specific, not generic praise
+Reviews are pulled automatically from Fera — no manual content needed.
+- Add `<ProductReviews productId={product.id} />` to the page
+- The component handles fetching, display, and pagination
+- Hidden automatically when no reviews exist
 
 ### CallToAction content
 
-- **Title:** Action-oriented, exciting ("Ready to Start Building?")
+- **Title:** Direct and simple ("Get Started" or "Get Started with [Product]")
 - **Subtitle:** Reinforce value or social proof
 - **Primary:** "Add to Cart" → `#product-actions`
 - **Secondary:** "Browse More Kits" → `/shop`

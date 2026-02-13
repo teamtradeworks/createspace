@@ -101,7 +101,7 @@ import {
   ProjectShowcase,
   Specifications,
   ProductFAQ,
-  ProductTestimonials,
+  ProductReviews,
   CallToAction,
   RelatedProducts,
 } from "@/components/product-sections";
@@ -242,7 +242,7 @@ Based on the research content, determine:
 - ImageTextBlock (multiple, alternating layout)
 - ProjectShowcase
 - Specifications
-- ProductTestimonials
+- ProductReviews
 
 ### 5. Write Content
 

@@ -1,9 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getProductByHandle, formatPrice } from "@/lib/shopify";
+import { getProductByHandle, formatPrice, getProductRating } from "@/lib/shopify";
+import { StarRating } from "@/components/StarRating";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
 import { DELIVERY_CONFIG } from "@/config/delivery";
+import { ProductReviews } from "@/components/product-sections";
 
 interface ProductPageProps {
   params: { handle: string };
@@ -20,6 +22,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
   const hasDiscount =
     compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
+  const ratingData = getProductRating(product.rating, product.ratingCount);
 
   // Extract images
   const images = product.images.edges.map((edge) => ({
@@ -63,9 +66,20 @@ export default async function ProductPage({ params }: ProductPageProps) {
               )}
 
               {/* Title */}
-              <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-4">
+              <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-2">
                 {product.title}
               </h1>
+
+              {/* Rating */}
+              {ratingData && (
+                <div className="flex items-center gap-2 mb-2">
+                  <StarRating rating={ratingData.average} size="md" />
+                  <span className="text-sm text-gray-500">
+                    {ratingData.average.toFixed(1)} ({ratingData.count}{" "}
+                    {ratingData.count === 1 ? "review" : "reviews"})
+                  </span>
+                </div>
+              )}
 
               {/* Price */}
               <div className="flex items-baseline gap-3 mb-4">
@@ -252,6 +266,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </div>
         </div>
       </section>
+
+      {/* Customer Reviews */}
+      <ProductReviews
+        productId={product.id}
+        background="gray"
+      />
 
       {/* Final CTA Section */}
       <section className="py-12 bg-gray-50">

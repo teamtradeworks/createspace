@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import HeaderSkeleton from "@/components/HeaderSkeleton";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import { getProducts } from "@/lib/shopify";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
@@ -54,7 +57,28 @@ export default function RootLayout({
           </Suspense>
           <main>{children}</main>
           <Footer />
+          <SpeedInsights />
+          <Analytics />
         </CartProvider>
+        {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
+          <Script
+            id="fera-init"
+            strategy="lazyOnload"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  window.fera = window.fera || [];
+                  window.fera.push("configure", { store_pk: "${process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY}" });
+                  var s = document.createElement("script");
+                  s.type = "text/javascript";
+                  s.async = true;
+                  s.src = "https://cdn.fera.ai/js/fera.js";
+                  document.body.appendChild(s);
+                })();
+              `,
+            }}
+          />
+        )}
       </body>
     </html>
   );

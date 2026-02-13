@@ -11,6 +11,7 @@ import {
   ProductFAQ,
   VideoEmbed,
   Specifications,
+  ProductReviews,
   ProjectShowcase,
   CallToAction,
 } from "@/components/product-sections";
@@ -77,7 +78,7 @@ export default async function ElecfreaksTinkerKitPage() {
       <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-tinker-kit/makecode-screenshot.jpg"
         imageAlt="MakeCode block coding interface showing a micro:bit program"
-        title="An Accessory Pack That Unlocks Your micro:bit"
+        title="What the Tinker Kit Adds"
         body="The ELECFREAKS Tinker Kit is a sensor and component pack that expands what you can do with a BBC micro:bit. It includes 14 plug-and-play modules — from a PIR motion sensor and soil moisture probe to an OLED display and servo motor — all connected through the Octopus:bit breakout board. Every component uses simple colour-coded 3-pin connectors that click into place, so there's no breadboard, no loose wiring, and no confusion. You program everything with Microsoft MakeCode's drag-and-drop blocks, and custom blocks for every Tinker Kit sensor are included."
         layout="image-left"
         background="white"
@@ -85,7 +86,7 @@ export default async function ElecfreaksTinkerKitPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Everything Connects in Seconds"
+        title="Plug-and-Play Setup"
         subtitle="The Tinker Kit uses ELECFREAKS' Octopus sensor system - colour-coded connectors that plug directly into the breakout board. No breadboard, no loose wires, no confusion."
         features={[
           {
@@ -127,7 +128,7 @@ export default async function ElecfreaksTinkerKitPage() {
       <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_project_with_interacting_hand.jpg"
         imageAlt="Hand interacting with a micro:bit expansion project showing LEDs and sensors"
-        title="See Your Code Come to Life"
+        title="From Code to Working Project"
         body="There's something magical about writing code that controls real hardware. LEDs light up, sensors respond, servos move - every project creates a tangible result you can touch and show off."
         layout="image-right"
         background="white"
@@ -252,9 +253,12 @@ export default async function ElecfreaksTinkerKitPage() {
         background="gray"
       />
 
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="gray" />
+
       {/* Final CTA */}
       <CallToAction
-        title="Ready to Start Tinkering?"
+        title="Get Started"
         subtitle="Expand your micro:bit with sensors, displays, and motors. Build real projects that respond to the world around you."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"

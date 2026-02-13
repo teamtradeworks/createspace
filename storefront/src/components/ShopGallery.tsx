@@ -2,9 +2,10 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { Product, formatPrice, formatAgeRange } from "@/lib/shopify";
+import { Product, formatPrice, formatAgeRange, getProductRating } from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
+import { StarRating } from "@/components/StarRating";
 
 interface ShopGalleryProps {
   products: Product[];
@@ -184,9 +185,18 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
                   <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug mb-2">
                     {product.title}
                   </h3>
-                  <p className="text-sm text-gray-500 line-clamp-2 mb-4">
+                  <p className="text-sm text-gray-500 line-clamp-2 mb-2">
                     {product.description || "Hands-on STEM learning kit"}
                   </p>
+                  {(() => {
+                    const ratingData = getProductRating(product.rating, product.ratingCount);
+                    return ratingData ? (
+                      <div className="flex items-center gap-1.5 mb-2">
+                        <StarRating rating={ratingData.average} size="sm" />
+                        <span className="text-xs text-gray-500">({ratingData.count})</span>
+                      </div>
+                    ) : null;
+                  })()}
                   <div className="flex items-center justify-between mt-auto">
                     <span className="text-cs-orange font-bold">
                       {formatPrice(

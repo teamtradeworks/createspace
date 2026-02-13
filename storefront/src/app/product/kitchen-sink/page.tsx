@@ -6,7 +6,7 @@ import { FeatureGrid } from "@/components/product-sections/FeatureGrid";
 import { ImageTextBlock } from "@/components/product-sections/ImageTextBlock";
 import { NumberedSteps } from "@/components/product-sections/NumberedSteps";
 import { ProductFAQ } from "@/components/product-sections/ProductFAQ";
-import { ProductTestimonials } from "@/components/product-sections/ProductTestimonials";
+import { ProductReviews } from "@/components/product-sections/ProductReviews";
 import { ProjectShowcase } from "@/components/product-sections/ProjectShowcase";
 import { QuickInfoBadges } from "@/components/product-sections/QuickInfoBadges";
 import { SkillTags } from "@/components/product-sections/SkillTags";
@@ -403,57 +403,25 @@ export default function KitchenSinkPage() {
         />
       </ComponentWrapper>
 
-      {/* ProductTestimonials */}
+      {/* ProductReviews */}
       <ComponentWrapper
-        name="ProductTestimonials"
-        description="Customer reviews with star ratings and avatars. Auto-adjusts grid for 1, 2, or 3+ testimonials"
+        name="ProductReviews"
+        description="Fera-powered customer reviews with ratings, avatars, and load more. Hidden when no Fera reviews exist."
       >
-        <ProductTestimonials
-          title="What Parents Are Saying"
+        <ProductReviews
+          productId="gid://shopify/Product/0"
           background="white"
-          testimonials={[
-            {
-              quote: "My son hasn't put it down since we got it. He's learned so much about coding and robotics!",
-              author: "Sarah M.",
-              role: "Parent",
-              rating: 5,
-            },
-            {
-              quote: "Great quality and the instructions are clear enough for kids to follow independently.",
-              author: "David K.",
-              role: "Parent",
-              rating: 5,
-            },
-            {
-              quote: "Perfect gift for curious kids. The projects are challenging but achievable.",
-              author: "Lisa T.",
-              role: "Grandmother",
-              rating: 4,
-            },
-          ]}
         />
       </ComponentWrapper>
 
-      {/* ProductTestimonials - Navy */}
+      {/* ProductReviews - Navy */}
       <ComponentWrapper
-        name="ProductTestimonials (navy)"
-        description="Testimonials with navy background. Cards have white/10 background"
+        name="ProductReviews (navy)"
+        description="Customer reviews with navy background. Hidden when no Fera reviews exist."
       >
-        <ProductTestimonials
-          title="Loved by Kids and Parents"
+        <ProductReviews
+          productId="gid://shopify/Product/0"
           background="navy"
-          testimonials={[
-            {
-              quote: "The best educational toy we've ever bought. Worth every cent!",
-              author: "James R.",
-              rating: 5,
-            },
-            {
-              quote: "My daughter built her first robot and couldn't stop showing it to everyone.",
-              author: "Michelle S.",
-              rating: 5,
-            },
-          ]}
         />
       </ComponentWrapper>
 

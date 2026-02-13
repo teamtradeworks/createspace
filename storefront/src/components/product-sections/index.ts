@@ -6,10 +6,11 @@ export { ImageTextBlock } from "./ImageTextBlock";
 export { ProductFAQ } from "./ProductFAQ";
 export { VideoEmbed } from "./VideoEmbed";
 export { Specifications } from "./Specifications";
-export { ProductTestimonials } from "./ProductTestimonials";
+
 export { SkillTags } from "./SkillTags";
 export { NumberedSteps } from "./NumberedSteps";
 export { ProjectShowcase } from "./ProjectShowcase";
 export { CallToAction } from "./CallToAction";
 export { CustomerShowcase } from "./CustomerShowcase";
 export { RelatedProducts } from "./RelatedProducts";
+export { ProductReviews } from "./ProductReviews";

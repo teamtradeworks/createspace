@@ -1,9 +1,10 @@
 import Link from "next/link";
-import { ProductDetail, formatPrice } from "@/lib/shopify";
+import { ProductDetail, formatPrice, getProductRating } from "@/lib/shopify";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
 import { DELIVERY_CONFIG } from "@/config/delivery";
 import { SerializedAddon } from "@/lib/product-addons";
+import { StarRating } from "@/components/StarRating";
 
 interface HeroSectionProps {
   product: ProductDetail;
@@ -24,6 +25,8 @@ export function HeroSection({
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
   const hasDiscount =
     compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
+
+  const ratingData = getProductRating(product.rating, product.ratingCount);
 
   const images = product.images.edges.map((edge) => ({
     url: edge.node.url,
@@ -74,6 +77,17 @@ export function HeroSection({
               <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-2">
                 {product.title}
               </h1>
+
+              {/* Rating */}
+              {ratingData && (
+                <div className="flex items-center gap-2 mb-2">
+                  <StarRating rating={ratingData.average} size="md" />
+                  <span className="text-sm text-gray-500">
+                    {ratingData.average.toFixed(1)} ({ratingData.count}{" "}
+                    {ratingData.count === 1 ? "review" : "reviews"})
+                  </span>
+                </div>
+              )}
 
               {/* Tagline */}
               {tagline && (
