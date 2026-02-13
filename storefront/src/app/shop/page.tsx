@@ -1,5 +1,5 @@
-import { getProducts, formatPrice, getProductRating } from "@/lib/shopify";
-import { StarRating } from "@/components/StarRating";
+import { getProducts } from "@/lib/shopify";
+import ProductCard from "@/components/ProductCard";
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
@@ -295,56 +295,7 @@ export default async function ShopPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {products.slice(0, 8).map((product) => (
-              <Link
-                key={product.id}
-                href={`/product/${product.handle}`}
-                className="group"
-              >
-                <div className="bg-gray-50 rounded-xl overflow-hidden mb-3 aspect-square relative">
-                  {product.images.edges[0] ? (
-                    <Image
-                      src={product.images.edges[0].node.url}
-                      alt={product.images.edges[0].node.altText || product.title}
-                      fill
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <svg
-                        className="w-16 h-16 text-gray-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2 mb-1">
-                  {product.title}
-                </h3>
-                {(() => {
-                  const ratingData = getProductRating(product.rating, product.ratingCount);
-                  return ratingData ? (
-                    <div className="flex items-center gap-1.5 mb-1">
-                      <StarRating rating={ratingData.average} size="sm" />
-                      <span className="text-xs text-gray-500">({ratingData.count})</span>
-                    </div>
-                  ) : null;
-                })()}
-                <p className="text-cs-orange font-semibold">
-                  {formatPrice(
-                    product.priceRange.minVariantPrice.amount,
-                    product.priceRange.minVariantPrice.currencyCode
-                  )}
-                </p>
-              </Link>
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
 
