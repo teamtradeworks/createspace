@@ -7,13 +7,32 @@ import { Product } from "@/lib/shopify";
 import { useCart } from "@/context/CartContext";
 import { DELIVERY_CONFIG } from "@/config/delivery";
 
-// Age group configuration with age ranges for filtering
+// Age group configuration with hardcoded product handles
 const ageGroups = [
-  { id: "3-5", label: "Age 3-5", href: "/shop/age/3-5", range: [3, 5] as const },
-  { id: "6-8", label: "Age 6-8", href: "/shop/age/6-8", range: [6, 8] as const },
-  { id: "9-12", label: "Age 9-12", href: "/shop/age/9-12", range: [9, 12] as const },
-  { id: "13+", label: "Age 13+", href: "/shop/age/13-plus", range: [13, 99] as const },
-  { id: "all", label: "All Ages", href: "/shop", range: null },
+  {
+    id: "3-5",
+    label: "Age 3-5",
+    href: "/shop/age/3-5",
+    handles: ["matatastudio-tale-bot-pro", "matatastudio-vincibot-coding-robot-set", "snap-circuits-beginner"],
+  },
+  {
+    id: "6-8",
+    label: "Age 6-8",
+    href: "/shop/age/6-8",
+    handles: ["makerzoid-smart-robot-premium", "matatastudio-vincibot-coding-robot-set", "snap-circuit-junior"],
+  },
+  {
+    id: "9-12",
+    label: "Age 9-12",
+    href: "/shop/age/9-12",
+    handles: ["makerzoid-robot-master-premium", "bbc-micro-bit-go", "snap-circuits-300"],
+  },
+  {
+    id: "13+",
+    label: "Age 13+",
+    href: "/shop/age/13-plus",
+    handles: ["ultimate-mega-2560-starter-kit", "arduino-starter-kit", "bbc-micro-bit-go"],
+  },
 ];
 
 // Education options configuration
@@ -308,24 +327,12 @@ export default function Header({ products = [] }: HeaderProps) {
       >
         <div className="bg-white shadow-xl">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-5 gap-8">
+          <div className="grid grid-cols-4 gap-8">
             {ageGroups.map((group) => {
-              // Filter products by age metafield overlap with group range
-              const groupProducts = group.range
-                ? products
-                    .filter((product) => {
-                      const minAge = product.minAge?.value
-                        ? parseInt(product.minAge.value, 10)
-                        : null;
-                      if (minAge === null) return false;
-                      const maxAge = product.maxAge?.value
-                        ? parseInt(product.maxAge.value, 10)
-                        : null;
-                      const productMax = maxAge ?? Infinity;
-                      return minAge <= group.range[1] && productMax >= group.range[0];
-                    })
-                    .slice(0, 3)
-                : products.slice(0, 3);
+              // Look up hardcoded products by handle, preserving order
+              const groupProducts = group.handles
+                .map((handle) => products.find((p) => p.handle === handle))
+                .filter(Boolean) as Product[];
 
               return (
                 <div key={group.id}>
