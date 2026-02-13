@@ -165,7 +165,7 @@ When adding new pages, create a corresponding subfolder (e.g., `images/contact/`
 sips --resampleWidth 1200 path/to/image.jpg
 
 # Compress JPEGs
-npx sharp-cli --input image.jpg --output image.jpg --quality 80
+npx sharp-cli --input image.jpg --output image.jpg --quality 85
 
 # Compress PNGs
 npx sharp-cli --input image.png --output image.png --compressionLevel 9
