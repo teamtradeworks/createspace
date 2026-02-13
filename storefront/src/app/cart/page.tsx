@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useCart } from "@/context/CartContext";
+import { useCart, getAvailableItems } from "@/context/CartContext";
 import { formatPrice } from "@/lib/shopify";
 import {
   DELIVERY_CONFIG,
@@ -13,6 +14,36 @@ import {
 
 export default function CartPage() {
   const { items, itemCount, subtotal, currencyCode, updateQuantity, removeItem } = useCart();
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  const handleCheckout = async () => {
+    const available = getAvailableItems(items);
+    if (available.length === 0) return;
+
+    setIsCheckingOut(true);
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          lines: available.map((item) => ({
+            variantId: item.variantId,
+            quantity: item.quantity,
+          })),
+        }),
+      });
+      const data = await res.json();
+      if (data.checkoutUrl) {
+        window.location.href = data.checkoutUrl;
+      } else {
+        console.error("Checkout error:", data.error);
+        setIsCheckingOut(false);
+      }
+    } catch (e) {
+      console.error("Checkout failed:", e);
+      setIsCheckingOut(false);
+    }
+  };
 
   return (
     <>
@@ -97,10 +128,12 @@ export default function CartPage() {
 
                 {/* Cart Items List */}
                 <div className="divide-y divide-gray-200">
-                  {items.map((item) => (
+                  {items.map((item) => {
+                    const isUnavailable = item.available === false;
+                    return (
                     <div
                       key={item.variantId}
-                      className="py-6 grid grid-cols-12 gap-4 items-center"
+                      className={`py-6 grid grid-cols-12 gap-4 items-center${isUnavailable ? " opacity-50" : ""}`}
                     >
                       {/* Product Image & Info */}
                       <div className="col-span-12 md:col-span-6 flex items-center gap-4">
@@ -141,10 +174,17 @@ export default function CartPage() {
                           >
                             {item.title}
                           </Link>
-                          <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
-                            In Stock
-                          </span>
+                          {isUnavailable ? (
+                            <span className="inline-flex items-center gap-1 text-xs text-cs-red mt-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
+                              Out of Stock — excluded from order
+                            </span>
+                          ) : (
+                            <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
+                              In Stock
+                            </span>
+                          )}
                           <button
                             onClick={() => removeItem(item.variantId)}
                             className="mt-1 text-sm text-gray-500 hover:text-cs-red transition-colors flex items-center gap-1 block"
@@ -170,17 +210,21 @@ export default function CartPage() {
                       {/* Price */}
                       <div className="col-span-4 md:col-span-2 text-center">
                         <span className="md:hidden text-sm text-gray-500 mr-2">Price:</span>
-                        <span className="text-gray-700">
+                        <span className={isUnavailable ? "text-gray-400 line-through" : "text-gray-700"}>
                           {formatPrice(item.price, item.currencyCode)}
                         </span>
                       </div>
 
                       {/* Quantity */}
                       <div className="col-span-4 md:col-span-2 flex justify-center">
+                        {isUnavailable ? (
+                          <span className="text-sm text-gray-400">—</span>
+                        ) : (
                         <div className="flex items-center border rounded-lg">
                           <button
                             onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
-                            className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
+                            disabled={item.quantity <= 1}
+                            className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                             aria-label="Decrease quantity"
                           >
                             <svg
@@ -220,17 +264,19 @@ export default function CartPage() {
                             </svg>
                           </button>
                         </div>
+                        )}
                       </div>
 
                       {/* Line Total */}
                       <div className="col-span-4 md:col-span-2 text-right">
                         <span className="md:hidden text-sm text-gray-500 mr-2">Total:</span>
-                        <span className="font-semibold text-navy">
+                        <span className={isUnavailable ? "text-gray-400 line-through" : "font-semibold text-navy"}>
                           {formatPrice(item.price * item.quantity, item.currencyCode)}
                         </span>
                       </div>
                     </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
@@ -303,22 +349,36 @@ export default function CartPage() {
 
                   {/* Checkout Button */}
                   <button
-                    className="w-full py-4 bg-cs-orange hover:bg-cs-orange/90 text-white font-semibold rounded-lg transition-colors flex items-center justify-center gap-2"
+                    onClick={handleCheckout}
+                    disabled={isCheckingOut || itemCount === 0}
+                    className="w-full py-4 bg-cs-orange hover:bg-cs-orange/90 text-white font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                   >
-                    Proceed to Checkout
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
+                    {isCheckingOut ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                        </svg>
+                        Redirecting to Checkout...
+                      </>
+                    ) : (
+                      <>
+                        Proceed to Checkout
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
+                        </svg>
+                      </>
+                    )}
                   </button>
 
                   {/* Continue Shopping */}

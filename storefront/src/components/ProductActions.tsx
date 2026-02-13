@@ -71,6 +71,7 @@ export default function ProductActions({
         currencyCode,
         image,
         handle,
+        available,
       },
       quantity
     );
@@ -87,6 +88,7 @@ export default function ProductActions({
           currencyCode: addon.currencyCode,
           image: addon.image || undefined,
           handle: addon.handle,
+          available: addon.available,
         },
         quantity
       );
@@ -116,6 +118,7 @@ export default function ProductActions({
         currencyCode,
         image,
         handle,
+        available,
       },
       quantity
     );
@@ -132,6 +135,7 @@ export default function ProductActions({
           currencyCode: addon.currencyCode,
           image: addon.image || undefined,
           handle: addon.handle,
+          available: addon.available,
         },
         quantity
       );

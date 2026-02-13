@@ -11,6 +11,7 @@ export interface CartItem {
   quantity: number;
   image?: string;
   handle: string;
+  available?: boolean;
 }
 
 interface CartContextType {
@@ -27,6 +28,21 @@ interface CartContextType {
   closeCart: () => void;
 }
 
+/** Filter cart items to only those available for sale. */
+export function getAvailableItems(items: CartItem[]): CartItem[] {
+  return items.filter((item) => item.available !== false);
+}
+
+/** Count total quantity of available items. */
+export function getCartItemCount(items: CartItem[]): number {
+  return getAvailableItems(items).reduce((total, item) => total + item.quantity, 0);
+}
+
+/** Calculate subtotal of available items. */
+export function getCartSubtotal(items: CartItem[]): number {
+  return getAvailableItems(items).reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const CART_STORAGE_KEY = "createspace-cart";
@@ -36,17 +52,42 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
 
-  // Load cart from localStorage on mount
+  // Load cart from localStorage on mount, then refresh availability from Shopify
   useEffect(() => {
     const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+    let parsedItems: CartItem[] = [];
     if (storedCart) {
       try {
-        setItems(JSON.parse(storedCart));
+        parsedItems = JSON.parse(storedCart);
+        setItems(parsedItems);
       } catch (e) {
         console.error("Failed to parse cart from localStorage:", e);
       }
     }
     setIsHydrated(true);
+
+    // Refresh availability for all cart items
+    if (parsedItems.length > 0) {
+      const variantIds = parsedItems.map((item) => item.variantId);
+      fetch("/api/cart-availability", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ variantIds }),
+      })
+        .then((res) => res.json())
+        .then(({ availability }: { availability: Record<string, boolean> }) => {
+          setItems((prev) =>
+            prev.map((item) =>
+              item.variantId in availability
+                ? { ...item, available: availability[item.variantId] }
+                : item
+            )
+          );
+        })
+        .catch((e) => {
+          console.error("Failed to refresh cart availability:", e);
+        });
+    }
   }, []);
 
   // Save cart to localStorage whenever it changes
@@ -56,8 +97,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
   }, [items, isHydrated]);
 
-  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
-  const subtotal = items.reduce((total, item) => total + item.price * item.quantity, 0);
+  const itemCount = getCartItemCount(items);
+  const subtotal = getCartSubtotal(items);
   const currencyCode = items[0]?.currencyCode || "ZAR";
 
   const addItem = (newItem: Omit<CartItem, "quantity">, quantity = 1) => {
@@ -81,10 +122,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
 
   const updateQuantity = (variantId: string, quantity: number) => {
-    if (quantity < 1) {
-      removeItem(variantId);
-      return;
-    }
+    if (quantity < 1) return;
 
     setItems((prevItems) =>
       prevItems.map((item) =>
