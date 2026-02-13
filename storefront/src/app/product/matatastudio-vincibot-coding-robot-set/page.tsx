@@ -88,7 +88,7 @@ export default async function VinciBotPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-with-coding-tablet.jpg"
         imageAlt="Child programming VinciBot on tablet with block-based coding"
-        title="Real AI Your Child Can Touch"
+        title="AI and Sensors Built In"
         body="VinciBot includes Tiny Machine Learning — artificial intelligence that runs directly on the robot without needing the internet. Your child will train the robot to recognise hand gestures, identify handwritten letters, and respond to real-world conditions. This isn't simulated AI or a simplified demo — it's the same machine learning technology used in smartphones and self-driving cars, just made accessible for kids. When they program VinciBot to wave when it sees a thumbs-up gesture, they're learning the foundations of computer vision and neural networks. That's an incredible head start for future careers in AI, data science, and robotics."
         layout="image-left"
         background="white"
@@ -96,7 +96,7 @@ export default async function VinciBotPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="8 Sensors Power Real-World Robotics"
+        title="Sensors and Capabilities"
         subtitle="VinciBot isn't just programmable — it's aware. Eight built-in sensors let it see, hear, and respond to its environment like a real robot."
         features={[
           {
@@ -137,7 +137,7 @@ export default async function VinciBotPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-vincibot-coding-robot-set/coding-interface-tablet.png"
         imageAlt="MatataCode programming interface showing block-based coding on tablet"
-        title="Starts Simple, Goes Deep"
+        title="Grows with Your Child"
         body="VinciBot uses MatataCode — a free programming app for Windows, Mac, iPad, and Android tablets. Beginners start with colourful drag-and-drop blocks (just like Scratch) to make the robot move, light up, and play sounds. As your child gains confidence, they transition to Python — a professional programming language used at Google, NASA, and universities worldwide. The same robot, the same app, but now they're writing real code. By age 12, they could be programming AI models, building IoT weather stations, or creating games — skills that put them years ahead of their peers."
         layout="image-right"
         background="white"
@@ -191,7 +191,7 @@ export default async function VinciBotPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Real Families, Real Learning"
+        title="What Families Are Building"
         subtitle="See how children around the world are exploring coding, robotics, and creativity with VinciBot."
         images={[
           {
@@ -312,7 +312,7 @@ export default async function VinciBotPage() {
 
       {/* Call to Action */}
       <CallToAction
-        title="Give Your Child the Gift of Future-Ready Skills"
+        title="Get Started with VinciBot"
         subtitle="VinciBot delivers years of learning in coding, AI, and robotics. Invest in your child's future today."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"

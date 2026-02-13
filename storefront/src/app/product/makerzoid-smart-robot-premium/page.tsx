@@ -77,7 +77,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       <ImageTextBlock
         image="/images/products/makerzoid-smart-robot-premium/child-building-while-coding-on-tablet.jpg"
         imageAlt="Child building a robot while coding on tablet"
-        title="Build, Code, Create"
+        title="What They'll Build"
         body="Watch your child's confidence grow as they bring their creations to life. The Makerzoid Smart Robot Premium combines hands-on building with intuitive coding on a tablet or phone. Using the free Makerzoid app with 2D and 3D animated instructions, your child can construct robots step-by-step, then program them to move, respond, and interact. This seamless blend of physical and digital learning makes abstract concepts tangible and immediately rewarding."
         layout="image-left"
         background="gray"
@@ -85,7 +85,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Everything They Need to Start"
+        title="What's Included"
         subtitle="This complete kit includes 400+ building blocks, a Bluetooth motor, sensors, and comprehensive instructions - no additional tools required."
         features={[
           {
@@ -127,7 +127,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       <ImageTextBlock
         image="/images/products/makerzoid-smart-robot-premium/childs-hands-holding-a-built-robot.jpg"
         imageAlt="Child's hands proudly holding a completed robot build"
-        title="From Imagination to Reality"
+        title="From Idea to Working Robot"
         body="There's nothing quite like the pride on a child's face when they complete their first working robot. With 200+ different models to explore, your child will experience that sense of accomplishment again and again. From simple button-controlled builds to advanced programmable creations, each completed project builds confidence, problem-solving skills, and genuine excitement about learning. The robots they build aren't just toys—they're proof of what they can achieve."
         layout="image-right"
         background="gray"
@@ -182,7 +182,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Real Builds from Real Families"
+        title="What Families Are Building"
         subtitle="See what other children have created with their Makerzoid Smart Robot Premium kits"
         images={[
           {
@@ -296,7 +296,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
 
       {/* Final CTA */}
       <CallToAction
-        title="Ready to Start Building?"
+        title="Get Started"
         subtitle="Join 3,000+ schools and thousands of families worldwide using Makerzoid to inspire the next generation of engineers and innovators."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"

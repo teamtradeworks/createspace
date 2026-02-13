@@ -46,7 +46,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
 
       {/* Why Makerzoid Section */}
       <NumberedSteps
-        title="Why Choose Makerzoid Robot Master?"
+        title="Why Robot Master?"
         subtitle="Designed by robotics experts, this kit combines building and coding in one comprehensive learning experience."
         steps={[
           {
@@ -72,7 +72,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/boy-coding-on-tablet-with-robot-on-floor.jpg"
         imageAlt="Child programming a Makerzoid robot using a tablet"
-        title="A Complete Robotics Learning System"
+        title="What's Inside the System"
         body="The Makerzoid Robot Master Premium is a programmable robotics kit with over 600 building blocks that lets your child build and code more than 200 different robot designs. From simple mechanical structures to Bluetooth-controlled robots with sensors, the kit spans three skill levels — Structural, Dynamics, and Programmable — each with dedicated video lessons. Children program their robots using Scratch 3.0, a visual drag-and-drop language designed for young learners, and see their code come to life instantly as their robot responds. The blocks are fully compatible with LEGO and LEGO Technic, so your child can combine them with pieces they already own."
         layout="image-left"
         background="white"
@@ -80,7 +80,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Everything for Building and Coding"
+        title="What's Included"
         subtitle="A complete robotics learning system with premium components and structured lessons."
         features={[
           {
@@ -122,7 +122,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/helicopter-being-built-with-manual.jpg"
         imageAlt="Makerzoid helicopter being built following the instruction manual"
-        title="Clear Instructions, Independent Learning"
+        title="Easy to Follow Instructions"
         body="Choose your learning style. The detailed paper manual guides step-by-step building with clear diagrams. Or use the Makerzoid app for interactive instructions plus video lessons. Most children can build independently - the instructions are designed for success without adult help."
         layout="image-right"
         background="white"
@@ -209,7 +209,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
 
       {/* Final CTA */}
       <CallToAction
-        title="Ready to Build Their First Robot?"
+        title="Get Started"
         subtitle="600+ blocks, 200+ designs, and 47 video lessons. The Makerzoid Robot Master Premium has everything your young engineer needs to start building and coding."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"

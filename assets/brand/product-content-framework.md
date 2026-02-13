@@ -144,16 +144,24 @@ Skill tags make learning outcomes tangible and scannable. They answer "what will
 
 ## Writing for Conversion
 
-### Benefit-led headlines
+### Section titles
 
-Every section heading should lead with what the parent or child *gets*, not what the product *is*.
+Section titles should be **specific and concrete**. If a title could apply to any STEM kit, rewrite it. Describe what the product *is* or what the child *does* — not how it *feels*.
 
-| Instead of...              | Write...                              |
-| -------------------------- | ------------------------------------- |
-| "Arduino UNO R3 Features"  | "Everything You Need to Get Started"  |
-| "Product Specifications"   | "Technical Details"                   |
-| "Learning Outcomes"        | "Skills They'll Develop"              |
-| "Included Components"      | "What's in the Box"                   |
+Short and functional is fine: "Key Features", "How It Works", "What's Included". Personality is welcome where it adds real meaning, not just flair.
+
+| Do                                       | Don't                                    |
+| ---------------------------------------- | ---------------------------------------- |
+| "A Pocket-Sized Programmable Computer"   | "Packed with Possibilities"              |
+| "Build Beyond the Box with LEGO"         | "From Imagination to Reality"            |
+| "93+ Projects from Beginner to Expert"   | "Everything a Young Learner Needs"       |
+| "What Families Are Building"             | "Real Families, Real Learning"           |
+| "Your First Electronics Lab"             | "A Complete Electronics Lab in a Box"    |
+| "Get Started"                            | "Ready to Start Their Coding Journey?"   |
+| "Technical Details"                       | "Product Specifications"                 |
+| "What's in the Box"                       | "Included Components"                    |
+
+**The test:** read the title out of context. Does it tell you something concrete about this specific product? Keep it. Does it sound like a tagline that could go on any product? Rewrite it.
 
 ### Objection handling in FAQs
 
@@ -179,7 +187,7 @@ The hero is the most important 5 seconds. The tagline and highlights must:
 
 - Primary CTA always links to `#product-actions` (scroll to cart)
 - Secondary CTA links to `/shop` for continued browsing
-- CTA title should create excitement: "Ready to Start Building?" not "Purchase Product"
+- CTA title should be direct: "Get Started" or "Get Started with [Product]" — not "Purchase Product" but also not overwrought ("Ready to Start Their Coding Journey?")
 - CTA subtitle should reinforce social proof or breadth: "Join millions of makers worldwide"
 
 ---
@@ -211,7 +219,7 @@ Best for feature breakdowns with icons. 3-6 features.
 ### ImageTextBlock content
 
 The storytelling component. Use for emotional, narrative content.
-- **Title:** Benefit-led, aspirational ("Learn Together, Build Together")
+- **Title:** Specific and concrete — describe what this section is about ("Built for Group Learning", "LEGO Compatible")
 - **Body:** 2-3 sentences. Paint a picture. Address a parent concern or aspiration
 - Match the image to the message — use lifestyle photos from `assets/product/[slug]/lifestyle/`
 
@@ -261,7 +269,7 @@ Reviews are pulled automatically from Fera — no manual content needed.
 
 ### CallToAction content
 
-- **Title:** Action-oriented, exciting ("Ready to Start Building?")
+- **Title:** Direct and simple ("Get Started" or "Get Started with [Product]")
 - **Subtitle:** Reinforce value or social proof
 - **Primary:** "Add to Cart" → `#product-actions`
 - **Secondary:** "Browse More Kits" → `/shop`

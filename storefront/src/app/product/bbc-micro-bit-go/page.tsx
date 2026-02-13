@@ -86,7 +86,7 @@ export default async function MicrobitGoPage() {
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Packed with Possibilities"
+        title="Key Features"
         subtitle="The micro:bit V2 has everything built-in to create amazing projects - no extra components needed to get started."
         features={[
           {
@@ -128,7 +128,7 @@ export default async function MicrobitGoPage() {
       <ImageTextBlock
         image="/images/products/bbc-micro-bit-go/kids-holding-microbits.jpg"
         imageAlt="Two children holding micro:bit boards and smiling"
-        title="Learn Together, Build Together"
+        title="Built for Group Learning"
         body="The micro:bit's built-in radio lets devices talk to each other wirelessly. Create multiplayer games, send secret messages, or build collaborative projects. Learning is always more fun with friends."
         layout="image-right"
         background="white"
@@ -251,7 +251,7 @@ export default async function MicrobitGoPage() {
 
       {/* Final CTA */}
       <CallToAction
-        title="Ready to Start Coding?"
+        title="Get Started with micro:bit"
         subtitle="Join millions of makers, students, and educators worldwide. The micro:bit Go has everything you need to begin your coding journey today."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
