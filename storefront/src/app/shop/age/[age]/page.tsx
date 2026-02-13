@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProducts, formatPrice, formatAgeRange } from "@/lib/shopify";
+import { getProducts, formatPrice, formatAgeRange, getProductRating } from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
+import { StarRating } from "@/components/StarRating";
 
 const ageCategories: Record<
   string,
@@ -220,6 +221,15 @@ export default async function AgeCategoryPage({ params }: Props) {
                     <p className="text-sm text-gray-500 line-clamp-2 mb-4">
                       {product.description || "Hands-on STEM learning kit"}
                     </p>
+                    {(() => {
+                      const rd = getProductRating(product.rating, product.ratingCount);
+                      return rd ? (
+                        <div className="flex items-center gap-1.5 mb-3">
+                          <StarRating rating={rd.average} size="sm" />
+                          <span className="text-xs text-gray-500">({rd.count})</span>
+                        </div>
+                      ) : null;
+                    })()}
                     <div className="flex items-center justify-between mt-auto">
                       <span className="text-cs-orange font-bold">
                         {formatPrice(

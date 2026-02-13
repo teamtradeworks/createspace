@@ -11,6 +11,7 @@ import {
   ProductFAQ,
   VideoEmbed,
   Specifications,
+  ProductReviews,
   ProjectShowcase,
   CallToAction,
 } from "@/components/product-sections";
@@ -244,6 +245,9 @@ export default async function MicrobitGoPage() {
         ]}
         background="gray"
       />
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* Final CTA */}
       <CallToAction

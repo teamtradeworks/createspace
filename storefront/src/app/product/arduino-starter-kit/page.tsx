@@ -12,7 +12,7 @@ import {
   ProductFAQ,
   VideoEmbed,
   Specifications,
-  ProductTestimonials,
+  ProductReviews,
   ProjectShowcase,
   CallToAction,
 } from "@/components/product-sections";
@@ -214,34 +214,8 @@ export default async function ArduinoStarterKitPage() {
         background="gray"
       />
 
-      {/* Testimonials */}
-      <ProductTestimonials
-        title="What Parents & Educators Say"
-        testimonials={[
-          {
-            quote:
-              "My 12-year-old went from knowing nothing about electronics to building his own projects independently. The book explains everything perfectly.",
-            author: "Sarah M.",
-            role: "Parent",
-            rating: 5,
-          },
-          {
-            quote:
-              "We use these kits in our after-school STEM club. The structured projects make it easy to teach, and kids love the hands-on building.",
-            author: "David K.",
-            role: "STEM Educator",
-            rating: 5,
-          },
-          {
-            quote:
-              "As a complete beginner adult, I found this kit approachable and rewarding. Each project builds confidence for the next one.",
-            author: "Michelle T.",
-            role: "Hobbyist",
-            rating: 5,
-          },
-        ]}
-        background="white"
-      />
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="white" />
 
       {/* What's in the Box */}
       <WhatsIncluded

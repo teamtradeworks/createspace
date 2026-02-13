@@ -72,11 +72,11 @@ Gallery of real customer/end-user photos. Social proof from real families using 
 
 **Component:** `CustomerShowcase` — use ALL images from `assets/product/[slug]/end-user/`.
 
-#### 8. ProductTestimonials (Optional)
+#### 8. ProductReviews (Optional)
 
-Curated testimonials from parents and educators. 2-3 testimonials from different perspectives. Quotes from real parents are more persuasive than a parts list. **Must be placed directly below CustomerShowcase when both sections are present.**
+Customer reviews pulled automatically from Fera. Displays star ratings, review text, customer avatars, and photos with pagination. Automatically hidden when no reviews exist. **Must be placed directly below CustomerShowcase when both sections are present.**
 
-**Component:** `ProductTestimonials`
+**Component:** `ProductReviews`
 
 ### Details & Objections
 
@@ -123,7 +123,7 @@ Image + text side-by-side for storytelling. **Not a fixed position** — scatter
 **Rules:**
 - **Maximum 2-3 per page** — be selective, not exhaustive
 - **Never place two ImageTextBlocks directly below one another** — always have at least one other section between them
-- **Always above the details/reassure sections** — ImageTextBlocks must appear above Specifications, ProductFAQ, ProductTestimonials, and WhatsIncluded
+- **Always above the details/reassure sections** — ImageTextBlocks must appear above Specifications, ProductFAQ, ProductReviews, and WhatsIncluded
 
 **Good placement spots:**
 - Between VideoEmbed and FeatureGrid
@@ -196,7 +196,7 @@ All 13 sections as needed, with ImageTextBlocks scattered between dense sections
 | Is there a good product video? | Add VideoEmbed |
 | Do we have customer photos? | Add CustomerShowcase |
 | Is it a technical product (microcontroller, etc.)? | Add Specifications |
-| Do we have parent/educator testimonials? | Add ProductTestimonials |
+| Does the product have Fera reviews? | Add ProductReviews |
 | Are there 3+ lifestyle photos? | Add multiple ImageTextBlocks |
 
 ---
@@ -235,7 +235,7 @@ All components are in `storefront/src/components/product-sections/`. For full pr
 | FeatureGrid         | Optional    | 5. Educate        | white, gray, navy            |
 | ProjectShowcase     | Optional    | 6. Educate        | white, gray, navy            |
 | CustomerShowcase    | Optional    | 7. Reassure       | white, gray                  |
-| ProductTestimonials | Optional    | 8. Reassure (after CustomerShowcase) | white, gray, navy            |
+| ProductReviews      | Optional    | 8. Reassure (after CustomerShowcase) | white, gray, navy            |
 | ProductFAQ          | Recommended | 9. Details        | white, gray                  |
 | WhatsIncluded       | Yes         | 10. Details       | white, gray                  |
 | Specifications      | Optional    | 11. Details (always last) | white, gray                  |

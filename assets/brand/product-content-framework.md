@@ -102,7 +102,7 @@ Every product page must answer three parent questions. If a parent can't answer 
 | ------------------- | ----------------------- | ------------------------------------- |
 | **Quality signals** | Build confidence        | Brand mentions, FeatureGrid, body copy|
 | **Safety**          | Address parent concerns | FAQ section, hero highlights          |
-| **Social proof**    | Reduce risk perception  | ProductTestimonials, CustomerShowcase |
+| **Social proof**    | Reduce risk perception  | ProductReviews, CustomerShowcase      |
 | **Gift-worthiness** | Support gift buyers     | Hero highlights, ImageTextBlock copy  |
 
 ---
@@ -252,12 +252,12 @@ Complete box contents list. Be specific.
 - Keep answers concise — 2-3 sentences max
 - Always include age suitability, experience needed, and requirements
 
-### ProductTestimonials content
+### ProductReviews content
 
-2-3 testimonials from different perspectives.
-- Mix: parent + educator + child/hobbyist
-- Include star ratings (always 5 if curated)
-- Keep quotes authentic and specific, not generic praise
+Reviews are pulled automatically from Fera — no manual content needed.
+- Add `<ProductReviews productId={product.id} />` to the page
+- The component handles fetching, display, and pagination
+- Hidden automatically when no reviews exist
 
 ### CallToAction content
 

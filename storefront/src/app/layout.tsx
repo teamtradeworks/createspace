@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import HeaderSkeleton from "@/components/HeaderSkeleton";
@@ -57,6 +58,25 @@ export default function RootLayout({
           <Footer />
           <SpeedInsights />
         </CartProvider>
+        {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
+          <Script
+            id="fera-init"
+            strategy="lazyOnload"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  window.fera = window.fera || [];
+                  window.fera.push("configure", { store_pk: "${process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY}" });
+                  var s = document.createElement("script");
+                  s.type = "text/javascript";
+                  s.async = true;
+                  s.src = "https://cdn.fera.ai/js/fera.js";
+                  document.body.appendChild(s);
+                })();
+              `,
+            }}
+          />
+        )}
       </body>
     </html>
   );

@@ -10,7 +10,7 @@ import {
   ImageTextBlock,
   ProductFAQ,
   Specifications,
-  ProductTestimonials,
+  ProductReviews,
   CallToAction,
 } from "@/components/product-sections";
 
@@ -185,34 +185,8 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         background="gray"
       />
 
-      {/* Testimonials */}
-      <ProductTestimonials
-        title="What Parents Are Saying"
-        testimonials={[
-          {
-            quote:
-              "My 9 year old son has not stopped playing with it. The combination of building and coding keeps him engaged for hours. Great instructions too.",
-            author: "Parent",
-            role: "Amazon Review",
-            rating: 5,
-          },
-          {
-            quote:
-              "Combines the best of LEGO regular and LEGO Technic. The app teaches physics, mechanics, and programming through Scratch. Excellent equipment.",
-            author: "Parent",
-            role: "European Review",
-            rating: 5,
-          },
-          {
-            quote:
-              "Catching up the good time playing LEGOs with my son, and learning some basics about robotic coding at the same time. The courses are very helpful. It's so much fun!",
-            author: "Parent",
-            role: "Amazon Review",
-            rating: 5,
-          },
-        ]}
-        background="white"
-      />
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="white" />
 
       {/* Specifications */}
       <Specifications
