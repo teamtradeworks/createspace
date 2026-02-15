@@ -212,6 +212,51 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Our Brands Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
+              Our Brands
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+              Trusted Names in STEM
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We are official, registered suppliers of the world&apos;s leading
+              STEM brands—bringing you authentic, quality products backed by
+              full manufacturer support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              { name: "MatataStudio", logo: "/images/brands/matatastudio.png" },
+              { name: "Makerzoid", logo: "/images/brands/makerzoid.png" },
+              { name: "BBC micro:bit", logo: "/images/brands/bbc-microbit.png" },
+              { name: "ELECFREAKS", logo: "/images/brands/elecfreaks.png" },
+              { name: "Snap Circuits", logo: "/images/brands/snap-circuits.png" },
+              { name: "Arduino", logo: "/images/brands/arduino.png" },
+              { name: "ACEBOTT", logo: "/images/brands/acebott.png" },
+              { name: "Robotico", logo: "/images/brands/robotico.png" },
+            ].map((brand) => (
+              <div
+                key={brand.name}
+                className="bg-white rounded-xl p-6 flex items-center justify-center aspect-square shadow-sm hover:shadow-md transition-shadow"
+              >
+                <Image
+                  src={brand.logo}
+                  alt={brand.name}
+                  width={160}
+                  height={160}
+                  className="object-contain w-full h-full max-w-[140px] max-h-[140px]"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section className="py-20 bg-navy text-white relative overflow-hidden">
         {/* Decorative illustrations */}
