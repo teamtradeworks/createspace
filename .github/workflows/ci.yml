@@ -78,6 +78,7 @@ jobs:
 
       - name: Upload Argos screenshots
         if: ${{ !cancelled() }}
+        continue-on-error: true
         run: npx @argos-ci/cli upload ./screenshots
         env:
           ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
