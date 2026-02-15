@@ -20,17 +20,15 @@ test.describe("Homepage Visual Regression", () => {
 
   test("full page - desktop", async ({ page }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
 
-    await expect(
-      page.locator(".hero-carousel-wrapper img").first()
-    ).toBeVisible();
+    // Wait for key content to render instead of networkidle
+    await expect(page.locator(".hero-carousel-wrapper")).toBeVisible();
+    await expect(page.locator("footer")).toBeVisible();
 
     await argosScreenshot(page, "homepage-desktop", {
       fullPage: true,
       maskColor: "#FF00FF",
       mask: [
-        // Mask the featured products area - content is dynamic from Shopify
         page.locator("section:has(button[role='tab'])"),
       ],
     });
@@ -39,9 +37,9 @@ test.describe("Homepage Visual Regression", () => {
   test("full page - mobile", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
 
     await expect(page.locator(".hero-carousel-wrapper")).toBeVisible();
+    await expect(page.locator("footer")).toBeVisible();
 
     await argosScreenshot(page, "homepage-mobile", {
       fullPage: true,
@@ -54,10 +52,9 @@ test.describe("Homepage Visual Regression", () => {
 
   test("hero section - desktop", async ({ page }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
 
     const hero = page.locator(".hero-carousel-wrapper");
-    await expect(hero.locator("img").first()).toBeVisible();
+    await expect(hero).toBeVisible();
 
     await argosScreenshot(page, "hero-desktop", {
       element: hero,
@@ -66,13 +63,13 @@ test.describe("Homepage Visual Regression", () => {
 
   test("why STEM section", async ({ page }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
 
     const stemSection = page
       .locator("section")
       .filter({ hasText: "Why STEM Education Matters" })
       .first();
 
+    await expect(stemSection).toBeVisible();
     await stemSection.scrollIntoViewIfNeeded();
     await argosScreenshot(page, "why-stem", {
       element: stemSection,
@@ -81,13 +78,13 @@ test.describe("Homepage Visual Regression", () => {
 
   test("testimonials section", async ({ page }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
 
     const testimonials = page
       .locator("section")
       .filter({ hasText: "What Parents & Educators Say" })
       .first();
 
+    await expect(testimonials).toBeVisible();
     await testimonials.scrollIntoViewIfNeeded();
     await argosScreenshot(page, "testimonials", {
       element: testimonials,
@@ -96,13 +93,13 @@ test.describe("Homepage Visual Regression", () => {
 
   test("CTA section", async ({ page }) => {
     await page.goto("/");
-    await page.waitForLoadState("networkidle");
 
     const cta = page
       .locator("section")
       .filter({ hasText: "Ready to Spark Curiosity?" })
       .first();
 
+    await expect(cta).toBeVisible();
     await cta.scrollIntoViewIfNeeded();
     await argosScreenshot(page, "cta-section", {
       element: cta,
