@@ -76,6 +76,12 @@ jobs:
           NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN: ${{ vars.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN }}
           NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ vars.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN }}
 
+      - name: Upload Argos screenshots
+        if: ${{ !cancelled() }}
+        run: npx @argos-ci/cli upload ./screenshots
+        env:
+          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
