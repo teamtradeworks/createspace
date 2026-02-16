@@ -57,8 +57,16 @@ export default function Footer() {
       </div>
 
       {/* Main footer content */}
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <Image
+          src="/images/illustrations/robot-orange.png"
+          alt=""
+          width={96}
+          height={96}
+          className="absolute right-8 top-[28px] hidden md:block pointer-events-none"
+          aria-hidden="true"
+        />
+        <div className="grid grid-cols-2 md:grid-cols-[auto_0.36fr_1fr_1fr_1fr_1fr] gap-8 md:gap-x-6 md:pr-28">
           {/* Logo and description */}
           <div className="col-span-2 md:col-span-1">
             <Image
@@ -68,7 +76,7 @@ export default function Footer() {
               height={27}
               className="h-7 w-auto mb-4"
             />
-            <p className="text-white/70 text-sm mb-4">
+            <p className="text-white/70 text-sm mb-4 md:w-0 md:min-w-full">
               Curated STEM products to inspire and educate young minds.
             </p>
             <div className="flex space-x-4">
@@ -96,6 +104,9 @@ export default function Footer() {
               </a>
             </div>
           </div>
+
+          {/* Spacer */}
+          <div className="hidden md:block" />
 
           {/* Shop links */}
           <div>
