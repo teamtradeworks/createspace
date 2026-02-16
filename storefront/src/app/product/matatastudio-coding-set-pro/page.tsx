@@ -153,6 +153,7 @@ export default async function MatataStudioCodingSetProPage() {
             description:
               "Program MatataBot to reach destinations on the game map.",
             concepts: "Sequencing, spatial reasoning, planning, debugging",
+            image: "/images/products/matatastudio-coding-set-pro/projects/maps-and-other-things.png",
           },
           {
             name: "Obstacle Courses",
@@ -160,6 +161,7 @@ export default async function MatataStudioCodingSetProPage() {
               "Navigate around flags and barriers on increasingly complex maps.",
             concepts:
               "Problem decomposition, conditional thinking, route optimization",
+            image: "/images/products/matatastudio-coding-set-pro/projects/map-forest-park-tour.jpg",
           },
           {
             name: "Loop Exercises",
@@ -167,12 +169,14 @@ export default async function MatataStudioCodingSetProPage() {
               "Use Loop blocks to create efficient code with repetition.",
             concepts:
               "Pattern recognition, computational efficiency, optimization",
+            image: "/images/products/matatastudio-coding-set-pro/projects/coding-blocks.jpg",
           },
           {
             name: "Function Challenges",
             description:
               "Define and call functions to solve complex multi-step tasks.",
             concepts: "Abstraction, code reusability, modular thinking",
+            image: "/images/products/matatastudio-coding-set-pro/projects/tower-with-booklet.png",
           },
           {
             name: "Geometry Activities",
@@ -180,12 +184,14 @@ export default async function MatataStudioCodingSetProPage() {
               "Draw shapes and patterns using angle blocks for precision.",
             concepts:
               "Mathematical concepts, geometric reasoning, spatial accuracy",
+            image: "/images/products/matatastudio-coding-set-pro/projects/bot-with-pen.jpg",
           },
           {
             name: "Music Programming",
             description:
               "Compose melodies and rhythms using music blocks (Pro feature).",
             concepts: "Creative coding, rhythm, musical patterns, STEAM",
+            image: "/images/products/matatastudio-coding-set-pro/projects/bot-singing-and-dancing.png",
           },
         ]}
         moreText="Plus story-based missions, art projects, and open-ended creative challenges. Activities span 5 age groups (4-5, 6-7, 8-9) with appropriate difficulty for each stage."
@@ -221,12 +227,12 @@ export default async function MatataStudioCodingSetProPage() {
             alt: "Young boys collaborating on a coding challenge",
           },
           {
-            src: "/images/products/matatastudio-coding-set-pro/hand-pointing-to-robot-kit.jpeg",
-            alt: "Child pointing at the MatataBot robot",
+            src: "/images/products/matatastudio-coding-set-pro/boy-placing-piece-into-tray-top-down.jpg",
+            alt: "Top-down view of child placing coding blocks into the tray",
           },
           {
-            src: "/images/products/matatastudio-coding-set-pro/kit-built-on-floor.jpeg",
-            alt: "MatataStudio kit set up on the floor ready for coding",
+            src: "/images/products/matatastudio-coding-set-pro/child-playing-with-set.jpeg",
+            alt: "Child engaged in hands-on coding with MatataStudio",
           },
         ]}
         background="white"
