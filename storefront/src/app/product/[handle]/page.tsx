@@ -8,11 +8,12 @@ import { DELIVERY_CONFIG } from "@/config/delivery";
 import { ProductReviews } from "@/components/product-sections";
 
 interface ProductPageProps {
-  params: { handle: string };
+  params: Promise<{ handle: string }>;
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const product = await getProductByHandle(params.handle);
+  const { handle } = await params;
+  const product = await getProductByHandle(handle);
 
   if (!product) {
     notFound();
@@ -298,7 +299,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
 }
 
 export async function generateMetadata({ params }: ProductPageProps) {
-  const product = await getProductByHandle(params.handle);
+  const { handle } = await params;
+  const product = await getProductByHandle(handle);
 
   if (!product) {
     return { title: "Product Not Found" };

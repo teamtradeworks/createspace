@@ -19,8 +19,9 @@ export default function GlobalError({
         {/* Static header bar — can't use full Header (needs CartProvider) */}
         <header className="bg-navy">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 flex items-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
+            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a href="/">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/brand/logo-dark.png"
                 alt="CREATESPACE"
@@ -53,6 +54,7 @@ export default function GlobalError({
                 .
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
+                {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
                 <a
                   href="/"
                   className="inline-flex items-center justify-center px-8 py-4 bg-[#FF8B00] hover:bg-[#FF8B00]/90 text-white rounded-lg font-semibold transition-colors"
