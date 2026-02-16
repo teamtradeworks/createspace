@@ -175,7 +175,7 @@ export default async function NousAISetPage() {
             name: "Python & Scratch Programming",
             description: "Learn block coding and progress to Python",
             concepts: "Algorithm design, computational thinking",
-            image: "/images/products/matatastudio-nous-ai-set/python-scratch-programming.jpg",
+            image: "/images/products/matatastudio-nous-ai-set/python-scratch-programming.png",
           },
         ]}
         moreText="Plus 12 more projects including smart temperature monitor, recyclable material sorter, line-following robot, autonomous driving, AIGC drawing, and more"
