@@ -65,6 +65,7 @@ export default function Home() {
             width={128}
             height={128}
             className="object-contain"
+            loading="lazy"
           />
         </div>
         <div className="hidden lg:block absolute -right-8 bottom-1/4 w-24 h-24 opacity-20">
@@ -74,6 +75,7 @@ export default function Home() {
             width={96}
             height={96}
             className="object-contain"
+            loading="lazy"
           />
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -153,6 +155,7 @@ export default function Home() {
             width={112}
             height={112}
             className="object-contain"
+            loading="lazy"
           />
         </div>
         <div className="hidden lg:block absolute left-8 bottom-24 w-20 h-20 opacity-15">
@@ -162,6 +165,7 @@ export default function Home() {
             width={80}
             height={80}
             className="object-contain"
+            loading="lazy"
           />
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -284,6 +288,7 @@ export default function Home() {
             width={128}
             height={128}
             className="object-contain"
+            loading="lazy"
           />
         </div>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
