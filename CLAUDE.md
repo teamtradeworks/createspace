@@ -64,6 +64,7 @@ product(handle: "example") {
 
 - Do NOT include `Co-Authored-By: Claude` or any AI co-author lines in commit messages
 - Do NOT mention Claude or AI in pull request descriptions
+- **Always update the PR title and description** when pushing further commits to reflect all changes in the PR
 
 # General Conventions
 
