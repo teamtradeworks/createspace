@@ -60,6 +60,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (storedCart) {
       try {
         parsedItems = JSON.parse(storedCart);
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- Hydrating state from localStorage on mount
         setItems(parsedItems);
       } catch (e) {
         console.error("Failed to parse cart from localStorage:", e);

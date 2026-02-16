@@ -1,6 +1,9 @@
 import { withSentryConfig } from "@sentry/nextjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: import.meta.dirname,
+  },
   images: {
     formats: ["image/webp"],
     remotePatterns: [
