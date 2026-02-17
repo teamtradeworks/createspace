@@ -81,7 +81,7 @@ export default function Footer() {
             </p>
             <div className="flex space-x-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/createspace_sa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-cs-orange transition-colors"
@@ -92,7 +92,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/createspacesa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white/70 hover:text-cs-orange transition-colors"
