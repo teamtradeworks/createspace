@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef } from "react";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import TrustBadges from "@/components/TrustBadges";
@@ -10,12 +10,28 @@ interface ShopGalleryProps {
   initialAge?: string;
 }
 
+const BRAND_COLORS = {
+  navy: "#0C1446",
+  red: "#F70B28",
+  blue: "#3CC7F7",
+  purple: "#AC4DFF",
+  orange: "#FF8B00",
+  green: "#93DB21",
+  yellow: "#FFD500",
+};
+
+const TRACK_COLORS = {
+  age: BRAND_COLORS.blue,
+  discipline: BRAND_COLORS.red,
+  brand: BRAND_COLORS.orange,
+};
+
 const ageGroups = [
   { id: "all", label: "All Ages", range: null as [number, number] | null },
-  { id: "3-5", label: "Ages 3-5", range: [3, 5] as [number, number] },
-  { id: "6-8", label: "Ages 6-8", range: [6, 8] as [number, number] },
-  { id: "9-12", label: "Ages 9-12", range: [9, 12] as [number, number] },
-  { id: "13+", label: "Ages 13+", range: [13, 99] as [number, number] },
+  { id: "3-5", label: "3-5", range: [3, 5] as [number, number] },
+  { id: "6-8", label: "6-8", range: [6, 8] as [number, number] },
+  { id: "9-12", label: "9-12", range: [9, 12] as [number, number] },
+  { id: "13+", label: "13+", range: [13, 99] as [number, number] },
 ];
 
 const disciplines = [
@@ -114,82 +130,118 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
   return (
     <section className="py-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Filters Bar */}
-        <div className="flex flex-col gap-4 mb-8 pb-6 border-b">
-          {/* Age Group Filters */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-medium text-gray-700 mr-2">Age:</span>
-            {ageGroups.map((group) => (
-              <button
-                key={group.id}
-                onClick={() => setSelectedAge(group.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedAge === group.id
-                    ? "bg-navy text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {group.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Discipline Filters */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-medium text-gray-700 mr-2">
-              Discipline:
-            </span>
-            {disciplines.map((discipline) => (
-              <button
-                key={discipline.id}
-                onClick={() => setSelectedDiscipline(discipline.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedDiscipline === discipline.id
-                    ? "bg-navy text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {discipline.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Brand Filters */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-medium text-gray-700 mr-2">Brand:</span>
-            <button
-              onClick={() => setSelectedBrand("all")}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                selectedBrand === "all"
-                  ? "bg-navy text-white"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-              }`}
-            >
-              All Brands
-            </button>
-            {brands.map((brand) => (
-              <button
-                key={brand}
-                onClick={() => setSelectedBrand(brand)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedBrand === brand
-                    ? "bg-navy text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {brand}
-              </button>
-            ))}
-          </div>
-
-          {/* Sort Row */}
+        {/* Mobile Filter Dropdowns */}
+        <div className="flex flex-col gap-4 mb-8 pb-6 border-b-2 border-navy/10 sm:hidden">
+          <FilterDropdown
+            label="Age"
+            color={TRACK_COLORS.age}
+            value={selectedAge}
+            onChange={setSelectedAge}
+            options={ageGroups.map((g) => ({ value: g.id, label: g.label }))}
+          />
+          <FilterDropdown
+            label="Discipline"
+            color={TRACK_COLORS.discipline}
+            value={selectedDiscipline}
+            onChange={setSelectedDiscipline}
+            options={disciplines.map((d) => ({ value: d.id, label: d.label }))}
+          />
+          <FilterDropdown
+            label="Brand"
+            color={TRACK_COLORS.brand}
+            value={selectedBrand}
+            onChange={setSelectedBrand}
+            options={[
+              { value: "all", label: "All Brands" },
+              ...brands.map((b) => ({ value: b, label: b })),
+            ]}
+          />
           <div className="flex items-center justify-between">
+            <FilterDropdown
+              label="Sort"
+              color={BRAND_COLORS.navy}
+              value={sortBy}
+              onChange={setSortBy}
+              options={[
+                { value: "featured", label: "Featured" },
+                { value: "price-low", label: "Price: Low to High" },
+                { value: "price-high", label: "Price: High to Low" },
+                { value: "name-az", label: "Name: A to Z" },
+                { value: "name-za", label: "Name: Z to A" },
+              ]}
+            />
+            {hasActiveFilters && (
+              <button
+                onClick={() => {
+                  setSelectedAge("all");
+                  setSelectedDiscipline("all");
+                  setSelectedBrand("all");
+                }}
+                className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-navy/50 hover:text-cs-red border-2 border-navy/10 hover:border-cs-red/30 rounded-xl transition-all"
+              >
+                Clear
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Desktop Game-Style Filter Tokens */}
+        <div className="hidden sm:flex flex-col gap-6 mb-10 pb-8 border-b-2 border-navy/10">
+          {/* Age Group Track */}
+          <FilterTrack label="Age" color={TRACK_COLORS.age}>
+            {ageGroups.map((group) => (
+              <FilterToken
+                key={group.id}
+                label={group.label}
+                color={TRACK_COLORS.age}
+                isSelected={selectedAge === group.id}
+                onClick={() => setSelectedAge(group.id)}
+              />
+            ))}
+          </FilterTrack>
+
+          {/* Discipline Track */}
+          <FilterTrack label="Discipline" color={TRACK_COLORS.discipline}>
+            {disciplines.map((discipline) => (
+              <FilterToken
+                key={discipline.id}
+                label={discipline.label}
+                color={TRACK_COLORS.discipline}
+                isSelected={selectedDiscipline === discipline.id}
+                onClick={() => setSelectedDiscipline(discipline.id)}
+              />
+            ))}
+          </FilterTrack>
+
+          {/* Brand Track */}
+          <FilterTrack label="Brand" color={TRACK_COLORS.brand}>
+            <FilterToken
+              label="All Brands"
+              color={TRACK_COLORS.brand}
+              isSelected={selectedBrand === "all"}
+              onClick={() => setSelectedBrand("all")}
+            />
+            {brands.map((brand) => (
+              <FilterToken
+                key={brand}
+                label={brand}
+                color={TRACK_COLORS.brand}
+                isSelected={selectedBrand === brand}
+                onClick={() => setSelectedBrand(brand)}
+              />
+            ))}
+          </FilterTrack>
+
+          {/* Sort Control */}
+          <div className="flex items-center justify-between pt-2">
             <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-500">Sort by:</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-navy/50">
+                Sort
+              </span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cs-orange bg-white"
+                className="px-4 py-2.5 border-2 border-navy/20 rounded-xl text-sm font-semibold bg-white text-navy focus:outline-none focus:border-cs-orange focus:ring-2 focus:ring-cs-orange/30 transition-all"
               >
                 <option value="featured">Featured</option>
                 <option value="price-low">Price: Low to High</option>
@@ -198,11 +250,23 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
                 <option value="name-za">Name: Z to A</option>
               </select>
             </div>
+            {hasActiveFilters && (
+              <button
+                onClick={() => {
+                  setSelectedAge("all");
+                  setSelectedDiscipline("all");
+                  setSelectedBrand("all");
+                }}
+                className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-navy/50 hover:text-cs-red border-2 border-navy/10 hover:border-cs-red/30 rounded-xl transition-all"
+              >
+                Clear Filters
+              </button>
+            )}
           </div>
         </div>
 
         {/* Results Count */}
-        <p className="text-sm text-gray-500 mb-6">
+        <p className="text-sm text-navy/50 font-medium mb-6">
           Showing {filteredProducts.length} product
           {filteredProducts.length !== 1 ? "s" : ""}
         </p>
@@ -244,7 +308,7 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
                   setSelectedDiscipline("all");
                   setSelectedBrand("all");
                 }}
-                className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
+                className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-xl font-semibold transition-colors"
               >
                 Clear All Filters
               </button>
@@ -258,5 +322,125 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
         </div>
       </div>
     </section>
+  );
+}
+
+/* ── Sub-components ─────────────────────────────────────── */
+
+function FilterTrack({
+  label,
+  color,
+  children,
+}: {
+  label: string;
+  color: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex flex-col gap-2">
+      <span
+        className="text-sm font-extrabold uppercase tracking-widest"
+        style={{ color: `${color}90` }}
+      >
+        {label}
+      </span>
+      <div className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function FilterToken({
+  label,
+  color,
+  isSelected,
+  onClick,
+}: {
+  label: string;
+  color: string;
+  isSelected: boolean;
+  onClick: () => void;
+}) {
+  const btnRef = useRef<HTMLButtonElement>(null);
+
+  const handleClick = () => {
+    onClick();
+    btnRef.current?.animate(
+      [
+        { transform: "scale(1)" },
+        { transform: "scale(1.35)" },
+        { transform: "scale(0.9)" },
+        { transform: "scale(1.05)" },
+      ],
+      { duration: 400, easing: "ease-out" }
+    );
+  };
+
+  return (
+    <button
+      ref={btnRef}
+      onClick={handleClick}
+      className={`
+        relative px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-sm font-bold tracking-wide
+        border-2 transition-all duration-200 cursor-pointer select-none
+        ${isSelected ? "text-white" : "hover:scale-105"}
+      `}
+      style={{
+        borderColor: isSelected ? color : `${color}40`,
+        backgroundColor: isSelected ? color : `${color}12`,
+        color: isSelected ? "#fff" : color,
+        boxShadow: isSelected
+          ? `0 0 20px ${color}50, 0 4px 14px ${color}25`
+          : "none",
+        transform: isSelected ? "scale(1.05)" : undefined,
+      }}
+    >
+      {label}
+    </button>
+  );
+}
+
+function FilterDropdown({
+  label,
+  color,
+  value,
+  onChange,
+  options,
+}: {
+  label: string;
+  color: string;
+  value: string;
+  onChange: (value: string) => void;
+  options: { value: string; label: string }[];
+}) {
+  return (
+    <div className="flex flex-col gap-1">
+      <span
+        className="text-sm font-extrabold uppercase tracking-widest"
+        style={{ color: `${color}90` }}
+      >
+        {label}
+      </span>
+      <select
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="w-full px-4 py-2.5 rounded-xl text-sm font-semibold bg-white transition-all focus:outline-none focus:ring-2"
+        style={{
+          borderWidth: 2,
+          borderStyle: "solid",
+          borderColor: `${color}40`,
+          color: color,
+          // @ts-expect-error -- CSS custom property for focus ring
+          "--tw-ring-color": `${color}30`,
+        }}
+      >
+        {options.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
