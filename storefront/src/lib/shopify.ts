@@ -151,6 +151,7 @@ const PRODUCTS_BY_TAG_QUERY = `
           title
           handle
           description
+          vendor
           availableForSale
           priceRange {
             minVariantPrice {
@@ -177,6 +178,12 @@ const PRODUCTS_BY_TAG_QUERY = `
                 }
               }
             }
+          }
+          minAge: metafield(namespace: "custom", key: "minimum_age") {
+            value
+          }
+          maxAge: metafield(namespace: "custom", key: "maximum_age") {
+            value
           }
           rating: metafield(namespace: "reviews", key: "rating") {
             value
