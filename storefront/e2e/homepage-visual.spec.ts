@@ -24,6 +24,11 @@ async function prepareForScreenshot(page: Page) {
       img.removeAttribute("loading");
     });
   });
+
+  await page.waitForFunction(
+    () => Array.from(document.images).every((img) => img.complete),
+    { timeout: 15000 }
+  ).catch(() => {});
 }
 
 test.describe("Homepage Visual Regression", () => {
@@ -31,7 +36,7 @@ test.describe("Homepage Visual Regression", () => {
 
   test("full page - desktop", async ({ page }) => {
     await page.goto("/");
-    await expect(page.locator(".hero-carousel-wrapper")).toBeVisible();
+    await expect(page.locator(".hero-carousel-wrapper").first()).toBeVisible();
     await expect(page.locator("footer")).toBeVisible();
     await prepareForScreenshot(page);
 
@@ -47,7 +52,7 @@ test.describe("Homepage Visual Regression", () => {
   test("full page - mobile", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 667 });
     await page.goto("/");
-    await expect(page.locator(".hero-carousel-wrapper")).toBeVisible();
+    await expect(page.locator(".hero-carousel-wrapper").first()).toBeVisible();
     await expect(page.locator("footer")).toBeVisible();
     await prepareForScreenshot(page);
 
@@ -62,7 +67,7 @@ test.describe("Homepage Visual Regression", () => {
 
   test("hero section - desktop", async ({ page }) => {
     await page.goto("/");
-    const hero = page.locator(".hero-carousel-wrapper");
+    const hero = page.locator(".hero-carousel-wrapper").first();
     await expect(hero).toBeVisible();
     await prepareForScreenshot(page);
 
