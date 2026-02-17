@@ -9,6 +9,7 @@ This is a Shopify headless ecommerce store for our online store.  The website is
  - Uses the Shopify GraphQL storefront API
  - Design must work on desktop and mobile
  - **Internal links must use Next.js `Link` from `next/link`** — never use raw `<a>` tags for internal routes. Raw `<a>` tags cause full page reloads, bypass client-side navigation, and can lose client state (e.g. cart). Reserve `<a>` for external URLs only.
+ - **Before pushing changes**, always run `npm run lint` from the `storefront/` directory and verify it passes. Do not push if linting fails.
  - **Before pushing changes**, always run `npm run build` from the `storefront/` directory and verify it succeeds. Do not push if the build fails.
  - **Before pushing changes**, always run `npm test` from the `storefront/` directory and verify all unit tests pass. Do not push if tests fail.
 
@@ -17,6 +18,7 @@ This is a Shopify headless ecommerce store for our online store.  The website is
 Unit tests use **Vitest** and live in `storefront/src/__tests__/`. E2E tests use **Playwright** and live in `storefront/e2e/`.
 
 **Commands** (run from `storefront/`):
+- `npm run lint` — run linter (must pass before pushing)
 - `npm test` — run unit tests (must pass before pushing)
 - `npm run test:watch` — run unit tests in watch mode during development
 - `npm run test:e2e` — run E2E tests (requires built app or dev server on localhost:3000)
@@ -64,6 +66,7 @@ product(handle: "example") {
 
 - Do NOT include `Co-Authored-By: Claude` or any AI co-author lines in commit messages
 - Do NOT mention Claude or AI in pull request descriptions
+- **Always update the PR title and description** when pushing further commits to reflect all changes in the PR
 
 # General Conventions
 

@@ -151,6 +151,7 @@ const PRODUCTS_BY_TAG_QUERY = `
           title
           handle
           description
+          vendor
           availableForSale
           priceRange {
             minVariantPrice {
@@ -177,6 +178,12 @@ const PRODUCTS_BY_TAG_QUERY = `
                 }
               }
             }
+          }
+          minAge: metafield(namespace: "custom", key: "minimum_age") {
+            value
+          }
+          maxAge: metafield(namespace: "custom", key: "maximum_age") {
+            value
           }
           rating: metafield(namespace: "reviews", key: "rating") {
             value
@@ -232,6 +239,21 @@ export async function getCollections(
   });
 
   return data.collections.edges.map((edge) => edge.node);
+}
+
+// Search products by text query
+export async function searchProducts(
+  query: string,
+  first: number = 20
+): Promise<Product[]> {
+  const data = await shopifyFetch<{
+    products: { edges: { node: Product }[] };
+  }>({
+    query: PRODUCTS_BY_TAG_QUERY,
+    variables: { first, query },
+  });
+
+  return data.products.edges.map((edge) => edge.node);
 }
 
 // Get products by tag (for age groups)

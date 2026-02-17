@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import { SerializedAddon } from "@/lib/product-addons";
-import TrustBadges from "@/components/TrustBadges";
 
 interface ProductActionsProps {
   productId: string;
@@ -329,8 +328,6 @@ export default function ProductActions({
         </button>
       </div>
 
-      {/* Trust badges */}
-      <TrustBadges variant="inline" className="pt-4" />
     </div>
   );
 }
