@@ -5,7 +5,7 @@
 
 import * as Sentry from "@sentry/nextjs";
 
-if (process.env.NODE_ENV === "production" && !process.env.CI) {
+if (process.env.NODE_ENV === "production" && !process.env.GITHUB_ACTIONS) {
   Sentry.init({
     dsn: "https://2968145764c6800df2684d1935e479c3@o4509821219700736.ingest.de.sentry.io/4510876520087632",
 

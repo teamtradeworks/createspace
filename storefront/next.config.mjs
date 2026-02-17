@@ -2,7 +2,7 @@ import { withSentryConfig } from "@sentry/nextjs";
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   env: {
-    NEXT_PUBLIC_IS_CI: process.env.CI || "",
+    NEXT_PUBLIC_IS_CI: process.env.GITHUB_ACTIONS || "",
   },
   turbopack: {
     root: import.meta.dirname,
