@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef, useEffect, useSyncExternalStore } from "react";
+import { useState, useRef, useSyncExternalStore } from "react";
 import { Product } from "@/lib/shopify";
 import { useCart } from "@/context/CartContext";
 import { DELIVERY_CONFIG } from "@/config/delivery";
@@ -106,13 +106,8 @@ export default function Header({ products = [] }: HeaderProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const { itemCount, cartAnimating } = useCart();
+  const { itemCount, cartAnimKey } = useCart();
   const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
-  const [animKey, setAnimKey] = useState(0);
-
-  useEffect(() => {
-    if (cartAnimating) setAnimKey((k) => k + 1);
-  }, [cartAnimating]);
 
   const handleMenuEnter = (dropdown: string) => {
     if (closeTimeoutRef.current) {
@@ -208,9 +203,9 @@ export default function Header({ products = [] }: HeaderProps) {
 
             {/* Cart button */}
             <Link
-              key={animKey}
+              key={cartAnimKey}
               href="/cart"
-              className={`text-white hover:text-cs-orange transition-colors relative ${cartAnimating ? "animate-bounce-pop" : ""}`}
+              className={`text-white hover:text-cs-orange transition-colors relative ${cartAnimKey > 0 ? "animate-bounce-pop" : ""}`}
               aria-label="Cart"
             >
               <svg
