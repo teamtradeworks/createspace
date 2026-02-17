@@ -145,40 +145,40 @@ export default async function NousAISetPage() {
             name: "MatataChat Conversation",
             description: "Chat with the robot using ChatGPT-4o integration",
             concepts: "Natural language processing, conversational AI",
-            image: "/images/products/matatastudio-nous-ai-set/matata-chat.jpg",
+            image: "/images/products/matatastudio-nous-ai-set/matata-chat-conversation.png",
           },
           {
             name: "Face Recognition System",
             description: "Train Nous to recognise faces and respond to identity",
             concepts: "Computer vision, biometric technology, AI ethics",
-            image: "/images/products/matatastudio-nous-ai-set/human-face-recognition.jpg",
+            image: "/images/products/matatastudio-nous-ai-set/face-recognition-system.png",
           },
           {
             name: "Voice-Controlled Light",
             description: "Build a system that responds to voice commands",
             concepts: "Speech recognition, command logic, IoT",
-            image: "/images/products/matatastudio-nous-ai-set/voice-recognition.jpg",
+            image: "/images/products/matatastudio-nous-ai-set/voice-controlled.png",
           },
           {
             name: "Object Recognition",
             description: "Train models to identify everyday objects",
             concepts: "Image classification, machine learning, data collection",
-            image: "/images/products/matatastudio-nous-ai-set/image-recognition.jpg",
+            image: "/images/products/matatastudio-nous-ai-set/object-recognition.png",
           },
           {
             name: "Animal Identifier",
             description: "Create an AI that recognises different animals",
             concepts: "Computer vision, model training, classification",
-            image: "/images/products/matatastudio-nous-ai-set/animal-identification.jpg",
+            image: "/images/products/matatastudio-nous-ai-set/animal-identifier.png",
           },
           {
             name: "Python & Scratch Programming",
             description: "Learn block coding and progress to Python",
             concepts: "Algorithm design, computational thinking",
-            image: "/images/products/matatastudio-nous-ai-set/python-scratch-programming.png",
+            image: "/images/products/matatastudio-nous-ai-set/phython-and-scratch-programming.png",
           },
         ]}
-        moreText="Plus 12 more projects including smart temperature monitor, recyclable material sorter, line-following robot, autonomous driving, AIGC drawing, and more"
+        moreText="Plus 12 more projects including line-following robot, AIGC drawing, smart temperature monitor, recyclable material sorter, autonomous driving, and more"
         background="gray"
       />
 
@@ -264,8 +264,8 @@ export default async function NousAISetPage() {
       {/* What's in the Box */}
       <WhatsIncluded
         title="What's in the Box"
-        image="/images/products/matatastudio-nous-ai-set/open-packaged-kit.jpg"
-        imageAlt="Nous AI Set unboxed showing all components"
+        image="/images/products/matatastudio-nous-ai-set/whats-in-the-box.png"
+        imageAlt="Nous AI Set components and what's included"
         items={[
           "Nous Hub (main control unit)",
           "Nous Camera module with fill lights and ToF sensor",
