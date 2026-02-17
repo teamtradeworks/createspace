@@ -78,30 +78,80 @@ export default function Home() {
             loading="lazy"
           />
         </div>
+
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Section Header */}
+          <div className="text-center mb-12">
+            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
+              The Numbers
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+              Why Early STEM Exposure Matters
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              The future belongs to problem-solvers, inventors, and creative
+              thinkers. Here&apos;s why starting early makes all the difference.
+            </p>
+          </div>
+
+          {/* Stat Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
+            {[
+              {
+                number: "85%",
+                label:
+                  "Of the jobs that will exist in 2030 haven\u2019t been invented yet. STEM prepares kids for the unknown.",
+                color: "border-cs-red",
+              },
+              {
+                number: "3x",
+                label:
+                  "Faster growth in STEM careers compared to non-STEM jobs worldwide.",
+                color: "border-cs-blue",
+              },
+              {
+                number: "2x",
+                label:
+                  "Higher earnings for STEM graduates compared to non-STEM careers.",
+                color: "border-cs-green",
+              },
+              {
+                number: "4.2M",
+                label:
+                  "Open tech positions globally \u2014 and growing 22% every year. STEM skills open doors worldwide.",
+                color: "border-cs-purple",
+              },
+            ].map((stat) => (
+              <div
+                key={stat.number}
+                className={`bg-gray-50 rounded-xl p-5 md:p-6 border-l-4 ${stat.color}`}
+              >
+                <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-2">
+                  {stat.number}
+                </p>
+                <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Two-column: narrative + image */}
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-semibold text-navy mb-6">
-                Why STEM Education Matters
-              </h2>
-              <p className="text-gray-600 mb-6">
-                We believe STEM education shapes futures. It builds curiosity,
-                creativity, and problem-solving skills through hands-on learning
-                in coding, robotics, electronics, and engineering - preparing
-                kids for a fast-changing, tech-driven world.
+              <h3 className="text-2xl md:text-3xl font-semibold text-navy mb-6">
+                Give Them a Head Start
+              </h3>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Children&apos;s brains develop fastest in their earliest years.
+                Early exposure to STEM builds curiosity, problem-solving skills,
+                and a foundation that lasts a lifetime.
               </p>
-              <p className="text-gray-600 mb-8">
-                Our mission is to offer inspiring, accessible STEM products and
-                programmes that make learning exciting. We aim to spark a
-                lifelong love for these fields, empowering young minds to think
-                boldly, innovate, and discover with confidence.
-              </p>
-              <ul className="space-y-3">
+              <ul className="space-y-3 mb-8">
                 {[
-                  "Carefully curated for educational value",
-                  "Age-appropriate skill progression",
-                  "Hands-on, guided learning experiences",
-                  "Trusted by 100+ schools across South Africa",
+                  "Early maths skills predict academic success better than early reading",
+                  "Kids exposed to STEM young are far more likely to pursue STEM careers",
+                  "Birth to age 5 is the most critical window for STEM brain development",
                 ].map((item) => (
                   <li key={item} className="flex items-start">
                     <svg
@@ -115,10 +165,31 @@ export default function Home() {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <span className="text-gray-700">{item}</span>
+                    <span className="text-gray-700 text-sm md:text-base">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
+              <Link
+                href="/shop"
+                className="inline-flex items-center text-cs-orange hover:text-cs-red font-medium transition-colors"
+              >
+                Explore Our STEM Kits
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </Link>
             </div>
             <div className="relative">
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100">
@@ -131,7 +202,7 @@ export default function Home() {
                   loading="lazy"
                 />
               </div>
-              {/* Decorative element */}
+              {/* Decorative elements */}
               <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-cs-orange/20 rounded-full -z-10" />
               <div className="absolute -top-4 -right-4 w-16 h-16 bg-cs-blue/20 rounded-full -z-10" />
             </div>
