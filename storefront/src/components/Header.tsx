@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Product } from "@/lib/shopify";
 import { useCart } from "@/context/CartContext";
 import { DELIVERY_CONFIG } from "@/config/delivery";
+import SearchOverlay from "@/components/SearchOverlay";
 
 // Age group configuration with hardcoded product handles
 const ageGroups = [
@@ -103,8 +104,12 @@ export default function Header({ products = [] }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileEducationOpen, setMobileEducationOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { itemCount } = useCart();
+
+  useEffect(() => setMounted(true), []);
 
   const handleMenuEnter = (dropdown: string) => {
     if (closeTimeoutRef.current) {
@@ -181,6 +186,7 @@ export default function Header({ products = [] }: HeaderProps) {
             <button
               className="text-white hover:text-cs-orange transition-colors"
               aria-label="Search"
+              onClick={() => setSearchOpen(!searchOpen)}
             >
               <svg
                 className="h-6 w-6"
@@ -216,7 +222,7 @@ export default function Header({ products = [] }: HeaderProps) {
                   d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
                 />
               </svg>
-              {itemCount > 0 && (
+              {mounted && itemCount > 0 && (
                 <span className="absolute -top-1 -right-1 bg-cs-orange text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
                   {itemCount > 9 ? "9+" : itemCount}
                 </span>
@@ -429,6 +435,9 @@ export default function Header({ products = [] }: HeaderProps) {
           </div>
         </div>
       </div>
+
+      {/* Search Overlay */}
+      <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
 
       {/* Education Dropdown */}
       <div
