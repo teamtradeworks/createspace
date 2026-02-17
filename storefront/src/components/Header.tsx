@@ -106,7 +106,7 @@ export default function Header({ products = [] }: HeaderProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const { itemCount } = useCart();
+  const { itemCount, cartAnimKey } = useCart();
   const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
 
   const handleMenuEnter = (dropdown: string) => {
@@ -203,8 +203,9 @@ export default function Header({ products = [] }: HeaderProps) {
 
             {/* Cart button */}
             <Link
+              key={cartAnimKey}
               href="/cart"
-              className="text-white hover:text-cs-orange transition-colors relative"
+              className={`text-white hover:text-cs-orange transition-colors relative ${cartAnimKey > 0 ? "animate-bounce-pop" : ""}`}
               aria-label="Cart"
             >
               <svg
