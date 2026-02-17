@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, useRef, ReactNode } from "react";
 
 export interface CartItem {
   id: string;
@@ -27,6 +27,7 @@ interface CartContextType {
   isOpen: boolean;
   openCart: () => void;
   closeCart: () => void;
+  cartAnimating: boolean;
 }
 
 /** Filter cart items to only those available for sale. */
@@ -52,6 +53,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isOpen, setIsOpen] = useState(false);
   const [isHydrated, setIsHydrated] = useState(false);
+  const [cartAnimating, setCartAnimating] = useState(false);
+  const animTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Load cart from localStorage on mount, then refresh availability from Shopify
   useEffect(() => {
@@ -117,6 +120,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
       return [...prevItems, { ...newItem, quantity }];
     });
+
+    setCartAnimating(true);
+    if (animTimerRef.current) clearTimeout(animTimerRef.current);
+    animTimerRef.current = setTimeout(() => setCartAnimating(false), 500);
   };
 
   const removeItem = (variantId: string) => {
@@ -155,6 +162,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         isOpen,
         openCart,
         closeCart,
+        cartAnimating,
       }}
     >
       {children}
