@@ -75,7 +75,7 @@ test.describe("Homepage Visual Regression", () => {
     await page.goto("/");
     const stemSection = page
       .locator("section")
-      .filter({ hasText: "Why STEM Education Matters" })
+      .filter({ hasText: "Why Early STEM Exposure Matters" })
       .first();
 
     await expect(stemSection).toBeVisible();
