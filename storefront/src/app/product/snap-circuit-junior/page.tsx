@@ -161,7 +161,7 @@ export default async function SnapCircuitJuniorPage() {
             alt: "Reflection detector circuit project",
           },
           {
-            src: "/images/products/snap-circuit-junior/snap-circuit-junior-with-micro-bit.jpg",
+            src: "/images/products/snap-circuit-junior/snap-circuit-junior-with-micro-bit.jpeg",
             alt: "Snap Circuits combined with micro:bit for advanced projects",
           },
           {
