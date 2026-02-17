@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useSyncExternalStore } from "react";
 import { Product } from "@/lib/shopify";
 import { useCart } from "@/context/CartContext";
 import { DELIVERY_CONFIG } from "@/config/delivery";
@@ -105,11 +105,9 @@ export default function Header({ products = [] }: HeaderProps) {
   const [mobileEducationOpen, setMobileEducationOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { itemCount } = useCart();
-
-  useEffect(() => setMounted(true), []);
+  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
 
   const handleMenuEnter = (dropdown: string) => {
     if (closeTimeoutRef.current) {
