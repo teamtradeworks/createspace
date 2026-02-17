@@ -24,6 +24,10 @@ async function prepareForScreenshot(page: Page) {
       img.removeAttribute("loading");
     });
   });
+
+  await page.waitForFunction(() =>
+    Array.from(document.images).every((img) => img.complete)
+  );
 }
 
 test.describe("Homepage Visual Regression", () => {
