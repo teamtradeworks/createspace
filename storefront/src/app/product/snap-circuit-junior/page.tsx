@@ -7,6 +7,7 @@ import {
   NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
+  ProjectShowcase,
   CustomerShowcase,
   ProductReviews,
   ProductFAQ,
@@ -125,6 +126,54 @@ export default async function SnapCircuitJuniorPage() {
         background="gray"
       />
 
+      {/* Project Showcase */}
+      <ProjectShowcase
+        title="101 Projects to Explore"
+        highlight="From blinking lights to logic gates"
+        subtitle="Projects are arranged from simple to complex—your child builds confidence with every circuit they complete."
+        columns={3}
+        background="white"
+        projects={[
+          {
+            name: "Electric Light & Switch",
+            description: "Build your very first working circuit—flip a switch and watch a light come on. The perfect starting point.",
+            concepts: "Basic circuits, electricity flow, switches",
+            image: "/images/products/snap-circuit-junior/projects/electric-light-and-switch.jpg",
+          },
+          {
+            name: "Flying Saucer",
+            description: "Spin a motor and modulate the sound to create an eerie flying saucer effect. Lights, motion, and audio combined.",
+            concepts: "Motors, sound modulation, circuit integration",
+            image: "/images/products/snap-circuit-junior/projects/flying-saucer.jpg",
+          },
+          {
+            name: "Musical Doorbell",
+            description: "Wire up a push-button doorbell that plays music when pressed—a project kids love to show off at home.",
+            concepts: "Push-button switches, music ICs",
+            image: "/images/products/snap-circuit-junior/projects/musical-doorbell.jpg",
+          },
+          {
+            name: "Race Game",
+            description: "Build a two-player reaction-speed game. Who can press the button fastest? A firm favourite.",
+            concepts: "Game circuits, timing, competition",
+            image: "/images/products/snap-circuit-junior/projects/race-game.png",
+          },
+          {
+            name: "Logic Gates (AND, OR, NOR, NAND)",
+            description: "Hands-on introduction to digital logic—the building blocks of every computer and microcontroller.",
+            concepts: "Boolean logic, digital circuits",
+            image: "/images/products/snap-circuit-junior/projects/logic-gates.jpeg",
+          },
+          {
+            name: "Water Space War",
+            description: "Dip two contacts in water and trigger space-battle sound effects. Water conducts electricity—now they know why.",
+            concepts: "Water detection, conductivity, sensors",
+            image: "/images/products/snap-circuit-junior/projects/water-space-war.jpg",
+          },
+        ]}
+        moreText="Plus 95 more projects—doorbells, alarms, strobe lights, pencil resistors, touch sensors, and much more."
+      />
+
       {/* Learning Outcomes Section */}
       <ImageTextBlock
         image="/images/products/snap-circuit-junior/top-down-of-child-playing-with-zoom-in-of-snap-pieces.jpg"
@@ -140,6 +189,10 @@ export default async function SnapCircuitJuniorPage() {
         title="What Families Are Building"
         subtitle="Real projects from real kids. Snap Circuits inspires creativity and experimentation beyond the manual."
         images={[
+          {
+            src: "/images/products/snap-circuit-junior/child-building-circuit.jpg",
+            alt: "Child building a Snap Circuits project",
+          },
           {
             src: "/images/products/snap-circuit-junior/child-building-board-with-manual-in-front-of-him.jpg",
             alt: "Child following manual while building Snap Circuits project",
@@ -161,8 +214,12 @@ export default async function SnapCircuitJuniorPage() {
             alt: "Reflection detector circuit project",
           },
           {
-            src: "/images/products/snap-circuit-junior/snap-circuit-junior-with-micro-bit.jpeg",
-            alt: "Snap Circuits combined with micro:bit for advanced projects",
+            src: "/images/products/snap-circuit-junior/close-up-of-board.jpg",
+            alt: "Close-up of a Snap Circuits board with components snapped in place",
+          },
+          {
+            src: "/images/products/snap-circuit-junior/open-box-with-booklet-and-board.jpg",
+            alt: "Snap Circuits box open showing the booklet and board",
           },
           {
             src: "/images/products/snap-circuit-junior/water-space-war.jpg",
