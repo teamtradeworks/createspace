@@ -150,7 +150,7 @@ export default async function SnapCircuitJuniorPage() {
             name: "Musical Doorbell",
             description: "Wire up a push-button doorbell that plays music when pressed—a project kids love to show off at home.",
             concepts: "Push-button switches, music ICs",
-            image: "/images/products/snap-circuit-junior/projects/musical-doorbell.jpg",
+            image: "/images/products/snap-circuit-junior/projects/musical-doorbell-play.jpeg",
           },
           {
             name: "Race Game",
