@@ -4,20 +4,20 @@ import Image from "next/image";
 const footerLinks = {
   shop: [
     { name: "All Products", href: "/shop" },
-    { name: "New Arrivals", href: "/shop/new" },
-    { name: "Best Sellers", href: "/shop/best-sellers" },
-    { name: "By Age Group", href: "/shop" },
+    { name: "Ages 3-5", href: "/shop?age=3-5" },
+    { name: "Ages 6-8", href: "/shop?age=6-8" },
+    { name: "Ages 9-12", href: "/shop?age=9-12" },
+    { name: "Ages 13+", href: "/shop?age=13%2B" },
   ],
-  support: [
-    { name: "Contact Us", href: "/contact" },
-    { name: "FAQs", href: "/faqs" },
-    { name: "Shipping Info", href: "/shipping" },
-    { name: "Returns", href: "/returns" },
+  education: [
+    { name: "Overview", href: "/education" },
+    { name: "STEM Tutors", href: "/education/stem-tutors" },
+    { name: "Curriculum", href: "/education/curriculum" },
+    { name: "Classroom Kits", href: "/education/classroom-kits" },
   ],
   company: [
     { name: "About Us", href: "/about" },
-    { name: "Education", href: "/education" },
-    { name: "Blog", href: "/blog" },
+    { name: "Contact Us", href: "/contact" },
   ],
   policies: [
     { name: "Privacy Policy", href: "/privacy" },
@@ -125,11 +125,11 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Support links */}
+          {/* Education links */}
           <div>
-            <h4 className="font-semibold mb-4">Support</h4>
+            <h4 className="font-semibold mb-4">Education</h4>
             <ul className="space-y-2">
-              {footerLinks.support.map((link) => (
+              {footerLinks.education.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}

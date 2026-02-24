@@ -4,6 +4,7 @@ import { getProductByHandle, formatPrice, getProductRating } from "@/lib/shopify
 import { StarRating } from "@/components/StarRating";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import { DELIVERY_CONFIG } from "@/config/delivery";
 import { ProductReviews } from "@/components/product-sections";
 
@@ -33,6 +34,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
@@ -309,5 +312,10 @@ export async function generateMetadata({ params }: ProductPageProps) {
   return {
     title: `${product.title} | CREATESPACE`,
     description: product.description.slice(0, 160),
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

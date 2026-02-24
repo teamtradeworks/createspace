@@ -64,6 +64,7 @@ const slides: Slide[] = [
 
 function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
   const isLight = slide.textColor === "light";
+  const Heading = index === 0 ? "h1" : "h2";
 
   return (
     <div
@@ -77,9 +78,9 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 h-full">
             <div className="py-12 lg:py-20">
               <div className={`max-w-xl ${isLight ? "text-white" : "text-navy"}`}>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
+                <Heading className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight">
                   {slide.headline}
-                </h1>
+                </Heading>
                 <p
                   className={`text-lg md:text-xl mb-8 max-w-lg ${isLight ? "text-white/80" : "text-gray-600"}`}
                 >
@@ -145,11 +146,11 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                   {slide.tag}
                 </span>
               )}
-              <h1
+              <Heading
                 className={`text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight ${isLight ? "text-white" : "text-navy"}`}
               >
                 {slide.headline}
-              </h1>
+              </Heading>
               <p
                 className={`text-lg md:text-xl mb-8 max-w-lg ${isLight ? "text-white/80" : "text-gray-600"}`}
               >
@@ -208,11 +209,11 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                   {slide.tag}
                 </span>
               )}
-              <h1
+              <Heading
                 className={`text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight ${isLight ? "text-white" : "text-navy"}`}
               >
                 {slide.headline}
-              </h1>
+              </Heading>
               <p
                 className={`text-lg md:text-xl mb-8 max-w-lg ${isLight ? "text-white/80" : "text-gray-600"}`}
               >
