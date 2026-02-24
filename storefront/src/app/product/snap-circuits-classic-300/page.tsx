@@ -146,31 +146,37 @@ export default async function SnapCircuitsClassic300Page() {
             name: "Musical Doorbell",
             description: "Build a working electronic doorbell using an oscillator circuit",
             concepts: "Oscillators, sound circuits",
+            image: "/images/products/snap-circuits-classic-300/project-musical-doorbell.jpeg",
           },
           {
             name: "Police Siren",
             description: "Create a two-tone alternating siren with realistic sound",
             concepts: "Waveforms, timing circuits",
+            image: "/images/products/snap-circuits-classic-300/project-police-siren.png",
           },
           {
             name: "AM Radio",
             description: "Build a working AM radio that picks up real broadcast stations",
             concepts: "Amplification, antenna principles",
+            image: "/images/products/snap-circuits-classic-300/project-am-radio.jpeg",
           },
           {
             name: "Lie Detector",
             description: "Detect skin conductance changes — it actually works",
             concepts: "Sensors, signal processing",
+            image: "/images/products/snap-circuits-classic-300/project-lie-detector.jpeg",
           },
           {
             name: "Burglar Alarm",
             description: "Wire up a working security alarm with a sensor trigger",
             concepts: "Alarm circuits, switches",
+            image: "/images/products/snap-circuits-classic-300/project-burglar-alarm.jpeg",
           },
           {
-            name: "Photosensitive Organ",
+            name: "Photosensitive Electronic Organ",
             description: "Play music by moving your hand over a light sensor",
             concepts: "Photoresistors, oscillation",
+            image: "/images/products/snap-circuits-classic-300/project-photosensitive-organ.png",
           },
         ]}
         moreText="Plus 299 more projects — alarms, motor controllers, light displays, logic gates, and complex multi-component systems"
@@ -184,45 +190,51 @@ export default async function SnapCircuitsClassic300Page() {
         images={[
           {
             src: "/images/products/snap-circuits-classic-300/child-building-circuit.jpg",
-            alt: "Child working through the Snap Circuits project manual",
-            label: "First Build",
-            description: "Working through the project manual step by step",
+            alt: "Child's hands actively building a Snap Circuits project on a wooden table",
+            label: "Building",
+            description: "Hands-on from the very first snap",
           },
           {
-            src: "/images/products/snap-circuits-classic-300/fan-spinning.jpg",
-            alt: "Snap Circuits fan circuit in action",
-            label: "Fan Circuit",
-            description: "The two-speed fan project in action",
+            src: "/images/products/snap-circuits-classic-300/open-box-with-pieces-full.png",
+            alt: "Snap Circuits Classic 300 open box with all 60+ modules laid out",
+            label: "Unboxed",
+            description: "All 60+ modules ready to go",
           },
           {
             src: "/images/products/snap-circuits-classic-300/circuits-built-on-the-floor.jpg",
-            alt: "Multiple Snap Circuits projects built on the floor",
-            label: "Floor Lab",
-            description: "Multiple circuits built and ready to test",
+            alt: "Completed Snap Circuits AM radio project built on the floor",
+            label: "AM Radio",
+            description: "One of the most impressive builds — a real working radio",
           },
           {
             src: "/images/products/snap-circuits-classic-300/hand-holding-piece-above-circuit-board.jpg",
-            alt: "Hand placing a Snap Circuits module onto the grid board",
+            alt: "Hand placing a Snap Circuits module onto the grid board on a wooden table",
             label: "Snapping In",
             description: "The satisfying click of a module locking into place",
           },
           {
+            src: "/images/products/snap-circuits-classic-300/fan-spinning.jpg",
+            alt: "Snap Circuits fan circuit with spinning motor",
+            label: "Fan Circuit",
+            description: "Electrical energy converted to motion",
+          },
+          {
             src: "/images/products/snap-circuits-classic-300/board-circuit-on-desk.jpg",
-            alt: "Completed Snap Circuits project on a desk",
-            label: "Complete",
-            description: "A finished circuit on the project board",
+            alt: "Large completed Snap Circuits project spread across a white desk",
+            label: "Big Build",
+            description: "More advanced projects fill the whole board",
           },
           {
             src: "/images/products/snap-circuits-classic-300/box-standing-against-wall.jpg",
-            alt: "Snap Circuits Classic 300 box",
+            alt: "Snap Circuits Classic 300 box standing against a wall",
             label: "The Kit",
             description: "Everything your child needs in one box",
           },
           {
             src: "/images/products/snap-circuits-classic-300/open-box-with-pieces.jpg",
-            alt: "Snap Circuits Classic 300 open box with pieces visible",
-            label: "Unboxed",
-            description: "60+ modules ready to snap together",
+            alt: "Snap Circuits Classic 300 components spread out on a surface",
+            label: "The Components",
+            description: "Colour-coded and numbered — every piece has its place",
           },
         ]}
         background="white"
@@ -272,8 +284,8 @@ export default async function SnapCircuitsClassic300Page() {
       {/* What's in the Box */}
       <WhatsIncluded
         title="What's in the Box"
-        image="/images/products/snap-circuits-classic-300/snap-circuits-classic-300-board.jpeg"
-        imageAlt="Snap Circuits Classic 300 grid board with modules"
+        image="/images/products/snap-circuits-classic-300/whats-in-the-box.jpeg"
+        imageAlt="Snap Circuits Classic 300 project manuals fanned out alongside the box"
         items={[
           "60+ snap-together electronic modules",
           "Snap wires (1-snap, 2-snap, 3-snap, and 6-snap lengths)",
