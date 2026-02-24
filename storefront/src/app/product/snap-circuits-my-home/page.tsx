@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  VideoEmbed,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-my-home";
@@ -128,12 +129,19 @@ export default async function SnapCircuitsMyHomePage() {
 
       {/* Skills That Transfer */}
       <ImageTextBlock
-        image="/images/products/snap-circuits-my-home/girl-and-boy-playing-with-my-home.jpeg"
-        imageAlt="Girl and boy playing together with Snap Circuits My Home"
+        image="/images/products/snap-circuits-my-home/girl-playing-with-home.jpg"
+        imageAlt="Girl focused on building with Snap Circuits My Home"
         title="Skills That Transfer Far Beyond the Toy Box"
         body="Every time a circuit doesn't work, your child faces a choice: give up or figure it out. Most choose to figure it out. That debugging mindset — asking what could be wrong and systematically trying different answers — is one of the most valuable habits a child can develop. It's the foundation of engineering, smart home technology, and renewable energy careers. Parents regularly report children becoming noticeably more patient and persistent in other areas of life after spending time with Snap Circuits."
         layout="image-right"
         background="white"
+      />
+
+      {/* Video */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=6LwVQaEjQUM"
+        title="See Snap Circuits My Home in Action"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -147,36 +155,42 @@ export default async function SnapCircuitsMyHomePage() {
             description:
               "Build a basic on/off circuit that controls a light — the same principle behind every switch in your house.",
             concepts: "Switches, current flow, basic circuits",
+            image: "/images/products/snap-circuits-my-home/project-building-house.jpg",
           },
           {
             name: "Doorbell",
             description:
               "Wire a working doorbell with a button and buzzer — press it and hear it ring.",
             concepts: "Momentary switches, series circuits, sound",
+            image: "/images/products/snap-circuits-my-home/project-doorbell-v2.jpg",
           },
           {
             name: "Dimmer Switch",
             description:
               "Control light brightness using a variable resistor — just like the dimmers in your lounge.",
             concepts: "Potentiometers, resistance, light control",
+            image: "/images/products/snap-circuits-my-home/project-dimmer-switch.jpg",
           },
           {
             name: "Security Alarm",
             description:
               "Build an alarm that triggers when a circuit is broken — the same logic real burglar alarms use.",
             concepts: "Alarm circuits, security logic, series circuits",
+            image: "/images/products/snap-circuits-my-home/project-assembling-roof.jpg",
           },
           {
             name: "Motion Detector Light",
             description:
               "Build a light that activates automatically when motion is detected — like outdoor security lights.",
             concepts: "Motion sensors, automation, relay circuits",
+            image: "/images/products/snap-circuits-my-home/project-fan-collage.jpg",
           },
           {
             name: "Ceiling Fan (Multi-Speed)",
             description:
               "Build a fan with multiple speed settings using different circuit configurations.",
             concepts: "Parallel circuits, motor control, current variation",
+            image: "/images/products/snap-circuits-my-home/project-fan-parts.jpg",
           },
         ]}
         moreText="Plus doorbells with custom melodies, automatic night lights, generators, smoke alarms, power distribution systems, combined multi-circuit builds, and more"
@@ -222,6 +236,11 @@ export default async function SnapCircuitsMyHomePage() {
             src: "/images/products/snap-circuits-my-home/my-home-built.jpg",
             alt: "Fully built Snap Circuits My Home structure",
             label: "Finished",
+          },
+          {
+            src: "/images/products/snap-circuits-my-home/two-stacked-my-home-boxes.jpg",
+            alt: "Two stacked Snap Circuits My Home boxes",
+            label: "Stacked Up",
           },
         ]}
         background="white"
@@ -276,8 +295,8 @@ export default async function SnapCircuitsMyHomePage() {
       {/* What's in the Box */}
       <WhatsIncluded
         title="What's in the Box"
-        image="/images/products/snap-circuits-my-home/my-home-collage-3-images-of-build.jpg"
-        imageAlt="Snap Circuits My Home completed builds showing different configurations"
+        image="/images/products/snap-circuits-my-home/whats-in-the-box.jpg"
+        imageAlt="Snap Circuits My Home box contents showing all components and coloured base grids"
         items={[
           "60+ colour-coded snap-together electronic parts",
           "7 coloured base grid tiles (for building the house or tower)",
