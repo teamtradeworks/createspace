@@ -216,6 +216,71 @@ const COLLECTIONS_QUERY = `
   }
 `;
 
+const COLLECTION_PRODUCTS_QUERY = `
+  query CollectionProducts($handle: String!, $first: Int!) {
+    collection(handle: $handle) {
+      id
+      title
+      handle
+      description
+      image {
+        url
+        altText
+      }
+      products(first: $first) {
+        edges {
+          node {
+            id
+            title
+            handle
+            description
+            vendor
+            availableForSale
+            priceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            images(first: 3) {
+              edges {
+                node {
+                  url
+                  altText
+                }
+              }
+            }
+            variants(first: 1) {
+              edges {
+                node {
+                  id
+                  title
+                  price {
+                    amount
+                    currencyCode
+                  }
+                }
+              }
+            }
+            minAge: metafield(namespace: "custom", key: "minimum_age") {
+              value
+            }
+            maxAge: metafield(namespace: "custom", key: "maximum_age") {
+              value
+            }
+            rating: metafield(namespace: "reviews", key: "rating") {
+              value
+            }
+            ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+              value
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 // API Functions
 export async function getProducts(first: number = 8): Promise<Product[]> {
   const data = await shopifyFetch<{
@@ -239,6 +304,31 @@ export async function getCollections(
   });
 
   return data.collections.edges.map((edge) => edge.node);
+}
+
+// Get products within a specific collection by handle
+export async function getCollectionProducts(
+  handle: string,
+  first: number = 50
+): Promise<{ collection: Collection | null; products: Product[] }> {
+  const data = await shopifyFetch<{
+    collection:
+      | (Collection & { products: { edges: { node: Product }[] } })
+      | null;
+  }>({
+    query: COLLECTION_PRODUCTS_QUERY,
+    variables: { handle, first },
+  });
+
+  if (!data.collection) {
+    return { collection: null, products: [] };
+  }
+
+  const { products, ...collectionData } = data.collection;
+  return {
+    collection: collectionData,
+    products: products.edges.map((edge) => edge.node),
+  };
 }
 
 // Search products by text query
