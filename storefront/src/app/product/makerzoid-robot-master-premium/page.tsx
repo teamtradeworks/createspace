@@ -12,6 +12,9 @@ import {
   Specifications,
   ProductReviews,
   CallToAction,
+  VideoEmbed,
+  ProjectShowcase,
+  CustomerShowcase,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-robot-master-premium";
@@ -68,6 +71,13 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         background="navy-card"
       />
 
+      {/* Video */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=dSGwumD4w5A"
+        title="See It in Action"
+        background="gray"
+      />
+
       {/* What Is Makerzoid Section */}
       <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/boy-coding-on-tablet-with-robot-on-floor.jpg"
@@ -120,32 +130,121 @@ export default async function MakerzoidRobotMasterPremiumPage() {
 
       {/* Building with Guide Section */}
       <ImageTextBlock
-        image="/images/products/makerzoid-robot-master-premium/helicopter-being-built-with-manual.jpg"
-        imageAlt="Makerzoid helicopter being built following the instruction manual"
-        title="Easy to Follow Instructions"
-        body="Choose your learning style. The detailed paper manual guides step-by-step building with clear diagrams. Or use the Makerzoid app for interactive instructions plus video lessons. Most children can build independently - the instructions are designed for success without adult help."
+        image="/images/products/makerzoid-robot-master-premium/kids-playing-with-pieces-with-tablet-instructions.png"
+        imageAlt="Kids building with Makerzoid pieces following tablet instructions"
+        title="Learn Together or Independently"
+        body="Choose your learning style. The detailed paper manual guides step-by-step building with clear diagrams. Or use the free Makerzoid app for interactive video instructions. Most children can build independently from age 6 — the instructions are designed for success without adult help. But when you do sit down together, it's genuinely fun for parents too."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
-      {/* What's Included */}
-      <WhatsIncluded
-        title="What's in the Box"
-        items={[
-          "600+ high-quality ABS building blocks",
-          "Upgraded main controller unit",
-          "2 Robot Master motors",
-          "2 precision sensors",
-          "Assorted gears and mechanical parts",
-          "Storage box with sorting plate",
-          "Parts list with block quantities",
-          "Detailed paper instruction manual",
-          "Access to Makerzoid APP with 47 video courses",
-        ]}
-        image="/images/products/makerzoid-robot-master-premium/kit-with-example-project-builds.jpg"
-        imageAlt="Makerzoid Robot Master Premium kit contents with example robot builds"
+      {/* Projects Section */}
+      <ProjectShowcase
+        title="47 Lessons. 3 Skill Levels."
+        highlight="200+ robot models to build — from simple structures to fully programmable machines"
+        subtitle="The curriculum progresses through three levels, each building on the last."
+        columns={3}
         background="white"
+        projects={[
+          {
+            name: "Basic Structures",
+            description: "Start with foundational builds that teach balance, stability, and structural integrity.",
+            concepts: "Structural design, spatial reasoning",
+            image: "/images/products/makerzoid-robot-master-premium/projects/basic-structure.png",
+          },
+          {
+            name: "Gear Systems",
+            description: "Discover how gears transfer motion and create mechanical advantage in real robots.",
+            concepts: "Gears, transmission, mechanical advantage",
+            image: "/images/products/makerzoid-robot-master-premium/projects/gear-machines.png",
+          },
+          {
+            name: "Walking Machines",
+            description: "Build multi-legged walkers that move using motors and linkage mechanisms.",
+            concepts: "Linkages, motion, dynamics",
+            image: "/images/products/makerzoid-robot-master-premium/projects/walking-machines.png",
+          },
+          {
+            name: "Line-Following Robot",
+            description: "Program your robot to detect and follow a black line using its sensors.",
+            concepts: "Sensors, loops, conditionals",
+            image: "/images/products/makerzoid-robot-master-premium/projects/line-following-robot.png",
+          },
+          {
+            name: "Obstacle Avoider",
+            description: "Use distance sensors to detect obstacles and automatically navigate around them.",
+            concepts: "Sensors, if/then logic, autonomous behaviour",
+            image: "/images/products/makerzoid-robot-master-premium/projects/obstacle-avoider.png",
+          },
+          {
+            name: "Remote Control Car",
+            description: "Build a driveable car and control it wirelessly from your phone via Bluetooth.",
+            concepts: "Bluetooth, motors, app control",
+            image: "/images/products/makerzoid-robot-master-premium/projects/remote-control-car.png",
+          },
+        ]}
+        moreText="Plus 41 more lessons — all included in the free Makerzoid app"
       />
+
+      {/* Customer Showcase */}
+      <CustomerShowcase
+        title="What Our Community Has Built"
+        subtitle="Real families, real robots — see what your child could create"
+        background="white"
+        images={[
+          {
+            src: "/images/products/makerzoid-robot-master-premium/two-kids-playing-together-building-and-with-app-on-phone.png",
+            alt: "Two kids building together with Makerzoid and app on phone",
+            label: "Building Together",
+            description: "Collaborative fun for siblings and friends",
+          },
+          {
+            src: "/images/products/makerzoid-robot-master-premium/crane-built-sitting-on-box-with-tablet-behind.png",
+            alt: "Makerzoid crane build sitting on box with tablet behind",
+            label: "Crane Build",
+            description: "A fully functional crane — one of 200+ models",
+          },
+          {
+            src: "/images/products/makerzoid-robot-master-premium/close-up-hand-holding-built-car.png",
+            alt: "Close-up of hand holding a built Makerzoid car",
+            label: "Remote Car",
+            description: "Built and ready to drive via Bluetooth",
+          },
+          {
+            src: "/images/products/makerzoid-robot-master-premium/build-car-on-box-with-app-phone.png",
+            alt: "Makerzoid car build on box with app open on phone",
+            label: "App Control",
+            description: "Drive and program from your phone",
+          },
+          {
+            src: "/images/products/makerzoid-robot-master-premium/car-on-box-with-tablet-app-open-behind.png",
+            alt: "Makerzoid car on box with tablet app open behind",
+            label: "Tablet Mode",
+            description: "Use a tablet for a bigger screen experience",
+          },
+          {
+            src: "/images/products/makerzoid-robot-master-premium/robot-and-crane-builds.jpg",
+            alt: "Robot and crane builds made with Makerzoid",
+            label: "Two Builds",
+            description: "Mix and match parts across different models",
+          },
+          {
+            src: "/images/products/makerzoid-robot-master-premium/box-open-on-floor-with-all-included-shown.jpg",
+            alt: "Makerzoid box open on floor showing all included pieces",
+            label: "Unboxed",
+            description: "Everything laid out and ready to build",
+          },
+          {
+            src: "/images/products/makerzoid-robot-master-premium/makerzoid-at-robotics-conference.png",
+            alt: "Makerzoid at a robotics conference",
+            label: "In the Wild",
+            description: "Spotted at a local robotics event",
+          },
+        ]}
+      />
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
       <ProductFAQ
@@ -182,11 +281,27 @@ export default async function MakerzoidRobotMasterPremiumPage() {
               "The Premium version includes 600+ blocks (vs 370 in Standard), supports 200+ robot models (vs 100+), has 47 video lessons (vs 23), and includes dual motors and sensors for more complex builds and programming.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
-      {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      {/* What's Included */}
+      <WhatsIncluded
+        title="What's in the Box"
+        items={[
+          "600+ high-quality ABS building blocks",
+          "Upgraded main controller unit",
+          "2 Robot Master motors",
+          "2 precision sensors",
+          "Assorted gears and mechanical parts",
+          "Storage box with sorting plate",
+          "Parts list with block quantities",
+          "Detailed paper instruction manual",
+          "Access to Makerzoid APP with 47 video courses",
+        ]}
+        image="/images/products/makerzoid-robot-master-premium/whats-in-the-box.png"
+        imageAlt="Makerzoid Robot Master Premium box contents laid out"
+        background="gray"
+      />
 
       {/* Specifications */}
       <Specifications
@@ -204,7 +319,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           { label: "App Compatibility", value: "iOS 9+, Android 5+" },
           { label: "Web Platform", value: "lab.makerzoid.com" },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Final CTA */}
@@ -217,7 +332,6 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
     </>
   );
 }
