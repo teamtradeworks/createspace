@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
@@ -31,6 +32,8 @@ export default async function SnapCircuitsMyHomePage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -359,5 +362,10 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Build real doorbells, alarms, fans, and more with the Snap Circuits My Home kit. 30+ home-themed circuit projects for ages 8+. No tools or soldering needed.",
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

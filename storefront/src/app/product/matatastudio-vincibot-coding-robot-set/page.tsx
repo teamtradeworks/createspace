@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
@@ -31,6 +32,8 @@ export default async function VinciBotPage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -352,5 +355,10 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "93+ coding activities from block-based to Python and AI. 8 sensors, LEGO-compatible, used by 20,000+ schools. The smart robot that grows with your child aged 8-12.",
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

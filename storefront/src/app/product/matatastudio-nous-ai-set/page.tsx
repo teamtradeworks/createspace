@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
@@ -31,6 +32,8 @@ export default async function NousAISetPage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -327,5 +330,10 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Advanced AI robot for ages 12+. Learn machine learning, computer vision, and Python programming with ChatGPT-4o. 18+ projects, TinyML, award-winning curriculum.",
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

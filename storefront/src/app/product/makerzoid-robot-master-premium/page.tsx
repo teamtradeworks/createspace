@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
@@ -31,6 +32,8 @@ export default async function MakerzoidRobotMasterPremiumPage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -347,5 +350,10 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Build and code over 200 robots with the Makerzoid Robot Master Premium. 600+ blocks, 47 video lessons, Scratch programming, and LEGO compatibility. Perfect for ages 6+.",
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

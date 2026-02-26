@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
@@ -30,6 +31,8 @@ export default async function MicrobitGoPage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -275,5 +278,10 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Get started with coding using the BBC micro:bit Go. Complete starter kit with micro:bit V2, USB cable, batteries, and battery holder. Perfect for beginners aged 8+.",
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

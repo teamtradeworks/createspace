@@ -19,9 +19,26 @@ const outfit = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thecreatespace.co.za"),
   title: "CREATESPACE | Build. Play. Learn.",
   description:
     "Curated STEM educational products and programmes to inspire and educate young minds in science, technology, engineering and mathematics.",
+  openGraph: {
+    type: "website",
+    siteName: "CREATESPACE",
+    locale: "en_ZA",
+    images: [
+      {
+        url: "/images/home/hero-stem-education.jpg",
+        width: 1200,
+        height: 630,
+        alt: "CREATESPACE - Build. Play. Learn.",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 // Async component that fetches products for the header

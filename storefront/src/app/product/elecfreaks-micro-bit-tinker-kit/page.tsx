@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
@@ -30,6 +31,8 @@ export default async function ElecfreaksTinkerKitPage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -282,5 +285,10 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Expand your micro:bit with the ELECFREAKS Tinker Kit. Includes 14 plug-and-play sensors and components with 39 project tutorials. Block coding compatible. Ages 12+.",
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

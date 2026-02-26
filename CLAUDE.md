@@ -37,6 +37,17 @@ Unit tests use **Vitest** and live in `storefront/src/__tests__/`. E2E tests use
 
 **CI:** GitHub Actions runs lint, unit tests, build, and E2E tests on every PR to `main`. All must pass to merge.
 
+## SEO
+
+The site has foundational SEO infrastructure that must be maintained:
+
+- **Sitemap** (`storefront/src/app/sitemap.ts`): Products are pulled dynamically from Shopify. Static pages are listed manually — **when adding a new page, add it to the sitemap**.
+- **Robots** (`storefront/src/app/robots.ts`): Blocks `/cart`, `/search`, `/product/kitchen-sink`. Add any new non-indexable pages here.
+- **Open Graph**: Root layout (`layout.tsx`) sets `metadataBase`, default OG image, siteName, locale, and Twitter Card config. Child pages inherit these defaults — their `title`/`description` automatically become `og:title`/`og:description`. Product pages should include `openGraph.images` with the product image in `generateMetadata`.
+- **JSON-LD**: Product pages include `<ProductJsonLd>` for schema.org structured data. Always include this on new product pages.
+- **Heading hierarchy**: Every page must have exactly one `<h1>` tag. Do not add multiple `<h1>` tags to a page.
+- **Metadata**: Every page must export `metadata` or `generateMetadata` with a `title` and `description`.
+
 ## Product Metafields
 
 Product attributes are configured in Shopify admin via metafield definitions. These are accessible via the Storefront API.
@@ -280,6 +291,15 @@ We keep these two parts above seperate so that we don't need to repeat researchi
 1. Create folder: `storefront/src/app/product/{slug}/page.tsx` (folder name must match Shopify handle/slug)
 2. Define `PRODUCT_SKU` constant for add-on resolution
 3. Use `getProductByHandle("handle")` to fetch product data
+4. Add `<ProductJsonLd product={product} />` inside the JSX (import from `@/components/ProductJsonLd`)
+5. Include `openGraph.images` in `generateMetadata` using the product's first image:
+   ```ts
+   openGraph: {
+     images: product.images.edges[0]?.node.url
+       ? [{ url: product.images.edges[0].node.url }]
+       : undefined,
+   },
+   ```
 
 ### Product add-ons
 
