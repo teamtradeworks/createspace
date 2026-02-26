@@ -6,12 +6,14 @@ const BASE_URL = "https://thecreatespace.co.za";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const products = await getProducts(250);
 
-  const productEntries: MetadataRoute.Sitemap = products.map((product) => ({
-    url: `${BASE_URL}/product/${product.handle}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
+  const productEntries: MetadataRoute.Sitemap = products
+    .filter((product) => product.handle !== "kitchen-sink")
+    .map((product) => ({
+      url: `${BASE_URL}/product/${product.handle}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    }));
 
   const staticPages: MetadataRoute.Sitemap = [
     {
