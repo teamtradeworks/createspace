@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-
   NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
@@ -15,6 +14,7 @@ import {
   Specifications,
   ProductReviews,
   ProjectShowcase,
+  CustomerShowcase,
   CallToAction,
 } from "@/components/product-sections";
 
@@ -80,8 +80,8 @@ export default async function ArduinoStarterKitPage() {
 
       {/* What Is Arduino Section */}
       <ImageTextBlock
-        image="/images/products/arduino-starter-kit/kids_working_on_project.jpg"
-        imageAlt="Children working together on an Arduino project"
+        image="/images/products/arduino-starter-kit/arduino_parts_branded_image.jpg"
+        imageAlt="Arduino Starter Kit components laid out including board, breadboard, LEDs and sensors"
         title="Your First Electronics Lab"
         body="The official Arduino Starter Kit is built around the Arduino UNO — the world's most popular learning board for electronics and coding. Inside you'll find over 100 components including LEDs, sensors, motors, a breadboard, and jumper wires, along with a 170-page printed guidebook that walks you through 15 real projects. Each project teaches actual C/C++ programming and hands-on circuit building, starting from absolute basics and gradually introducing more advanced concepts. No prior experience with electronics or coding is needed — the book explains everything from what a resistor does to how to write your first loop."
         layout="image-left"
@@ -130,8 +130,8 @@ export default async function ArduinoStarterKitPage() {
 
       {/* Life Skills Section */}
       <ImageTextBlock
-        image="/images/products/arduino-starter-kit/arduino_board_laptop_on_desk_guidebook_open.jpg"
-        imageAlt="Arduino setup with laptop and open guidebook on desk"
+        image="/images/products/arduino-starter-kit/kid-working-with-starter-kit.jpg"
+        imageAlt="Child working with the Arduino Starter Kit"
         title="Skills They'll Develop"
         body="When your child works through Arduino projects, they're building character alongside circuits. They'll develop resilience by learning that mistakes aren't failures - just opportunities to try a different approach. They'll build confidence as each completed project proves they can tackle unfamiliar challenges. And they'll experience the satisfaction that comes from creating something real with their own hands."
         layout="image-right"
@@ -148,35 +148,74 @@ export default async function ArduinoStarterKitPage() {
             name: "Spaceship Interface",
             description: "Create a control panel with buttons and LEDs",
             concepts: "Digital I/O, conditionals",
+            image: "/images/products/arduino-starter-kit/projects/spaceship-interface.jpeg",
           },
           {
             name: "Love-O-Meter",
             description: "Build a temperature-sensing love tester",
             concepts: "Analog input, sensors",
+            image: "/images/products/arduino-starter-kit/projects/love-o-meter.jpg",
           },
           {
             name: "Colour Mixing Lamp",
             description: "Mix RGB colours with light sensors",
             concepts: "PWM, analog sensors",
+            image: "/images/products/arduino-starter-kit/projects/colour-mixing-lamp.jpg",
           },
           {
             name: "Mood Cue",
             description: "Create a servo-powered mood indicator",
             concepts: "Servo motors, potentiometers",
+            image: "/images/products/arduino-starter-kit/projects/mode-cue.jpg",
           },
           {
             name: "Light Theremin",
             description: "Make a musical instrument controlled by light",
             concepts: "Piezo buzzer, light sensors",
+            image: "/images/products/arduino-starter-kit/projects/light-theremin.jpg",
           },
           {
             name: "Motorised Pinwheel",
             description: "Build a wind-powered spinning display",
             concepts: "DC motors, transistors",
+            image: "/images/products/arduino-starter-kit/projects/motorised-pinwheel.jpeg",
           },
         ]}
         moreText="Plus 9 more projects covering LCD displays, keyboards, and more advanced concepts"
         background="white"
+      />
+
+      {/* End-User Photo Section */}
+      <CustomerShowcase
+        title="See It in Action"
+        subtitle="Real builds from makers who started exactly where you are now."
+        images={[
+          {
+            src: "/images/products/arduino-starter-kit/finger-pressing-button-light-on.jpg",
+            alt: "Finger pressing a button with LED lit up on an Arduino breadboard",
+          },
+          {
+            src: "/images/products/arduino-starter-kit/uno-r3-with-breadboard-yellow-background.jpg",
+            alt: "Arduino UNO R3 connected to breadboard on a yellow background",
+          },
+          {
+            src: "/images/products/arduino-starter-kit/uno-r3-plugged-into-breadboard.jpg",
+            alt: "Arduino UNO R3 plugged into a breadboard with jumper wires",
+          },
+          {
+            src: "/images/products/arduino-starter-kit/work-book-with-tools-infront-of-pc.jpg",
+            alt: "Arduino project workbook open with components in front of a laptop",
+          },
+          {
+            src: "/images/products/arduino-starter-kit/uno-r3-with-breadboard.jpg",
+            alt: "Arduino UNO R3 with breadboard and components assembled",
+          },
+          {
+            src: "/images/products/arduino-starter-kit/arduino_board_laptop_on_desk_guidebook_open.jpg",
+            alt: "Arduino board and laptop on desk with open guidebook",
+          },
+        ]}
+        background="gray"
       />
 
       {/* FAQ Section */}
