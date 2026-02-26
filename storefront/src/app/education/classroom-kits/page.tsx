@@ -1,5 +1,5 @@
-import { getProducts, formatPrice } from "@/lib/shopify";
-import Image from "next/image";
+import { getCollectionProducts } from "@/lib/shopify";
+import ProductCard from "@/components/ProductCard";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -73,8 +73,7 @@ const benefits = [
 ];
 
 export default async function ClassroomKitsPage() {
-  // Fetch products - in a real implementation, you'd filter by a "classroom" tag or collection
-  const products = await getProducts(12);
+  const { products } = await getCollectionProducts("classroom-kits");
 
   return (
     <>
@@ -173,78 +172,19 @@ export default async function ClassroomKitsPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {products.map((product) => (
-              <Link
-                key={product.id}
-                href={`/product/${product.handle}`}
-                className="group"
-              >
-                <div className="bg-gray-50 rounded-xl overflow-hidden mb-3 aspect-square relative">
-                  {product.images.edges[0] ? (
-                    <Image
-                      src={product.images.edges[0].node.url}
-                      alt={product.images.edges[0].node.altText || product.title}
-                      fill
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <svg
-                        className="w-16 h-16 text-gray-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2 mb-1">
-                  {product.title}
-                </h3>
-                {product.vendor && (
-                  <p className="text-xs text-gray-500 mb-1">
-                    {product.vendor}
-                  </p>
-                )}
-                <p className="text-cs-orange font-semibold">
-                  {formatPrice(
-                    product.priceRange.minVariantPrice.amount,
-                    product.priceRange.minVariantPrice.currencyCode
-                  )}
-                </p>
-              </Link>
-            ))}
-          </div>
-
-          <div className="mt-12 text-center">
-            <Link
-              href="/shop"
-              className="inline-flex items-center px-8 py-4 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
-            >
-              View All Products
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </Link>
-          </div>
+          {products.length > 0 ? (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-600">
+                Classroom kits are coming soon. Contact us for more information.
+              </p>
+            </div>
+          )}
         </div>
       </section>
 
