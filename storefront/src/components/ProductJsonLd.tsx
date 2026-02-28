@@ -1,4 +1,4 @@
-import { ProductDetail } from "@/lib/shopify";
+import { ProductDetail, getStockStatus } from "@/lib/shopify";
 
 interface ProductJsonLdProps {
   product: ProductDetail;
@@ -7,6 +7,13 @@ interface ProductJsonLdProps {
 export default function ProductJsonLd({ product }: ProductJsonLdProps) {
   const price = product.priceRange.minVariantPrice;
   const image = product.images.edges[0]?.node.url;
+  const stockStatus = getStockStatus(product);
+
+  const availabilityMap = {
+    "in-stock": "https://schema.org/InStock",
+    "lead-time": "https://schema.org/BackOrder",
+    "out-of-stock": "https://schema.org/OutOfStock",
+  } as const;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -25,9 +32,7 @@ export default function ProductJsonLd({ product }: ProductJsonLdProps) {
       url: `https://thecreatespace.co.za/product/${product.handle}`,
       priceCurrency: price.currencyCode,
       price: price.amount,
-      availability: product.availableForSale
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
+      availability: availabilityMap[stockStatus],
     },
   };
 

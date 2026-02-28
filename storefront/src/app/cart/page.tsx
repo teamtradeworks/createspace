@@ -12,6 +12,7 @@ import {
   amountToFreeDelivery,
 } from "@/config/delivery";
 import TrustBadges from "@/components/TrustBadges";
+import siteConfig from "@/config/site.json";
 
 export default function CartPage() {
   const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } = useCart();
@@ -197,6 +198,11 @@ export default function CartPage() {
                             <span className="inline-flex items-center gap-1 text-xs text-cs-red mt-1">
                               <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
                               Out of Stock — excluded from order
+                            </span>
+                          ) : item.currentlyNotInStock ? (
+                            <span className="inline-flex items-center gap-1 text-xs text-cs-orange mt-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-cs-orange" />
+                              Delivery in {siteConfig.leadTime.estimatedDays}
                             </span>
                           ) : (
                             <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">

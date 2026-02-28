@@ -5,6 +5,7 @@ import {
   getProductAgeRange,
   getProductBatteryInfo,
   getProductRating,
+  getStockStatus,
   type ProductDetail,
 } from "@/lib/shopify";
 
@@ -227,5 +228,85 @@ describe("getProductRating", () => {
     expect(
       getProductRating({ value: "not json" }, { value: "5" })
     ).toBeNull();
+  });
+});
+
+function makeVariant(overrides: {
+  availableForSale?: boolean;
+  currentlyNotInStock?: boolean;
+} = {}) {
+  return {
+    node: {
+      id: "gid://shopify/ProductVariant/1",
+      title: "Default",
+      availableForSale: overrides.availableForSale ?? true,
+      currentlyNotInStock: overrides.currentlyNotInStock ?? false,
+      price: { amount: "100.00", currencyCode: "ZAR" },
+      compareAtPrice: null,
+    },
+  };
+}
+
+describe("getStockStatus", () => {
+  it("returns 'out-of-stock' when product is not available for sale", () => {
+    const product = makeProduct({
+      availableForSale: false,
+      variants: { edges: [makeVariant({ availableForSale: false })] },
+    });
+    expect(getStockStatus(product)).toBe("out-of-stock");
+  });
+
+  it("returns 'in-stock' when variant has physical inventory", () => {
+    const product = makeProduct({
+      availableForSale: true,
+      variants: {
+        edges: [makeVariant({ availableForSale: true, currentlyNotInStock: false })],
+      },
+    });
+    expect(getStockStatus(product)).toBe("in-stock");
+  });
+
+  it("returns 'lead-time' when all available variants are currentlyNotInStock", () => {
+    const product = makeProduct({
+      availableForSale: true,
+      variants: {
+        edges: [makeVariant({ availableForSale: true, currentlyNotInStock: true })],
+      },
+    });
+    expect(getStockStatus(product)).toBe("lead-time");
+  });
+
+  it("returns 'in-stock' when at least one variant has stock (mixed)", () => {
+    const product = makeProduct({
+      availableForSale: true,
+      variants: {
+        edges: [
+          makeVariant({ availableForSale: true, currentlyNotInStock: true }),
+          makeVariant({ availableForSale: true, currentlyNotInStock: false }),
+        ],
+      },
+    });
+    expect(getStockStatus(product)).toBe("in-stock");
+  });
+
+  it("ignores unavailable variants when checking lead-time", () => {
+    const product = makeProduct({
+      availableForSale: true,
+      variants: {
+        edges: [
+          makeVariant({ availableForSale: true, currentlyNotInStock: true }),
+          makeVariant({ availableForSale: false, currentlyNotInStock: false }),
+        ],
+      },
+    });
+    expect(getStockStatus(product)).toBe("lead-time");
+  });
+
+  it("returns 'in-stock' when product has no variants", () => {
+    const product = makeProduct({
+      availableForSale: true,
+      variants: { edges: [] },
+    });
+    expect(getStockStatus(product)).toBe("in-stock");
   });
 });

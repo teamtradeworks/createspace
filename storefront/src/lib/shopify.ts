@@ -438,6 +438,7 @@ export type ProductDetail = {
         id: string;
         title: string;
         availableForSale: boolean;
+        currentlyNotInStock: boolean;
         price: {
           amount: string;
           currencyCode: string;
@@ -507,6 +508,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
             id
             title
             availableForSale
+            currentlyNotInStock
             price {
               amount
               currencyCode
@@ -776,4 +778,24 @@ export function getProductBatteryInfo(product: ProductDetail): string | undefine
 
   // Fallback if no battery type specified
   return batteriesIncluded ? "Included" : "Required";
+}
+
+// Stock status for product detail pages
+export type StockStatus = "in-stock" | "lead-time" | "out-of-stock";
+
+export function getStockStatus(product: ProductDetail): StockStatus {
+  if (!product.availableForSale) return "out-of-stock";
+
+  const availableVariants = product.variants.edges.filter(
+    (e) => e.node.availableForSale
+  );
+
+  if (
+    availableVariants.length > 0 &&
+    availableVariants.every((e) => e.node.currentlyNotInStock)
+  ) {
+    return "lead-time";
+  }
+
+  return "in-stock";
 }
