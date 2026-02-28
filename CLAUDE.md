@@ -245,29 +245,44 @@ When creating, improving, or modifying product pages, you MUST follow this secti
 
 We often differentiate and reference products by their unique slug (`{slug}`), which comes from the Shopify API (e.g. arduino-starter-kit).
 
-Working on product pages has two parts:
- 1. Content research: 
+Working on product pages has three parts:
+ 1. Content research:
     - Triggered by the Claude command `/research {slug}`.
     - This involved gathering written content about a product from online sources.
     - There should be more than enough content gathered for us to write product pages.
     - The content doesn't need to be rewritten with our tone or style yet.
     - There should be enough content to satisfy the guidelines in `assets/brand/product-content-framework.md`.
     - The content is to be stored in `assets/product/{slug}/content.md`.
- 2. Turning research content into a suitable product page:
+ 2. Turning research content into a parent-focused product page:
     - This involved uses the researched content in `assets/product/{slug}/content.md` and the following two documents to create product pages:
       - `assets/brand/product-content-framework.md`
       - `assets/brand/product-page-design.md`
-    - Rewrite the content from `assets/product/{slug}/content.md` using the product-content-framework.md. 
+    - Rewrite the content from `assets/product/{slug}/content.md` using the product-content-framework.md.
     - No copying and pasting.
     - Triggered by the Claude command `/product-page {slug}`
-   
-We keep these two parts above seperate so that we don't need to repeat researching online while reworking the product page.
+ 3. Turning research content into an educator/school-focused product page:
+    - Uses the researched content in `assets/product/{slug}/content.md` and the following two documents:
+      - `assets/brand/edu-product-content-framework.md`
+      - `assets/brand/product-page-design.md`
+    - Rewrite the content from `assets/product/{slug}/content.md` using the edu-product-content-framework.md.
+    - Addresses educators, teachers, and school administrators (not parents).
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page-edu {slug}`
+
+We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2 and 3 are alternatives — use `/product-page` for consumer products (Shop) and `/product-page-edu` for classroom kits (Education).
 
 **Content Framework** - `assets/brand/product-content-framework.md`
+   - Parent-focused content guidelines (consumer product pages)
    - What information to include (age, skill level, learning outcomes)
    - Skill tag taxonomy (STEM Skills + Life Skills)
    - Writing guidelines and tone
    - Imagery requirements (lifestyle photos, videos/GIFs)
+
+**Education Content Framework** - `assets/brand/edu-product-content-framework.md`
+   - Educator-focused content guidelines (classroom kit pages)
+   - Three educator personas (STEM Champions, Decision-Makers, STEM-Hesitant)
+   - Three educator questions (curriculum alignment, cost-per-learner, support)
+   - Education-specific writing guidelines and tone
 
 **Page Design Spec** - `assets/brand/product-page-design.md`
    - Page structure with 15 component sections
