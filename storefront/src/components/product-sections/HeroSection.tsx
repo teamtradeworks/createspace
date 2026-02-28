@@ -202,6 +202,7 @@ export function HeroSection({
                   productId={product.id}
                   variantId={product.variants.edges[0]?.node.id}
                   available={product.availableForSale}
+                  currentlyNotInStock={product.variants.edges[0]?.node.currentlyNotInStock}
                   title={product.title}
                   price={parseFloat(price.amount)}
                   currencyCode={price.currencyCode}

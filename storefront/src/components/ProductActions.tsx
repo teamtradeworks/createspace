@@ -10,6 +10,7 @@ interface ProductActionsProps {
   productId: string;
   variantId: string;
   available: boolean;
+  currentlyNotInStock?: boolean;
   title: string;
   price: number;
   currencyCode: string;
@@ -22,6 +23,7 @@ export default function ProductActions({
   productId,
   variantId,
   available,
+  currentlyNotInStock,
   title,
   price,
   currencyCode,
@@ -72,6 +74,7 @@ export default function ProductActions({
         image,
         handle,
         available,
+        currentlyNotInStock,
       },
       quantity
     );
@@ -119,6 +122,7 @@ export default function ProductActions({
         image,
         handle,
         available,
+        currentlyNotInStock,
       },
       quantity
     );
