@@ -229,7 +229,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {[
               { name: "MatataStudio", logo: "/images/brands/matatastudio.png" },
               { name: "Makerzoid", logo: "/images/brands/makerzoid.png" },
@@ -237,7 +237,9 @@ export default function AboutPage() {
               { name: "ELECFREAKS", logo: "/images/brands/elecfreaks.png" },
               { name: "Snap Circuits", logo: "/images/brands/snap-circuits.png" },
               { name: "Arduino", logo: "/images/brands/arduino.png" },
-              { name: "ACEBOTT", logo: "/images/brands/acebott.png" },
+              { name: "National Geographic", logo: "/images/brands/national-geographic.png" },
+              { name: "Blockaroo", logo: "/images/brands/blockaroo.png" },
+              { name: "NASA", logo: "/images/brands/nasa.png" },
               { name: "Robotico", logo: "/images/brands/robotico.png" },
             ].map((brand) => (
               <div
