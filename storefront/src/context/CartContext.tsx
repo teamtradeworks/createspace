@@ -12,6 +12,7 @@ export interface CartItem {
   image?: string;
   handle: string;
   available?: boolean;
+  currentlyNotInStock?: boolean;
 }
 
 interface CartContextType {
@@ -79,11 +80,15 @@ export function CartProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ variantIds }),
       })
         .then((res) => res.json())
-        .then(({ availability }: { availability: Record<string, boolean> }) => {
+        .then(({ availability }: { availability: Record<string, { available: boolean; currentlyNotInStock: boolean }> }) => {
           setItems((prev) =>
             prev.map((item) =>
               item.variantId in availability
-                ? { ...item, available: availability[item.variantId] }
+                ? {
+                    ...item,
+                    available: availability[item.variantId].available,
+                    currentlyNotInStock: availability[item.variantId].currentlyNotInStock,
+                  }
                 : item
             )
           );

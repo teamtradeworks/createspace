@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getProductByHandle, formatPrice, getProductRating } from "@/lib/shopify";
+import { getProductByHandle, formatPrice, getProductRating, getStockStatus } from "@/lib/shopify";
+import siteConfig from "@/config/site.json";
 import { StarRating } from "@/components/StarRating";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
@@ -25,6 +26,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const hasDiscount =
     compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
   const ratingData = getProductRating(product.rating, product.ratingCount);
+  const stockStatus = getStockStatus(product);
 
   // Extract images
   const images = product.images.edges.map((edge) => ({
@@ -101,15 +103,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <div className="flex items-center gap-2 mb-4">
                 <span
                   className={`inline-flex items-center gap-1.5 text-sm ${
-                    product.availableForSale ? "text-cs-green" : "text-cs-red"
+                    stockStatus === "in-stock"
+                      ? "text-cs-green"
+                      : stockStatus === "lead-time"
+                        ? "text-cs-orange"
+                        : "text-cs-red"
                   }`}
                 >
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      product.availableForSale ? "bg-cs-green" : "bg-cs-red"
+                      stockStatus === "in-stock"
+                        ? "bg-cs-green"
+                        : stockStatus === "lead-time"
+                          ? "bg-cs-orange"
+                          : "bg-cs-red"
                     }`}
                   />
-                  {product.availableForSale ? "In Stock" : "Out of Stock"}
+                  {stockStatus === "in-stock"
+                    ? "In Stock"
+                    : stockStatus === "lead-time"
+                      ? `Delivery in ${siteConfig.leadTime.estimatedDays}`
+                      : "Out of Stock"}
                 </span>
               </div>
 
@@ -133,7 +147,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
                   </svg>
-                  <span><strong>1-3 days delivery</strong> with The Courier Guy</span>
+                  <span><strong>{stockStatus === "lead-time" ? `${siteConfig.leadTime.estimatedDays} delivery` : "1-3 days delivery"}</strong> with The Courier Guy</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
                   <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -161,6 +175,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 productId={product.id}
                 variantId={product.variants.edges[0]?.node.id}
                 available={product.availableForSale}
+                currentlyNotInStock={product.variants.edges[0]?.node.currentlyNotInStock}
                 title={product.title}
                 price={parseFloat(price.amount)}
                 currencyCode={price.currencyCode}

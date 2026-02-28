@@ -7,6 +7,7 @@ const NODES_QUERY = `
       ... on ProductVariant {
         id
         availableForSale
+        currentlyNotInStock
       }
     }
   }
@@ -20,16 +21,19 @@ export async function POST(request: NextRequest) {
   }
 
   const data = await shopifyFetch<{
-    nodes: ({ id: string; availableForSale: boolean } | null)[];
+    nodes: ({ id: string; availableForSale: boolean; currentlyNotInStock: boolean } | null)[];
   }>({
     query: NODES_QUERY,
     variables: { ids: variantIds },
   });
 
-  const availability: Record<string, boolean> = {};
+  const availability: Record<string, { available: boolean; currentlyNotInStock: boolean }> = {};
   for (const node of data.nodes) {
     if (node) {
-      availability[node.id] = node.availableForSale;
+      availability[node.id] = {
+        available: node.availableForSale,
+        currentlyNotInStock: node.currentlyNotInStock,
+      };
     }
   }
 
