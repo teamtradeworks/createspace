@@ -114,6 +114,7 @@ import {
 import { notFound } from "next/navigation";
 import { getProductByHandle, getProducts } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
@@ -140,6 +141,8 @@ export default async function ProductNamePage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Required: Hero Section */}
       <HeroSection
         product={product}
@@ -186,6 +189,11 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description: "...",
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }
 ```
@@ -407,6 +415,8 @@ Before completing, verify:
 
 - [ ] Content file was read: `assets/product/{slug}/content.md`
 - [ ] All required sections included (HeroSection, QuickInfoBadges, WhatsIncluded, CallToAction, RelatedProducts)
+- [ ] `<ProductJsonLd product={product} />` included for schema.org structured data
+- [ ] `openGraph.images` included in `generateMetadata` for social sharing
 - [ ] HeroSection receives `product` prop (dynamic data) - no hardcoded prices/availability
 - [ ] Age/skill/supervision information present
 - [ ] Content addresses educators, not parents — no "your child" language
