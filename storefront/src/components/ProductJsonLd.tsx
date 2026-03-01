@@ -1,4 +1,4 @@
-import { ProductDetail, getStockStatus } from "@/lib/shopify";
+import { ProductDetail, getStockStatus, getProductRating } from "@/lib/shopify";
 
 interface ProductJsonLdProps {
   product: ProductDetail;
@@ -8,6 +8,7 @@ export default function ProductJsonLd({ product }: ProductJsonLdProps) {
   const price = product.priceRange.minVariantPrice;
   const image = product.images.edges[0]?.node.url;
   const stockStatus = getStockStatus(product);
+  const ratingData = getProductRating(product.rating, product.ratingCount);
 
   const availabilityMap = {
     "in-stock": "https://schema.org/InStock",
@@ -25,6 +26,15 @@ export default function ProductJsonLd({ product }: ProductJsonLdProps) {
       brand: {
         "@type": "Brand",
         name: product.vendor,
+      },
+    }),
+    ...(ratingData && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: ratingData.average,
+        reviewCount: ratingData.count,
+        bestRating: 5,
+        worstRating: 1,
       },
     }),
     offers: {

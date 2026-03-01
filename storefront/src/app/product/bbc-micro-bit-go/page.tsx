@@ -278,6 +278,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Get started with coding using the BBC micro:bit Go. Complete starter kit with micro:bit V2, USB cable, batteries, and battery holder. Perfect for beginners aged 8+.",
+    alternates: {
+      canonical: "/product/bbc-micro-bit-go",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

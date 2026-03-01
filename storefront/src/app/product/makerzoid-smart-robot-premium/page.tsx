@@ -316,6 +316,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Build 200+ robots with Scratch Junior coding. Three control modes, 400+ blocks, 2D/3D instructions. Perfect for ages 6+ learning STEM through hands-on play.",
+    alternates: {
+      canonical: "/product/makerzoid-smart-robot-premium",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

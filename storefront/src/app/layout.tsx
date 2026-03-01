@@ -10,6 +10,7 @@ import { CartProvider } from "@/context/CartContext";
 import { getProducts } from "@/lib/shopify";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
@@ -68,6 +69,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <OrganizationJsonLd />
         <CartProvider>
           <Suspense fallback={<HeaderSkeleton />}>
             <HeaderWithProducts />

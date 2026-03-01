@@ -307,13 +307,24 @@ We keep the research step separate so that we don't need to repeat researching o
 2. Define `PRODUCT_SKU` constant for add-on resolution
 3. Use `getProductByHandle("handle")` to fetch product data
 4. Add `<ProductJsonLd product={product} />` inside the JSX (import from `@/components/ProductJsonLd`)
-5. Include `openGraph.images` in `generateMetadata` using the product's first image:
+5. Export `generateMetadata` with `title`, `description`, `alternates.canonical`, and `openGraph.images`:
    ```ts
-   openGraph: {
-     images: product.images.edges[0]?.node.url
-       ? [{ url: product.images.edges[0].node.url }]
-       : undefined,
-   },
+   export async function generateMetadata() {
+     const product = await getProductByHandle(PRODUCT_HANDLE);
+     if (!product) return { title: "Product Not Found" };
+     return {
+       title: `${product.title} | CREATESPACE`,
+       description: "Benefit-led description under 160 characters.",
+       alternates: {
+         canonical: "/product/{slug}",  // Use the folder name (URL path), not the Shopify handle
+       },
+       openGraph: {
+         images: product.images.edges[0]?.node.url
+           ? [{ url: product.images.edges[0].node.url }]
+           : undefined,
+       },
+     };
+   }
    ```
 
 ### Product add-ons

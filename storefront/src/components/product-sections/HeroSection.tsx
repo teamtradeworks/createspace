@@ -6,6 +6,7 @@ import ProductActions from "@/components/ProductActions";
 import { DELIVERY_CONFIG } from "@/config/delivery";
 import { SerializedAddon } from "@/lib/product-addons";
 import { StarRating } from "@/components/StarRating";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 
 interface HeroSectionProps {
   product: ProductDetail;
@@ -43,6 +44,13 @@ export function HeroSection({
   return (
     <>
       {/* Breadcrumb */}
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Shop", href: "/shop" },
+          { name: product.title, href: `/product/${product.handle}` },
+        ]}
+      />
       <div className="bg-gray-50 border-b">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
           <nav className="flex text-sm text-gray-500">

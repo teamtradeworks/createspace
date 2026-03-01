@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Contact Us | CREATESPACE",
   description:
     "Get in touch with CREATESPACE. We're here to help with product questions, school partnerships, and STEM education enquiries.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const contactInfo = [

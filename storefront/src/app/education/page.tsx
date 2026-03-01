@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Education | CREATESPACE",
   description:
     "STEM education solutions for schools. Expert tutors, teacher training, and classroom kits to bring hands-on learning to your learners.",
+  alternates: {
+    canonical: "/education",
+  },
 };
 
 const educationOptions = [

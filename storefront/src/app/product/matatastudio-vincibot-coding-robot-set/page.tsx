@@ -355,6 +355,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "93+ coding activities from block-based to Python and AI. 8 sensors, LEGO-compatible, used by 20,000+ schools. The smart robot that grows with your child aged 8-12.",
+    alternates: {
+      canonical: "/product/matatastudio-vincibot-coding-robot-set",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

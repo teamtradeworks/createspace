@@ -327,6 +327,9 @@ export async function generateMetadata({ params }: ProductPageProps) {
   return {
     title: `${product.title} | CREATESPACE`,
     description: product.description.slice(0, 160),
+    alternates: {
+      canonical: `/product/${handle}`,
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

@@ -10,75 +10,83 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((product) => product.handle !== "kitchen-sink")
     .map((product) => ({
       url: `${BASE_URL}/product/${product.handle}`,
-      lastModified: new Date(),
+      lastModified: product.updatedAt ? new Date(product.updatedAt) : new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
     }));
 
+  // Use the most recent product update as a proxy for dynamic page freshness
+  const latestProductUpdate = products.reduce((latest, product) => {
+    if (!product.updatedAt) return latest;
+    const date = new Date(product.updatedAt);
+    return date > latest ? date : latest;
+  }, new Date(0));
+  const shopLastModified = latestProductUpdate.getTime() > 0 ? latestProductUpdate : new Date();
+
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: BASE_URL,
-      lastModified: new Date(),
+      lastModified: shopLastModified,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
       url: `${BASE_URL}/shop`,
-      lastModified: new Date(),
+      lastModified: shopLastModified,
       changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/about`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/contact`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "monthly",
       priority: 0.5,
     },
     {
       url: `${BASE_URL}/education`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${BASE_URL}/education/stem-tutors`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${BASE_URL}/education/curriculum`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${BASE_URL}/education/classroom-kits`,
-      lastModified: new Date(),
+      lastModified: shopLastModified,
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${BASE_URL}/privacy`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${BASE_URL}/terms`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
       url: `${BASE_URL}/refund`,
-      lastModified: new Date(),
+      lastModified: new Date("2025-06-01"),
       changeFrequency: "yearly",
       priority: 0.3,
     },

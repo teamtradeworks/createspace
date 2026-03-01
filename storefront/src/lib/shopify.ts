@@ -43,6 +43,7 @@ export type Product = {
   description: string;
   vendor: string;
   availableForSale: boolean;
+  updatedAt: string;
   priceRange: {
     minVariantPrice: {
       amount: string;
@@ -98,6 +99,7 @@ const PRODUCTS_QUERY = `
           description
           vendor
           availableForSale
+          updatedAt
           priceRange {
             minVariantPrice {
               amount
@@ -153,6 +155,7 @@ const PRODUCTS_BY_TAG_QUERY = `
           description
           vendor
           availableForSale
+          updatedAt
           priceRange {
             minVariantPrice {
               amount
@@ -236,6 +239,7 @@ const COLLECTION_PRODUCTS_QUERY = `
             description
             vendor
             availableForSale
+            updatedAt
             priceRange {
               minVariantPrice {
                 amount

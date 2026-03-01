@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "STEM Tutors | Education | CREATESPACE",
   description:
     "Expert STEM facilitators for your school. Partner programme with Robotixkids offering robotics, coding, and electronics education.",
+  alternates: {
+    canonical: "/education/stem-tutors",
+  },
 };
 
 const programmes = [
