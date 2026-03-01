@@ -382,6 +382,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Screen-free coding robot for ages 4-9. 100+ hands-on challenges teach real programming with zero screen time. No reading or experience needed. Rechargeable, LEGO® compatible.",
+    alternates: {
+      canonical: "/product/matatastudio-coding-set-pro",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Refund Policy | CREATESPACE",
   description:
     "Learn about the CREATESPACE refund policy, including returns, exchanges, and how to request a refund.",
+  alternates: {
+    canonical: "/refund",
+  },
 };
 
 export default function RefundPolicyPage() {

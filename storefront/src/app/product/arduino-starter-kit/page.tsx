@@ -331,6 +331,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Learn electronics and coding with the official Arduino Starter Kit. Includes 15 hands-on projects, 170-page guide, and 100+ components. Perfect for beginners aged 10+.",
+    alternates: {
+      canonical: "/product/arduino-starter-kit",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

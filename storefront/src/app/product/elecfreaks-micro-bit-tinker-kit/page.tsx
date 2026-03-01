@@ -285,6 +285,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Expand your micro:bit with the ELECFREAKS Tinker Kit. Includes 14 plug-and-play sensors and components with 39 project tutorials. Block coding compatible. Ages 12+.",
+    alternates: {
+      canonical: "/product/elecfreaks-micro-bit-tinker-kit",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

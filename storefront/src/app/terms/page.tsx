@@ -4,6 +4,9 @@ export const metadata: Metadata = {
   title: "Terms of Service | CREATESPACE",
   description:
     "Read the CREATESPACE terms of service governing your use of our website and purchases.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsOfServicePage() {

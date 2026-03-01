@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,6 +9,15 @@ import AgeGroups from "@/components/AgeGroups";
 import TrustBadges from "@/components/TrustBadges";
 import EducationSection from "@/components/EducationSection";
 import HeroCarousel from "@/components/HeroCarousel";
+
+export const metadata: Metadata = {
+  title: "CREATESPACE | STEM Toys & Educational Kits for Kids in South Africa",
+  description:
+    "South Africa's specialist STEM toy store. Curated robotics kits, coding toys, and science sets for ages 3-13+. Free delivery over R1,500. Shop online or equip your school.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 // Async component that fetches and renders featured products
 async function FeaturedProductsLoader() {

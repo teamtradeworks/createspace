@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "About Us | CREATESPACE",
   description:
     "Learn about CREATESPACE's mission to inspire young minds through STEM education. Meet our team and discover our story.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

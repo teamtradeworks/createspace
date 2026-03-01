@@ -350,6 +350,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Build and code over 200 robots with the Makerzoid Robot Master Premium. 600+ blocks, 47 video lessons, Scratch programming, and LEGO compatibility. Perfect for ages 6+.",
+    alternates: {
+      canonical: "/product/makerzoid-robot-master-premium",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

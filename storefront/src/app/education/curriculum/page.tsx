@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Curriculum for Teachers | Education | CREATESPACE",
   description:
     "Teacher training and STEM curriculum resources. Partner programme with Inspire Africa offering comprehensive educator support.",
+  alternates: {
+    canonical: "/education/curriculum",
+  },
 };
 
 const features = [

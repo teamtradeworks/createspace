@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Shop | CREATESPACE",
   description:
     "Browse our curated collection of STEM educational products. Filter by age, discipline, or brand to find the perfect kit.",
+  alternates: {
+    canonical: "/shop",
+  },
 };
 
 type Props = {

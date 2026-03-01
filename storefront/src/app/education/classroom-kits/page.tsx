@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Classroom Kits | Education | CREATESPACE",
   description:
     "STEM kits designed for classroom use. Multi-learner kits with bulk pricing for schools and educational institutions.",
+  alternates: {
+    canonical: "/education/classroom-kits",
+  },
 };
 
 const benefits = [

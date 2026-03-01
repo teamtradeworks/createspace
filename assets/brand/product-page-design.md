@@ -193,10 +193,57 @@ All 13 sections as needed, with ImageTextBlocks scattered between dense sections
 
 ---
 
+## SEO Requirements
+
+Every product page must include the following for search engine optimisation. Most of these are handled automatically by the components and page setup — just follow the template.
+
+### Metadata (`generateMetadata`)
+
+Every custom product page must export a `generateMetadata` function that returns:
+
+```ts
+export async function generateMetadata() {
+  const product = await getProductByHandle(PRODUCT_HANDLE);
+  if (!product) return { title: "Product Not Found" };
+
+  return {
+    title: `${product.title} | CREATESPACE`,
+    description: "Benefit-led description under 160 characters.",
+    alternates: {
+      canonical: `/product/${FOLDER_NAME}`,  // Must match the URL path (folder name), NOT the Shopify handle
+    },
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
+  };
+}
+```
+
+**Rules:**
+- **`title`**: Product name followed by `| CREATESPACE`
+- **`description`**: Benefit-led, under 160 characters. Do not copy the Shopify description verbatim — write a compelling summary that includes key selling points (age range, project count, standout feature)
+- **`alternates.canonical`**: Must be `/product/{folder-name}` where `{folder-name}` is the page's directory name. This may differ from `PRODUCT_HANDLE` (the Shopify handle) — always use the folder name since it matches the actual URL
+- **`openGraph.images`**: Use the first product image from Shopify
+
+### Structured Data
+
+**ProductJsonLd (automatic):** Include `<ProductJsonLd product={product} />` in the page JSX. This component automatically outputs schema.org `Product` structured data including price, availability, brand, and aggregate ratings (when review data exists in Shopify metafields).
+
+**BreadcrumbJsonLd (automatic):** The `HeroSection` component automatically renders `BreadcrumbList` structured data (Home > Shop > Product Name). No additional setup needed.
+
+### Heading Hierarchy
+
+Each product page must have exactly one `<h1>` tag. The `HeroSection` component renders the product title as `<h1>` automatically. Do not add additional `<h1>` tags in the page.
+
+---
+
 ## Checklist
 
 Before launching a product page:
 
+**Content & Design:**
 - [ ] Hero image is high quality and shows finished product
 - [ ] Price is clearly visible above the fold
 - [ ] Tagline is benefit-led and concise
@@ -209,8 +256,15 @@ Before launching a product page:
 - [ ] Related products are populated
 - [ ] Backgrounds alternate — no two consecutive sections share the same colour
 - [ ] ImageTextBlock layouts alternate (left/right)
-- [ ] `generateMetadata` provides title and description under 160 chars
 - [ ] Mobile layout has been tested
+
+**SEO:**
+- [ ] `generateMetadata` exports `title` (with `| CREATESPACE` suffix)
+- [ ] `generateMetadata` exports `description` under 160 characters
+- [ ] `generateMetadata` exports `alternates.canonical` matching the page's URL path
+- [ ] `generateMetadata` exports `openGraph.images` using the product's first image
+- [ ] `<ProductJsonLd product={product} />` is included in the page JSX
+- [ ] Page has exactly one `<h1>` (provided by HeroSection — do not add another)
 
 ---
 

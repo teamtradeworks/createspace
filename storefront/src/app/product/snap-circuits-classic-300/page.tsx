@@ -358,6 +358,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Build 305 guided electronics projects with Snap Circuits Classic. No tools, no soldering, two full-colour manuals included. For ages 8+.",
+    alternates: {
+      canonical: "/product/snap-circuits-classic-300",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

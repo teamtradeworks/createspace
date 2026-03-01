@@ -344,6 +344,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "MatataStudio MX2-AS digital microscope for ages 5–12. 2-in-1 handheld and stand design, 1600× magnification, built-in 1080P screen, and MatataXplore app. 5 slides included.",
+    alternates: {
+      canonical: "/product/matatastudio-digital-microscope-mx2-as",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

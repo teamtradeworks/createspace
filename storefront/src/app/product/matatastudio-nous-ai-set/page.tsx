@@ -330,6 +330,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Advanced AI robot for ages 12+. Learn machine learning, computer vision, and Python programming with ChatGPT-4o. 18+ projects, TinyML, award-winning curriculum.",
+    alternates: {
+      canonical: "/product/matatastudio-nous-ai-set",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]

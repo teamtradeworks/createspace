@@ -340,6 +340,9 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Screen-free coding robot for ages 3-5. Includes 14 challenge missions, 5 interactive maps, voice recording, and Scratch support. No tablets or apps required.",
+    alternates: {
+      canonical: "/product/matatastudio-tale-bot-pro",
+    },
     openGraph: {
       images: product.images.edges[0]?.node.url
         ? [{ url: product.images.edges[0].node.url }]
