@@ -11,11 +11,17 @@ describe("getAddonConfigsForHandle", () => {
     const configs = getAddonConfigsForHandle(
       "elecfreaks-micro-bit-tinker-kit"
     );
-    expect(configs).toHaveLength(1);
+    expect(configs).toHaveLength(2);
     expect(configs[0]).toMatchObject({
       parentHandle: "elecfreaks-micro-bit-tinker-kit",
       addonHandle: "bbc-micro-bit-go",
       discountPercent: 15,
+    });
+    expect(configs[1]).toMatchObject({
+      parentHandle: "elecfreaks-micro-bit-tinker-kit",
+      addonHandle: "varta-long-life-aaa-alkaline-battery",
+      quantity: 2,
+      discountPercent: 0,
     });
   });
 
@@ -66,6 +72,7 @@ describe("serializeAddons", () => {
       product: mockProduct,
       variantId: "gid://shopify/ProductVariant/456",
       discountPercent: 15,
+      quantity: 1,
       originalPrice: 800,
       discountedPrice: 680,
       currencyCode: "ZAR",
@@ -74,6 +81,7 @@ describe("serializeAddons", () => {
       savings: 120,
       formattedSavings: "R120.00",
       description: "Add a micro:bit",
+      viewProductLink: true,
     },
   ];
 
@@ -87,6 +95,7 @@ describe("serializeAddons", () => {
       handle: "bbc-micro-bit-go",
       image: "https://cdn.shopify.com/image.jpg",
       discountPercent: 15,
+      quantity: 1,
       originalPrice: 800,
       discountedPrice: 680,
       currencyCode: "ZAR",
@@ -96,6 +105,7 @@ describe("serializeAddons", () => {
       formattedSavings: "R120.00",
       available: true,
       description: "Add a micro:bit",
+      viewProductLink: true,
     });
   });
 
@@ -108,6 +118,25 @@ describe("serializeAddons", () => {
     ];
     const serialized = serializeAddons(noImageAddon);
     expect(serialized[0].image).toBeNull();
+  });
+
+  it("prefixes title with quantity when greater than 1", () => {
+    const multiQty: ResolvedAddon[] = [
+      {
+        ...resolved[0],
+        quantity: 2,
+        originalPrice: 1600,
+        discountedPrice: 1360,
+      },
+    ];
+    const serialized = serializeAddons(multiQty);
+    expect(serialized[0].title).toBe("2 x BBC micro:bit Go");
+    expect(serialized[0].quantity).toBe(2);
+  });
+
+  it("does not prefix title when quantity is 1", () => {
+    const serialized = serializeAddons(resolved);
+    expect(serialized[0].title).toBe("BBC micro:bit Go");
   });
 
   it("returns empty array for empty input", () => {

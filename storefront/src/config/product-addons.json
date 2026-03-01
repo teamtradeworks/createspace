@@ -4,7 +4,56 @@
       "parentHandle": "elecfreaks-micro-bit-tinker-kit",
       "addonHandle": "bbc-micro-bit-go",
       "discountPercent": 15,
-      "description": "The Tinker Kit requires a micro:bit board to function. Add one here at a discounted price."
+      "description": "The Tinker Kit requires a micro:bit board to function. Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-tinker-kit",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "makerzoid-robot-master-premium",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuit-junior",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-my-home",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-classic-300",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 4,
+      "discountPercent": 0,
+      "description": "This kit requires 4 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "makerzoid-smart-robot-premium",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
     }
   ]
 }

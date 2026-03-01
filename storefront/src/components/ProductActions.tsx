@@ -82,18 +82,21 @@ export default function ProductActions({
     // Add selected add-ons to cart (with discounted price)
     const selectedAddonsData = getSelectedAddonsData();
     for (const addon of selectedAddonsData) {
+      const addonPrice = addon.discountPercent > 0
+        ? addon.discountedPrice / addon.quantity
+        : addon.originalPrice / addon.quantity;
       addItem(
         {
           id: addon.productId,
           variantId: addon.variantId,
           title: addon.title,
-          price: addon.discountedPrice,
+          price: addonPrice,
           currencyCode: addon.currencyCode,
           image: addon.image || undefined,
           handle: addon.handle,
           available: addon.available,
         },
-        quantity
+        addon.quantity * quantity
       );
     }
 
@@ -130,18 +133,21 @@ export default function ProductActions({
     // Add selected add-ons to cart (with discounted price)
     const selectedAddonsData = getSelectedAddonsData();
     for (const addon of selectedAddonsData) {
+      const addonPrice = addon.discountPercent > 0
+        ? addon.discountedPrice / addon.quantity
+        : addon.originalPrice / addon.quantity;
       addItem(
         {
           id: addon.productId,
           variantId: addon.variantId,
           title: addon.title,
-          price: addon.discountedPrice,
+          price: addonPrice,
           currencyCode: addon.currencyCode,
           image: addon.image || undefined,
           handle: addon.handle,
           available: addon.available,
         },
-        quantity
+        addon.quantity * quantity
       );
     }
 
@@ -234,26 +240,32 @@ export default function ProductActions({
                           </div>
                         )}
                       </div>
-                      <Link
-                        href={`/product/${addon.handle}`}
-                        className="text-xs text-cs-orange hover:underline mt-0.5 inline-block"
-                        onClick={(e) => e.stopPropagation()}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        View product
-                      </Link>
+                      {addon.viewProductLink && (
+                        <Link
+                          href={`/product/${addon.handle}`}
+                          className="text-xs text-cs-orange hover:underline mt-0.5 inline-block"
+                          onClick={(e) => e.stopPropagation()}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          View product
+                        </Link>
+                      )}
                       {!addon.available && (
                         <p className="text-xs text-cs-red mt-0.5">Out of stock</p>
                       )}
                     </div>
                     <div className="text-right flex-shrink-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-400 line-through">
-                          {addon.formattedOriginalPrice}
-                        </span>
+                        {addon.discountPercent > 0 && (
+                          <span className="text-xs text-gray-400 line-through">
+                            {addon.formattedOriginalPrice}
+                          </span>
+                        )}
                         <span className="text-sm font-bold text-navy">
-                          {addon.formattedDiscountedPrice}
+                          {addon.discountPercent > 0
+                            ? addon.formattedDiscountedPrice
+                            : addon.formattedOriginalPrice}
                         </span>
                       </div>
                       {addon.discountPercent > 0 && (
@@ -265,7 +277,9 @@ export default function ProductActions({
                   </div>
                   {quantity > 1 && selectedAddons.has(addon.handle) && (
                     <p className="text-xs text-gray-500 mt-1">
-                      {quantity}x @ {addon.formattedDiscountedPrice} each
+                      {quantity}x @ {addon.discountPercent > 0
+                        ? addon.formattedDiscountedPrice
+                        : addon.formattedOriginalPrice} each
                     </p>
                   )}
                 </div>
