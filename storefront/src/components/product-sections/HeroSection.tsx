@@ -14,6 +14,7 @@ interface HeroSectionProps {
   highlights?: string[];
   heroImage?: string;
   addons?: SerializedAddon[];
+  canonicalPath?: string;
 }
 
 export function HeroSection({
@@ -22,6 +23,7 @@ export function HeroSection({
   highlights,
   heroImage,
   addons,
+  canonicalPath,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
@@ -48,7 +50,7 @@ export function HeroSection({
         items={[
           { name: "Home", href: "/" },
           { name: "Shop", href: "/shop" },
-          { name: product.title, href: `/product/${product.handle}` },
+          { name: product.title, href: canonicalPath || `/product/${product.handle}` },
         ]}
       />
       <div className="bg-gray-50 border-b">

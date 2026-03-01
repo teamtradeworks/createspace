@@ -9,7 +9,7 @@ export default function OrganizationJsonLd() {
       "South Africa's specialist STEM toy store. Curated robotics kits, coding toys, and science sets to inspire young minds.",
     contactPoint: {
       "@type": "ContactPoint",
-      email: "hello@thecreatespace.co.za",
+      email: "info@thecreatespace.co.za",
       contactType: "customer service",
       areaServed: "ZA",
       availableLanguage: "English",

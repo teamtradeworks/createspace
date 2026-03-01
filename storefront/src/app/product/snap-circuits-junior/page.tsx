@@ -44,6 +44,7 @@ export default async function SnapCircuitJuniorPage() {
           "Award-winning kit used by educators worldwide",
         ]}
         addons={addons}
+        canonicalPath="/product/snap-circuits-junior"
       />
 
       {/* Quick Info Badges */}
