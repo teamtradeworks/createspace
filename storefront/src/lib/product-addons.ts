@@ -5,13 +5,16 @@ export interface AddonConfig {
   parentHandle: string;
   addonHandle: string;
   discountPercent: number;
+  quantity?: number;
   description?: string;
+  viewProductLink?: boolean;
 }
 
 export interface ResolvedAddon {
   product: ProductDetail;
   variantId: string;
   discountPercent: number;
+  quantity: number;
   originalPrice: number;
   discountedPrice: number;
   currencyCode: string;
@@ -20,6 +23,7 @@ export interface ResolvedAddon {
   savings: number;
   formattedSavings: string;
   description?: string;
+  viewProductLink: boolean;
 }
 
 /**
@@ -61,7 +65,9 @@ export async function resolveAddonsForHandle(
       continue;
     }
 
-    const originalPrice = parseFloat(variant.price.amount);
+    const qty = config.quantity ?? 1;
+    const unitPrice = parseFloat(variant.price.amount);
+    const originalPrice = unitPrice * qty;
     const discountedPrice = originalPrice * (1 - config.discountPercent / 100);
     const savings = originalPrice - discountedPrice;
 
@@ -69,6 +75,7 @@ export async function resolveAddonsForHandle(
       product,
       variantId: variant.id,
       discountPercent: config.discountPercent,
+      quantity: qty,
       originalPrice,
       discountedPrice,
       currencyCode: variant.price.currencyCode,
@@ -86,6 +93,7 @@ export async function resolveAddonsForHandle(
         variant.price.currencyCode
       ),
       description: config.description,
+      viewProductLink: config.viewProductLink ?? true,
     });
   }
 
@@ -102,6 +110,7 @@ export interface SerializedAddon {
   handle: string;
   image: string | null;
   discountPercent: number;
+  quantity: number;
   originalPrice: number;
   discountedPrice: number;
   currencyCode: string;
@@ -111,6 +120,7 @@ export interface SerializedAddon {
   formattedSavings: string;
   available: boolean;
   description?: string;
+  viewProductLink: boolean;
 }
 
 /**
@@ -120,10 +130,14 @@ export function serializeAddons(addons: ResolvedAddon[]): SerializedAddon[] {
   return addons.map((addon) => ({
     productId: addon.product.id,
     variantId: addon.variantId,
-    title: addon.product.title,
+    title:
+      addon.quantity > 1
+        ? `${addon.quantity} x ${addon.product.title}`
+        : addon.product.title,
     handle: addon.product.handle,
     image: addon.product.images.edges[0]?.node.url || null,
     discountPercent: addon.discountPercent,
+    quantity: addon.quantity,
     originalPrice: addon.originalPrice,
     discountedPrice: addon.discountedPrice,
     currencyCode: addon.currencyCode,
@@ -133,5 +147,6 @@ export function serializeAddons(addons: ResolvedAddon[]): SerializedAddon[] {
     formattedSavings: addon.formattedSavings,
     available: addon.product.availableForSale,
     description: addon.description,
+    viewProductLink: addon.viewProductLink,
   }));
 }
