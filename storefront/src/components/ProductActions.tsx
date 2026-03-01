@@ -277,7 +277,9 @@ export default function ProductActions({
                   </div>
                   {quantity > 1 && selectedAddons.has(addon.handle) && (
                     <p className="text-xs text-gray-500 mt-1">
-                      {quantity}x @ {addon.formattedDiscountedPrice} each
+                      {quantity}x @ {addon.discountPercent > 0
+                        ? addon.formattedDiscountedPrice
+                        : addon.formattedOriginalPrice} each
                     </p>
                   )}
                 </div>
