@@ -3,7 +3,7 @@ import Image from "next/image";
 interface WhatsIncludedProps {
   title?: string;
   items: string[];
-  image: string;
+  image?: string;
   imageAlt?: string;
   background?: "white" | "gray";
 }
@@ -20,16 +20,18 @@ export function WhatsIncluded({
   return (
     <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-white">
-            <Image
-              src={image}
-              alt={imageAlt}
-              fill
-              className="object-contain p-8"
-            />
-          </div>
+        <div className={`grid gap-12 items-center ${image ? "lg:grid-cols-2" : ""}`}>
+          {/* Image (optional) */}
+          {image && (
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white">
+              <Image
+                src={image}
+                alt={imageAlt}
+                fill
+                className="object-contain p-8"
+              />
+            </div>
+          )}
 
           {/* Content */}
           <div>
