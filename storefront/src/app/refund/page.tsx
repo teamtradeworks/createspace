@@ -40,6 +40,17 @@ export default function RefundPolicyPage() {
           </p>
 
           <p>
+            Once we receive the returned product, we will process your refund
+            within 24 hours. The full amount, excluding any original delivery
+            charges, will be charged back to your card.
+          </p>
+
+          <p>
+            Any defective products will be fully refunded, even if the packaging
+            has been opened and the product has been used.
+          </p>
+
+          <p>
             To submit a return, please contact us at{" "}
             <a
               href="mailto:info@thecreatespace.co.za"
