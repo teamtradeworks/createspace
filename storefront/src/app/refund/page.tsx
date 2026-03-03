@@ -16,7 +16,51 @@ export default function RefundPolicyPage() {
         <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-8">
           Refund Policy
         </h1>
-        <p className="text-gray-500">This page is coming soon.</p>
+
+        <div className="prose prose-gray max-w-none space-y-6 text-gray-700 leading-relaxed">
+          <p>
+            At CREATESPACE we want to make sure that your shopping experience is
+            a positive one! That is why we offer a 30-day return policy on items
+            purchased through our store.
+          </p>
+
+          <p>
+            If there has been a mistake on our part, or if the product was
+            damaged during delivery, we will be happy to send you a replacement
+            product.
+          </p>
+
+          <p>
+            If the product is unopened and unused, you have 30 days from the
+            delivery date to return it and receive a full refund for the value of
+            the product. In order to be eligible for a refund or replacement, the
+            product you are sending back to us must be in a sellable condition.
+            All products that are returned to us must be sent back in their
+            original packaging and not tampered with.
+          </p>
+
+          <p>
+            Once we receive the returned product, we will process your refund
+            within 24 hours. The full amount, excluding any original delivery
+            charges, will be charged back to your card.
+          </p>
+
+          <p>
+            Any defective products will be fully refunded, even if the packaging
+            has been opened and the product has been used.
+          </p>
+
+          <p>
+            To submit a return, please contact us at{" "}
+            <a
+              href="mailto:info@thecreatespace.co.za"
+              className="text-cs-orange hover:underline font-medium"
+            >
+              info@thecreatespace.co.za
+            </a>
+            .
+          </p>
+        </div>
       </div>
     </section>
   );

@@ -87,7 +87,7 @@ const faqs = [
   {
     question: "Can I return a product?",
     answer:
-      "Absolutely. We offer hassle-free returns within 14 days of delivery. Products must be unused and in original packaging. Contact us to arrange a return.",
+      "Absolutely. We offer hassle-free returns within 30 days of delivery. Products must be unused and in original packaging. Contact us to arrange a return.",
   },
   {
     question: "Do you offer after-school programmes or workshops?",
