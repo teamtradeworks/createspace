@@ -387,15 +387,49 @@ export default function TermsOfServicePage() {
 
           <div>
             <h2 className="text-lg font-semibold text-navy mb-3">
+              Consumer Rights
+            </h2>
+            <p className="mb-3">
+              Nothing in these Terms of Service is intended to limit or override
+              your statutory rights under the Consumer Protection Act (Act 68 of
+              2008) or the Electronic Communications and Transactions Act (Act
+              25 of 2002). Where any provision of these Terms conflicts with
+              your rights under those Acts, the relevant legislation shall
+              prevail.
+            </p>
+            <p>
+              In particular, your rights in respect of defective goods (section
+              56 of the CPA), the implied warranty of quality (section 55 of the
+              CPA), and the cooling-off period for online purchases (section 44
+              of the ECTA) are non-waivable and apply in full. For details on
+              returns and refunds, please see our{" "}
+              <Link
+                href="/refund"
+                className="text-navy underline hover:text-blue"
+              >
+                Refund Policy
+              </Link>
+              .
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
               Applicable Laws (Choice of Venue and Forum)
             </h2>
-            <p>
+            <p className="mb-3">
               Use of this website shall in all respects be governed by the laws
-              of the Republic of South Africa, regardless of the laws that might
-              be applicable under principles of conflicts of law. The parties
-              agree that the South African courts of law shall have exclusive
-              jurisdiction over all controversies arising under this agreement
-              and agree that venue is proper in those courts.
+              of the Republic of South Africa, including but not limited to the
+              Consumer Protection Act (Act 68 of 2008), the Electronic
+              Communications and Transactions Act (Act 25 of 2002), and the
+              Protection of Personal Information Act (Act 4 of 2013), regardless
+              of the laws that might be applicable under principles of conflicts
+              of law.
+            </p>
+            <p>
+              The parties agree that the South African courts of law shall have
+              exclusive jurisdiction over all controversies arising under this
+              agreement and agree that venue is proper in those courts.
             </p>
           </div>
 

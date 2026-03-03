@@ -26,26 +26,55 @@ export default function RefundPolicyPage() {
             </p>
             <p>
               If there has been a mistake on our part, or if the product was
-              damaged during delivery, we will be happy to send you a replacement
-              product.
+              damaged during delivery, we will be happy to arrange a repair,
+              replacement, or full refund at your choice.
             </p>
           </div>
 
           <div>
             <h2 className="text-lg font-semibold text-navy mb-3">
-              Return Eligibility
+              Cooling-Off Period
+            </h2>
+            <p>
+              In terms of section 44 of the Electronic Communications and
+              Transactions Act (Act 25 of 2002), you may cancel your order
+              without reason within 7 days of receiving the goods. The only
+              charge that may apply is the direct cost of returning the goods to
+              us. We will process your refund within 30 days of receiving the
+              cancellation notice.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              Voluntary Return Policy
+            </h2>
+            <p>
+              In addition to your statutory rights, we offer a 30-day return
+              window on unopened and unused products. You have 30 days from the
+              delivery date to return an item and receive a full refund for the
+              value of the product. In order to be eligible, the product must be
+              in a sellable condition and returned in its original packaging,
+              untampered with.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              Defective Goods
             </h2>
             <p className="mb-3">
-              If the product is unopened and unused, you have 30 days from the
-              delivery date to return it and receive a full refund for the value
-              of the product. In order to be eligible for a refund or
-              replacement, the product you are sending back to us must be in a
-              sellable condition. All products that are returned to us must be
-              sent back in their original packaging and not tampered with.
+              In terms of section 56 of the Consumer Protection Act (Act 68 of
+              2008), you may return defective goods within 6 months of delivery,
+              without penalty and at our risk and expense. Defective goods
+              include products that are not in good working order, not free of
+              defects, or not reasonably suitable for their intended purpose.
             </p>
             <p>
-              Any defective products will be fully refunded, even if the
-              packaging has been opened and the product has been used.
+              For defective goods, you have the right to choose whether we
+              repair the product, replace it, or provide a full refund. This
+              applies even if the packaging has been opened and the product has
+              been used.
             </p>
           </div>
 
@@ -56,7 +85,8 @@ export default function RefundPolicyPage() {
             <p>
               Once we receive the returned product, we will process your refund
               within 24 hours. The full amount, excluding any original delivery
-              charges, will be charged back to your card.
+              charges (unless the return is due to a defect or our error), will
+              be charged back to your card.
             </p>
           </div>
 
