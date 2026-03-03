@@ -74,7 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${BASE_URL}/privacy`,
-      lastModified: new Date("2025-06-01"),
+      lastModified: new Date("2026-03-03"),
       changeFrequency: "yearly",
       priority: 0.3,
     },
