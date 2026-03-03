@@ -22,7 +22,8 @@ export default function TermsOfServicePage() {
           <div>
             <p className="mb-3">
               This website is operated and hosted by Tradeworks Online (Pty) Ltd,
-              company registration number 2021/432299/07, trading as CREATESPACE.
+              company registration number 2021/432299/07, VAT number
+              4450302973, trading as CREATESPACE.
               It is assumed that the terms &ldquo;we&rdquo;, &ldquo;us&rdquo;
               and &ldquo;our&rdquo; refers to CREATESPACE throughout the
               entirety of this document. We offer all information, tools and

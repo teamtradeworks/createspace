@@ -42,6 +42,8 @@ export default function PrivacyPolicyPage() {
               Trading as CREATESPACE
               <br />
               Registration number: 2021/432299/07
+              <br />
+              VAT number: 4450302973
             </p>
             <p>
               For any privacy-related queries, you may contact our Information
