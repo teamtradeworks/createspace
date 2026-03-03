@@ -90,6 +90,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: `${BASE_URL}/delivery-policy`,
+      lastModified: new Date("2026-03-03"),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
   ];
 
   return [...staticPages, ...productEntries];
