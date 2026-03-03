@@ -26,7 +26,7 @@ export default function RefundPolicyPage() {
 
           <p>
             If there has been a mistake on our part, or if the product was
-            damaged during shipping, we will be happy to send you a replacement
+            damaged during delivery, we will be happy to send you a replacement
             product.
           </p>
 
