@@ -98,7 +98,7 @@ export default function RefundPolicyPage() {
               To submit a return, please contact us at{" "}
               <a
                 href="mailto:info@thecreatespace.co.za"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
               >
                 info@thecreatespace.co.za
               </a>
