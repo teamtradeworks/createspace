@@ -8,6 +8,20 @@
       "viewProductLink": true
     },
     {
+      "parentHandle": "elecfreaks-micro-bit-smart-cutebot-pro",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 15,
+      "description": "The Cutebot Pro requires a BBC micro:bit board to operate. Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-smart-cutebot-pro",
+      "addonHandle": "18650-lithium-flat-top-battery",
+      "discountPercent": 0,
+      "description": "The Cutebot Pro requires a 18650 lithium flat-top battery (not included). Add one here so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
       "parentHandle": "elecfreaks-micro-bit-tinker-kit",
       "addonHandle": "varta-long-life-aaa-alkaline-battery",
       "quantity": 2,
