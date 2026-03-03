@@ -13,53 +13,68 @@ export default function RefundPolicyPage() {
   return (
     <section className="py-16 lg:py-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-8">
+        <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-12">
           Refund Policy
         </h1>
 
-        <div className="prose prose-gray max-w-none space-y-6 text-gray-700 leading-relaxed">
-          <p>
-            At CREATESPACE we want to make sure that your shopping experience is
-            a positive one! That is why we offer a 30-day return policy on items
-            purchased through our store.
-          </p>
+        <div className="space-y-10 text-gray-600 leading-relaxed">
+          <div>
+            <p className="mb-3">
+              At CREATESPACE we want to make sure that your shopping experience
+              is a positive one! That is why we offer a 30-day return policy on
+              items purchased through our store.
+            </p>
+            <p>
+              If there has been a mistake on our part, or if the product was
+              damaged during delivery, we will be happy to send you a replacement
+              product.
+            </p>
+          </div>
 
-          <p>
-            If there has been a mistake on our part, or if the product was
-            damaged during delivery, we will be happy to send you a replacement
-            product.
-          </p>
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              Return Eligibility
+            </h2>
+            <p className="mb-3">
+              If the product is unopened and unused, you have 30 days from the
+              delivery date to return it and receive a full refund for the value
+              of the product. In order to be eligible for a refund or
+              replacement, the product you are sending back to us must be in a
+              sellable condition. All products that are returned to us must be
+              sent back in their original packaging and not tampered with.
+            </p>
+            <p>
+              Any defective products will be fully refunded, even if the
+              packaging has been opened and the product has been used.
+            </p>
+          </div>
 
-          <p>
-            If the product is unopened and unused, you have 30 days from the
-            delivery date to return it and receive a full refund for the value of
-            the product. In order to be eligible for a refund or replacement, the
-            product you are sending back to us must be in a sellable condition.
-            All products that are returned to us must be sent back in their
-            original packaging and not tampered with.
-          </p>
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              Refund Process
+            </h2>
+            <p>
+              Once we receive the returned product, we will process your refund
+              within 24 hours. The full amount, excluding any original delivery
+              charges, will be charged back to your card.
+            </p>
+          </div>
 
-          <p>
-            Once we receive the returned product, we will process your refund
-            within 24 hours. The full amount, excluding any original delivery
-            charges, will be charged back to your card.
-          </p>
-
-          <p>
-            Any defective products will be fully refunded, even if the packaging
-            has been opened and the product has been used.
-          </p>
-
-          <p>
-            To submit a return, please contact us at{" "}
-            <a
-              href="mailto:info@thecreatespace.co.za"
-              className="text-cs-orange hover:underline font-medium"
-            >
-              info@thecreatespace.co.za
-            </a>
-            .
-          </p>
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              How to Submit a Return
+            </h2>
+            <p>
+              To submit a return, please contact us at{" "}
+              <a
+                href="mailto:info@thecreatespace.co.za"
+                className="text-navy underline hover:text-blue"
+              >
+                info@thecreatespace.co.za
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </div>
     </section>
