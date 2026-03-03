@@ -456,7 +456,7 @@ export default function TermsOfServicePage() {
               please refer to our{" "}
               <Link
                 href="/delivery-policy"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
               >
                 Delivery Policy
               </Link>
