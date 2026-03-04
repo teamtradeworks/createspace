@@ -44,7 +44,7 @@ export default async function SnapCircuitJuniorPage() {
           "Award-winning kit used by educators worldwide",
         ]}
         addons={addons}
-        canonicalPath="/product/snap-circuits-junior"
+        canonicalPath="/product/snap-circuits-explorer-junior"
       />
 
       {/* Quick Info Badges */}
@@ -359,7 +359,7 @@ export async function generateMetadata() {
     description:
       "Build 101 real electronic circuits with Snap Circuits Explorer Junior. No soldering or tools needed—perfect for kids aged 8+ to learn electronics hands-on.",
     alternates: {
-      canonical: "/product/snap-circuits-junior",
+      canonical: "/product/snap-circuits-explorer-junior",
     },
     openGraph: {
       images: product.images.edges[0]?.node.url
