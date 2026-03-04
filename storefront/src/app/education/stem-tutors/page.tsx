@@ -393,6 +393,56 @@ export default function StemTutorsPage() {
           </div>
         </div>
       </section>
+
+      {/* Other Education Options */}
+      <section className="py-16 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-semibold text-navy mb-4">
+              Explore Other Education Solutions
+            </h2>
+            <p className="text-gray-600">
+              Looking for curriculum, classroom kits, or online courses? We have
+              more options for your school.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link
+              href="/education/curriculum"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <h3 className="font-semibold text-navy group-hover:text-cs-blue transition-colors mb-2">
+                Curriculum for Teachers
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Training and resources to empower your educators.
+              </p>
+            </Link>
+            <Link
+              href="/education/classroom-kits"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <h3 className="font-semibold text-navy group-hover:text-cs-purple transition-colors mb-2">
+                Classroom Kits
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Hands-on STEM kits designed for group learning in the classroom.
+              </p>
+            </Link>
+            <Link
+              href="/education/courses"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <h3 className="font-semibold text-navy group-hover:text-cs-green transition-colors mb-2">
+                Short Courses
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Online STEM courses hosted on the Inspire Africa platform.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

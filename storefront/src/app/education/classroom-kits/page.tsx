@@ -272,10 +272,10 @@ export default async function ClassroomKitsPage() {
               Explore Other Education Solutions
             </h2>
             <p className="text-gray-600">
-              Looking for tutors or teacher training? We have more options for your school.
+              Looking for tutors, teacher training, or online courses? We have more options for your school.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <Link
               href="/education/stem-tutors"
               className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
@@ -296,6 +296,17 @@ export default async function ClassroomKitsPage() {
               </h3>
               <p className="text-gray-600 text-sm">
                 Training and resources to empower your educators.
+              </p>
+            </Link>
+            <Link
+              href="/education/courses"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <h3 className="font-semibold text-navy group-hover:text-cs-green transition-colors mb-2">
+                Short Courses
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Online STEM courses hosted on the Inspire Africa platform.
               </p>
             </Link>
           </div>

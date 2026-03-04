@@ -199,6 +199,11 @@ export default function CartPage() {
                               <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
                               Out of Stock — excluded from order
                             </span>
+                          ) : item.digital ? (
+                            <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
+                              <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
+                              Online Course
+                            </span>
                           ) : item.currentlyNotInStock ? (
                             <span className="inline-flex items-center gap-1 text-xs text-cs-orange mt-1">
                               <span className="w-1.5 h-1.5 rounded-full bg-cs-orange" />

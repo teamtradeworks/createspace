@@ -222,7 +222,7 @@ import Image from "next/image";
 # Website Content and Structure
 
 ## Education Section
-The education pages target teachers, principals, and educators (B2B audience). We offer three education solutions:
+The education pages target teachers, principals, and educators (B2B audience). We offer four education solutions:
 
 1. **STEM Tutors** (`/education/stem-tutors`)
    - Partner: Robotixkids (https://robotixkids.co.za/)
@@ -238,6 +238,12 @@ The education pages target teachers, principals, and educators (B2B audience). W
    - Multi-learner STEM kits designed for group work
    - Bulk pricing for schools (10+ units)
    - Reusable materials for ongoing use
+
+4. **Short Courses** (`/education/courses`)
+   - Partner: Inspire Africa (https://inspire.africa/)
+   - Digital products — online STEM courses on the Inspire Africa platform
+   - Shopify collection: "courses"
+   - On purchase, CREATESPACE manually sends a QR code for platform access
 
 ## Product Pages
 
@@ -269,7 +275,15 @@ Working on product pages has three parts:
     - No copying and pasting.
     - Triggered by the Claude command `/product-page-edu {slug}`
 
-We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2 and 3 are alternatives — use `/product-page` for consumer products (Shop) and `/product-page-edu` for classroom kits (Education).
+ 4. Turning research content into a course-focused product page:
+    - Uses the researched content in `assets/courses/{slug}/content.md` and `assets/brand/product-page-design.md`
+    - Simpler pages focused on: what the course teaches, duration, modules, and outcomes
+    - These are digital products (no physical contents, batteries, specs, etc.)
+    - Addresses educators/learners, mentions Inspire Africa platform and QR code access
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page-course {slug}`
+
+We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2, 3, and 4 are alternatives — use `/product-page` for consumer products (Shop), `/product-page-edu` for classroom kits (Education), and `/product-page-course` for online courses (Education).
 
 **Content Framework** - `assets/brand/product-content-framework.md`
    - Parent-focused content guidelines (consumer product pages)
