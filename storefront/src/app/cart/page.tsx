@@ -207,7 +207,7 @@ export default function CartPage() {
                           ) : (
                             <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
                               <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
-                              In Stock
+                              {item.digital ? "Online Course" : "In Stock"}
                             </span>
                           )}
                           <button

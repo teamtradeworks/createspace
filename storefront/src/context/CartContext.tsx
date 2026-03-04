@@ -13,6 +13,7 @@ export interface CartItem {
   handle: string;
   available?: boolean;
   currentlyNotInStock?: boolean;
+  digital?: boolean;
 }
 
 interface CartContextType {

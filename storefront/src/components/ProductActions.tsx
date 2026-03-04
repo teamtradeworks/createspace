@@ -16,6 +16,7 @@ interface ProductActionsProps {
   currencyCode: string;
   image?: string;
   handle: string;
+  digital?: boolean;
   addons?: SerializedAddon[];
 }
 
@@ -29,6 +30,7 @@ export default function ProductActions({
   currencyCode,
   image,
   handle,
+  digital,
   addons = [],
 }: ProductActionsProps) {
   const [quantity, setQuantity] = useState(1);
@@ -75,6 +77,7 @@ export default function ProductActions({
         handle,
         available,
         currentlyNotInStock,
+        digital,
       },
       quantity
     );
@@ -126,6 +129,7 @@ export default function ProductActions({
         handle,
         available,
         currentlyNotInStock,
+        digital,
       },
       quantity
     );

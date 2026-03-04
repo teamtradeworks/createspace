@@ -29,6 +29,15 @@ const educationOptions = [
     link: "/education/classroom-kits",
     linkText: "Shop Kits",
   },
+  {
+    id: "courses",
+    title: "Short Courses",
+    description:
+      "Online STEM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a QR code for instant access.",
+    image: "/images/education/teacher-curriculum-training.jpg",
+    link: "/education/courses",
+    linkText: "View Courses",
+  },
 ];
 
 export default function EducationSection() {
@@ -50,7 +59,7 @@ export default function EducationSection() {
         </div>
 
         {/* Education Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {educationOptions.map((option) => (
             <div key={option.id} className="group">
               {/* Image */}
@@ -60,7 +69,7 @@ export default function EducationSection() {
                   alt={option.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 {/* Subtle overlay on hover */}
                 <div className="absolute inset-0 bg-navy/0 group-hover:bg-navy/10 transition-colors duration-300" />

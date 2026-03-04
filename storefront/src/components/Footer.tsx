@@ -14,6 +14,7 @@ const footerLinks = {
     { name: "STEM Tutors", href: "/education/stem-tutors" },
     { name: "Curriculum", href: "/education/curriculum" },
     { name: "Classroom Kits", href: "/education/classroom-kits" },
+    { name: "Short Courses", href: "/education/courses" },
   ],
   company: [
     { name: "About Us", href: "/about" },

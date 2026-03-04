@@ -96,6 +96,34 @@ const educationOptions = [
       "Reusable materials",
     ],
   },
+  {
+    title: "Short Courses",
+    description:
+      "Online STEM short courses hosted on our partner Inspire Africa's learning platform. Purchase a course and get instant digital access.",
+    href: "/education/courses",
+    color: "cs-green",
+    icon: (
+      <svg
+        className="w-10 h-10"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25m18 0A2.25 2.25 0 0 0 18.75 3H5.25A2.25 2.25 0 0 0 3 5.25m18 0V12a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 12V5.25"
+        />
+      </svg>
+    ),
+    features: [
+      "Self-paced online learning",
+      "Hosted on Inspire Africa",
+      "QR code access on purchase",
+      "Practical STEM skills",
+    ],
+  },
 ];
 
 export default function EducationPage() {
@@ -112,9 +140,9 @@ export default function EducationPage() {
               Bring STEM to Your School
             </h1>
             <p className="text-xl text-white/80 max-w-2xl mb-8">
-              Whether you need expert tutors, teacher training, or classroom
-              equipment, we have solutions to ignite a passion for STEM in your
-              learners.
+              Whether you need expert tutors, teacher training, classroom
+              equipment, or online courses, we have solutions to ignite a passion
+              for STEM in your learners.
             </p>
           </div>
         </div>
@@ -155,7 +183,7 @@ export default function EducationPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {educationOptions.map((option) => (
               <Link
                 key={option.title}
