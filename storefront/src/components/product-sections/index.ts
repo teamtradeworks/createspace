@@ -7,7 +7,6 @@ export { ProductFAQ } from "./ProductFAQ";
 export { VideoEmbed } from "./VideoEmbed";
 export { Specifications } from "./Specifications";
 
-export { SkillTags } from "./SkillTags";
 export { NumberedSteps } from "./NumberedSteps";
 export { ProjectShowcase } from "./ProjectShowcase";
 export { CallToAction } from "./CallToAction";

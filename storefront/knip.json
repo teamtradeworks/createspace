@@ -1,0 +1,5 @@
+{
+  "$schema": "https://unpkg.com/knip@latest/schema.json",
+  "entry": ["lighthouserc.js"],
+  "ignoreDependencies": ["postcss-load-config", "@vitejs/plugin-react"]
+}
