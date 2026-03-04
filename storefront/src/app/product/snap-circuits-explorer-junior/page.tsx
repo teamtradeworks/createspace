@@ -17,7 +17,7 @@ import {
   CallToAction,
 } from "@/components/product-sections";
 
-const PRODUCT_HANDLE = "snap-circuit-junior";
+const PRODUCT_HANDLE = "snap-circuits-explorer-junior";
 
 export default async function SnapCircuitJuniorPage() {
   const product = await getProductByHandle(PRODUCT_HANDLE);
