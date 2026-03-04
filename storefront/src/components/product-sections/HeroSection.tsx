@@ -124,27 +124,29 @@ export function HeroSection({
               <div className="flex items-center gap-2 mb-4">
                 <span
                   className={`inline-flex items-center gap-1.5 text-sm ${
-                    stockStatus === "in-stock"
-                      ? "text-cs-green"
-                      : stockStatus === "lead-time"
-                        ? "text-cs-orange"
-                        : "text-cs-red"
+                    stockStatus === "out-of-stock" && !digital
+                      ? "text-cs-red"
+                      : digital || stockStatus === "in-stock"
+                        ? "text-cs-green"
+                        : "text-cs-orange"
                   }`}
                 >
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      stockStatus === "in-stock"
-                        ? "bg-cs-green"
-                        : stockStatus === "lead-time"
-                          ? "bg-cs-orange"
-                          : "bg-cs-red"
+                      stockStatus === "out-of-stock" && !digital
+                        ? "bg-cs-red"
+                        : digital || stockStatus === "in-stock"
+                          ? "bg-cs-green"
+                          : "bg-cs-orange"
                     }`}
                   />
-                  {stockStatus === "in-stock"
-                    ? (digital ? "Online Course" : "In Stock")
-                    : stockStatus === "lead-time"
-                      ? `Delivery in ${siteConfig.leadTime.estimatedDays}`
-                      : "Out of Stock"}
+                  {digital
+                    ? "Online Course"
+                    : stockStatus === "in-stock"
+                      ? "In Stock"
+                      : stockStatus === "lead-time"
+                        ? `Delivery in ${siteConfig.leadTime.estimatedDays}`
+                        : "Out of Stock"}
                 </span>
               </div>
 
