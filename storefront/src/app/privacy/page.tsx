@@ -19,8 +19,48 @@ export default function PrivacyPolicyPage() {
 
         <div className="space-y-10 text-gray-600 leading-relaxed">
           <div>
+            <p>
+              This Privacy Policy is issued in compliance with the Protection of
+              Personal Information Act (Act 4 of 2013) (&ldquo;POPIA&rdquo;). It
+              explains how CREATESPACE collects, uses, stores, and protects your
+              personal information when you visit our website or purchase from
+              us.
+            </p>
+          </div>
+
+          <div>
             <h2 className="text-lg font-semibold text-navy mb-3">
-              What Do We Do With Your Information?
+              Responsible Party
+            </h2>
+            <p className="mb-3">
+              The responsible party for the processing of your personal
+              information is:
+            </p>
+            <p className="mb-3">
+              <strong>Tradeworks Online (Pty) Ltd</strong>
+              <br />
+              Trading as CREATESPACE
+              <br />
+              Registration number: 2021/432299/07
+              <br />
+              VAT number: 4450302973
+            </p>
+            <p>
+              For any privacy-related queries, you may contact our Information
+              Officer at{" "}
+              <a
+                href="mailto:info@thecreatespace.co.za"
+                className="text-navy underline hover:text-cs-blue"
+              >
+                info@thecreatespace.co.za
+              </a>
+              .
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              What Information We Collect
             </h2>
             <p className="mb-3">
               When you purchase something from our store, as part of the buying
@@ -37,6 +77,19 @@ export default function PrivacyPolicyPage() {
               <strong>Email marketing (if applicable):</strong> With your
               permission, we may send you emails about our store, new products
               and other updates.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              Purpose of Processing
+            </h2>
+            <p>
+              We collect and process your personal information for the following
+              purposes: to fulfil and deliver your orders, to process payments,
+              to communicate with you about your orders, to improve our website
+              and services, and, with your consent, to send you marketing
+              communications.
             </p>
           </div>
 
@@ -59,9 +112,59 @@ export default function PrivacyPolicyPage() {
               your information, at any time, by contacting us at{" "}
               <a
                 href="mailto:info@thecreatespace.co.za"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
               >
                 info@thecreatespace.co.za
+              </a>
+              .
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              Your Rights Under POPIA
+            </h2>
+            <p className="mb-3">
+              As a data subject, you have the following rights in terms of POPIA:
+            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                The right to be informed that your personal information is being
+                collected, and the purpose of the collection
+              </li>
+              <li>
+                The right to request access to the personal information we hold
+                about you
+              </li>
+              <li>
+                The right to request the correction or deletion of your personal
+                information
+              </li>
+              <li>
+                The right to object to the processing of your personal
+                information
+              </li>
+              <li>
+                The right to lodge a complaint with the Information Regulator if
+                you believe your personal information has been misused
+              </li>
+            </ul>
+            <p className="mt-3">
+              To exercise any of these rights, please contact us at{" "}
+              <a
+                href="mailto:info@thecreatespace.co.za"
+                className="text-navy underline hover:text-cs-blue"
+              >
+                info@thecreatespace.co.za
+              </a>
+              . You may also contact the Information Regulator directly at{" "}
+              <a
+                href="https://inforegulator.org.za/"
+                className="text-navy underline hover:text-cs-blue"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                inforegulator.org.za
               </a>
               .
             </p>
@@ -139,11 +242,25 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div>
+            <h2 className="text-lg font-semibold text-navy mb-3">
+              Data Breaches
+            </h2>
+            <p>
+              In the event of a data breach that compromises your personal
+              information, we will notify you and the Information Regulator as
+              soon as reasonably possible, in accordance with section 22 of
+              POPIA.
+            </p>
+          </div>
+
+          <div>
             <h2 className="text-lg font-semibold text-navy mb-3">Cookies</h2>
             <p>
-              Our website uses cookies. By using our website and agreeing to this
-              policy, you consent to our use of cookies in accordance with the
-              terms of this policy.
+              Our website uses cookies to improve your browsing experience. By
+              continuing to use our website, you consent to our use of cookies in
+              accordance with the terms of this policy. You may disable cookies
+              in your browser settings, though this may affect website
+              functionality.
             </p>
           </div>
 
