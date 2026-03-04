@@ -50,7 +50,7 @@ export default function PrivacyPolicyPage() {
               Officer at{" "}
               <a
                 href="mailto:info@thecreatespace.co.za"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
               >
                 info@thecreatespace.co.za
               </a>
@@ -112,7 +112,7 @@ export default function PrivacyPolicyPage() {
               your information, at any time, by contacting us at{" "}
               <a
                 href="mailto:info@thecreatespace.co.za"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
               >
                 info@thecreatespace.co.za
               </a>
@@ -153,14 +153,14 @@ export default function PrivacyPolicyPage() {
               To exercise any of these rights, please contact us at{" "}
               <a
                 href="mailto:info@thecreatespace.co.za"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
               >
                 info@thecreatespace.co.za
               </a>
               . You may also contact the Information Regulator directly at{" "}
               <a
                 href="https://inforegulator.org.za/"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
                 target="_blank"
                 rel="noopener noreferrer"
               >

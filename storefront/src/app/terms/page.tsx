@@ -406,7 +406,7 @@ export default function TermsOfServicePage() {
               returns and refunds, please see our{" "}
               <Link
                 href="/refund"
-                className="text-navy underline hover:text-blue"
+                className="text-navy underline hover:text-cs-blue"
               >
                 Refund Policy
               </Link>
