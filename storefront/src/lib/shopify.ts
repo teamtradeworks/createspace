@@ -76,7 +76,7 @@ export type Product = {
   ratingCount: Metafield;
 };
 
-export type Collection = {
+type Collection = {
   id: string;
   title: string;
   handle: string;
@@ -200,25 +200,6 @@ const PRODUCTS_BY_TAG_QUERY = `
   }
 `;
 
-const COLLECTIONS_QUERY = `
-  query Collections($first: Int!) {
-    collections(first: $first) {
-      edges {
-        node {
-          id
-          title
-          handle
-          description
-          image {
-            url
-            altText
-          }
-        }
-      }
-    }
-  }
-`;
-
 const COLLECTION_PRODUCTS_QUERY = `
   query CollectionProducts($handle: String!, $first: Int!) {
     collection(handle: $handle) {
@@ -297,19 +278,6 @@ export async function getProducts(first: number = 8): Promise<Product[]> {
   return data.products.edges.map((edge) => edge.node);
 }
 
-export async function getCollections(
-  first: number = 10
-): Promise<Collection[]> {
-  const data = await shopifyFetch<{
-    collections: { edges: { node: Collection }[] };
-  }>({
-    query: COLLECTIONS_QUERY,
-    variables: { first },
-  });
-
-  return data.collections.edges.map((edge) => edge.node);
-}
-
 // Get products within a specific collection by handle
 export async function getCollectionProducts(
   handle: string,
@@ -345,21 +313,6 @@ export async function searchProducts(
   }>({
     query: PRODUCTS_BY_TAG_QUERY,
     variables: { first, query },
-  });
-
-  return data.products.edges.map((edge) => edge.node);
-}
-
-// Get products by tag (for age groups)
-export async function getProductsByTag(
-  tag: string,
-  first: number = 12
-): Promise<Product[]> {
-  const data = await shopifyFetch<{
-    products: { edges: { node: Product }[] };
-  }>({
-    query: PRODUCTS_BY_TAG_QUERY,
-    variables: { first, query: `tag:${tag}` },
   });
 
   return data.products.edges.map((edge) => edge.node);
@@ -583,139 +536,6 @@ export async function getProductByHandle(
   return data.product;
 }
 
-// Product type for SKU lookup (includes SKU in variants)
-export type ProductWithSku = Omit<ProductDetail, "variants"> & {
-  variants: {
-    edges: {
-      node: {
-        id: string;
-        title: string;
-        sku: string | null;
-        availableForSale: boolean;
-        price: {
-          amount: string;
-          currencyCode: string;
-        };
-        compareAtPrice: {
-          amount: string;
-          currencyCode: string;
-        } | null;
-      };
-    }[];
-  };
-};
-
-const PRODUCTS_WITH_SKU_QUERY = `
-  query ProductsWithSku($first: Int!, $after: String) {
-    products(first: $first, after: $after) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      edges {
-        node {
-          id
-          title
-          handle
-          description
-          descriptionHtml
-          vendor
-          productType
-          tags
-          availableForSale
-          priceRange {
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-            maxVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          compareAtPriceRange {
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          images(first: 10) {
-            edges {
-              node {
-                url
-                altText
-              }
-            }
-          }
-          variants(first: 10) {
-            edges {
-              node {
-                id
-                title
-                sku
-                availableForSale
-                price {
-                  amount
-                  currencyCode
-                }
-                compareAtPrice {
-                  amount
-                  currencyCode
-                }
-              }
-            }
-          }
-          rating: metafield(namespace: "reviews", key: "rating") {
-            value
-          }
-          ratingCount: metafield(namespace: "reviews", key: "rating_count") {
-            value
-          }
-        }
-      }
-    }
-  }
-`;
-
-type ProductsWithSkuResponse = {
-  products: {
-    pageInfo: { hasNextPage: boolean; endCursor: string };
-    edges: { node: ProductWithSku }[];
-  };
-};
-
-// Get single product by SKU (exact match)
-// Note: Shopify's SKU search is unreliable, so we fetch products and filter by exact SKU
-export async function getProductBySku(
-  sku: string
-): Promise<ProductWithSku | null> {
-  let hasNextPage = true;
-  let cursor: string | null = null;
-
-  while (hasNextPage) {
-    const response: ProductsWithSkuResponse = await shopifyFetch<ProductsWithSkuResponse>({
-      query: PRODUCTS_WITH_SKU_QUERY,
-      variables: { first: 50, after: cursor },
-    });
-
-    // Find product with matching SKU in variants
-    for (const edge of response.products.edges) {
-      const product = edge.node;
-      const hasMatchingSku = product.variants.edges.some(
-        (variantEdge) => variantEdge.node.sku === sku
-      );
-      if (hasMatchingSku) {
-        return product;
-      }
-    }
-
-    hasNextPage = response.products.pageInfo.hasNextPage;
-    cursor = response.products.pageInfo.endCursor;
-  }
-
-  return null;
-}
-
 // Helper to parse Fera review rating from Shopify metafields
 export function getProductRating(
   rating: Metafield,
@@ -785,7 +605,7 @@ export function getProductBatteryInfo(product: ProductDetail): string | undefine
 }
 
 // Stock status for product detail pages
-export type StockStatus = "in-stock" | "lead-time" | "out-of-stock";
+type StockStatus = "in-stock" | "lead-time" | "out-of-stock";
 
 export function getStockStatus(product: ProductDetail): StockStatus {
   if (!product.availableForSale) return "out-of-stock";

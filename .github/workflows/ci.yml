@@ -27,8 +27,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check formatting
+        run: npm run format:check
+        continue-on-error: true
+
       - name: Lint
         run: npm run lint
+
+      - name: Check for unused code
+        run: npm run knip
 
       - name: Unit tests
         run: npm test
@@ -57,6 +64,12 @@ jobs:
           NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ vars.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
 
+      - name: Lighthouse CI
+        run: npm run lighthouse
+        env:
+          NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN: ${{ vars.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN }}
+          NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ vars.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN }}
+
       - name: Cache Playwright browsers
         id: playwright-cache
         uses: actions/cache@v4
@@ -78,11 +91,12 @@ jobs:
           NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN: ${{ vars.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN }}
           NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN: ${{ vars.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN }}
 
-      - name: Upload Argos screenshots
-        if: ${{ !cancelled() }}
-        run: npx @argos-ci/cli upload ./screenshots
-        env:
-          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
+      # TODO: Re-enable Argos once configuration issues are resolved
+      # - name: Upload Argos screenshots
+      #   if: ${{ !cancelled() }}
+      #   run: npx @argos-ci/cli upload ./screenshots
+      #   env:
+      #     ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4

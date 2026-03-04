@@ -1,7 +1,7 @@
 import { getProductByHandle, ProductDetail, formatPrice } from "./shopify";
 import addonsConfig from "@/config/product-addons.json";
 
-export interface AddonConfig {
+interface AddonConfig {
   parentHandle: string;
   addonHandle: string;
   discountPercent: number;
