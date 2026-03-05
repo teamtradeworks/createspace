@@ -22,9 +22,17 @@ interface BadgeConfig {
   value: string;
 }
 
+interface ManualBadge {
+  icon: IconName;
+  label: string;
+  value: string;
+}
+
 interface QuickInfoBadgesProps {
   /** Product to read metafields from (all badges are derived automatically) */
   product?: ProductDetail;
+  /** Manual badges to display instead of (or in addition to) metafield-derived ones */
+  badges?: ManualBadge[];
 }
 
 const icons: Record<IconName, React.ReactNode> = {
@@ -84,50 +92,41 @@ const icons: Record<IconName, React.ReactNode> = {
 
 export function QuickInfoBadges({
   product,
+  badges: manualBadges,
 }: QuickInfoBadgesProps) {
-  const allBadges: BadgeConfig[] = [];
+  const allBadges: BadgeConfig[] = manualBadges ? [...manualBadges] : [];
 
-  // Get values from product metafields (hidden if not set)
-  const age = product ? getProductAgeRange(product) : undefined;
-  const batteries = product ? getProductBatteryInfo(product) : undefined;
-  const projects = product?.projects?.value;
-  const guide = product?.guide?.value;
-  const soldering = product?.soldering?.value;
-  const codingPlatform = product?.codingPlatform?.value;
+  // Only derive from metafields if no manual badges were provided
+  if (!manualBadges && product) {
+    const age = getProductAgeRange(product);
+    const batteries = getProductBatteryInfo(product);
+    const projects = product.projects?.value;
+    const guide = product.guide?.value;
+    const soldering = product.soldering?.value;
+    const codingPlatform = product.codingPlatform?.value;
 
-  // Add age badge if metafield exists
-  if (age) {
-    allBadges.push({ icon: "age", label: "Age", value: age });
-  }
-
-  // Add batteries badge if metafield exists
-  if (batteries) {
-    allBadges.push({ icon: "battery", label: "Batteries", value: batteries });
-  }
-
-  // Add projects badge if metafield exists
-  if (projects) {
-    allBadges.push({ icon: "projects", label: "Projects", value: projects });
-  }
-
-  // Add guide badge if metafield exists
-  if (guide) {
-    allBadges.push({ icon: "guide", label: "Guide", value: guide });
-  }
-
-  // Add soldering badge if metafield exists
-  if (soldering !== undefined) {
-    const solderingRequired = soldering === "true";
-    allBadges.push({
-      icon: "no-soldering",
-      label: "Soldering",
-      value: solderingRequired ? "Required" : "Not Required",
-    });
-  }
-
-  // Add coding platform badge if metafield exists
-  if (codingPlatform) {
-    allBadges.push({ icon: "scratch", label: "Coding", value: codingPlatform });
+    if (age) {
+      allBadges.push({ icon: "age", label: "Age", value: age });
+    }
+    if (batteries) {
+      allBadges.push({ icon: "battery", label: "Batteries", value: batteries });
+    }
+    if (projects) {
+      allBadges.push({ icon: "projects", label: "Projects", value: projects });
+    }
+    if (guide) {
+      allBadges.push({ icon: "guide", label: "Guide", value: guide });
+    }
+    if (soldering !== undefined) {
+      allBadges.push({
+        icon: "no-soldering",
+        label: "Soldering",
+        value: soldering === "true" ? "Required" : "Not Required",
+      });
+    }
+    if (codingPlatform) {
+      allBadges.push({ icon: "scratch", label: "Coding", value: codingPlatform });
+    }
   }
 
   if (allBadges.length === 0) return null;
