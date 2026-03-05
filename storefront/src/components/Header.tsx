@@ -20,13 +20,13 @@ const ageGroups = [
     id: "6-8",
     label: "Age 6-8",
     href: "/shop?age=6-8",
-    handles: ["makerzoid-smart-robot-premium", "matatastudio-vincibot-coding-robot-set", "snap-circuit-junior"],
+    handles: ["makerzoid-smart-robot-premium", "matatastudio-vincibot-coding-robot-set", "micro-bit-v2-2"],
   },
   {
     id: "9-12",
     label: "Age 9-12",
     href: "/shop?age=9-12",
-    handles: ["makerzoid-robot-master-premium", "bbc-micro-bit-go", "snap-circuits-300"],
+    handles: ["makerzoid-robot-master-premium", "bbc-micro-bit-go", "arduino-iot-bundle"],
   },
   {
     id: "13+",
