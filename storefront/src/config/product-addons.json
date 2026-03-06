@@ -84,6 +84,14 @@
       "discountPercent": 0,
       "description": "This kit requires 3 x AA batteries (not included). Add a pack so you're ready to go.",
       "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-explorer-junior",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
     }
   ]
 }
