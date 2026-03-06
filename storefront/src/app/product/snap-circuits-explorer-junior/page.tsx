@@ -17,7 +17,7 @@ import {
   CallToAction,
 } from "@/components/product-sections";
 
-const PRODUCT_HANDLE = "snap-circuit-junior";
+const PRODUCT_HANDLE = "snap-circuits-explorer-junior";
 
 export default async function SnapCircuitJuniorPage() {
   const product = await getProductByHandle(PRODUCT_HANDLE);
@@ -194,39 +194,35 @@ export default async function SnapCircuitJuniorPage() {
         subtitle="Real projects from real kids. Snap Circuits inspires creativity and experimentation beyond the manual."
         images={[
           {
-            src: "/images/products/snap-circuit-junior/child-building-circuit.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/child-building-circuit.jpg",
             alt: "Child building a Snap Circuits project",
           },
           {
-            src: "/images/products/snap-circuit-junior/child-building-board-with-manual-in-front-of-him.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/child-building-board-with-manual-in-front-of-him.jpg",
             alt: "Child following manual while building Snap Circuits project",
           },
           {
-            src: "/images/products/snap-circuit-junior/fan-on-board.jpg",
-            alt: "Working fan circuit on Snap Circuits board",
-          },
-          {
-            src: "/images/products/snap-circuit-junior/junior-parts-in-box-neat.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/junior-parts-in-box-neat.jpg",
             alt: "Snap Circuits components organized in storage box",
           },
           {
-            src: "/images/products/snap-circuit-junior/kid-playing-with-board-with-open-box-in-front-of-him.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/kid-playing-with-board-with-open-box-in-front-of-him.jpg",
             alt: "Child building circuits with components and box visible",
           },
           {
-            src: "/images/products/snap-circuit-junior/refelction-detection.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/refelction-detection.jpg",
             alt: "Reflection detector circuit project",
           },
           {
-            src: "/images/products/snap-circuit-junior/close-up-of-board.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/close-up-of-board.jpg",
             alt: "Close-up of a Snap Circuits board with components snapped in place",
           },
           {
-            src: "/images/products/snap-circuit-junior/open-box-with-booklet-and-board.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/open-box-with-booklet-and-board.jpg",
             alt: "Snap Circuits box open showing the booklet and board",
           },
           {
-            src: "/images/products/snap-circuit-junior/water-space-war.jpg",
+            src: "/images/products/snap-circuits-explorer-junior/water-space-war.jpg",
             alt: "Water-activated space war circuit project",
           },
         ]}
@@ -282,7 +278,7 @@ export default async function SnapCircuitJuniorPage() {
       {/* What's in the Box */}
       <WhatsIncluded
         title="What's in the Box"
-        image="/images/products/snap-circuit-junior/kids-snapping-pieces-on-board.jpg"
+        image="/images/products/snap-circuits-explorer-junior/whats-in-the-box.jpeg"
         imageAlt="Child snapping Snap Circuits components onto the base board"
         items={[
           "1 × Clear plastic snap-grid base board",
