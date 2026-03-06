@@ -312,7 +312,7 @@ export default async function ElecfreaksTinkerKitPage() {
       <WhatsIncluded
         title="What&apos;s in the Box"
         image="/images/products/elecfreaks-micro-bit-tinker-kit/whats-in-the-box.jpeg"
-        imageAlt="ELECFREAKS micro:bit Tinker Kit components laid out showing all 14 modules and accessories"
+        imageAlt="ELECFREAKS micro:bit Tinker Kit components laid out showing all 13 modules and accessories"
         items={[
           "Octopus:bit Breakout Board (connects micro:bit to sensors)",
           "Crystal Battery Box (2 × AAA — batteries not included)",
