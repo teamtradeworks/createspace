@@ -12,3 +12,5 @@ export { ProjectShowcase } from "./ProjectShowcase";
 export { CallToAction } from "./CallToAction";
 export { CustomerShowcase } from "./CustomerShowcase";
 export { ProductReviews } from "./ProductReviews";
+export { CourseTabs } from "./CourseTabs";
+export { StepPath } from "./StepPath";

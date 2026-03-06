@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
@@ -30,6 +31,8 @@ export default async function SnapCircuitJuniorPage() {
 
   return (
     <>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -353,6 +356,11 @@ export async function generateMetadata() {
       "Build 101 real electronic circuits with Snap Circuits Explorer Junior. No soldering or tools needed—perfect for kids aged 8+ to learn electronics hands-on.",
     alternates: {
       canonical: "/product/snap-circuits-explorer-junior",
+    },
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
     },
   };
 }
