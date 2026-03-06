@@ -108,6 +108,21 @@
       "discountPercent": 0,
       "description": "This kit requires 3 x AA batteries (not included). Add a pack so you're ready to go.",
       "viewProductLink": false
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 15,
+      "description": "This kit requires a BBC micro:bit board to function. Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
     }
   ]
 }
