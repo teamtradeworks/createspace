@@ -157,31 +157,37 @@ export default async function MatataStudioMicroscopePage() {
             name: "Prepared Slides",
             description: "Study the 5 included biology specimens using the transmitted light setting",
             concepts: "Biology, cell structure, specimens",
+            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/prepared-slides.png",
           },
           {
             name: "Garden Explorer",
             description: "Go handheld to observe flowers, insects, and leaves up close in the garden",
             concepts: "Botany, insect biology, outdoor science",
+            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/garden-explorer.png",
           },
           {
             name: "Crystal Science",
             description: "Watch salt and sugar transform into geometric structures at high magnification",
             concepts: "Chemistry, crystal structure, geometry",
+            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/crystal-science.png",
           },
           {
             name: "Nature Detectives",
             description: "Collect soil and rocks from different spots and compare what's inside",
             concepts: "Geology, earth science, particle analysis",
+            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/nature-detectives.png",
           },
           {
             name: "Everyday Objects",
             description: "Examine fabric, paper, coins, and household surfaces in a whole new way",
             concepts: "Materials science, observation, comparison",
+            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/everyday-objects.png",
           },
           {
             name: "Science Journal",
             description: "Photograph every discovery and build a digital collection with the MatataXplore app",
             concepts: "Documentation, digital literacy, scientific method",
+            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/science-journal.png",
           },
         ]}
         moreText="Plus any specimen your child can find — pond water, flower pollen, hair, skin, and more"
