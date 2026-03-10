@@ -6,7 +6,7 @@ import ShopGallery from "@/components/ShopGallery";
 export const metadata: Metadata = {
   title: "Shop | CREATESPACE",
   description:
-    "Browse our curated collection of STEM educational products. Filter by age, discipline, or brand to find the perfect kit.",
+    "Browse our curated collection of STEM educational products. Filter by age, category, or brand to find the perfect kit.",
   alternates: {
     canonical: "/shop",
   },
