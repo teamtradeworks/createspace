@@ -56,6 +56,9 @@ export default function EmailPopup() {
 
   // Force-show bypasses suppression (for manual triggers like footer link)
   const forceShow = useCallback(() => {
+    setEmail("");
+    setStatus("idle");
+    setErrorMessage("");
     setVisible(true);
     lockScroll();
   }, [lockScroll]);
