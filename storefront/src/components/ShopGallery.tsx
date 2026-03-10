@@ -8,6 +8,7 @@ import TrustBadges from "@/components/TrustBadges";
 interface ShopGalleryProps {
   products: Product[];
   initialAge?: string;
+  initialCategory?: string;
 }
 
 const BRAND_COLORS = {
@@ -34,18 +35,18 @@ const ageGroups = [
   { id: "13+", label: "13+", range: [13, 99] as [number, number] },
 ];
 
-const disciplines = [
+const categories = [
   { id: "all", label: "All" },
   { id: "robotics", label: "Robotics" },
-  { id: "electronics", label: "Electronics" },
-  { id: "nature", label: "Nature" },
-  { id: "building", label: "Building" },
-  { id: "mathematics", label: "Mathematics" },
+  { id: "electricity", label: "Electricity" },
+  { id: "building-mechanics", label: "Building & Mechanics" },
+  { id: "earth-sciences", label: "Earth Sciences" },
+  { id: "astronomy", label: "Astronomy" },
 ];
 
-export default function ShopGallery({ products, initialAge }: ShopGalleryProps) {
+export default function ShopGallery({ products, initialAge, initialCategory }: ShopGalleryProps) {
   const [selectedAge, setSelectedAge] = useState(initialAge || "all");
-  const [selectedDiscipline, setSelectedDiscipline] = useState("all");
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory || "all");
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [sortBy, setSortBy] = useState("featured");
 
@@ -83,10 +84,12 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
       }
     }
 
-    // TODO: Filter by discipline when Shopify metafields are configured
-    // if (selectedDiscipline !== "all") {
-    //   result = result.filter((product) => product.discipline?.value === selectedDiscipline);
-    // }
+    // Filter by category (using Shopify tags with "category:" prefix)
+    if (selectedCategory !== "all") {
+      result = result.filter((product) =>
+        product.tags?.includes(`category:${selectedCategory}`)
+      );
+    }
 
     // Filter by brand
     if (selectedBrand !== "all") {
@@ -120,11 +123,11 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
     }
 
     return result;
-  }, [products, selectedAge, selectedDiscipline, selectedBrand, sortBy]);
+  }, [products, selectedAge, selectedCategory, selectedBrand, sortBy]);
 
   const hasActiveFilters =
     selectedAge !== "all" ||
-    selectedDiscipline !== "all" ||
+    selectedCategory !== "all" ||
     selectedBrand !== "all";
 
   return (
@@ -140,11 +143,11 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
             options={ageGroups.map((g) => ({ value: g.id, label: g.label }))}
           />
           <FilterDropdown
-            label="Discipline"
+            label="Category"
             color={TRACK_COLORS.discipline}
-            value={selectedDiscipline}
-            onChange={setSelectedDiscipline}
-            options={disciplines.map((d) => ({ value: d.id, label: d.label }))}
+            value={selectedCategory}
+            onChange={setSelectedCategory}
+            options={categories.map((c) => ({ value: c.id, label: c.label }))}
           />
           <FilterDropdown
             label="Brand"
@@ -174,7 +177,7 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
               <button
                 onClick={() => {
                   setSelectedAge("all");
-                  setSelectedDiscipline("all");
+                  setSelectedCategory("all");
                   setSelectedBrand("all");
                 }}
                 className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-navy/50 hover:text-cs-red border-2 border-navy/10 hover:border-cs-red/30 rounded-xl transition-all"
@@ -201,14 +204,14 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
           </FilterTrack>
 
           {/* Discipline Track */}
-          <FilterTrack label="Discipline" color={TRACK_COLORS.discipline}>
-            {disciplines.map((discipline) => (
+          <FilterTrack label="Category" color={TRACK_COLORS.discipline}>
+            {categories.map((category) => (
               <FilterToken
-                key={discipline.id}
-                label={discipline.label}
+                key={category.id}
+                label={category.label}
                 color={TRACK_COLORS.discipline}
-                isSelected={selectedDiscipline === discipline.id}
-                onClick={() => setSelectedDiscipline(discipline.id)}
+                isSelected={selectedCategory === category.id}
+                onClick={() => setSelectedCategory(category.id)}
               />
             ))}
           </FilterTrack>
@@ -254,7 +257,7 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
               <button
                 onClick={() => {
                   setSelectedAge("all");
-                  setSelectedDiscipline("all");
+                  setSelectedCategory("all");
                   setSelectedBrand("all");
                 }}
                 className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-navy/50 hover:text-cs-red border-2 border-navy/10 hover:border-cs-red/30 rounded-xl transition-all"
@@ -305,7 +308,7 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
               <button
                 onClick={() => {
                   setSelectedAge("all");
-                  setSelectedDiscipline("all");
+                  setSelectedCategory("all");
                   setSelectedBrand("all");
                 }}
                 className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-xl font-semibold transition-colors"
