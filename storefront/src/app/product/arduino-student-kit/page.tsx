@@ -192,7 +192,7 @@ export default async function ArduinoStudentKitPage() {
         title="Skills That Last Long After the Final Lesson"
         body="When your child debugs a circuit that won't light up or rewrites code to make the servo move just right, they're practising something far bigger than electronics. They're learning to stay calm when things don't go to plan, to think through problems step by step, and to feel the genuine pride that comes from fixing something with their own hands. Resilience, critical thinking, and confidence — skills that follow them into every classroom and career."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Customer Showcase */}
