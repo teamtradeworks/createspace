@@ -468,7 +468,7 @@ function MultiSelect({
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`w-full text-left appearance-none rounded-xl bg-white font-semibold text-navy transition-all focus:outline-none focus:ring-2 ${isLg ? "pl-4 pr-10 py-3 text-sm" : "pl-3 pr-8 py-2.5 text-sm"}`}
+        className={`relative w-full text-left appearance-none rounded-xl bg-white font-semibold text-navy transition-all focus:outline-none focus:ring-2 ${isLg ? "pl-4 pr-10 py-3 text-sm" : "pl-3 pr-8 py-2.5 text-sm"}`}
         style={{
           borderWidth: 2,
           borderStyle: "solid",
