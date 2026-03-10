@@ -42,6 +42,7 @@ export type Product = {
   handle: string;
   description: string;
   vendor: string;
+  tags: string[];
   availableForSale: boolean;
   updatedAt: string;
   priceRange: {
@@ -98,6 +99,7 @@ const PRODUCTS_QUERY = `
           handle
           description
           vendor
+          tags
           availableForSale
           updatedAt
           priceRange {
@@ -154,6 +156,7 @@ const PRODUCTS_BY_TAG_QUERY = `
           handle
           description
           vendor
+          tags
           availableForSale
           updatedAt
           priceRange {
@@ -219,6 +222,7 @@ const COLLECTION_PRODUCTS_QUERY = `
             handle
             description
             vendor
+            tags
             availableForSale
             updatedAt
             priceRange {
