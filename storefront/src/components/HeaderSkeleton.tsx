@@ -6,8 +6,7 @@ export default function HeaderSkeleton() {
       {/* Promo banner - same as real header */}
       <div className="bg-cs-orange text-white text-center py-2 text-sm font-medium">
         <span className="inline-flex items-center gap-1.5">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/brand/flag-za.svg" alt="South African flag" width={18} height={12} className="rounded-sm" />
+          <Image src="/images/brand/flag-za.svg" alt="South African flag" width={18} height={12} className="rounded-sm" />
           Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
         </span>
       </div>
