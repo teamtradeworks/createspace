@@ -222,6 +222,7 @@ const COLLECTION_PRODUCTS_QUERY = `
             handle
             description
             vendor
+            tags
             availableForSale
             updatedAt
             priceRange {
