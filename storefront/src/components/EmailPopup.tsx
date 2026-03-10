@@ -212,14 +212,14 @@ export default function EmailPopup() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full rounded-full bg-orange py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+                className="w-full rounded-full bg-cs-orange py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
               >
                 {status === "loading" ? "Subscribing..." : "Get my discount"}
               </button>
             </form>
 
             {status === "error" && (
-              <p className="mt-3 text-center text-sm text-red">{errorMessage}</p>
+              <p className="mt-3 text-center text-sm text-cs-red">{errorMessage}</p>
             )}
 
             <p className="mt-4 text-center text-xs text-white/40">
