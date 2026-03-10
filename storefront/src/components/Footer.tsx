@@ -34,33 +34,6 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
-      {/* Newsletter section */}
-      <div className="border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-2">
-              Subscribe for Deals & New Releases
-            </h3>
-            <p className="text-white/70 mb-6">
-              Be the first to know about new products and exclusive offers.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email address..."
-                className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-cs-orange"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-cs-orange hover:bg-cs-orange/90 rounded-lg font-semibold transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer content */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Image
