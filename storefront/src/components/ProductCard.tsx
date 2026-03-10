@@ -18,7 +18,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/product/${product.handle}`}
-      className="group bg-white rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+      className="group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
     >
       <div className="bg-gray-50 aspect-square relative overflow-hidden">
         {product.images.edges[0] ? (
@@ -51,15 +51,15 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
         )}
       </div>
-      <div className="p-5 flex flex-col flex-1">
-        <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug mb-2">
+      <div className="p-3 sm:p-5 flex flex-col flex-1">
+        <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug text-sm sm:text-base mb-1 sm:mb-2">
           {product.title}
         </h3>
-        <p className="text-sm text-gray-500 line-clamp-2 mb-4">
+        <p className="text-sm text-gray-500 line-clamp-2 mb-2 sm:mb-4">
           {product.description || "Hands-on STEM learning kit"}
         </p>
         {ratingData && (
-          <div className="flex items-center gap-1.5 mb-3">
+          <div className="flex items-center gap-1.5 mb-2 sm:mb-3">
             <StarRating rating={ratingData.average} size="sm" />
             <span className="text-xs text-gray-500">({ratingData.count})</span>
           </div>
