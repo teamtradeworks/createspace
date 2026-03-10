@@ -32,6 +32,7 @@ export async function POST(request: NextRequest) {
       };
     }>({
       query: CUSTOMER_CREATE_MUTATION,
+      cache: "no-store",
       variables: {
         input: {
           email,
