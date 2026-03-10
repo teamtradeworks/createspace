@@ -11,6 +11,7 @@ import { getProducts } from "@/lib/shopify";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
+import EmailPopup from "@/components/EmailPopup";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
@@ -76,6 +77,7 @@ export default function RootLayout({
           </Suspense>
           <main>{children}</main>
           <Footer />
+          <EmailPopup />
           <SpeedInsights />
           <Analytics />
         </CartProvider>

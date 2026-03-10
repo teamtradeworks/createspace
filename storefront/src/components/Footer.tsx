@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -19,6 +21,7 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
+    { name: "Subscribe", href: "#subscribe" },
   ],
   policies: [
     { name: "Privacy Policy", href: "/privacy" },
@@ -153,16 +156,27 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-cs-orange transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {footerLinks.company.map((link) =>
+                link.href === "#subscribe" ? (
+                  <li key={link.name}>
+                    <button
+                      onClick={() => window.dispatchEvent(new CustomEvent("open-email-popup"))}
+                      className="text-white/70 hover:text-cs-orange transition-colors text-sm"
+                    >
+                      {link.name}
+                    </button>
+                  </li>
+                ) : (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-cs-orange transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 

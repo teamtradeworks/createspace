@@ -13,6 +13,10 @@
   --cs-grey: #b3b3b3;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   /* eslint-disable-next-line css/no-invalid-properties -- Next.js injects --font-outfit at runtime */
   font-family: var(--font-outfit), sans-serif;
