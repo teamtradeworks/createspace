@@ -63,8 +63,10 @@ export default function EmailPopup() {
   const close = useCallback(() => {
     setVisible(false);
     unlockScroll();
-    suppress();
-  }, [unlockScroll]);
+    if (status !== "success") {
+      suppress();
+    }
+  }, [unlockScroll, status]);
 
   // Listen for manual open event (e.g. footer "Subscribe" link)
   useEffect(() => {
