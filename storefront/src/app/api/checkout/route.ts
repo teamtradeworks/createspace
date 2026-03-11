@@ -34,6 +34,7 @@ export async function POST(request: NextRequest) {
     };
   }>({
     query: CART_CREATE_MUTATION,
+    cache: "no-store",
     variables: {
       lines: lines.map((line) => ({
         merchandiseId: line.variantId,

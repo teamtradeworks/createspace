@@ -12,9 +12,11 @@ type ShopifyResponse<T> = {
 export async function shopifyFetch<T>({
   query,
   variables,
+  cache,
 }: {
   query: string;
   variables?: Record<string, unknown>;
+  cache?: RequestCache;
 }): Promise<T> {
   const response = await fetch(endpoint, {
     method: "POST",
@@ -23,7 +25,7 @@ export async function shopifyFetch<T>({
       "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
     },
     body: JSON.stringify({ query, variables }),
-    next: { revalidate: 60 }, // Revalidate every 60 seconds
+    ...(cache ? { cache } : { next: { revalidate: 60 } }),
   });
 
   const json: ShopifyResponse<T> = await response.json();

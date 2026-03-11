@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -19,6 +21,7 @@ const footerLinks = {
   company: [
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
+    { name: "Subscribe", href: "#subscribe" },
   ],
   policies: [
     { name: "Privacy Policy", href: "/privacy" },
@@ -31,33 +34,6 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="bg-navy text-white">
-      {/* Newsletter section */}
-      <div className="border-b border-white/10">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl font-semibold mb-2">
-              Subscribe for Deals & New Releases
-            </h3>
-            <p className="text-white/70 mb-6">
-              Be the first to know about new products and exclusive offers.
-            </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email address..."
-                className="flex-1 px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-cs-orange"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-cs-orange hover:bg-cs-orange/90 rounded-lg font-semibold transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-
       {/* Main footer content */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Image
@@ -153,16 +129,27 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-white/70 hover:text-cs-orange transition-colors text-sm"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {footerLinks.company.map((link) =>
+                link.href === "#subscribe" ? (
+                  <li key={link.name}>
+                    <button
+                      onClick={() => window.dispatchEvent(new CustomEvent("open-email-popup"))}
+                      className="text-white/70 hover:text-cs-orange transition-colors text-sm"
+                    >
+                      {link.name}
+                    </button>
+                  </li>
+                ) : (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-white/70 hover:text-cs-orange transition-colors text-sm"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
 
