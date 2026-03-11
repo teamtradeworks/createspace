@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { DELIVERY_CONFIG } from "@/config/delivery";
 
 export default function HeaderSkeleton() {
