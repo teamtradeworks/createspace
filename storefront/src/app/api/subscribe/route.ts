@@ -18,7 +18,12 @@ const CUSTOMER_CREATE_MUTATION = `
 `;
 
 export async function POST(request: NextRequest) {
-  const { email } = (await request.json()) as { email: string };
+  let email: string;
+  try {
+    ({ email } = (await request.json()) as { email: string });
+  } catch {
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
+  }
 
   if (!email || !email.includes("@")) {
     return NextResponse.json({ error: "Please enter a valid email address" }, { status: 400 });
