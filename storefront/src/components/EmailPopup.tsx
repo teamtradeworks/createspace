@@ -67,7 +67,10 @@ export default function EmailPopup() {
     setVisible(false);
     unlockScroll();
     if (status !== "success") {
-      suppress();
+      const existingExpiry = getSuppressionExpiry();
+      if (!existingExpiry || Date.now() >= existingExpiry) {
+        suppress();
+      }
     }
   }, [unlockScroll, status]);
 
