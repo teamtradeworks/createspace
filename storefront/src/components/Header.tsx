@@ -143,7 +143,10 @@ export default function Header({ products = [] }: HeaderProps) {
     <header className="bg-navy sticky top-0 z-50">
       {/* Promo banner */}
       <div className="bg-cs-orange text-white text-center py-2 text-sm font-medium">
-        Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
+        <span className="inline-flex items-center gap-1.5">
+          <Image src="/images/brand/flag-za.svg" alt="South African flag" width={18} height={12} className="rounded-sm" />
+          Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
+        </span>
       </div>
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
