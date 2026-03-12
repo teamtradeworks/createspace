@@ -110,6 +110,13 @@
       "viewProductLink": false
     },
     {
+      "parentHandle": "how-to-get-started-with-coding-and-robotics",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 0,
+      "description": "Need an extra BBC micro:bit for your classroom? Add one here.",
+      "viewProductLink": true
+    },
+    {
       "parentHandle": "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
       "addonHandle": "bbc-micro-bit-go",
       "discountPercent": 15,

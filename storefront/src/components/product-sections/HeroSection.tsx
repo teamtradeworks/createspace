@@ -14,6 +14,7 @@ interface HeroSectionProps {
   highlights?: string[];
   heroImage?: string;
   addons?: SerializedAddon[];
+  defaultSelectedAddons?: string[];
   canonicalPath?: string;
   digital?: boolean;
 }
@@ -24,6 +25,7 @@ export function HeroSection({
   highlights,
   heroImage,
   addons,
+  defaultSelectedAddons,
   canonicalPath,
   digital,
 }: HeroSectionProps) {
@@ -228,6 +230,7 @@ export function HeroSection({
                   handle={product.handle}
                   digital={digital}
                   addons={addons}
+                  defaultSelectedAddons={defaultSelectedAddons}
                 />
               </div>
             </div>
