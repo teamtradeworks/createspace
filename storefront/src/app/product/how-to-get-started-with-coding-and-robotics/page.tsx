@@ -38,6 +38,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           "No prior STEM experience required",
         ]}
         addons={addons}
+        defaultSelectedAddons={["bbc-micro-bit-go"]}
       />
 
       <QuickInfoBadges

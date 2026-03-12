@@ -18,6 +18,7 @@ interface ProductActionsProps {
   handle: string;
   digital?: boolean;
   addons?: SerializedAddon[];
+  defaultSelectedAddons?: string[];
 }
 
 export default function ProductActions({
@@ -32,12 +33,13 @@ export default function ProductActions({
   handle,
   digital,
   addons = [],
+  defaultSelectedAddons = [],
 }: ProductActionsProps) {
   const [quantity, setQuantity] = useState(1);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [isBuyingNow, setIsBuyingNow] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
-  const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set());
+  const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set(defaultSelectedAddons));
   const { addItem } = useCart();
 
   const handleQuantityChange = (delta: number) => {
