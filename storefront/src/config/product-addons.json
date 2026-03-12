@@ -130,6 +130,20 @@
       "discountPercent": 0,
       "description": "This kit requires 3 x AAA batteries (not included). Add a pack so you're ready to go.",
       "viewProductLink": false
+    },
+    {
+      "parentHandle": "bbc-micro-bit-essential-stem-lab-tinker-kit-bundle",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 0,
+      "description": "Need an extra BBC micro:bit for your classroom? Add one here.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "bbc-micro-bit-essential-stem-lab-tinker-kit-bundle",
+      "addonHandle": "elecfreaks-micro-bit-tinker-kit",
+      "discountPercent": 0,
+      "description": "Need an extra Tinker Kit for your classroom? Add one here.",
+      "viewProductLink": true
     }
   ]
 }

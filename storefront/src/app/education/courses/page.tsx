@@ -213,6 +213,82 @@ export default async function CoursesPage() {
         </div>
       </section>
 
+      {/* Course Bundles */}
+      <section className="py-20 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-cs-green font-medium text-sm uppercase tracking-wider">
+              Bundles
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+              Courses + Hardware
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Get the courses and the hardware together in one bundle — everything
+              you need to start teaching Coding and Robotics.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <Link
+              href="/product/how-to-get-started-with-coding-and-robotics"
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow group border border-gray-100"
+            >
+              <span className="text-xs font-medium text-cs-green uppercase tracking-wider">
+                Foundation
+              </span>
+              <h3 className="text-xl font-semibold text-navy mt-2 mb-3 group-hover:text-cs-blue transition-colors">
+                Foundation Phase Education Bundle
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                3 Inspire Africa courses plus a BBC micro:bit Go. Covers
+                curriculum understanding, unplugged STEAM, and hands-on micro:bit
+                coding.
+              </p>
+              <ul className="text-xs text-gray-500 space-y-1">
+                <li>3 online courses</li>
+                <li>BBC micro:bit Go included</li>
+                <li>SACE-accredited CPD points</li>
+              </ul>
+              <span className="inline-flex items-center text-sm font-semibold text-cs-blue mt-4 group-hover:translate-x-1 transition-transform">
+                View Bundle
+                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link
+              href="/product/bbc-micro-bit-essential-stem-lab-tinker-kit-bundle"
+              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow group border-2 border-cs-green"
+            >
+              <span className="text-xs font-medium text-cs-green uppercase tracking-wider">
+                Invention
+              </span>
+              <h3 className="text-xl font-semibold text-navy mt-2 mb-3 group-hover:text-cs-blue transition-colors">
+                The Invention Phase Education Bundle (incl. Foundation Phase)
+              </h3>
+              <p className="text-gray-600 text-sm mb-4">
+                Includes CREATESPACE micro:bit Foundation Course (Getting Started,
+                Intro to STEAM, and Micro:bit Level 1). Includes Specialist Course:
+                Essential STEAM Lab (using the Elecfreaks Tinker Kit).
+              </p>
+              <ul className="text-xs text-gray-500 space-y-1">
+                <li>4 online courses (includes Essential STEAM Lab Kit Training)</li>
+                <li>BBC micro:bit Go + ELECFREAKS Tinker Kit included</li>
+                <li>SACE-accredited CPD points</li>
+              </ul>
+              <span className="inline-flex items-center text-sm font-semibold text-cs-blue mt-4 group-hover:translate-x-1 transition-transform">
+                View Bundle
+                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 bg-cs-green">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
