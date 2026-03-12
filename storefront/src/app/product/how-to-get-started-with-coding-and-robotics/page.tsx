@@ -249,51 +249,6 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         background="navy"
       />
 
-      <FeatureGrid
-        title="Your BBC micro:bit Go Kit"
-        subtitle="This bundle includes a physical BBC micro:bit Go — so you can practise everything you learn in the Micro:bit Level 1 course on real hardware."
-        features={[
-          {
-            icon: "code",
-            title: "Block & Text Coding",
-            description:
-              "Program with MakeCode blocks, JavaScript, MicroPython, or Scratch — suitable for all skill levels from beginner to advanced.",
-          },
-          {
-            icon: "sensor",
-            title: "Built-In Sensors",
-            description:
-              "Accelerometer, compass, temperature sensor, light sensor, and microphone — everything you need for interactive experiments.",
-          },
-          {
-            icon: "music",
-            title: "Speaker & Microphone",
-            description:
-              "Built-in speaker and microphone for sound and music projects, voice-activated experiments, and creative audio coding.",
-          },
-          {
-            icon: "bluetooth",
-            title: "Wireless Connectivity",
-            description:
-              "Bluetooth 5.0 and 2.4 GHz radio let micro:bits talk to each other and connect to phones, tablets, and other devices.",
-          },
-          {
-            icon: "battery",
-            title: "Battery Pack Included",
-            description:
-              "Comes with a USB cable and battery pack so you can use the micro:bit anywhere — no computer required once your code is loaded.",
-          },
-          {
-            icon: "star",
-            title: "Plug and Play",
-            description:
-              "Ready to use out of the box. Connect to your computer, open MakeCode in a browser, and start coding within minutes.",
-          },
-        ]}
-        columns={3}
-        background="gray"
-      />
-
       <StepPath
         title="How the Inspire Campus Works"
         subtitle="All three courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
