@@ -305,7 +305,7 @@ export default async function VinciBotClassroomSetPage() {
       {/* What's in the Kit */}
       <WhatsIncluded
         title="What's in the Kit"
-        image="/images/products/matatastudio-vincibot-classroom-set/whats-in-the-box.jpg"
+        image="/images/products/matatastudio-vincibot-classroom-set/whats-in-the-box-new.jpg"
         imageAlt="VinciBot Classroom Set contents laid out — 6 robots, activity cards, maps, markers, and storage bin"
         items={[
           "VinciBot coding robot × 6",
