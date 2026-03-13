@@ -150,7 +150,7 @@ const PRODUCTS_QUERY = `
 
 const PRODUCTS_BY_TAG_QUERY = `
   query ProductsByTag($first: Int!, $query: String!) {
-    products(first: $first, query: $query) {
+    products(first: $first, query: $query, sortKey: RELEVANCE) {
       edges {
         node {
           id
