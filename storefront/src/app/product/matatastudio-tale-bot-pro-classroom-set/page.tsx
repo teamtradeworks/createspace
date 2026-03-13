@@ -72,6 +72,13 @@ export default async function TaleBotProClassroomSetPage() {
         background="navy-card"
       />
 
+      {/* Video Section */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=2N-eTbOcWVI"
+        title="See Tale-Bot Pro in Action"
+        background="gray"
+      />
+
       {/* How It Works in the Classroom */}
       <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro-classroom-set/teacher-teaching-kids.jpg"
@@ -188,13 +195,6 @@ export default async function TaleBotProClassroomSetPage() {
           },
         ]}
         moreText="Plus blank maps for open-ended investigation, voice recording storytelling activities, and optional Scratch programming extension tasks for advanced learners"
-        background="gray"
-      />
-
-      {/* Video Section */}
-      <VideoEmbed
-        url="https://www.youtube.com/watch?v=2N-eTbOcWVI"
-        title="See Tale-Bot Pro in Action"
         background="gray"
       />
 
