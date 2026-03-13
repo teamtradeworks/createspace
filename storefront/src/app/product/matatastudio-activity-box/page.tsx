@@ -117,7 +117,7 @@ export default async function ActivityBoxPage() {
 
       {/* Boards Overview */}
       <ImageTextBlock
-        image="/images/products/matatastudio-activity-box/selection-of-boards.jpg"
+        image="/images/products/matatastudio-activity-box/interactive-maps.jpg"
         imageAlt="Selection of themed double-sided interactive maps included in the Activity Box"
         title="10 Worlds to Explore"
         body="Five double-sided maps create ten completely distinct themed environments — from the Solar System to a Supermarket, a Farm to a Treasure Hunt. Each scenario targets different subjects: science, maths, English language arts, social studies, and more. The variety keeps play fresh across many sessions, and the progressive difficulty means children are always being stretched just enough."
