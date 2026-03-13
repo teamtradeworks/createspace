@@ -283,7 +283,17 @@ Working on product pages has three parts:
     - No copying and pasting.
     - Triggered by the Claude command `/product-page-course {slug}`
 
-We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2, 3, and 4 are alternatives — use `/product-page` for consumer products (Shop), `/product-page-edu` for classroom kits (Education), and `/product-page-course` for online courses (Education).
+ 5. Turning research content into an extension/expansion product page:
+    - Uses the researched content in `assets/product/{slug}/content.md` and the following documents:
+      - `assets/brand/ext-product-content-framework.md`
+      - `assets/brand/product-page-design.md`
+    - Shorter, more concise pages for products that extend/expand another product
+    - Prominently highlights the parent product relationship with an `ExtensionBanner` component
+    - CTA links to the parent product instead of `/shop`
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page-ext {slug} {parent-slug}`
+
+We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2, 3, 4, and 5 are alternatives — use `/product-page` for consumer products (Shop), `/product-page-edu` for classroom kits (Education), `/product-page-course` for online courses (Education), and `/product-page-ext` for extension/expansion products.
 
 **Content Framework** - `assets/brand/product-content-framework.md`
    - Parent-focused content guidelines (consumer product pages)
@@ -297,6 +307,12 @@ We keep the research step separate so that we don't need to repeat researching o
    - Three educator personas (STEM Champions, Decision-Makers, STEM-Hesitant)
    - Three educator questions (curriculum alignment, cost-per-learner, support)
    - Education-specific writing guidelines and tone
+
+**Extension Content Framework** - `assets/brand/ext-product-content-framework.md`
+   - Extension/expansion product content guidelines
+   - Concise copy approach (shorter than standard pages)
+   - Parent product relationship messaging
+   - Extension-specific FAQ and CTA patterns
 
 **Page Design Spec** - `assets/brand/product-page-design.md`
    - Page structure with 15 component sections

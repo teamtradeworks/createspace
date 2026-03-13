@@ -15,3 +15,4 @@ export { ProductReviews } from "./ProductReviews";
 export { CourseTabs } from "./CourseTabs";
 export { StepPath } from "./StepPath";
 export { SkillTags } from "./SkillTags";
+export { ExtensionBanner } from "./ExtensionBanner";
