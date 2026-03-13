@@ -288,7 +288,7 @@ export default async function TaleBotProClassroomSetPage() {
           "18x Double-sided interactive maps (shared across groups)",
           "1x Activity Cards set (42 structured activities in 4 categories)",
           "1x Challenge booklet",
-          "1x Configuration card (10 languages)",
+          "1x Configuration card (11 languages)",
           "1x User guide",
           "3x Callout sticker sheets",
           "1x Callout stickers quick guide",
