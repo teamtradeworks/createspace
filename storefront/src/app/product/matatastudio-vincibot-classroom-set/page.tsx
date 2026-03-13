@@ -46,7 +46,6 @@ export default async function VinciBotClassroomSetPage() {
           "On-device AI and TinyML — works without internet connectivity",
         ]}
         addons={addons}
-        leadTime={true}
       />
 
       {/* Quick Info Badges */}

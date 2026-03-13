@@ -17,7 +17,6 @@ interface HeroSectionProps {
   defaultSelectedAddons?: string[];
   canonicalPath?: string;
   digital?: boolean;
-  leadTime?: boolean;
 }
 
 export function HeroSection({
@@ -29,7 +28,6 @@ export function HeroSection({
   defaultSelectedAddons,
   canonicalPath,
   digital,
-  leadTime,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
@@ -37,7 +35,7 @@ export function HeroSection({
     compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
 
   const ratingData = getProductRating(product.rating, product.ratingCount);
-  const stockStatus = leadTime ? "lead-time" : getStockStatus(product);
+  const stockStatus = getStockStatus(product);
 
   const images = product.images.edges.map((edge) => ({
     url: edge.node.url,
