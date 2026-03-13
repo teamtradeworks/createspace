@@ -7,6 +7,7 @@ import {
   ExtensionBanner,
   QuickInfoBadges,
   FeatureGrid,
+  ImageTextBlock,
   WhatsIncluded,
   ProductFAQ,
   ProductReviews,
@@ -104,6 +105,26 @@ export default async function ActivityBoxPage() {
         background="gray"
       />
 
+      {/* Maps in Action */}
+      <ImageTextBlock
+        image="/images/products/matatastudio-activity-box/tale-bot-on-zoo-mat.jpg"
+        imageAlt="Tale-Bot Pro navigating the zoo-themed interactive map"
+        title="Maps That Actually Talk to Your Robot"
+        body="The Activity Box maps aren't just printed paper — they use smart interactive technology to communicate directly with the Tale-Bot Pro. As your child navigates each scenario, the robot provides voice guidance, flags errors in real time, and celebrates milestones. It's a feedback loop that teaches children to debug, plan ahead, and persist when things go wrong."
+        layout="image-left"
+        background="white"
+      />
+
+      {/* Boards Overview */}
+      <ImageTextBlock
+        image="/images/products/matatastudio-activity-box/selection-of-boards.jpg"
+        imageAlt="Selection of themed double-sided interactive maps included in the Activity Box"
+        title="10 Worlds to Explore"
+        body="Five double-sided maps create ten completely distinct themed environments — from the Solar System to a Supermarket, a Farm to a Treasure Hunt. Each scenario targets different subjects: science, maths, English language arts, social studies, and more. The variety keeps play fresh across many sessions, and the progressive difficulty means children are always being stretched just enough."
+        layout="image-right"
+        background="gray"
+      />
+
       {/* FAQ */}
       <ProductFAQ
         title="Common Questions"
@@ -140,6 +161,8 @@ export default async function ActivityBoxPage() {
       {/* What's in the Box */}
       <WhatsIncluded
         title="What's in the Box"
+        image="/images/products/matatastudio-activity-box/whats-in-the-box.jpeg"
+        imageAlt="Contents of the MatataStudio Activity Box laid out"
         items={[
           "5× Double-sided interactive maps (10 themed scenarios)",
           "1× Double-sided blank map",
