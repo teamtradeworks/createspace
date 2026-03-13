@@ -58,6 +58,40 @@ export async function generateMetadata() {
 
 ---
 
+## ExtensionBanner
+
+Banner that highlights a product is an extension/expansion of another product. Links to the parent product. Used only on extension product pages, placed immediately after HeroSection.
+
+**Props:**
+
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `parentProductName` | `string` | Yes | — | Display name of the parent product |
+| `parentProductHref` | `string` | Yes | — | Link to the parent product page |
+| `message` | `string` | No | — | Custom message (overrides default text) |
+| `background` | `"white" \| "gray"` | No | `"white"` | Background colour |
+
+**Default message:** "This is an expansion pack for the [Parent Product Name]. Already have one? Add this to unlock new projects and possibilities."
+
+**Example:**
+```tsx
+<ExtensionBanner
+  parentProductName="Arduino Starter Kit"
+  parentProductHref="/product/arduino-starter-kit"
+/>
+```
+
+**With custom message:**
+```tsx
+<ExtensionBanner
+  parentProductName="Snap Circuits Classic"
+  parentProductHref="/product/snap-circuits-classic-300"
+  message="This expansion adds 200+ new projects to your Snap Circuits Classic kit."
+/>
+```
+
+---
+
 ## CallToAction
 
 Call-to-action section with primary and optional secondary buttons.
