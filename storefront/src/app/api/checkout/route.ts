@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { shopifyFetch } from "@/lib/shopify";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 const CART_CREATE_MUTATION = `
   mutation CartCreate($lines: [CartLineInput!]!) {
@@ -55,6 +57,32 @@ export async function POST(request: NextRequest) {
       { error: "Failed to create checkout" },
       { status: 500 }
     );
+  }
+
+  const cookieStore = await cookies();
+  const phCookie = cookieStore.getAll().find((c) => c.name.startsWith("ph_") && c.name.endsWith("_posthog"));
+  let distinctId: string | undefined;
+  try {
+    distinctId = phCookie?.value ? JSON.parse(phCookie.value).distinct_id : undefined;
+  } catch {
+    // Ignore malformed PostHog cookie — don't break checkout
+  }
+
+  if (distinctId) {
+    try {
+      const posthog = getPostHogClient();
+      posthog.capture({
+        distinctId,
+        event: "checkout_created",
+        properties: {
+          item_count: lines.length,
+          line_items: lines,
+        },
+      });
+      await posthog.flush();
+    } catch {
+      // Don't let analytics errors break checkout
+    }
   }
 
   return NextResponse.json({ checkoutUrl: data.cartCreate.cart.checkoutUrl });

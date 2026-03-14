@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import posthog from "posthog-js";
 
 interface FormData {
   name: string;
@@ -47,6 +48,7 @@ export default function ContactForm() {
     // In production, this would send to an API endpoint
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      posthog.capture("contact_form_submitted", { subject: formData.subject });
       setIsSubmitted(true);
       setFormData({
         name: "",

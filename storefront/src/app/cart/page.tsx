@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { useCart, getAvailableItems } from "@/context/CartContext";
 import { formatPrice } from "@/lib/shopify";
 import {
@@ -28,6 +29,14 @@ export default function CartPage() {
   const handleCheckout = async () => {
     const available = getAvailableItems(items);
     if (available.length === 0) return;
+
+    posthog.capture("checkout_initiated", {
+      item_count: available.length,
+      subtotal,
+      currency_code: currencyCode,
+      qualifies_for_free_delivery: qualifiesForFreeDelivery(subtotal),
+      product_handles: available.map((item) => item.handle),
+    });
 
     setIsCheckingOut(true);
     try {

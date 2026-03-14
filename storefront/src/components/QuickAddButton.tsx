@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import posthog from "posthog-js";
 import { useCart } from "@/context/CartContext";
 
 interface QuickAddButtonProps {
@@ -42,6 +43,12 @@ export default function QuickAddButton({
           handle,
           image,
           available,
+        });
+        posthog.capture("product_quick_added_to_cart", {
+          product_handle: handle,
+          product_title: title,
+          product_price: price,
+          currency_code: currencyCode,
         });
         setAdded(true);
         if (timerRef.current) clearTimeout(timerRef.current);

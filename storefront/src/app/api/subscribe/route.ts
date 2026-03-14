@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { shopifyFetch } from "@/lib/shopify";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 const CUSTOMER_CREATE_MUTATION = `
   mutation CustomerCreate($input: CustomerCreateInput!) {
@@ -54,10 +55,34 @@ export async function POST(request: NextRequest) {
       // If the customer already exists, treat it as a success
       const alreadyExists = errors.some((e) => e.code === "TAKEN");
       if (alreadyExists) {
+        try {
+          const posthog = getPostHogClient();
+          posthog.capture({
+            distinctId: email,
+            event: "newsletter_signup",
+            properties: { already_subscribed: true },
+          });
+          await posthog.flush();
+        } catch {
+          // Don't let analytics errors affect the user response
+        }
         return NextResponse.json({ success: true, alreadySubscribed: true });
       }
 
       return NextResponse.json({ error: errors[0].message }, { status: 400 });
+    }
+
+    try {
+      const posthog = getPostHogClient();
+      posthog.capture({
+        distinctId: email,
+        event: "newsletter_signup",
+        properties: { already_subscribed: false },
+      });
+      posthog.identify({ distinctId: email, properties: { email } });
+      await posthog.flush();
+    } catch {
+      // Don't let analytics errors affect the user response
     }
 
     return NextResponse.json({ success: true });

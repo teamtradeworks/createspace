@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { useCart } from "@/context/CartContext";
 import { SerializedAddon } from "@/lib/product-addons";
 
@@ -46,15 +47,26 @@ export default function ProductActions({
     setQuantity((prev) => Math.max(1, prev + delta));
   };
 
-  const toggleAddon = (handle: string) => {
+  const toggleAddon = (addonHandle: string) => {
+    const isAdding = !selectedAddons.has(addonHandle);
+    const addon = addons.find((a) => a.handle === addonHandle);
+
     setSelectedAddons((prev) => {
       const newSet = new Set(prev);
-      if (newSet.has(handle)) {
-        newSet.delete(handle);
+      if (newSet.has(addonHandle)) {
+        newSet.delete(addonHandle);
       } else {
-        newSet.add(handle);
+        newSet.add(addonHandle);
       }
       return newSet;
+    });
+
+    posthog.capture("addon_selected", {
+      product_handle: handle,
+      product_title: title,
+      addon_handle: addonHandle,
+      addon_title: addon?.title,
+      addon_action: isAdding ? "added" : "removed",
     });
   };
 
@@ -104,6 +116,17 @@ export default function ProductActions({
         addon.quantity * quantity
       );
     }
+
+    posthog.capture("product_added_to_cart", {
+      product_handle: handle,
+      product_title: title,
+      product_price: price,
+      currency_code: currencyCode,
+      quantity,
+      digital: digital ?? false,
+      addon_count: selectedAddonsData.length,
+      addon_handles: selectedAddonsData.map((a) => a.handle),
+    });
 
     // Show success state briefly
     await new Promise((resolve) => setTimeout(resolve, 300));
@@ -156,6 +179,17 @@ export default function ProductActions({
         addon.quantity * quantity
       );
     }
+
+    posthog.capture("product_buy_now_clicked", {
+      product_handle: handle,
+      product_title: title,
+      product_price: price,
+      currency_code: currencyCode,
+      quantity,
+      digital: digital ?? false,
+      addon_count: selectedAddonsData.length,
+      addon_handles: selectedAddonsData.map((a) => a.handle),
+    });
 
     // Redirect to cart/checkout
     await new Promise((resolve) => setTimeout(resolve, 300));
