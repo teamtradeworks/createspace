@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 import EmailPopup from "@/components/EmailPopup";
+import ClarityAnalytics from "@/components/ClarityAnalytics";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
@@ -80,6 +81,11 @@ export default function RootLayout({
           <EmailPopup />
           <SpeedInsights />
           <Analytics />
+          {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
+            <ClarityAnalytics
+              projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}
+            />
+          )}
         </CartProvider>
         {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
           <Script
