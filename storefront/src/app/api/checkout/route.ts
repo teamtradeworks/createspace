@@ -78,6 +78,7 @@ export async function POST(request: NextRequest) {
         line_items: lines,
       },
     });
+    await posthog.flush();
   }
 
   return NextResponse.json({ checkoutUrl: data.cartCreate.cart.checkoutUrl });

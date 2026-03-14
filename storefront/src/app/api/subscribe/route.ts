@@ -61,6 +61,7 @@ export async function POST(request: NextRequest) {
           event: "newsletter_signup",
           properties: { already_subscribed: true },
         });
+        await posthog.flush();
         return NextResponse.json({ success: true, alreadySubscribed: true });
       }
 
@@ -74,6 +75,7 @@ export async function POST(request: NextRequest) {
       properties: { already_subscribed: false },
     });
     posthog.identify({ distinctId: email, properties: { email } });
+    await posthog.flush();
 
     return NextResponse.json({ success: true });
   } catch {
