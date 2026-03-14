@@ -1,0 +1,57 @@
+[
+  {
+    "event": "product_added_to_cart",
+    "description": "User clicks 'Add to Cart' on a product page, including any selected add-ons",
+    "file": "storefront/src/components/ProductActions.tsx"
+  },
+  {
+    "event": "product_buy_now_clicked",
+    "description": "User clicks 'Buy It Now' on a product page to go directly to checkout",
+    "file": "storefront/src/components/ProductActions.tsx"
+  },
+  {
+    "event": "addon_selected",
+    "description": "User checks or unchecks a product add-on on a product page",
+    "file": "storefront/src/components/ProductActions.tsx"
+  },
+  {
+    "event": "product_quick_added_to_cart",
+    "description": "User uses the quick-add button on a product card to add a product to cart without visiting the product page",
+    "file": "storefront/src/components/QuickAddButton.tsx"
+  },
+  {
+    "event": "checkout_initiated",
+    "description": "User clicks 'Proceed to Checkout' from the cart page, triggering a Shopify checkout session",
+    "file": "storefront/src/app/cart/page.tsx"
+  },
+  {
+    "event": "newsletter_subscribed",
+    "description": "User successfully subscribes to the newsletter via the email popup",
+    "file": "storefront/src/components/EmailPopup.tsx"
+  },
+  {
+    "event": "email_popup_dismissed",
+    "description": "User closes the email popup without subscribing",
+    "file": "storefront/src/components/EmailPopup.tsx"
+  },
+  {
+    "event": "contact_form_submitted",
+    "description": "User submits the contact form on the contact page",
+    "file": "storefront/src/components/ContactForm.tsx"
+  },
+  {
+    "event": "search_performed",
+    "description": "User submits a search query via the search input",
+    "file": "storefront/src/components/SearchInput.tsx"
+  },
+  {
+    "event": "checkout_created",
+    "description": "Server-side: Shopify checkout URL successfully created when user proceeds to checkout",
+    "file": "storefront/src/app/api/checkout/route.ts"
+  },
+  {
+    "event": "newsletter_signup",
+    "description": "Server-side: Newsletter subscription processed (new or already subscribed)",
+    "file": "storefront/src/app/api/subscribe/route.ts"
+  }
+]

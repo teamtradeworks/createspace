@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
+import posthog from "posthog-js";
 
 const STORAGE_KEY = "createspace_email_popup";
 const DELAY_MS = 15_000; // 15 seconds
@@ -67,6 +68,7 @@ export default function EmailPopup() {
     setVisible(false);
     unlockScroll();
     if (status !== "success") {
+      posthog.capture("email_popup_dismissed");
       const existingExpiry = getSuppressionExpiry();
       if (!existingExpiry || Date.now() >= existingExpiry) {
         suppress();
@@ -139,6 +141,7 @@ export default function EmailPopup() {
 
       setStatus("success");
       suppressForever();
+      posthog.capture("newsletter_subscribed", { source: "email_popup" });
     } catch {
       setStatus("error");
       setErrorMessage("Something went wrong. Please try again.");

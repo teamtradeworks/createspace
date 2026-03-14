@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { shopifyFetch } from "@/lib/shopify";
+import { getPostHogClient } from "@/lib/posthog-server";
 
 const CART_CREATE_MUTATION = `
   mutation CartCreate($lines: [CartLineInput!]!) {
@@ -56,6 +57,16 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
+
+  const posthog = getPostHogClient();
+  posthog.capture({
+    distinctId: "server",
+    event: "checkout_created",
+    properties: {
+      item_count: lines.length,
+      line_items: lines,
+    },
+  });
 
   return NextResponse.json({ checkoutUrl: data.cartCreate.cart.checkoutUrl });
 }
