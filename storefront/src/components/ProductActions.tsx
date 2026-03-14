@@ -53,10 +53,10 @@ export default function ProductActions({
 
     setSelectedAddons((prev) => {
       const newSet = new Set(prev);
-      if (isAdding) {
-        newSet.add(addonHandle);
-      } else {
+      if (newSet.has(addonHandle)) {
         newSet.delete(addonHandle);
+      } else {
+        newSet.add(addonHandle);
       }
       return newSet;
     });
