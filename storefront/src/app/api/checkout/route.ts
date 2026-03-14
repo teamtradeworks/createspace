@@ -61,7 +61,12 @@ export async function POST(request: NextRequest) {
 
   const cookieStore = await cookies();
   const phCookie = cookieStore.getAll().find((c) => c.name.startsWith("ph_") && c.name.endsWith("_posthog"));
-  const distinctId = phCookie?.value ? JSON.parse(phCookie.value).distinct_id : undefined;
+  let distinctId: string | undefined;
+  try {
+    distinctId = phCookie?.value ? JSON.parse(phCookie.value).distinct_id : undefined;
+  } catch {
+    // Ignore malformed PostHog cookie — don't break checkout
+  }
 
   if (distinctId) {
     const posthog = getPostHogClient();
