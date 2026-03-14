@@ -55,27 +55,35 @@ export async function POST(request: NextRequest) {
       // If the customer already exists, treat it as a success
       const alreadyExists = errors.some((e) => e.code === "TAKEN");
       if (alreadyExists) {
-        const posthog = getPostHogClient();
-        posthog.capture({
-          distinctId: email,
-          event: "newsletter_signup",
-          properties: { already_subscribed: true },
-        });
-        await posthog.flush();
+        try {
+          const posthog = getPostHogClient();
+          posthog.capture({
+            distinctId: email,
+            event: "newsletter_signup",
+            properties: { already_subscribed: true },
+          });
+          await posthog.flush();
+        } catch {
+          // Don't let analytics errors affect the user response
+        }
         return NextResponse.json({ success: true, alreadySubscribed: true });
       }
 
       return NextResponse.json({ error: errors[0].message }, { status: 400 });
     }
 
-    const posthog = getPostHogClient();
-    posthog.capture({
-      distinctId: email,
-      event: "newsletter_signup",
-      properties: { already_subscribed: false },
-    });
-    posthog.identify({ distinctId: email, properties: { email } });
-    await posthog.flush();
+    try {
+      const posthog = getPostHogClient();
+      posthog.capture({
+        distinctId: email,
+        event: "newsletter_signup",
+        properties: { already_subscribed: false },
+      });
+      posthog.identify({ distinctId: email, properties: { email } });
+      await posthog.flush();
+    } catch {
+      // Don't let analytics errors affect the user response
+    }
 
     return NextResponse.json({ success: true });
   } catch {

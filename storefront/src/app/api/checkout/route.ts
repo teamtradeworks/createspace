@@ -69,16 +69,20 @@ export async function POST(request: NextRequest) {
   }
 
   if (distinctId) {
-    const posthog = getPostHogClient();
-    posthog.capture({
-      distinctId,
-      event: "checkout_created",
-      properties: {
-        item_count: lines.length,
-        line_items: lines,
-      },
-    });
-    await posthog.flush();
+    try {
+      const posthog = getPostHogClient();
+      posthog.capture({
+        distinctId,
+        event: "checkout_created",
+        properties: {
+          item_count: lines.length,
+          line_items: lines,
+        },
+      });
+      await posthog.flush();
+    } catch {
+      // Don't let analytics errors break checkout
+    }
   }
 
   return NextResponse.json({ checkoutUrl: data.cartCreate.cart.checkoutUrl });
