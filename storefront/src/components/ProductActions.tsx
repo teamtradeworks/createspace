@@ -48,23 +48,25 @@ export default function ProductActions({
   };
 
   const toggleAddon = (addonHandle: string) => {
+    const isAdding = !selectedAddons.has(addonHandle);
+    const addon = addons.find((a) => a.handle === addonHandle);
+
     setSelectedAddons((prev) => {
       const newSet = new Set(prev);
-      const isAdding = !newSet.has(addonHandle);
       if (isAdding) {
         newSet.add(addonHandle);
       } else {
         newSet.delete(addonHandle);
       }
-      const addon = addons.find((a) => a.handle === addonHandle);
-      posthog.capture("addon_selected", {
-        product_handle: handle,
-        product_title: title,
-        addon_handle: addonHandle,
-        addon_title: addon?.title,
-        addon_action: isAdding ? "added" : "removed",
-      });
       return newSet;
+    });
+
+    posthog.capture("addon_selected", {
+      product_handle: handle,
+      product_title: title,
+      addon_handle: addonHandle,
+      addon_title: addon?.title,
+      addon_action: isAdding ? "added" : "removed",
     });
   };
 

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { shopifyFetch } from "@/lib/shopify";
 import { getPostHogClient } from "@/lib/posthog-server";
 
@@ -58,15 +59,21 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const posthog = getPostHogClient();
-  posthog.capture({
-    distinctId: "server",
-    event: "checkout_created",
-    properties: {
-      item_count: lines.length,
-      line_items: lines,
-    },
-  });
+  const cookieStore = await cookies();
+  const phCookie = cookieStore.getAll().find((c) => c.name.startsWith("ph_") && c.name.endsWith("_posthog"));
+  const distinctId = phCookie?.value ? JSON.parse(phCookie.value).distinct_id : undefined;
+
+  if (distinctId) {
+    const posthog = getPostHogClient();
+    posthog.capture({
+      distinctId,
+      event: "checkout_created",
+      properties: {
+        item_count: lines.length,
+        line_items: lines,
+      },
+    });
+  }
 
   return NextResponse.json({ checkoutUrl: data.cartCreate.cart.checkoutUrl });
 }
