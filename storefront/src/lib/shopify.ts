@@ -66,6 +66,7 @@ export type Product = {
       node: {
         id: string;
         title: string;
+        sku: string | null;
         price: {
           amount: string;
           currencyCode: string;
@@ -123,6 +124,7 @@ const PRODUCTS_QUERY = `
               node {
                 id
                 title
+                sku
                 price {
                   amount
                   currencyCode
@@ -180,6 +182,7 @@ const PRODUCTS_BY_TAG_QUERY = `
               node {
                 id
                 title
+                sku
                 price {
                   amount
                   currencyCode
@@ -246,6 +249,7 @@ const COLLECTION_PRODUCTS_QUERY = `
                 node {
                   id
                   title
+                  sku
                   price {
                     amount
                     currencyCode
@@ -400,6 +404,7 @@ export type ProductDetail = {
       node: {
         id: string;
         title: string;
+        sku: string | null;
         availableForSale: boolean;
         currentlyNotInStock: boolean;
         price: {
@@ -470,6 +475,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
           node {
             id
             title
+            sku
             availableForSale
             currentlyNotInStock
             price {

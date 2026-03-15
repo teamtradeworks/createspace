@@ -49,6 +49,7 @@ export default function QuickAddButton({
           product_title: title,
           product_price: price,
           currency_code: currencyCode,
+          $value: price,
         });
         setAdded(true);
         if (timerRef.current) clearTimeout(timerRef.current);

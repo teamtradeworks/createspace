@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import posthog from "posthog-js";
 
 const ageGroups = [
   {
@@ -45,6 +48,16 @@ export default function AgeGroups() {
             <Link
               key={group.range}
               href={group.href}
+              onClick={() => {
+                const eventMap: Record<string, string> = {
+                  "3-5": "home_page_3to5_clicked",
+                  "6-8": "home_page_6to8_clicked",
+                  "9-12": "home_page_9to12_clicked",
+                  "13+": "home_page_13plus_clicked",
+                };
+                const event = eventMap[group.range];
+                if (event) posthog.capture(event);
+              }}
               className={`${group.color} rounded-xl p-6 text-white hover:scale-105 transition-transform relative overflow-hidden group`}
             >
               {/* Background pattern */}

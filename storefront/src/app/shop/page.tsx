@@ -2,6 +2,7 @@ import { getProducts } from "@/lib/shopify";
 import Link from "next/link";
 import { Metadata } from "next";
 import ShopGallery from "@/components/ShopGallery";
+import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
   title: "Shop | CREATESPACE",
@@ -22,6 +23,7 @@ export default async function ShopPage({ searchParams }: Props) {
 
   return (
     <main className="min-h-screen bg-gray-50">
+      <PageViewTracker event="shop_all_viewed" />
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">

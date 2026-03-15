@@ -126,6 +126,7 @@ export default function ProductActions({
       digital: digital ?? false,
       addon_count: selectedAddonsData.length,
       addon_handles: selectedAddonsData.map((a) => a.handle),
+      $value: price * quantity,
     });
 
     // Show success state briefly
@@ -189,6 +190,7 @@ export default function ProductActions({
       digital: digital ?? false,
       addon_count: selectedAddonsData.length,
       addon_handles: selectedAddonsData.map((a) => a.handle),
+      $value: price * quantity,
     });
 
     // Redirect to cart/checkout

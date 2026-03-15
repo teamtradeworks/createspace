@@ -12,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 import EmailPopup from "@/components/EmailPopup";
+import PostHogPageview from "@/components/PostHogPageview";
 import ClarityAnalytics from "@/components/ClarityAnalytics";
 
 const outfit = localFont({
@@ -78,6 +79,9 @@ export default function RootLayout({
           </Suspense>
           <main>{children}</main>
           <Footer />
+          <Suspense fallback={null}>
+            <PostHogPageview />
+          </Suspense>
           <EmailPopup />
           <SpeedInsights />
           <Analytics />

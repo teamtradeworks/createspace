@@ -6,6 +6,8 @@ import { StarRating } from "@/components/StarRating";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
 import ProductJsonLd from "@/components/ProductJsonLd";
+import ProductViewTracker from "@/components/ProductViewTracker";
+import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import { DELIVERY_CONFIG } from "@/config/delivery";
 import { ProductReviews } from "@/components/product-sections";
 
@@ -37,6 +39,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <>
       <ProductJsonLd product={product} />
+      <ProductViewTracker
+        handle={product.handle}
+        title={product.title}
+        sku={product.variants.edges[0]?.node.sku || undefined}
+        price={parseFloat(price.amount)}
+        currencyCode={price.currencyCode}
+        vendor={product.vendor || undefined}
+      />
+      <ScrollDepthTracker event="product_page_scroll_depth" />
 
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">

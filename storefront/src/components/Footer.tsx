@@ -2,14 +2,15 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import posthog from "posthog-js";
 
 const footerLinks = {
   shop: [
-    { name: "All Products", href: "/shop" },
-    { name: "Ages 3-5", href: "/shop?age=3-5" },
-    { name: "Ages 6-8", href: "/shop?age=6-8" },
-    { name: "Ages 9-12", href: "/shop?age=9-12" },
-    { name: "Ages 13+", href: "/shop?age=13%2B" },
+    { name: "All Products", href: "/shop", event: "footer_shopall_clicked" },
+    { name: "Ages 3-5", href: "/shop?age=3-5", event: "footer_3to5_clicked" },
+    { name: "Ages 6-8", href: "/shop?age=6-8", event: "footer_6to8_clicked" },
+    { name: "Ages 9-12", href: "/shop?age=9-12", event: "footer_9to12_clicked" },
+    { name: "Ages 13+", href: "/shop?age=13%2B", event: "footer_13plus_clicked" },
   ],
   education: [
     { name: "Overview", href: "/education" },
@@ -99,6 +100,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    onClick={() => posthog.capture(link.event)}
                     className="text-white/70 hover:text-cs-orange transition-colors text-sm"
                   >
                     {link.name}

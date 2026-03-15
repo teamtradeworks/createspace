@@ -1,6 +1,7 @@
 import { searchProducts } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import SearchInput from "@/components/SearchInput";
+import SearchResultsTracker from "@/components/SearchResultsTracker";
 import Link from "next/link";
 
 export const metadata = {
@@ -31,6 +32,7 @@ export default async function SearchPage({
         {/* Results */}
         {query ? (
           <>
+            <SearchResultsTracker query={query} resultCount={products.length} />
             <p className="text-sm text-gray-500 mb-6">
               {products.length} result{products.length !== 1 ? "s" : ""} for
               &ldquo;{query}&rdquo;
@@ -38,8 +40,8 @@ export default async function SearchPage({
 
             {products.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-                {products.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                {products.map((product, index) => (
+                  <ProductCard key={product.id} product={product} searchQuery={query} searchPosition={index + 1} />
                 ))}
               </div>
             ) : (
