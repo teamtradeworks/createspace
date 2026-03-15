@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import posthog from "posthog-js";
 import { Product, formatPrice, formatAgeRange, getProductRating } from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
@@ -8,9 +9,11 @@ import { StarRating } from "@/components/StarRating";
 
 type ProductCardProps = {
   product: Product;
+  searchQuery?: string;
+  searchPosition?: number;
 };
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, searchQuery, searchPosition }: ProductCardProps) {
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const price = product.priceRange.minVariantPrice;
@@ -18,6 +21,16 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/product/${product.handle}`}
+      onClick={() => {
+        if (searchQuery) {
+          posthog.capture("search_result_clicked", {
+            query: searchQuery,
+            product_handle: product.handle,
+            product_title: product.title,
+            position: searchPosition,
+          });
+        }
+      }}
       className="group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
     >
       <div className="bg-gray-50 aspect-square relative overflow-hidden">

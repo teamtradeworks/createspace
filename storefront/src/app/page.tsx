@@ -9,6 +9,7 @@ import AgeGroups from "@/components/AgeGroups";
 import TrustBadges from "@/components/TrustBadges";
 import EducationSection from "@/components/EducationSection";
 import HeroCarousel from "@/components/HeroCarousel";
+import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 
 export const metadata: Metadata = {
   title: "CREATESPACE | STEM Toys & Educational Kits for Kids in South Africa",
@@ -54,6 +55,8 @@ async function FeaturedProductsLoader() {
 export default function Home() {
   return (
     <>
+      <ScrollDepthTracker event="home_page_scroll_depth" />
+
       {/* Hero Carousel - Renders immediately, no data dependency */}
       <HeroCarousel />
 

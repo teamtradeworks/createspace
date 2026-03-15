@@ -79,7 +79,13 @@ export async function POST(request: NextRequest) {
         event: "newsletter_signup",
         properties: { already_subscribed: false },
       });
-      posthog.identify({ distinctId: email, properties: { email } });
+      posthog.identify({
+        distinctId: email,
+        properties: {
+          email,
+          newsletter_subscriber: true,
+        },
+      });
       await posthog.flush();
     } catch {
       // Don't let analytics errors affect the user response

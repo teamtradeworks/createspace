@@ -3,6 +3,8 @@ import { ProductDetail, formatPrice, getProductRating, getStockStatus } from "@/
 import siteConfig from "@/config/site.json";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
+import ProductViewTracker from "@/components/ProductViewTracker";
+import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import { DELIVERY_CONFIG } from "@/config/delivery";
 import { SerializedAddon } from "@/lib/product-addons";
 import { StarRating } from "@/components/StarRating";
@@ -49,6 +51,16 @@ export function HeroSection({
 
   return (
     <>
+      <ProductViewTracker
+        handle={product.handle}
+        title={product.title}
+        sku={product.variants.edges[0]?.node.sku || undefined}
+        price={parseFloat(price.amount)}
+        currencyCode={price.currencyCode}
+        vendor={product.vendor || undefined}
+      />
+      <ScrollDepthTracker event="product_page_scroll_depth" />
+
       {/* Breadcrumb */}
       <BreadcrumbJsonLd
         items={[

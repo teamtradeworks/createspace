@@ -36,6 +36,7 @@ export default function CartPage() {
       currency_code: currencyCode,
       qualifies_for_free_delivery: qualifiesForFreeDelivery(subtotal),
       product_handles: available.map((item) => item.handle),
+      $value: subtotal,
     });
 
     setIsCheckingOut(true);

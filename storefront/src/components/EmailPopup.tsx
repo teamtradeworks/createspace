@@ -141,6 +141,10 @@ export default function EmailPopup() {
 
       setStatus("success");
       suppressForever();
+      posthog.identify(email.trim(), {
+        email: email.trim(),
+        newsletter_subscriber: true,
+      });
       posthog.capture("newsletter_subscribed", { source: "email_popup" });
     } catch {
       setStatus("error");

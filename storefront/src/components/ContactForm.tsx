@@ -49,6 +49,17 @@ export default function ContactForm() {
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       posthog.capture("contact_form_submitted", { subject: formData.subject });
+      if (formData.email) {
+        posthog.identify(formData.email, {
+          email: formData.email,
+          name: formData.name,
+        });
+      }
+      if (formData.subject === "School / Bulk Order") {
+        posthog.group("enquiry_type", "school", {
+          source: "contact_form",
+        });
+      }
       setIsSubmitted(true);
       setFormData({
         name: "",
