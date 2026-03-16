@@ -151,6 +151,20 @@
       "discountPercent": 0,
       "description": "Expand your Tale-Bot Pro with 10 new themed maps, 42 coding challenges, and 98 interactive stickers.",
       "viewProductLink": true
+    },
+    {
+      "parentHandle": "bbc-micro-bit-club",
+      "addonHandle": "micro-bit-wearable-x-10",
+      "discountPercent": 0,
+      "description": "Extend your club's learning with 10 wearable micro:bit kits — perfect for hands-on wearable tech projects.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "micro-bit-wearable-x-10",
+      "addonHandle": "bbc-micro-bit-club",
+      "discountPercent": 0,
+      "description": "Pair your wearable kits with the BBC micro:bit Club pack — everything you need to run a full coding club.",
+      "viewProductLink": true
     }
   ]
 }
