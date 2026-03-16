@@ -95,7 +95,7 @@ export default async function AIVisionKitPage() {
         image="/images/products/matatastudio-ai-vision-kit-for-vincibot/seven-visual-functions.png"
         imageAlt="MatataStudio AI Vision Kit showing all seven visual functions including face recognition and colour tracking"
         title="Seven Ways to See the World"
-        body="The AI Vision Kit comes pre-loaded with seven computer vision capabilities your child can use immediately: face and cat face recognition, image classification, colour tracking, colour block detection, AprilTag marker reading, and handwriting recognition (0–9). Each function is a hands-on window into how real AI systems work — from the face unlock on your phone to the object detection in self-driving cars. Combine multiple functions in a single programme and something exciting happens: your child isn't just using AI anymore — they're thinking like an AI engineer."
+        body="The AI Vision Kit comes pre-loaded with seven computer vision capabilities your child can use immediately: face recognition and tracking, image classification, visual line following, colour recognition and tracking, colour block detection, AprilTag marker recognition, and handwriting recognition (0–9). Each function is a hands-on window into how real AI systems work — from the face unlock on your phone to the object detection in self-driving cars. Combine multiple functions in a single programme and something exciting happens: your child isn't just using AI anymore — they're thinking like an AI engineer."
         layout="image-left"
         background="white"
       />
@@ -122,7 +122,7 @@ export default async function AIVisionKitPage() {
           {
             question: "What's different from what VinciBot can already do?",
             answer:
-              "VinciBot's built-in AI uses TinyML for gesture and letter recognition via its existing sensors. The AI Vision Kit adds a dedicated flip camera module, a programmable LCD screen, and seven additional computer vision functions — including face tracking, colour detection, image classification, AprilTag reading, and custom model training. It's a significant upgrade in what VinciBot can perceive and respond to.",
+              "VinciBot's built-in AI uses TinyML for gesture and letter recognition via its existing sensors. The AI Vision Kit adds a dedicated flip camera module, a programmable LCD screen, and seven new computer vision functions — face recognition, image classification, line following, colour tracking, colour block detection, AprilTag recognition, and handwriting recognition. It's a significant upgrade in what VinciBot can perceive and respond to.",
           },
           {
             question: "What new projects will my child be able to build?",
