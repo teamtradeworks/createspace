@@ -165,6 +165,20 @@
       "discountPercent": 0,
       "description": "Take your VinciBot further with AI vision — face recognition, colour tracking, and custom model training.",
       "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-vincibot-coding-robot-set",
+      "addonHandle": "matatastudio-creator-kit-for-vincibot",
+      "discountPercent": 0,
+      "description": "Expand VinciBot with 434+ building blocks, a DC motor, and 20 guided engineering builds. Build crankshafts, cams, and motorised machines.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-creator-kit-for-vincibot",
+      "addonHandle": "matatastudio-vincibot-coding-robot-set",
+      "discountPercent": 0,
+      "description": "The Creator Kit requires a VinciBot robot to function. Add one here so you have everything you need.",
+      "viewProductLink": true
     }
   ]
 }
