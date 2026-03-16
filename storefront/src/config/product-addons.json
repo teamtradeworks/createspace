@@ -165,6 +165,20 @@
       "discountPercent": 0,
       "description": "The Creator Kit requires a VinciBot robot to function. Add one here so you have everything you need.",
       "viewProductLink": true
+    },
+    {
+      "parentHandle": "bbc-micro-bit-club",
+      "addonHandle": "micro-bit-wearable-x-10",
+      "discountPercent": 0,
+      "description": "Extend your club's learning with 10 wearable micro:bit kits — perfect for hands-on wearable tech projects.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "micro-bit-wearable-x-10",
+      "addonHandle": "bbc-micro-bit-club",
+      "discountPercent": 0,
+      "description": "Pair your wearable kits with the BBC micro:bit Club pack — everything you need to run a full coding club.",
+      "viewProductLink": true
     }
   ]
 }
