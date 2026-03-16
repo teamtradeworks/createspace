@@ -306,7 +306,7 @@ export default function ContactPage() {
           </p>
           <div className="flex justify-center gap-4">
             <a
-              href="https://instagram.com/createspace_sa"
+              href="https://www.instagram.com/thecreatespace.za/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-cs-orange hover:shadow-md transition-all"
@@ -317,7 +317,7 @@ export default function ContactPage() {
               </svg>
             </a>
             <a
-              href="https://facebook.com/createspacesa"
+              href="https://www.facebook.com/thecreatespace.za/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-cs-orange hover:shadow-md transition-all"
