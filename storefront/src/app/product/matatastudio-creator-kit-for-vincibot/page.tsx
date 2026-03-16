@@ -9,6 +9,7 @@ import {
   NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
+  VideoEmbed,
   WhatsIncluded,
   ProductFAQ,
   CallToAction,
@@ -90,6 +91,13 @@ export default async function VinciBotCreatorKitPage() {
         title="Code Makes It Move"
         body="This is the moment STEM clicks. Your child writes code in Scratch or Python, presses run — and their physical creation moves. The Smart Fan spins faster when they change the speed variable. The Automatic Sensor Door opens when VinciBot's sensor detects movement. The Mechanical Claw grips and releases on command. The Creator Kit transforms abstract coding exercises into tangible, cause-and-effect engineering. That's not just fun — it's the same feedback loop that professional robotics engineers experience every day."
         layout="image-left"
+        background="white"
+      />
+
+      {/* Video */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=_p1H77Oyp_s"
+        title="VinciBot Creator Kit in Action"
         background="white"
       />
 
