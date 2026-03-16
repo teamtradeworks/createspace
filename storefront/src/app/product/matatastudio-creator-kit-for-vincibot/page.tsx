@@ -98,7 +98,7 @@ export default async function VinciBotCreatorKitPage() {
       <VideoEmbed
         url="https://www.youtube.com/watch?v=_p1H77Oyp_s"
         title="VinciBot Creator Kit in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Feature Grid — key build themes */}
