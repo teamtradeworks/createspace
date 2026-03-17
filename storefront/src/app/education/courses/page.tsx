@@ -1,5 +1,5 @@
-import { getCollectionProducts } from "@/lib/shopify";
-import ProductCard from "@/components/ProductCard";
+import { getProductByHandle } from "@/lib/shopify";
+import BundleComparison from "@/components/BundleComparison";
 import Link from "next/link";
 import { Metadata } from "next";
 
@@ -96,58 +96,23 @@ const benefits = [
 ];
 
 export default async function CoursesPage() {
-  const { products } = await getCollectionProducts("courses");
+  const [foundationProduct, inventionProduct] = await Promise.all([
+    getProductByHandle("how-to-get-started-with-coding-and-robotics"),
+    getProductByHandle("bbc-micro-bit-essential-stem-lab-tinker-kit-bundle"),
+  ]);
+
+  const foundationPrice =
+    foundationProduct?.variants.edges[0]?.node.price.amount ?? null;
+  const inventionPrice =
+    inventionProduct?.variants.edges[0]?.node.price.amount ?? null;
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-navy text-white py-20 relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <Link
-              href="/education"
-              className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
-            >
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Education
-            </Link>
-            <span className="text-cs-green font-medium text-sm uppercase tracking-wider">
-              Online Learning
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
-              STEM Short Courses
-            </h1>
-            <p className="text-xl text-white/80 max-w-xl mb-8">
-              Online STEM courses hosted on our partner Inspire Africa&apos;s
-              learning platform. Purchase a course and receive a QR code for
-              instant access.
-            </p>
-            <a
-              href="#courses"
-              className="inline-flex items-center px-8 py-4 bg-cs-green hover:bg-cs-green/90 text-navy rounded-lg font-semibold transition-colors"
-            >
-              Browse Courses
-            </a>
-          </div>
-        </div>
-        {/* Decorative elements */}
-        <div className="hidden lg:block absolute right-20 top-1/2 -translate-y-1/2">
-          <div className="w-64 h-64 border-2 border-cs-green/30 rounded-full" />
-          <div className="w-48 h-48 border-2 border-cs-green/20 rounded-full absolute top-8 left-8" />
-        </div>
-      </section>
+      {/* Bundle Comparison */}
+      <BundleComparison
+        foundationPrice={foundationPrice}
+        inventionPrice={inventionPrice}
+      />
 
       {/* Benefits */}
       <section className="py-20 bg-gray-50">
@@ -177,114 +142,6 @@ export default async function CoursesPage() {
                 <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Products Grid */}
-      <section id="courses" className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-cs-green font-medium text-sm uppercase tracking-wider">
-              Available Courses
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              Short Courses
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Browse our range of STEM short courses. Each purchase includes a QR
-              code for access to the Inspire Africa learning platform.
-            </p>
-          </div>
-
-          {products.length > 0 ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600">
-                Courses are coming soon. Contact us for more information.
-              </p>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Course Bundles */}
-      <section className="py-20 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="text-cs-green font-medium text-sm uppercase tracking-wider">
-              Bundles
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              Courses + Hardware
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Get the courses and the hardware together in one bundle — everything
-              you need to start teaching Coding and Robotics.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <Link
-              href="/product/how-to-get-started-with-coding-and-robotics"
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow group border border-gray-100"
-            >
-              <span className="text-xs font-medium text-cs-green uppercase tracking-wider">
-                Foundation
-              </span>
-              <h3 className="text-xl font-semibold text-navy mt-2 mb-3 group-hover:text-cs-blue transition-colors">
-                Foundation Phase Education Bundle
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                3 Inspire Africa courses plus a BBC micro:bit Go. Covers
-                curriculum understanding, unplugged STEAM, and hands-on micro:bit
-                coding.
-              </p>
-              <ul className="text-xs text-gray-500 space-y-1">
-                <li>3 online courses</li>
-                <li>BBC micro:bit Go included</li>
-                <li>SACE-accredited CPD points</li>
-              </ul>
-              <span className="inline-flex items-center text-sm font-semibold text-cs-blue mt-4 group-hover:translate-x-1 transition-transform">
-                View Bundle
-                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </Link>
-
-            <Link
-              href="/product/bbc-micro-bit-essential-stem-lab-tinker-kit-bundle"
-              className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow group border-2 border-cs-green"
-            >
-              <span className="text-xs font-medium text-cs-green uppercase tracking-wider">
-                Invention
-              </span>
-              <h3 className="text-xl font-semibold text-navy mt-2 mb-3 group-hover:text-cs-blue transition-colors">
-                The Invention Phase Education Bundle (incl. Foundation Phase)
-              </h3>
-              <p className="text-gray-600 text-sm mb-4">
-                Includes CREATESPACE micro:bit Foundation Course (Getting Started,
-                Intro to STEAM, and Micro:bit Level 1). Includes Specialist Course:
-                Essential STEAM Lab (using the Elecfreaks Tinker Kit).
-              </p>
-              <ul className="text-xs text-gray-500 space-y-1">
-                <li>4 online courses (includes Essential STEAM Lab Kit Training)</li>
-                <li>BBC micro:bit Go + ELECFREAKS Tinker Kit included</li>
-                <li>SACE-accredited CPD points</li>
-              </ul>
-              <span className="inline-flex items-center text-sm font-semibold text-cs-blue mt-4 group-hover:translate-x-1 transition-transform">
-                View Bundle
-                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            </Link>
           </div>
         </div>
       </section>
