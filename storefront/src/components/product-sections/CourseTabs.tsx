@@ -30,16 +30,16 @@ export function CourseTabs({ tabs }: CourseTabsProps) {
         </h2>
 
         {/* Tab navigation */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex rounded-full bg-gray-100 p-1 gap-1">
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex rounded-full bg-gray-100 p-1.5 gap-1 shadow-sm border border-gray-200">
             {tabs.map((tab, index) => (
               <button
                 key={index}
                 onClick={() => setActiveTab(index)}
-                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+                className={`px-6 py-3 rounded-full text-sm font-bold transition-all duration-200 whitespace-nowrap ${
                   activeTab === index
-                    ? "bg-navy text-white shadow-md"
-                    : "text-navy/70 hover:text-navy hover:bg-gray-200"
+                    ? "bg-navy text-white shadow-lg scale-105"
+                    : "text-navy hover:text-navy hover:bg-white"
                 }`}
               >
                 {tab.label}
