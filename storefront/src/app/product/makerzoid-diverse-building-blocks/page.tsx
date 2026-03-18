@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  VideoEmbed,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-diverse-building-blocks";
@@ -72,6 +73,13 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
           },
         ]}
         background="navy-card"
+      />
+
+      {/* Video */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=sCKREXeJqg8"
+        title="See the Makerzoid Diverse Building Blocks in Action"
+        background="gray"
       />
 
       {/* Lifestyle: close-up build */}
