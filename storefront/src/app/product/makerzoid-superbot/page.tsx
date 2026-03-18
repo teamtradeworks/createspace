@@ -210,36 +210,28 @@ export default async function MakerzoidSuperbotPage() {
         subtitle="Real builds from families who've set theirs loose around the house."
         images={[
           {
-            src: "/images/products/makerzoid-superbot/boy-smiling-at-camera-with-tablet-and-robot-build-in-front-of-him.jpg",
-            alt: "Boy smiling at camera with his Makerzoid Superbot build and tablet in front of him",
+            src: "/images/products/makerzoid-superbot/car-built-with-pieces-around-it.jpg",
+            alt: "Makerzoid Superbot orange racing car model built with spare bricks scattered around it",
           },
           {
-            src: "/images/products/makerzoid-superbot/hands-holding-phone-with-app-and-robot-in-front.jpg",
-            alt: "Hands holding a phone with the Makerzoid app open, robot build in the foreground",
+            src: "/images/products/makerzoid-superbot/child-building-blocks-with-tablet.jpg",
+            alt: "Child building with Makerzoid Superbot bricks with a tablet showing instructions nearby",
           },
           {
-            src: "/images/products/makerzoid-superbot/robot-following-line.jpg",
-            alt: "Makerzoid Superbot robot following a line on the floor",
+            src: "/images/products/makerzoid-superbot/hands-holding-phone-with-app-and-robot-in-front.png",
+            alt: "Hands holding a phone with the Makerzoid app open, a built robot in the foreground",
           },
           {
-            src: "/images/products/makerzoid-superbot/boy-with-superbot-kit-infront-of-him.jpg",
-            alt: "Young boy with the Makerzoid Superbot kit laid out in front of him",
-          },
-          {
-            src: "/images/products/makerzoid-superbot/superbot-box-standing-on-table.jpg",
-            alt: "Makerzoid Superbot box standing upright on a table",
-          },
-          {
-            src: "/images/products/makerzoid-superbot/all-parts-packaged-in-box.jpeg",
-            alt: "All Makerzoid Superbot parts neatly packaged inside the storage box",
+            src: "/images/products/makerzoid-superbot/child-reaching-into-box-with-block-parts.jpg",
+            alt: "Child's hands reaching into the Makerzoid Superbot storage box to pick out building pieces",
           },
           {
             src: "/images/products/makerzoid-superbot/built-forklift-robot.jpg",
-            alt: "Makerzoid Superbot built as a forklift robot",
+            alt: "Makerzoid Superbot forklift robot build resting on a stone surface",
           },
           {
-            src: "/images/products/makerzoid-superbot/car-built-with-pieces-around-it.jpg",
-            alt: "Makerzoid Superbot car model built with spare pieces laid out around it",
+            src: "/images/products/makerzoid-superbot/person-flipping-through-the-booklet-manual-instructions.jpg",
+            alt: "Person flipping through the Makerzoid Superbot booklet build instructions",
           },
         ]}
         background="white"
