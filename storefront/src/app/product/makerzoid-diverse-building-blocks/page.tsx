@@ -89,10 +89,8 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
         title="Skills Developed"
         tags={[
           "Mechanical Engineering",
-          "Science",
           "Mathematics",
           "Problem Solving",
-          "Fine Motor Skills",
           "Creativity",
         ]}
         background="gray"
