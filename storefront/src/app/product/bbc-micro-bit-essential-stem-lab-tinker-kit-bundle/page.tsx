@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  FeatureGrid,
   ProductFAQ,
   CallToAction,
   CourseTabs,
@@ -30,12 +29,11 @@ export default async function MicrobitEssentialStemLabBundlePage() {
 
       <HeroSection
         product={product}
-        tagline="Master sensor-driven robotics with the BBC micro:bit and Elecfreaks Tinker Kit. Includes all hardware plus CAPS-aligned specialist training to turn coding into innovation. (Prerequisite: Micro:bit Level 1)"
+        tagline="Four CAPS-aligned specialist courses that take you from curriculum understanding to delivering sensor-driven Coding and Robotics lessons with confidence."
         highlights={[
           "4 Inspire Africa courses included",
-          "BBC micro:bit Go hardware included",
-          "ELECFREAKS Tinker Kit with 13 sensors included",
           "SACE-accredited professional development",
+          "Covers Grade R through Grade 9",
           "No prior STEM experience required",
         ]}
         addons={addons}
@@ -61,69 +59,18 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         ]}
       />
 
-      <section className="py-10 bg-white">
+      <section className="py-5 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-semibold text-navy mb-4">
-            Requirements
-          </h2>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+          <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-sm text-gray-400">
+            <span className="font-medium text-gray-500">Requirements:</span>
             <span>Internet Access</span>
-            <span className="text-gray-300">|</span>
+            <span>·</span>
             <span>Computer or Tablet</span>
-            <span className="text-gray-300">|</span>
-            <span>USB Port (cable included)</span>
-            <span className="text-gray-300">|</span>
-            <span>2 x AAA Batteries</span>
-            <span className="text-gray-300">|</span>
+            <span>·</span>
             <span>A Willingness to Learn</span>
           </div>
         </div>
       </section>
-
-      <FeatureGrid
-        title="What's in This Bundle"
-        subtitle="Four professional development courses, a BBC micro:bit Go, and a full ELECFREAKS Tinker Kit — everything you need to upskill, plan, and deliver hands-on Coding and Robotics lessons."
-        features={[
-          {
-            icon: "lightbulb",
-            title: "Course: How to Get Started with Coding and Robotics",
-            description:
-              "A SACE-accredited overview that demystifies the Coding and Robotics curriculum, walks you through implementation planning, and gives you a clear roadmap from Grade R to Grade 9.",
-          },
-          {
-            icon: "puzzle",
-            title: "Course: Introduction to STEAM, Coding & Robotics",
-            description:
-              "A screen-free, unplugged approach to early STEAM — ideal for pre-school and Foundation Phase classrooms where devices aren't available or age-appropriate.",
-          },
-          {
-            icon: "code",
-            title: "Course: Micro:bit Level 1",
-            description:
-              "Your first hands-on coding experience. Go from unboxing to writing intermediate MakeCode programmes in under two hours, with a lesson plan and worksheets included.",
-          },
-          {
-            icon: "sensor",
-            title: "Course: Essential STEAM Lab Kit Training",
-            description:
-              "Take your micro:bit skills further with sensor-driven robotics lessons. Learn to integrate external sensors from the Tinker Kit into CAPS-aligned classroom projects that emphasise creativity and real-world problem solving.",
-          },
-          {
-            icon: "robot",
-            title: "BBC micro:bit Go Kit",
-            description:
-              "A physical BBC micro:bit v2 board with USB cable and battery pack, ready to use out of the box. Includes LED display, buttons, sensors, speaker, microphone, and Bluetooth.",
-          },
-          {
-            icon: "tools",
-            title: "ELECFREAKS micro:bit Tinker Kit",
-            description:
-              "13 plug-and-play sensor modules including a PIR motion sensor, soil moisture probe, servo motor, buzzer, OLED display, and more — all connecting to the included Octopus:bit breakout board.",
-          },
-        ]}
-        columns={2}
-        background="navy"
-      />
 
       <CourseTabs
         tabs={[
@@ -250,19 +197,19 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
             Whether you&apos;re just getting started or ready to run a full
             STEAM lab, this bundle takes you from beginner to confident —
-            with the hardware and training to match.
+            with the training to match.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 title: "Educators Ready to Go Further",
                 description:
-                  "You've completed the basics and want the hardware and training to deliver hands-on, sensor-driven Coding and Robotics lessons.",
+                  "You've completed the basics and want the training to deliver hands-on, sensor-driven Coding and Robotics lessons.",
               },
               {
                 title: "Schools Setting Up a STEAM Lab",
                 description:
-                  "Get the courses, micro:bit, and full electronics kit to equip your first STEAM lab — all in one purchase.",
+                  "Get the courses to equip your first STEAM lab — all in one purchase. Add the hardware as an optional extra.",
               },
               {
                 title: "HODs Rolling Out Coding & Robotics",
@@ -272,7 +219,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Homeschool Educators",
                 description:
-                  "A structured, self-paced programme with real hardware. Deliver engaging STEM lessons at home with 39+ projects to explore.",
+                  "A structured, self-paced programme to deliver engaging STEM lessons at home. Add the hardware when you're ready.",
               },
             ].map((persona, index) => (
               <div
@@ -293,7 +240,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
 
       <CallToAction
         title="Get the Complete Bundle"
-        subtitle="Four courses, one micro:bit, a full electronics lab, and zero guesswork. Everything you need to teach Coding and Robotics with confidence."
+        subtitle="Four courses and zero guesswork. Everything you need to teach Coding and Robotics with confidence."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         background="navy"
@@ -314,9 +261,9 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               "Video lessons, downloadable notes, and quizzes — all self-paced. Start with the curriculum overview and progress to hands-on coding.",
           },
           {
-            title: "Practise on Your micro:bit & Tinker Kit",
+            title: "Practise What You Learn",
             description:
-              "Follow along with the Micro:bit Level 1 and Essential STEAM Lab Kit Training courses using the included hardware.",
+              "Follow along with the Micro:bit Level 1 and Essential STEAM Lab Kit Training courses. Add the hardware as an optional extra when you're ready to go hands-on.",
           },
           {
             title: "Earn Your Certificates",
@@ -324,7 +271,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               "Complete courses and quizzes for professional development certificates — including SACE-accredited CPD points.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       <ProductFAQ
@@ -334,12 +281,12 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get four Inspire Africa courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, Micro:bit Level 1, and Essential STEAM Lab Kit Training — plus a physical BBC micro:bit Go kit and a full ELECFREAKS micro:bit Tinker Kit with 13 sensor modules.",
+              "You get four Inspire Africa courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, Micro:bit Level 1, and Essential STEAM Lab Kit Training. You can also add a BBC micro:bit Go and ELECFREAKS Tinker Kit as optional extras.",
           },
           {
             question: "How do I access the courses?",
             answer:
-              "After purchase, you'll receive a QR code via email that gives you instant access to all four courses on the Inspire Africa learning platform. The BBC micro:bit Go and Tinker Kit will be delivered to your door.",
+              "After purchase, you'll receive a QR code via email that gives you instant access to all four courses on the Inspire Africa learning platform.",
           },
           {
             question: "Do I need any prior STEM or coding knowledge?",
@@ -354,7 +301,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "What's the difference between this and the Coding and Robotics bundle?",
             answer:
-              "The Coding and Robotics bundle includes 3 courses and a BBC micro:bit Go. This bundle adds a fourth course (Essential STEAM Lab Kit Training) and a full ELECFREAKS Tinker Kit — giving you the hardware and training to deliver advanced, sensor-driven robotics lessons.",
+              "The Coding and Robotics bundle includes 3 courses. This bundle adds a fourth course (Essential STEAM Lab Kit Training) — giving you the training to deliver advanced, sensor-driven robotics lessons.",
           },
           {
             question: "Which grades and phases does this cover?",
@@ -372,9 +319,9 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               "It's an advanced course designed for educators who have completed Micro:bit Level 1. It teaches you how to integrate the Tinker Kit's external sensors into interactive, CAPS-aligned classroom projects — moving from basic coding into creative, sensor-driven robotics.",
           },
           {
-            question: "Do I need batteries?",
+            question: "Do I need hardware to complete the courses?",
             answer:
-              "The BBC micro:bit Go includes batteries and a battery holder. The Tinker Kit's battery box requires 2 x AAA batteries which are not included — but you can also power the setup via USB.",
+              "The Micro:bit Level 1 and Essential STEAM Lab Kit Training courses are designed to be used with a BBC micro:bit and ELECFREAKS Tinker Kit. You can add these as optional extras when purchasing.",
           },
           {
             question: "Is this suitable for a whole school or department?",
@@ -386,7 +333,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
 
       <CallToAction
         title="Ready to Run a Full STEAM Lab?"
-        subtitle="Four courses, one micro:bit, 13 sensors, 39+ projects, and zero guesswork. Get everything you need to teach Coding and Robotics — from curriculum understanding to hands-on sensor-driven lessons."
+        subtitle="Four courses and zero guesswork. Get everything you need to teach Coding and Robotics — from curriculum understanding to sensor-driven lessons."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         secondaryLabel="Browse All Courses"
@@ -407,7 +354,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Master sensor-driven robotics with the BBC micro:bit and Elecfreaks Tinker Kit. Includes all hardware plus CAPS-aligned specialist training to turn coding into innovation. (Prerequisite: Micro:bit Level 1)",
+      "Four CAPS-aligned specialist courses that take you from curriculum understanding to delivering sensor-driven Coding and Robotics lessons with confidence.",
     alternates: {
       canonical: "/product/bbc-micro-bit-essential-stem-lab-tinker-kit-bundle",
     },

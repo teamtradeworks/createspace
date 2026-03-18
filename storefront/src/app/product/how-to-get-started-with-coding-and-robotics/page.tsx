@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  FeatureGrid,
   ProductFAQ,
   CallToAction,
   CourseTabs,
@@ -30,11 +29,11 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
 
       <HeroSection
         product={product}
-        tagline="Everything an educator needs to start teaching Coding and Robotics — three professional courses plus a BBC micro:bit, in one bundle"
+        tagline="Everything an educator needs to start teaching Coding and Robotics — three professional courses in one bundle"
         highlights={[
           "3 Inspire Africa micro courses included",
-          "BBC micro:bit Go hardware included",
           "SACE-accredited professional development",
+          "Covers Grade R through Grade 9",
           "No prior STEM experience required",
         ]}
         addons={addons}
@@ -53,55 +52,18 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         ]}
       />
 
-      <section className="py-10 bg-white">
+      <section className="py-5 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-semibold text-navy mb-4">
-            Requirements
-          </h2>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+          <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1 text-sm text-gray-400">
+            <span className="font-medium text-gray-500">Requirements:</span>
             <span>Internet Access</span>
-            <span className="text-gray-300">|</span>
+            <span>·</span>
             <span>Computer or Tablet</span>
-            <span className="text-gray-300">|</span>
-            <span>USB Port (cable included)</span>
-            <span className="text-gray-300">|</span>
+            <span>·</span>
             <span>A Willingness to Learn</span>
           </div>
         </div>
       </section>
-
-      <FeatureGrid
-        title="What's in This Bundle"
-        subtitle="Three professional development courses and a BBC micro:bit Go — everything you need to upskill, plan, and deliver Coding and Robotics lessons with confidence."
-        features={[
-          {
-            icon: "lightbulb",
-            title: "Course: How to Get Started with Coding and Robotics",
-            description:
-              "A SACE-accredited overview that demystifies the Coding and Robotics curriculum, walks you through implementation planning, and gives you a clear roadmap from Grade R to Grade 9.",
-          },
-          {
-            icon: "puzzle",
-            title: "Course: Introduction to STEAM, Coding & Robotics",
-            description:
-              "A screen-free, unplugged approach to early STEAM — ideal for pre-school and Foundation Phase classrooms where devices aren't available or age-appropriate.",
-          },
-          {
-            icon: "code",
-            title: "Course: Micro:bit Level 1",
-            description:
-              "Your first hands-on coding experience. Go from unboxing to writing intermediate MakeCode programmes in under two hours, with a lesson plan and worksheets included.",
-          },
-          {
-            icon: "robot",
-            title: "BBC micro:bit Go Kit",
-            description:
-              "A physical BBC micro:bit v2 board with USB cable and battery pack, ready to use out of the box. Includes LED display, buttons, sensors, speaker, microphone, and Bluetooth — the perfect companion to your Micro:bit Level 1 course.",
-          },
-        ]}
-        columns={2}
-        background="navy"
-      />
 
       <CourseTabs
         tabs={[
@@ -212,7 +174,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               {
                 title: "Homeschool Educators",
                 description:
-                  "A structured, self-paced programme you can deliver at home with real hardware included.",
+                  "A structured, self-paced programme you can deliver at home. Add the hardware when you're ready.",
               },
               {
                 title: "HODs Rolling Out Coding & Robotics",
@@ -243,7 +205,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
 
       <CallToAction
         title="Get Started Today"
-        subtitle="Three courses, one micro:bit, everything you need to teach Coding and Robotics with confidence."
+        subtitle="Three courses and everything you need to teach Coding and Robotics with confidence."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         background="navy"
@@ -264,9 +226,9 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               "Video lessons, downloadable notes, and quizzes — all self-paced.",
           },
           {
-            title: "Practise on Your micro:bit",
+            title: "Practise What You Learn",
             description:
-              "Follow along with the Micro:bit Level 1 course on real hardware.",
+              "Follow along with the Micro:bit Level 1 course. Add the hardware as an optional extra when you're ready to go hands-on.",
           },
           {
             title: "Earn Your Certificates",
@@ -284,12 +246,12 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get three Inspire Africa micro courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, and Micro:bit Level 1 — plus a physical BBC micro:bit Go kit with USB cable and battery pack.",
+              "You get three Inspire Africa micro courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, and Micro:bit Level 1. You can also add a BBC micro:bit Go as an optional extra.",
           },
           {
             question: "How do I access the courses?",
             answer:
-              "After purchase, you'll receive a QR code via email that gives you instant access to all three courses on the Inspire Africa learning platform. The BBC micro:bit Go will be delivered to your door.",
+              "After purchase, you'll receive a QR code via email that gives you instant access to all three courses on the Inspire Africa learning platform.",
           },
           {
             question: "Do I need any prior STEM or coding knowledge?",
@@ -317,16 +279,16 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               "Absolutely. Contact us for group bookings if you'd like to enrol multiple educators. This bundle is ideal for upskilling an entire department or staff team.",
           },
           {
-            question: "Do I need a computer to use the BBC micro:bit?",
+            question: "Do I need hardware to complete the courses?",
             answer:
-              "You'll need a computer or tablet to write and upload code using MakeCode (free, browser-based). Once your code is loaded, the micro:bit runs independently using the included battery pack.",
+              "The Micro:bit Level 1 course is designed to be used with a BBC micro:bit. You can add one as an optional extra when purchasing. The first two courses don't require any hardware.",
           },
         ]}
       />
 
       <CallToAction
         title="Ready to Launch Coding and Robotics?"
-        subtitle="Three courses, one micro:bit, zero guesswork. Get everything you need to start teaching Coding and Robotics at your school — delivered digitally and physically."
+        subtitle="Three courses, zero guesswork. Get everything you need to start teaching Coding and Robotics at your school."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         secondaryLabel="Browse All Courses"
@@ -347,7 +309,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Educator starter bundle: 3 Inspire Africa micro courses covering curriculum, STEAM foundations, and micro:bit coding, plus a BBC micro:bit Go kit. SACE-accredited.",
+      "Educator starter bundle: 3 Inspire Africa micro courses covering curriculum, STEAM foundations, and micro:bit coding. SACE-accredited.",
     alternates: {
       canonical: `/product/${PRODUCT_HANDLE}`,
     },
