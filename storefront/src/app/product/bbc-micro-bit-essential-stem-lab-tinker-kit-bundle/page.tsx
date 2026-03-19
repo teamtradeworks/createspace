@@ -37,10 +37,6 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           "No prior STEM experience required",
         ]}
         addons={addons}
-        defaultSelectedAddons={[
-          "bbc-micro-bit-go",
-          "elecfreaks-micro-bit-tinker-kit",
-        ]}
       />
 
       <QuickInfoBadges
