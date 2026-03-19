@@ -64,35 +64,37 @@ export default function TestimonialCarousel({
         {testimonials.map((testimonial) => (
           <div
             key={testimonial.name}
-            className="flex-none w-[320px] sm:w-[380px] snap-start bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm"
+            className="flex-none w-[320px] sm:w-[380px] snap-start bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm flex flex-col"
           >
             <svg
-              className="w-8 h-8 text-cs-blue mb-4"
+              className="w-8 h-8 text-cs-blue mb-4 shrink-0"
               fill="currentColor"
               viewBox="0 0 24 24"
             >
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
             </svg>
-            <p className="text-white/90 text-sm leading-relaxed mb-6 min-h-[80px]">
+            <p className="text-white/90 text-sm leading-relaxed mb-6 flex-1">
               {testimonial.quote}
             </p>
-            <div className="flex items-center gap-3 mt-auto">
+            <div className="flex items-center gap-3 pt-4 border-t border-white/10">
               {testimonial.logo && (
-                <div className="w-10 h-10 rounded-full overflow-hidden bg-white/10 shrink-0 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 shrink-0 flex items-center justify-center p-1">
                   <Image
                     src={testimonial.logo}
                     alt={`${testimonial.school} logo`}
-                    width={40}
-                    height={40}
+                    width={48}
+                    height={48}
                     className="object-contain"
                   />
                 </div>
               )}
-              <div>
-                <p className="font-semibold text-white text-sm">
+              <div className="min-w-0">
+                <p className="font-semibold text-white text-sm truncate">
                   {testimonial.name}
                 </p>
-                <p className="text-white/50 text-xs">{testimonial.school}</p>
+                <p className="text-white/50 text-xs truncate">
+                  {testimonial.school}
+                </p>
               </div>
             </div>
           </div>

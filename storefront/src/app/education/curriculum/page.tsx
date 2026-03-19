@@ -267,13 +267,6 @@ const testimonials = [
     school: "Wings Discovery Centre",
     logo: `${LOGO_PATH}/wings-discovery-centre.png`,
   },
-  {
-    quote:
-      "I attended just a few meetings, and not necessarily trainings, but this training is super for even the first-time (novice) user.",
-    name: "MK Njamela",
-    school: "Get Ahead College",
-    logo: `${LOGO_PATH}/get-ahead-college.png`,
-  },
 ];
 
 const steps = [
