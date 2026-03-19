@@ -53,31 +53,35 @@ function CourseThumbnail({
   icon,
   dimmed = false,
   highlighted = false,
+  accent = false,
 }: {
   title: string;
   shortTitle: string;
   icon: React.ReactNode;
   dimmed?: boolean;
   highlighted?: boolean;
+  accent?: boolean;
 }) {
   return (
     <div
       className={`relative rounded-lg p-3 text-center transition-all ${
         highlighted
           ? "bg-cs-green/20 border-2 border-cs-green ring-1 ring-cs-green/30"
-          : dimmed
-            ? "bg-white/5 border border-white/10 opacity-60"
-            : "bg-white/10 border border-white/20"
+          : accent
+            ? "bg-cs-blue/15 border border-cs-blue/30"
+            : dimmed
+              ? "bg-white/5 border border-white/10 opacity-60"
+              : "bg-white/10 border border-white/20"
       }`}
       title={title}
     >
       <div
-        className={`mx-auto mb-1.5 ${highlighted ? "text-cs-green" : dimmed ? "text-white/40" : "text-white/70"}`}
+        className={`mx-auto mb-1.5 ${highlighted ? "text-cs-green" : accent ? "text-cs-blue" : dimmed ? "text-white/40" : "text-white/70"}`}
       >
         {icon}
       </div>
       <p
-        className={`text-xs font-medium leading-tight ${highlighted ? "text-cs-green" : dimmed ? "text-white/40" : "text-white/70"}`}
+        className={`text-xs font-medium leading-tight ${highlighted ? "text-cs-green" : accent ? "text-white" : dimmed ? "text-white/40" : "text-white/70"}`}
       >
         {shortTitle}
       </p>
@@ -164,18 +168,21 @@ export default function BundleComparison({
 
               {/* Courses */}
               <div className="mb-8 flex-1">
-                <p className="text-xs text-white/40 uppercase tracking-wider font-medium mb-3">
+                <p className="text-xs text-cs-blue uppercase tracking-wider font-semibold mb-3">
                   3 Courses Included
                 </p>
-                <div className="grid grid-cols-3 gap-2">
-                  {foundationCourses.map((course) => (
-                    <CourseThumbnail
-                      key={course.shortTitle}
-                      title={course.title}
-                      shortTitle={course.shortTitle}
-                      icon={course.icon}
-                    />
-                  ))}
+                <div className="rounded-xl bg-cs-blue/10 border border-cs-blue/25 p-3">
+                  <div className="grid grid-cols-3 gap-2">
+                    {foundationCourses.map((course) => (
+                      <CourseThumbnail
+                        key={course.shortTitle}
+                        title={course.title}
+                        shortTitle={course.shortTitle}
+                        icon={course.icon}
+                        accent
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -216,19 +223,21 @@ export default function BundleComparison({
 
               {/* Foundation base (included) */}
               <div className="mb-4">
-                <p className="text-xs text-white/40 uppercase tracking-wider font-medium mb-3">
+                <p className="text-xs text-cs-purple/60 uppercase tracking-wider font-semibold mb-3">
                   Foundation Phase Included
                 </p>
-                <div className="grid grid-cols-3 gap-2">
-                  {foundationCourses.map((course) => (
-                    <CourseThumbnail
-                      key={course.shortTitle}
-                      title={course.title}
-                      shortTitle={course.shortTitle}
-                      icon={course.icon}
-                      dimmed
-                    />
-                  ))}
+                <div className="rounded-xl bg-cs-purple/5 border border-cs-purple/15 p-3">
+                  <div className="grid grid-cols-3 gap-2">
+                    {foundationCourses.map((course) => (
+                      <CourseThumbnail
+                        key={course.shortTitle}
+                        title={course.title}
+                        shortTitle={course.shortTitle}
+                        icon={course.icon}
+                        dimmed
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -245,16 +254,18 @@ export default function BundleComparison({
 
               {/* Additional course */}
               <div className="mb-8 flex-1">
-                <p className="text-xs text-white/40 uppercase tracking-wider font-medium mb-3">
+                <p className="text-xs text-cs-purple uppercase tracking-wider font-semibold mb-3">
                   Additional Specialist Course
                 </p>
-                <div className="max-w-[8rem]">
-                  <CourseThumbnail
-                    title={essentialCourse.title}
-                    shortTitle={essentialCourse.shortTitle}
-                    icon={essentialCourse.icon}
-                    highlighted
-                  />
+                <div className="rounded-xl bg-cs-purple/10 border border-cs-purple/25 p-3">
+                  <div className="max-w-[8rem]">
+                    <CourseThumbnail
+                      title={essentialCourse.title}
+                      shortTitle={essentialCourse.shortTitle}
+                      icon={essentialCourse.icon}
+                      highlighted
+                    />
+                  </div>
                 </div>
               </div>
 
