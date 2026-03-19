@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Coding & Robotics Curriculum for Teachers | Education | CREATESPACE",
+  title: "Coding & Robotics Curriculum for Schools | Education | CREATESPACE",
   description:
-    "CAPS-aligned coding and robotics curriculum with SACE-accredited teacher training. Grade R–12 lesson plans, video tutorials, and micro:bit robotics — powered by Inspire Africa.",
+    "A complete coding and robotics programme for schools — CAPS-aligned, Grade R–12 lesson plans, SACE-accredited teacher training, and micro:bit robotics. Powered by Inspire Africa.",
   alternates: {
     canonical: "/education/curriculum",
   },
@@ -67,9 +67,9 @@ const curriculumPhases = [
 
 const platformFeatures = [
   {
-    title: "Self-Paced Video Courses",
+    title: "Self-Paced Video Training",
     description:
-      "Short, focused video tutorials that teachers can pause, rewatch, and practise alongside. Learn at your own pace, on your own schedule.",
+      "Teachers train through short, focused video tutorials they can pause, rewatch, and practise alongside — fitting around their existing teaching schedule.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -95,7 +95,7 @@ const platformFeatures = [
   {
     title: "Ready-to-Use Lesson Plans",
     description:
-      "Complete, structured lesson plans with activities, worksheets, and assessments — everything you need to walk into the classroom and teach with confidence.",
+      "Complete, structured lesson plans with activities, worksheets, and assessments. Teachers walk into the classroom ready to deliver — no preparation from scratch.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -115,7 +115,7 @@ const platformFeatures = [
   {
     title: "CAPS-Aligned Curriculum",
     description:
-      "Every lesson, activity, and assessment maps directly to the South African CAPS curriculum. No extra planning needed — it fits straight into your existing timetable.",
+      "Every lesson, activity, and assessment maps directly to the South African CAPS curriculum. It fits straight into your school's existing timetable — no extra planning needed.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -135,7 +135,7 @@ const platformFeatures = [
   {
     title: "SACE-Accredited Certification",
     description:
-      "Teachers earn SACE-accredited professional development points upon completion. Recognised certification that counts towards your CPD requirements.",
+      "Your teachers earn SACE-accredited professional development points upon completion — recognised certification that counts towards their CPD requirements.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -155,7 +155,7 @@ const platformFeatures = [
   {
     title: "Interactive LMS Platform",
     description:
-      "Access everything through the Inspire Campus — a dedicated learning management system with progress tracking, certificates, and a community of educators.",
+      "Your school accesses everything through the Inspire Campus — a dedicated learning management system with progress tracking, certificates, and a community of educators.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -175,7 +175,7 @@ const platformFeatures = [
   {
     title: "No Experience Needed",
     description:
-      "Designed for all skill levels — whether you've never touched a micro:bit or you're already teaching coding. The training meets you where you are.",
+      "Designed for all skill levels — whether your teachers have never touched a micro:bit or are already teaching coding. The training meets them where they are.",
     icon: (
       <svg
         className="w-8 h-8"
@@ -319,17 +319,19 @@ export default function CurriculumPage() {
               In Partnership with Inspire Africa
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
-              Coding &amp; Robotics Curriculum for Teachers
+              Coding &amp; Robotics Curriculum for Schools
             </h1>
             <p className="text-xl text-white/80 max-w-xl mb-4">
-              A complete, CAPS-aligned coding and robotics programme from Grade
-              R to 12. Online teacher training, ready-to-use lesson plans, and
-              SACE-accredited certification — everything your school needs to
-              teach coding and robotics independently.
+              A complete, CAPS-aligned coding and robotics programme for your
+              school — from Grade R to 12. Includes online teacher training,
+              ready-to-use lesson plans, and SACE-accredited certification.
+              Everything your school needs to deliver coding and robotics
+              independently.
             </p>
             <p className="text-white/60 mb-8">
-              No prior coding experience needed. The training is designed for
-              every educator, from complete beginners to experienced teachers.
+              Your teachers don&apos;t need prior coding experience. The
+              programme is designed to upskill any educator, from complete
+              beginners to experienced staff.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -374,16 +376,16 @@ export default function CurriculumPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-              The Platform
+              What Your School Gets
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              Everything Teachers Need in One Place
+              A Complete Programme, Not Just Resources
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              The Inspire Campus is an online learning platform built
-              specifically for South African educators. Train at your own pace,
-              access lesson plans, and earn accredited certification — all from
-              one dashboard.
+              Your school gets access to the Inspire Campus — an online platform
+              where teachers train at their own pace, download lesson plans, and
+              earn accredited certification. Everything is managed from one
+              dashboard.
             </p>
           </div>
 
@@ -549,7 +551,7 @@ export default function CurriculumPage() {
                 },
                 {
                   stat: "Self-Paced",
-                  label: "Train on your own schedule",
+                  label: "Teachers train on their own schedule",
                 },
               ].map((item) => (
                 <div
@@ -572,14 +574,15 @@ export default function CurriculumPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-              Educator Reviews
+              From Schools Like Yours
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold mt-2 mb-4">
-              What Teachers Are Saying
+              Trusted by Schools Across South Africa
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Teachers from schools across South Africa have completed the
-              Inspire Africa training. Here is what they had to say.
+              Educators from primary schools, high schools, and colleges have
+              completed the Inspire Africa training. Here is what they had to
+              say.
             </p>
           </div>
 
