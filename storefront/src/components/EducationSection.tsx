@@ -13,7 +13,7 @@ const educationOptions = [
   },
   {
     id: "curriculum",
-    title: "Curriculum for Teachers",
+    title: "Curriculum for Schools",
     description:
       "Empower your educators with our partner Inspire Africa's comprehensive training platform. CAPS-aligned lesson plans and ongoing support included.",
     image: "/images/education/teacher-curriculum-training.jpg",

@@ -56,7 +56,7 @@ const educationOptions = [
   },
   {
     id: "curriculum",
-    title: "Curriculum for Teachers",
+    title: "Curriculum for Schools",
     description: "Training platform and resources from Inspire Africa",
     href: "/education/curriculum",
     icon: (
