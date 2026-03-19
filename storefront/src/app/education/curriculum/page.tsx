@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Metadata } from "next";
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 
 export const metadata: Metadata = {
   title: "Coding & Robotics Curriculum for Schools | Education | CREATESPACE",
@@ -194,71 +195,84 @@ const platformFeatures = [
   },
 ];
 
+const LOGO_PATH = "/images/education/inspire-africa/school-logos";
+
 const testimonials = [
   {
     quote:
       "The course provided a good balance between hands-on learning and theoretical learning. The layout and concise nature of the modules allowed me to explore the codes with ease as the instructor was explaining said code.",
     name: "Clio Peters",
     school: "Westcott Primary School",
+    logo: `${LOGO_PATH}/westcott-primary.png`,
   },
   {
     quote:
       "I teach Foundation Phase and this was my first experience with the micro:bit. The course was easy to follow and it was good to work hands-on alongside the video tutorials.",
     name: "Michelle Adams",
     school: "Sweet Valley Primary",
+    logo: `${LOGO_PATH}/sweet-valley-primary.png`,
   },
   {
     quote:
       "Easy to follow. I like that the videos are short — you can then practise what was shown and continue.",
     name: "Ninette Alberts",
     school: "Thomas More College",
+    logo: `${LOGO_PATH}/thomas-more-college.png`,
   },
   {
     quote:
       "I\u2019ve been using the micro:bit prior to taking this course, however completing this course introduced me to some aspects I haven\u2019t quite used yet and others I didn\u2019t know were available. I found it very useful.",
     name: "Jared Botham",
     school: "Sweet Valley Primary",
+    logo: `${LOGO_PATH}/sweet-valley-primary.png`,
   },
   {
     quote:
       "The course was simple and the lessons were detailed, every theoretical concept explored in an interactive manner. Excellent job.",
     name: "Christopher Hoy",
     school: "St John\u2019s College",
+    logo: `${LOGO_PATH}/st-johns-college.png`,
   },
   {
     quote:
       "As a Grade R teacher I found it very useful to be introduced to the basics.",
     name: "Nastashia Schenck",
     school: "Greenfield Girls Primary School",
+    logo: `${LOGO_PATH}/greenfield-girls-primary.png`,
   },
   {
     quote: "I really enjoyed it, very easy to navigate.",
     name: "Nicholas Tshukuku",
     school: "Frans du Toit High School",
+    logo: `${LOGO_PATH}/frans-du-toit-high.png`,
   },
   {
     quote:
       "The course was informational and easy to follow. I learned a lot and I am inspired to let my kids start designing.",
     name: "Charl van den Berg",
     school: "Felixton College",
+    logo: `${LOGO_PATH}/felixton-college.png`,
   },
   {
     quote:
       "What worked well is the clear distinction between hardware types (Microcontrollers vs. SBCs) and coding approaches (Block vs. Text), which firmly aligns the choice of tool with the appropriate educational phase.",
     name: "Lufuno Mufamadi",
     school: "SPARK School",
+    logo: `${LOGO_PATH}/spark-school.png`,
   },
   {
     quote:
       "A good experience. It was great to be able to pause videos and see the notes.",
     name: "Tasmin Strydom",
     school: "Wings Discovery Centre",
+    logo: `${LOGO_PATH}/wings-discovery-centre.png`,
   },
   {
     quote:
       "I attended just a few meetings, and not necessarily trainings, but this training is super for even the first-time (novice) user.",
     name: "MK Njamela",
     school: "Get Ahead College",
+    logo: `${LOGO_PATH}/get-ahead-college.png`,
   },
 ];
 
@@ -586,31 +600,7 @@ export default function CurriculumPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.name}
-                className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm"
-              >
-                <svg
-                  className="w-8 h-8 text-cs-blue mb-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
-                </svg>
-                <p className="text-white/90 text-sm leading-relaxed mb-4">
-                  {testimonial.quote}
-                </p>
-                <div>
-                  <p className="font-semibold text-white text-sm">
-                    {testimonial.name}
-                  </p>
-                  <p className="text-white/50 text-xs">{testimonial.school}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </section>
 
