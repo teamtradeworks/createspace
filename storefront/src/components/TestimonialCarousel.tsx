@@ -90,10 +90,10 @@ export default function TestimonialCarousel({
               )}
               <div className="min-w-0">
                 <p className="font-semibold text-white text-sm truncate">
-                  {testimonial.name}
+                  {testimonial.school}
                 </p>
                 <p className="text-white/50 text-xs truncate">
-                  {testimonial.school}
+                  {testimonial.name}
                 </p>
               </div>
             </div>
