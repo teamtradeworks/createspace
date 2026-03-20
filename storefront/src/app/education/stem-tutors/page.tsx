@@ -508,7 +508,7 @@ export default function StemTutorsPage() {
               className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
             >
               <h3 className="font-semibold text-navy group-hover:text-cs-blue transition-colors mb-2">
-                Curriculum for Teachers
+                Curriculum for Schools
               </h3>
               <p className="text-gray-600 text-sm">
                 Training and resources to empower your educators.
