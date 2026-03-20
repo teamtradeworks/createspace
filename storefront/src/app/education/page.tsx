@@ -42,7 +42,7 @@ const educationOptions = [
     ],
   },
   {
-    title: "Curriculum for Teachers",
+    title: "Curriculum for Schools",
     description:
       "Empower your educators to teach STEM with confidence. Our partner Inspire Africa provides comprehensive training and curriculum materials for teachers.",
     href: "/education/curriculum",
