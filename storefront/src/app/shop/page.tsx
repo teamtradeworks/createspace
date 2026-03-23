@@ -19,7 +19,7 @@ type Props = {
 
 export default async function ShopPage({ searchParams }: Props) {
   const { age, category } = await searchParams;
-  const products = await getProducts(100);
+  const products = await getProducts(250);
 
   return (
     <main className="min-h-screen bg-gray-50">
