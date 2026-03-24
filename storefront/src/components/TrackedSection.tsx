@@ -4,12 +4,12 @@ import useSectionTracking from "@/hooks/useSectionTracking";
 
 interface TrackedSectionProps {
   name: string;
-  productHandle: string;
+  page: string;
   children: React.ReactNode;
 }
 
-export default function TrackedSection({ name, productHandle, children }: TrackedSectionProps) {
-  const ref = useSectionTracking(name, productHandle);
+export default function TrackedSection({ name, page, children }: TrackedSectionProps) {
+  const ref = useSectionTracking(name, page);
 
   return <div ref={ref}>{children}</div>;
 }

@@ -11,7 +11,7 @@ interface TrackingState {
   isIntersecting: boolean;
 }
 
-export default function useSectionTracking(sectionName: string, productHandle: string) {
+export default function useSectionTracking(sectionName: string, page: string) {
   const ref = useRef<HTMLDivElement>(null);
   const state = useRef<TrackingState>({
     visibleSince: null,
@@ -32,9 +32,9 @@ export default function useSectionTracking(sectionName: string, productHandle: s
       }
 
       if (s.accumulatedMs >= MIN_DURATION_MS) {
-        posthog.capture("product_section_viewed", {
+        posthog.capture("section_viewed", {
           section_name: sectionName,
-          product_handle: productHandle,
+          page,
           duration_seconds: Math.round(s.accumulatedMs / 100) / 10,
         });
       }
@@ -80,7 +80,7 @@ export default function useSectionTracking(sectionName: string, productHandle: s
       window.removeEventListener("beforeunload", flush);
       flush();
     };
-  }, [sectionName, productHandle]);
+  }, [sectionName, page]);
 
   return ref;
 }
