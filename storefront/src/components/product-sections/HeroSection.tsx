@@ -113,13 +113,13 @@ export function HeroSection({
 
               {/* Rating */}
               {ratingData && (
-                <div className="flex items-center gap-2 mb-2">
+                <a href="#reviews" className="flex items-center gap-2 mb-2 group w-fit">
                   <StarRating rating={ratingData.average} size="md" />
-                  <span className="text-sm text-gray-500">
+                  <span className="text-sm text-gray-500 group-hover:text-cs-orange transition-colors">
                     {ratingData.average.toFixed(1)} ({ratingData.count}{" "}
                     {ratingData.count === 1 ? "review" : "reviews"})
                   </span>
-                </div>
+                </a>
               )}
 
               {/* Tagline */}

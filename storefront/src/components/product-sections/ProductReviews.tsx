@@ -153,7 +153,7 @@ export function ProductReviews({
 
   return (
     <SectionTracker name="ProductReviews">
-      <section className={`py-16 ${bgClass}`}>
+      <section id="reviews" className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2
           className={`text-3xl font-semibold ${textClass} text-center mb-4`}
