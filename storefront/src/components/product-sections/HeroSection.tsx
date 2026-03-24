@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ProductDetail, formatPrice, getProductRating, getStockStatus } from "@/lib/shopify";
+import { ProductDetail, formatPrice, getProductRating, getStockStatus, isDigitalProduct } from "@/lib/shopify";
 import siteConfig from "@/config/site.json";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
@@ -38,6 +38,7 @@ export function HeroSection({
 
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
+  const isDigital = digital ?? isDigitalProduct(product);
 
   const images = product.images.edges.map((edge) => ({
     url: edge.node.url,
@@ -140,24 +141,24 @@ export function HeroSection({
               <div className="flex items-center gap-2 mb-4">
                 <span
                   className={`inline-flex items-center gap-1.5 text-sm ${
-                    stockStatus === "out-of-stock" && !digital
+                    stockStatus === "out-of-stock" && !isDigital
                       ? "text-cs-red"
-                      : digital || stockStatus === "in-stock"
+                      : isDigital || stockStatus === "in-stock"
                         ? "text-cs-green"
                         : "text-cs-orange"
                   }`}
                 >
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      stockStatus === "out-of-stock" && !digital
+                      stockStatus === "out-of-stock" && !isDigital
                         ? "bg-cs-red"
-                        : digital || stockStatus === "in-stock"
+                        : isDigital || stockStatus === "in-stock"
                           ? "bg-cs-green"
                           : "bg-cs-orange"
                     }`}
                   />
-                  {digital
-                    ? "Online Course"
+                  {isDigital
+                    ? "Available Now"
                     : stockStatus === "in-stock"
                       ? "In Stock"
                       : stockStatus === "lead-time"
@@ -206,7 +207,7 @@ export function HeroSection({
 
               {/* Delivery & Benefits */}
               <div className="border-t border-b py-4 mb-6 space-y-3">
-                {!digital && (
+                {!isDigital && (
                   <div className="flex items-center gap-3 text-sm">
                     <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
@@ -214,7 +215,7 @@ export function HeroSection({
                     <span><strong>{stockStatus === "lead-time" ? `${siteConfig.leadTime.estimatedDays} delivery` : "1-3 days delivery"}</strong> with The Courier Guy</span>
                   </div>
                 )}
-                {!digital && (
+                {!isDigital && (
                   <div className="flex items-center gap-3 text-sm">
                     <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
@@ -242,7 +243,7 @@ export function HeroSection({
                   currencyCode={price.currencyCode}
                   image={images[0]?.url}
                   handle={product.handle}
-                  digital={digital}
+                  digital={isDigital}
                   addons={addons}
                   defaultSelectedAddons={defaultSelectedAddons}
                 />
