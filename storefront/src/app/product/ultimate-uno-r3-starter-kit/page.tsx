@@ -34,7 +34,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="The complete kit for learning electronics, coding, and building things that actually work"
         highlights={[
@@ -47,10 +47,10 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Choose This Kit */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why the Ultimate Kit?"
         subtitle="There are plenty of Arduino starter kits out there. Here's what makes this one worth it."
         steps={[
@@ -74,7 +74,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* What's Inside */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/ultimate-uno-r3-starter-kit/collage-of-components.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit components spread out showing sensors, modules and the board"
         title="Everything in One Box"
@@ -84,7 +84,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="33 Lessons. Zero Experience Needed."
         subtitle="The downloadable guide walks through every component in the kit, step by step. Your child can work through it in order, or jump straight to whatever looks most exciting."
         features={[
@@ -130,7 +130,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* The Learning Angle */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/ultimate-uno-r3-starter-kit/guide-lessons-and-code-sample.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit guide showing lesson pages and code samples"
         title="Where Electronics Meets Code"
@@ -140,7 +140,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Lessons You'll Build"
         highlight="33 guided lessons — from a blinking LED to a fully working RFID access system"
         subtitle="Each lesson builds on the last, introducing new components and concepts in a logical progression."
@@ -149,45 +149,36 @@ export default async function UltimateUnoR3StarterKitPage() {
             name: "LED Circuits",
             description: "Build and control LED circuits with buttons and code",
             concepts: "Digital output, loops, conditionals",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-led-circuit.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-led-circuit.jpg",
           },
           {
             name: "Sensor Readings",
-            description:
-              "Read temperature, humidity, and light from real sensors",
+            description: "Read temperature, humidity, and light from real sensors",
             concepts: "Analog input, sensor libraries, data display",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-sensors.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-sensors.jpg",
           },
           {
             name: "LCD Display",
-            description:
-              "Show text and live sensor data on a 16-character display",
+            description: "Show text and live sensor data on a 16-character display",
             concepts: "I2C communication, LiquidCrystal library",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-lcd-display.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-lcd-display.jpg",
           },
           {
             name: "RFID Access System",
-            description:
-              "Build a contactless access system using RFID cards and tags",
+            description: "Build a contactless access system using RFID cards and tags",
             concepts: "SPI communication, RFID protocol, access control",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-rfid-access.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-rfid-access.jpg",
           },
           {
             name: "Motor Control",
-            description:
-              "Drive DC and stepper motors with precision speed and direction",
+            description: "Drive DC and stepper motors with precision speed and direction",
             concepts: "H-bridge, PWM, stepper sequences",
             image:
               "/images/products/ultimate-uno-r3-starter-kit/projects/project-motor-control.jpg",
           },
           {
             name: "Motion Sensor Alarm",
-            description:
-              "Detect movement with a PIR sensor and trigger a buzzer alarm",
+            description: "Detect movement with a PIR sensor and trigger a buzzer alarm",
             concepts: "PIR sensing, digital input, event-driven logic",
             image:
               "/images/products/ultimate-uno-r3-starter-kit/projects/project-motion-sensor.jpg",
@@ -198,10 +189,10 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -244,7 +235,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/ultimate-uno-r3-starter-kit/whats-in-the-box.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit unboxed showing all components and sensors"
@@ -289,7 +280,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Microcontroller", value: "ATmega328P" },
@@ -307,7 +298,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started"
         subtitle="33 lessons. 50+ components. One kit that teaches real electronics and real code."
         primaryLabel="Add to Cart"

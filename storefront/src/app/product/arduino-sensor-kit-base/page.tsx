@@ -35,7 +35,7 @@ export default async function ArduinoSensorKitBasePage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Plug in a sensor. Write your first real code. Watch it come alive."
         highlights={[
@@ -48,10 +48,10 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why This Kit */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why the Arduino Sensor Kit?"
         subtitle="Arduino is the world's most popular platform for learning electronics and coding. This kit makes it easier than ever to start — no breadboard, no wiring diagrams, no confusion."
         steps={[
@@ -75,7 +75,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Setup Image + Text */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-sensor-kit-base/setup-connect-modules-plug-in-the-modules.png"
         imageAlt="Grove modules being connected to the Arduino Base Shield"
         title="Plug In, Sketch Up, Watch It Happen"
@@ -85,7 +85,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes This Kit Different"
         subtitle="The Sensor Kit Base was designed by Arduino themselves to remove every barrier between a beginner and their first working project."
         features={[
@@ -131,7 +131,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Modules Image + Text */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-sensor-kit-base/the-modules-new.png"
         imageAlt="The 10 Grove sensor modules included in the Arduino Sensor Kit Base"
         title="Not Just 10 Sensors — 10 Concepts"
@@ -141,7 +141,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Modules & Lessons"
         highlight="10 plug-and-play modules, 10 guided lessons — plus unlimited ways to combine them"
         subtitle="Each module introduces a completely different concept. Here are six of the ten included — from beginner output to advanced sensing."
@@ -150,43 +150,37 @@ export default async function ArduinoSensorKitBasePage() {
             name: "The LED",
             description: "Turn it on, off, or dim it to any brightness level",
             concepts: "Digital output, PWM, analogWrite()",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-led.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-led.png",
           },
           {
             name: "The Buzzer",
             description: "Produce tones, melodies, and triggered sound alerts",
             concepts: "tone() function, frequency, digital output",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-buzzer.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-buzzer.png",
           },
           {
             name: "The Sound Sensor",
             description: "Detect noise levels and trigger outputs above a threshold",
             concepts: "Analog input, threshold logic, reactive systems",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-sound-sensor.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-sound-sensor.png",
           },
           {
             name: "The Temperature Sensor",
             description: "Read temperature and humidity simultaneously",
             concepts: "Sensor libraries, multi-value output, environment monitoring",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-temperature-sensor.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-temperature-sensor.png",
           },
           {
             name: "The Accelerometer",
             description: "Detect orientation, tilt, and movement in three axes",
             concepts: "Tri-axial data (X/Y/Z), motion detection, library APIs",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-accelerometer-sensor.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-accelerometer-sensor.png",
           },
           {
             name: "The OLED Screen",
             description: "Display text, values, and live sensor data on screen",
             concepts: "I2C display control, string formatting, combining modules",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-oled-screen.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-oled-screen.png",
           },
         ]}
         moreText="Plus 4 more: Button, Potentiometer, Light Sensor, and Air Pressure Sensor — each with its own guided lesson and project ideas"
@@ -194,7 +188,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="See It in Action"
         subtitle="Real builds from makers who started exactly where your child is now."
         images={[
@@ -235,10 +229,10 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -276,7 +270,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/arduino-sensor-kit-base/whats-in-the-box.jpeg"
         imageAlt="Arduino Sensor Kit Base unboxed showing all 10 Grove modules and cables"
@@ -299,7 +293,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Product Code", value: "TPX00031" },
@@ -320,7 +314,7 @@ export default async function ArduinoSensorKitBasePage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started"
         subtitle="Your child's first steps into real electronics and coding — 10 sensors, 10 lessons, and a world of projects to explore."
         primaryLabel="Add to Cart"

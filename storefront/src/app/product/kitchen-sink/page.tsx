@@ -118,13 +118,12 @@ export default function KitchenSinkPage() {
           body={
             <>
               <p>
-                Learn the same principles used by professional engineers and
-                scientists. Build projects that actually work and demonstrate real
-                physics and engineering concepts.
+                Learn the same principles used by professional engineers and scientists. Build
+                projects that actually work and demonstrate real physics and engineering concepts.
               </p>
               <p>
-                From simple circuits to complex robots, each project teaches
-                valuable skills that can be applied in school and beyond.
+                From simple circuits to complex robots, each project teaches valuable skills that
+                can be applied in school and beyond.
               </p>
             </>
           }
@@ -188,7 +187,11 @@ export default function KitchenSinkPage() {
           columns={4}
           background="navy"
           features={[
-            { icon: "sensor", title: "Multiple Sensors", description: "Touch, color, and distance" },
+            {
+              icon: "sensor",
+              title: "Multiple Sensors",
+              description: "Touch, color, and distance",
+            },
             { icon: "battery", title: "Rechargeable", description: "Built-in battery pack" },
             { icon: "bluetooth", title: "Bluetooth", description: "Wireless connectivity" },
             { icon: "app", title: "Free App", description: "iOS and Android support" },
@@ -290,7 +293,8 @@ export default function KitchenSinkPage() {
               src: "/images/products/kitchen-sink/end-user-builds.jpg",
               alt: "Robot and crane builds",
               label: "Project Showcase",
-              description: "A customer built both the robot and crane projects from our kit in a single weekend!",
+              description:
+                "A customer built both the robot and crane projects from our kit in a single weekend!",
             },
             {
               src: "/images/products/kitchen-sink/end-user-led-press.jpg",
@@ -408,10 +412,7 @@ export default function KitchenSinkPage() {
         name="ProductReviews"
         description="Fera-powered customer reviews with ratings, avatars, and load more. Hidden when no Fera reviews exist."
       >
-        <ProductReviews
-          productId="gid://shopify/Product/0"
-          background="white"
-        />
+        <ProductReviews productId="gid://shopify/Product/0" background="white" />
       </ComponentWrapper>
 
       {/* ProductReviews - Navy */}
@@ -419,10 +420,7 @@ export default function KitchenSinkPage() {
         name="ProductReviews (navy)"
         description="Customer reviews with navy background. Hidden when no Fera reviews exist."
       >
-        <ProductReviews
-          productId="gid://shopify/Product/0"
-          background="navy"
-        />
+        <ProductReviews productId="gid://shopify/Product/0" background="navy" />
       </ComponentWrapper>
 
       {/* ProductFAQ */}
@@ -436,19 +434,23 @@ export default function KitchenSinkPage() {
           faqs={[
             {
               question: "What age is this suitable for?",
-              answer: "This kit is designed for children aged 10 and above. Younger children may need adult supervision to complete some projects.",
+              answer:
+                "This kit is designed for children aged 10 and above. Younger children may need adult supervision to complete some projects.",
             },
             {
               question: "Are batteries included?",
-              answer: "Yes, the kit includes a rechargeable battery pack. Simply charge via the included USB cable before first use.",
+              answer:
+                "Yes, the kit includes a rechargeable battery pack. Simply charge via the included USB cable before first use.",
             },
             {
               question: "Do I need to download any software?",
-              answer: "Yes, you'll need to download our free app (available on iOS and Android) to program your creations. The app is easy to use and includes tutorials.",
+              answer:
+                "Yes, you'll need to download our free app (available on iOS and Android) to program your creations. The app is easy to use and includes tutorials.",
             },
             {
               question: "Is this compatible with other building systems?",
-              answer: "Our blocks are designed to work with most major brick-building systems, giving you even more creative possibilities.",
+              answer:
+                "Our blocks are designed to work with most major brick-building systems, giving you even more creative possibilities.",
             },
           ]}
         />
@@ -504,7 +506,8 @@ export default function KitchenSinkPage() {
       <div className="bg-gray-900 text-white py-8 px-4">
         <div className="mx-auto max-w-7xl text-sm text-gray-400">
           <p className="mb-2">
-            <strong className="text-white">Not shown:</strong> HeroSection (requires Shopify product data)
+            <strong className="text-white">Not shown:</strong> HeroSection (requires Shopify product
+            data)
           </p>
           <p>
             <strong className="text-white">Source:</strong>{" "}

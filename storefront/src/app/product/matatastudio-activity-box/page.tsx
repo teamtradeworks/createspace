@@ -15,7 +15,6 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-
 const PRODUCT_HANDLE = "matatastudio-activity-box";
 const PARENT_PRODUCT_HANDLE = "matatastudio-tale-bot-pro";
 
@@ -40,7 +39,7 @@ export default async function ActivityBoxPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="10 new themed worlds and 42 coding challenges for your Tale-Bot Pro"
         highlights={[
@@ -53,16 +52,16 @@ export default async function ActivityBoxPage() {
       />
 
       {/* Extension Banner */}
-        <ExtensionBanner
+      <ExtensionBanner
         parentProductName={parentProductName}
         parentProductHref={parentProductHref}
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* What This Adds */}
-        <FeatureGrid
+      <FeatureGrid
         title="What This Adds to Your Tale-Bot Pro"
         subtitle="The Activity Box introduces new themes, subjects, and challenges that go beyond what's included with the robot."
         features={[
@@ -108,7 +107,7 @@ export default async function ActivityBoxPage() {
       />
 
       {/* Maps in Action */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-activity-box/tale-bot-on-zoo-mat.jpg"
         imageAlt="Tale-Bot Pro navigating the zoo-themed interactive map"
         title="Maps That Actually Talk to Your Robot"
@@ -118,7 +117,7 @@ export default async function ActivityBoxPage() {
       />
 
       {/* Boards Overview */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-activity-box/interactive-maps.jpg"
         imageAlt="Selection of themed double-sided interactive maps included in the Activity Box"
         title="10 Worlds to Explore"
@@ -128,7 +127,7 @@ export default async function ActivityBoxPage() {
       />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -161,7 +160,7 @@ export default async function ActivityBoxPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-activity-box/whats-in-the-box.jpeg"
         imageAlt="Contents of the MatataStudio Activity Box laid out"
@@ -180,10 +179,10 @@ export default async function ActivityBoxPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* Call to Action */}
-        <CallToAction
+      <CallToAction
         title="Expand Your Tale-Bot Pro"
         subtitle="10 new themed worlds, 42 challenges, and endless creative possibilities — all screen-free."
         primaryLabel="Add to Cart"

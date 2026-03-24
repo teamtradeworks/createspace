@@ -36,7 +36,7 @@ export default async function BbcMicroBitClubPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Get your entire group coding from the very first lesson"
         highlights={[
@@ -49,10 +49,10 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why micro:bit for Your Classroom */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Choose micro:bit for Your Classroom?"
         subtitle="The world's most widely adopted physical computing platform — used in 60+ countries by over 20 million learners."
         steps={[
@@ -76,14 +76,14 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Video Section */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=Wuza5WXiMkc"
         title="See the BBC micro:bit Club in Action"
         background="gray"
       />
 
       {/* Activities Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/bbc-micro-bit-club/child-holding-up-microbit-to-camera.jpg"
         imageAlt="Child holding up a micro:bit board to the camera, enthusiastically showing their project"
         title="60+ Activities Across Every Learning Area"
@@ -93,7 +93,7 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="Classroom-Ready from Day One"
         subtitle="Everything an educator needs to run a successful coding session — no specialist equipment, no prior experience required."
         features={[
@@ -139,7 +139,7 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Research-Backed Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/bbc-micro-bit-club/two-girls-holding-microbits-talking-together.jpg"
         imageAlt="Two girls holding micro:bit boards and talking together during a coding lesson"
         title="Research-Backed Learning Outcomes"
@@ -149,14 +149,15 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Activities Your Learners Will Complete"
         highlight="60+ free activities spanning computing, science, music, and design — with defined learning objectives for every lesson"
         subtitle="Activities progress from first-time coding tutorials to advanced wireless and data-science projects, making the Club pack suitable for mixed-ability groups across Grades 4–12."
         projects={[
           {
             name: "Compass",
-            description: "Build a working compass that points north using the built-in magnetometer",
+            description:
+              "Build a working compass that points north using the built-in magnetometer",
             concepts: "Magnetometer, conditionals, compass bearing",
             image: "/images/products/bbc-micro-bit-club/projects/compass.png",
           },
@@ -196,7 +197,7 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Learners in Action */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="Learners in Action"
         subtitle="How micro:bit looks in real classrooms and coding clubs."
         images={[
@@ -237,10 +238,10 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Product Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Educator FAQs"
         faqs={[
           {
@@ -283,7 +284,7 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* What's in the Kit */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Kit"
         image="/images/products/bbc-micro-bit-club/whats-in-the-box.jpeg"
         imageAlt="BBC micro:bit Club pack contents including 10 boards, cables, and battery holders laid out"
@@ -303,7 +304,7 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Technical Details */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Processor", value: "Nordic nRF52833 ARM Cortex-M4F at 64 MHz" },
@@ -331,7 +332,7 @@ export default async function BbcMicroBitClubPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Equip Your Classroom with micro:bit"
         subtitle="Trusted by educators in 60+ countries. One Club pack gets your entire group coding from day one."
         primaryLabel="Add to Cart"

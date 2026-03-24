@@ -19,7 +19,6 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-
 const PRODUCT_HANDLE = "makerzoid-robot-master-premium";
 
 export default async function MakerzoidRobotMasterPremiumPage() {
@@ -37,7 +36,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Build, code, and create over 200 robots with drag-and-drop Scratch programming"
         highlights={[
@@ -50,10 +49,10 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Makerzoid Section */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Robot Master?"
         subtitle="Designed by robotics experts, this kit combines building and coding in one comprehensive learning experience."
         steps={[
@@ -77,14 +76,14 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Video */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=dSGwumD4w5A"
         title="See It in Action"
         background="gray"
       />
 
       {/* What Is Makerzoid Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/boy-coding-on-tablet-with-robot-on-floor.jpg"
         imageAlt="Child programming a Makerzoid robot using a tablet"
         title="What's Inside the System"
@@ -94,14 +93,15 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What's Included"
         subtitle="A complete robotics learning system with premium components and structured lessons."
         features={[
           {
             icon: "robot",
             title: "200+ Robot Designs",
-            description: "Build dinosaurs, helicopters, cars, cranes, and more with detailed instructions for each",
+            description:
+              "Build dinosaurs, helicopters, cars, cranes, and more with detailed instructions for each",
           },
           {
             icon: "code",
@@ -111,7 +111,8 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           {
             icon: "sensor",
             title: "Dual Sensors",
-            description: "Two precision sensors enable line-following, obstacle avoidance, and distance detection",
+            description:
+              "Two precision sensors enable line-following, obstacle avoidance, and distance detection",
           },
           {
             icon: "battery",
@@ -126,7 +127,8 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           {
             icon: "puzzle",
             title: "LEGO Compatible",
-            description: "Combine with existing LEGO bricks and Technic pieces for unlimited creativity",
+            description:
+              "Combine with existing LEGO bricks and Technic pieces for unlimited creativity",
           },
         ]}
         columns={3}
@@ -134,7 +136,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Building with Guide Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/kids-playing-with-pieces-with-tablet-instructions.png"
         imageAlt="Kids building with Makerzoid pieces following tablet instructions"
         title="Learn Together or Independently"
@@ -144,7 +146,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Projects Section */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="47 Lessons. 3 Skill Levels."
         highlight="200+ robot models to build — from simple structures to fully programmable machines"
         subtitle="The curriculum progresses through three levels, each building on the last."
@@ -153,19 +155,22 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         projects={[
           {
             name: "Basic Structures",
-            description: "Start with foundational builds that teach balance, stability, and structural integrity.",
+            description:
+              "Start with foundational builds that teach balance, stability, and structural integrity.",
             concepts: "Structural design, spatial reasoning",
             image: "/images/products/makerzoid-robot-master-premium/projects/basic-structure.png",
           },
           {
             name: "Gear Systems",
-            description: "Discover how gears transfer motion and create mechanical advantage in real robots.",
+            description:
+              "Discover how gears transfer motion and create mechanical advantage in real robots.",
             concepts: "Gears, transmission, mechanical advantage",
             image: "/images/products/makerzoid-robot-master-premium/projects/gear-machines.png",
           },
           {
             name: "Walking Machines",
-            description: "Build multi-legged walkers that move using motors and linkage mechanisms.",
+            description:
+              "Build multi-legged walkers that move using motors and linkage mechanisms.",
             concepts: "Linkages, motion, dynamics",
             image: "/images/products/makerzoid-robot-master-premium/projects/walking-machines.png",
           },
@@ -173,26 +178,30 @@ export default async function MakerzoidRobotMasterPremiumPage() {
             name: "Line-Following Robot",
             description: "Program your robot to detect and follow a black line using its sensors.",
             concepts: "Sensors, loops, conditionals",
-            image: "/images/products/makerzoid-robot-master-premium/projects/line-following-robot.png",
+            image:
+              "/images/products/makerzoid-robot-master-premium/projects/line-following-robot.png",
           },
           {
             name: "Obstacle Avoider",
-            description: "Use distance sensors to detect obstacles and automatically navigate around them.",
+            description:
+              "Use distance sensors to detect obstacles and automatically navigate around them.",
             concepts: "Sensors, if/then logic, autonomous behaviour",
             image: "/images/products/makerzoid-robot-master-premium/projects/obstacle-avoider.png",
           },
           {
             name: "Remote Control Car",
-            description: "Build a driveable car and control it wirelessly from your phone via Bluetooth.",
+            description:
+              "Build a driveable car and control it wirelessly from your phone via Bluetooth.",
             concepts: "Bluetooth, motors, app control",
-            image: "/images/products/makerzoid-robot-master-premium/projects/remote-control-car.png",
+            image:
+              "/images/products/makerzoid-robot-master-premium/projects/remote-control-car.png",
           },
         ]}
         moreText="Plus 41 more lessons — all included in the free Makerzoid app"
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="What Our Community Has Built"
         subtitle="Real families, real robots — see what your child could create"
         background="white"
@@ -249,10 +258,10 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -290,7 +299,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* What's Included */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         items={[
           "600+ high-quality ABS building blocks",
@@ -309,7 +318,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Total Pieces", value: "600+ blocks" },
@@ -328,7 +337,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started"
         subtitle="600+ blocks, 200+ designs, and 47 video lessons. The Makerzoid Robot Master Premium has everything your young engineer needs to start building and coding."
         primaryLabel="Add to Cart"

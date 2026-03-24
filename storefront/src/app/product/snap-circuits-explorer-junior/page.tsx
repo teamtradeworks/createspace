@@ -35,7 +35,7 @@ export default async function SnapCircuitJuniorPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Build 101 real electronic circuits without any soldering or tools"
         highlights={[
@@ -49,10 +49,10 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Snap Circuits Section */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Snap Circuits?"
         subtitle="Snap Circuits is trusted by millions of families, schools, and educators worldwide. Here's why it's the perfect introduction to electronics for curious kids."
         steps={[
@@ -76,7 +76,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* What Is Snap Circuits */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuit-junior/child-sitting-at-table-playing-with-circuits.jpg"
         imageAlt="Child building circuits with Snap Circuits Explorer Junior"
         title="Electronics Made Easy for Young Builders"
@@ -86,7 +86,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes It Special"
         subtitle="Snap Circuits Explorer Junior is designed for children aged 8+ who are ready to explore how electronics work through hands-on discovery."
         features={[
@@ -132,7 +132,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="101 Projects to Explore"
         highlight="From blinking lights to logic gates"
         subtitle="Projects are arranged from simple to complex—your child builds confidence with every circuit they complete."
@@ -141,37 +141,43 @@ export default async function SnapCircuitJuniorPage() {
         projects={[
           {
             name: "Electric Light & Switch",
-            description: "Build your very first working circuit—flip a switch and watch a light come on. The perfect starting point.",
+            description:
+              "Build your very first working circuit—flip a switch and watch a light come on. The perfect starting point.",
             concepts: "Basic circuits, electricity flow, switches",
             image: "/images/products/snap-circuit-junior/projects/electric-light-and-switch.jpg",
           },
           {
             name: "Flying Saucer",
-            description: "Spin a motor and modulate the sound to create an eerie flying saucer effect. Lights, motion, and audio combined.",
+            description:
+              "Spin a motor and modulate the sound to create an eerie flying saucer effect. Lights, motion, and audio combined.",
             concepts: "Motors, sound modulation, circuit integration",
             image: "/images/products/snap-circuit-junior/projects/flying-saucer.jpg",
           },
           {
             name: "Musical Doorbell",
-            description: "Wire up a push-button doorbell that plays music when pressed—a project kids love to show off at home.",
+            description:
+              "Wire up a push-button doorbell that plays music when pressed—a project kids love to show off at home.",
             concepts: "Push-button switches, music ICs",
             image: "/images/products/snap-circuit-junior/projects/musical-doorbell-play.jpeg",
           },
           {
             name: "Race Game",
-            description: "Build a two-player reaction-speed game. Who can press the button fastest? A firm favourite.",
+            description:
+              "Build a two-player reaction-speed game. Who can press the button fastest? A firm favourite.",
             concepts: "Game circuits, timing, competition",
             image: "/images/products/snap-circuit-junior/projects/race-game.png",
           },
           {
             name: "Logic Gates (AND, OR, NOR, NAND)",
-            description: "Hands-on introduction to digital logic—the building blocks of every computer and microcontroller.",
+            description:
+              "Hands-on introduction to digital logic—the building blocks of every computer and microcontroller.",
             concepts: "Boolean logic, digital circuits",
             image: "/images/products/snap-circuit-junior/projects/logic-gates.jpeg",
           },
           {
             name: "Water Space War",
-            description: "Dip two contacts in water and trigger space-battle sound effects. Water conducts electricity—now they know why.",
+            description:
+              "Dip two contacts in water and trigger space-battle sound effects. Water conducts electricity—now they know why.",
             concepts: "Water detection, conductivity, sensors",
             image: "/images/products/snap-circuit-junior/projects/water-space-war.jpg",
           },
@@ -180,7 +186,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Learning Outcomes Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuit-junior/top-down-of-child-playing-with-zoom-in-of-snap-pieces.jpg"
         imageAlt="Close-up of child's hands snapping circuit pieces together"
         title="What They'll Learn"
@@ -190,7 +196,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Customer Showcase - ALL end-user photos */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="What Families Are Building"
         subtitle="Real projects from real kids. Snap Circuits inspires creativity and experimentation beyond the manual."
         images={[
@@ -231,10 +237,10 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -277,7 +283,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/snap-circuits-explorer-junior/whats-in-the-box.jpeg"
         imageAlt="Child snapping Snap Circuits components onto the base board"
@@ -304,7 +310,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Model Number", value: "SC-100" },
@@ -330,7 +336,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started with Snap Circuits"
         subtitle="Join millions of young builders worldwide. Everything you need to start exploring electronics is in the box."
         primaryLabel="Add to Cart"
@@ -339,7 +345,6 @@ export default async function SnapCircuitJuniorPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
     </ProductTrackingProvider>
   );
 }

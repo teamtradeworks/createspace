@@ -35,7 +35,7 @@ export default async function SnapCircuitsArcadePage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Build real circuits. Play games you made."
         highlights={[
@@ -48,10 +48,10 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Snap Circuits Arcade */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Snap Circuits Arcade?"
         subtitle="Electronics kits often feel like homework. The Arcade is different — it gives your child a reason to finish every circuit."
         steps={[
@@ -75,7 +75,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* The Motivation Loop */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuits-arcade/boy-playing-with-circuit.jpg"
         imageAlt="Boy engaged with the Snap Circuits Arcade, assembling components on the grid"
         title="The Motivation Loop Other Kits Miss"
@@ -85,7 +85,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Key Features */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes the Arcade Special"
         subtitle="Over two decades of awards. Millions of kits sold. One very clever twist on learning electronics."
         features={[
@@ -131,7 +131,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Real Electronics. Real Skills. */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuits-arcade/top-view-board-in-dark-with-lights-with-kids-hands.jpg"
         imageAlt="Top-down view of an illuminated Snap Circuits Arcade board with a child's hands at work"
         title="Real Electronics. Real Skills."
@@ -141,7 +141,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Projects You'll Build"
         highlight="200+ projects — from basic circuits to fully playable arcade games"
         subtitle="Projects progress from a single LED in the first session to multi-component game circuits. Here are a few from the kit."
@@ -154,7 +154,8 @@ export default async function SnapCircuitsArcadePage() {
           },
           {
             name: "Disco Siren",
-            description: "Combine the spinning disco motor with siren sounds for a light and sound show",
+            description:
+              "Combine the spinning disco motor with siren sounds for a light and sound show",
             concepts: "Motor circuits, sound, combined outputs",
             image: "/images/products/snap-circuits-arcade/projects/disco-siren.jpg",
           },
@@ -178,7 +179,8 @@ export default async function SnapCircuitsArcadePage() {
           },
           {
             name: "Lucky Doubles",
-            description: "Build the circuit that powers the electronic dice — then try to roll matching doubles",
+            description:
+              "Build the circuit that powers the electronic dice — then try to roll matching doubles",
             concepts: "Microcontrollers, pre-programmed logic, game interaction",
             image: "/images/products/snap-circuits-arcade/projects/lucky-doubles.jpg",
           },
@@ -188,7 +190,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="See It in Action"
         subtitle="A closer look at the Snap Circuits Arcade — the kit, the components, and the builds."
         images={[
@@ -229,10 +231,10 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQs */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         background="gray"
         faqs={[
@@ -275,7 +277,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/snap-circuits-arcade/whats-in-the-box.jpeg"
         imageAlt="Snap Circuits Arcade components laid out showing all included parts"
@@ -305,7 +307,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         background="gray"
         specs={[
@@ -326,7 +328,7 @@ export default async function SnapCircuitsArcadePage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Build Your First Circuit"
         subtitle="Real electronics. Real games. Real satisfaction. Everything your child needs is in the box — minus the 3 AA batteries."
         primaryLabel="Add to Cart"

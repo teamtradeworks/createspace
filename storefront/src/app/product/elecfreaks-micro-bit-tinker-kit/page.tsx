@@ -36,7 +36,7 @@ export default async function ElecfreaksTinkerKitPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Turn your micro:bit into a real electronics lab — no breadboard, no mess, no experience needed"
         highlights={[
@@ -49,10 +49,10 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why micro:bit Tinker Kit */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why the Tinker Kit?"
         subtitle="The BBC micro:bit is one of the most used coding tools in classrooms worldwide. The Tinker Kit gives your child the sensors and components to go further — without the frustration of tangled wires."
         steps={[
@@ -76,7 +76,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* What the Tinker Kit adds */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_buttons_in_both_hands.jpg"
         imageAlt="Hands interacting with a micro:bit Tinker Kit expansion project showing the Octopus:bit board and sensors"
         title="What the Tinker Kit Adds to Your micro:bit"
@@ -86,7 +86,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="Key Features"
         subtitle="Everything about the Tinker Kit is designed to reduce friction and maximise learning time."
         features={[
@@ -132,7 +132,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* From code to working project */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_project_with_interacting_hand.jpg"
         imageAlt="Hand interacting with a completed micro:bit Tinker Kit project showing sensors and outputs responding to touch"
         title="From Code to Working Project"
@@ -142,26 +142,24 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
-        title="Projects You&apos;ll Build"
+      <ProjectShowcase
+        title="Projects You'll Build"
         highlight="39 hands-on projects with step-by-step online tutorials"
-        subtitle="Projects progress from beginner automations to games to advanced engineering builds. Start wherever your child is — there&apos;s no set order."
+        subtitle="Projects progress from beginner automations to games to advanced engineering builds. Start wherever your child is — there's no set order."
         projects={[
           {
             name: "Smart Light",
             description:
               "Build a motion-activated light using the PIR sensor — turns on automatically when someone enters a room.",
             concepts: "Motion sensing, conditionals",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/smart-light.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/smart-light.jpg",
           },
           {
             name: "Plant Monitor",
             description:
               "Read soil moisture levels and display alerts when your plant needs water — a real IoT device.",
             concepts: "Analog sensors, OLED display, thresholds",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/plant-monitoring.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/plant-monitoring.jpg",
           },
           {
             name: "Intruder Detection",
@@ -176,16 +174,14 @@ export default async function ElecfreaksTinkerKitPage() {
             description:
               "Repurpose the moisture sensor as a galvanic skin response detector — the micro:bit measures nervousness.",
             concepts: "Data comparison, statistics, biology meets electronics",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/lie-detector.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/lie-detector.jpg",
           },
           {
             name: "Automated Fish Feeder",
             description:
               "Program the servo to rotate at timed intervals — a genuinely useful automated feeder.",
             concepts: "Servo control, time-based programming, automation",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/fish-feeder.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/fish-feeder.jpg",
           },
           {
             name: "Remote Control Car",
@@ -201,7 +197,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="See It in Action"
         subtitle="Real projects built with the Tinker Kit — from classroom first builds to DIY home sensors."
         images={[
@@ -250,10 +246,10 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* Skill Tags */}
-        <SkillTags
+      <SkillTags
         title="Skills Developed"
         tags={[
           "Electronics",
@@ -267,7 +263,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -310,8 +306,8 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
-        title="What&apos;s in the Box"
+      <WhatsIncluded
+        title="What's in the Box"
         image="/images/products/elecfreaks-micro-bit-tinker-kit/whats-in-the-box.jpeg"
         imageAlt="ELECFREAKS micro:bit Tinker Kit components laid out showing all 13 modules and accessories"
         items={[
@@ -336,7 +332,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Compatibility", value: "BBC micro:bit V1 and V2" },
@@ -347,7 +343,7 @@ export default async function ElecfreaksTinkerKitPage() {
           { label: "Electronic Modules", value: "13 (plus jumper wires)" },
           { label: "Project Cases", value: "39 (free online wiki tutorials)" },
           { label: "Servo Torque", value: "1.6 kg/cm" },
-          { label: "Display", value: "0.96\" OLED (128 × 64 pixels)" },
+          { label: "Display", value: '0.96" OLED (128 × 64 pixels)' },
           {
             label: "Package Dimensions",
             value: "192 × 135 × 38 mm",
@@ -359,7 +355,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started with the Tinker Kit"
         subtitle="39 projects. Real sensors. Code that does something. Give your child the kit that grows with them."
         primaryLabel="Add to Cart"

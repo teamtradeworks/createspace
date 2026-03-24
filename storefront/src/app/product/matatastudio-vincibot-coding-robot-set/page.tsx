@@ -36,7 +36,7 @@ export default async function VinciBotPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Smart robot that grows from block-based coding to Python and AI"
         highlights={[
@@ -49,10 +49,10 @@ export default async function VinciBotPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why VinciBot Section */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why VinciBot?"
         subtitle="VinciBot is one of the most comprehensive coding robots for children aged 8-12. From simple block-based coding to Python programming and AI, it grows with your child for years."
         steps={[
@@ -76,14 +76,14 @@ export default async function VinciBotPage() {
       />
 
       {/* Video Section */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=OfsxgAjj2Do&t=5s"
         title="See VinciBot in Action"
         background="gray"
       />
 
       {/* AI & Machine Learning */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-with-coding-tablet.jpg"
         imageAlt="Child programming VinciBot on tablet with block-based coding"
         title="Real AI Your Child Can Touch"
@@ -93,7 +93,7 @@ export default async function VinciBotPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="8 Sensors Power Real-World Robotics"
         subtitle="VinciBot isn't just programmable — it's aware. Eight built-in sensors let it see, hear, and respond to its environment like a real robot."
         features={[
@@ -105,7 +105,8 @@ export default async function VinciBotPage() {
           {
             icon: "palette",
             title: "Colour Sensor",
-            description: "Detects colours to sort objects, follow lines, and play colour-based games",
+            description:
+              "Detects colours to sort objects, follow lines, and play colour-based games",
           },
           {
             icon: "sun",
@@ -120,7 +121,8 @@ export default async function VinciBotPage() {
           {
             icon: "radio",
             title: "Infrared Sensors",
-            description: "1 transmitter + 2 receivers for remote control and robot-to-robot communication",
+            description:
+              "1 transmitter + 2 receivers for remote control and robot-to-robot communication",
           },
           {
             icon: "activity",
@@ -132,7 +134,7 @@ export default async function VinciBotPage() {
       />
 
       {/* Block-Based to Python */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-vincibot-coding-robot-set/coding-interface-tablet.png"
         imageAlt="MatataCode programming interface showing block-based coding on tablet"
         title="Starts Simple, Goes Deep"
@@ -142,7 +144,7 @@ export default async function VinciBotPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="93+ Projects from Beginner to Expert"
         subtitle="VinciBot includes 75 online lessons organised into 5 progressive levels (A through E) plus an 18-challenge activity booklet in the box. Here are some favourites:"
         moreText="After completing the 93 core activities, your child can create unlimited projects: AI gesture recognition, IoT smart home systems, algorithmic art, autonomous vehicles, and more."
@@ -188,7 +190,7 @@ export default async function VinciBotPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="Real Families, Real Learning"
         subtitle="See how children around the world are exploring coding, robotics, and creativity with VinciBot."
         images={[
@@ -229,13 +231,22 @@ export default async function VinciBotPage() {
       />
 
       {/* Expansion Kits */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-expansion-packs.png"
         imageAlt="VinciBot expansion kits including AI Vision Kit and Creator Kit"
         title="Expand VinciBot's Capabilities"
         body={
           <>
-            <p>VinciBot grows with your child through expansion kits that unlock new skills and projects. Add the AI Vision Kit to explore computer vision, face recognition, and object tracking with a 180° flip camera — teaching AI concepts through hands-on experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to design custom robots, moving machines, and mechanical contraptions. Both kits include guided activities and seamlessly integrate with VinciBot&apos;s programming platform. These aren&apos;t just accessories — they&apos;re pathways to advanced STEM learning that keep VinciBot relevant for years.</p>
+            <p>
+              VinciBot grows with your child through expansion kits that unlock new skills and
+              projects. Add the AI Vision Kit to explore computer vision, face recognition, and
+              object tracking with a 180° flip camera — teaching AI concepts through hands-on
+              experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to
+              design custom robots, moving machines, and mechanical contraptions. Both kits include
+              guided activities and seamlessly integrate with VinciBot&apos;s programming platform.
+              These aren&apos;t just accessories — they&apos;re pathways to advanced STEM learning
+              that keep VinciBot relevant for years.
+            </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <Link
                 href="/product/matatastudio-ai-vision-kit-for-vincibot"
@@ -257,7 +268,7 @@ export default async function VinciBotPage() {
       />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Your Questions Answered"
         faqs={[
           {
@@ -295,7 +306,7 @@ export default async function VinciBotPage() {
       />
 
       {/* What's Included */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="Everything in the Box"
         image="/images/products/matatastudio-vincibot-coding-robot-set/whats-in-box.jpg"
         items={[
@@ -311,19 +322,38 @@ export default async function VinciBotPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Specifications"
         specs={[
           { label: "Age Range", value: "8-12 years (Grades 3-8)" },
           { label: "Programming Languages", value: "Block-based (Scratch-style) and Python" },
-          { label: "Sensors", value: "8 total: Ultrasonic, Colour, 2x Light, Sound, IR (1 transmitter + 2 receivers), Line Follower" },
+          {
+            label: "Sensors",
+            value:
+              "8 total: Ultrasonic, Colour, 2x Light, Sound, IR (1 transmitter + 2 receivers), Line Follower",
+          },
           { label: "Display", value: "18x6 LED matrix (128 white LEDs) + 6 programmable RGB LEDs" },
           { label: "Audio", value: "High-quality speaker with 21 musical instrument sounds" },
-          { label: "Battery", value: "1500mAh rechargeable lithium, 4+ hours runtime, USB charging" },
-          { label: "Connectivity", value: "Bluetooth 4.0+ for device connection, IoT cloud capabilities" },
-          { label: "Software Compatibility", value: "Windows 10/11, macOS 11+, iOS 13+, Android 8+" },
-          { label: "Expandability", value: "Compatible with LEGO bricks, Technic motors, third-party modules" },
-          { label: "Activities Included", value: "75 online lessons + 18 challenge booklet = 93+ total" },
+          {
+            label: "Battery",
+            value: "1500mAh rechargeable lithium, 4+ hours runtime, USB charging",
+          },
+          {
+            label: "Connectivity",
+            value: "Bluetooth 4.0+ for device connection, IoT cloud capabilities",
+          },
+          {
+            label: "Software Compatibility",
+            value: "Windows 10/11, macOS 11+, iOS 13+, Android 8+",
+          },
+          {
+            label: "Expandability",
+            value: "Compatible with LEGO bricks, Technic motors, third-party modules",
+          },
+          {
+            label: "Activities Included",
+            value: "75 online lessons + 18 challenge booklet = 93+ total",
+          },
           { label: "Educational Standards", value: "CSTA, NGSS, Common Core, ISTE certified" },
           { label: "Dimensions", value: "Compact robot design (approx. 10cm x 10cm)" },
         ]}
@@ -331,7 +361,7 @@ export default async function VinciBotPage() {
       />
 
       {/* Call to Action */}
-        <CallToAction
+      <CallToAction
         title="Give Your Child the Gift of Future-Ready Skills"
         subtitle="VinciBot delivers years of learning in coding, AI, and robotics. Invest in your child's future today."
         primaryLabel="Add to Cart"
@@ -340,7 +370,6 @@ export default async function VinciBotPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
     </ProductTrackingProvider>
   );
 }

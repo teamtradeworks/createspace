@@ -20,7 +20,6 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-
 const PRODUCT_HANDLE = "makerzoid-diverse-building-blocks";
 
 export default async function MakerzoidDiverseBuildingBlocksPage() {
@@ -38,7 +37,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="100+ models, endless builds — no batteries, no coding, just imagination"
         highlights={[
@@ -51,10 +50,10 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Diverse Building Blocks */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Diverse Building Blocks?"
         subtitle="Most STEM toys teach one thing. This set teaches spatial reasoning, physics, and engineering — all through the joy of building."
         steps={[
@@ -78,14 +77,14 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Video */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=sCKREXeJqg8"
         title="See the Makerzoid Diverse Building Blocks in Action"
         background="gray"
       />
 
       {/* Lifestyle: close-up build */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-diverse-building-blocks/close-up-of-robot-build-with-girl-in-background.jpeg"
         imageAlt="Close-up of a completed Makerzoid build with a girl in the background"
         title="Real Builds, Real Pride"
@@ -95,19 +94,14 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Skill Tags */}
-        <SkillTags
+      <SkillTags
         title="Skills Developed"
-        tags={[
-          "Mechanical Engineering",
-          "Mathematics",
-          "Problem Solving",
-          "Creativity",
-        ]}
+        tags={["Mechanical Engineering", "Mathematics", "Problem Solving", "Creativity"]}
         background="gray"
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes It Special"
         subtitle="Everything your child needs to start building — and keep building — for months."
         features={[
@@ -153,7 +147,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Lifestyle: girl using app guidance */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-diverse-building-blocks/girl-with-blocks-looking-at-tablet-screen.jpg"
         imageAlt="Girl at a desk following 3D building instructions on a tablet screen with Makerzoid blocks in front of her"
         title="Build Independently with the Free App"
@@ -163,7 +157,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Model Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="What They'll Build"
         highlight="100+ official mechanical models across 4 themed series"
         subtitle="Start with simpler builds and work up to complex moving models — there's always a next challenge."
@@ -216,7 +210,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="See It in Action"
         subtitle="Real builds and real moments from the Makerzoid community."
         images={[
@@ -265,10 +259,10 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -311,7 +305,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/makerzoid-diverse-building-blocks/whats-in-the-box.jpg"
         imageAlt="Makerzoid Diverse Building Blocks box surrounded by completed models including crane, helicopter, dancer and more"
@@ -325,7 +319,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Total Pieces", value: "370+" },
@@ -345,7 +339,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Start Building"
         subtitle="100+ models, 370+ pieces, and limitless free-build possibilities — all in one box."
         primaryLabel="Add to Cart"

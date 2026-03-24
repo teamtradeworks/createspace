@@ -12,9 +12,7 @@ export function ProductTrackingProvider({
   children: React.ReactNode;
 }) {
   return (
-    <ProductTrackingContext.Provider value={handle}>
-      {children}
-    </ProductTrackingContext.Provider>
+    <ProductTrackingContext.Provider value={handle}>{children}</ProductTrackingContext.Provider>
   );
 }
 

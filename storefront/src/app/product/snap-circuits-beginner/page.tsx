@@ -34,7 +34,7 @@ export default async function SnapCircuitsBeginnerPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Your child's first electronics adventure — real circuits, real lights, real fun"
         highlights={[
@@ -47,10 +47,10 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Snap Circuits */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Start with Snap Circuits?"
         subtitle="No experience needed — for you or your child. Just snap the pieces together and watch the magic happen."
         steps={[
@@ -74,7 +74,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Snap Together, Light Up — lifestyle image */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuits-beginner/girl-playing-with-kit-in-front-of-her.jpg"
         imageAlt="Girl playing with Snap Circuits Beginner kit"
         title="Snap Together. Light Up. Learn."
@@ -84,7 +84,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes It Click"
         subtitle="14 snap-together parts. 21 guided projects. One very clever design."
         features={[
@@ -130,7 +130,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Fan spinning — project journey */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuits-beginner/finger-pressing-switch-on-board-fan-spinning.jpg"
         imageAlt="Finger pressing a switch on Snap Circuits board with the colour-changing fan spinning"
         title="From Simple to Satisfying — 21 Projects"
@@ -140,26 +140,29 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Projects You'll Build"
         highlight="21 guided circuit projects in a picture-based manual"
         subtitle="Each project introduces a new concept — starting with a single component and building to multi-switch combinations."
         projects={[
           {
             name: "Light Motor",
-            description: "Connect the motor to make the colour-changing fan spin for the first time.",
+            description:
+              "Connect the motor to make the colour-changing fan spin for the first time.",
             concepts: "Motor, electrical energy → motion",
             image: "/images/products/snap-circuits-beginner/projects-light-motor.jpg",
           },
           {
             name: "Light & Sound with Egg",
-            description: "Add the egg component to produce light and sound together in one circuit.",
+            description:
+              "Add the egg component to produce light and sound together in one circuit.",
             concepts: "Series circuit, multiple outputs",
             image: "/images/products/snap-circuits-beginner/projects-light-and-sound-with-egg.jpg",
           },
           {
             name: "2-Speed Fan",
-            description: "Configure the motor to run at two different speeds using the circuit layout.",
+            description:
+              "Configure the motor to run at two different speeds using the circuit layout.",
             concepts: "Variable load, motor speed",
             image: "/images/products/snap-circuits-beginner/projects-2-speed-fan.jpg",
           },
@@ -177,7 +180,8 @@ export default async function SnapCircuitsBeginnerPage() {
           },
           {
             name: "Lots of Lights",
-            description: "Get all available lights working at once in a satisfyingly complex circuit.",
+            description:
+              "Get all available lights working at once in a satisfyingly complex circuit.",
             concepts: "Parallel output, circuit complexity",
             image: "/images/products/snap-circuits-beginner/projects-lots-of-lights.jpg",
           },
@@ -187,7 +191,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Customer Showcase — ALL end-user photos, immediately after ProjectShowcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="Real Kids Building Real Things"
         subtitle="Snap Circuits in action — first circuits, favourite toys, and plenty of proud moments."
         images={[
@@ -228,10 +232,10 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -269,7 +273,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/snap-circuits-beginner/whats-in-the-box.jpg"
         imageAlt="Snap Circuits Beginner kit laid out showing all components"
@@ -290,7 +294,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started"
         subtitle="21 hands-on projects that light up, make noise, and keep young builders coming back for more."
         primaryLabel="Add to Cart"

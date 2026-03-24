@@ -27,7 +27,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
   return (
     <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Four CAPS-aligned specialist courses that take you from curriculum understanding to delivering sensor-driven Coding and Robotics lessons with confidence."
         highlights={[
@@ -38,7 +38,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         ]}
         addons={addons}
       />
-        <QuickInfoBadges
+      <QuickInfoBadges
         badges={[
           { icon: "time", label: "Duration", value: "8-12 Hours" },
           { icon: "age", label: "Audience", value: "Educators" },
@@ -66,7 +66,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           </div>
         </div>
       </section>
-        <CourseTabs
+      <CourseTabs
         tabs={[
           {
             label: "Course 1",
@@ -185,13 +185,10 @@ export default async function MicrobitEssentialStemLabBundlePage() {
 
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-semibold text-navy mb-4">
-            Who Is This Bundle For?
-          </h2>
+          <h2 className="text-3xl font-semibold text-navy mb-4">Who Is This Bundle For?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-            Whether you&apos;re just getting started or ready to run a full
-            STEAM lab, this bundle takes you from beginner to confident —
-            with the training to match.
+            Whether you&apos;re just getting started or ready to run a full STEAM lab, this bundle
+            takes you from beginner to confident — with the training to match.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -220,25 +217,21 @@ export default async function MicrobitEssentialStemLabBundlePage() {
                 key={index}
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-left"
               >
-                <h3 className="text-sm font-semibold text-navy mb-2">
-                  {persona.title}
-                </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  {persona.description}
-                </p>
+                <h3 className="text-sm font-semibold text-navy mb-2">{persona.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{persona.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-        <CallToAction
+      <CallToAction
         title="Get the Complete Bundle"
         subtitle="Four courses and zero guesswork. Everything you need to teach Coding and Robotics with confidence."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         background="navy"
       />
-        <StepPath
+      <StepPath
         title="How the Inspire Campus Works"
         subtitle="All four courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
         steps={[
@@ -265,7 +258,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         ]}
         background="white"
       />
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         background="gray"
         faqs={[
@@ -321,7 +314,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           },
         ]}
       />
-        <CallToAction
+      <CallToAction
         title="Ready to Run a Full STEAM Lab?"
         subtitle="Four courses and zero guesswork. Get everything you need to teach Coding and Robotics — from curriculum understanding to sensor-driven lessons."
         primaryLabel="Get the Bundle"

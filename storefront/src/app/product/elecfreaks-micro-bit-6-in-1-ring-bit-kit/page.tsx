@@ -37,7 +37,7 @@ export default async function RingBitBricksPackPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Build it. Code it. Watch it come to life — 6 ways."
         highlights={[
@@ -50,10 +50,10 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Ring:bit Section */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why the Ring:bit Bricks Pack?"
         subtitle="Most coding kits teach coding. Most building kits teach building. This one does both at the same time — so your child learns how the two connect."
         steps={[
@@ -77,14 +77,14 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Video Section */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=BeOVFo731LA"
         title="See the Ring:bit Bricks Pack in Action"
         background="white"
       />
 
       {/* Bricks ImageTextBlock */}
-        <ImageTextBlock
+      <ImageTextBlock
         image={`${BASE_IMG}/brick-pieces-scattered-around.jpg`}
         imageAlt="LEGO-compatible building bricks from the Ring:bit Bricks Pack scattered on a surface"
         title="200+ Bricks. Endless Builds."
@@ -94,7 +94,7 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes This Kit Different"
         subtitle="Six genuinely different projects. One kit. Everything your child needs to build and code physical machines."
         features={[
@@ -140,7 +140,7 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Ring:bit Board ImageTextBlock */}
-        <ImageTextBlock
+      <ImageTextBlock
         image={`${BASE_IMG}/ring-bit-expansion-board.jpg`}
         imageAlt="ELECFREAKS Ring:bit V2 expansion board that plugs onto the BBC micro:bit"
         title="The Bridge Between Code and Hardware"
@@ -150,7 +150,7 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="6 Projects to Build & Code"
         highlight="6 guided projects — each a different real-world machine"
         subtitle="Projects progress from beginner to intermediate, introducing new concepts with each build. A bonus Joystick remote-control activity takes things even further."
@@ -203,7 +203,7 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="See It in Action"
         subtitle="From the ELECFREAKS community — real builds and real code."
         images={[
@@ -236,10 +236,10 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -282,7 +282,7 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image={`${BASE_IMG}/whats-in-the-box.jpg`}
         imageAlt="ELECFREAKS Ring:bit Bricks Pack contents laid out showing all included components"
@@ -301,7 +301,7 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "SKU", value: "EF08217" },
@@ -321,7 +321,7 @@ export default async function RingBitBricksPackPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Building"
         subtitle="Six projects. Two servos. 200+ bricks. One kit that teaches your child to build and code real things."
         primaryLabel="Add to Cart"

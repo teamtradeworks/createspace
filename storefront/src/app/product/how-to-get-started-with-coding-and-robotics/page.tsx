@@ -27,7 +27,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
   return (
     <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Everything an educator needs to start teaching Coding and Robotics — three professional courses in one bundle"
         highlights={[
@@ -38,7 +38,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         ]}
         addons={addons}
       />
-        <QuickInfoBadges
+      <QuickInfoBadges
         badges={[
           { icon: "time", label: "Duration", value: "6-8 Hours" },
           { icon: "age", label: "Audience", value: "Educators" },
@@ -62,7 +62,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           </div>
         </div>
       </section>
-        <CourseTabs
+      <CourseTabs
         tabs={[
           {
             label: "Course 1",
@@ -153,13 +153,10 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
 
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-semibold text-navy mb-4">
-            Who Is This Bundle For?
-          </h2>
+          <h2 className="text-3xl font-semibold text-navy mb-4">Who Is This Bundle For?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-            Whether you&apos;re just getting started or looking to formalise
-            your school&apos;s STEM programme, this bundle meets you where you
-            are.
+            Whether you&apos;re just getting started or looking to formalise your school&apos;s STEM
+            programme, this bundle meets you where you are.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -188,25 +185,21 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
                 key={index}
                 className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 text-left"
               >
-                <h3 className="text-sm font-semibold text-navy mb-2">
-                  {persona.title}
-                </h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  {persona.description}
-                </p>
+                <h3 className="text-sm font-semibold text-navy mb-2">{persona.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{persona.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
-        <CallToAction
+      <CallToAction
         title="Get Started Today"
         subtitle="Three courses and everything you need to teach Coding and Robotics with confidence."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         background="navy"
       />
-        <StepPath
+      <StepPath
         title="How the Inspire Campus Works"
         subtitle="All three courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
         steps={[
@@ -217,8 +210,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           },
           {
             title: "Work Through the Courses",
-            description:
-              "Video lessons, downloadable notes, and quizzes — all self-paced.",
+            description: "Video lessons, downloadable notes, and quizzes — all self-paced.",
           },
           {
             title: "Practise What You Learn",
@@ -227,13 +219,12 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           },
           {
             title: "Earn Your Certificates",
-            description:
-              "Complete courses and quizzes for professional development certificates.",
+            description: "Complete courses and quizzes for professional development certificates.",
           },
         ]}
         background="white"
       />
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         background="gray"
         faqs={[
@@ -279,7 +270,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           },
         ]}
       />
-        <CallToAction
+      <CallToAction
         title="Ready to Launch Coding and Robotics?"
         subtitle="Three courses, zero guesswork. Get everything you need to start teaching Coding and Robotics at your school."
         primaryLabel="Get the Bundle"

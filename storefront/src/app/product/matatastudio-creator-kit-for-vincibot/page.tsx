@@ -40,7 +40,7 @@ export default async function VinciBotCreatorKitPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="434+ building blocks and a DC motor to take VinciBot from coding to creating"
         highlights={[
@@ -53,16 +53,16 @@ export default async function VinciBotCreatorKitPage() {
       />
 
       {/* Extension Banner */}
-        <ExtensionBanner
+      <ExtensionBanner
         parentProductName={parentProductName}
         parentProductHref={parentProductHref}
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* What This Adds */}
-        <NumberedSteps
+      <NumberedSteps
         title="What the Creator Kit Adds"
         subtitle="Your child already codes with VinciBot. Now they can build real, motorised machines that their code actually controls."
         steps={[
@@ -86,7 +86,7 @@ export default async function VinciBotCreatorKitPage() {
       />
 
       {/* Storytelling image */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-creator-kit-for-vincibot/creator-kit-build-with-coding-on-the-side.png"
         imageAlt="VinciBot Creator Kit motorised build with coding interface on the side"
         title="Code Makes It Move"
@@ -96,14 +96,14 @@ export default async function VinciBotCreatorKitPage() {
       />
 
       {/* Video */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=_p1H77Oyp_s"
         title="VinciBot Creator Kit in Action"
         background="white"
       />
 
       {/* Feature Grid — key build themes */}
-        <FeatureGrid
+      <FeatureGrid
         title="20 Builds Across 6 Engineering Themes"
         subtitle="The guided cases span real-world mechanisms, each teaching different concepts and skills."
         features={[
@@ -149,7 +149,7 @@ export default async function VinciBotCreatorKitPage() {
       />
 
       {/* Variety of builds image */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-creator-kit-for-vincibot/variety-of-builds-with-labels.png"
         imageAlt="Variety of Creator Kit builds including helicopter, claw, and fairground rides with labels"
         title="From the Manual to Their Imagination"
@@ -159,7 +159,7 @@ export default async function VinciBotCreatorKitPage() {
       />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -191,7 +191,7 @@ export default async function VinciBotCreatorKitPage() {
       />
 
       {/* What's Included */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-creator-kit-for-vincibot/whats-in-the-box.png"
         imageAlt="Creator Kit for VinciBot box contents laid out"
@@ -208,7 +208,7 @@ export default async function VinciBotCreatorKitPage() {
       />
 
       {/* Call to Action */}
-        <CallToAction
+      <CallToAction
         title="Expand What VinciBot Can Do"
         subtitle="Your child codes. Now let them build. The Creator Kit turns VinciBot into a platform for real mechanical engineering."
         primaryLabel="Add to Cart"

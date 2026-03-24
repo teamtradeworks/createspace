@@ -33,7 +33,7 @@ export default async function MicroBitWearableX10Page() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Give every learner a wearable micro:bit — ready for class in seconds"
         highlights={[
@@ -46,10 +46,10 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Add Wearables */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Add Wearables to Your Classroom?"
         subtitle="The micro:bit is already a powerful learning tool. Strap it to the wrist and suddenly every lesson becomes active, visible, and personally relevant to your learners."
         steps={[
@@ -73,7 +73,7 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* Classroom Use ImageTextBlock */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/micro-bit-wearable-x-10/child-looking-at-microbit-strapped-to-arm.jpg"
         imageAlt="Learner examining their BBC micro:bit strapped to their wrist"
         title="From the Desk to the Wrist"
@@ -83,7 +83,7 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes This Kit Classroom-Ready"
         subtitle="Designed for group use from the ground up — not a consumer product repurposed for schools."
         features={[
@@ -129,7 +129,7 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* Movement Learning ImageTextBlock */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/micro-bit-wearable-x-10/kids-running-with-strapped-microbit.jpg"
         imageAlt="Children running in a group with BBC micro:bit wearables strapped to their wrists"
         title="Movement-Based Learning That Works Cross-Curricular"
@@ -139,7 +139,7 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="Wearable Coding in Action"
         subtitle="Learners wearing what they code — from fitness trackers to gesture controllers."
         images={[
@@ -180,10 +180,10 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Educator Questions"
         faqs={[
           {
@@ -226,7 +226,7 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* What's Included */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/micro-bit-wearable-x-10/whats-in-the-box.jpeg"
         imageAlt="BBC micro:bit Wearable x 10 box contents laid out"
@@ -240,7 +240,7 @@ export default async function MicroBitWearableX10Page() {
       />
 
       {/* CTA */}
-        <CallToAction
+      <CallToAction
         title="Equip Your Classroom for Wearable Coding"
         subtitle="Trusted by schools and coding clubs across South Africa."
         primaryLabel="Add to Cart"

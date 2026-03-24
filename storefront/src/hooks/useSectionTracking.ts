@@ -11,10 +11,7 @@ interface TrackingState {
   isIntersecting: boolean;
 }
 
-export default function useSectionTracking(
-  sectionName: string,
-  productHandle: string
-) {
+export default function useSectionTracking(sectionName: string, productHandle: string) {
   const ref = useRef<HTMLDivElement>(null);
   const state = useRef<TrackingState>({
     visibleSince: null,
@@ -70,7 +67,7 @@ export default function useSectionTracking(
           flush();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     );
 
     observer.observe(el);

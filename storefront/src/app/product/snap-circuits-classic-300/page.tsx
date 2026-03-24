@@ -35,7 +35,7 @@ export default async function SnapCircuitsClassic300Page() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="305 guided electronics projects — no tools, no soldering, no experience needed"
         highlights={[
@@ -48,10 +48,10 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* At a Glance */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Snap Circuits */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Snap Circuits?"
         subtitle="Most electronics kits are either too simple to be interesting or too complex to start. Snap Circuits hits the sweet spot."
         steps={[
@@ -75,7 +75,7 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* Lifestyle: Child with kit */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuits-classic-300/girl-smiling-with-kit.jpg"
         imageAlt="Girl smiling with completed Snap Circuits kit"
         title="Built to Be Rebuilt, Again and Again"
@@ -85,7 +85,7 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes Snap Circuits Different"
         subtitle="Designed to make real electronics accessible to anyone aged 8 and up."
         features={[
@@ -131,7 +131,7 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* Lifestyle: Close-up of pieces */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/snap-circuits-classic-300/close-up-of-pieces-together.jpg"
         imageAlt="Close-up of Snap Circuits modules snapped together on the grid board"
         title="How Electronics Actually Work"
@@ -141,7 +141,7 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="305 Projects to Build"
         highlight="305 guided electronics projects in two full-colour manuals"
         subtitle="Projects are arranged in order of difficulty — your child builds knowledge step by step, starting from a simple light switch and working up to a fully functioning AM radio."
@@ -188,7 +188,7 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* Customer Showcase — all end-user images */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="What Families Are Building"
         subtitle="From the first project to the full 305 — real circuits built by real kids"
         images={[
@@ -245,10 +245,10 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -286,7 +286,7 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/snap-circuits-classic-300/whats-in-the-box.jpeg"
         imageAlt="Snap Circuits Classic 300 project manuals fanned out alongside the box"
@@ -316,7 +316,7 @@ export default async function SnapCircuitsClassic300Page() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Model", value: "SC-300" },
@@ -329,13 +329,16 @@ export default async function SnapCircuitsClassic300Page() {
           { label: "Soldering Required", value: "No" },
           { label: "Tools Required", value: "None" },
           { label: "Box Dimensions", value: "Approx. 35 × 48 × 7.5 cm" },
-          { label: "Compatible With", value: "Snap Circuits SC-500, SC-750, and all other Snap Circuits sets" },
+          {
+            label: "Compatible With",
+            value: "Snap Circuits SC-500, SC-750, and all other Snap Circuits sets",
+          },
         ]}
         background="white"
       />
 
       {/* CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Snapping"
         subtitle="305 projects. No tools. No soldering. Just real electronics waiting to be built."
         primaryLabel="Add to Cart"

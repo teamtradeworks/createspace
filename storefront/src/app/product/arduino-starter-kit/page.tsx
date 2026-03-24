@@ -36,7 +36,7 @@ export default async function ArduinoStarterKitPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Your gateway to electronics, coding, and endless creativity"
         highlights={[
@@ -49,38 +49,41 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Arduino Section */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Start with Arduino?"
         subtitle="Arduino is the world's most popular platform for learning electronics and coding. Used by millions of makers, educators, and professionals worldwide."
         steps={[
           {
             title: "Build Real Things",
-            description: "Move beyond screen-based coding. Create physical projects that light up, move, and respond to the real world.",
+            description:
+              "Move beyond screen-based coding. Create physical projects that light up, move, and respond to the real world.",
           },
           {
             title: "Industry Standard",
-            description: "Arduino skills transfer directly to careers in engineering, robotics, IoT, and product development.",
+            description:
+              "Arduino skills transfer directly to careers in engineering, robotics, IoT, and product development.",
           },
           {
             title: "Massive Community",
-            description: "Join millions of makers. Find tutorials, get help, and share your creations with a supportive global community.",
+            description:
+              "Join millions of makers. Find tutorials, get help, and share your creations with a supportive global community.",
           },
         ]}
         background="navy-card"
       />
 
       {/* Video Section */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=_2O_IhdJNJ4"
         title="See the Arduino Starter Kit in Action"
         background="gray"
       />
 
       {/* What Is Arduino Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-starter-kit/arduino_parts_branded_image.jpg"
         imageAlt="Arduino Starter Kit components laid out including board, breadboard, LEDs and sensors"
         title="Your First Electronics Lab"
@@ -90,14 +93,15 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What's Included"
         subtitle="The Arduino Starter Kit is designed for complete beginners. No soldering, no complex setup - just unbox and start building."
         features={[
           {
             icon: "book",
             title: "170-Page Project Book",
-            description: "Clear, illustrated instructions guide you through each project step by step",
+            description:
+              "Clear, illustrated instructions guide you through each project step by step",
           },
           {
             icon: "puzzle",
@@ -112,7 +116,8 @@ export default async function ArduinoStarterKitPage() {
           {
             icon: "lightbulb",
             title: "100+ Components",
-            description: "LEDs, sensors, motors, buttons, and more - all quality components included",
+            description:
+              "LEDs, sensors, motors, buttons, and more - all quality components included",
           },
           {
             icon: "globe",
@@ -130,7 +135,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Life Skills Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-starter-kit/kid-working-with-starter-kit.jpg"
         imageAlt="Child working with the Arduino Starter Kit"
         title="Skills They'll Develop"
@@ -140,7 +145,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Projects You'll Build"
         highlight="15 real-world projects in a 170-page printed guidebook"
         subtitle="Each project builds on the last, gradually introducing new concepts and components."
@@ -187,7 +192,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* End-User Photo Section */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="See It in Action"
         subtitle="Real builds from makers who started exactly where you are now."
         images={[
@@ -220,7 +225,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -258,10 +263,10 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/arduino-starter-kit/kit-unboxed.jpg"
         imageAlt="Arduino Starter Kit unboxed showing all components"
@@ -289,7 +294,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Microcontroller", value: "ATmega328P" },
@@ -307,7 +312,7 @@ export default async function ArduinoStarterKitPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started"
         subtitle="Join millions of makers worldwide. The Arduino Starter Kit has everything you need to begin your journey into electronics and programming."
         primaryLabel="Add to Cart"
@@ -316,7 +321,6 @@ export default async function ArduinoStarterKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
     </ProductTrackingProvider>
   );
 }

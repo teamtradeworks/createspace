@@ -17,7 +17,6 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-
 const PRODUCT_HANDLE = "makerzoid-smart-robot";
 
 export default async function MakerzoidSmartRobotPage() {
@@ -35,7 +34,7 @@ export default async function MakerzoidSmartRobotPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="72+ moving robots your child builds without writing a single line of code"
         highlights={[
@@ -48,10 +47,10 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why This Kit */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why the Smart Robot is Different"
         subtitle="Most building kits just sit still. The Makerzoid Smart Robot is designed to move, react, and surprise — without needing any programming."
         steps={[
@@ -75,7 +74,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Building for Real */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-smart-robot/boy-in-background-with-four-robot-builds-in-front-of-him.jpg"
         imageAlt="Boy surrounded by four completed robot builds he assembled himself"
         title="A New Build Every Time"
@@ -85,7 +84,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes It Work"
         subtitle="No coding knowledge needed. The Intelligent Motor does the thinking so your child can focus entirely on building and experimenting."
         features={[
@@ -131,7 +130,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Categories */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-smart-robot/band-of-robots.jpg"
         imageAlt="A band of music robots — pianist, guitarist, bassist, drummer, and violinist"
         title="Three Worlds to Explore"
@@ -141,7 +140,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="72+ Robots to Build"
         highlight="Three themed collections — music, sports, and agriculture — plus more models beyond"
         subtitle="Each robot is a new engineering puzzle. Here's a taste of what your child will build:"
@@ -188,7 +187,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="What Kids Are Building"
         subtitle="Real builds from the Makerzoid Smart Robot community"
         images={[
@@ -227,7 +226,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         background="white"
         faqs={[
@@ -275,7 +274,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/makerzoid-smart-robot/whats-in-the-box.jpg"
         imageAlt="Makerzoid Smart Robot kit contents laid out"
@@ -292,7 +291,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Building Blocks", value: "300+ pieces" },
@@ -312,7 +311,7 @@ export default async function MakerzoidSmartRobotPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started"
         subtitle="A building kit with robots that actually move — no coding, no apps, no fuss. Just 72+ models waiting to be built."
         primaryLabel="Add to Cart"

@@ -36,7 +36,7 @@ export default async function NousAISetPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Your child's gateway to real-world artificial intelligence"
         highlights={[
@@ -49,38 +49,41 @@ export default async function NousAISetPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Nous AI Section */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Nous AI?"
         subtitle="Most coding robots teach programming. Nous AI teaches your child how artificial intelligence actually works — from training models to deploying them in real applications."
         steps={[
           {
             title: "Learn Real AI",
-            description: "Not just coding — your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
+            description:
+              "Not just coding — your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
           },
           {
             title: "Future-Ready Skills",
-            description: "AI and robotics engineers are among the highest-paid careers today. Give your child hands-on experience with the technologies shaping tomorrow's job market.",
+            description:
+              "AI and robotics engineers are among the highest-paid careers today. Give your child hands-on experience with the technologies shaping tomorrow's job market.",
           },
           {
             title: "Works Offline",
-            description: "Unlike cloud-dependent kits, Nous AI uses TinyML to run AI models directly on the robot — no internet required once models are trained. Your child learns real edge computing concepts.",
+            description:
+              "Unlike cloud-dependent kits, Nous AI uses TinyML to run AI models directly on the robot — no internet required once models are trained. Your child learns real edge computing concepts.",
           },
         ]}
         background="navy-card"
       />
 
       {/* Video Section */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=2JSvgJYo6L8&list=PLCtoqhowu_HKX-cdy_b6KWBZgDDmOw3eD&index=1"
         title="See Nous AI in Action"
         background="gray"
       />
 
       {/* What Makes It Special */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-nous-ai-set/child-with-nous.jpg"
         imageAlt="Child interacting with Nous AI robot"
         title="AI That Feels Like Magic"
@@ -90,39 +93,45 @@ export default async function NousAISetPage() {
       />
 
       {/* Key Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes Nous AI Different"
         subtitle="This isn't a toy robot — it's a complete AI education platform built around professional-grade concepts, made accessible for children aged 12+."
         features={[
           {
             icon: "sparkles",
             title: "ChatGPT-4o Powered",
-            description: "Natural conversations with AI using MatataChat — ask questions, get responses, explore language understanding",
+            description:
+              "Natural conversations with AI using MatataChat — ask questions, get responses, explore language understanding",
           },
           {
             icon: "code",
             title: "Dual Programming",
-            description: "Start with block coding (Scratch-style) and progress to Python as skills grow",
+            description:
+              "Start with block coding (Scratch-style) and progress to Python as skills grow",
           },
           {
             icon: "camera",
             title: "Computer Vision",
-            description: "Face detection, object recognition, and AprilTag tracking with built-in camera and sensors",
+            description:
+              "Face detection, object recognition, and AprilTag tracking with built-in camera and sensors",
           },
           {
             icon: "microphone",
             title: "Speech Recognition",
-            description: "Train voice models, build voice-controlled systems, explore natural language processing",
+            description:
+              "Train voice models, build voice-controlled systems, explore natural language processing",
           },
           {
             icon: "robot",
             title: "TinyML Edge AI",
-            description: "Run AI models directly on the robot without cloud connectivity — learn edge computing concepts",
+            description:
+              "Run AI models directly on the robot without cloud connectivity — learn edge computing concepts",
           },
           {
             icon: "building-blocks",
             title: "Expandable Design",
-            description: "Metal construction compatible with building blocks for endless customisation and creative projects",
+            description:
+              "Metal construction compatible with building blocks for endless customisation and creative projects",
           },
         ]}
         columns={3}
@@ -130,7 +139,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Skills Development Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-nous-ai-set/collage-of-nous-activities.jpg"
         imageAlt="Collage showing various Nous AI activities"
         title="More Than Technical Skills"
@@ -140,7 +149,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Projects You'll Build"
         highlight="18+ hands-on AI projects, challenges, and activities"
         subtitle="Each project introduces new concepts and skills. Your child starts with the basics and progresses to training custom AI models."
@@ -187,7 +196,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="Real Families, Real Learning"
         subtitle="See what students are building and learning with Nous AI"
         images={[
@@ -220,10 +229,10 @@ export default async function NousAISetPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -266,7 +275,7 @@ export default async function NousAISetPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-nous-ai-set/whats-in-the-box.png"
         imageAlt="Nous AI Set components and what's included"
@@ -287,12 +296,15 @@ export default async function NousAISetPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Recommended Age", value: "12+ years" },
           { label: "Programming Languages", value: "Block coding (Scratch-style) and Python" },
-          { label: "AI Technologies", value: "TinyML, ChatGPT-4o, Computer Vision, Speech Recognition" },
+          {
+            label: "AI Technologies",
+            value: "TinyML, ChatGPT-4o, Computer Vision, Speech Recognition",
+          },
           { label: "Platform", value: "MatataCode online (web-based, free lifetime access)" },
           { label: "Connectivity", value: "USB-C, WiFi for IoT features" },
           { label: "Camera", value: "Built-in camera with fill lights and ToF ranging sensor" },
@@ -300,13 +312,16 @@ export default async function NousAISetPage() {
           { label: "Construction", value: "Metal frame, compatible with building blocks" },
           { label: "Battery", value: "Built-in rechargeable battery, USB-C charging" },
           { label: "Assembly Time", value: "Approximately 20 minutes" },
-          { label: "Certifications", value: "ISTE certified curriculum, EdTech Digest Cool Tool Winner 2025" },
+          {
+            label: "Certifications",
+            value: "ISTE certified curriculum, EdTech Digest Cool Tool Winner 2025",
+          },
         ]}
         background="white"
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Start Your AI Journey"
         subtitle="Join 20,000+ schools and institutions worldwide using MatataStudio to teach the next generation of AI innovators."
         primaryLabel="Add to Cart"
@@ -315,7 +330,6 @@ export default async function NousAISetPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
     </ProductTrackingProvider>
   );
 }

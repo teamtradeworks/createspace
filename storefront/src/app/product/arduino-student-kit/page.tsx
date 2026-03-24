@@ -36,7 +36,7 @@ export default async function ArduinoStudentKitPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Real electronics, real code — a complete semester of structured learning for ages 11 and up"
         highlights={[
@@ -49,10 +49,10 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why the Arduino Student Kit */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why the Arduino Student Kit?"
         subtitle="Arduino has been the world's most trusted platform for learning electronics since 2005. The Student Kit brings that foundation home."
         steps={[
@@ -76,14 +76,14 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Video */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=t-PZsb9ci9E&t=7s"
         title="See the Arduino Student Kit in Action"
         background="gray"
       />
 
       {/* Online Platform Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-student-kit/student-kit-connecting-up-with-laptop-infront.jpg"
         imageAlt="Student connecting up the Arduino Student Kit with a laptop in front"
         title="A Platform Built for Home Learning"
@@ -93,7 +93,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="Everything Included to Get Started"
         subtitle="One kit, one platform, one clear path from complete beginner to confident maker."
         features={[
@@ -139,44 +139,50 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* What They'll Build */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="9 Lessons. 2 Projects. One Complete Curriculum."
         highlight="Up to 25 hours of guided learning"
         subtitle="Each lesson builds on the last — from reading a circuit diagram to programming a climate control system from scratch."
         projects={[
           {
             name: "Electricity Basics",
-            description: "Meet the multimeter and learn the language of electronics — current, voltage, and resistance.",
+            description:
+              "Meet the multimeter and learn the language of electronics — current, voltage, and resistance.",
             concepts: "Ohm's Law, multimeter, electrical vocabulary",
             image: "/images/products/arduino-student-kit/projects/electricty-basics.png",
           },
           {
             name: "Schematics",
-            description: "Learn to read and draw circuit diagrams — the universal language that connects all electronics.",
+            description:
+              "Learn to read and draw circuit diagrams — the universal language that connects all electronics.",
             concepts: "Circuit symbols, schematic reading",
             image: "/images/products/arduino-student-kit/projects/schematics.png",
           },
           {
             name: "Writing Code",
-            description: "Write and upload the first Arduino sketch. Meet variables, syntax, and the IDE that powers millions of projects.",
+            description:
+              "Write and upload the first Arduino sketch. Meet variables, syntax, and the IDE that powers millions of projects.",
             concepts: "Arduino IDE, code structure, uploading",
             image: "/images/products/arduino-student-kit/projects/learn-to-code.png",
           },
           {
             name: "Traffic Light",
-            description: "Build a working traffic light with LEDs and write the code to run it — the first real project.",
+            description:
+              "Build a working traffic light with LEDs and write the code to run it — the first real project.",
             concepts: "Digital output, LEDs, timing, conditionals",
             image: "/images/products/arduino-student-kit/projects/traffic-light.png",
           },
           {
             name: "Musical Keyboard",
-            description: "Build a playable keyboard with pushbuttons and a piezo buzzer. Sound, arrays, and creative code.",
+            description:
+              "Build a playable keyboard with pushbuttons and a piezo buzzer. Sound, arrays, and creative code.",
             concepts: "Piezo buzzer, sound frequencies, arrays",
             image: "/images/products/arduino-student-kit/projects/musical-keyboard.png",
           },
           {
             name: "Light Wave Radar",
-            description: "Use a phototransistor to measure light intensity and explore how information travels as waves.",
+            description:
+              "Use a phototransistor to measure light intensity and explore how information travels as waves.",
             concepts: "Phototransistors, analog input, wave physics",
             image: "/images/products/arduino-student-kit/projects/light-wave-radar.png",
           },
@@ -187,7 +193,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Character Development Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-student-kit/opened-box-with-all-parts-displayed-and-laptop.jpg"
         imageAlt="Arduino Student Kit opened box showing all components with a laptop"
         title="Skills That Last Long After the Final Lesson"
@@ -197,7 +203,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="The Kit in Action"
         subtitle="From unboxing to first circuit, every step is guided."
         images={[
@@ -238,10 +244,10 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -284,7 +290,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/arduino-student-kit/whats-in-the-box.jpeg"
         imageAlt="Arduino Student Kit contents laid out showing all components"
@@ -312,7 +318,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Product Code", value: "AKX00025" },
@@ -323,14 +329,17 @@ export default async function ArduinoStudentKitPage() {
           { label: "Coding Software", value: "Arduino IDE (free download)" },
           { label: "OS Compatibility", value: "Windows 7+, macOS, Chromebook, Linux" },
           { label: "Soldering Required", value: "No" },
-          { label: "Platform Languages", value: "English, French, German, Spanish, Italian, Portuguese, Chinese, Croatian, Thai" },
+          {
+            label: "Platform Languages",
+            value: "English, French, German, Spanish, Italian, Portuguese, Chinese, Croatian, Thai",
+          },
           { label: "Weight", value: "750g" },
         ]}
         background="gray"
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started with Arduino"
         subtitle="The official kit trusted by educators worldwide — everything needed for a full semester of electronics and coding."
         primaryLabel="Add to Cart"

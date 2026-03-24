@@ -17,7 +17,6 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-
 const PRODUCT_HANDLE = "makerzoid-smart-robot-premium";
 
 export default async function MakerzoidSmartRobotPremiumPage() {
@@ -35,7 +34,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Build, code, and play with 200+ robot designs"
         highlights={[
@@ -48,31 +47,34 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why Choose This Kit */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Choose Makerzoid?"
         subtitle="Designed by robotics professors and engineers, Makerzoid transforms playtime into powerful learning moments."
         steps={[
           {
             title: "Limitless Creativity",
-            description: "With 200+ models from musical robots to sports trainers to vehicles, your child will never run out of new challenges to tackle.",
+            description:
+              "With 200+ models from musical robots to sports trainers to vehicles, your child will never run out of new challenges to tackle.",
           },
           {
             title: "Grows With Them",
-            description: "Start with simple button-controlled builds, progress to sensor interactions, then unlock full programming with Bluetooth - perfect for ages 6 to 12+.",
+            description:
+              "Start with simple button-controlled builds, progress to sensor interactions, then unlock full programming with Bluetooth - perfect for ages 6 to 12+.",
           },
           {
             title: "Real Skills, Real Fun",
-            description: "Hands-on robotics builds genuine problem-solving abilities, logical thinking, and confidence that carries into school and beyond.",
+            description:
+              "Hands-on robotics builds genuine problem-solving abilities, logical thinking, and confidence that carries into school and beyond.",
           },
         ]}
         background="navy-card"
       />
 
       {/* Learning Through Building */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-smart-robot-premium/child-building-while-coding-on-tablet.jpg"
         imageAlt="Child building a robot while coding on tablet"
         title="What They'll Build"
@@ -82,24 +84,27 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What's Included"
         subtitle="This complete kit includes 400+ building blocks, a Bluetooth motor, sensors, and comprehensive instructions - no additional tools required."
         features={[
           {
             icon: "puzzle",
             title: "400+ Building Blocks",
-            description: "Large, colourful bricks perfect for developing fine motor skills and spatial reasoning",
+            description:
+              "Large, colourful bricks perfect for developing fine motor skills and spatial reasoning",
           },
           {
             icon: "code",
             title: "Scratch Junior Coding",
-            description: "Visual drag-and-drop programming that introduces real coding concepts without complexity",
+            description:
+              "Visual drag-and-drop programming that introduces real coding concepts without complexity",
           },
           {
             icon: "lightbulb",
             title: "Three Control Modes",
-            description: "Electric button control, IR sensor interaction, or full Bluetooth programming",
+            description:
+              "Electric button control, IR sensor interaction, or full Bluetooth programming",
           },
           {
             icon: "book",
@@ -122,7 +127,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Programming Section */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/makerzoid-smart-robot-premium/childs-hands-holding-a-built-robot.jpg"
         imageAlt="Child's hands proudly holding a completed robot build"
         title="From Idea to Working Robot"
@@ -132,7 +137,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="Projects, Challenges & Activities"
         highlight="200+ robot models across multiple categories"
         subtitle="From musical robots to sports trainers to vehicles, each model teaches new engineering and programming concepts. Here are just a few examples:"
@@ -179,7 +184,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="What Families Are Building"
         subtitle="See what other children have created with their Makerzoid Smart Robot Premium kits"
         images={[
@@ -212,7 +217,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* FAQ Section */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -255,7 +260,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/makerzoid-smart-robot-premium/whats-in-the-box.jpg"
         imageAlt="Contents of the Makerzoid Smart Robot Premium kit laid out"
@@ -275,7 +280,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Building Blocks", value: "400+ pieces" },
@@ -293,7 +298,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started"
         subtitle="Join 3,000+ schools and thousands of families worldwide using Makerzoid to inspire the next generation of engineers and innovators."
         primaryLabel="Add to Cart"
@@ -302,7 +307,6 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
     </ProductTrackingProvider>
   );
 }

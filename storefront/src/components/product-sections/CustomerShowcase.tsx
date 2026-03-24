@@ -86,9 +86,7 @@ function ImageCard({
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
-          <p className="text-white text-sm leading-relaxed">
-            {image.description}
-          </p>
+          <p className="text-white text-sm leading-relaxed">{image.description}</p>
         </div>
       )}
     </div>
@@ -114,14 +112,14 @@ export function CustomerShowcase({
       return (
         <SectionTracker name="CustomerShowcase">
           <div className="aspect-[16/9]">
-          <ImageCard
-            image={images[0]}
-            isHovered={hoveredIndex === 0}
-            onHover={() => setHoveredIndex(0)}
-            onLeave={() => setHoveredIndex(null)}
-            className="h-full"
-          />
-        </div>
+            <ImageCard
+              image={images[0]}
+              isHovered={hoveredIndex === 0}
+              onHover={() => setHoveredIndex(0)}
+              onLeave={() => setHoveredIndex(null)}
+              className="h-full"
+            />
+          </div>
         </SectionTracker>
       );
     }
@@ -283,12 +281,8 @@ export function CustomerShowcase({
         {/* Header */}
         {(title || subtitle) && (
           <div className="text-center mb-10">
-            {title && (
-              <h2 className="text-3xl font-semibold text-navy mb-3">{title}</h2>
-            )}
-            {subtitle && (
-              <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
-            )}
+            {title && <h2 className="text-3xl font-semibold text-navy mb-3">{title}</h2>}
+            {subtitle && <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>}
           </div>
         )}
 

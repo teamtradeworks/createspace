@@ -36,7 +36,7 @@ export default async function MatataStudioMicroscopePage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Give your child a front-row seat to the microscopic world"
         highlights={[
@@ -49,10 +49,10 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why the MX2-AS */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why the MX2-AS?"
         subtitle="Most children never get to see what's invisible to the naked eye. The MX2-AS changes that — giving your child the tools real scientists use, in a form they can pick up and explore with right away."
         steps={[
@@ -76,14 +76,14 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Video */}
-        <VideoEmbed
+      <VideoEmbed
         url="https://www.youtube.com/watch?v=8UDRSWKKbNY"
         title="See the MatataStudio Digital Microscope MX2-AS in Action"
         background="gray"
       />
 
       {/* Indoors & Outdoors */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-digital-microscope-mx2-as/handheld-garden-vs-stand-petri-dish.jpg"
         imageAlt="Split image: child using the MX2-AS handheld in the garden looking at a flower on the left; boy using the stand-mounted microscope with a petri dish on the right"
         title="From the Garden to the Desk"
@@ -93,7 +93,7 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Feature Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="Key Features"
         subtitle="Professional microscopy capability in an age-appropriate, portable design — no prior experience required."
         features={[
@@ -139,7 +139,7 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Document & Share */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/matatastudio-digital-microscope-mx2-as/girl-pointing-to-screen.jpg"
         imageAlt="Young girl pointing excitedly at the MatataStudio microscope screen showing a magnified specimen"
         title="Document Every Discovery"
@@ -149,46 +149,56 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Observation Activities */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="What Will They Observe?"
         highlight="An open-ended exploration tool — the whole world is a specimen"
         subtitle="The included exploration manual guides beginners through each type of observation. These are just a few places to start."
         projects={[
           {
             name: "Prepared Slides",
-            description: "Study the 5 included biology specimens using the transmitted light setting",
+            description:
+              "Study the 5 included biology specimens using the transmitted light setting",
             concepts: "Biology, cell structure, specimens",
-            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/prepared-slides.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mx2-as/projects/prepared-slides.png",
           },
           {
             name: "Garden Explorer",
-            description: "Go handheld to observe flowers, insects, and leaves up close in the garden",
+            description:
+              "Go handheld to observe flowers, insects, and leaves up close in the garden",
             concepts: "Botany, insect biology, outdoor science",
-            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/garden-explorer.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mx2-as/projects/garden-explorer.png",
           },
           {
             name: "Crystal Science",
-            description: "Watch salt and sugar transform into geometric structures at high magnification",
+            description:
+              "Watch salt and sugar transform into geometric structures at high magnification",
             concepts: "Chemistry, crystal structure, geometry",
-            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/crystal-science.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mx2-as/projects/crystal-science.png",
           },
           {
             name: "Nature Detectives",
             description: "Collect soil and rocks from different spots and compare what's inside",
             concepts: "Geology, earth science, particle analysis",
-            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/nature-detectives.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mx2-as/projects/nature-detectives.png",
           },
           {
             name: "Everyday Objects",
             description: "Examine fabric, paper, coins, and household surfaces in a whole new way",
             concepts: "Materials science, observation, comparison",
-            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/everyday-objects.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mx2-as/projects/everyday-objects.png",
           },
           {
             name: "Science Journal",
-            description: "Photograph every discovery and build a digital collection with the MatataXplore app",
+            description:
+              "Photograph every discovery and build a digital collection with the MatataXplore app",
             concepts: "Documentation, digital literacy, scientific method",
-            image: "/images/products/matatastudio-digital-microscope-mx2-as/projects/science-journal.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mx2-as/projects/science-journal.png",
           },
         ]}
         moreText="Plus any specimen your child can find — pond water, flower pollen, hair, skin, and more"
@@ -196,7 +206,7 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* CustomerShowcase — ALL end-user images */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="The MX2-AS in Action"
         subtitle="Real families exploring the microscopic world"
         images={[
@@ -245,10 +255,10 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -286,7 +296,7 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-digital-microscope-mx2-as/whats-in-the-box.jpg"
         imageAlt="MatataStudio MX2-AS digital microscope kit contents laid out"
@@ -306,7 +316,7 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Specifications */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Display", value: "4.3-inch LCD, 800×480" },
@@ -327,7 +337,7 @@ export default async function MatataStudioMicroscopePage() {
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Start Exploring"
         subtitle="Turn everyday curiosity into a love of science. The MX2-AS is ready to go straight out of the box."
         primaryLabel="Add to Cart"

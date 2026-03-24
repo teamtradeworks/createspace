@@ -35,7 +35,7 @@ export default async function ArduinoIoTBundlePage() {
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-        <HeroSection
+      <HeroSection
         product={product}
         tagline="Build 5 real IoT devices and connect them to the internet — no experience needed"
         highlights={[
@@ -48,10 +48,10 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Quick Info Badges */}
-        <QuickInfoBadges product={product} />
+      <QuickInfoBadges product={product} />
 
       {/* Why IoT Section */}
-        <NumberedSteps
+      <NumberedSteps
         title="Why Start with IoT?"
         subtitle="The Internet of Things is one of the fastest-growing fields in tech. This bundle makes it accessible from day one."
         steps={[
@@ -75,7 +75,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* From Consumer to Creator */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-iot-bundle/group-of-friends-gathered-playing-with-iot-bundle.jpg"
         imageAlt="Group of friends gathered around an Arduino IoT Bundle project"
         title="From Screen Time to Build Time"
@@ -85,7 +85,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Key Features Grid */}
-        <FeatureGrid
+      <FeatureGrid
         title="What Makes This Kit Special"
         subtitle="Everything your teenager needs to build their first connected devices — hardware, software, and step-by-step guidance included."
         features={[
@@ -131,7 +131,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Learn Online, Build in Real Life */}
-        <ImageTextBlock
+      <ImageTextBlock
         image="/images/products/arduino-iot-bundle/online-tutorial-platform.jpg"
         imageAlt="Arduino IoT Bundle online tutorial platform showing step-by-step project guide"
         title="Learn Online, Build in Real Life"
@@ -141,38 +141,43 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Project Showcase */}
-        <ProjectShowcase
+      <ProjectShowcase
         title="5 Projects You'll Build"
         highlight="5 guided IoT projects with complete online tutorials"
         subtitle="Each project teaches different skills — from cloud dashboards and motor control to sensor data and mobile apps."
         projects={[
           {
             name: "I Love You Pillow",
-            description: "Build a hug-sensing pillow that sends emoji messages to a loved one's device via the Arduino IoT Cloud",
+            description:
+              "Build a hug-sensing pillow that sends emoji messages to a loved one's device via the Arduino IoT Cloud",
             concepts: "Capacitive sensing, IoT Cloud, real-time data",
             image: "/images/products/arduino-iot-bundle/i-love-you-pillow.avif",
           },
           {
             name: "Puzzle Box",
-            description: "Lock a cardboard box with a servo motor and build a potentiometer combination lock with colour-coded hints",
+            description:
+              "Lock a cardboard box with a servo motor and build a potentiometer combination lock with colour-coded hints",
             concepts: "Servo motors, analog input, IoT dashboard",
             image: "/images/products/arduino-iot-bundle/puzzle-box.jpg",
           },
           {
             name: "Pavlov's Cat",
-            description: "Train a pet to respond to a melody using a servo-powered food dispenser — track training progress in the cloud",
+            description:
+              "Train a pet to respond to a melody using a servo-powered food dispenser — track training progress in the cloud",
             concepts: "Motor control, light sensing, cloud logging",
             image: "/images/products/arduino-iot-bundle/built-project-for-pet-training.avif",
           },
           {
             name: "The Nerd",
-            description: "Create a desktop electronic pet that needs food and light to survive, monitored live on an IoT dashboard",
+            description:
+              "Create a desktop electronic pet that needs food and light to survive, monitored live on an IoT dashboard",
             concepts: "State machines, cloud variables, RGB LED",
             image: "/images/products/arduino-iot-bundle/digital-pet-project.jpg",
           },
           {
             name: "Plant Communicator",
-            description: "Monitor a plant's soil moisture, temperature, and light levels in real time via a cloud dashboard with alerts",
+            description:
+              "Monitor a plant's soil moisture, temperature, and light levels in real time via a cloud dashboard with alerts",
             concepts: "Sensor calibration, data visualisation, alerting",
             image: "/images/products/arduino-iot-bundle/plant-moisture-communicator.jpg",
           },
@@ -181,7 +186,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Customer Showcase */}
-        <CustomerShowcase
+      <CustomerShowcase
         title="What You'll Be Building"
         subtitle="From cloud-connected pets to smart plant monitors — all made from scratch."
         images={[
@@ -222,10 +227,10 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Reviews */}
-        <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-        <ProductFAQ
+      <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -249,8 +254,7 @@ export default async function ArduinoIoTBundlePage() {
               "Two of the five projects — the Puzzle Box and Pavlov's Cat — use a servo motor that requires a 9V battery, which is not included in the bundle. The other three projects run from USB power with no batteries needed.",
           },
           {
-            question:
-              "Some projects mention household items. What do I need to provide?",
+            question: "Some projects mention household items. What do I need to provide?",
             answer:
               "The I Love You Pillow project requires a physical pillow and some aluminium foil (used as a DIY sensor). The Puzzle Box and Pavlov's Cat use a cardboard box as the enclosure. Everything else — all the electronics — is in the box.",
           },
@@ -269,7 +273,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* What's in the Box */}
-        <WhatsIncluded
+      <WhatsIncluded
         title="What's in the Box"
         image="/images/products/arduino-iot-bundle/whats-in-the-box.webp"
         imageAlt="Arduino IoT Bundle contents laid out showing all components"
@@ -295,7 +299,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Technical Details */}
-        <Specifications
+      <Specifications
         title="Technical Details"
         specs={[
           { label: "Board", value: "Arduino Nano RP2040 Connect" },
@@ -322,14 +326,17 @@ export default async function ArduinoIoTBundlePage() {
           { label: "Power", value: "Micro-USB" },
           { label: "Security", value: "Hardware authentication coprocessor (ATECC608A)" },
           { label: "Software", value: "Arduino IDE / Arduino IoT Cloud (free plan)" },
-          { label: "OS Compatibility", value: "Windows, macOS, Linux (browser); iOS, Android (remote app)" },
+          {
+            label: "OS Compatibility",
+            value: "Windows, macOS, Linux (browser); iOS, Android (remote app)",
+          },
           { label: "SKU", value: "AKX00042" },
         ]}
         background="white"
       />
 
       {/* Final CTA */}
-        <CallToAction
+      <CallToAction
         title="Get Started with IoT"
         subtitle="Everything needed to build 5 real connected devices — and the skills to keep building long after."
         primaryLabel="Add to Cart"

@@ -10,7 +10,7 @@ interface VideoEmbedProps {
 function getVideoEmbedUrl(url: string): string | null {
   // YouTube
   const youtubeMatch = url.match(
-    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/
+    /(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{11})/,
   );
   if (youtubeMatch) {
     return `https://www.youtube.com/embed/${youtubeMatch[1]}`;
@@ -59,26 +59,23 @@ export function VideoEmbed({
   return (
     <SectionTracker name="VideoEmbed">
       <section className={`py-16 ${bgClass}`}>
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        {title && (
-          <h2 className={`text-3xl font-semibold ${textClass} text-center mb-8`}>
-            {title}
-          </h2>
-        )}
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          {title && (
+            <h2 className={`text-3xl font-semibold ${textClass} text-center mb-8`}>{title}</h2>
+          )}
 
-        <div className={`${aspectClass} rounded-2xl overflow-hidden shadow-lg`}>
-          <iframe
-            src={embedUrl}
-            title={title || "Product video"}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full"
-            loading="lazy"
-          />
+          <div className={`${aspectClass} rounded-2xl overflow-hidden shadow-lg`}>
+            <iframe
+              src={embedUrl}
+              title={title || "Product video"}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+              loading="lazy"
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
     </SectionTracker>
-
   );
 }
