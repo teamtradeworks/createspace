@@ -16,6 +16,7 @@ import {
   SkillTags,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "elecfreaks-micro-bit-tinker-kit";
@@ -31,11 +32,11 @@ export default async function ElecfreaksTinkerKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Turn your micro:bit into a real electronics lab — no breadboard, no mess, no experience needed"
         highlights={[
@@ -48,10 +49,10 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why micro:bit Tinker Kit */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why the Tinker Kit?"
         subtitle="The BBC micro:bit is one of the most used coding tools in classrooms worldwide. The Tinker Kit gives your child the sensors and components to go further — without the frustration of tangled wires."
         steps={[
@@ -75,7 +76,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* What the Tinker Kit adds */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_buttons_in_both_hands.jpg"
         imageAlt="Hands interacting with a micro:bit Tinker Kit expansion project showing the Octopus:bit board and sensors"
         title="What the Tinker Kit Adds to Your micro:bit"
@@ -85,7 +86,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="Key Features"
         subtitle="Everything about the Tinker Kit is designed to reduce friction and maximise learning time."
         features={[
@@ -131,7 +132,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* From code to working project */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_project_with_interacting_hand.jpg"
         imageAlt="Hand interacting with a completed micro:bit Tinker Kit project showing sensors and outputs responding to touch"
         title="From Code to Working Project"
@@ -141,7 +142,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Projects You&apos;ll Build"
         highlight="39 hands-on projects with step-by-step online tutorials"
         subtitle="Projects progress from beginner automations to games to advanced engineering builds. Start wherever your child is — there&apos;s no set order."
@@ -200,7 +201,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="See It in Action"
         subtitle="Real projects built with the Tinker Kit — from classroom first builds to DIY home sensors."
         images={[
@@ -249,10 +250,10 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* Skill Tags */}
-      <SkillTags
+        <SkillTags
         title="Skills Developed"
         tags={[
           "Electronics",
@@ -266,7 +267,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -309,7 +310,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What&apos;s in the Box"
         image="/images/products/elecfreaks-micro-bit-tinker-kit/whats-in-the-box.jpeg"
         imageAlt="ELECFREAKS micro:bit Tinker Kit components laid out showing all 13 modules and accessories"
@@ -335,7 +336,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Compatibility", value: "BBC micro:bit V1 and V2" },
@@ -358,7 +359,7 @@ export default async function ElecfreaksTinkerKitPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with the Tinker Kit"
         subtitle="39 projects. Real sensors. Code that does something. Give your child the kit that grows with them."
         primaryLabel="Add to Cart"
@@ -367,7 +368,7 @@ export default async function ElecfreaksTinkerKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -1,3 +1,5 @@
+import SectionTracker from "./SectionTracker";
+
 interface SkillTagsProps {
   tags: string[];
   title?: string;
@@ -38,7 +40,8 @@ export function SkillTags({
   const titleClass = background === "navy" ? "text-white" : "text-navy";
 
   return (
-    <section className={`py-8 ${bgClass}`}>
+    <SectionTracker name="SkillTags">
+      <section className={`py-8 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-center justify-center gap-3">
           <span className={`text-sm font-medium ${titleClass} mr-2`}>
@@ -57,5 +60,7 @@ export function SkillTags({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

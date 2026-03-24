@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SectionTracker from "./SectionTracker";
 
 interface Step {
   title: string;
@@ -23,7 +24,8 @@ export function CourseTabs({ tabs }: CourseTabsProps) {
   const active = tabs[activeTab];
 
   return (
-    <section className="py-16 bg-white">
+    <SectionTracker name="CourseTabs">
+      <section className="py-16 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold text-navy text-center mb-8">
           What You&apos;ll Learn
@@ -92,5 +94,7 @@ export function CourseTabs({ tabs }: CourseTabsProps) {
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

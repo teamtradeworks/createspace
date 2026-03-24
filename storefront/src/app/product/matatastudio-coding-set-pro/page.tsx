@@ -15,6 +15,7 @@ import {
   ProductFAQ,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-coding-set-pro";
@@ -30,11 +31,11 @@ export default async function MatataStudioCodingSetProPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Screen-free coding that puts real programming in little hands"
         highlights={[
@@ -47,10 +48,10 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Screen-Free Coding */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Screen-Free Coding Works Better"
         subtitle="Research shows children using tangible coding robots perform 27% better on computational thinking than those using screen-based tools. Here's why physical coding blocks make all the difference."
         steps={[
@@ -74,14 +75,14 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* Video Section */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=zdRpcJHmKZw&t=1s"
         title="See MatataStudio Coding Set Pro in Action"
         background="gray"
       />
 
       {/* Hands-On Learning */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-coding-set-pro/child-playing-with-kit.png"
         imageAlt="Child independently placing coding blocks on the control board"
         title="Learning Through Play, Not Screens"
@@ -91,7 +92,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* Key Features */}
-      <FeatureGrid
+        <FeatureGrid
         title="Everything Your Child Needs to Start Coding"
         subtitle="No computers, tablets, apps, or reading skills required. MatataStudio Coding Set Pro is designed for complete independence from ages 4-9."
         features={[
@@ -136,7 +137,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* Grows with Your Child */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-coding-set-pro/group-of-children-with-parents-playing-together.jpg"
         imageAlt="Family working together on coding challenges with MatataStudio"
         title="Five Years of Learning in One Kit"
@@ -146,7 +147,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* 100+ Challenges Breakdown */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="100+ Coding Challenges That Grow with Your Child"
         highlight="Navigate mazes, create music, draw patterns, and solve puzzles — all screen-free"
         subtitle="Three progressive challenge booklets guide learners from basic movement to advanced functions. Each challenge builds on the last, developing computational thinking step by step."
@@ -202,7 +203,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="Real Families, Real Coding Adventures"
         images={[
           {
@@ -242,7 +243,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-coding-set-pro/whats-in-the-box.jpeg"
         imageAlt="MatataStudio Coding Set Pro components laid out showing MatataBot, Command Tower, Control Board, coding blocks, and challenge booklets"
@@ -260,7 +261,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* FAQs */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -320,7 +321,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* Technical Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Specifications"
         specs={[
           { label: "Age Range", value: "4-9 years" },
@@ -358,7 +359,7 @@ export default async function MatataStudioCodingSetProPage() {
       />
 
       {/* Call to Action */}
-      <CallToAction
+        <CallToAction
         title="Give Your Child a Head Start in Coding"
         subtitle="Join 8,000+ schools worldwide using MatataStudio to teach computational thinking through screen-free play"
         primaryLabel="Add to Cart"
@@ -367,7 +368,7 @@ export default async function MatataStudioCodingSetProPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

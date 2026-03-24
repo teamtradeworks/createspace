@@ -9,7 +9,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import ProductViewTracker from "@/components/ProductViewTracker";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import { DELIVERY_CONFIG } from "@/config/delivery";
-import { ProductReviews } from "@/components/product-sections";
+import { ProductReviews, ProductTrackingProvider } from "@/components/product-sections";
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;
@@ -37,7 +37,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }));
 
   return (
-    <>
+    <ProductTrackingProvider handle={handle}>
       <ProductJsonLd product={product} />
       <ProductViewTracker
         handle={product.handle}
@@ -323,7 +323,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
           </Link>
         </div>
       </section>
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "arduino-iot-bundle";
@@ -30,11 +31,11 @@ export default async function ArduinoIoTBundlePage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Build 5 real IoT devices and connect them to the internet — no experience needed"
         highlights={[
@@ -47,10 +48,10 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why IoT Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Start with IoT?"
         subtitle="The Internet of Things is one of the fastest-growing fields in tech. This bundle makes it accessible from day one."
         steps={[
@@ -74,7 +75,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* From Consumer to Creator */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/arduino-iot-bundle/group-of-friends-gathered-playing-with-iot-bundle.jpg"
         imageAlt="Group of friends gathered around an Arduino IoT Bundle project"
         title="From Screen Time to Build Time"
@@ -84,7 +85,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Key Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes This Kit Special"
         subtitle="Everything your teenager needs to build their first connected devices — hardware, software, and step-by-step guidance included."
         features={[
@@ -130,7 +131,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Learn Online, Build in Real Life */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/arduino-iot-bundle/online-tutorial-platform.jpg"
         imageAlt="Arduino IoT Bundle online tutorial platform showing step-by-step project guide"
         title="Learn Online, Build in Real Life"
@@ -140,7 +141,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="5 Projects You'll Build"
         highlight="5 guided IoT projects with complete online tutorials"
         subtitle="Each project teaches different skills — from cloud dashboards and motor control to sensor data and mobile apps."
@@ -180,7 +181,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="What You'll Be Building"
         subtitle="From cloud-connected pets to smart plant monitors — all made from scratch."
         images={[
@@ -221,10 +222,10 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -268,7 +269,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/arduino-iot-bundle/whats-in-the-box.webp"
         imageAlt="Arduino IoT Bundle contents laid out showing all components"
@@ -294,7 +295,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Technical Details */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Board", value: "Arduino Nano RP2040 Connect" },
@@ -328,7 +329,7 @@ export default async function ArduinoIoTBundlePage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with IoT"
         subtitle="Everything needed to build 5 real connected devices — and the skills to keep building long after."
         primaryLabel="Add to Cart"
@@ -337,7 +338,7 @@ export default async function ArduinoIoTBundlePage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

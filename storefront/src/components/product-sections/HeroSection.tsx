@@ -9,6 +9,7 @@ import { DELIVERY_CONFIG } from "@/config/delivery";
 import { SerializedAddon } from "@/lib/product-addons";
 import { StarRating } from "@/components/StarRating";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import SectionTracker from "./SectionTracker";
 
 interface HeroSectionProps {
   product: ProductDetail;
@@ -51,7 +52,8 @@ export function HeroSection({
     : images;
 
   return (
-    <>
+    <SectionTracker name="HeroSection">
+      <>
       <ProductViewTracker
         handle={product.handle}
         title={product.title}
@@ -253,5 +255,7 @@ export function HeroSection({
         </div>
       </section>
     </>
+    </SectionTracker>
+
   );
 }

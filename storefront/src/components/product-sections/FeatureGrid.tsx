@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionTracker from "./SectionTracker";
 
 interface Feature {
   icon: string;
@@ -139,7 +140,8 @@ export function FeatureGrid({
   }[columns];
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="FeatureGrid">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -187,5 +189,7 @@ export function FeatureGrid({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

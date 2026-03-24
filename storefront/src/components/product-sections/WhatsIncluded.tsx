@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionTracker from "./SectionTracker";
 
 interface WhatsIncludedProps {
   title?: string;
@@ -18,7 +19,8 @@ export function WhatsIncluded({
   const bgClass = background === "gray" ? "bg-gray-50" : "bg-white";
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="WhatsIncluded">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className={`grid gap-12 items-center ${image ? "lg:grid-cols-2" : ""}`}>
           {/* Image (optional) */}
@@ -61,5 +63,7 @@ export function WhatsIncluded({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

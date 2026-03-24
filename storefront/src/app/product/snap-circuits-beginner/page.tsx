@@ -14,6 +14,7 @@ import {
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-beginner";
@@ -29,11 +30,11 @@ export default async function SnapCircuitsBeginnerPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Your child's first electronics adventure — real circuits, real lights, real fun"
         highlights={[
@@ -46,10 +47,10 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Snap Circuits */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Start with Snap Circuits?"
         subtitle="No experience needed — for you or your child. Just snap the pieces together and watch the magic happen."
         steps={[
@@ -73,7 +74,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Snap Together, Light Up — lifestyle image */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/snap-circuits-beginner/girl-playing-with-kit-in-front-of-her.jpg"
         imageAlt="Girl playing with Snap Circuits Beginner kit"
         title="Snap Together. Light Up. Learn."
@@ -83,7 +84,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes It Click"
         subtitle="14 snap-together parts. 21 guided projects. One very clever design."
         features={[
@@ -129,7 +130,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Fan spinning — project journey */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/snap-circuits-beginner/finger-pressing-switch-on-board-fan-spinning.jpg"
         imageAlt="Finger pressing a switch on Snap Circuits board with the colour-changing fan spinning"
         title="From Simple to Satisfying — 21 Projects"
@@ -139,7 +140,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Projects You'll Build"
         highlight="21 guided circuit projects in a picture-based manual"
         subtitle="Each project introduces a new concept — starting with a single component and building to multi-switch combinations."
@@ -186,7 +187,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Customer Showcase — ALL end-user photos, immediately after ProjectShowcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="Real Kids Building Real Things"
         subtitle="Snap Circuits in action — first circuits, favourite toys, and plenty of proud moments."
         images={[
@@ -227,10 +228,10 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -268,7 +269,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/snap-circuits-beginner/whats-in-the-box.jpg"
         imageAlt="Snap Circuits Beginner kit laid out showing all components"
@@ -289,7 +290,7 @@ export default async function SnapCircuitsBeginnerPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started"
         subtitle="21 hands-on projects that light up, make noise, and keep young builders coming back for more."
         primaryLabel="Add to Cart"
@@ -298,7 +299,7 @@ export default async function SnapCircuitsBeginnerPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

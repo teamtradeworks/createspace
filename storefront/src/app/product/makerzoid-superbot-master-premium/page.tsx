@@ -14,7 +14,9 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
+
 
 const PRODUCT_HANDLE = "makerzoid-superbot-master-premium";
 
@@ -29,11 +31,11 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Hands-on robotics and coding for your classroom — 72+ models, zero wiring complexity"
         highlights={[
@@ -46,10 +48,10 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Choose This for Your Classroom */}
-      <NumberedSteps
+        <NumberedSteps
         title="Built for the Classroom"
         subtitle="The Superbot Master Premium gives educators a complete platform for hands-on STEM — from the first simple build to autonomous sensor-driven robots."
         steps={[
@@ -73,7 +75,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* Sensor & Technology Features */}
-      <FeatureGrid
+        <FeatureGrid
         title="Advanced Sensing Technology"
         subtitle="The Superbot Master Premium includes six distinct sensing and control modules that learners integrate into their builds — the same technology used in real-world robotics."
         features={[
@@ -119,7 +121,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* What Learners Will Explore */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="What Learners Will Explore"
         highlight="72+ guided robotic builds spanning three difficulty levels — from first builds to fully sensor-driven autonomous robots."
         subtitle="Each model integrates a different combination of sensors and programming concepts, giving learners a new challenge every session."
@@ -178,7 +180,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* In-Classroom Gallery */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="The Superbot in Action"
         subtitle="Learners building, programming, and competing with the Makerzoid Superbot Master Premium."
         images={[
@@ -214,10 +216,10 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* Educator FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Educator Questions"
         faqs={[
           {
@@ -260,7 +262,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* What's in the Kit */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Kit"
         image="/images/products/makerzoid-superbot-master-premium/hands-showing-box.png"
         imageAlt="Makerzoid Superbot Master Premium box showing all kit contents"
@@ -283,7 +285,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* Technical Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "SKU", value: "MKZ-SPB-MS" },
@@ -304,7 +306,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* Call to Action */}
-      <CallToAction
+        <CallToAction
         title="Equip Your Classroom"
         subtitle="Trusted by educators. Backed by research. 72+ builds that keep learners challenged across every term."
         primaryLabel="Add to Cart"
@@ -314,7 +316,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
         background="navy"
       />
 
-    </>
+    </ProductTrackingProvider>
   );
 }
 

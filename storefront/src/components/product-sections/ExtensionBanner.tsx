@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SectionTracker from "./SectionTracker";
 
 interface ExtensionBannerProps {
   parentProductName: string;
@@ -16,7 +17,8 @@ export function ExtensionBanner({
   const bgClass = background === "gray" ? "bg-gray-50" : "bg-white";
 
   return (
-    <section className={`py-6 ${bgClass} border-b border-gray-200`}>
+    <SectionTracker name="ExtensionBanner">
+      <section className={`py-6 ${bgClass} border-b border-gray-200`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3 rounded-xl border border-blue-200 bg-blue-50 px-5 py-4">
           <svg
@@ -52,5 +54,7 @@ export function ExtensionBanner({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

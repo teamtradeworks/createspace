@@ -16,7 +16,9 @@ import {
   VideoEmbed,
   ProjectShowcase,
   CustomerShowcase,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
+
 
 const PRODUCT_HANDLE = "makerzoid-robot-master-premium";
 
@@ -31,11 +33,11 @@ export default async function MakerzoidRobotMasterPremiumPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Build, code, and create over 200 robots with drag-and-drop Scratch programming"
         highlights={[
@@ -48,10 +50,10 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Makerzoid Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Robot Master?"
         subtitle="Designed by robotics experts, this kit combines building and coding in one comprehensive learning experience."
         steps={[
@@ -75,14 +77,14 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Video */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=dSGwumD4w5A"
         title="See It in Action"
         background="gray"
       />
 
       {/* What Is Makerzoid Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/boy-coding-on-tablet-with-robot-on-floor.jpg"
         imageAlt="Child programming a Makerzoid robot using a tablet"
         title="What's Inside the System"
@@ -92,7 +94,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What's Included"
         subtitle="A complete robotics learning system with premium components and structured lessons."
         features={[
@@ -132,7 +134,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Building with Guide Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/kids-playing-with-pieces-with-tablet-instructions.png"
         imageAlt="Kids building with Makerzoid pieces following tablet instructions"
         title="Learn Together or Independently"
@@ -142,7 +144,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Projects Section */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="47 Lessons. 3 Skill Levels."
         highlight="200+ robot models to build — from simple structures to fully programmable machines"
         subtitle="The curriculum progresses through three levels, each building on the last."
@@ -190,7 +192,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="What Our Community Has Built"
         subtitle="Real families, real robots — see what your child could create"
         background="white"
@@ -247,10 +249,10 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -288,7 +290,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* What's Included */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         items={[
           "600+ high-quality ABS building blocks",
@@ -307,7 +309,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Total Pieces", value: "600+ blocks" },
@@ -326,7 +328,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started"
         subtitle="600+ blocks, 200+ designs, and 47 video lessons. The Makerzoid Robot Master Premium has everything your young engineer needs to start building and coding."
         primaryLabel="Add to Cart"
@@ -335,7 +337,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

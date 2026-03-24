@@ -1,3 +1,5 @@
+import SectionTracker from "./SectionTracker";
+
 interface VideoEmbedProps {
   url: string;
   title?: string;
@@ -55,7 +57,8 @@ export function VideoEmbed({
   }[aspectRatio];
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="VideoEmbed">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         {title && (
           <h2 className={`text-3xl font-semibold ${textClass} text-center mb-8`}>
@@ -75,5 +78,7 @@ export function VideoEmbed({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

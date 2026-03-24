@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionTracker from "./SectionTracker";
 
 interface ImageTextBlockProps {
   image: string;
@@ -27,7 +28,8 @@ export function ImageTextBlock({
   const bodyClass = background === "navy" ? "text-white/80" : "text-gray-600";
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="ImageTextBlock">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div
           className={`grid lg:grid-cols-2 gap-12 items-center ${
@@ -60,5 +62,7 @@ export function ImageTextBlock({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

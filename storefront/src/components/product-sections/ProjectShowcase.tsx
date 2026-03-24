@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionTracker from "./SectionTracker";
 
 interface Project {
   name: string;
@@ -46,7 +47,8 @@ export function ProjectShowcase({
   }[columns];
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="ProjectShowcase">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className={`text-3xl font-semibold ${titleClass} text-center mb-4`}>
           {title}
@@ -100,5 +102,7 @@ export function ProjectShowcase({
         )}
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

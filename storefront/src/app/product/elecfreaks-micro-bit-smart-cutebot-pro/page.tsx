@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "elecfreaks-micro-bit-smart-cutebot-pro";
@@ -31,11 +32,11 @@ export default async function CutebotProPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="The robot car that grows with your child — from first code to autonomous navigation"
         highlights={[
@@ -48,10 +49,10 @@ export default async function CutebotProPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why the Cutebot Pro */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why the Cutebot Pro?"
         subtitle="Most robot cars for kids stop at basics. The Cutebot Pro is built to go further."
         steps={[
@@ -75,14 +76,14 @@ export default async function CutebotProPage() {
       />
 
       {/* Video Section */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=imFVpJpXn3k"
         title="See the Cutebot Pro in Action"
         background="gray"
       />
 
       {/* From Beginner to Autonomous - lifestyle image */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-smart-cutebot-pro/course-case-on-laptop-introduction-obstacle-avoidance.jpg"
         imageAlt="Cutebot Pro robot car displayed next to a laptop showing the obstacle avoidance tutorial"
         title="Step-by-Step from First Drive to Obstacle Avoidance"
@@ -92,7 +93,7 @@ export default async function CutebotProPage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes the Cutebot Pro Different"
         subtitle="Engineered for learners who are ready for more than basic driving."
         features={[
@@ -138,7 +139,7 @@ export default async function CutebotProPage() {
       />
 
       {/* Built to Grow - cutebot-pro-black-background */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/elecfreaks-micro-bit-smart-cutebot-pro/cutebot-pro-black-background.jpg"
         imageAlt="ELECFREAKS Smart Cutebot Pro robot car on a dark background showing the aerodynamic design"
         title="A Platform, Not Just a Product"
@@ -148,7 +149,7 @@ export default async function CutebotProPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="19 Guided Projects"
         highlight="From 'Drive Forward' to autonomous obstacle avoidance and AI vision"
         subtitle="The core projects progress from basic motor control to advanced sensor integration. Here are six that show the range."
@@ -207,7 +208,7 @@ export default async function CutebotProPage() {
       />
 
       {/* Customer Showcase — ALL end-user images */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="The Cutebot Pro in the Wild"
         subtitle="Real builds from real learners."
         images={[
@@ -248,10 +249,10 @@ export default async function CutebotProPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -289,7 +290,7 @@ export default async function CutebotProPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/elecfreaks-micro-bit-smart-cutebot-pro/whats-in-the-box.jpg"
         imageAlt="ELECFREAKS Smart Cutebot Pro unboxed showing the robot, ultrasonic sensor, track card, and guide"
@@ -304,7 +305,7 @@ export default async function CutebotProPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Dimensions", value: "132 × 114 × 50 mm" },
@@ -326,7 +327,7 @@ export default async function CutebotProPage() {
       />
 
       {/* Call to Action */}
-      <CallToAction
+        <CallToAction
         title="Get Started with the Cutebot Pro"
         subtitle="19 guided projects. Precision motors. A platform that challenges your child for years."
         primaryLabel="Add to Cart"
@@ -335,7 +336,7 @@ export default async function CutebotProPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

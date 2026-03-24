@@ -1,3 +1,5 @@
+import SectionTracker from "./SectionTracker";
+
 interface Spec {
   label: string;
   value: string;
@@ -17,7 +19,8 @@ export function Specifications({
   const bgClass = background === "gray" ? "bg-gray-50" : "bg-white";
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="Specifications">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold text-navy text-center mb-10">
           {title}
@@ -44,5 +47,7 @@ export function Specifications({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

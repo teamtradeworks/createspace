@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-nous-ai-set";
@@ -31,11 +32,11 @@ export default async function NousAISetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Your child's gateway to real-world artificial intelligence"
         highlights={[
@@ -48,10 +49,10 @@ export default async function NousAISetPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Nous AI Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Nous AI?"
         subtitle="Most coding robots teach programming. Nous AI teaches your child how artificial intelligence actually works — from training models to deploying them in real applications."
         steps={[
@@ -72,14 +73,14 @@ export default async function NousAISetPage() {
       />
 
       {/* Video Section */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=2JSvgJYo6L8&list=PLCtoqhowu_HKX-cdy_b6KWBZgDDmOw3eD&index=1"
         title="See Nous AI in Action"
         background="gray"
       />
 
       {/* What Makes It Special */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-nous-ai-set/child-with-nous.jpg"
         imageAlt="Child interacting with Nous AI robot"
         title="AI That Feels Like Magic"
@@ -89,7 +90,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Key Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes Nous AI Different"
         subtitle="This isn't a toy robot — it's a complete AI education platform built around professional-grade concepts, made accessible for children aged 12+."
         features={[
@@ -129,7 +130,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Skills Development Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-nous-ai-set/collage-of-nous-activities.jpg"
         imageAlt="Collage showing various Nous AI activities"
         title="More Than Technical Skills"
@@ -139,7 +140,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Projects You'll Build"
         highlight="18+ hands-on AI projects, challenges, and activities"
         subtitle="Each project introduces new concepts and skills. Your child starts with the basics and progresses to training custom AI models."
@@ -186,7 +187,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="Real Families, Real Learning"
         subtitle="See what students are building and learning with Nous AI"
         images={[
@@ -219,10 +220,10 @@ export default async function NousAISetPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -265,7 +266,7 @@ export default async function NousAISetPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-nous-ai-set/whats-in-the-box.png"
         imageAlt="Nous AI Set components and what's included"
@@ -286,7 +287,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Recommended Age", value: "12+ years" },
@@ -305,7 +306,7 @@ export default async function NousAISetPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Start Your AI Journey"
         subtitle="Join 20,000+ schools and institutions worldwide using MatataStudio to teach the next generation of AI innovators."
         primaryLabel="Add to Cart"
@@ -315,7 +316,7 @@ export default async function NousAISetPage() {
         background="navy"
       />
 
-    </>
+    </ProductTrackingProvider>
   );
 }
 

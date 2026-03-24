@@ -1,3 +1,5 @@
+import SectionTracker from "./SectionTracker";
+
 interface Step {
   title: string;
   description: string;
@@ -40,7 +42,8 @@ export function NumberedSteps({
   }[columns];
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="NumberedSteps">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className={cardClass}>
           <div className="text-center mb-12">
@@ -69,5 +72,7 @@ export function NumberedSteps({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

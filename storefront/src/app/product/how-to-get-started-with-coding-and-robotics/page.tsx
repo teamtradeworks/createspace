@@ -9,6 +9,7 @@ import {
   CallToAction,
   CourseTabs,
   StepPath,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "how-to-get-started-with-coding-and-robotics";
@@ -24,10 +25,9 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
-
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Everything an educator needs to start teaching Coding and Robotics — three professional courses in one bundle"
         highlights={[
@@ -38,8 +38,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         ]}
         addons={addons}
       />
-
-      <QuickInfoBadges
+        <QuickInfoBadges
         badges={[
           { icon: "time", label: "Duration", value: "6-8 Hours" },
           { icon: "age", label: "Audience", value: "Educators" },
@@ -63,8 +62,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           </div>
         </div>
       </section>
-
-      <CourseTabs
+        <CourseTabs
         tabs={[
           {
             label: "Course 1",
@@ -201,16 +199,14 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           </div>
         </div>
       </section>
-
-      <CallToAction
+        <CallToAction
         title="Get Started Today"
         subtitle="Three courses and everything you need to teach Coding and Robotics with confidence."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         background="navy"
       />
-
-      <StepPath
+        <StepPath
         title="How the Inspire Campus Works"
         subtitle="All three courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
         steps={[
@@ -237,8 +233,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         ]}
         background="white"
       />
-
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         background="gray"
         faqs={[
@@ -284,8 +279,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           },
         ]}
       />
-
-      <CallToAction
+        <CallToAction
         title="Ready to Launch Coding and Robotics?"
         subtitle="Three courses, zero guesswork. Get everything you need to start teaching Coding and Robotics at your school."
         primaryLabel="Get the Bundle"
@@ -294,7 +288,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         secondaryHref="/education/courses"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

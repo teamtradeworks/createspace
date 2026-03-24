@@ -9,6 +9,7 @@ import {
   CallToAction,
   CourseTabs,
   StepPath,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "bbc-micro-bit-essential-stem-lab-tinker-kit-bundle";
@@ -24,10 +25,9 @@ export default async function MicrobitEssentialStemLabBundlePage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
-
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Four CAPS-aligned specialist courses that take you from curriculum understanding to delivering sensor-driven Coding and Robotics lessons with confidence."
         highlights={[
@@ -38,8 +38,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         ]}
         addons={addons}
       />
-
-      <QuickInfoBadges
+        <QuickInfoBadges
         badges={[
           { icon: "time", label: "Duration", value: "8-12 Hours" },
           { icon: "age", label: "Audience", value: "Educators" },
@@ -67,8 +66,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           </div>
         </div>
       </section>
-
-      <CourseTabs
+        <CourseTabs
         tabs={[
           {
             label: "Course 1",
@@ -233,16 +231,14 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           </div>
         </div>
       </section>
-
-      <CallToAction
+        <CallToAction
         title="Get the Complete Bundle"
         subtitle="Four courses and zero guesswork. Everything you need to teach Coding and Robotics with confidence."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         background="navy"
       />
-
-      <StepPath
+        <StepPath
         title="How the Inspire Campus Works"
         subtitle="All four courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
         steps={[
@@ -269,8 +265,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         ]}
         background="white"
       />
-
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         background="gray"
         faqs={[
@@ -326,8 +321,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           },
         ]}
       />
-
-      <CallToAction
+        <CallToAction
         title="Ready to Run a Full STEAM Lab?"
         subtitle="Four courses and zero guesswork. Get everything you need to teach Coding and Robotics — from curriculum understanding to sensor-driven lessons."
         primaryLabel="Get the Bundle"
@@ -336,7 +330,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         secondaryHref="/education/courses"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

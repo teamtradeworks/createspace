@@ -16,6 +16,7 @@ import {
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "bbc-micro-bit-go";
@@ -31,11 +32,11 @@ export default async function MicrobitGoPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="The pocket-sized computer that teaches coding through play"
         highlights={[
@@ -48,10 +49,10 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why micro:bit Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why micro:bit?"
         subtitle="The BBC micro:bit is designed to make coding fun and accessible. Used in classrooms across 60+ countries, it's one of the world's most popular educational microcontrollers."
         steps={[
@@ -72,14 +73,14 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Video Section */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=u2u7UJSRuko"
         title="Meet the micro:bit"
         background="gray"
       />
 
       {/* What Is micro:bit Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/bbc-micro-bit-go/blocks-coding-example-in-makecode.png"
         imageAlt="MakeCode block-based coding interface showing a micro:bit program"
         title="A Pocket-Sized Programmable Computer"
@@ -89,7 +90,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="Key Features"
         subtitle="The micro:bit V2 has everything built-in to create amazing projects - no extra components needed to get started."
         features={[
@@ -129,7 +130,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Learn Together Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/bbc-micro-bit-go/kids-holding-microbits.jpg"
         imageAlt="Two children holding micro:bit boards and smiling"
         title="Built for Group Learning"
@@ -139,7 +140,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Projects to Get Started"
         highlight="200+ free projects available on microbit.org"
         subtitle="No extra parts needed - these projects use only what's built into the micro:bit."
@@ -186,7 +187,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="micro:bit in Action"
         subtitle="Real kids, real projects, real fun — from first-timers to confident coders."
         background="gray"
@@ -227,7 +228,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -265,7 +266,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/bbc-micro-bit-go/whats-in-the-box.jpeg"
         imageAlt="BBC micro:bit Go box contents: micro:bit V2 board, USB cable, battery holder, and AAA batteries"
@@ -280,7 +281,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Processor", value: "ARM Cortex-M4 @ 64MHz" },
@@ -298,10 +299,10 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with micro:bit"
         subtitle="Join millions of makers, students, and educators worldwide. The micro:bit Go has everything you need to begin your coding journey today."
         primaryLabel="Add to Cart"
@@ -311,7 +312,7 @@ export default async function MicrobitGoPage() {
         background="navy"
       />
 
-    </>
+    </ProductTrackingProvider>
   );
 }
 

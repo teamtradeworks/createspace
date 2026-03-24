@@ -17,6 +17,7 @@ import {
   ProductReviews,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-vincibot-classroom-set";
@@ -32,11 +33,11 @@ export default async function VinciBotClassroomSetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Complete coding, robotics, and AI classroom solution for Grades 3–7"
         highlights={[
@@ -49,10 +50,10 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Choose VinciBot Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Choose VinciBot for Your Classroom?"
         subtitle="VinciBot is built for real classroom conditions — mixed abilities, limited prep time, and the need to demonstrate curriculum value."
         steps={[
@@ -76,14 +77,14 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Video */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=DRPoDKsBkyM"
         title="See the VinciBot Classroom Set in Action"
         background="gray"
       />
 
       {/* A Full Class, Learning Together */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-vincibot-classroom-set/teacher-with-kids-playing-with-vincibot-new.jpg"
         imageAlt="Teacher with learners playing with VinciBot coding robots"
         title="A Full Class, Learning Together"
@@ -93,7 +94,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="Classroom-Ready Features"
         subtitle="Every aspect of VinciBot is engineered with the realities of a South African classroom in mind."
         features={[
@@ -139,7 +140,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Scratch to Python on One Robot */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-vincibot-classroom-set/kids-with-teacher-looking-at-tablet.jpg"
         imageAlt="Kids and teacher working with VinciBot through a tablet interface"
         title="From Scratch to Python — No Equipment Change"
@@ -149,7 +150,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Activity Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Classroom Activities"
         highlight="75 curriculum-aligned activities across 5 progressive modules"
         subtitle="Activities progress from foundational sequences to multi-robot communication and AI — suitable for mixed-ability classrooms at Grades 3–7. Each fits a standard 45-minute lesson period."
@@ -196,7 +197,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="VinciBot in Action"
         subtitle="From home learning to coding clubs and classrooms — VinciBot engages learners wherever they are."
         images={[
@@ -245,7 +246,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Skill Tags */}
-      <SkillTags
+        <SkillTags
         title="Skills Your Learners Will Develop"
         tags={[
           "Coding",
@@ -257,7 +258,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Educator Questions"
         faqs={[
           {
@@ -300,10 +301,10 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* What's in the Kit */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Kit"
         image="/images/products/matatastudio-vincibot-classroom-set/whats-in-the-box-new.jpg"
         imageAlt="VinciBot Classroom Set contents laid out — 6 robots, activity cards, maps, markers, and storage bin"
@@ -323,7 +324,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Age Range", value: "8–12 years (Grades 3–7)" },
@@ -347,7 +348,7 @@ export default async function VinciBotClassroomSetPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Equip Your Classroom"
         subtitle="Trusted by schools and coding clubs across South Africa. VinciBot grows with your learners from Grade 3 to Grade 8."
         primaryLabel="Add to Cart"
@@ -356,7 +357,7 @@ export default async function VinciBotClassroomSetPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -16,7 +16,9 @@ import {
   Specifications,
   ProductReviews,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
+
 
 const PRODUCT_HANDLE = "makerzoid-superbot";
 
@@ -31,11 +33,11 @@ export default async function MakerzoidSuperbotPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Your child's first programmable robot — build it, code it, race it"
         highlights={[
@@ -48,10 +50,10 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Superbot Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Start with Superbot?"
         subtitle="Designed for curious kids aged 6 and up, the Superbot builds coding and engineering confidence one model at a time — no screen-staring, no passive watching. Just building, programming, and playing."
         steps={[
@@ -75,14 +77,14 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Video */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=uL_Tg9VPyS0"
         title="See the Makerzoid Superbot in Action"
         background="gray"
       />
 
       {/* 26 Models section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/makerzoid-superbot/rows-of-superbot-robot-builds.jpg"
         imageAlt="Multiple Makerzoid Superbot model builds lined up showing the variety of vehicles and robots"
         title="26 Models, One Kit"
@@ -92,7 +94,7 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Key Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="Key Features"
         subtitle="Everything your child needs to start building, programming, and playing — right out of the box."
         features={[
@@ -138,7 +140,7 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* App control section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/makerzoid-superbot/car-tablet-phone.jpg"
         imageAlt="Makerzoid Superbot racing car model alongside a tablet and phone showing the app control interface"
         title="Four Ways to Take Control"
@@ -148,7 +150,7 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="What They'll Build"
         highlight="26+ guided model builds — with new coding possibilities every time"
         subtitle="Models range from simple vehicles for first-time builders to complex creations that challenge older kids. Each one can be coded in completely different ways."
@@ -205,7 +207,7 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Customer Photos */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="See It in Action"
         subtitle="Real builds from families who've set theirs loose around the house."
         images={[
@@ -238,10 +240,10 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -284,7 +286,7 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/makerzoid-superbot/whats-in-the-box.jpeg"
         imageAlt="Makerzoid Superbot contents laid out showing all components"
@@ -299,7 +301,7 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Piece Count", value: "400+" },
@@ -318,7 +320,7 @@ export default async function MakerzoidSuperbotPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with Superbot"
         subtitle="26+ models. 4 coding modes. Endless builds. The Superbot is the kit that grows with your child — from their first build to their first real programme."
         primaryLabel="Add to Cart"
@@ -327,7 +329,7 @@ export default async function MakerzoidSuperbotPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import SectionTracker from "./SectionTracker";
 
 interface FAQ {
   question: string;
@@ -27,7 +28,8 @@ export function ProductFAQ({
   };
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="ProductFAQ">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-semibold text-navy text-center mb-10">
           {title}
@@ -75,5 +77,7 @@ export function ProductFAQ({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

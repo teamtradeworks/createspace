@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "upgraded-uno-r3-starter-kit";
@@ -30,11 +31,11 @@ export default async function UpgradedUnoR3StarterKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="27 hands-on projects to master electronics and coding — step by step"
         highlights={[
@@ -47,10 +48,10 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why This Kit */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why the Upgraded UNO R3?"
         subtitle="Not all starter kits are created equal. This one goes further — with more sensors, more modules, and more of the components that turn basic circuits into real-world projects."
         steps={[
@@ -74,7 +75,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* UNO Board + RFID ImageTextBlock */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/upgraded-uno-r3-starter-kit/uno-rfid-board.jpg"
         imageAlt="Arduino-compatible UNO R3 board alongside an RFID module and component diagram"
         title="Meet the Board Behind the Build"
@@ -84,7 +85,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes This Kit Stand Out"
         subtitle="The Upgraded UNO R3 includes components you won't find in entry-level kits — giving your child room to build more ambitious projects."
         features={[
@@ -130,7 +131,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Sensor Variety ImageTextBlock */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/upgraded-uno-r3-starter-kit/sensor-modules.jpg"
         imageAlt="Close-up of sensor modules including sound sensor, LCD display, and water level sensor organised in the kit case"
         title="Nine Sensors, Endless Possibilities"
@@ -140,7 +141,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="A Sample of What They'll Build"
         highlight="27 lessons — from blinking LEDs to RFID access systems"
         subtitle="Lessons progress from electronics fundamentals all the way to multi-component builds. Here are six to give you a taste."
@@ -187,14 +188,14 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Skill Tags */}
-      <SkillTags
+        <SkillTags
         title="Skills Developed"
         tags={["Electronics", "Coding", "Problem Solving", "Logical Thinking"]}
         background="white"
       />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -232,10 +233,10 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/upgraded-uno-r3-starter-kit/whats-in-the-box.jpg"
         imageAlt="Robotico Upgraded UNO R3 Starter Kit open case showing all components organised in compartments"
@@ -278,7 +279,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Board", value: "Arduino-compatible UNO R3 (ATmega328P)" },
@@ -298,7 +299,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with Electronics"
         subtitle="27 lessons. 60+ components. One kit that takes your child from complete beginner to confident maker."
         primaryLabel="Add to Cart"
@@ -307,7 +308,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

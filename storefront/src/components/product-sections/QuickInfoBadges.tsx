@@ -3,6 +3,7 @@ import {
   getProductAgeRange,
   getProductBatteryInfo,
 } from "@/lib/shopify";
+import SectionTracker from "./SectionTracker";
 
 type IconName =
   | "age"
@@ -132,7 +133,8 @@ export function QuickInfoBadges({
   if (allBadges.length === 0) return null;
 
   return (
-    <section className="py-10 bg-gray-50">
+    <SectionTracker name="QuickInfoBadges">
+      <section className="py-10 bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h3 className="text-center text-sm font-medium text-gray-500 uppercase tracking-wide mb-6">
           At a Glance
@@ -157,5 +159,7 @@ export function QuickInfoBadges({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

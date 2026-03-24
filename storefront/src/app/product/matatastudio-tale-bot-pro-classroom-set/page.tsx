@@ -14,6 +14,7 @@ import {
   CustomerShowcase,
   CallToAction,
   VideoEmbed,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-tale-bot-pro-classroom-set";
@@ -29,11 +30,11 @@ export default async function TaleBotProClassroomSetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Bring screen-free coding to every learner in your Foundation Phase classroom"
         highlights={[
@@ -46,10 +47,10 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Choose for Your Classroom */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Tale-Bot Pro for Your Classroom?"
         subtitle="The leading screen-free coding robot for Foundation Phase. Purpose-built for group learning, with everything educators need to teach coding confidently from day one."
         steps={[
@@ -73,14 +74,14 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Video Section */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=2N-eTbOcWVI"
         title="See Tale-Bot Pro in Action"
         background="gray"
       />
 
       {/* How It Works in the Classroom */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro-classroom-set/teacher-teaching-kids.jpg"
         imageAlt="Teacher demonstrating Tale-Bot Pro to a group of young learners in a classroom"
         title="Screen-Free Coding That Works for Every Learner"
@@ -90,7 +91,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="Everything Your Classroom Needs"
         subtitle="The Tale-Bot Pro Classroom Set includes six complete robots and a full suite of teaching materials — no additional purchases required to get started."
         features={[
@@ -136,7 +137,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Storytelling Integration */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro-classroom-set/teacher-with-kids.jpg"
         imageAlt="Teacher working alongside young learners using Tale-Bot Pro in a group setting"
         title="Cross-Curricular Learning in Every Lesson"
@@ -146,7 +147,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Classroom Activities"
         highlight="42 Activity Cards plus a Challenge Booklet — a complete cross-curricular coding curriculum for Grades R–3"
         subtitle="Activities progress from basic movement sequences to complex coding challenges, supporting mixed-ability classrooms and differentiated instruction."
@@ -199,7 +200,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="Tale-Bot Pro in Schools"
         subtitle="See how educators and learners around the world are using Tale-Bot Pro to bring coding to life in the classroom."
         images={[
@@ -240,7 +241,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Educator Questions"
         faqs={[
           {
@@ -283,7 +284,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* What's in the Kit */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Kit"
         image="/images/products/matatastudio-tale-bot-pro-classroom-set/whats-in-the-box.jpg"
         imageAlt="Tale-Bot Pro Classroom Set contents laid out showing all 6 robots and teaching materials"
@@ -308,7 +309,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Equip Your Classroom"
         subtitle="Trusted by schools across South Africa. Give your Foundation Phase learners a hands-on coding experience they'll remember."
         primaryLabel="Add to Cart"
@@ -318,7 +319,7 @@ export default async function TaleBotProClassroomSetPage() {
         background="navy"
       />
 
-    </>
+    </ProductTrackingProvider>
   );
 }
 

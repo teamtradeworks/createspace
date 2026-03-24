@@ -12,7 +12,9 @@ import {
   ProductFAQ,
   WhatsIncluded,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
+
 
 const PRODUCT_HANDLE = "matatastudio-ai-vision-kit-for-vincibot";
 const PARENT_PRODUCT_HANDLE = "matatastudio-vincibot-coding-robot-set";
@@ -34,11 +36,11 @@ export default async function AIVisionKitPage() {
   const parentProductHref = `/product/${PARENT_PRODUCT_HANDLE}`;
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Teach your VinciBot to see, recognise, and respond to the real world"
         highlights={[
@@ -51,16 +53,16 @@ export default async function AIVisionKitPage() {
       />
 
       {/* Extension Banner */}
-      <ExtensionBanner
+        <ExtensionBanner
         parentProductName={parentProductName}
         parentProductHref={parentProductHref}
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* What the AI Vision Kit Adds */}
-      <NumberedSteps
+        <NumberedSteps
         title="What the AI Vision Kit Adds"
         subtitle="VinciBot already codes, draws, and dances. Now it can see."
         steps={[
@@ -84,14 +86,14 @@ export default async function AIVisionKitPage() {
       />
 
       {/* Video Section */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=Ou2r0Q6cvks"
         title="See the AI Vision Kit in Action"
         background="gray"
       />
 
       {/* The 7 AI Functions */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-ai-vision-kit-for-vincibot/seven-visual-functions.png"
         imageAlt="MatataStudio AI Vision Kit showing all seven visual functions including face recognition and colour tracking"
         title="Seven Ways to See the World"
@@ -101,7 +103,7 @@ export default async function AIVisionKitPage() {
       />
 
       {/* Custom AI Training */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-ai-vision-kit-for-vincibot/graphical-programming.png"
         imageAlt="Graphical block-based programming interface for the MatataStudio AI Vision Kit"
         title="Build Your Own AI — Not Just Use One"
@@ -111,7 +113,7 @@ export default async function AIVisionKitPage() {
       />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -144,7 +146,7 @@ export default async function AIVisionKitPage() {
       />
 
       {/* What's Included */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-ai-vision-kit-for-vincibot/whats-in-the-box.png"
         imageAlt="MatataStudio AI Vision Kit box contents laid out"
@@ -162,7 +164,7 @@ export default async function AIVisionKitPage() {
       />
 
       {/* Call to Action */}
-      <CallToAction
+        <CallToAction
         title="Unlock AI Vision for Your VinciBot"
         subtitle="The next step in your child's STEM journey — from coding a robot to building their own AI."
         primaryLabel="Add to Cart"
@@ -171,7 +173,7 @@ export default async function AIVisionKitPage() {
         secondaryHref={parentProductHref}
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

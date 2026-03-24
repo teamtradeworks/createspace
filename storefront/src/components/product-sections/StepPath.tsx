@@ -1,3 +1,5 @@
+import SectionTracker from "./SectionTracker";
+
 interface Step {
   title: string;
   description: string;
@@ -30,7 +32,8 @@ export function StepPath({
   const lineClass = isNavy ? "bg-white/20" : "bg-gray-200";
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="StepPath">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className={`text-3xl font-semibold mb-4 ${titleClass}`}>
@@ -72,5 +75,7 @@ export function StepPath({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

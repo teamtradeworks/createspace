@@ -15,7 +15,9 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
+
 
 const PRODUCT_HANDLE = "matatastudio-coding-set-pro-classroom-set";
 
@@ -30,11 +32,11 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Bring screen-free coding to every learner in your Foundation Phase classroom"
         highlights={[
@@ -47,10 +49,10 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Choose This For Your Classroom */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Choose This for Your Classroom?"
         subtitle="The MatataStudio Coding Set Pro Classroom Set gives Foundation Phase educators everything needed to run structured, evidence-based coding lessons — from day one."
         steps={[
@@ -74,7 +76,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Teacher-led learning image */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-coding-set-pro-classroom-set/teacher-explaining-to-kids-in-class.jpg"
         imageAlt="Teacher explaining coding concepts to young learners in a Foundation Phase classroom"
         title="No STEM Background? No Problem."
@@ -84,7 +86,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Key Features for Educators */}
-      <FeatureGrid
+        <FeatureGrid
         title="Designed Around How Young Learners Learn Best"
         subtitle="Six Coding Set Pro kits plus complete teacher resources — everything your classroom needs for hands-on coding, right out of the box."
         features={[
@@ -130,7 +132,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Classroom Activities */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Classroom Activities Across 4 Progressive Units"
         highlight="12 CAPS-aligned lessons with complete teacher guides — from basic sequencing to creative coding"
         subtitle="Activities progress from foundational concepts to advanced challenges, suitable for mixed-ability Foundation Phase classrooms."
@@ -183,7 +185,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Classroom collaboration image */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-coding-set-pro-classroom-set/kids-sitting-at-table-with-teacher-playing.jpg"
         imageAlt="Young learners sitting at a table working together on MatataStudio coding challenges with their teacher"
         title="Collaboration Is Built Into Every Challenge"
@@ -193,7 +195,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="See It in Your Learners' Hands"
         subtitle="MatataStudio in action — hands-on, screen-free, and genuinely engaging."
         background="white"
@@ -234,10 +236,10 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ for Educators */}
-      <ProductFAQ
+        <ProductFAQ
         title="Educator Questions"
         faqs={[
           {
@@ -280,7 +282,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* What's in the Kit */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Kit"
         image="/images/products/matatastudio-coding-set-pro-classroom-set/whats-in-the-box.jpg"
         imageAlt="MatataStudio Coding Set Pro Classroom Set contents laid out showing all 6 kits and teacher resources"
@@ -307,7 +309,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Technical Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Age Range", value: "4–9 years (Foundation Phase: Grades R–3)" },
@@ -327,7 +329,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       />
 
       {/* Call to Action */}
-      <CallToAction
+        <CallToAction
         title="Equip Your Foundation Phase Classroom"
         subtitle="Trusted by 1,000+ educational institutions worldwide. Bring structured, screen-free coding to every learner in your classroom."
         primaryLabel="Add to Cart"
@@ -337,7 +339,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         background="navy"
       />
 
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SectionTracker from "./SectionTracker";
 
 interface CallToActionProps {
   title: string;
@@ -33,7 +34,8 @@ export function CallToAction({
       : "border-navy/30 hover:border-navy text-navy";
 
   return (
-    <section className={`py-16 ${bgClass}`}>
+    <SectionTracker name="CallToAction">
+      <section className={`py-16 ${bgClass}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 className={`text-3xl font-semibold mb-4 ${titleClass}`}>
           {title}
@@ -74,5 +76,7 @@ export function CallToAction({
         </div>
       </div>
     </section>
+    </SectionTracker>
+
   );
 }

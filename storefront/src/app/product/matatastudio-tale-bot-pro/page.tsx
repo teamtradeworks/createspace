@@ -17,6 +17,7 @@ import {
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-tale-bot-pro";
@@ -32,11 +33,11 @@ export default async function TaleBotProPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Screen-free coding robot that sparks creativity and storytelling in preschoolers"
         highlights={[
@@ -49,10 +50,10 @@ export default async function TaleBotProPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Tale-Bot Pro Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Tale-Bot Pro?"
         subtitle="The perfect first coding robot for young learners. Designed specifically for preschoolers, Tale-Bot Pro makes learning to code as simple and playful as building blocks."
         steps={[
@@ -76,7 +77,7 @@ export default async function TaleBotProPage() {
       />
 
       {/* Why Screen-Free Matters */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro/finger-pressing-button-on-tale-bot-pro.png"
         imageAlt="Child's finger pressing command button on Tale-Bot Pro robot"
         title="How Tale-Bot Pro Works"
@@ -86,7 +87,7 @@ export default async function TaleBotProPage() {
       />
 
       {/* Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What's Included"
         subtitle="Tale-Bot Pro is packed with features designed to engage, educate, and inspire creativity in preschoolers and early learners."
         features={[
@@ -132,7 +133,7 @@ export default async function TaleBotProPage() {
       />
 
       {/* Storytelling & Creativity */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro/robot-holding-pens-and-drawing.jpeg"
         imageAlt="Tale-Bot Pro robot holding markers and drawing on paper"
         title="Storytelling Through Code"
@@ -142,7 +143,7 @@ export default async function TaleBotProPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Challenges, Maps & Activities"
         highlight="14 challenge missions plus 5 double-sided interactive maps"
         subtitle="Progressive activities guide children from simple movement commands to complex coding sequences. Each challenge builds on the last, introducing new concepts at a developmentally appropriate pace."
@@ -189,14 +190,14 @@ export default async function TaleBotProPage() {
       />
 
       {/* Video Section */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=THeGYKwX_8k"
         title="See Tale-Bot Pro in Action"
         background="white"
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="What Families Are Building"
         subtitle="See how children around the world are learning to code, tell stories, and explore with Tale-Bot Pro."
         images={[
@@ -225,10 +226,10 @@ export default async function TaleBotProPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -266,7 +267,7 @@ export default async function TaleBotProPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-tale-bot-pro/3-bots-with-different-arm-attachments.png"
         imageAlt="Tale-Bot Pro robot with different accessory attachments showing customization options"
@@ -292,7 +293,7 @@ export default async function TaleBotProPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Battery", value: "Built-in 1500mAh rechargeable lithium battery" },
@@ -315,7 +316,7 @@ export default async function TaleBotProPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with Tale-Bot Pro"
         subtitle="Give your child the gift of screen-free STEM learning. Tale-Bot Pro makes coding playful, tangible, and age-appropriate for preschoolers."
         primaryLabel="Add to Cart"
@@ -325,7 +326,7 @@ export default async function TaleBotProPage() {
         background="navy"
       />
 
-    </>
+    </ProductTrackingProvider>
   );
 }
 

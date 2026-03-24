@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "arduino-student-kit";
@@ -31,11 +32,11 @@ export default async function ArduinoStudentKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Real electronics, real code — a complete semester of structured learning for ages 11 and up"
         highlights={[
@@ -48,10 +49,10 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why the Arduino Student Kit */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why the Arduino Student Kit?"
         subtitle="Arduino has been the world's most trusted platform for learning electronics since 2005. The Student Kit brings that foundation home."
         steps={[
@@ -75,14 +76,14 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Video */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=t-PZsb9ci9E&t=7s"
         title="See the Arduino Student Kit in Action"
         background="gray"
       />
 
       {/* Online Platform Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/arduino-student-kit/student-kit-connecting-up-with-laptop-infront.jpg"
         imageAlt="Student connecting up the Arduino Student Kit with a laptop in front"
         title="A Platform Built for Home Learning"
@@ -92,7 +93,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="Everything Included to Get Started"
         subtitle="One kit, one platform, one clear path from complete beginner to confident maker."
         features={[
@@ -138,7 +139,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* What They'll Build */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="9 Lessons. 2 Projects. One Complete Curriculum."
         highlight="Up to 25 hours of guided learning"
         subtitle="Each lesson builds on the last — from reading a circuit diagram to programming a climate control system from scratch."
@@ -186,7 +187,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Character Development Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/arduino-student-kit/opened-box-with-all-parts-displayed-and-laptop.jpg"
         imageAlt="Arduino Student Kit opened box showing all components with a laptop"
         title="Skills That Last Long After the Final Lesson"
@@ -196,7 +197,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="The Kit in Action"
         subtitle="From unboxing to first circuit, every step is guided."
         images={[
@@ -237,10 +238,10 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -283,7 +284,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/arduino-student-kit/whats-in-the-box.jpeg"
         imageAlt="Arduino Student Kit contents laid out showing all components"
@@ -311,7 +312,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Product Code", value: "AKX00025" },
@@ -329,7 +330,7 @@ export default async function ArduinoStudentKitPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with Arduino"
         subtitle="The official kit trusted by educators worldwide — everything needed for a full semester of electronics and coding."
         primaryLabel="Add to Cart"
@@ -338,7 +339,7 @@ export default async function ArduinoStudentKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

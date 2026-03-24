@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
+import SectionTracker from "./SectionTracker";
 
 interface CustomerImage {
   src: string;
@@ -111,7 +112,8 @@ export function CustomerShowcase({
     // 1 image: full width
     if (count === 1) {
       return (
-        <div className="aspect-[16/9]">
+        <SectionTracker name="CustomerShowcase">
+          <div className="aspect-[16/9]">
           <ImageCard
             image={images[0]}
             isHovered={hoveredIndex === 0}
@@ -120,6 +122,7 @@ export function CustomerShowcase({
             className="h-full"
           />
         </div>
+        </SectionTracker>
       );
     }
 

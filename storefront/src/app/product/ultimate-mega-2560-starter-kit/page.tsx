@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "ultimate-mega-2560-starter-kit";
@@ -29,11 +30,11 @@ export default async function UltimateMega2560StarterKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Your complete electronics and coding lab — 33 lessons, no experience needed"
         highlights={[
@@ -46,10 +47,10 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why the Mega 2560 */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why the Mega 2560?"
         subtitle="Not all electronics kits are created equal. The Mega 2560 board gives your child the power to build projects that smaller boards simply can't run."
         steps={[
@@ -73,7 +74,7 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Components Overview */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/ultimate-mega-2560-starter-kit/mega-2560-components-collage.jpg"
         imageAlt="Assorted components from the Mega 2560 kit including colourful LEDs, resistors, capacitors, and transistors organised in a storage box"
         title="200+ Components, Endless Possibilities"
@@ -83,7 +84,7 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes This Kit Different"
         subtitle="Designed for serious learners who want to build real things — not just blink a few LEDs."
         features={[
@@ -129,7 +130,7 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Guide Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/ultimate-mega-2560-starter-kit/mega-2560-lessons-guide.jpg"
         imageAlt="Mega 2560 starter kit guide and code samples alongside kit components"
         title="A Lesson for Every Level"
@@ -139,7 +140,7 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Lessons You'll Build"
         highlight="33 hands-on lessons across a 223-page downloadable guide"
         subtitle="Lessons are ordered from simplest to most complex — each one building on what came before."
@@ -186,10 +187,10 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -227,7 +228,7 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/ultimate-mega-2560-starter-kit/mega-2560-whats-in-the-box.jpg"
         imageAlt="Robotico Ultimate Mega 2560 R3 Starter Kit unboxed showing board, modules, and components"
@@ -283,7 +284,7 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Microcontroller", value: "ATmega 2560" },
@@ -303,7 +304,7 @@ export default async function UltimateMega2560StarterKitPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with Electronics"
         subtitle="33 lessons, 200+ components, one complete kit. Everything your child needs to start building real things."
         primaryLabel="Add to Cart"
@@ -312,7 +313,7 @@ export default async function UltimateMega2560StarterKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

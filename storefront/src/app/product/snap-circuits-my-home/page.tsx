@@ -16,6 +16,7 @@ import {
   Specifications,
   CallToAction,
   VideoEmbed,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-my-home";
@@ -31,11 +32,11 @@ export default async function SnapCircuitsMyHomePage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Turn your home's circuits from mystery to mastery"
         highlights={[
@@ -48,10 +49,10 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Choose This */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Snap Circuits My Home?"
         subtitle="Most children live surrounded by electrical systems they don't understand. This kit changes that."
         steps={[
@@ -75,7 +76,7 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Your Home in Their Hands */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/snap-circuits-my-home/boy-playing-with-my-home.jpg"
         imageAlt="Boy playing with Snap Circuits My Home kit"
         title="Your Home, Your Power — Know How It Works"
@@ -85,7 +86,7 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes This Kit Special"
         subtitle="Snap Circuits My Home combines physical construction with electronics for a uniquely hands-on learning experience."
         features={[
@@ -131,7 +132,7 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Skills That Transfer */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/snap-circuits-my-home/girl-playing-with-home.jpg"
         imageAlt="Girl focused on building with Snap Circuits My Home"
         title="Skills That Transfer Far Beyond the Toy Box"
@@ -141,14 +142,14 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Video */}
-      <VideoEmbed
+        <VideoEmbed
         url="https://www.youtube.com/watch?v=6LwVQaEjQUM"
         title="See Snap Circuits My Home in Action"
         background="gray"
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="30+ Real-World Circuit Projects"
         highlight="30+ home-themed projects in a full-colour illustrated project manual"
         subtitle="Projects are ordered from simplest to most complex — building confidence with every build."
@@ -201,7 +202,7 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Customer Showcase — all end-user photos */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="What Families Are Building"
         subtitle="Real Snap Circuits My Home builds from our community"
         images={[
@@ -250,10 +251,10 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+        <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -296,7 +297,7 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/snap-circuits-my-home/whats-in-the-box.jpg"
         imageAlt="Snap Circuits My Home box contents showing all components and coloured base grids"
@@ -319,7 +320,7 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Brand", value: "Elenco Electronics" },
@@ -338,7 +339,7 @@ export default async function SnapCircuitsMyHomePage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started"
         subtitle="Join thousands of families who've discovered how electricity powers their home — one snap at a time."
         primaryLabel="Add to Cart"
@@ -347,7 +348,7 @@ export default async function SnapCircuitsMyHomePage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

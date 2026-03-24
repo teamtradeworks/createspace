@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-explorer-junior";
@@ -30,11 +31,11 @@ export default async function SnapCircuitJuniorPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Build 101 real electronic circuits without any soldering or tools"
         highlights={[
@@ -48,10 +49,10 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Snap Circuits Section */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Snap Circuits?"
         subtitle="Snap Circuits is trusted by millions of families, schools, and educators worldwide. Here's why it's the perfect introduction to electronics for curious kids."
         steps={[
@@ -75,7 +76,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* What Is Snap Circuits */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/snap-circuit-junior/child-sitting-at-table-playing-with-circuits.jpg"
         imageAlt="Child building circuits with Snap Circuits Explorer Junior"
         title="Electronics Made Easy for Young Builders"
@@ -85,7 +86,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Features Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="What Makes It Special"
         subtitle="Snap Circuits Explorer Junior is designed for children aged 8+ who are ready to explore how electronics work through hands-on discovery."
         features={[
@@ -131,7 +132,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="101 Projects to Explore"
         highlight="From blinking lights to logic gates"
         subtitle="Projects are arranged from simple to complex—your child builds confidence with every circuit they complete."
@@ -179,7 +180,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Learning Outcomes Section */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/snap-circuit-junior/top-down-of-child-playing-with-zoom-in-of-snap-pieces.jpg"
         imageAlt="Close-up of child's hands snapping circuit pieces together"
         title="What They'll Learn"
@@ -189,7 +190,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Customer Showcase - ALL end-user photos */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="What Families Are Building"
         subtitle="Real projects from real kids. Snap Circuits inspires creativity and experimentation beyond the manual."
         images={[
@@ -230,10 +231,10 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -276,7 +277,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/snap-circuits-explorer-junior/whats-in-the-box.jpeg"
         imageAlt="Child snapping Snap Circuits components onto the base board"
@@ -303,7 +304,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Model Number", value: "SC-100" },
@@ -329,7 +330,7 @@ export default async function SnapCircuitJuniorPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started with Snap Circuits"
         subtitle="Join millions of young builders worldwide. Everything you need to start exploring electronics is in the box."
         primaryLabel="Add to Cart"
@@ -339,7 +340,7 @@ export default async function SnapCircuitJuniorPage() {
         background="navy"
       />
 
-    </>
+    </ProductTrackingProvider>
   );
 }
 

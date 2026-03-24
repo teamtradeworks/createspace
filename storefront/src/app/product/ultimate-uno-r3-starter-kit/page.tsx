@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "ultimate-uno-r3-starter-kit";
@@ -29,11 +30,11 @@ export default async function UltimateUnoR3StarterKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="The complete kit for learning electronics, coding, and building things that actually work"
         highlights={[
@@ -46,10 +47,10 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Choose This Kit */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why the Ultimate Kit?"
         subtitle="There are plenty of Arduino starter kits out there. Here's what makes this one worth it."
         steps={[
@@ -73,7 +74,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* What's Inside */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/ultimate-uno-r3-starter-kit/collage-of-components.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit components spread out showing sensors, modules and the board"
         title="Everything in One Box"
@@ -83,7 +84,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Feature Grid */}
-      <FeatureGrid
+        <FeatureGrid
         title="33 Lessons. Zero Experience Needed."
         subtitle="The downloadable guide walks through every component in the kit, step by step. Your child can work through it in order, or jump straight to whatever looks most exciting."
         features={[
@@ -129,7 +130,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* The Learning Angle */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/ultimate-uno-r3-starter-kit/guide-lessons-and-code-sample.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit guide showing lesson pages and code samples"
         title="Where Electronics Meets Code"
@@ -139,7 +140,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Project Showcase */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Lessons You'll Build"
         highlight="33 guided lessons — from a blinking LED to a fully working RFID access system"
         subtitle="Each lesson builds on the last, introducing new components and concepts in a logical progression."
@@ -197,10 +198,10 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
-      <ProductFAQ
+        <ProductFAQ
         title="Common Questions"
         faqs={[
           {
@@ -243,7 +244,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* What's in the Box */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Box"
         image="/images/products/ultimate-uno-r3-starter-kit/whats-in-the-box.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit unboxed showing all components and sensors"
@@ -288,7 +289,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         specs={[
           { label: "Microcontroller", value: "ATmega328P" },
@@ -306,7 +307,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       />
 
       {/* Final CTA */}
-      <CallToAction
+        <CallToAction
         title="Get Started"
         subtitle="33 lessons. 50+ components. One kit that teaches real electronics and real code."
         primaryLabel="Add to Cart"
@@ -315,7 +316,7 @@ export default async function UltimateUnoR3StarterKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

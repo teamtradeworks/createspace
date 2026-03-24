@@ -15,7 +15,9 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
+
 
 const PRODUCT_HANDLE = "makerzoid-robot-master-tournament";
 
@@ -30,11 +32,11 @@ export default async function MakerzoidRobotMasterTournamentPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
-      <HeroSection
+        <HeroSection
         product={product}
         tagline="Equip your classroom with competition-ready robotics and Scratch 3.0 programming"
         highlights={[
@@ -47,10 +49,10 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+        <QuickInfoBadges product={product} />
 
       {/* Why Choose for Your Classroom */}
-      <NumberedSteps
+        <NumberedSteps
         title="Why Choose for Your Classroom?"
         subtitle="The Makerzoid Robot Master Tournament is built for educators who want to deliver real STEM outcomes — without needing a robotics background."
         steps={[
@@ -74,7 +76,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* Key Features */}
-      <FeatureGrid
+        <FeatureGrid
         title="What This Kit Brings to Your Classroom"
         subtitle="Purpose-built for structured STEM education, with hardware and curriculum designed to work together."
         features={[
@@ -120,7 +122,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* Scratch Programming Visual */}
-      <ImageTextBlock
+        <ImageTextBlock
         image="/images/products/makerzoid-robot-master-tournament/servo-motors-coding-displayed-on-phone.png"
         imageAlt="Scratch 3.0 programming interface displayed on a smartphone with servo motor robot"
         title="Programme Robots Directly from a Smartphone"
@@ -130,7 +132,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* Competition Challenges */}
-      <ProjectShowcase
+        <ProjectShowcase
         title="Competition Challenges Your Learners Will Master"
         highlight="47 structured courses · 200+ buildable models · 9 competition challenge types"
         subtitle="Challenges progress from basic mechanical builds through to fully autonomous robot programming — the same skills assessed in youth robotics competitions."
@@ -190,7 +192,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* Customer Showcase */}
-      <CustomerShowcase
+        <CustomerShowcase
         title="Real Results, Real Classrooms"
         subtitle="Learners building and competing with the Makerzoid Robot Master Tournament."
         background="gray"
@@ -217,10 +219,10 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+        <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
-      <ProductFAQ
+        <ProductFAQ
         title="Educator Questions"
         background="gray"
         faqs={[
@@ -263,7 +265,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* What's in the Kit */}
-      <WhatsIncluded
+        <WhatsIncluded
         title="What's in the Kit"
         image="/images/products/makerzoid-robot-master-tournament/colour-sensor.png"
         imageAlt="Makerzoid Robot Master Tournament colour sensor component"
@@ -282,7 +284,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* Specifications */}
-      <Specifications
+        <Specifications
         title="Technical Details"
         background="gray"
         specs={[
@@ -304,7 +306,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       />
 
       {/* CTA */}
-      <CallToAction
+        <CallToAction
         title="Equip Your Classroom"
         subtitle="Trusted by educators across South Africa. Give your learners a head start in robotics and coding with the competition-grade kit built for classroom success."
         primaryLabel="Add to Cart"
@@ -313,7 +315,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 
