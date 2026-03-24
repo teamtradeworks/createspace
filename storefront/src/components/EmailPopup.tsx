@@ -208,7 +208,7 @@ export default function EmailPopup() {
         ) : (
           <>
             <h2 className="mb-2 text-center text-2xl font-semibold">
-              Get 10% off your first order
+              Stay in the loop
             </h2>
             <p className="mb-6 text-center text-sm text-white/70">
               Join South African parents discovering STEM toys their kids actually love. Be the first to hear about new products and exclusive deals.
@@ -229,7 +229,7 @@ export default function EmailPopup() {
                 disabled={status === "loading"}
                 className="w-full rounded-full bg-cs-orange py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
               >
-                {status === "loading" ? "Subscribing..." : "Get my discount"}
+                {status === "loading" ? "Subscribing..." : "Subscribe"}
               </button>
             </form>
 
