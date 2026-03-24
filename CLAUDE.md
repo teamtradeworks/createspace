@@ -228,7 +228,7 @@ The education pages target teachers, principals, and educators (B2B audience). W
    - Partner: Robotixkids (https://robotixkids.co.za/)
    - Trained facilitators deliver robotics and coding programmes at schools
 
-2. **Curriculum for Teachers** (`/education/curriculum`)
+2. **Curriculum for Schools** (`/education/curriculum`)
    - Partner: Inspire Africa (https://inspire.africa/)
    - Online teacher training platform with CAPS-aligned content
    - Ready-to-use lesson plans and resources
