@@ -6,6 +6,7 @@ import {
   getProductBatteryInfo,
   getProductRating,
   getStockStatus,
+  isDigitalProduct,
   type ProductDetail,
 } from "@/lib/shopify";
 
@@ -234,6 +235,7 @@ describe("getProductRating", () => {
 function makeVariant(overrides: {
   availableForSale?: boolean;
   currentlyNotInStock?: boolean;
+  requiresShipping?: boolean;
 } = {}) {
   return {
     node: {
@@ -241,6 +243,7 @@ function makeVariant(overrides: {
       title: "Default",
       availableForSale: overrides.availableForSale ?? true,
       currentlyNotInStock: overrides.currentlyNotInStock ?? false,
+      requiresShipping: overrides.requiresShipping ?? true,
       price: { amount: "100.00", currencyCode: "ZAR" },
       compareAtPrice: null,
     },
@@ -308,5 +311,44 @@ describe("getStockStatus", () => {
       variants: { edges: [] },
     });
     expect(getStockStatus(product)).toBe("in-stock");
+  });
+});
+
+describe("isDigitalProduct", () => {
+  it("returns true when no variant requires shipping", () => {
+    const product = makeProduct({
+      variants: {
+        edges: [makeVariant({ requiresShipping: false })],
+      },
+    });
+    expect(isDigitalProduct(product)).toBe(true);
+  });
+
+  it("returns false when any variant requires shipping", () => {
+    const product = makeProduct({
+      variants: {
+        edges: [
+          makeVariant({ requiresShipping: false }),
+          makeVariant({ requiresShipping: true }),
+        ],
+      },
+    });
+    expect(isDigitalProduct(product)).toBe(false);
+  });
+
+  it("returns false for physical products", () => {
+    const product = makeProduct({
+      variants: {
+        edges: [makeVariant({ requiresShipping: true })],
+      },
+    });
+    expect(isDigitalProduct(product)).toBe(false);
+  });
+
+  it("returns false when product has no variants", () => {
+    const product = makeProduct({
+      variants: { edges: [] },
+    });
+    expect(isDigitalProduct(product)).toBe(false);
   });
 });

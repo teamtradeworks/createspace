@@ -407,6 +407,7 @@ export type ProductDetail = {
         sku: string | null;
         availableForSale: boolean;
         currentlyNotInStock: boolean;
+        requiresShipping: boolean;
         price: {
           amount: string;
           currencyCode: string;
@@ -478,6 +479,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
             sku
             availableForSale
             currentlyNotInStock
+            requiresShipping
             price {
               amount
               currencyCode
@@ -634,4 +636,10 @@ export function getStockStatus(product: ProductDetail): StockStatus {
   }
 
   return "in-stock";
+}
+
+// Returns true when no variant requires shipping (i.e. digital/non-inventory product)
+export function isDigitalProduct(product: ProductDetail): boolean {
+  const { edges } = product.variants;
+  return edges.length > 0 && edges.every((e) => !e.node.requiresShipping);
 }
