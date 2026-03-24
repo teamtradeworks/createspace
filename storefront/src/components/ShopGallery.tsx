@@ -9,6 +9,7 @@ interface ShopGalleryProps {
   products: Product[];
   initialAge?: string;
   initialCategory?: string;
+  initialBrand?: string;
 }
 
 const BRAND_COLORS = {
@@ -46,6 +47,7 @@ export default function ShopGallery({
   products,
   initialAge,
   initialCategory,
+  initialBrand,
 }: ShopGalleryProps) {
   const [selectedAges, setSelectedAges] = useState<string[]>(
     initialAge && initialAge !== "all" ? [initialAge] : []
@@ -53,7 +55,9 @@ export default function ShopGallery({
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     initialCategory && initialCategory !== "all" ? [initialCategory] : []
   );
-  const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
+  const [selectedBrands, setSelectedBrands] = useState<string[]>(
+    initialBrand ? [initialBrand] : []
+  );
   const [sortBy, setSortBy] = useState("featured");
 
   // Extract unique brands from products
@@ -107,7 +111,7 @@ export default function ShopGallery({
     // Filter by brands (union — product matches if its vendor is ANY selected brand)
     if (selectedBrands.length > 0) {
       result = result.filter((product) =>
-        selectedBrands.includes(product.vendor)
+        selectedBrands.some((b) => b.toLowerCase() === product.vendor.toLowerCase())
       );
     }
 

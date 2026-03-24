@@ -108,7 +108,7 @@ export default function Home() {
           </div>
 
           {/* Stat Cards */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               {
                 number: "85%",
@@ -149,76 +149,70 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Two-column: narrative + image */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-navy mb-6">
-                Give Them a Head Start
-              </h3>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                Children&apos;s brains develop fastest in their earliest years.
-                Early exposure to STEM builds curiosity, problem-solving skills,
-                and a foundation that lasts a lifetime.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Early maths skills predict academic success better than early reading",
-                  "Kids exposed to STEM young are far more likely to pursue STEM careers",
-                  "Birth to age 5 is the most critical window for STEM brain development",
-                ].map((item) => (
-                  <li key={item} className="flex items-start">
-                    <svg
-                      className="w-5 h-5 text-cs-green mt-0.5 mr-3 flex-shrink-0"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    <span className="text-gray-700 text-sm md:text-base">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/shop"
-                className="inline-flex items-center text-cs-orange hover:text-cs-red font-medium transition-colors"
-              >
-                Explore Our STEM Kits
-                <svg
-                  className="w-4 h-4 ml-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
+        </div>
+      </section>
+
+      {/* Our Brands Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
+              Our Brands
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+              Trusted Names in STEM
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              We are official, registered suppliers of the world&apos;s leading
+              STEM brands—bringing you authentic, quality products backed by
+              full manufacturer support.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+            {[
+              { name: "MatataStudio", logo: "/images/brands/matatastudio.png", vendor: "MatataStudio" },
+              { name: "Makerzoid", logo: "/images/brands/makerzoid.png", vendor: "Makerzoid" },
+              { name: "BBC micro:bit", logo: "/images/brands/bbc-microbit.png", vendor: "micro:bit" },
+              { name: "ELECFREAKS", logo: "/images/brands/elecfreaks.png", vendor: "ELECFREAKS" },
+              { name: "Snap Circuits", logo: "/images/brands/snap-circuits.png", vendor: "Snap Circuits" },
+              { name: "Arduino", logo: "/images/brands/arduino.png", vendor: "Arduino" },
+              { name: "National Geographic", logo: "/images/brands/national-geographic.png", comingSoon: true },
+              { name: "Blockaroo", logo: "/images/brands/blockaroo.png", comingSoon: true },
+              { name: "NASA", logo: "/images/brands/nasa.png", comingSoon: true },
+              { name: "Robotico", logo: "/images/brands/robotico.png", vendor: "Robotico" },
+            ].map((brand) => {
+              const card = (
+                <div className="relative bg-white rounded-xl p-6 flex flex-col items-center justify-center aspect-square shadow-sm">
+                  <Image
+                    src={brand.logo}
+                    alt={brand.name}
+                    width={160}
+                    height={160}
+                    className={`object-contain w-full h-full max-w-[140px] max-h-[140px] ${brand.comingSoon ? "opacity-40" : ""}`}
                   />
-                </svg>
-              </Link>
-            </div>
-            <div className="relative">
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100">
-                <Image
-                  src="/images/home/children-robotics-workshop.jpg"
-                  alt="Children building robots in a STEM workshop"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  loading="lazy"
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-cs-orange/20 rounded-full -z-10" />
-              <div className="absolute -top-4 -right-4 w-16 h-16 bg-cs-blue/20 rounded-full -z-10" />
-            </div>
+                  {brand.comingSoon && (
+                    <span className="absolute bottom-3 text-[11px] font-semibold text-navy/50 uppercase tracking-wider">
+                      Coming Soon
+                    </span>
+                  )}
+                </div>
+              );
+
+              if (brand.vendor) {
+                return (
+                  <Link
+                    key={brand.name}
+                    href={`/shop?brand=${encodeURIComponent(brand.vendor)}`}
+                    className="hover:shadow-md transition-shadow rounded-xl"
+                  >
+                    {card}
+                  </Link>
+                );
+              }
+
+              return <div key={brand.name}>{card}</div>;
+            })}
           </div>
         </div>
       </section>

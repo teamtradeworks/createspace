@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: Promise<{ age?: string; category?: string }>;
+  searchParams: Promise<{ age?: string; category?: string; brand?: string }>;
 };
 
 export default async function ShopPage({ searchParams }: Props) {
-  const { age, category } = await searchParams;
+  const { age, category, brand } = await searchParams;
   const products = await getProducts(100);
 
   return (
@@ -38,7 +38,7 @@ export default async function ShopPage({ searchParams }: Props) {
       </div>
 
       {/* Products with inline filters */}
-      <ShopGallery products={products} initialAge={age} initialCategory={category} key={`${age || "all"}-${category || "all"}`} />
+      <ShopGallery products={products} initialAge={age} initialCategory={category} initialBrand={brand} key={`${age || "all"}-${category || "all"}-${brand || "all"}`} />
     </main>
   );
 }
