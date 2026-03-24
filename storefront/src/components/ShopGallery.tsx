@@ -111,7 +111,7 @@ export default function ShopGallery({
     // Filter by brands (union — product matches if its vendor is ANY selected brand)
     if (selectedBrands.length > 0) {
       result = result.filter((product) =>
-        selectedBrands.includes(product.vendor)
+        selectedBrands.some((b) => b.toLowerCase() === product.vendor.toLowerCase())
       );
     }
 
