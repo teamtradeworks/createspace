@@ -71,29 +71,31 @@ export function HeroSection({
       />
       <div className="bg-gray-50 border-b">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex text-sm text-gray-500">
-            <Link href="/" className="hover:text-cs-orange">
+          <nav className="flex text-sm text-gray-500 min-w-0">
+            <Link href="/" className="hover:text-cs-orange flex-shrink-0">
               Home
             </Link>
-            <span className="mx-2">/</span>
-            <Link href="/shop" className="hover:text-cs-orange">
+            <span className="mx-2 flex-shrink-0">/</span>
+            <Link href="/shop" className="hover:text-cs-orange flex-shrink-0">
               Shop
             </Link>
-            <span className="mx-2">/</span>
-            <span className="text-navy font-medium">{product.title}</span>
+            <span className="mx-2 flex-shrink-0">/</span>
+            <span className="text-navy font-medium truncate">{product.title}</span>
           </nav>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="py-8 lg:py-12">
+      <section className="py-8 lg:py-12 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left - Image Gallery */}
-            <ProductGallery images={galleryImages} title={product.title} />
+            <div className="min-w-0">
+              <ProductGallery images={galleryImages} title={product.title} />
+            </div>
 
             {/* Right - Product Info */}
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               {/* Brand */}
               {product.vendor && (
                 <p className="text-sm text-gray-500 mb-2">
