@@ -17,6 +17,7 @@ import {
   Specifications,
   CallToAction,
   VideoEmbed,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-diverse-building-blocks";
@@ -32,7 +33,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -95,12 +96,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       {/* Skill Tags */}
       <SkillTags
         title="Skills Developed"
-        tags={[
-          "Mechanical Engineering",
-          "Mathematics",
-          "Problem Solving",
-          "Creativity",
-        ]}
+        tags={["Mechanical Engineering", "Mathematics", "Problem Solving", "Creativity"]}
         background="gray"
       />
 
@@ -352,7 +348,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

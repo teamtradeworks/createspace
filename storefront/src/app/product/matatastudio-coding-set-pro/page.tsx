@@ -15,6 +15,7 @@ import {
   ProductFAQ,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-coding-set-pro";
@@ -30,7 +31,7 @@ export default async function MatataStudioCodingSetProPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -153,48 +154,41 @@ export default async function MatataStudioCodingSetProPage() {
         projects={[
           {
             name: "Navigation Challenges",
-            description:
-              "Program MatataBot to reach destinations on the game map.",
+            description: "Program MatataBot to reach destinations on the game map.",
             concepts: "Sequencing, spatial reasoning, planning, debugging",
-            image: "/images/products/matatastudio-coding-set-pro/projects/maps-and-other-things.png",
+            image:
+              "/images/products/matatastudio-coding-set-pro/projects/maps-and-other-things.png",
           },
           {
             name: "Obstacle Courses",
-            description:
-              "Navigate around flags and barriers on increasingly complex maps.",
-            concepts:
-              "Problem decomposition, conditional thinking, route optimization",
+            description: "Navigate around flags and barriers on increasingly complex maps.",
+            concepts: "Problem decomposition, conditional thinking, route optimization",
             image: "/images/products/matatastudio-coding-set-pro/projects/map-forest-park-tour.jpg",
           },
           {
             name: "Loop Exercises",
-            description:
-              "Use Loop blocks to create efficient code with repetition.",
-            concepts:
-              "Pattern recognition, computational efficiency, optimization",
+            description: "Use Loop blocks to create efficient code with repetition.",
+            concepts: "Pattern recognition, computational efficiency, optimization",
             image: "/images/products/matatastudio-coding-set-pro/projects/coding-blocks.jpg",
           },
           {
             name: "Function Challenges",
-            description:
-              "Define and call functions to solve complex multi-step tasks.",
+            description: "Define and call functions to solve complex multi-step tasks.",
             concepts: "Abstraction, code reusability, modular thinking",
             image: "/images/products/matatastudio-coding-set-pro/projects/tower-with-booklet.png",
           },
           {
             name: "Geometry Activities",
-            description:
-              "Draw shapes and patterns using angle blocks for precision.",
-            concepts:
-              "Mathematical concepts, geometric reasoning, spatial accuracy",
+            description: "Draw shapes and patterns using angle blocks for precision.",
+            concepts: "Mathematical concepts, geometric reasoning, spatial accuracy",
             image: "/images/products/matatastudio-coding-set-pro/projects/bot-with-pen.jpg",
           },
           {
             name: "Music Programming",
-            description:
-              "Compose melodies and rhythms using music blocks (Pro feature).",
+            description: "Compose melodies and rhythms using music blocks (Pro feature).",
             concepts: "Creative coding, rhythm, musical patterns, STEAM",
-            image: "/images/products/matatastudio-coding-set-pro/projects/bot-singing-and-dancing.png",
+            image:
+              "/images/products/matatastudio-coding-set-pro/projects/bot-singing-and-dancing.png",
           },
         ]}
         moreText="Plus story-based missions, art projects, and open-ended creative challenges. Activities span 5 age groups (4-5, 6-7, 8-9) with appropriate difficulty for each stage."
@@ -299,8 +293,7 @@ export default async function MatataStudioCodingSetProPage() {
               "Yes — rechargeable batteries are built into both MatataBot and the Command Tower. A USB-C charging cable is included. MatataBot charges in 1.5 hours and runs for 5 hours. Command Tower charges in 3.5 hours and runs for 5 hours. No disposable batteries to buy or replace.",
           },
           {
-            question:
-              "What happens after they complete all the challenges?",
+            question: "What happens after they complete all the challenges?",
             answer:
               "MatataStudio Coding Set Pro has exceptional replayability. Beyond the 100+ included challenges, children create their own coding adventures using the game map, obstacles, and flags. They can also expand with four optional add-ons: Musician (music composition), Artist (drawing patterns), Animation (physical animations), and Sensor (obstacle detection and LED control). The set is also LEGO® compatible for infinite customisation.",
           },
@@ -310,8 +303,7 @@ export default async function MatataStudioCodingSetProPage() {
               "Yes. MatataStudio Coding Set Pro uses food-grade, washable, lead-free materials and has passed EN71 safety assessment (European toy safety standards) and drop testing. The coding blocks are safe even if placed in the mouth. The set is designed for ages 4-9 with durable construction for repeated use.",
           },
           {
-            question:
-              "What's the difference between the Pro Set and standard Coding Set?",
+            question: "What's the difference between the Pro Set and standard Coding Set?",
             answer:
               "The Pro Set includes music blocks (for programming melodies) and angle blocks (for drawing geometric patterns) — exclusive features not available in the standard Coding Set. The Pro Set is designed for advanced learning and classroom use, while the standard set is ideal for homeschool beginners without prior coding experience.",
           },
@@ -367,7 +359,7 @@ export default async function MatataStudioCodingSetProPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

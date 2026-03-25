@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "bbc-micro-bit-club";
@@ -31,7 +32,7 @@ export default async function BbcMicroBitClubPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -155,7 +156,8 @@ export default async function BbcMicroBitClubPage() {
         projects={[
           {
             name: "Compass",
-            description: "Build a working compass that points north using the built-in magnetometer",
+            description:
+              "Build a working compass that points north using the built-in magnetometer",
             concepts: "Magnetometer, conditionals, compass bearing",
             image: "/images/products/bbc-micro-bit-club/projects/compass.png",
           },
@@ -339,7 +341,7 @@ export default async function BbcMicroBitClubPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

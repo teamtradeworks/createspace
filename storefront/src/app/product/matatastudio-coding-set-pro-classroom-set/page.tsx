@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-coding-set-pro-classroom-set";
@@ -30,7 +31,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -147,7 +148,8 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
             description:
               "Navigate around flags and barriers — adjust the programme when the first attempt fails.",
             concepts: "Debugging, problem decomposition, conditional thinking",
-            image: "/images/products/matatastudio-coding-set-pro/projects/maps-and-other-things.jpg",
+            image:
+              "/images/products/matatastudio-coding-set-pro/projects/maps-and-other-things.jpg",
           },
           {
             name: "Loop Exercises",
@@ -175,7 +177,8 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
             description:
               "Sequence music note blocks to compose a melody — then use loops to repeat musical phrases.",
             concepts: "Creative coding, rhythm, musical patterns, STEAM",
-            image: "/images/products/matatastudio-coding-set-pro/projects/bot-singing-and-dancing.png",
+            image:
+              "/images/products/matatastudio-coding-set-pro/projects/bot-singing-and-dancing.png",
           },
         ]}
         moreText="Plus storytelling missions, open-ended creative challenges, and Strawbees engineering activities. All 12 lessons include lesson plans, time references, and learning objectives in the printed teacher manuals."
@@ -312,10 +315,19 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         specs={[
           { label: "Age Range", value: "4–9 years (Foundation Phase: Grades R–3)" },
           { label: "Learner Capacity", value: "24 learners (6 groups of 4)" },
-          { label: "Curriculum", value: "12 lessons, 4 units (Learning Station + Extracurricular formats)" },
+          {
+            label: "Curriculum",
+            value: "12 lessons, 4 units (Learning Station + Extracurricular formats)",
+          },
           { label: "Kits Included", value: "6 × Coding Set Pro" },
-          { label: "Coding Blocks per Kit", value: "99 pieces (directional, loop, number, condition, angle, music, function)" },
-          { label: "Power", value: "USB-C rechargeable (built-in battery, no disposable batteries)" },
+          {
+            label: "Coding Blocks per Kit",
+            value: "99 pieces (directional, loop, number, condition, angle, music, function)",
+          },
+          {
+            label: "Power",
+            value: "USB-C rechargeable (built-in battery, no disposable batteries)",
+          },
           { label: "Connectivity", value: "Bluetooth (Command Tower to MatataBot)" },
           { label: "Software Required", value: "None — fully screen-free, no apps or devices" },
           { label: "LEGO® Compatible", value: "Yes" },
@@ -336,8 +348,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -14,6 +14,7 @@ import {
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-beginner";
@@ -29,7 +30,7 @@ export default async function SnapCircuitsBeginnerPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -146,19 +147,22 @@ export default async function SnapCircuitsBeginnerPage() {
         projects={[
           {
             name: "Light Motor",
-            description: "Connect the motor to make the colour-changing fan spin for the first time.",
+            description:
+              "Connect the motor to make the colour-changing fan spin for the first time.",
             concepts: "Motor, electrical energy → motion",
             image: "/images/products/snap-circuits-beginner/projects-light-motor.jpg",
           },
           {
             name: "Light & Sound with Egg",
-            description: "Add the egg component to produce light and sound together in one circuit.",
+            description:
+              "Add the egg component to produce light and sound together in one circuit.",
             concepts: "Series circuit, multiple outputs",
             image: "/images/products/snap-circuits-beginner/projects-light-and-sound-with-egg.jpg",
           },
           {
             name: "2-Speed Fan",
-            description: "Configure the motor to run at two different speeds using the circuit layout.",
+            description:
+              "Configure the motor to run at two different speeds using the circuit layout.",
             concepts: "Variable load, motor speed",
             image: "/images/products/snap-circuits-beginner/projects-2-speed-fan.jpg",
           },
@@ -176,7 +180,8 @@ export default async function SnapCircuitsBeginnerPage() {
           },
           {
             name: "Lots of Lights",
-            description: "Get all available lights working at once in a satisfyingly complex circuit.",
+            description:
+              "Get all available lights working at once in a satisfyingly complex circuit.",
             concepts: "Parallel output, circuit complexity",
             image: "/images/products/snap-circuits-beginner/projects-lots-of-lights.jpg",
           },
@@ -298,7 +303,7 @@ export default async function SnapCircuitsBeginnerPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

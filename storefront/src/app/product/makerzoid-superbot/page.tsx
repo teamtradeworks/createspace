@@ -16,6 +16,7 @@ import {
   Specifications,
   ProductReviews,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-superbot";
@@ -31,7 +32,7 @@ export default async function MakerzoidSuperbotPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -158,8 +159,7 @@ export default async function MakerzoidSuperbotPage() {
             description:
               "Build a sleek, low-slung racing car and drive it using the app's joystick — your child's first taste of building something that actually moves.",
             concepts: "Motor control, directions, basic app control",
-            image:
-              "/images/products/makerzoid-superbot/projects/batmobile.jpg",
+            image: "/images/products/makerzoid-superbot/projects/batmobile.jpg",
           },
           {
             name: "Tiger",
@@ -173,24 +173,21 @@ export default async function MakerzoidSuperbotPage() {
             description:
               "Build a robot that holds a pen and draws geometric patterns as it moves — where coding meets art in a genuinely surprising way.",
             concepts: "Motion programming, sequencing, STEAM crossover",
-            image:
-              "/images/products/makerzoid-superbot/projects/drawing-machine.jpg",
+            image: "/images/products/makerzoid-superbot/projects/drawing-machine.jpg",
           },
           {
             name: "Forklift",
             description:
               "Build a working forklift with a lifting mechanism — introduces more complex construction and real-world engineering concepts.",
             concepts: "Mechanical engineering, gear systems, load-bearing",
-            image:
-              "/images/products/makerzoid-superbot/projects/forklift.jpg",
+            image: "/images/products/makerzoid-superbot/projects/forklift.jpg",
           },
           {
             name: "Intelligent Gate",
             description:
               "Build an automated barrier that opens and closes — a great introduction to sensor-triggered behaviour and conditional logic.",
             concepts: "Conditionals, sensor-based logic, automation",
-            image:
-              "/images/products/makerzoid-superbot/projects/intelligent-gate.jpg",
+            image: "/images/products/makerzoid-superbot/projects/intelligent-gate.jpg",
           },
           {
             name: "Racing Car",
@@ -327,7 +324,7 @@ export default async function MakerzoidSuperbotPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

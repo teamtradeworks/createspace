@@ -12,6 +12,7 @@ import {
   ProductFAQ,
   ProductReviews,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-activity-box";
@@ -34,7 +35,7 @@ export default async function ActivityBoxPage() {
   const parentProductHref = `/product/${PARENT_PRODUCT_HANDLE}`;
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -190,7 +191,7 @@ export default async function ActivityBoxPage() {
         secondaryHref={parentProductHref}
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

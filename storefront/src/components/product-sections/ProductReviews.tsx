@@ -3,16 +3,14 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { StarRating } from "@/components/StarRating";
 import { shopifyIdToFeraId } from "@/lib/fera";
+import SectionTracker from "./SectionTracker";
 
 interface ProductReviewsProps {
   productId: string;
   background?: "white" | "gray" | "navy";
 }
 
-export function ProductReviews({
-  productId,
-  background = "white",
-}: ProductReviewsProps) {
+export function ProductReviews({ productId, background = "white" }: ProductReviewsProps) {
   const [reviews, setReviews] = useState<FeraReview[]>([]);
   const [rating, setRating] = useState<FeraProductRating | null>(null);
   const [loading, setLoading] = useState(true);
@@ -27,18 +25,14 @@ export function ProductReviews({
     if (!window.fera?.api) return;
 
     try {
-      const response = await new Promise<FeraReviewsResponse>(
-        (resolve, reject) => {
-          window.fera!.api!.getReviews(
-            { product_id: feraId, page: 1, per_page: 50 },
-            (result) => resolve(result),
-            (err) => reject(err)
-          );
-        }
-      );
-      const reviewData: FeraReview[] = Array.isArray(response)
-        ? response
-        : response.reviews || [];
+      const response = await new Promise<FeraReviewsResponse>((resolve, reject) => {
+        window.fera!.api!.getReviews(
+          { product_id: feraId, page: 1, per_page: 50 },
+          (result) => resolve(result),
+          (err) => reject(err),
+        );
+      });
+      const reviewData: FeraReview[] = Array.isArray(response) ? response : response.reviews || [];
       setReviews(reviewData);
     } catch (err) {
       console.error("Failed to fetch Fera reviews:", err);
@@ -142,86 +136,87 @@ export function ProductReviews({
     navy: "bg-navy",
   }[background];
   const textClass = background === "navy" ? "text-white" : "text-navy";
-  const subtextClass =
-    background === "navy" ? "text-white/70" : "text-gray-500";
+  const subtextClass = background === "navy" ? "text-white/70" : "text-gray-500";
   const cardBg = background === "navy" ? "bg-white/10" : "bg-white";
-  const cardBorder =
-    background === "navy" ? "" : "border border-gray-200";
-  const bodyTextClass =
-    background === "navy" ? "text-white/80" : "text-gray-600";
+  const cardBorder = background === "navy" ? "" : "border border-gray-200";
+  const bodyTextClass = background === "navy" ? "text-white/80" : "text-gray-600";
 
   return (
-    <section id="reviews" className={`py-16 ${bgClass}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2
-          className={`text-3xl font-semibold ${textClass} text-center mb-4`}
-        >
-          Customer Reviews
-        </h2>
+    <SectionTracker name="ProductReviews">
+      <section id="reviews" className={`py-16 ${bgClass}`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className={`text-3xl font-semibold ${textClass} text-center mb-4`}>
+            Customer Reviews
+          </h2>
 
-        {/* Rating Summary */}
-        <div className="flex items-center justify-center gap-3 mb-10">
-          <StarRating rating={rating.average} size="md" />
-          <span className={`text-lg font-bold ${textClass}`}>
-            {rating.average.toFixed(1)}
-          </span>
-          <span className={`text-sm ${subtextClass}`}>
-            ({rating.count} {rating.count === 1 ? "review" : "reviews"})
-          </span>
-        </div>
-
-        {/* Review Cards Carousel */}
-        <div className="relative">
-          {canScrollLeft && (
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
-              aria-label="Scroll reviews left"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-          )}
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto pb-4 scrollbar-none"
-          >
-            {reviews.map((review) => (
-              <ReviewCard
-                key={review.id}
-                review={review}
-                cardBg={cardBg}
-                cardBorder={cardBorder}
-                textClass={textClass}
-                subtextClass={subtextClass}
-                bodyTextClass={bodyTextClass}
-                onReadMore={() => setSelectedReview(review)}
-              />
-            ))}
+          {/* Rating Summary */}
+          <div className="flex items-center justify-center gap-3 mb-10">
+            <StarRating rating={rating.average} size="md" />
+            <span className={`text-lg font-bold ${textClass}`}>{rating.average.toFixed(1)}</span>
+            <span className={`text-sm ${subtextClass}`}>
+              ({rating.count} {rating.count === 1 ? "review" : "reviews"})
+            </span>
           </div>
-          {canScrollRight && (
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
-              aria-label="Scroll reviews right"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
 
-      {/* Review Modal */}
-      {selectedReview && (
-        <ReviewModal
-          review={selectedReview}
-          onClose={() => setSelectedReview(null)}
-        />
-      )}
-    </section>
+          {/* Review Cards Carousel */}
+          <div className="relative">
+            {canScrollLeft && (
+              <button
+                onClick={() => scroll("left")}
+                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+                aria-label="Scroll reviews left"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
+            <div ref={scrollRef} className="flex gap-6 overflow-x-auto pb-4 scrollbar-none">
+              {reviews.map((review) => (
+                <ReviewCard
+                  key={review.id}
+                  review={review}
+                  cardBg={cardBg}
+                  cardBorder={cardBorder}
+                  textClass={textClass}
+                  subtextClass={subtextClass}
+                  bodyTextClass={bodyTextClass}
+                  onReadMore={() => setSelectedReview(review)}
+                />
+              ))}
+            </div>
+            {canScrollRight && (
+              <button
+                onClick={() => scroll("right")}
+                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+                aria-label="Scroll reviews right"
+              >
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Review Modal */}
+        {selectedReview && (
+          <ReviewModal review={selectedReview} onClose={() => setSelectedReview(null)} />
+        )}
+      </section>
+    </SectionTracker>
   );
 }
 
@@ -268,29 +263,19 @@ function ReviewCard({
             />
           ) : (
             <div className="w-10 h-10 bg-cs-blue/20 rounded-full flex items-center justify-center">
-              <span className="text-cs-blue font-semibold">
-                {review.customer_name.charAt(0)}
-              </span>
+              <span className="text-cs-blue font-semibold">{review.customer_name.charAt(0)}</span>
             </div>
           )}
           <div>
-            <p className={`font-semibold text-sm ${textClass}`}>
-              {review.customer_name}
-            </p>
-            <p className={`text-xs ${subtextClass}`}>
-              {formatReviewDate(review.created_at)}
-            </p>
+            <p className={`font-semibold text-sm ${textClass}`}>{review.customer_name}</p>
+            <p className={`text-xs ${subtextClass}`}>{formatReviewDate(review.created_at)}</p>
           </div>
         </div>
         <StarRating rating={review.rating} size="sm" />
       </div>
 
       {/* Review heading */}
-      {review.heading && (
-        <h3 className={`font-semibold ${textClass} mb-2`}>
-          {review.heading}
-        </h3>
-      )}
+      {review.heading && <h3 className={`font-semibold ${textClass} mb-2`}>{review.heading}</h3>}
 
       {/* Review body - clamped to 5 lines */}
       <p ref={bodyRef} className={`${bodyTextClass} line-clamp-5`}>
@@ -323,13 +308,7 @@ function ReviewCard({
   );
 }
 
-function ReviewModal({
-  review,
-  onClose,
-}: {
-  review: FeraReview;
-  onClose: () => void;
-}) {
+function ReviewModal({ review, onClose }: { review: FeraReview; onClose: () => void }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -343,10 +322,7 @@ function ReviewModal({
   }, [onClose]);
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={onClose}>
       <div className="absolute inset-0 bg-black/50" />
       <div
         className="relative bg-white rounded-2xl max-w-lg w-full max-h-[80vh] overflow-y-auto p-6 shadow-xl"
@@ -358,7 +334,13 @@ function ReviewModal({
           className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
           aria-label="Close review"
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
@@ -380,12 +362,8 @@ function ReviewModal({
             </div>
           )}
           <div>
-            <p className="font-semibold text-navy">
-              {review.customer_name}
-            </p>
-            <p className="text-xs text-gray-500">
-              {formatReviewDate(review.created_at)}
-            </p>
+            <p className="font-semibold text-navy">{review.customer_name}</p>
+            <p className="text-xs text-gray-500">{formatReviewDate(review.created_at)}</p>
           </div>
           <div className="ml-auto">
             <StarRating rating={review.rating} size="md" />
@@ -394,9 +372,7 @@ function ReviewModal({
 
         {/* Heading */}
         {review.heading && (
-          <h3 className="font-semibold text-navy text-lg mb-3">
-            {review.heading}
-          </h3>
+          <h3 className="font-semibold text-navy text-lg mb-3">{review.heading}</h3>
         )}
 
         {/* Full body */}

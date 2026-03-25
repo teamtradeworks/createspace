@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-superbot-master-premium";
@@ -29,7 +30,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -134,11 +135,9 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           },
           {
             name: "IR Sensors",
-            description:
-              "Programme obstacle-avoidance robots that navigate without human input",
+            description: "Programme obstacle-avoidance robots that navigate without human input",
             concepts: "IR sensing, conditionals, autonomous navigation",
-            image:
-              "/images/products/makerzoid-superbot-master-premium/projects/ir-sensor.png",
+            image: "/images/products/makerzoid-superbot-master-premium/projects/ir-sensor.png",
           },
           {
             name: "Greyscale Sensors",
@@ -153,16 +152,14 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
             description:
               "Engineer robotic arms, grippers, and steerable mechanisms using precise angular control",
             concepts: "Servo motor, mechanical engineering, precision control",
-            image:
-              "/images/products/makerzoid-superbot-master-premium/projects/servo-drive.png",
+            image: "/images/products/makerzoid-superbot-master-premium/projects/servo-drive.png",
           },
           {
             name: "Motorised Builds",
             description:
               "Drive vehicles and moving models at variable speeds — learners control power through code",
             concepts: "Motor control, variables, speed programming",
-            image:
-              "/images/products/makerzoid-superbot-master-premium/projects/the-motor.png",
+            image: "/images/products/makerzoid-superbot-master-premium/projects/the-motor.png",
           },
           {
             name: "Universal Wheel",
@@ -313,8 +310,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

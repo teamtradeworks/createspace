@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-digital-microscope-mt3-2";
@@ -31,7 +32,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -155,39 +156,51 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
         projects={[
           {
             name: "Onion Cell Observation",
-            description: "Peel a thin layer from an onion and observe the rectangular cell walls up close",
+            description:
+              "Peel a thin layer from an onion and observe the rectangular cell walls up close",
             concepts: "Cell biology, plant anatomy",
-            image: "/images/products/matatastudio-digital-microscope-mt3-2/projects/onion-cell-observation.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mt3-2/projects/onion-cell-observation.png",
           },
           {
             name: "Salt vs Sugar Crystals",
-            description: "Discover why salt forms perfect cubes and sugar forms jagged diamonds under magnification",
+            description:
+              "Discover why salt forms perfect cubes and sugar forms jagged diamonds under magnification",
             concepts: "Chemistry, crystallography, scientific comparison",
-            image: "/images/products/matatastudio-digital-microscope-mt3-2/projects/salt-vs-sugar-crystals.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mt3-2/projects/salt-vs-sugar-crystals.png",
           },
           {
             name: "Leaf Surface Study",
-            description: "Find the stomata — tiny pores on a leaf's surface that allow plants to breathe",
+            description:
+              "Find the stomata — tiny pores on a leaf's surface that allow plants to breathe",
             concepts: "Plant biology, photosynthesis, environmental science",
-            image: "/images/products/matatastudio-digital-microscope-mt3-2/projects/leaf-surface-study.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mt3-2/projects/leaf-surface-study.png",
           },
           {
             name: "Fabric Fibre Investigation",
-            description: "Compare threads from different fabrics — cotton, denim, wool — and see how they differ up close",
+            description:
+              "Compare threads from different fabrics — cotton, denim, wool — and see how they differ up close",
             concepts: "Materials science, textile technology",
-            image: "/images/products/matatastudio-digital-microscope-mt3-2/projects/fabric-fibre-investigation.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mt3-2/projects/fabric-fibre-investigation.png",
           },
           {
             name: "Cheek Cell Smear",
-            description: "Gently collect and observe your own human epithelial cells under the lens",
+            description:
+              "Gently collect and observe your own human epithelial cells under the lens",
             concepts: "Human biology, animal vs plant cell comparison",
-            image: "/images/products/matatastudio-digital-microscope-mt3-2/projects/cheek-cell-smear.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mt3-2/projects/cheek-cell-smear.png",
           },
           {
             name: "Pond Water Exploration",
-            description: "Collect a drop of pond water and discover the microscopic life living inside it",
+            description:
+              "Collect a drop of pond water and discover the microscopic life living inside it",
             concepts: "Microbiology, ecology, environmental science",
-            image: "/images/products/matatastudio-digital-microscope-mt3-2/projects/pond-water-exploration.png",
+            image:
+              "/images/products/matatastudio-digital-microscope-mt3-2/projects/pond-water-exploration.png",
           },
         ]}
         moreText="Plus feather structures, hair cross-sections, insect anatomy, chemical reactions, and anything else your child is curious about"
@@ -345,7 +358,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

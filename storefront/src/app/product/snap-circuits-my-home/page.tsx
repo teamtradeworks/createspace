@@ -16,6 +16,7 @@ import {
   Specifications,
   CallToAction,
   VideoEmbed,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-my-home";
@@ -31,7 +32,7 @@ export default async function SnapCircuitsMyHomePage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -347,7 +348,7 @@ export default async function SnapCircuitsMyHomePage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

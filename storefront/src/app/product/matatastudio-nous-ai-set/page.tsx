@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-nous-ai-set";
@@ -31,7 +32,7 @@ export default async function NousAISetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -57,15 +58,18 @@ export default async function NousAISetPage() {
         steps={[
           {
             title: "Learn Real AI",
-            description: "Not just coding — your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
+            description:
+              "Not just coding — your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
           },
           {
             title: "Future-Ready Skills",
-            description: "AI and robotics engineers are among the highest-paid careers today. Give your child hands-on experience with the technologies shaping tomorrow's job market.",
+            description:
+              "AI and robotics engineers are among the highest-paid careers today. Give your child hands-on experience with the technologies shaping tomorrow's job market.",
           },
           {
             title: "Works Offline",
-            description: "Unlike cloud-dependent kits, Nous AI uses TinyML to run AI models directly on the robot — no internet required once models are trained. Your child learns real edge computing concepts.",
+            description:
+              "Unlike cloud-dependent kits, Nous AI uses TinyML to run AI models directly on the robot — no internet required once models are trained. Your child learns real edge computing concepts.",
           },
         ]}
         background="navy-card"
@@ -96,32 +100,38 @@ export default async function NousAISetPage() {
           {
             icon: "sparkles",
             title: "ChatGPT-4o Powered",
-            description: "Natural conversations with AI using MatataChat — ask questions, get responses, explore language understanding",
+            description:
+              "Natural conversations with AI using MatataChat — ask questions, get responses, explore language understanding",
           },
           {
             icon: "code",
             title: "Dual Programming",
-            description: "Start with block coding (Scratch-style) and progress to Python as skills grow",
+            description:
+              "Start with block coding (Scratch-style) and progress to Python as skills grow",
           },
           {
             icon: "camera",
             title: "Computer Vision",
-            description: "Face detection, object recognition, and AprilTag tracking with built-in camera and sensors",
+            description:
+              "Face detection, object recognition, and AprilTag tracking with built-in camera and sensors",
           },
           {
             icon: "microphone",
             title: "Speech Recognition",
-            description: "Train voice models, build voice-controlled systems, explore natural language processing",
+            description:
+              "Train voice models, build voice-controlled systems, explore natural language processing",
           },
           {
             icon: "robot",
             title: "TinyML Edge AI",
-            description: "Run AI models directly on the robot without cloud connectivity — learn edge computing concepts",
+            description:
+              "Run AI models directly on the robot without cloud connectivity — learn edge computing concepts",
           },
           {
             icon: "building-blocks",
             title: "Expandable Design",
-            description: "Metal construction compatible with building blocks for endless customisation and creative projects",
+            description:
+              "Metal construction compatible with building blocks for endless customisation and creative projects",
           },
         ]}
         columns={3}
@@ -291,7 +301,10 @@ export default async function NousAISetPage() {
         specs={[
           { label: "Recommended Age", value: "12+ years" },
           { label: "Programming Languages", value: "Block coding (Scratch-style) and Python" },
-          { label: "AI Technologies", value: "TinyML, ChatGPT-4o, Computer Vision, Speech Recognition" },
+          {
+            label: "AI Technologies",
+            value: "TinyML, ChatGPT-4o, Computer Vision, Speech Recognition",
+          },
           { label: "Platform", value: "MatataCode online (web-based, free lifetime access)" },
           { label: "Connectivity", value: "USB-C, WiFi for IoT features" },
           { label: "Camera", value: "Built-in camera with fill lights and ToF ranging sensor" },
@@ -299,7 +312,10 @@ export default async function NousAISetPage() {
           { label: "Construction", value: "Metal frame, compatible with building blocks" },
           { label: "Battery", value: "Built-in rechargeable battery, USB-C charging" },
           { label: "Assembly Time", value: "Approximately 20 minutes" },
-          { label: "Certifications", value: "ISTE certified curriculum, EdTech Digest Cool Tool Winner 2025" },
+          {
+            label: "Certifications",
+            value: "ISTE certified curriculum, EdTech Digest Cool Tool Winner 2025",
+          },
         ]}
         background="white"
       />
@@ -314,8 +330,7 @@ export default async function NousAISetPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

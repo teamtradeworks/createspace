@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "ultimate-uno-r3-starter-kit";
@@ -29,7 +30,7 @@ export default async function UltimateUnoR3StarterKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -148,45 +149,36 @@ export default async function UltimateUnoR3StarterKitPage() {
             name: "LED Circuits",
             description: "Build and control LED circuits with buttons and code",
             concepts: "Digital output, loops, conditionals",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-led-circuit.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-led-circuit.jpg",
           },
           {
             name: "Sensor Readings",
-            description:
-              "Read temperature, humidity, and light from real sensors",
+            description: "Read temperature, humidity, and light from real sensors",
             concepts: "Analog input, sensor libraries, data display",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-sensors.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-sensors.jpg",
           },
           {
             name: "LCD Display",
-            description:
-              "Show text and live sensor data on a 16-character display",
+            description: "Show text and live sensor data on a 16-character display",
             concepts: "I2C communication, LiquidCrystal library",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-lcd-display.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-lcd-display.jpg",
           },
           {
             name: "RFID Access System",
-            description:
-              "Build a contactless access system using RFID cards and tags",
+            description: "Build a contactless access system using RFID cards and tags",
             concepts: "SPI communication, RFID protocol, access control",
-            image:
-              "/images/products/ultimate-uno-r3-starter-kit/projects/project-rfid-access.jpg",
+            image: "/images/products/ultimate-uno-r3-starter-kit/projects/project-rfid-access.jpg",
           },
           {
             name: "Motor Control",
-            description:
-              "Drive DC and stepper motors with precision speed and direction",
+            description: "Drive DC and stepper motors with precision speed and direction",
             concepts: "H-bridge, PWM, stepper sequences",
             image:
               "/images/products/ultimate-uno-r3-starter-kit/projects/project-motor-control.jpg",
           },
           {
             name: "Motion Sensor Alarm",
-            description:
-              "Detect movement with a PIR sensor and trigger a buzzer alarm",
+            description: "Detect movement with a PIR sensor and trigger a buzzer alarm",
             concepts: "PIR sensing, digital input, event-driven logic",
             image:
               "/images/products/ultimate-uno-r3-starter-kit/projects/project-motion-sensor.jpg",
@@ -315,7 +307,7 @@ export default async function UltimateUnoR3StarterKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

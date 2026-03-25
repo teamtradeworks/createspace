@@ -12,6 +12,7 @@ import {
   ProductFAQ,
   WhatsIncluded,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-ai-vision-kit-for-vincibot";
@@ -34,7 +35,7 @@ export default async function AIVisionKitPage() {
   const parentProductHref = `/product/${PARENT_PRODUCT_HANDLE}`;
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -171,7 +172,7 @@ export default async function AIVisionKitPage() {
         secondaryHref={parentProductHref}
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

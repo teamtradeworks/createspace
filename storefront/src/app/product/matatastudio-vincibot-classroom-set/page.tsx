@@ -17,6 +17,7 @@ import {
   ProductReviews,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-vincibot-classroom-set";
@@ -32,7 +33,7 @@ export default async function VinciBotClassroomSetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -156,39 +157,51 @@ export default async function VinciBotClassroomSetPage() {
         projects={[
           {
             name: "Hello, I am VinciBot!",
-            description: "Learners write their first sequence to make VinciBot introduce itself via movement and LED display.",
+            description:
+              "Learners write their first sequence to make VinciBot introduce itself via movement and LED display.",
             concepts: "Sequences, basic commands",
-            image: "/images/products/matatastudio-vincibot-classroom-set/projects/vincibot-close-up-on-line-following-map.jpg",
+            image:
+              "/images/products/matatastudio-vincibot-classroom-set/projects/vincibot-close-up-on-line-following-map.jpg",
           },
           {
             name: "The Rainbow Light",
-            description: "Programme the 16×8 LED matrix to display a colour sequence — learners discover the power of loops.",
+            description:
+              "Programme the 16×8 LED matrix to display a colour sequence — learners discover the power of loops.",
             concepts: "Loops, LED programming",
-            image: "/images/products/matatastudio-vincibot-classroom-set/projects/led-matrix-display.jpg",
+            image:
+              "/images/products/matatastudio-vincibot-classroom-set/projects/led-matrix-display.jpg",
           },
           {
             name: "Invisible Ruler",
-            description: "Use the ToF distance sensor to measure objects accurately — combines maths and coding in one activity.",
+            description:
+              "Use the ToF distance sensor to measure objects accurately — combines maths and coding in one activity.",
             concepts: "Loops, sensor data, measurement",
-            image: "/images/products/matatastudio-vincibot-classroom-set/projects/eight-built-in-sensors.jpg",
+            image:
+              "/images/products/matatastudio-vincibot-classroom-set/projects/eight-built-in-sensors.jpg",
           },
           {
             name: "Eye Guard",
-            description: "VinciBot uses obstacle detection to respond to objects — learners write their first if/then logic.",
+            description:
+              "VinciBot uses obstacle detection to respond to objects — learners write their first if/then logic.",
             concepts: "Conditionals, sensor response",
-            image: "/images/products/matatastudio-vincibot-classroom-set/projects/avoid-obstacles.jpg",
+            image:
+              "/images/products/matatastudio-vincibot-classroom-set/projects/avoid-obstacles.jpg",
           },
           {
             name: "Dance for Two",
-            description: "Two robots communicate via infrared and perform synchronised movement — a multi-robot collaboration challenge.",
+            description:
+              "Two robots communicate via infrared and perform synchronised movement — a multi-robot collaboration challenge.",
             concepts: "IR communication, multi-robot coordination",
-            image: "/images/products/matatastudio-vincibot-classroom-set/projects/vincitbot-with-lights-dancing-music.jpg",
+            image:
+              "/images/products/matatastudio-vincibot-classroom-set/projects/vincitbot-with-lights-dancing-music.jpg",
           },
           {
             name: "Gesture Control",
-            description: "Train VinciBot to recognise hand gestures using on-device TinyML — no internet required. Learners experience real AI running on the robot itself.",
+            description:
+              "Train VinciBot to recognise hand gestures using on-device TinyML — no internet required. Learners experience real AI running on the robot itself.",
             concepts: "TinyML, gesture recognition, on-device AI",
-            image: "/images/products/matatastudio-vincibot-classroom-set/projects/artificial-intelligence.jpg",
+            image:
+              "/images/products/matatastudio-vincibot-classroom-set/projects/artificial-intelligence.jpg",
           },
         ]}
         moreText="Plus 69 more activities covering functions, variables, line following, TinyML, IoT, and creative drawing — and 3 extended PBL engineering projects"
@@ -247,12 +260,7 @@ export default async function VinciBotClassroomSetPage() {
       {/* Skill Tags */}
       <SkillTags
         title="Skills Your Learners Will Develop"
-        tags={[
-          "Coding",
-          "Robotics",
-          "Problem Solving",
-          "Logical Thinking",
-        ]}
+        tags={["Coding", "Robotics", "Problem Solving", "Logical Thinking"]}
         background="gray"
       />
 
@@ -335,10 +343,19 @@ export default async function VinciBotClassroomSetPage() {
           { label: "LED Display", value: "16×8 programmable matrix (128 LEDs) + 6 RGB LEDs" },
           { label: "Audio", value: "Speaker with 21 instrument sounds (WAV and MP3)" },
           { label: "Coding Platforms", value: "Scratch (block-based) and Python (text-based)" },
-          { label: "App Compatibility", value: "Windows, Mac, iOS, Android; web browser supported" },
+          {
+            label: "App Compatibility",
+            value: "Windows, Mac, iOS, Android; web browser supported",
+          },
           { label: "Connectivity", value: "Bluetooth; LEGO and Technic motor compatible" },
-          { label: "AI Capability", value: "On-device TinyML (gesture, voice, handwriting recognition)" },
-          { label: "Curriculum Standards", value: "ISTE certified; aligns with CSTA, NGSS, DBE Coding & Robotics" },
+          {
+            label: "AI Capability",
+            value: "On-device TinyML (gesture, voice, handwriting recognition)",
+          },
+          {
+            label: "Curriculum Standards",
+            value: "ISTE certified; aligns with CSTA, NGSS, DBE Coding & Robotics",
+          },
           { label: "Storage Bin Dimensions", value: "41 × 30 × 14 cm" },
           { label: "Material", value: "ABS plastic; safety certified" },
           { label: "Activities Included", value: "75 core + 18+ challenge activities" },
@@ -356,7 +373,7 @@ export default async function VinciBotClassroomSetPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

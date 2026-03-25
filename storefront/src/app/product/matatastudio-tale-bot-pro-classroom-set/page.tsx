@@ -14,6 +14,7 @@ import {
   CustomerShowcase,
   CallToAction,
   VideoEmbed,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-tale-bot-pro-classroom-set";
@@ -29,7 +30,7 @@ export default async function TaleBotProClassroomSetPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -162,8 +163,7 @@ export default async function TaleBotProClassroomSetPage() {
             name: "Frog Life Cycle Map",
             description: "Navigate the stages from egg to adult frog",
             concepts: "Natural Sciences — Life and Living, sequencing, observation",
-            image:
-              "/images/products/matatastudio-tale-bot-pro/tale-bot-on-frog-cycle-board.png",
+            image: "/images/products/matatastudio-tale-bot-pro/tale-bot-on-frog-cycle-board.png",
           },
           {
             name: "Plant Growth Map",
@@ -176,15 +176,13 @@ export default async function TaleBotProClassroomSetPage() {
             name: "Drawing with Markers",
             description: "Programme the robot to draw shapes and patterns on paper",
             concepts: "Geometry, spatial reasoning, fine motor, creative expression",
-            image:
-              "/images/products/matatastudio-tale-bot-pro/tale-bot-drawing-front-view.png",
+            image: "/images/products/matatastudio-tale-bot-pro/tale-bot-drawing-front-view.png",
           },
           {
             name: "Dancing & Music Coding",
             description: "Programme sequences of movement and sound",
             concepts: "Pattern recognition, rhythm, creative coding, sequencing",
-            image:
-              "/images/products/matatastudio-tale-bot-pro/tale-bot-singing-and-dancing.png",
+            image: "/images/products/matatastudio-tale-bot-pro/tale-bot-singing-and-dancing.png",
           },
           {
             name: "LEGO Construction Challenges",
@@ -317,8 +315,7 @@ export default async function TaleBotProClassroomSetPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

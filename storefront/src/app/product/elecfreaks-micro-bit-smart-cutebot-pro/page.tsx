@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "elecfreaks-micro-bit-smart-cutebot-pro";
@@ -31,7 +32,7 @@ export default async function CutebotProPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -320,7 +321,10 @@ export default async function CutebotProPage() {
           { label: "Expansion", value: "4× servo ports, 4× GPIO, I2C, extra DC motor output" },
           { label: "Programming", value: "MakeCode (blocks) & MicroPython (text)" },
           { label: "Soldering Required", value: "No" },
-          { label: "Assembly Required", value: "Minimal — sensor and battery only, no tools needed" },
+          {
+            label: "Assembly Required",
+            value: "Minimal — sensor and battery only, no tools needed",
+          },
         ]}
         background="white"
       />
@@ -335,7 +339,7 @@ export default async function CutebotProPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

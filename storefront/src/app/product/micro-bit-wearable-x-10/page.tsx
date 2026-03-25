@@ -13,6 +13,7 @@ import {
   ProductFAQ,
   WhatsIncluded,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "micro-bit-wearable-x-10";
@@ -28,7 +29,7 @@ export default async function MicroBitWearableX10Page() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -248,7 +249,7 @@ export default async function MicroBitWearableX10Page() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

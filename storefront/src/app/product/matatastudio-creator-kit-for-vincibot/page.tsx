@@ -13,6 +13,7 @@ import {
   WhatsIncluded,
   ProductFAQ,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-creator-kit-for-vincibot";
@@ -35,7 +36,7 @@ export default async function VinciBotCreatorKitPage() {
   const parentProductHref = `/product/${PARENT_PRODUCT_HANDLE}`;
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -216,7 +217,7 @@ export default async function VinciBotCreatorKitPage() {
         secondaryHref={parentProductHref}
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

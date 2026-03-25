@@ -16,6 +16,7 @@ import {
   VideoEmbed,
   ProjectShowcase,
   CustomerShowcase,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-robot-master-premium";
@@ -31,7 +32,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -99,7 +100,8 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           {
             icon: "robot",
             title: "200+ Robot Designs",
-            description: "Build dinosaurs, helicopters, cars, cranes, and more with detailed instructions for each",
+            description:
+              "Build dinosaurs, helicopters, cars, cranes, and more with detailed instructions for each",
           },
           {
             icon: "code",
@@ -109,7 +111,8 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           {
             icon: "sensor",
             title: "Dual Sensors",
-            description: "Two precision sensors enable line-following, obstacle avoidance, and distance detection",
+            description:
+              "Two precision sensors enable line-following, obstacle avoidance, and distance detection",
           },
           {
             icon: "battery",
@@ -124,7 +127,8 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           {
             icon: "puzzle",
             title: "LEGO Compatible",
-            description: "Combine with existing LEGO bricks and Technic pieces for unlimited creativity",
+            description:
+              "Combine with existing LEGO bricks and Technic pieces for unlimited creativity",
           },
         ]}
         columns={3}
@@ -151,19 +155,22 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         projects={[
           {
             name: "Basic Structures",
-            description: "Start with foundational builds that teach balance, stability, and structural integrity.",
+            description:
+              "Start with foundational builds that teach balance, stability, and structural integrity.",
             concepts: "Structural design, spatial reasoning",
             image: "/images/products/makerzoid-robot-master-premium/projects/basic-structure.png",
           },
           {
             name: "Gear Systems",
-            description: "Discover how gears transfer motion and create mechanical advantage in real robots.",
+            description:
+              "Discover how gears transfer motion and create mechanical advantage in real robots.",
             concepts: "Gears, transmission, mechanical advantage",
             image: "/images/products/makerzoid-robot-master-premium/projects/gear-machines.png",
           },
           {
             name: "Walking Machines",
-            description: "Build multi-legged walkers that move using motors and linkage mechanisms.",
+            description:
+              "Build multi-legged walkers that move using motors and linkage mechanisms.",
             concepts: "Linkages, motion, dynamics",
             image: "/images/products/makerzoid-robot-master-premium/projects/walking-machines.png",
           },
@@ -171,19 +178,23 @@ export default async function MakerzoidRobotMasterPremiumPage() {
             name: "Line-Following Robot",
             description: "Program your robot to detect and follow a black line using its sensors.",
             concepts: "Sensors, loops, conditionals",
-            image: "/images/products/makerzoid-robot-master-premium/projects/line-following-robot.png",
+            image:
+              "/images/products/makerzoid-robot-master-premium/projects/line-following-robot.png",
           },
           {
             name: "Obstacle Avoider",
-            description: "Use distance sensors to detect obstacles and automatically navigate around them.",
+            description:
+              "Use distance sensors to detect obstacles and automatically navigate around them.",
             concepts: "Sensors, if/then logic, autonomous behaviour",
             image: "/images/products/makerzoid-robot-master-premium/projects/obstacle-avoider.png",
           },
           {
             name: "Remote Control Car",
-            description: "Build a driveable car and control it wirelessly from your phone via Bluetooth.",
+            description:
+              "Build a driveable car and control it wirelessly from your phone via Bluetooth.",
             concepts: "Bluetooth, motors, app control",
-            image: "/images/products/makerzoid-robot-master-premium/projects/remote-control-car.png",
+            image:
+              "/images/products/makerzoid-robot-master-premium/projects/remote-control-car.png",
           },
         ]}
         moreText="Plus 41 more lessons — all included in the free Makerzoid app"
@@ -335,7 +346,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

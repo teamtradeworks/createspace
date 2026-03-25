@@ -1,5 +1,6 @@
 {
   "$schema": "https://unpkg.com/knip@latest/schema.json",
   "entry": ["lighthouserc.js"],
-  "ignoreDependencies": ["postcss-load-config", "@vitejs/plugin-react"]
+  "ignoreDependencies": ["postcss-load-config", "@vitejs/plugin-react"],
+  "ignore": ["src/components/TrackedSection.tsx"]
 }

@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-robot-master-tournament";
@@ -30,7 +31,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -150,8 +151,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
             description:
               "Build and program closed-loop servo motors for precise, repeatable robot movement.",
             concepts: "Motor control, feedback loops, mechanical precision",
-            image:
-              "/images/products/makerzoid-robot-master-tournament/projects/servo-drive.png",
+            image: "/images/products/makerzoid-robot-master-tournament/projects/servo-drive.png",
           },
           {
             name: "Smart Gyroscope",
@@ -166,8 +166,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
             description:
               "Programme the robot to detect and react to different colours — a core competition challenge.",
             concepts: "Colour sensor, event-driven programming, conditionals",
-            image:
-              "/images/products/makerzoid-robot-master-tournament/projects/colour-sensor.png",
+            image: "/images/products/makerzoid-robot-master-tournament/projects/colour-sensor.png",
           },
           {
             name: "Greyscale Sensor",
@@ -298,7 +297,10 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           { label: "App Compatibility", value: "iOS and Android" },
           { label: "Web Platform", value: "lab.makerzoid.com" },
           { label: "Hub Storage", value: "7 programmes simultaneously" },
-          { label: "Sensor Ports", value: "7 cross-ports (up to 4 servos, 4 colour sensors, 4 grayscale sensors)" },
+          {
+            label: "Sensor Ports",
+            value: "7 cross-ports (up to 4 servos, 4 colour sensors, 4 grayscale sensors)",
+          },
           { label: "Warranty", value: "12 months (30-day quality guarantee on electronics)" },
         ]}
       />
@@ -313,7 +315,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
         secondaryHref="/education/classroom-kits"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

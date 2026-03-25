@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "arduino-sensor-kit-base";
@@ -30,7 +31,7 @@ export default async function ArduinoSensorKitBasePage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -149,43 +150,37 @@ export default async function ArduinoSensorKitBasePage() {
             name: "The LED",
             description: "Turn it on, off, or dim it to any brightness level",
             concepts: "Digital output, PWM, analogWrite()",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-led.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-led.png",
           },
           {
             name: "The Buzzer",
             description: "Produce tones, melodies, and triggered sound alerts",
             concepts: "tone() function, frequency, digital output",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-buzzer.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-buzzer.png",
           },
           {
             name: "The Sound Sensor",
             description: "Detect noise levels and trigger outputs above a threshold",
             concepts: "Analog input, threshold logic, reactive systems",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-sound-sensor.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-sound-sensor.png",
           },
           {
             name: "The Temperature Sensor",
             description: "Read temperature and humidity simultaneously",
             concepts: "Sensor libraries, multi-value output, environment monitoring",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-temperature-sensor.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-temperature-sensor.png",
           },
           {
             name: "The Accelerometer",
             description: "Detect orientation, tilt, and movement in three axes",
             concepts: "Tri-axial data (X/Y/Z), motion detection, library APIs",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-accelerometer-sensor.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-accelerometer-sensor.png",
           },
           {
             name: "The OLED Screen",
             description: "Display text, values, and live sensor data on screen",
             concepts: "I2C display control, string formatting, combining modules",
-            image:
-              "/images/products/arduino-sensor-kit-base/projects/the-oled-screen.png",
+            image: "/images/products/arduino-sensor-kit-base/projects/the-oled-screen.png",
           },
         ]}
         moreText="Plus 4 more: Button, Potentiometer, Light Sensor, and Air Pressure Sensor — each with its own guided lesson and project ideas"
@@ -328,7 +323,7 @@ export default async function ArduinoSensorKitBasePage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

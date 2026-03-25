@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-explorer-junior";
@@ -30,7 +31,7 @@ export default async function SnapCircuitJuniorPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -140,37 +141,43 @@ export default async function SnapCircuitJuniorPage() {
         projects={[
           {
             name: "Electric Light & Switch",
-            description: "Build your very first working circuit—flip a switch and watch a light come on. The perfect starting point.",
+            description:
+              "Build your very first working circuit—flip a switch and watch a light come on. The perfect starting point.",
             concepts: "Basic circuits, electricity flow, switches",
             image: "/images/products/snap-circuit-junior/projects/electric-light-and-switch.jpg",
           },
           {
             name: "Flying Saucer",
-            description: "Spin a motor and modulate the sound to create an eerie flying saucer effect. Lights, motion, and audio combined.",
+            description:
+              "Spin a motor and modulate the sound to create an eerie flying saucer effect. Lights, motion, and audio combined.",
             concepts: "Motors, sound modulation, circuit integration",
             image: "/images/products/snap-circuit-junior/projects/flying-saucer.jpg",
           },
           {
             name: "Musical Doorbell",
-            description: "Wire up a push-button doorbell that plays music when pressed—a project kids love to show off at home.",
+            description:
+              "Wire up a push-button doorbell that plays music when pressed—a project kids love to show off at home.",
             concepts: "Push-button switches, music ICs",
             image: "/images/products/snap-circuit-junior/projects/musical-doorbell-play.jpeg",
           },
           {
             name: "Race Game",
-            description: "Build a two-player reaction-speed game. Who can press the button fastest? A firm favourite.",
+            description:
+              "Build a two-player reaction-speed game. Who can press the button fastest? A firm favourite.",
             concepts: "Game circuits, timing, competition",
             image: "/images/products/snap-circuit-junior/projects/race-game.png",
           },
           {
             name: "Logic Gates (AND, OR, NOR, NAND)",
-            description: "Hands-on introduction to digital logic—the building blocks of every computer and microcontroller.",
+            description:
+              "Hands-on introduction to digital logic—the building blocks of every computer and microcontroller.",
             concepts: "Boolean logic, digital circuits",
             image: "/images/products/snap-circuit-junior/projects/logic-gates.jpeg",
           },
           {
             name: "Water Space War",
-            description: "Dip two contacts in water and trigger space-battle sound effects. Water conducts electricity—now they know why.",
+            description:
+              "Dip two contacts in water and trigger space-battle sound effects. Water conducts electricity—now they know why.",
             concepts: "Water detection, conductivity, sensors",
             image: "/images/products/snap-circuit-junior/projects/water-space-war.jpg",
           },
@@ -338,8 +345,7 @@ export default async function SnapCircuitJuniorPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

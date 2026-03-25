@@ -16,6 +16,7 @@ import {
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "bbc-micro-bit-go";
@@ -31,7 +32,7 @@ export default async function MicrobitGoPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -57,15 +58,18 @@ export default async function MicrobitGoPage() {
         steps={[
           {
             title: "Code in Minutes",
-            description: "Open your browser, drag some blocks, and flash your code. No downloads, no setup, no complicated configurations.",
+            description:
+              "Open your browser, drag some blocks, and flash your code. No downloads, no setup, no complicated configurations.",
           },
           {
             title: "Real Hardware, Real Results",
-            description: "See your code come to life instantly. Light up LEDs, play sounds, detect motion - it's coding you can touch.",
+            description:
+              "See your code come to life instantly. Light up LEDs, play sounds, detect motion - it's coding you can touch.",
           },
           {
             title: "Grow at Your Own Pace",
-            description: "Start with visual blocks, progress to JavaScript or Python. The micro:bit grows with you from first project to advanced maker.",
+            description:
+              "Start with visual blocks, progress to JavaScript or Python. The micro:bit grows with you from first project to advanced maker.",
           },
         ]}
         background="navy-card"
@@ -96,17 +100,20 @@ export default async function MicrobitGoPage() {
           {
             icon: "lightbulb",
             title: "25 LED Display",
-            description: "Show images, animations, text, and numbers. The LEDs also work as light sensors",
+            description:
+              "Show images, animations, text, and numbers. The LEDs also work as light sensors",
           },
           {
             icon: "music",
             title: "Built-in Speaker",
-            description: "Play sounds, music, and speech without connecting any external components",
+            description:
+              "Play sounds, music, and speech without connecting any external components",
           },
           {
             icon: "microphone",
             title: "Microphone",
-            description: "Respond to sounds and voices. Create sound-activated projects and voice commands",
+            description:
+              "Respond to sounds and voices. Create sound-activated projects and voice commands",
           },
           {
             icon: "compass",
@@ -310,8 +317,7 @@ export default async function MicrobitGoPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRef, useEffect, useState } from "react";
+import SectionTracker from "./SectionTracker";
 
 interface CustomerImage {
   src: string;
@@ -85,9 +86,7 @@ function ImageCard({
             isHovered ? "opacity-100" : "opacity-0"
           }`}
         >
-          <p className="text-white text-sm leading-relaxed">
-            {image.description}
-          </p>
+          <p className="text-white text-sm leading-relaxed">{image.description}</p>
         </div>
       )}
     </div>
@@ -275,23 +274,21 @@ export function CustomerShowcase({
   };
 
   return (
-    <section className={`py-16 ${bgClass}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        {(title || subtitle) && (
-          <div className="text-center mb-10">
-            {title && (
-              <h2 className="text-3xl font-semibold text-navy mb-3">{title}</h2>
-            )}
-            {subtitle && (
-              <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>
-            )}
-          </div>
-        )}
+    <SectionTracker name="CustomerShowcase">
+      <section className={`py-16 ${bgClass}`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          {(title || subtitle) && (
+            <div className="text-center mb-10">
+              {title && <h2 className="text-3xl font-semibold text-navy mb-3">{title}</h2>}
+              {subtitle && <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>}
+            </div>
+          )}
 
-        {/* Images */}
-        {renderImages()}
-      </div>
-    </section>
+          {/* Images */}
+          {renderImages()}
+        </div>
+      </section>
+    </SectionTracker>
   );
 }

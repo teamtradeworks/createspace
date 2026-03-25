@@ -16,6 +16,7 @@ import {
   SkillTags,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "elecfreaks-micro-bit-tinker-kit";
@@ -31,7 +32,7 @@ export default async function ElecfreaksTinkerKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -142,25 +143,23 @@ export default async function ElecfreaksTinkerKitPage() {
 
       {/* Project Showcase */}
       <ProjectShowcase
-        title="Projects You&apos;ll Build"
+        title="Projects You'll Build"
         highlight="39 hands-on projects with step-by-step online tutorials"
-        subtitle="Projects progress from beginner automations to games to advanced engineering builds. Start wherever your child is — there&apos;s no set order."
+        subtitle="Projects progress from beginner automations to games to advanced engineering builds. Start wherever your child is — there's no set order."
         projects={[
           {
             name: "Smart Light",
             description:
               "Build a motion-activated light using the PIR sensor — turns on automatically when someone enters a room.",
             concepts: "Motion sensing, conditionals",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/smart-light.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/smart-light.jpg",
           },
           {
             name: "Plant Monitor",
             description:
               "Read soil moisture levels and display alerts when your plant needs water — a real IoT device.",
             concepts: "Analog sensors, OLED display, thresholds",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/plant-monitoring.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/plant-monitoring.jpg",
           },
           {
             name: "Intruder Detection",
@@ -175,16 +174,14 @@ export default async function ElecfreaksTinkerKitPage() {
             description:
               "Repurpose the moisture sensor as a galvanic skin response detector — the micro:bit measures nervousness.",
             concepts: "Data comparison, statistics, biology meets electronics",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/lie-detector.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/lie-detector.jpg",
           },
           {
             name: "Automated Fish Feeder",
             description:
               "Program the servo to rotate at timed intervals — a genuinely useful automated feeder.",
             concepts: "Servo control, time-based programming, automation",
-            image:
-              "/images/products/elecfreaks-micro-bit-tinker-kit/projects/fish-feeder.jpg",
+            image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/fish-feeder.jpg",
           },
           {
             name: "Remote Control Car",
@@ -310,7 +307,7 @@ export default async function ElecfreaksTinkerKitPage() {
 
       {/* What's in the Box */}
       <WhatsIncluded
-        title="What&apos;s in the Box"
+        title="What's in the Box"
         image="/images/products/elecfreaks-micro-bit-tinker-kit/whats-in-the-box.jpeg"
         imageAlt="ELECFREAKS micro:bit Tinker Kit components laid out showing all 13 modules and accessories"
         items={[
@@ -346,7 +343,7 @@ export default async function ElecfreaksTinkerKitPage() {
           { label: "Electronic Modules", value: "13 (plus jumper wires)" },
           { label: "Project Cases", value: "39 (free online wiki tutorials)" },
           { label: "Servo Torque", value: "1.6 kg/cm" },
-          { label: "Display", value: "0.96\" OLED (128 × 64 pixels)" },
+          { label: "Display", value: '0.96" OLED (128 × 64 pixels)' },
           {
             label: "Package Dimensions",
             value: "192 × 135 × 38 mm",
@@ -367,7 +364,7 @@ export default async function ElecfreaksTinkerKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

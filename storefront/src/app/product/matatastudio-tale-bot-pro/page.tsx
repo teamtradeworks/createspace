@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-
   NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
@@ -17,6 +16,7 @@ import {
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "matatastudio-tale-bot-pro";
@@ -32,7 +32,7 @@ export default async function TaleBotProPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -151,7 +151,8 @@ export default async function TaleBotProPage() {
             name: "Basic Movement Commands",
             description: "Learn forward, backward, left, and right",
             concepts: "Sequential thinking, cause and effect",
-            image: "/images/products/matatastudio-tale-bot-pro/young-girls-pressing-buttons-on-talebot-pro.png",
+            image:
+              "/images/products/matatastudio-tale-bot-pro/young-girls-pressing-buttons-on-talebot-pro.png",
           },
           {
             name: "Frog Life Cycle Map",
@@ -163,7 +164,8 @@ export default async function TaleBotProPage() {
             name: "Plant Growth Map",
             description: "Code the robot through the stages of plant development",
             concepts: "Biology concepts, sequential ordering",
-            image: "/images/products/matatastudio-tale-bot-pro/tale-bot-on-sunflower-plant-growing-map.png",
+            image:
+              "/images/products/matatastudio-tale-bot-pro/tale-bot-on-sunflower-plant-growing-map.png",
           },
           {
             name: "Drawing with Markers",
@@ -181,7 +183,8 @@ export default async function TaleBotProPage() {
             name: "LEGO Building + Coding",
             description: "Combine construction with programming challenges",
             concepts: "Engineering design, creative problem-solving",
-            image: "/images/products/matatastudio-tale-bot-pro/tale-bot-compatible-with-lego-blocks.png",
+            image:
+              "/images/products/matatastudio-tale-bot-pro/tale-bot-compatible-with-lego-blocks.png",
           },
         ]}
         moreText="Plus blank maps for open-ended creativity, voice recording activities, multi-language exploration, and advanced Scratch programming when they're ready"
@@ -324,8 +327,7 @@ export default async function TaleBotProPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

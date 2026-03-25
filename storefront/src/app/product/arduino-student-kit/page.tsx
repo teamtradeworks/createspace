@@ -16,6 +16,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "arduino-student-kit";
@@ -31,7 +32,7 @@ export default async function ArduinoStudentKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -145,37 +146,43 @@ export default async function ArduinoStudentKitPage() {
         projects={[
           {
             name: "Electricity Basics",
-            description: "Meet the multimeter and learn the language of electronics — current, voltage, and resistance.",
+            description:
+              "Meet the multimeter and learn the language of electronics — current, voltage, and resistance.",
             concepts: "Ohm's Law, multimeter, electrical vocabulary",
             image: "/images/products/arduino-student-kit/projects/electricty-basics.png",
           },
           {
             name: "Schematics",
-            description: "Learn to read and draw circuit diagrams — the universal language that connects all electronics.",
+            description:
+              "Learn to read and draw circuit diagrams — the universal language that connects all electronics.",
             concepts: "Circuit symbols, schematic reading",
             image: "/images/products/arduino-student-kit/projects/schematics.png",
           },
           {
             name: "Writing Code",
-            description: "Write and upload the first Arduino sketch. Meet variables, syntax, and the IDE that powers millions of projects.",
+            description:
+              "Write and upload the first Arduino sketch. Meet variables, syntax, and the IDE that powers millions of projects.",
             concepts: "Arduino IDE, code structure, uploading",
             image: "/images/products/arduino-student-kit/projects/learn-to-code.png",
           },
           {
             name: "Traffic Light",
-            description: "Build a working traffic light with LEDs and write the code to run it — the first real project.",
+            description:
+              "Build a working traffic light with LEDs and write the code to run it — the first real project.",
             concepts: "Digital output, LEDs, timing, conditionals",
             image: "/images/products/arduino-student-kit/projects/traffic-light.png",
           },
           {
             name: "Musical Keyboard",
-            description: "Build a playable keyboard with pushbuttons and a piezo buzzer. Sound, arrays, and creative code.",
+            description:
+              "Build a playable keyboard with pushbuttons and a piezo buzzer. Sound, arrays, and creative code.",
             concepts: "Piezo buzzer, sound frequencies, arrays",
             image: "/images/products/arduino-student-kit/projects/musical-keyboard.png",
           },
           {
             name: "Light Wave Radar",
-            description: "Use a phototransistor to measure light intensity and explore how information travels as waves.",
+            description:
+              "Use a phototransistor to measure light intensity and explore how information travels as waves.",
             concepts: "Phototransistors, analog input, wave physics",
             image: "/images/products/arduino-student-kit/projects/light-wave-radar.png",
           },
@@ -322,7 +329,10 @@ export default async function ArduinoStudentKitPage() {
           { label: "Coding Software", value: "Arduino IDE (free download)" },
           { label: "OS Compatibility", value: "Windows 7+, macOS, Chromebook, Linux" },
           { label: "Soldering Required", value: "No" },
-          { label: "Platform Languages", value: "English, French, German, Spanish, Italian, Portuguese, Chinese, Croatian, Thai" },
+          {
+            label: "Platform Languages",
+            value: "English, French, German, Spanish, Italian, Portuguese, Chinese, Croatian, Thai",
+          },
           { label: "Weight", value: "750g" },
         ]}
         background="gray"
@@ -338,7 +348,7 @@ export default async function ArduinoStudentKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

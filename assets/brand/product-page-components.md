@@ -21,6 +21,7 @@ import {
   QuickInfoBadges,
   // ... other components as needed
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "your-product-slug";
@@ -36,9 +37,9 @@ export default async function ProductPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       {/* Components go here */}
-    </>
+    </ProductTrackingProvider>
   );
 }
 
@@ -55,6 +56,15 @@ export async function generateMetadata() {
   };
 }
 ```
+
+### Section Visibility Tracking
+
+Product pages automatically track how long users view each section via PostHog. This requires two things:
+
+1. **`ProductTrackingProvider`** wraps the page (shown in boilerplate above). Provides the product handle to all child components via React context.
+2. **`SectionTracker`** is embedded inside every section component (HeroSection, FeatureGrid, etc.). It reads the handle from context and uses `IntersectionObserver` to fire `section_viewed` events with `section_name`, `page`, and `visible_duration_seconds`.
+
+**No per-section wrapping needed.** As long as `ProductTrackingProvider` wraps the page, all section components track themselves automatically. If no provider is present (e.g. kitchen-sink preview), tracking is silently skipped — components render normally without the observer.
 
 ---
 
@@ -127,7 +137,7 @@ Call-to-action section with primary and optional secondary buttons.
 
 Gallery of end-user/customer photos with labels and hover descriptions. Adaptive grid layout based on image count.
 
-> **Note:** This component exists but is not yet exported from `index.ts`. Import directly from `@/components/product-sections/CustomerShowcase`.
+> Exported from `@/components/product-sections`.
 
 **Props:**
 
@@ -140,7 +150,7 @@ Gallery of end-user/customer photos with labels and hover descriptions. Adaptive
 
 **CustomerImage:**
 ```ts
-{ src: string; alt: string; label?: string; description?: string }
+{ src: string; alt: string; label?: string; description?: string; animation?: string }
 ```
 
 **Layout behaviour:**

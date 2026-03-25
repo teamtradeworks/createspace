@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 import { CustomerShowcase } from "@/components/product-sections/CustomerShowcase";
 
@@ -30,7 +31,7 @@ export default async function SnapCircuitsClassic300Page() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -328,7 +329,10 @@ export default async function SnapCircuitsClassic300Page() {
           { label: "Soldering Required", value: "No" },
           { label: "Tools Required", value: "None" },
           { label: "Box Dimensions", value: "Approx. 35 × 48 × 7.5 cm" },
-          { label: "Compatible With", value: "Snap Circuits SC-500, SC-750, and all other Snap Circuits sets" },
+          {
+            label: "Compatible With",
+            value: "Snap Circuits SC-500, SC-750, and all other Snap Circuits sets",
+          },
         ]}
         background="white"
       />
@@ -343,7 +347,7 @@ export default async function SnapCircuitsClassic300Page() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "ultimate-mega-2560-starter-kit";
@@ -29,7 +30,7 @@ export default async function UltimateMega2560StarterKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -172,7 +173,8 @@ export default async function UltimateMega2560StarterKitPage() {
             name: "Digital Counter",
             description: "Build a 4-digit counter or timer on a 7-segment display",
             concepts: "Multiplexing, timer logic, display cycling",
-            image: "/images/products/ultimate-mega-2560-starter-kit/project-seven-segment-display.jpg",
+            image:
+              "/images/products/ultimate-mega-2560-starter-kit/project-seven-segment-display.jpg",
           },
           {
             name: "RFID Access System",
@@ -312,7 +314,7 @@ export default async function UltimateMega2560StarterKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

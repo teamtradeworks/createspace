@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "snap-circuits-arcade";
@@ -30,7 +31,7 @@ export default async function SnapCircuitsArcadePage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -153,7 +154,8 @@ export default async function SnapCircuitsArcadePage() {
           },
           {
             name: "Disco Siren",
-            description: "Combine the spinning disco motor with siren sounds for a light and sound show",
+            description:
+              "Combine the spinning disco motor with siren sounds for a light and sound show",
             concepts: "Motor circuits, sound, combined outputs",
             image: "/images/products/snap-circuits-arcade/projects/disco-siren.jpg",
           },
@@ -177,7 +179,8 @@ export default async function SnapCircuitsArcadePage() {
           },
           {
             name: "Lucky Doubles",
-            description: "Build the circuit that powers the electronic dice — then try to roll matching doubles",
+            description:
+              "Build the circuit that powers the electronic dice — then try to roll matching doubles",
             concepts: "Microcontrollers, pre-programmed logic, game interaction",
             image: "/images/products/snap-circuits-arcade/projects/lucky-doubles.jpg",
           },
@@ -334,7 +337,7 @@ export default async function SnapCircuitsArcadePage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

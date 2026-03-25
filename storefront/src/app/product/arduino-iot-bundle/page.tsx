@@ -15,6 +15,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "arduino-iot-bundle";
@@ -30,7 +31,7 @@ export default async function ArduinoIoTBundlePage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -147,31 +148,36 @@ export default async function ArduinoIoTBundlePage() {
         projects={[
           {
             name: "I Love You Pillow",
-            description: "Build a hug-sensing pillow that sends emoji messages to a loved one's device via the Arduino IoT Cloud",
+            description:
+              "Build a hug-sensing pillow that sends emoji messages to a loved one's device via the Arduino IoT Cloud",
             concepts: "Capacitive sensing, IoT Cloud, real-time data",
             image: "/images/products/arduino-iot-bundle/i-love-you-pillow.avif",
           },
           {
             name: "Puzzle Box",
-            description: "Lock a cardboard box with a servo motor and build a potentiometer combination lock with colour-coded hints",
+            description:
+              "Lock a cardboard box with a servo motor and build a potentiometer combination lock with colour-coded hints",
             concepts: "Servo motors, analog input, IoT dashboard",
             image: "/images/products/arduino-iot-bundle/puzzle-box.jpg",
           },
           {
             name: "Pavlov's Cat",
-            description: "Train a pet to respond to a melody using a servo-powered food dispenser — track training progress in the cloud",
+            description:
+              "Train a pet to respond to a melody using a servo-powered food dispenser — track training progress in the cloud",
             concepts: "Motor control, light sensing, cloud logging",
             image: "/images/products/arduino-iot-bundle/built-project-for-pet-training.avif",
           },
           {
             name: "The Nerd",
-            description: "Create a desktop electronic pet that needs food and light to survive, monitored live on an IoT dashboard",
+            description:
+              "Create a desktop electronic pet that needs food and light to survive, monitored live on an IoT dashboard",
             concepts: "State machines, cloud variables, RGB LED",
             image: "/images/products/arduino-iot-bundle/digital-pet-project.jpg",
           },
           {
             name: "Plant Communicator",
-            description: "Monitor a plant's soil moisture, temperature, and light levels in real time via a cloud dashboard with alerts",
+            description:
+              "Monitor a plant's soil moisture, temperature, and light levels in real time via a cloud dashboard with alerts",
             concepts: "Sensor calibration, data visualisation, alerting",
             image: "/images/products/arduino-iot-bundle/plant-moisture-communicator.jpg",
           },
@@ -248,8 +254,7 @@ export default async function ArduinoIoTBundlePage() {
               "Two of the five projects — the Puzzle Box and Pavlov's Cat — use a servo motor that requires a 9V battery, which is not included in the bundle. The other three projects run from USB power with no batteries needed.",
           },
           {
-            question:
-              "Some projects mention household items. What do I need to provide?",
+            question: "Some projects mention household items. What do I need to provide?",
             answer:
               "The I Love You Pillow project requires a physical pillow and some aluminium foil (used as a DIY sensor). The Puzzle Box and Pavlov's Cat use a cardboard box as the enclosure. Everything else — all the electronics — is in the box.",
           },
@@ -321,7 +326,10 @@ export default async function ArduinoIoTBundlePage() {
           { label: "Power", value: "Micro-USB" },
           { label: "Security", value: "Hardware authentication coprocessor (ATECC608A)" },
           { label: "Software", value: "Arduino IDE / Arduino IoT Cloud (free plan)" },
-          { label: "OS Compatibility", value: "Windows, macOS, Linux (browser); iOS, Android (remote app)" },
+          {
+            label: "OS Compatibility",
+            value: "Windows, macOS, Linux (browser); iOS, Android (remote app)",
+          },
           { label: "SKU", value: "AKX00042" },
         ]}
         background="white"
@@ -337,7 +345,7 @@ export default async function ArduinoIoTBundlePage() {
         secondaryHref="/shop"
         background="navy"
       />
-    </>
+    </ProductTrackingProvider>
   );
 }
 

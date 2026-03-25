@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SectionTracker from "./SectionTracker";
 
 interface Project {
   name: string;
@@ -46,59 +47,51 @@ export function ProjectShowcase({
   }[columns];
 
   return (
-    <section className={`py-16 ${bgClass}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className={`text-3xl font-semibold ${titleClass} text-center mb-4`}>
-          {title}
-        </h2>
-        {highlight && (
-          <p className={`text-xl font-semibold ${highlightClass} text-center max-w-2xl mx-auto mb-4`}>
-            {highlight}
-          </p>
-        )}
-        {subtitle && (
-          <p className={`${subtitleClass} text-center max-w-2xl mx-auto mb-10`}>
-            {subtitle}
-          </p>
-        )}
-        {!highlight && !subtitle && <div className="mb-6" />}
-        <div className={`grid ${gridCols} gap-6`}>
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`${cardBgClass} rounded-xl p-6 border ${cardBorderClass}`}
+    <SectionTracker name="ProjectShowcase">
+      <section className={`py-16 ${bgClass}`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className={`text-3xl font-semibold ${titleClass} text-center mb-4`}>{title}</h2>
+          {highlight && (
+            <p
+              className={`text-xl font-semibold ${highlightClass} text-center max-w-2xl mx-auto mb-4`}
             >
-              {project.image && (
-                <div className="w-24 h-24 rounded-lg overflow-hidden mb-4">
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    width={192}
-                    height={192}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
-              <h3 className={`text-lg font-semibold ${projectTitleClass} mb-2`}>
-                {project.name}
-              </h3>
-              <p className={`${projectDescClass} text-sm mb-3`}>
-                {project.description}
-              </p>
-              {project.concepts && (
-                <p className="text-xs text-cs-orange font-medium">
-                  Learn: {project.concepts}
-                </p>
-              )}
-            </div>
-          ))}
+              {highlight}
+            </p>
+          )}
+          {subtitle && (
+            <p className={`${subtitleClass} text-center max-w-2xl mx-auto mb-10`}>{subtitle}</p>
+          )}
+          {!highlight && !subtitle && <div className="mb-6" />}
+          <div className={`grid ${gridCols} gap-6`}>
+            {projects.map((project, index) => (
+              <div
+                key={index}
+                className={`${cardBgClass} rounded-xl p-6 border ${cardBorderClass}`}
+              >
+                {project.image && (
+                  <div className="w-24 h-24 rounded-lg overflow-hidden mb-4">
+                    <Image
+                      src={project.image}
+                      alt={project.name}
+                      width={192}
+                      height={192}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+                <h3 className={`text-lg font-semibold ${projectTitleClass} mb-2`}>
+                  {project.name}
+                </h3>
+                <p className={`${projectDescClass} text-sm mb-3`}>{project.description}</p>
+                {project.concepts && (
+                  <p className="text-xs text-cs-orange font-medium">Learn: {project.concepts}</p>
+                )}
+              </div>
+            ))}
+          </div>
+          {moreText && <p className={`text-center ${subtitleClass} mt-8`}>{moreText}</p>}
         </div>
-        {moreText && (
-          <p className={`text-center ${subtitleClass} mt-8`}>
-            {moreText}
-          </p>
-        )}
-      </div>
-    </section>
+      </section>
+    </SectionTracker>
   );
 }

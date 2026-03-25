@@ -1,3 +1,5 @@
+import SectionTracker from "./SectionTracker";
+
 interface Step {
   title: string;
   description: string;
@@ -40,34 +42,28 @@ export function NumberedSteps({
   }[columns];
 
   return (
-    <section className={`py-16 ${bgClass}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className={cardClass}>
-          <div className="text-center mb-12">
-            <h2 className={`text-3xl font-semibold mb-4 ${titleClass}`}>
-              {title}
-            </h2>
-            {subtitle && (
-              <p className={`${subtitleClass} max-w-2xl mx-auto`}>
-                {subtitle}
-              </p>
-            )}
-          </div>
-          <div className={`grid ${gridCols} gap-8`}>
-            {steps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-cs-orange rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-2xl font-bold text-white">{index + 1}</span>
+    <SectionTracker name="NumberedSteps">
+      <section className={`py-16 ${bgClass}`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className={cardClass}>
+            <div className="text-center mb-12">
+              <h2 className={`text-3xl font-semibold mb-4 ${titleClass}`}>{title}</h2>
+              {subtitle && <p className={`${subtitleClass} max-w-2xl mx-auto`}>{subtitle}</p>}
+            </div>
+            <div className={`grid ${gridCols} gap-8`}>
+              {steps.map((step, index) => (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-cs-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-2xl font-bold text-white">{index + 1}</span>
+                  </div>
+                  <h3 className={`text-xl font-semibold mb-2 ${titleClass}`}>{step.title}</h3>
+                  <p className={descriptionClass}>{step.description}</p>
                 </div>
-                <h3 className={`text-xl font-semibold mb-2 ${titleClass}`}>
-                  {step.title}
-                </h3>
-                <p className={descriptionClass}>{step.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionTracker>
   );
 }

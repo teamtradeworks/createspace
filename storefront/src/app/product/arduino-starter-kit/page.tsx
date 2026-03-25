@@ -16,6 +16,7 @@ import {
   ProjectShowcase,
   CustomerShowcase,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "arduino-starter-kit";
@@ -31,7 +32,7 @@ export default async function ArduinoStarterKitPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -57,15 +58,18 @@ export default async function ArduinoStarterKitPage() {
         steps={[
           {
             title: "Build Real Things",
-            description: "Move beyond screen-based coding. Create physical projects that light up, move, and respond to the real world.",
+            description:
+              "Move beyond screen-based coding. Create physical projects that light up, move, and respond to the real world.",
           },
           {
             title: "Industry Standard",
-            description: "Arduino skills transfer directly to careers in engineering, robotics, IoT, and product development.",
+            description:
+              "Arduino skills transfer directly to careers in engineering, robotics, IoT, and product development.",
           },
           {
             title: "Massive Community",
-            description: "Join millions of makers. Find tutorials, get help, and share your creations with a supportive global community.",
+            description:
+              "Join millions of makers. Find tutorials, get help, and share your creations with a supportive global community.",
           },
         ]}
         background="navy-card"
@@ -96,7 +100,8 @@ export default async function ArduinoStarterKitPage() {
           {
             icon: "book",
             title: "170-Page Project Book",
-            description: "Clear, illustrated instructions guide you through each project step by step",
+            description:
+              "Clear, illustrated instructions guide you through each project step by step",
           },
           {
             icon: "puzzle",
@@ -111,7 +116,8 @@ export default async function ArduinoStarterKitPage() {
           {
             icon: "lightbulb",
             title: "100+ Components",
-            description: "LEDs, sensors, motors, buttons, and more - all quality components included",
+            description:
+              "LEDs, sensors, motors, buttons, and more - all quality components included",
           },
           {
             icon: "globe",
@@ -315,8 +321,7 @@ export default async function ArduinoStarterKitPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 

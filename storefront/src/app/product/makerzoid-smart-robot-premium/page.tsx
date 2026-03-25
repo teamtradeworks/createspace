@@ -14,6 +14,7 @@ import {
   WhatsIncluded,
   Specifications,
   CallToAction,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "makerzoid-smart-robot-premium";
@@ -29,7 +30,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
 
       {/* Hero Section */}
@@ -55,15 +56,18 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         steps={[
           {
             title: "Limitless Creativity",
-            description: "With 200+ models from musical robots to sports trainers to vehicles, your child will never run out of new challenges to tackle.",
+            description:
+              "With 200+ models from musical robots to sports trainers to vehicles, your child will never run out of new challenges to tackle.",
           },
           {
             title: "Grows With Them",
-            description: "Start with simple button-controlled builds, progress to sensor interactions, then unlock full programming with Bluetooth - perfect for ages 6 to 12+.",
+            description:
+              "Start with simple button-controlled builds, progress to sensor interactions, then unlock full programming with Bluetooth - perfect for ages 6 to 12+.",
           },
           {
             title: "Real Skills, Real Fun",
-            description: "Hands-on robotics builds genuine problem-solving abilities, logical thinking, and confidence that carries into school and beyond.",
+            description:
+              "Hands-on robotics builds genuine problem-solving abilities, logical thinking, and confidence that carries into school and beyond.",
           },
         ]}
         background="navy-card"
@@ -87,17 +91,20 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             icon: "puzzle",
             title: "400+ Building Blocks",
-            description: "Large, colourful bricks perfect for developing fine motor skills and spatial reasoning",
+            description:
+              "Large, colourful bricks perfect for developing fine motor skills and spatial reasoning",
           },
           {
             icon: "code",
             title: "Scratch Junior Coding",
-            description: "Visual drag-and-drop programming that introduces real coding concepts without complexity",
+            description:
+              "Visual drag-and-drop programming that introduces real coding concepts without complexity",
           },
           {
             icon: "lightbulb",
             title: "Three Control Modes",
-            description: "Electric button control, IR sensor interaction, or full Bluetooth programming",
+            description:
+              "Electric button control, IR sensor interaction, or full Bluetooth programming",
           },
           {
             icon: "book",
@@ -300,8 +307,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         secondaryHref="/shop"
         background="navy"
       />
-
-    </>
+    </ProductTrackingProvider>
   );
 }
 
