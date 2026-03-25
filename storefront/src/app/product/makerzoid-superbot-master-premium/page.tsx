@@ -55,7 +55,6 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           { icon: "scratch", label: "Coding", value: "Scratch 3.0" },
           { icon: "battery", label: "Battery", value: "3.7V lithium (included)" },
           { icon: "no-soldering", label: "Soldering", value: "Not Required" },
-          { icon: "app", label: "App", value: "Makerzoid Kit (free)" },
         ]}
       />
 
