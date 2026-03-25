@@ -7,6 +7,7 @@ import {
   QuickInfoBadges,
   NumberedSteps,
   FeatureGrid,
+  ImageTextBlock,
   ProjectShowcase,
   CustomerShowcase,
   ProductReviews,
@@ -36,175 +37,180 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Hands-on robotics and coding for your classroom — 72+ models, zero wiring complexity"
+        tagline="Build, program, and compete with 72+ robot models"
         highlights={[
-          "72+ buildable robotic models across three difficulty levels",
-          "Scratch 3.0 programming — used in school curricula in 150+ countries",
-          "No soldering, no prior STEM experience required",
-          "Colour, IR, greyscale sensors and gyroscope included — real robotics, real learning",
+          "72+ guided robot builds across three difficulty levels",
+          "Program with Scratch 3.0 — no prior coding experience needed",
+          "All-in-one smart controller: motors, sensors, and LED display built in",
+          "LEGO compatible — mix with your child's existing collection",
         ]}
         addons={addons}
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+      <QuickInfoBadges
+        badges={[
+          { icon: "age", label: "Age", value: "6+" },
+          { icon: "projects", label: "Models", value: "72+" },
+          { icon: "scratch", label: "Coding", value: "Scratch 3.0" },
+          { icon: "battery", label: "Battery", value: "3.7V lithium (included)" },
+          { icon: "no-soldering", label: "Soldering", value: "Not Required" },
+        ]}
+      />
 
-      {/* Why Choose This for Your Classroom */}
+      {/* Why Superbot Master Premium */}
       <NumberedSteps
-        title="Built for the Classroom"
-        subtitle="The Superbot Master Premium gives educators a complete platform for hands-on STEM — from the first simple build to autonomous sensor-driven robots."
+        title="Why the Superbot Master Premium?"
+        subtitle="This isn't just another building kit. It's a complete robotics platform designed to grow with your child."
         steps={[
           {
-            title: "Curriculum Aligned",
+            title: "Built to Last for Years",
             description:
-              "Scratch 3.0 is a recognised coding platform aligned with computational thinking frameworks in South African DBE and CAPS Technology curriculum. Learners develop sequencing, conditionals, loops, and debugging skills — core ICT competencies for Grades 4–9.",
+              "With 72+ models across beginner, intermediate, and advanced levels, there's always a new challenge. Simple vehicles take 20 minutes. Advanced autonomous robots take 3+ hours. The challenge grows as your child does.",
           },
           {
-            title: "No Expertise Required",
+            title: "Real Programming Skills",
             description:
-              "Step-by-step graphical assembly guides in the free Makerzoid app walk learners through every build. Each model is self-directed, reducing preparation burden and enabling even STEM-hesitant educators to run effective sessions.",
+              "Scratch 3.0 is used in schools across 150+ countries. Your child builds genuine computational thinking — sequences, loops, conditionals, and event-driven logic — while watching their code make a real robot move.",
           },
           {
-            title: "Grows With Your Learners",
+            title: "Competition-Ready",
             description:
-              "Three progressive difficulty levels take learners from simple remote-controlled vehicles to fully autonomous, sensor-programmed robots. One kit sustains meaningful challenge across multiple terms and grade levels.",
+              "Designed as a competition-grade kit, it includes Sumo Robot and Football Robot challenge modes. Your child can test their builds against others — or just challenge themselves to go faster, smarter, further.",
           },
         ]}
         background="navy-card"
       />
 
-      {/* Sensor & Technology Features */}
+      {/* Smart Sensors */}
       <FeatureGrid
-        title="Advanced Sensing Technology"
-        subtitle="The Superbot Master Premium includes six distinct sensing and control modules that learners integrate into their builds — the same technology used in real-world robotics."
+        title="Smart Sensors, Smarter Robots"
+        subtitle="The Superbot Master Premium packs more intelligence into a single hub than most kits twice its size."
         features={[
           {
-            icon: "sensor",
-            title: "Smart Gyroscope",
+            icon: "robot",
+            title: "All-in-One Smart Controller",
             description:
-              "Detects tilt angles in three directions. Learners build balance bots and tilt-controlled vehicles, exploring orientation sensing and physical feedback loops.",
+              "Built-in motors, gyroscope, 25-LED matrix, microphone, and speaker in one hub — no wiring tangles, just build and code.",
           },
           {
             icon: "sensor",
             title: "Colour Sensor",
             description:
-              "Identifies and reacts to different colours. Enables line-following robots, colour-sorting machines, and interactive art projects that connect programming to visual input.",
+              "Detects and reacts to colours in the real world. Build a colour-sorting machine or a robot that stops at a red line.",
           },
           {
-            icon: "sensor",
-            title: "Greyscale Sensors ×2",
+            icon: "compass",
+            title: "3-Axis Gyroscope",
             description:
-              "Recognise shades and contrast patterns for line tracking and boundary detection — core skills in autonomous robotics programming.",
+              "Measures tilt and orientation in three directions. Make balance bots, tilt-steered vehicles, and self-correcting platforms.",
           },
           {
-            icon: "sensor",
-            title: "IR Sensors ×2",
+            icon: "wifi",
+            title: "Infrared Sensors (×2)",
             description:
-              "Infrared proximity detection for obstacle avoidance. Learners program robots that navigate independently, introducing them to autonomous decision-making.",
+              "Detect obstacles and proximity. Program a robot that navigates a room on its own — no joystick required.",
           },
           {
-            icon: "robot",
-            title: "All-in-One Controller",
+            icon: "lightbulb",
+            title: "25-LED Matrix Display",
             description:
-              "A single hub integrates the motor, gyroscope, LED matrix, microphone, and speaker. No wiring — every component plugs in directly, keeping lessons focused on programming and building.",
+              "Give your robot a face. Program expressions, patterns, and messages — it makes the coding feel personal and rewarding.",
           },
           {
             icon: "bluetooth",
-            title: "Dual Control Modes",
+            title: "Bluetooth Remote & App",
             description:
-              "Learners can control robots via the free Makerzoid app (iOS/Android) or the included Bluetooth remote, and then progress to fully autonomous Scratch 3.0 programming.",
+              "Control every build via the included physical remote or free Makerzoid app on iOS and Android. Two ways to play.",
           },
         ]}
         columns={3}
         background="gray"
       />
 
-      {/* What Learners Will Explore */}
-      <ProjectShowcase
-        title="What Learners Will Explore"
-        highlight="72+ guided robotic builds spanning three difficulty levels — from first builds to fully sensor-driven autonomous robots."
-        subtitle="Each model integrates a different combination of sensors and programming concepts, giving learners a new challenge every session."
-        projects={[
-          {
-            name: "Smart Gyroscope",
-            description:
-              "Build balance bots and tilt-controlled vehicles using 3-axis orientation sensing",
-            concepts: "Gyroscope, feedback loops, physics",
-            image:
-              "/images/products/makerzoid-superbot-master-premium/projects/smart-gyroscope.png",
-          },
-          {
-            name: "IR Sensors",
-            description: "Programme obstacle-avoidance robots that navigate without human input",
-            concepts: "IR sensing, conditionals, autonomous navigation",
-            image: "/images/products/makerzoid-superbot-master-premium/projects/ir-sensor.png",
-          },
-          {
-            name: "Greyscale Sensors",
-            description:
-              "Create line-following robots that detect and track contrast patterns on the floor",
-            concepts: "Greyscale sensing, loops, sensor input",
-            image:
-              "/images/products/makerzoid-superbot-master-premium/projects/greyscale-sensor.png",
-          },
-          {
-            name: "Servo Drive",
-            description:
-              "Engineer robotic arms, grippers, and steerable mechanisms using precise angular control",
-            concepts: "Servo motor, mechanical engineering, precision control",
-            image: "/images/products/makerzoid-superbot-master-premium/projects/servo-drive.png",
-          },
-          {
-            name: "Motorised Builds",
-            description:
-              "Drive vehicles and moving models at variable speeds — learners control power through code",
-            concepts: "Motor control, variables, speed programming",
-            image: "/images/products/makerzoid-superbot-master-premium/projects/the-motor.png",
-          },
-          {
-            name: "Universal Wheel",
-            description:
-              "Enable omnidirectional movement for complex vehicles — coding multi-directional navigation",
-            concepts: "Omnidirectional motion, movement programming",
-            image:
-              "/images/products/makerzoid-superbot-master-premium/projects/universal-wheel.png",
-          },
-        ]}
-        moreText="Plus dozens more models across beginner, intermediate, and advanced levels — all accessible through the free Makerzoid Kit app."
+      {/* Coding section */}
+      <ImageTextBlock
+        title="Real Code. Real Results."
+        body="Scratch 3.0 is the same platform used in schools across 150+ countries — not a toy language, but a genuine entry point into programming. Your child drags and drops blocks to control motors, read sensors, and trigger sounds. When they're ready, they can switch to the text-based version and start learning Python-style syntax. Every build teaches real computational thinking: sequences, loops, conditionals, and events."
+        image="/images/products/makerzoid-superbot-master-premium/scratch-3-0-and-coding-on-makerzoid-lab.jpg"
+        imageAlt="Scratch 3.0 coding interface on the Makerzoid Lab app"
+        layout="image-right"
         background="white"
       />
 
-      {/* In-Classroom Gallery */}
+      {/* Project Showcase */}
+      <ProjectShowcase
+        title="Projects, Challenges & Activities"
+        highlight="72+ guided builds across beginner, intermediate, and advanced levels"
+        subtitle="Every build is guided step-by-step through the free Makerzoid app. Here are some of the challenges waiting for your child:"
+        projects={[
+          {
+            name: "Obstacle Avoidance",
+            description: "Build an autonomous robot that detects and steers around obstacles",
+            concepts: "IR sensing, conditionals, autonomous navigation",
+            image:
+              "/images/products/makerzoid-superbot-master-premium/projects/obstacle-avoidance.png",
+          },
+          {
+            name: "Patrol Vehicle",
+            description: "A robot that surveys and patrols an area on its own",
+            concepts: "Motor control, loops, sensor-triggered decisions",
+            image:
+              "/images/products/makerzoid-superbot-master-premium/projects/patrol-vehicle.png",
+          },
+          {
+            name: "Racing Competition",
+            description: "Build for speed — tune your robot to win a head-to-head race",
+            concepts: "Motor tuning, speed optimisation, competitive strategy",
+            image:
+              "/images/products/makerzoid-superbot-master-premium/projects/racing-competition.png",
+          },
+          {
+            name: "Cargo Transport",
+            description: "Design a robot that picks up and delivers cargo to a target zone",
+            concepts: "Servo control, precision movement, task planning",
+            image:
+              "/images/products/makerzoid-superbot-master-premium/projects/cargo-transport-competition.png",
+          },
+          {
+            name: "Smart Recognition",
+            description: "Program a robot to detect and respond to colours and lines",
+            concepts: "Colour sensing, greyscale detection, conditional logic",
+            image:
+              "/images/products/makerzoid-superbot-master-premium/projects/smart-recognition.png",
+          },
+          {
+            name: "Sumo Competition",
+            description: "Battle-test your build — last robot in the ring wins",
+            concepts: "Strategy, push mechanics, sensor-driven reactions",
+            image:
+              "/images/products/makerzoid-superbot-master-premium/projects/sumo-competition.png",
+          },
+        ]}
+        moreText="Plus 66+ more builds including the Batmobile, Sumo Robot, Dragon Tiger Chariot, colour sorters, LED displays, and fully custom designs"
+        background="gray"
+      />
+
+      {/* Customer Showcase */}
       <CustomerShowcase
-        title="The Superbot in Action"
-        subtitle="Learners building, programming, and competing with the Makerzoid Superbot Master Premium."
+        title="See It in Action"
+        subtitle="Real moments from kids building and programming their Superbots."
         images={[
           {
-            src: "/images/products/makerzoid-superbot-master-premium/hands-putting-bot-together-with-instructions-on-tablet.png",
-            alt: "Learner assembling the Makerzoid Superbot with step-by-step app instructions on a tablet",
-            label: "Guided Assembly",
-            description:
-              "The Makerzoid app displays graphical step-by-step build instructions alongside the physical kit.",
+            src: "/images/products/makerzoid-superbot-master-premium/distance-sensor-hand-in-front-of-robot.jpg",
+            alt: "Child testing the distance sensor on an assembled Makerzoid Superbot",
           },
           {
-            src: "/images/products/makerzoid-superbot-master-premium/distance-sensor-hand-in-front-of-robot.png",
-            alt: "Hand testing the Superbot's distance sensor",
-            label: "Sensor Testing",
-            description:
-              "Learners test sensor responses in real time — programming reacts to the physical world.",
+            src: "/images/products/makerzoid-superbot-master-premium/hands-putting-bot-together-with-instructions-on-tablet.jpg",
+            alt: "Hands assembling the Superbot with step-by-step instructions on a tablet",
           },
           {
-            src: "/images/products/makerzoid-superbot-master-premium/remote-controlling-robot.png",
-            alt: "Learner remote-controlling the assembled Makerzoid Superbot robot",
-            label: "Remote Control Mode",
-            description:
-              "Before adding autonomous code, learners test builds in remote-control mode via the app.",
-          },
-          {
-            src: "/images/products/makerzoid-superbot-master-premium/hands-showing-box.png",
+            src: "/images/products/makerzoid-superbot-master-premium/hands-showing-box.jpg",
             alt: "Hands holding the Makerzoid Superbot Master Premium box",
-            label: "Complete Kit",
-            description: "Everything needed for 72+ robot builds in one box.",
+          },
+          {
+            src: "/images/products/makerzoid-superbot-master-premium/remote-controlling-robot.jpg",
+            alt: "Child using the Bluetooth remote to control an assembled Superbot robot",
           },
         ]}
         background="gray"
@@ -213,101 +219,97 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* Reviews */}
       <ProductReviews productId={product.id} background="white" />
 
-      {/* Educator FAQ */}
+      {/* FAQ */}
       <ProductFAQ
-        title="Educator Questions"
+        title="Common Questions"
         faqs={[
           {
-            question: "Does this align with the CAPS curriculum?",
+            question: "Does my child need any prior experience with coding or robotics?",
             answer:
-              "Yes. The kit covers CAPS Technology curriculum concepts for Grades 4–9, including mechanisms, structures, and electronics. The Scratch 3.0 coding platform addresses computational thinking objectives in the ICT and Technology learning areas. Learners develop sequencing, conditionals, loops, variables, and debugging — core skills across multiple CAPS strands.",
+              "Not at all. The Superbot Master Premium is designed for beginners. The free Makerzoid app provides step-by-step graphical assembly guides, and Scratch 3.0 is a drag-and-drop language — no typing required. Most children aged 6+ can get started independently.",
           },
           {
-            question: "How many learners can use one kit simultaneously?",
+            question: "What age is this suitable for?",
             answer:
-              "Each kit supports one active build at a time. For classroom use, we recommend one kit per group of 2–4 learners, with groups rotating builds each session. For a class of 30, a set of 8–10 kits is typical. Contact us about school pricing for multiple units.",
+              "The manufacturer recommends ages 6 and up. The three difficulty levels mean younger children can start with simple vehicle builds while older kids tackle autonomous robots and sensor programming. It grows with your child rather than being outgrown quickly.",
           },
           {
-            question: "Do I need a STEM background to use this in my classroom?",
+            question: "Does my child need a phone, tablet, or computer?",
             answer:
-              "Not at all. The free Makerzoid Kit app provides complete graphical, step-by-step assembly and programming guides for every model. Learners can follow along independently, and the app's visual programming interface requires no prior coding knowledge. The kit is designed for self-directed learning within a supervised classroom setting.",
+              "A phone or tablet (iOS or Android) is needed to access the build guides in the free Makerzoid app, and to use app-based Bluetooth control. Scratch 3.0 programming works in any web browser on a phone, tablet, or computer — it's free and requires no installation.",
           },
           {
-            question: "What devices and software are required?",
+            question: "Does the kit include a battery?",
             answer:
-              "The free Makerzoid Kit app (iOS and Android) is required for assembly guides and Bluetooth control. For Scratch 3.0 programming, learners need access to a computer (Windows or macOS) or tablet with a web browser — Scratch runs in-browser at no cost. Both platforms are free.",
+              "Yes — a 3.7V rechargeable lithium battery is included in the box. No need to source one separately.",
           },
           {
-            question: "Is this durable enough for repeated classroom use?",
+            question: "Is this compatible with LEGO?",
             answer:
-              "The kit is designed for repeated assembly and disassembly. Plastic construction blocks are robust, LEGO-compatible, and built for frequent handling. The all-in-one controller is a single solid unit — no loose wiring to break or disconnect. A storage box with sorting tray is included to keep components organised between sessions.",
+              "Yes! The Superbot Master Premium uses standard building blocks fully compatible with LEGO. Your child can mix in pieces from existing sets to create custom designs that go beyond the 72 guided builds.",
           },
           {
-            question: "What preparation is required before a lesson?",
+            question: "What can my child do after completing all 72+ models?",
             answer:
-              "Minimal. Sort and verify components using the included paper manual before the first session. After that, learners access build guides directly from the app. No lesson plans need to be printed — the app guides learners through each build with graphical instructions. Typical setup time is under 10 minutes.",
+              "The guided builds are just the start. After mastering the official models, children can design their own robots by combining the sensors, motors, and LED matrix in new ways. The LEGO compatibility also means their Superbot can expand alongside any new building sets they receive.",
           },
           {
-            question: "Is school or bulk pricing available?",
+            question: "Is adult supervision required?",
             answer:
-              "Yes. CREATESPACE offers school pricing for orders of multiple units. Visit our education page or contact us directly to discuss classroom quantities, delivery, and invoicing for schools.",
+              "No soldering and no tools are required — construction is fully tool-free. The small parts mean supervision is sensible for children under 6. For children 6 and up, the step-by-step app instructions are clear enough that most kids can work independently.",
           },
         ]}
         background="gray"
       />
 
-      {/* What's in the Kit */}
+      {/* What's in the Box */}
       <WhatsIncluded
-        title="What's in the Kit"
-        image="/images/products/makerzoid-superbot-master-premium/hands-showing-box.png"
-        imageAlt="Makerzoid Superbot Master Premium box showing all kit contents"
+        title="What's in the Box"
         items={[
-          "1× All-in-One Smart Controller (motor, gyroscope, LED matrix, microphone, speaker integrated)",
-          "1× Smart Gyroscope module",
+          "All-in-One Smart Controller (with built-in motors, gyroscope, 25-LED matrix, microphone, speaker)",
+          "Smart Gyroscope module",
+          "Colour Sensor",
           "2× IR Sensors",
           "2× Greyscale Sensors",
-          "1× Motor",
-          "1× Servo Motor",
-          "1× 360-degree universal rotating wheel",
-          "1× Bluetooth Remote Control",
-          "230 building block pieces (plastic, LEGO-compatible)",
+          "Motor",
+          "Servo Motor",
+          "360-degree universal rotating wheel",
+          "Bluetooth Remote Control",
+          "230 LEGO-compatible building block pieces",
           "Storage box with sorting tray",
-          "Paper manual with step-by-step assembly instructions",
-          "Free Makerzoid Kit app access (iOS & Android)",
-          "Free Scratch 3.0 access (web-based, no download required)",
+          "3.7V rechargeable lithium battery",
+          "Paper manual with step-by-step building instructions",
         ]}
         background="white"
       />
 
-      {/* Technical Specifications */}
+      {/* Specifications */}
       <Specifications
         title="Technical Details"
         specs={[
-          { label: "SKU", value: "MKZ-SPB-MS" },
           { label: "Total Pieces", value: "230" },
           { label: "Models Supported", value: "72+" },
-          { label: "Coding Platform", value: "Scratch 3.0 (drag-and-drop)" },
+          { label: "Coding Platform", value: "Scratch 3.0" },
           { label: "App", value: "Makerzoid Kit (iOS & Android, free)" },
+          { label: "Battery", value: "3.7V lithium (included)" },
           { label: "Connectivity", value: "Bluetooth" },
-          { label: "Battery", value: "3.7V Lithium Battery (required)" },
+          { label: "LEGO Compatible", value: "Yes" },
           { label: "Weight", value: "1.75 kg" },
           { label: "Box Dimensions", value: "31 × 42 × 12 cm" },
-          { label: "LEGO Compatible", value: "Yes" },
-          { label: "Soldering Required", value: "No" },
           { label: "Warranty", value: "12 months" },
           { label: "Country of Origin", value: "China" },
         ]}
         background="gray"
       />
 
-      {/* Call to Action */}
+      {/* Final CTA */}
       <CallToAction
-        title="Equip Your Classroom"
-        subtitle="Trusted by educators. Backed by research. 72+ builds that keep learners challenged across every term."
+        title="Get Started with the Superbot"
+        subtitle="72+ builds. Real programming. A kit your child won't outgrow in a hurry."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
-        secondaryLabel="Browse Classroom Kits"
-        secondaryHref="/education/classroom-kits"
+        secondaryLabel="Browse More Kits"
+        secondaryHref="/shop"
         background="navy"
       />
     </ProductTrackingProvider>
@@ -324,7 +326,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Hands-on robotics and Scratch 3.0 coding for classrooms. 72+ models, 6 sensor modules, CAPS-aligned. Suitable for Grades 4–9. No STEM expertise required.",
+      "Build 72+ robot models and program with Scratch 3.0. Advanced sensors, LEGO-compatible, no soldering. Perfect for ages 6+.",
     alternates: {
       canonical: "/product/makerzoid-superbot-master-premium",
     },
