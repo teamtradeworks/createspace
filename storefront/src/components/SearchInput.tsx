@@ -23,7 +23,11 @@ export default function SearchInput({
 
   useEffect(() => {
     if (autoFocus && inputRef.current) {
-      inputRef.current.focus();
+      // Small delay to ensure the element is visible after CSS transition starts
+      const timer = setTimeout(() => {
+        inputRef.current?.focus();
+      }, 50);
+      return () => clearTimeout(timer);
     }
   }, [autoFocus]);
 
