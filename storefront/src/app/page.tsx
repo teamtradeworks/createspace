@@ -238,16 +238,6 @@ export default function Home() {
         </section>
       </TrackedSection>
 
-      {/* Trust Badges */}
-      <TrackedSection name="TrustBadges" page="home">
-        <TrustBadges />
-      </TrackedSection>
-
-      {/* Education Section */}
-      <TrackedSection name="Education" page="home">
-        <EducationSection />
-      </TrackedSection>
-
       {/* Testimonials Section */}
       <TrackedSection name="Testimonials" page="home">
         <section className="py-20 bg-white relative overflow-hidden">
@@ -292,23 +282,16 @@ export default function Home() {
               {[
                 {
                   quote:
-                    "My son couldn't put down the Robotico kit! He's learned more about circuits in a week than I could have taught him in months. The instructions were clear and age-appropriate.",
-                  author: "Sarah M.",
-                  role: "Parent of 10-year-old",
+                    "Our homeschool group have loved working with their Makerzoid kits this term. They have found the builds to be challenging and interesting and have been able to apply creativity in adding on their own ideas.",
+                  author: "Michelle Edwards",
+                  role: "Educational Psychologist, Durban",
                   rating: 5,
                 },
                 {
                   quote:
-                    "We've equipped our entire Grade 5-7 programme with CREATESPACE kits. The curriculum alignment and teacher resources make STEM integration seamless.",
-                  author: "David K.",
-                  role: "Head of Technology, Redhill School",
-                  rating: 5,
-                },
-                {
-                  quote:
-                    "Finally, STEM products that actually work! Fast delivery to Cape Town and the quality exceeded expectations. Already ordered our second kit.",
-                  author: "Nomvula P.",
-                  role: "Parent of 7 & 9-year-olds",
+                    "CREATESPACE is our go to for high quality hardware and accessories. Their extensive range and technical reliability make them an invaluable partner, and their expertise and efficient service allow us to focus on our mission to deliver world class STEAM education. Partnering with the CREATESPACE team has been a game changer for us.",
+                  author: "Simon Robinson",
+                  role: "CEO, Inspire Africa",
                   rating: 5,
                 },
               ].map((testimonial, index) => (
@@ -374,6 +357,16 @@ export default function Home() {
             </div>
           </div>
         </section>
+      </TrackedSection>
+
+      {/* Trust Badges */}
+      <TrackedSection name="TrustBadges" page="home">
+        <TrustBadges />
+      </TrackedSection>
+
+      {/* Education Section */}
+      <TrackedSection name="Education" page="home">
+        <EducationSection />
       </TrackedSection>
 
       {/* CTA Section */}
