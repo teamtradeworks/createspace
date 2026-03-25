@@ -54,6 +54,11 @@ export default function FeaturedProducts({
   };
 
   const handleTabChange = (tabId: string) => {
+    const group = ageGroups.find((g) => g.id === tabId);
+    posthog.capture("featured_products_filter_clicked", {
+      age_group: tabId,
+      label: group?.label,
+    });
     setActiveTab(tabId);
     setCurrentIndex(0);
   };
