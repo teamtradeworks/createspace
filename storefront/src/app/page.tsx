@@ -40,6 +40,13 @@ async function FeaturedProductsLoader() {
   };
 
   const productsByAge: Record<string, Product[]> = {};
+
+  // "All ages" tab shows every product that has an age metafield
+  productsByAge["all"] = allProducts.filter((product) => {
+    const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
+    return minAge !== null;
+  });
+
   for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
     productsByAge[groupId] = allProducts.filter((product) => {
       const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;

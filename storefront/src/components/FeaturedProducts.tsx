@@ -12,6 +12,7 @@ type AgeGroup = {
 };
 
 const ageGroups: AgeGroup[] = [
+  { id: "all", label: "All Ages", range: "All" },
   { id: "3-5", label: "Early Explorers", range: "3-5" },
   { id: "6-8", label: "Junior Innovators", range: "6-8" },
   { id: "9-12", label: "Budding Engineers", range: "9-12" },
@@ -82,7 +83,7 @@ export default function FeaturedProducts({
                     : "text-gray-600 hover:text-navy"
                 }`}
               >
-                {group.range} yrs
+                {group.id === "all" ? "All ages" : `${group.range} yrs`}
               </button>
             ))}
           </div>
@@ -174,10 +175,12 @@ export default function FeaturedProducts({
         {/* View All Link */}
         <div className="text-center mt-10">
           <Link
-            href={`/shop?age=${activeTab}`}
+            href={activeTab === "all" ? "/shop" : `/shop?age=${activeTab}`}
             className="inline-flex items-center text-navy hover:text-cs-orange font-medium transition-colors"
           >
-            View all {ageGroups.find((g) => g.id === activeTab)?.label} products
+            {activeTab === "all"
+              ? "View all products"
+              : `View all ${ageGroups.find((g) => g.id === activeTab)?.label} products`}
             <svg
               className="w-5 h-5 ml-1"
               fill="none"
