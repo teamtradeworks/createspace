@@ -96,14 +96,15 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-12">
             <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-              The Numbers
+              The Numbers Don&apos;t Lie
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
               Why Early STEM Exposure Matters
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              The future belongs to problem-solvers, inventors, and creative
-              thinkers. Here&apos;s why starting early makes all the difference.
+              Research shows that early hands-on STEM experience builds the
+              foundation for academic confidence, logical thinking, and future
+              career success.
             </p>
           </div>
 
@@ -111,35 +112,39 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {[
               {
-                number: "85%",
+                number: "75%",
                 label:
-                  "Of the jobs that will exist in 2030 haven\u2019t been invented yet. STEM prepares kids for the unknown.",
-                color: "border-cs-red",
+                  "of the fastest-growing careers require STEM skills. Early exposure gives your child a head start.",
+                color: "text-cs-red",
+                border: "border-cs-red/30",
               },
               {
                 number: "3x",
                 label:
-                  "Faster growth in STEM careers compared to non-STEM jobs worldwide.",
-                color: "border-cs-blue",
+                  "faster job growth in STEM fields compared to other industries worldwide.",
+                color: "text-cs-blue",
+                border: "border-cs-blue/30",
               },
               {
                 number: "2x",
                 label:
-                  "Higher earnings for STEM graduates compared to non-STEM careers.",
-                color: "border-cs-green",
+                  "higher earning potential for STEM graduates compared to non-STEM careers.",
+                color: "text-cs-green",
+                border: "border-cs-green/30",
               },
               {
-                number: "4.2M",
+                number: "80%",
                 label:
-                  "Open tech positions globally \u2014 and growing 22% every year. STEM skills open doors worldwide.",
-                color: "border-cs-purple",
+                  "of jobs in the next decade will require some form of tech or science literacy.",
+                color: "text-cs-purple",
+                border: "border-cs-purple/30",
               },
             ].map((stat) => (
               <div
                 key={stat.number}
-                className={`bg-gray-50 rounded-xl p-5 md:p-6 border-l-4 ${stat.color}`}
+                className={`bg-gray-50 rounded-xl p-5 md:p-6 text-center border-2 ${stat.border}`}
               >
-                <p className="text-3xl md:text-4xl lg:text-5xl font-bold text-navy mb-2">
+                <p className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-3 ${stat.color}`}>
                   {stat.number}
                 </p>
                 <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
