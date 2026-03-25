@@ -126,6 +126,8 @@ export default function Header({ products = [] }: HeaderProps) {
   const { itemCount, cartAnimKey } = useCart();
   const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
 
+  const closeDropdown = () => setActiveDropdown(null);
+
   const handleMenuEnter = (dropdown: string) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
@@ -176,6 +178,7 @@ export default function Header({ products = [] }: HeaderProps) {
                 <Link
                   href={item.href}
                   className="text-white hover:text-cs-orange transition-colors text-sm font-medium flex items-center gap-1"
+                  onClick={closeDropdown}
                 >
                   {item.name}
                   {item.dropdown && (
@@ -367,6 +370,7 @@ export default function Header({ products = [] }: HeaderProps) {
                     <Link
                       href={group.href}
                       className="text-sm text-gray-500 hover:text-cs-orange transition-colors flex items-center"
+                      onClick={closeDropdown}
                     >
                       Shop All
                       <svg
@@ -392,6 +396,7 @@ export default function Header({ products = [] }: HeaderProps) {
                         <Link
                           href={`/product/${product.handle}`}
                           className="flex items-center gap-3 group/item"
+                          onClick={closeDropdown}
                         >
                           {/* Product Thumbnail */}
                           <div className="w-10 h-10 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
@@ -446,6 +451,7 @@ export default function Header({ products = [] }: HeaderProps) {
               <Link
                 href="/contact"
                 className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
+                onClick={closeDropdown}
               >
                 Get Advice
               </Link>
@@ -474,6 +480,7 @@ export default function Header({ products = [] }: HeaderProps) {
                   key={option.id}
                   href={option.href}
                   className="group flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors"
+                  onClick={closeDropdown}
                 >
                   <div className="w-12 h-12 bg-cs-orange/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-cs-orange/20 transition-colors">
                     <div className="text-cs-orange">{option.icon}</div>
@@ -502,6 +509,7 @@ export default function Header({ products = [] }: HeaderProps) {
                 <Link
                   href="/education"
                   className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
+                  onClick={closeDropdown}
                 >
                   View All Options
                 </Link>
