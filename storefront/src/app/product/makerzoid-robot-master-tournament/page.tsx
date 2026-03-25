@@ -37,12 +37,12 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Equip your classroom with competition-ready robotics and Scratch 3.0 programming"
+        tagline="From first build to competition-ready — a robotics kit that grows with your child"
         highlights={[
-          "47 structured video courses across 3 skill levels — Structural, Dynamics, and Coding",
-          "Aligns with CAPS Technology curriculum for Grades 7–9",
-          "No STEM background needed — learners follow the built-in curriculum independently",
-          "Competition-grade kit: trains learners for real robotics tournament challenges",
+          "200+ robot models across 3 skill levels",
+          "47 video courses from basic mechanics to autonomous programming",
+          "Learn Scratch 3.0 coding — no experience needed",
+          "LEGO-compatible blocks expand any existing collection",
         ]}
         addons={addons}
       />
@@ -50,269 +50,255 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Choose for Your Classroom */}
+      {/* Why Makerzoid Tournament */}
       <NumberedSteps
-        title="Why Choose for Your Classroom?"
-        subtitle="The Makerzoid Robot Master Tournament is built for educators who want to deliver real STEM outcomes — without needing a robotics background."
+        title="Why the Tournament Edition?"
+        subtitle="This isn't just a robotics kit — it's a training system designed to take your child from complete beginner to competition-ready."
         steps={[
           {
-            title: "Curriculum-Aligned",
+            title: "Built for Competitions",
             description:
-              "47 courses structured across mechanics, electronics, and programming map directly to CAPS Technology for Grades 7–9. Learners work through real engineering concepts — gears, motors, sensors, and Scratch code — supported by video lessons at every step.",
+              "The Tournament edition is purpose-built for robotics tournament training. Your child learns the specific challenges — line following, obstacle avoidance, colour detection — that real competitions test.",
           },
           {
-            title: "Competition-Ready",
+            title: "Three Levels of Learning",
             description:
-              "The Tournament edition goes beyond basic building. It trains learners in line-following, obstacle avoidance, colour detection, and precision movement — the exact challenges featured in youth robotics competitions like the World Robot Olympiad.",
+              "47 structured video courses progress from basic construction (Level 1) through powered builds (Level 2) to full Scratch 3.0 autonomous programming (Level 3). No overwhelm — just steady progress.",
           },
           {
-            title: "Self-Directed Learning",
+            title: "Real Engineering Inside",
             description:
-              "47 video courses and the online coding platform at lab.makerzoid.com mean learners can progress independently. Less preparation time for you, more active learning for them — even without a STEM specialist in the room.",
+              "Closed-loop servo motors with encoder feedback are the same technology used in professional robotics. Your child isn't just playing — they're learning how real robots work.",
           },
         ]}
         background="navy-card"
       />
 
-      {/* Key Features */}
+      {/* Coding on Phone ImageTextBlock */}
+      <ImageTextBlock
+        image="/images/products/makerzoid-robot-master-tournament/servo-motors-coding-on-phone.png"
+        imageAlt="Makerzoid app showing servo motor programming on a smartphone"
+        title="Code from Your Phone or Laptop"
+        body="The free Makerzoid App (iOS and Android) puts programming in your child's hands from day one. Beginners start with visual Blockly drag-and-drop blocks, then advance to Scratch 3.0 for full control over their robot's behaviour. No complicated setup — download the app, connect via Bluetooth, and start building and coding straight away."
+        layout="image-left"
+        background="white"
+      />
+
+      {/* Feature Grid */}
       <FeatureGrid
-        title="What This Kit Brings to Your Classroom"
-        subtitle="Purpose-built for structured STEM education, with hardware and curriculum designed to work together."
+        title="What Makes This Kit Different"
+        subtitle="Competition-grade hardware and a structured curriculum — not just a box of bricks."
         features={[
           {
-            icon: "book",
-            title: "47-Course Curriculum",
+            icon: "cpu",
+            title: "Smart Programmable Hub",
             description:
-              "Three skill levels — Structural, Dynamics, and Programmable — give learners a clear progression from basic builds to autonomous robots.",
+              "Stores up to 7 programmes simultaneously. Built-in gyroscope detects tilt and orientation in three directions.",
           },
           {
-            icon: "code",
-            title: "Scratch 3.0 Programming",
+            icon: "zap",
+            title: "Three Smart Sensors",
             description:
-              "The world's most widely used visual programming language. Learners drag and drop code blocks — no prior coding experience needed.",
-          },
-          {
-            icon: "sensor",
-            title: "3 Smart Sensors",
-            description:
-              "Colour sensor, grayscale sensor, and built-in gyroscope enable real competition challenges: line tracking, obstacle avoidance, and precision movement.",
-          },
-          {
-            icon: "shield",
-            title: "No Soldering Required",
-            description:
-              "Safe for classroom use. No additional tools, safety equipment, or specialist setup needed — just blocks and Bluetooth.",
+              "Colour sensor, grayscale sensor for line tracking, and a built-in gyroscope — the exact sensors used in competition challenges.",
           },
           {
             icon: "puzzle",
-            title: "LEGO-Compatible",
+            title: "200+ Robot Models",
             description:
-              "640+ blocks work with existing LEGO collections, extending the value of resources your school may already own.",
+              "Build anything from simple Level 1 structures to complex Level 3 autonomous robots. Always a new challenge.",
           },
           {
-            icon: "robot",
-            title: "Tournament Training",
+            icon: "book",
+            title: "47 Video Courses",
             description:
-              "Explicitly designed for competition preparation. Learners master the exact challenges — line following, colour tasks, autonomous programming — that feature in youth robotics tournaments.",
+              "Guided video learning across three levels. Your child always knows what to build next and why.",
+          },
+          {
+            icon: "layers",
+            title: "LEGO-Compatible",
+            description:
+              "All 640+ blocks are LEGO-compatible — they click straight into any LEGO collection for unlimited building possibilities.",
+          },
+          {
+            icon: "code",
+            title: "Dual Coding Pathways",
+            description:
+              "Start with visual Blockly blocks in the app, then graduate to full Scratch 3.0 programming on the web platform.",
           },
         ]}
         columns={3}
-        background="white"
-      />
-
-      {/* Scratch Programming Visual */}
-      <ImageTextBlock
-        image="/images/products/makerzoid-robot-master-tournament/servo-motors-coding-displayed-on-phone.png"
-        imageAlt="Scratch 3.0 programming interface displayed on a smartphone with servo motor robot"
-        title="Programme Robots Directly from a Smartphone"
-        body="Using Scratch 3.0 — the same visual platform used in CS classrooms worldwide — learners drag and drop code blocks to control real physical robots. When they hit run, servo motors respond immediately. That instant physical feedback makes abstract programming concepts concrete and memorable. No complex setup: the Makerzoid App is free to download on iOS and Android, and programming is also available via any browser at lab.makerzoid.com."
-        layout="image-left"
         background="gray"
       />
 
-      {/* Competition Challenges */}
-      <ProjectShowcase
-        title="Competition Challenges Your Learners Will Master"
-        highlight="47 structured courses · 200+ buildable models · 9 competition challenge types"
-        subtitle="Challenges progress from basic mechanical builds through to fully autonomous robot programming — the same skills assessed in youth robotics competitions."
-        columns={3}
+      {/* Colour Sensor ImageTextBlock */}
+      <ImageTextBlock
+        image="/images/products/makerzoid-robot-master-tournament/colour-sensor-feature.png"
+        imageAlt="Makerzoid colour sensor component for robotics programming"
+        title="Sensors That Teach Real Concepts"
+        body="The colour sensor, grayscale sensor, and built-in gyroscope aren't just accessories — each one teaches your child a real engineering principle. Colour detection, infrared distance measurement, and orientation data are the building blocks of how self-driving cars, warehouse robots, and industrial machines work. Your child won't just read about these ideas in school — they'll programme them."
+        layout="image-right"
         background="white"
+      />
+
+      {/* Project Showcase */}
+      <ProjectShowcase
+        title="Challenges, Courses & Builds"
+        highlight="47 structured video courses and 200+ buildable robot models across 3 levels"
+        subtitle="From your first gear assembly to programming a robot that navigates an obstacle course on its own."
         projects={[
           {
             name: "Programmable Hub",
-            description:
-              "Learn to connect and configure the central hub that stores up to 7 programmes simultaneously.",
-            concepts: "Systems thinking, hardware setup, programme logic",
-            image:
-              "/images/products/makerzoid-robot-master-tournament/projects/programmable-hub.png",
+            description: "Learn to store and switch between multiple programmes on the central controller",
+            concepts: "Programme storage, Bluetooth control",
+            image: "/images/products/makerzoid-robot-master-tournament/projects/programmable-hub.png",
           },
           {
             name: "Servo Drive",
-            description:
-              "Build and program closed-loop servo motors for precise, repeatable robot movement.",
-            concepts: "Motor control, feedback loops, mechanical precision",
+            description: "Build and control robots with precision closed-loop servo motors",
+            concepts: "Motor control, feedback loops",
             image: "/images/products/makerzoid-robot-master-tournament/projects/servo-drive.png",
           },
           {
-            name: "Smart Gyroscope",
-            description:
-              "Use the built-in gyroscope to detect orientation and program directionally-aware robot behaviour.",
-            concepts: "Sensor data, conditionals, spatial reasoning",
-            image:
-              "/images/products/makerzoid-robot-master-tournament/projects/smart-gyroscope.png",
-          },
-          {
-            name: "Colour Sensor Tasks",
-            description:
-              "Programme the robot to detect and react to different colours — a core competition challenge.",
-            concepts: "Colour sensor, event-driven programming, conditionals",
+            name: "Colour Detection",
+            description: "Programme a robot to identify colours and respond differently to each",
+            concepts: "Colour sensor, conditional logic",
             image: "/images/products/makerzoid-robot-master-tournament/projects/colour-sensor.png",
           },
           {
-            name: "Greyscale Sensor",
-            description:
-              "Use infrared sensing for line tracking and obstacle avoidance — two of the most common competition challenges.",
-            concepts: "Infrared sensing, line following, obstacle avoidance",
-            image:
-              "/images/products/makerzoid-robot-master-tournament/projects/greyscale-sensor.png",
+            name: "Line Following",
+            description: "Master the core competition skill — programming a robot to follow a line",
+            concepts: "Grayscale sensor, algorithm tuning",
+            image: "/images/products/makerzoid-robot-master-tournament/projects/greyscale-sensor.png",
+          },
+          {
+            name: "Precision Steering",
+            description: "Navigate exact distances and angles using the built-in gyroscope",
+            concepts: "Gyroscope data, calibration",
+            image: "/images/products/makerzoid-robot-master-tournament/projects/smart-gyroscope.png",
           },
           {
             name: "Graphical Programming",
-            description:
-              "Build full Scratch 3.0 programmes that integrate multiple sensors and motors into autonomous robot behaviour.",
-            concepts: "Scratch 3.0, loops, multi-sensor integration, autonomy",
-            image:
-              "/images/products/makerzoid-robot-master-tournament/projects/graphical-programming.png",
+            description: "Build complete autonomous programmes using Scratch 3.0's visual editor",
+            concepts: "Scratch 3.0, event-driven code",
+            image: "/images/products/makerzoid-robot-master-tournament/projects/graphical-programming.png",
           },
         ]}
-        moreText="Plus 41 more structured lessons — all accessible via the free Makerzoid app and lab.makerzoid.com"
+        moreText="Plus 200+ robot models to build — from simple Level 1 structures to fully autonomous Level 3 competition machines"
+        background="gray"
       />
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Real Results, Real Classrooms"
-        subtitle="Learners building and competing with the Makerzoid Robot Master Tournament."
-        background="gray"
+        title="Build, Code, Compete"
+        subtitle="Real robots, real code, real results."
         images={[
           {
             src: "/images/products/makerzoid-robot-master-tournament/hands-unboxing.png",
             alt: "Hands unboxing the Makerzoid Robot Master Tournament kit",
-            label: "First Unboxing",
-            description: "Everything in the box, ready for first lesson",
           },
           {
-            src: "/images/products/makerzoid-robot-master-tournament/robot-on-track-competition.jpg",
+            src: "/images/products/makerzoid-robot-master-tournament/robot-on-track-competition.png",
             alt: "Makerzoid robot positioned on a competition track",
-            label: "Competition Ready",
-            description: "A learner-built robot on a competition line-following track",
           },
           {
             src: "/images/products/makerzoid-robot-master-tournament/screenshot-of-coding-screen.png",
-            alt: "Screenshot of Scratch 3.0 coding interface on screen",
-            label: "Coding in Progress",
-            description: "Scratch 3.0 programming on the Makerzoid platform",
+            alt: "Scratch 3.0 coding screen showing a Makerzoid robot programme",
           },
         ]}
+        background="white"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="gray" />
 
-      {/* FAQ Section */}
+      {/* FAQ */}
       <ProductFAQ
-        title="Educator Questions"
-        background="gray"
+        title="Common Questions"
         faqs={[
           {
-            question: "Does this align with the CAPS curriculum?",
+            question: "Does my child need any coding or robotics experience?",
             answer:
-              "Yes. The kit covers CAPS Technology for Grades 7–9: engineering design, basic electronics, and computational thinking. The three-level course structure (Structural → Dynamics → Programmable) mirrors the CAPS design process framework, and Scratch 3.0 programming aligns with the Technology learning area's coding and robotics requirements.",
+              "Not at all. The kit starts from zero — Level 1 teaches basic mechanics with no electronics involved. By the time your child reaches Scratch 3.0 programming in Level 3, they'll have built up the knowledge gradually through 47 video courses.",
           },
           {
-            question: "How many learners can use one kit simultaneously?",
+            question: "What age is this suitable for?",
             answer:
-              "The kit is designed for 1–2 learners working collaboratively per kit. For a class of 30, we recommend 15 kits. With rotational group work, a smaller number of kits can serve larger groups — 10 kits supporting groups of 3 in rotation works well in practice. Contact us for school pricing on bulk orders.",
+              "The Tournament edition is designed for ages 10 and up. The competition-specific training and advanced programming in Level 3 suit older children who are ready for a serious challenge. Younger children (8–10) can absolutely start with the structural builds, but the full curriculum is designed with 10+ in mind.",
           },
           {
-            question: "Do I need a STEM background to teach with this?",
+            question: "Do I need to help my child with this?",
             answer:
-              "No. The 47 structured video courses guide learners step by step — learners work independently while you facilitate. The three-level curriculum progression (Structural → Dynamics → Programmable) makes lesson planning straightforward without specialist robotics knowledge. No STEM expertise required to deliver effective lessons.",
+              "Most children aged 10+ can work through the kit independently using the Makerzoid App and the 47 video courses. The structured progression means they always know what to do next. Adult support is welcome but not required.",
           },
           {
-            question: "What devices are needed in the classroom?",
+            question: "What do we need to get started?",
             answer:
-              "Each group needs a Bluetooth-enabled smartphone or tablet (iOS or Android) with the free Makerzoid App installed. Alternatively, learners can programme via any web browser at lab.makerzoid.com — no app required. No additional computers or specialised software are needed.",
+              "A Bluetooth-enabled smartphone or tablet (iOS or Android) for the free Makerzoid App, and AA batteries (not included — Duracell recommended). No tools required and no soldering. For Level 3 Scratch programming, a computer with internet access is needed to use lab.makerzoid.com.",
           },
           {
-            question: "How durable is this for repeated classroom use?",
+            question: "We already have LEGO — does this work with it?",
             answer:
-              "The 640+ LEGO-compatible ABS blocks are robust and built for repeated use. The kit includes a 12-month product warranty with a 30-day quality guarantee on all electronic components (hub, motors, sensors). With organised storage, the kit maintains quality across multiple terms and class groups.",
+              "Yes! All 640+ building blocks are LEGO-compatible, so your child can combine them with any LEGO collection they already have. This dramatically expands the variety of robots they can build.",
           },
           {
-            question: "What preparation is needed before a lesson?",
+            question: "Can my child actually compete in robotics tournaments with this?",
             answer:
-              "Minimal. Download the Makerzoid App on classroom devices once, ensure Bluetooth is enabled, and insert AA batteries into the hub. The video courses handle lesson delivery — learners follow along on the app independently. First-time setup takes approximately 15 minutes.",
+              "Yes — that's exactly what the Tournament edition is designed for. It trains the specific skills tested in competitions: line following, obstacle avoidance, colour detection, and precision movement. The challenges align with formats like the World Robot Olympiad (WRO) and similar youth robotics competitions.",
           },
           {
-            question: "Is bulk or school pricing available?",
+            question: "What happens once my child finishes the 47 video courses?",
             answer:
-              "Yes — contact us for school and bulk pricing on orders of 10 or more kits. We offer competitive rates for schools and can assist with procurement documentation.",
+              "There are still 200+ robot models to build, competition challenges to practise and improve, and an online community at lab.makerzoid.com. The LEGO-compatible blocks also open up endless original builds. This kit is designed for months of sustained engagement, not a one-time experience.",
           },
         ]}
+        background="white"
       />
 
-      {/* What's in the Kit */}
+      {/* What's in the Box */}
       <WhatsIncluded
-        title="What's in the Kit"
-        image="/images/products/makerzoid-robot-master-tournament/colour-sensor.png"
-        imageAlt="Makerzoid Robot Master Tournament colour sensor component"
-        background="white"
+        title="What's in the Box"
         items={[
-          "640+ LEGO-compatible building blocks (ABS plastic)",
-          "Programmable Hub Controller (built-in gyroscope, 2 LEDs, 7 cross-ports)",
-          "Closed-loop Servo Motor with encoder feedback chips",
-          "Colour Sensor — detects and reacts to colours",
-          "Grayscale Sensor — line tracking and obstacle avoidance via infrared",
+          "640+ LEGO-compatible building block components",
+          "Programmable Hub Controller (built-in gyroscope, 2 LED indicators, 7 cross-ports)",
+          "Closed-loop servo motor(s)",
+          "Colour sensor",
+          "Grayscale sensor",
           "Paper instruction manual",
-          "Access to Makerzoid App (iOS and Android — free download)",
+          "Makerzoid App access (free — iOS and Android)",
           "47 structured video courses (via app or lab.makerzoid.com)",
-          "NOTE: AA batteries required — not included",
+          "AA batteries NOT included — Duracell recommended",
         ]}
+        background="gray"
       />
 
       {/* Specifications */}
       <Specifications
         title="Technical Details"
-        background="gray"
         specs={[
-          { label: "Total Pieces", value: "640+ blocks" },
-          { label: "Robot Models", value: "200+ designs" },
-          { label: "Video Courses", value: "47 (3 levels: Structural, Dynamics, Programmable)" },
+          { label: "Parts Count", value: "640+ LEGO-compatible components" },
           { label: "Box Dimensions", value: "40 × 29 × 19 cm" },
           { label: "Weight", value: "2.3 kg" },
-          { label: "Material", value: "LEGO-compatible ABS plastic" },
-          { label: "Batteries", value: "AA (not included; Duracell recommended)" },
-          { label: "Connectivity", value: "Bluetooth" },
-          { label: "Programming", value: "Scratch 3.0 / Blockly" },
+          { label: "Programmable Hub", value: "Stores up to 7 programmes simultaneously" },
+          { label: "Hub Sensors", value: "Built-in 3-axis gyroscope" },
+          { label: "Hub Ports", value: "7 cross-ports (supports up to 4 servo motors, 4 colour sensors, 4 grayscale sensors)" },
+          { label: "Connectivity", value: "Bluetooth (for Makerzoid App)" },
+          { label: "Coding Platforms", value: "Blockly (app) and Scratch 3.0 (lab.makerzoid.com)" },
           { label: "App Compatibility", value: "iOS and Android" },
-          { label: "Web Platform", value: "lab.makerzoid.com" },
-          { label: "Hub Storage", value: "7 programmes simultaneously" },
-          {
-            label: "Sensor Ports",
-            value: "7 cross-ports (up to 4 servos, 4 colour sensors, 4 grayscale sensors)",
-          },
-          { label: "Warranty", value: "12 months (30-day quality guarantee on electronics)" },
+          { label: "Batteries", value: "AA required, not included" },
+          { label: "Soldering Required", value: "No" },
+          { label: "Warranty", value: "12 months (30-day quality warranty on motors, hub, and sensors)" },
         ]}
+        background="white"
       />
 
-      {/* CTA */}
+      {/* Final CTA */}
       <CallToAction
-        title="Equip Your Classroom"
-        subtitle="Trusted by educators across South Africa. Give your learners a head start in robotics and coding with the competition-grade kit built for classroom success."
+        title="Start the Journey"
+        subtitle="From first build to competition training — everything your child needs to explore, create, and compete."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
-        secondaryLabel="Browse Classroom Kits"
-        secondaryHref="/education/classroom-kits"
+        secondaryLabel="Browse More Kits"
+        secondaryHref="/shop"
         background="navy"
       />
     </ProductTrackingProvider>
@@ -329,7 +315,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Competition-ready robotics kit for Grades 7–9. 47 structured video courses, Scratch 3.0 programming, 200+ builds. CAPS Technology aligned. No STEM background needed.",
+      "Competition-grade robotics kit for ages 10+. Build 200+ robot models, learn Scratch 3.0 coding, and train for tournaments with 47 structured video courses.",
     alternates: {
       canonical: "/product/makerzoid-robot-master-tournament",
     },
