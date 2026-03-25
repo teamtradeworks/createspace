@@ -181,6 +181,14 @@
       "viewProductLink": true
     },
     {
+      "parentHandle": "makerzoid-superbot-master-premium",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
       "parentHandle": "bbc-micro-bit-club",
       "addonHandle": "micro-bit-wearable-x-10",
       "discountPercent": 0,
