@@ -110,17 +110,15 @@ export function CustomerShowcase({
     // 1 image: full width
     if (count === 1) {
       return (
-        <SectionTracker name="CustomerShowcase">
-          <div className="aspect-[16/9]">
-            <ImageCard
-              image={images[0]}
-              isHovered={hoveredIndex === 0}
-              onHover={() => setHoveredIndex(0)}
-              onLeave={() => setHoveredIndex(null)}
-              className="h-full"
-            />
-          </div>
-        </SectionTracker>
+        <div className="aspect-[16/9]">
+          <ImageCard
+            image={images[0]}
+            isHovered={hoveredIndex === 0}
+            onHover={() => setHoveredIndex(0)}
+            onLeave={() => setHoveredIndex(null)}
+            className="h-full"
+          />
+        </div>
       );
     }
 
@@ -276,19 +274,21 @@ export function CustomerShowcase({
   };
 
   return (
-    <section className={`py-16 ${bgClass}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        {(title || subtitle) && (
-          <div className="text-center mb-10">
-            {title && <h2 className="text-3xl font-semibold text-navy mb-3">{title}</h2>}
-            {subtitle && <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>}
-          </div>
-        )}
+    <SectionTracker name="CustomerShowcase">
+      <section className={`py-16 ${bgClass}`}>
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          {(title || subtitle) && (
+            <div className="text-center mb-10">
+              {title && <h2 className="text-3xl font-semibold text-navy mb-3">{title}</h2>}
+              {subtitle && <p className="text-gray-600 max-w-2xl mx-auto">{subtitle}</p>}
+            </div>
+          )}
 
-        {/* Images */}
-        {renderImages()}
-      </div>
-    </section>
+          {/* Images */}
+          {renderImages()}
+        </div>
+      </section>
+    </SectionTracker>
   );
 }
