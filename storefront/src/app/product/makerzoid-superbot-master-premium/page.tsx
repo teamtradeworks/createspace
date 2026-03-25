@@ -48,7 +48,16 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
+      <QuickInfoBadges
+        badges={[
+          { icon: "age", label: "Age", value: "6+" },
+          { icon: "projects", label: "Models", value: "72+" },
+          { icon: "scratch", label: "Coding", value: "Scratch 3.0" },
+          { icon: "battery", label: "Battery", value: "3.7V lithium (included)" },
+          { icon: "no-soldering", label: "Soldering", value: "Not Required" },
+          { icon: "app", label: "App", value: "Makerzoid Kit (free)" },
+        ]}
+      />
 
       {/* Why Superbot Master Premium */}
       <NumberedSteps
@@ -231,9 +240,9 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
               "A phone or tablet (iOS or Android) is needed to access the build guides in the free Makerzoid app, and to use app-based Bluetooth control. Scratch 3.0 programming works in any web browser on a phone, tablet, or computer — it's free and requires no installation.",
           },
           {
-            question: "What batteries does it require?",
+            question: "Does the kit include a battery?",
             answer:
-              "The kit requires a 3.7V lithium battery. Please confirm with us whether the battery is included in your order — the specification page shows batteries as required. Contact us before purchase if you need clarity.",
+              "Yes — a 3.7V rechargeable lithium battery is included in the box. No need to source one separately.",
           },
           {
             question: "Is this compatible with LEGO?",
@@ -269,6 +278,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           "Bluetooth Remote Control",
           "230 LEGO-compatible building block pieces",
           "Storage box with sorting tray",
+          "3.7V rechargeable lithium battery",
           "Paper manual with step-by-step building instructions",
         ]}
         background="white"
@@ -282,6 +292,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           { label: "Models Supported", value: "72+" },
           { label: "Coding Platform", value: "Scratch 3.0" },
           { label: "App", value: "Makerzoid Kit (iOS & Android, free)" },
+          { label: "Battery", value: "3.7V lithium (included)" },
           { label: "Connectivity", value: "Bluetooth" },
           { label: "LEGO Compatible", value: "Yes" },
           { label: "Weight", value: "1.75 kg" },
