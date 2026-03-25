@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 
@@ -176,11 +177,18 @@ export default function FeaturedProducts({
         <div className="text-center mt-10">
           <Link
             href={activeTab === "all" ? "/shop" : `/shop?age=${activeTab}`}
+            onClick={() => {
+              const group = ageGroups.find((g) => g.id === activeTab);
+              posthog.capture("featured_products_view_all_clicked", {
+                age_group: activeTab,
+                label: group?.label,
+              });
+            }}
             className="inline-flex items-center text-navy hover:text-cs-orange font-medium transition-colors"
           >
             {activeTab === "all"
               ? "View all products"
-              : `View all ${ageGroups.find((g) => g.id === activeTab)?.label} products`}
+              : `View products for ages ${ageGroups.find((g) => g.id === activeTab)?.range}`}
             <svg
               className="w-5 h-5 ml-1"
               fill="none"
