@@ -299,6 +299,13 @@ export default function Home() {
                   role: "CEO, Inspire Africa",
                   rating: 5,
                 },
+                {
+                  quote:
+                    "CREATESPACE has consistently demonstrated exceptional service, setting themselves apart as the best in their field. Their dedication and professionalism have made every interaction a positive experience. It is truly an honour to collaborate with CREATESPACE, and their outstanding support continues to strengthen our working relationship.",
+                  author: "Erus Pretorius",
+                  role: "CEO, Robotixkids",
+                  rating: 5,
+                },
               ].map((testimonial, index) => (
                 <div key={index} className="bg-gray-50 rounded-2xl p-8 relative">
                   {/* Quote icon */}
