@@ -11,6 +11,7 @@ import EducationSection from "@/components/EducationSection";
 import HeroCarousel from "@/components/HeroCarousel";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import TrackedSection from "@/components/TrackedSection";
+import BrandLink from "@/components/BrandLink";
 
 export const metadata: Metadata = {
   title: "CREATESPACE | STEM Toys & Educational Kits for Kids in South Africa",
@@ -233,13 +234,13 @@ export default function Home() {
 
                 if (brand.vendor) {
                   return (
-                    <Link
+                    <BrandLink
                       key={brand.name}
-                      href={`/shop?brand=${encodeURIComponent(brand.vendor)}`}
-                      className="hover:shadow-md transition-shadow rounded-xl"
+                      brand={brand.name}
+                      vendor={brand.vendor}
                     >
                       {card}
-                    </Link>
+                    </BrandLink>
                   );
                 }
 
