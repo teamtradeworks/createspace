@@ -180,7 +180,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           },
         ]}
         moreText="Plus 66+ more builds including the Batmobile, Sumo Robot, Dragon Tiger Chariot, colour sorters, LED displays, and fully custom designs"
-        background="white"
+        background="gray"
       />
 
       {/* Customer Showcase */}
