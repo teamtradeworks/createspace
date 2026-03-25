@@ -109,6 +109,7 @@ const navigation = [
   { name: "Shop", href: "/shop", dropdown: "shop" },
   { name: "Education", href: "/education", dropdown: "education" },
   { name: "About Us", href: "/about", dropdown: null },
+  { name: "Downloads", href: "/downloads", dropdown: null },
   { name: "Contact", href: "/contact", dropdown: null },
 ];
 
