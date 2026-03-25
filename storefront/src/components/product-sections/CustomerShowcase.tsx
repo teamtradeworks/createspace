@@ -140,35 +140,20 @@ export function CustomerShowcase({
       );
     }
 
-    // 3 images: 1 large left, 2 stacked right (using flex for perfect height alignment)
+    // 3 images: equal side by side in a single row
     if (count === 3) {
       return (
-        <div className="flex gap-4">
-          <div className="w-1/2">
+        <div className="grid grid-cols-3 gap-4">
+          {images.map((image, index) => (
             <ImageCard
-              image={images[0]}
-              isHovered={hoveredIndex === 0}
-              onHover={() => setHoveredIndex(0)}
+              key={index}
+              image={image}
+              isHovered={hoveredIndex === index}
+              onHover={() => setHoveredIndex(index)}
               onLeave={() => setHoveredIndex(null)}
-              className="aspect-square h-full"
+              className="aspect-[4/3]"
             />
-          </div>
-          <div className="w-1/2 flex flex-col gap-4">
-            <ImageCard
-              image={images[1]}
-              isHovered={hoveredIndex === 1}
-              onHover={() => setHoveredIndex(1)}
-              onLeave={() => setHoveredIndex(null)}
-              className="flex-1"
-            />
-            <ImageCard
-              image={images[2]}
-              isHovered={hoveredIndex === 2}
-              onHover={() => setHoveredIndex(2)}
-              onLeave={() => setHoveredIndex(null)}
-              className="flex-1"
-            />
-          </div>
+          ))}
         </div>
       );
     }
