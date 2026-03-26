@@ -146,9 +146,10 @@ export default function FeaturedProducts({
           {products.length > 0 ? (
             <>
               {/* Mobile: horizontal scroll showing all products */}
-              <div className="md:hidden -mx-4">
+              <div className="md:hidden -mx-4 sm:-mx-6">
                 <div
-                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-4"
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4"
+                >
                 >
                   {products.map((product, index) => (
                     <div
