@@ -200,7 +200,7 @@ export default async function TaleBotProPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="What Families Are Building"
+        title="See What Others Are Creating"
         subtitle="See how children around the world are learning to code, tell stories, and explore with Tale-Bot Pro."
         images={[
           {

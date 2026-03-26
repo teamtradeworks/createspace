@@ -207,7 +207,7 @@ export default async function MatataStudioMicroscopePage() {
 
       {/* CustomerShowcase — ALL end-user images */}
       <CustomerShowcase
-        title="The MX2-AS in Action"
+        title="See What Others Are Creating"
         subtitle="Real families exploring the microscopic world"
         images={[
           {

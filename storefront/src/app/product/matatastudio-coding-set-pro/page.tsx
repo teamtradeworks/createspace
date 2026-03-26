@@ -197,7 +197,7 @@ export default async function MatataStudioCodingSetProPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Real Families, Real Coding Adventures"
+        title="See What Others Are Creating"
         images={[
           {
             src: "/images/products/matatastudio-coding-set-pro/2-boys-playing-together-on-floor.jpg",

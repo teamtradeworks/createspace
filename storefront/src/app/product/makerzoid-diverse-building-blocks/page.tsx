@@ -211,7 +211,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="Real builds and real moments from the Makerzoid community."
         images={[
           {

@@ -198,7 +198,7 @@ export default async function TaleBotProClassroomSetPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Tale-Bot Pro in Schools"
+        title="See What Others Are Creating"
         subtitle="See how educators and learners around the world are using Tale-Bot Pro to bring coding to life in the classroom."
         images={[
           {

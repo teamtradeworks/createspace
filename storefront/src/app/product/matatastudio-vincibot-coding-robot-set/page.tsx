@@ -191,7 +191,7 @@ export default async function VinciBotPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Real Families, Real Learning"
+        title="See What Others Are Creating"
         subtitle="See how children around the world are exploring coding, robotics, and creativity with VinciBot."
         images={[
           {

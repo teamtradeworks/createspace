@@ -187,7 +187,7 @@ export default async function ArduinoIoTBundlePage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="What You'll Be Building"
+        title="See What Others Are Creating"
         subtitle="From cloud-connected pets to smart plant monitors — all made from scratch."
         images={[
           {

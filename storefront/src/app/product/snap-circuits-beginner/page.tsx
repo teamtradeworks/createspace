@@ -192,7 +192,7 @@ export default async function SnapCircuitsBeginnerPage() {
 
       {/* Customer Showcase — ALL end-user photos, immediately after ProjectShowcase */}
       <CustomerShowcase
-        title="Real Kids Building Real Things"
+        title="See What Others Are Creating"
         subtitle="Snap Circuits in action — first circuits, favourite toys, and plenty of proud moments."
         images={[
           {

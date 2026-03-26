@@ -209,7 +209,7 @@ export default async function CutebotProPage() {
 
       {/* Customer Showcase — ALL end-user images */}
       <CustomerShowcase
-        title="The Cutebot Pro in the Wild"
+        title="See What Others Are Creating"
         subtitle="Real builds from real learners."
         images={[
           {

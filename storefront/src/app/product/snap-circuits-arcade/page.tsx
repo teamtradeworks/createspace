@@ -191,7 +191,7 @@ export default async function SnapCircuitsArcadePage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="A closer look at the Snap Circuits Arcade — the kit, the components, and the builds."
         images={[
           {

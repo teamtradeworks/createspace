@@ -143,7 +143,7 @@ Gallery of end-user/customer photos with labels and hover descriptions. Adaptive
 
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `title` | `string` | No | `"Customer Creations"` | Section heading |
+| `title` | `string` | No | `"See What Others Are Creating"` | Section heading |
 | `subtitle` | `string` | No | — | Section subtitle |
 | `images` | `CustomerImage[]` | Yes | — | Array of customer images |
 | `background` | `"white" \| "gray"` | No | `"white"` | Background colour |
@@ -171,7 +171,7 @@ Gallery of end-user/customer photos with labels and hover descriptions. Adaptive
 **Example:**
 ```tsx
 <CustomerShowcase
-  title="Customer Creations"
+  title="See What Others Are Creating"
   subtitle="See what our community has built"
   images={[
     {

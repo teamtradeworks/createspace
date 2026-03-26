@@ -189,7 +189,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Build, Code, Compete"
+        title="See What Others Are Creating"
         subtitle="Real robots, real code, real results."
         images={[
           {

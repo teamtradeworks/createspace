@@ -188,7 +188,7 @@ export default async function MakerzoidSmartRobotPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="What Kids Are Building"
+        title="See What Others Are Creating"
         subtitle="Real builds from the Makerzoid Smart Robot community"
         images={[
           {

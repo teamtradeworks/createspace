@@ -194,7 +194,7 @@ export default async function MicrobitGoPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="micro:bit in Action"
+        title="See What Others Are Creating"
         subtitle="Real kids, real projects, real fun — from first-timers to confident coders."
         background="gray"
         images={[

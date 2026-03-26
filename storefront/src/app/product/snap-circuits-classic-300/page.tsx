@@ -189,7 +189,7 @@ export default async function SnapCircuitsClassic300Page() {
 
       {/* Customer Showcase — all end-user images */}
       <CustomerShowcase
-        title="What Families Are Building"
+        title="See What Others Are Creating"
         subtitle="From the first project to the full 305 — real circuits built by real kids"
         images={[
           {

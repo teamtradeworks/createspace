@@ -198,7 +198,7 @@ export default async function BbcMicroBitClubPage() {
 
       {/* Learners in Action */}
       <CustomerShowcase
-        title="Learners in Action"
+        title="See What Others Are Creating"
         subtitle="How micro:bit looks in real classrooms and coding clubs."
         images={[
           {

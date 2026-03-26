@@ -197,7 +197,7 @@ export default async function SnapCircuitJuniorPage() {
 
       {/* Customer Showcase - ALL end-user photos */}
       <CustomerShowcase
-        title="What Families Are Building"
+        title="See What Others Are Creating"
         subtitle="Real projects from real kids. Snap Circuits inspires creativity and experimentation beyond the manual."
         images={[
           {

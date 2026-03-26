@@ -94,7 +94,7 @@ function ImageCard({
 }
 
 export function CustomerShowcase({
-  title = "Customer Creations",
+  title = "See What Others Are Creating",
   subtitle,
   images,
   background = "white",

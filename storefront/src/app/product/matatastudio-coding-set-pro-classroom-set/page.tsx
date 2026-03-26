@@ -197,7 +197,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See It in Your Learners' Hands"
+        title="See What Others Are Creating"
         subtitle="MatataStudio in action — hands-on, screen-free, and genuinely engaging."
         background="white"
         images={[

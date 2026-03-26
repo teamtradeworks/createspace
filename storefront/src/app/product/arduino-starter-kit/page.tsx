@@ -193,7 +193,7 @@ export default async function ArduinoStarterKitPage() {
 
       {/* End-User Photo Section */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="Real builds from makers who started exactly where you are now."
         images={[
           {
