@@ -200,14 +200,29 @@ export function HeroSection({
                 {/* Tags */}
                 {product.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {product.tags.slice(0, 6).map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs font-semibold bg-navy/10 text-navy rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+                    {product.tags.slice(0, 6).map((tag) => {
+                      const label = (tag.startsWith("category:") ? tag.slice("category:".length).replace(/-/g, " ") : tag).replace(/\b\w/g, (c) => c.toUpperCase());
+                      if (tag.startsWith("category:")) {
+                        const categoryValue = tag.slice("category:".length);
+                        return (
+                          <Link
+                            key={tag}
+                            href={`/shop?category=${categoryValue}`}
+                            className="px-3 py-1 text-xs font-semibold bg-navy/10 text-navy rounded-full hover:bg-navy hover:text-white transition-colors"
+                          >
+                            {label}
+                          </Link>
+                        );
+                      }
+                      return (
+                        <span
+                          key={tag}
+                          className="px-3 py-1 text-xs font-semibold bg-navy/10 text-navy rounded-full"
+                        >
+                          {label}
+                        </span>
+                      );
+                    })}
                   </div>
                 )}
 
