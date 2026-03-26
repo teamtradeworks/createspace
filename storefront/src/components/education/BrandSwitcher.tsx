@@ -139,6 +139,7 @@ const colorMap = {
     ageBadgeBg: "bg-cs-orange",
     ring: "ring-cs-orange",
     borderActive: "border-cs-orange",
+    contentBg: "bg-cs-orange/[0.04]",
   },
   "cs-blue": {
     tagBg: "bg-cs-blue/10",
@@ -150,6 +151,7 @@ const colorMap = {
     ageBadgeBg: "bg-cs-blue",
     ring: "ring-cs-blue",
     borderActive: "border-cs-blue",
+    contentBg: "bg-cs-blue/[0.04]",
   },
 };
 
@@ -264,7 +266,9 @@ export default function BrandSwitcher({
       </div>
 
       {/* Active Brand Content */}
-      <div className="max-w-7xl mx-auto">
+      <div
+        className={`${colors.contentBg} rounded-2xl p-6 md:p-10 transition-colors duration-300 max-w-7xl mx-auto`}
+      >
         {/* Brand Detail */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
