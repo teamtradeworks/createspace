@@ -165,8 +165,46 @@ export default function BrandSwitcher({
 
   return (
     <div>
-      {/* Brand Selector Tabs */}
-      <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
+      {/* Mobile: Compact Toggle Tabs */}
+      <div className="grid grid-cols-2 gap-3 md:hidden mb-8">
+        {(["matata", "microbit"] as const).map((key) => {
+          const b = brands[key];
+          const c = colorMap[b.color];
+          const isActive = active === key;
+
+          return (
+            <button
+              key={key}
+              onClick={() => setActive(key)}
+              className={`relative text-left bg-white rounded-xl border-2 overflow-hidden transition-all duration-200 ${
+                isActive
+                  ? `${c.borderActive} shadow-md`
+                  : "border-gray-200 opacity-60"
+              }`}
+            >
+              <div className="relative h-24 overflow-hidden">
+                <Image
+                  src={b.image}
+                  alt={b.imageAlt}
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-navy/20" />
+                <div className="absolute bottom-0 left-0 right-0 p-3">
+                  <h3 className="text-sm font-semibold text-white leading-tight">
+                    {b.name}
+                  </h3>
+                  <span className="text-white/70 text-[11px]">{b.ages}</span>
+                </div>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Desktop: Full Image Cards */}
+      <div className="hidden md:grid md:grid-cols-2 gap-6 max-w-5xl mx-auto mb-12">
         {(["matata", "microbit"] as const).map((key) => {
           const b = brands[key];
           const c = colorMap[b.color];
@@ -183,13 +221,13 @@ export default function BrandSwitcher({
                   : "border-gray-100 hover:shadow-md opacity-70 hover:opacity-100"
               }`}
             >
-              <div className="relative h-44 sm:h-52 overflow-hidden">
+              <div className="relative h-52 overflow-hidden">
                 <Image
                   src={b.image}
                   alt={b.imageAlt}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  sizes="50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
