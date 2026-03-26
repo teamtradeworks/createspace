@@ -292,7 +292,6 @@ export default function Home() {
             {/* Testimonials Grid */}
             <div
               className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             >
               {[
                 {

@@ -149,7 +149,6 @@ export default function FeaturedProducts({
               <div className="md:hidden -mx-4">
                 <div
                   className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 pb-4"
-                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                 >
                   {products.map((product, index) => (
                     <div
