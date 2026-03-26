@@ -69,8 +69,7 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-2xl font-semibold text-navy mb-4">Our Vision</h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  To ignite a passion for science, technology, engineering, and mathematics
-                  in every young mind—transforming curiosity into capability and dreams into reality.
+                  To ignite a passion for science, technology, engineering and mathematics.
                 </p>
               </div>
             </div>
@@ -86,102 +85,12 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-2xl font-semibold text-navy mb-4">Our Mission</h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  To provide carefully curated, top-quality STEM products and programmes that
-                  inspire learning through hands-on discovery. We make science exciting, accessible,
-                  and fun—sparking a lifelong love for innovation.
+                  To provide a curated range of top-shelf educational products and programmes
+                  to inspire and educate young minds in science, technology, engineering and
+                  mathematics. We aim to spark a passion and positive attitude towards the
+                  sciences from an early age as we believe this can foster curiosity, build
+                  appreciation for STEM, and open new worlds of opportunity.
                 </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Section */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
-        {/* Decorative illustrations */}
-        <div className="hidden lg:block absolute left-10 top-20 w-20 h-20 opacity-15">
-          <Image
-            src="/images/illustrations/beaker.png"
-            alt=""
-            width={80}
-            height={80}
-            className="object-contain"
-          />
-        </div>
-        <div className="hidden lg:block absolute right-10 bottom-20 w-24 h-24 opacity-15">
-          <Image
-            src="/images/illustrations/microscope.png"
-            alt=""
-            width={96}
-            height={96}
-            className="object-contain"
-          />
-        </div>
-
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-              Our Story
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-6">
-              From a Spark to a Mission
-            </h2>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                CREATESPACE began in 2021 when our founder Dave launched Robotico,
-                initially selling robotics and electronics kits to fellow enthusiasts.
-                What started as a passion project quickly grew into something bigger.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                As we connected with more families and educators, we realised there was
-                a real hunger for quality STEM resources in South Africa. Parents wanted
-                educational products that were genuinely engaging—not just toys that would
-                be forgotten in a week. Teachers needed materials that aligned with their
-                curriculum and actually worked.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                This insight led to the evolution from Robotico to CREATESPACE: a curated
-                destination for the best STEM products and programmes, backed by real expertise
-                and a genuine commitment to education.
-              </p>
-            </div>
-
-            {/* Founder Quote */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg relative">
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-cs-orange rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-                </svg>
-              </div>
-              <blockquote className="text-gray-700 text-lg leading-relaxed mb-6">
-                Growing up, I struggled to connect with maths and science. They felt abstract
-                and disconnected from anything I cared about. Then something changed—I discovered
-                programming and electronics, and suddenly these subjects came alive. I could
-                build things, solve real problems, and see the direct impact of what I was learning.
-                <br /><br />
-                That shift sparked a passion that shaped my entire career in software engineering
-                and entrepreneurship. I founded CREATESPACE because I want every child to
-                experience that same moment of discovery—to find that spark that transforms
-                STEM from a chore into an adventure.
-              </blockquote>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-navy rounded-full flex items-center justify-center text-white font-semibold">
-                  DN
-                </div>
-                <div>
-                  <Link
-                    href="https://www.linkedin.com/in/davenewza/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-semibold text-navy hover:text-cs-orange transition-colors"
-                  >
-                    Dave New
-                  </Link>
-                  <p className="text-sm text-gray-500">Founder, CREATESPACE</p>
-                </div>
               </div>
             </div>
           </div>
@@ -264,6 +173,28 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* What Sets Us Apart Section */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
+              What Sets Us Apart
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-6">
+              More Than a Toy Store
+            </h2>
+            <p className="text-gray-600 text-lg leading-relaxed">
+              We are the trusted and preferred store for STEM-related products and
+              programmes. Unlike general toy stores, we specialise in STEM education
+              and have carefully curated a selection of products that offer a hands-on,
+              guided experience that is not just fun, but also educational. We take
+              the time to understand each product&apos;s target age group and educational
+              value, ensuring that every item has the greatest impact possible.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section className="py-20 bg-navy text-white relative overflow-hidden">
         {/* Decorative illustrations */}
@@ -310,7 +241,7 @@ export default function AboutPage() {
                 ),
                 title: "Curiosity",
                 description:
-                  "We nurture a lifelong love for exploration and discovery. Through hands-on experiences, we empower young minds to ask questions, think critically, and create boldly.",
+                  "We nurture a lifelong love for exploration, discovery, and problem-solving. By offering hands-on experiences, we empower young minds to ask questions, think critically, and create boldly.",
               },
               {
                 icon: (
@@ -320,7 +251,7 @@ export default function AboutPage() {
                 ),
                 title: "Excellence",
                 description:
-                  "We&apos;re committed to providing only the highest-quality STEM products that genuinely inspire. Every item we stock meets our rigorous standards for education and engagement.",
+                  "We are committed to providing only the highest-quality STEM products that truly inspire learning and engagement. We stand behind our products and our approach, ensuring they meet the highest standards of education and enjoyment.",
               },
               {
                 icon: (
@@ -330,7 +261,7 @@ export default function AboutPage() {
                 ),
                 title: "Impact",
                 description:
-                  "We believe STEM education shapes futures. Every product and programme we offer is designed to make a meaningful difference in a child&apos;s growth and confidence.",
+                  "We believe STEM education can shape futures. Every product and programme we offer is designed to make a meaningful difference in a child's growth, helping them build confidence and skills in science, technology, engineering, and mathematics.",
               },
               {
                 icon: (
@@ -340,7 +271,7 @@ export default function AboutPage() {
                 ),
                 title: "Trust",
                 description:
-                  "We build trust through transparency and reliability. Parents and educators can count on us to provide resources that are genuinely educational and beneficial.",
+                  "We build trust through transparency, reliability, and a passion for education. Parents, educators, and learners can count on us to provide resources that are not only fun, but also genuinely educational and beneficial.",
               },
             ].map((value, index) => (
               <div key={index} className="text-center">
@@ -370,11 +301,10 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "Play is a powerful tool for learning and discovery.",
-              "Early STEM engagement sparks lifelong curiosity.",
-              "Science isn't boring—it's exciting and engaging when taught right.",
-              "STEM is for everyone, regardless of background, gender, or ability.",
-              "Parents and educators are essential partners in nurturing innovators.",
-              "Hands-on experience beats passive learning every time.",
+              "Early STEM engagement can spark a lifelong curiosity and appreciation for the sciences.",
+              "It's important to challenge the misconception that the sciences are boring; STEM is exciting and engaging.",
+              "STEM is for everyone—regardless of background, gender, or ability.",
+              "Both parents and educators are important partners in nurturing the next generation of innovators.",
             ].map((belief, index) => (
               <div
                 key={index}
