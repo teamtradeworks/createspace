@@ -270,8 +270,25 @@ export function CustomerShowcase({
             </div>
           )}
 
-          {/* Images */}
-          {renderImages()}
+          {/* Images — mobile: horizontal scroll */}
+          <div className="md:hidden -mx-4 px-4 pb-4 overflow-x-auto flex gap-4 snap-x snap-mandatory">
+            {images.map((image, index) => (
+              <div key={index} className="flex-shrink-0 w-[200px] aspect-square snap-start">
+                <ImageCard
+                  image={image}
+                  isHovered={hoveredIndex === index}
+                  onHover={() => setHoveredIndex(index)}
+                  onLeave={() => setHoveredIndex(null)}
+                  className="h-full"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Images — desktop: multi-layout grid */}
+          <div className="hidden md:block">
+            {renderImages()}
+          </div>
         </div>
       </section>
     </SectionTracker>

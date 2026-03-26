@@ -182,9 +182,9 @@ export function FeatureGrid({
           </div>
 
           {/* Features Grid */}
-          <div className={`grid grid-cols-1 ${gridCols} gap-6`}>
+          <div className={`-mx-4 px-4 pb-4 overflow-x-auto flex gap-4 snap-x snap-mandatory md:mx-0 md:px-0 md:pb-0 md:overflow-visible md:grid ${gridCols} md:gap-6`}>
             {features.map((feature, index) => (
-              <div key={index} className={`${cardBg} rounded-xl p-6 text-center`}>
+              <div key={index} className={`${cardBg} rounded-xl p-6 text-center flex-shrink-0 w-[260px] snap-start md:w-auto`}>
                 {/* Icon */}
                 <div
                   className={`w-14 h-14 ${iconBg} rounded-full flex items-center justify-center mx-auto mb-4`}
