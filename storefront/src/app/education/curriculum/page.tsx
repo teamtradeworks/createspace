@@ -302,79 +302,107 @@ export default function CurriculumPage() {
       {/* Hero Section */}
       <section className="bg-navy text-white py-20 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <Link
-              href="/education"
-              className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
+          <Link
+            href="/education"
+            className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
+          >
+            <svg
+              className="w-4 h-4 mr-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-              Education
-            </Link>
-            <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-              In Partnership with Inspire Africa
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
-              Coding &amp; Robotics Curriculum for Schools
-            </h1>
-            <p className="text-xl text-white/80 max-w-xl mb-4">
-              A complete, CAPS-aligned coding and robotics programme for your
-              school — from Grade R to 12. Includes online teacher training,
-              ready-to-use lesson plans, and SACE-accredited certification.
-              Everything your school needs to deliver coding and robotics
-              independently.
-            </p>
-            <p className="text-white/60 mb-8">
-              Your teachers don&apos;t need prior coding experience. The
-              programme is designed to upskill any educator, from complete
-              beginners to experienced staff.
-            </p>
-            <div className="flex flex-wrap gap-4">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Education
+          </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
+                In Partnership with Inspire Africa
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
+                Coding &amp; Robotics Curriculum for Schools
+              </h1>
+              <p className="text-xl text-white/80 mb-4">
+                Unlike hiring external facilitators, this programme empowers
+                your own teachers to deliver coding and robotics — from Grade R
+                to 12. Once trained, your educators have the skills, lesson
+                plans, and confidence to teach STEM year after year.
+              </p>
+              <p className="text-white/60 mb-6">
+                The training is self-paced and CAPS-aligned, so it slots
+                directly into your school timetable. No prior coding experience
+                needed.
+              </p>
+              <ul className="space-y-2 mb-8">
+                {[
+                  "Teach coding and robotics without hiring specialist staff",
+                  "Meet CAPS requirements for Coding & Robotics",
+                  "Give teachers SACE-accredited professional development",
+                  "Build a sustainable, long-term STEM programme",
+                ].map((item) => (
+                  <li key={item} className="flex items-start text-white/80">
+                    <svg
+                      className="w-5 h-5 text-cs-blue mr-2 mt-0.5 shrink-0"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
               <Link
                 href="/contact"
                 className="inline-flex items-center px-8 py-4 bg-cs-blue hover:bg-cs-blue/90 text-white rounded-lg font-semibold transition-colors"
               >
-                Get Started
+                Contact Us
               </Link>
-              <a
-                href="https://inspire.africa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg font-semibold transition-colors"
-              >
-                Visit Inspire Africa
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                {
+                  stat: "Grade R–12",
+                  label: "Full curriculum coverage",
+                },
+                {
+                  stat: "CAPS",
+                  label: "Fully aligned to national curriculum",
+                },
+                {
+                  stat: "SACE",
+                  label: "Accredited teacher certification",
+                },
+                {
+                  stat: "Self-Paced",
+                  label: "Teachers train on their own schedule",
+                },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
+                  <p className="text-2xl font-bold text-cs-blue mb-1">
+                    {item.stat}
+                  </p>
+                  <p className="text-white/70 text-sm">{item.label}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
-        {/* Decorative elements */}
-        <div className="hidden lg:block absolute right-20 top-1/2 -translate-y-1/2">
-          <div className="w-64 h-64 border-2 border-cs-blue/30 rounded-full" />
-          <div className="w-48 h-48 border-2 border-cs-blue/20 rounded-full absolute top-8 left-8" />
         </div>
       </section>
 
@@ -487,95 +515,6 @@ export default function CurriculumPage() {
         </div>
       </section>
 
-      {/* Why Schools Choose This */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-                Why This Programme
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-6">
-                Build Lasting STEM Capacity at Your School
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed">
-                Unlike hiring external facilitators, this programme empowers your
-                own teachers to deliver coding and robotics. Once trained, your
-                educators have the skills, lesson plans, and confidence to teach
-                STEM year after year — building sustainable capacity from within.
-              </p>
-              <p className="text-gray-600 mb-8 leading-relaxed">
-                The training is self-paced, so teachers fit it around their
-                existing schedule. And because everything is CAPS-aligned, there
-                is no guesswork about what to teach or when — it slots directly
-                into your school timetable.
-              </p>
-              <div className="bg-cs-blue/10 rounded-xl p-6">
-                <h4 className="font-semibold text-navy mb-3">
-                  Ideal for schools who want to:
-                </h4>
-                <ul className="space-y-2">
-                  {[
-                    "Teach coding and robotics without hiring specialist staff",
-                    "Meet CAPS requirements for Coding & Robotics",
-                    "Give teachers SACE-accredited professional development",
-                    "Build a sustainable, long-term STEM programme",
-                    "Start from scratch — no prior experience required",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start text-gray-700">
-                      <svg
-                        className="w-5 h-5 text-cs-blue mr-2 mt-0.5 shrink-0"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                {
-                  stat: "Grade R–12",
-                  label: "Full curriculum coverage",
-                },
-                {
-                  stat: "CAPS",
-                  label: "Fully aligned to national curriculum",
-                },
-                {
-                  stat: "SACE",
-                  label: "Accredited teacher certification",
-                },
-                {
-                  stat: "Self-Paced",
-                  label: "Teachers train on their own schedule",
-                },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-white border border-gray-100 rounded-xl p-6 shadow-sm text-center"
-                >
-                  <p className="text-2xl font-bold text-cs-blue mb-1">
-                    {item.stat}
-                  </p>
-                  <p className="text-gray-600 text-sm">{item.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonials */}
       <section className="py-20 bg-navy text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -643,8 +582,8 @@ export default function CurriculumPage() {
                 Ready to Bring Coding &amp; Robotics to Your School?
               </h2>
               <p className="text-white/90">
-                Contact us to learn more about the Inspire Africa curriculum,
-                teacher training, and how to get your school started.
+                Get in touch and we&apos;ll help you find the right curriculum
+                pathway, hardware, and training plan for your school.
               </p>
             </div>
             <div className="flex flex-wrap gap-4 md:justify-end">
@@ -654,27 +593,6 @@ export default function CurriculumPage() {
               >
                 Contact Us
               </Link>
-              <a
-                href="https://inspire.africa/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg font-semibold transition-colors"
-              >
-                Visit Inspire Africa
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
