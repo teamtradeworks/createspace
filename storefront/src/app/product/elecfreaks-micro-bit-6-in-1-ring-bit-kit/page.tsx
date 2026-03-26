@@ -129,7 +129,7 @@ export default async function RingBitBricksPackPage() {
               "All connections use colour-coded GVS plug-and-play ports. Safe and clean for children, with no special tools needed.",
           },
           {
-            icon: "globe",
+            icon: "cloud",
             title: "Free Online Tutorials",
             description:
               "Every project has a full assembly guide and coding program on the ELECFREAKS wiki — always accessible, always free.",

@@ -95,7 +95,7 @@ export default async function UltimateUnoR3StarterKitPage() {
               "33 illustrated lessons covering every component in the kit, from LED basics to RFID access systems",
           },
           {
-            icon: "puzzle",
+            icon: "no-solder",
             title: "No Soldering Required",
             description:
               "All modules are pre-soldered and ready to use. Connect components with jumper wires and start building",
@@ -113,13 +113,13 @@ export default async function UltimateUnoR3StarterKitPage() {
               "RFID, gyroscope, PIR motion, ultrasonic, real-time clock — components that unlock genuinely impressive projects",
           },
           {
-            icon: "globe",
+            icon: "community",
             title: "Massive Community",
             description:
               "Once the guide is done, millions of free projects, tutorials, and forums open up — the learning never has to stop",
           },
           {
-            icon: "shield",
+            icon: "badget-check",
             title: "Full Arduino Compatibility",
             description:
               "Every component is 100% Arduino-compatible. Add more sensors, shields, and modules as your child's skills grow",

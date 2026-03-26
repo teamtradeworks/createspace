@@ -115,7 +115,7 @@ export default async function ElecfreaksTinkerKitPage() {
               "Projects range from a simple alarm box to a self-driving car and a Morse code transmitter.",
           },
           {
-            icon: "globe",
+            icon: "layers",
             title: "Expandable Ecosystem",
             description:
               "The Octopus platform has hundreds of compatible sensors. Add ultrasonic, colour, or temperature modules as skills grow.",

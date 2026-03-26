@@ -118,7 +118,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
               "Cubes, gears, axles, and connectors made from smooth-edged, non-toxic ABS plastic built to last through years of play.",
           },
           {
-            icon: "shield",
+            icon: "octagon-xmark",
             title: "No Coding or Batteries",
             description:
               "Accessible from the start. Your child builds, assembles, and watches mechanics come alive — no tech knowledge needed.",
@@ -130,7 +130,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
               "The Makerzoid app (iOS & Android) offers step-by-step 3D instructions so children can build independently with confidence.",
           },
           {
-            icon: "globe",
+            icon: "compatible",
             title: "LEGO Compatible",
             description:
               "Works with LEGO-compatible sets your family may already own — extending play possibilities beyond the 100+ official models.",

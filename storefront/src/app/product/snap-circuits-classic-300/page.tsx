@@ -102,7 +102,7 @@ export default async function SnapCircuitsClassic300Page() {
               "Components snap together on a grid board — no soldering, no glue, no special tools of any kind.",
           },
           {
-            icon: "shield",
+            icon: "octagon-check",
             title: "CircuitSafe® Technology",
             description:
               "Patented overcurrent protection means incorrect wiring won't damage components or frustrate your child.",
@@ -120,7 +120,7 @@ export default async function SnapCircuitsClassic300Page() {
               "Toy of the Year, Good Housekeeping's Best Toy, and NAPPA Gold — among more than a dozen industry awards.",
           },
           {
-            icon: "globe",
+            icon: "layers",
             title: "Expandable Ecosystem",
             description:
               "Compatible with all Snap Circuits sets. Upgrade to SC-500 or SC-750 when your child is ready for even more.",

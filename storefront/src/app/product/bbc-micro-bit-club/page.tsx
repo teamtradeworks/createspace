@@ -104,7 +104,7 @@ export default async function BbcMicroBitClubPage() {
               "Every board is fully self-contained with cable and batteries. All 10 learners code at the same time — no rotation, no sharing.",
           },
           {
-            icon: "globe",
+            icon: "cross-device",
             title: "Works from Any Browser",
             description:
               "MakeCode and MicroPython run entirely online. No app installs, no software licences — just open a browser on Windows, Mac, Chromebook, or tablet.",

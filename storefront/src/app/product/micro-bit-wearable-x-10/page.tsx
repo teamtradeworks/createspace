@@ -94,7 +94,7 @@ export default async function MicroBitWearableX10Page() {
               "Equip a full group simultaneously. Every learner gets identical equipment, making group activities and comparisons straightforward.",
           },
           {
-            icon: "shield",
+            icon: "badget-check",
             title: "Official BBC micro:bit Product",
             description:
               "Manufactured by the Micro:bit Educational Foundation — the same organisation behind the board itself. Maximum compatibility guaranteed.",

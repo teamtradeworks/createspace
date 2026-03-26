@@ -120,7 +120,7 @@ export default async function SnapCircuitsArcadePage() {
               "Every module is numbered, colour-coded, and printed with its own schematic symbol. The finished circuit looks just like the diagram.",
           },
           {
-            icon: "globe",
+            icon: "layers",
             title: "Expandable System",
             description:
               "Components work across all Snap Circuits kits. This kit is an entry point into an entire product family — add kits as confidence grows.",

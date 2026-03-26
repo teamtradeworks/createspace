@@ -112,7 +112,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
             description: "2D and 3D step-by-step guides make building intuitive and engaging",
           },
           {
-            icon: "globe",
+            icon: "mind",
             title: "Cross-Curricular Learning",
             description: "Integrates maths, language, art, and STEM concepts in every project",
           },

@@ -96,7 +96,7 @@ export default async function ArduinoIoTBundlePage() {
               "The Arduino Nano RP2040 Connect has wireless connectivity on-board — no extra shields or modules to buy.",
           },
           {
-            icon: "globe",
+            icon: "cloud-platform",
             title: "Free Cloud Platform",
             description:
               "All 5 projects work with the free Arduino IoT Cloud plan. Build dashboards, monitor sensors, and control devices remotely.",

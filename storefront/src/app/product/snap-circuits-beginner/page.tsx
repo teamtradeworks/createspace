@@ -113,7 +113,7 @@ export default async function SnapCircuitsBeginnerPage() {
               "Large, colour-coded snap connectors are easy for small hands. No tools, no loose wires, no frustration.",
           },
           {
-            icon: "globe",
+            icon: "award",
             title: "Award-Winning Trust",
             description:
               "Winner of Toy of the Year, NAPPA Gold, Parent's Choice, and more. Trusted by parents and educators around the world.",
