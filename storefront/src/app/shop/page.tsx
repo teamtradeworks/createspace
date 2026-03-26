@@ -1,4 +1,4 @@
-import { getProducts } from "@/lib/shopify";
+import { getCollectionProducts } from "@/lib/shopify";
 import Link from "next/link";
 import { Metadata } from "next";
 import ShopGallery from "@/components/ShopGallery";
@@ -19,7 +19,7 @@ type Props = {
 
 export default async function ShopPage({ searchParams }: Props) {
   const { age, category, brand } = await searchParams;
-  const products = await getProducts(100);
+  const { products } = await getCollectionProducts("shop-all-headless", 100);
 
   return (
     <main className="min-h-screen bg-gray-50">

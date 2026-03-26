@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Image from "next/image";
-import { getProducts, Product } from "@/lib/shopify";
+import { getCollectionProducts, Product } from "@/lib/shopify";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
 import AgeGroups from "@/components/AgeGroups";
@@ -26,7 +26,7 @@ async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
 
   try {
-    allProducts = await getProducts(100);
+    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 100));
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
