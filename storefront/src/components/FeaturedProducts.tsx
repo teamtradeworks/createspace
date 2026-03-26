@@ -153,7 +153,7 @@ export default function FeaturedProducts({
                   {products.map((product, index) => (
                     <div
                       key={`${product.id}-${index}-mobile`}
-                      className="flex-none w-[82vw] snap-start"
+                      className="flex-none w-[72vw] snap-start"
                     >
                       <ProductCard product={product} />
                     </div>
