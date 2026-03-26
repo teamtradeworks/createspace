@@ -138,12 +138,15 @@ export default function TrustBadges({
 
   return (
     <section className={`py-16 border-y border-gray-100 ${className}`}>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-10 md:gap-14">
+      <div className="mx-auto max-w-7xl">
+        <div
+          className="flex md:flex-wrap md:justify-center gap-8 md:gap-10 lg:gap-14 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 lg:px-8 pb-3 md:pb-0"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
           {badges.map((badge) => (
             <div
               key={badge.id}
-              className="flex flex-col items-center text-center w-[calc(50%-16px)] md:w-auto md:min-w-[150px]"
+              className="flex-none flex flex-col items-center text-center min-w-[130px] md:min-w-[150px] snap-start"
             >
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${badge.color} mb-3`}>
                 <Image
