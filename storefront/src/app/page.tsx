@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { getProducts, Product } from "@/lib/shopify";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
@@ -11,6 +10,7 @@ import EducationSection from "@/components/EducationSection";
 import HeroCarousel from "@/components/HeroCarousel";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import TrackedSection from "@/components/TrackedSection";
+import BrandLink from "@/components/BrandLink";
 
 export const metadata: Metadata = {
   title: "CREATESPACE | STEM Toys & Educational Kits for Kids in South Africa",
@@ -40,6 +40,13 @@ async function FeaturedProductsLoader() {
   };
 
   const productsByAge: Record<string, Product[]> = {};
+
+  // "All ages" tab shows every product that has an age metafield
+  productsByAge["all"] = allProducts.filter((product) => {
+    const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
+    return minAge !== null;
+  });
+
   for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
     productsByAge[groupId] = allProducts.filter((product) => {
       const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
@@ -226,13 +233,13 @@ export default function Home() {
 
                 if (brand.vendor) {
                   return (
-                    <Link
+                    <BrandLink
                       key={brand.name}
-                      href={`/shop?brand=${encodeURIComponent(brand.vendor)}`}
-                      className="hover:shadow-md transition-shadow rounded-xl"
+                      brand={brand.name}
+                      vendor={brand.vendor}
                     >
                       {card}
-                    </Link>
+                    </BrandLink>
                   );
                 }
 
@@ -381,43 +388,6 @@ export default function Home() {
         <EducationSection />
       </TrackedSection>
 
-      {/* CTA Section */}
-      <TrackedSection name="CTA" page="home">
-        <section className="bg-navy py-16 relative overflow-hidden">
-          {/* Decorative illustration */}
-          <div className="hidden lg:block absolute left-12 top-1/2 -translate-y-1/2 w-32 h-32 opacity-10">
-            <Image
-              src="/images/illustrations/robot-green.png"
-              alt=""
-              width={128}
-              height={128}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 className="text-3xl font-semibold text-white mb-4">Ready to Spark Curiosity?</h2>
-            <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-              Browse our collection of STEM kits and find the perfect gift for the young innovator
-              in your life.
-            </p>
-            <Link
-              href="/shop"
-              className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-lg font-semibold transition-colors"
-            >
-              Explore All Products
-              <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </Link>
-          </div>
-        </section>
-      </TrackedSection>
     </>
   );
 }

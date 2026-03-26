@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import posthog from "posthog-js";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 
@@ -12,6 +13,7 @@ type AgeGroup = {
 };
 
 const ageGroups: AgeGroup[] = [
+  { id: "all", label: "All Ages", range: "All" },
   { id: "3-5", label: "Early Explorers", range: "3-5" },
   { id: "6-8", label: "Junior Innovators", range: "6-8" },
   { id: "9-12", label: "Budding Engineers", range: "9-12" },
@@ -52,6 +54,11 @@ export default function FeaturedProducts({
   };
 
   const handleTabChange = (tabId: string) => {
+    const group = ageGroups.find((g) => g.id === tabId);
+    posthog.capture("featured_products_filter_clicked", {
+      age_group: tabId,
+      label: group?.label,
+    });
     setActiveTab(tabId);
     setCurrentIndex(0);
   };
@@ -82,7 +89,7 @@ export default function FeaturedProducts({
                     : "text-gray-600 hover:text-navy"
                 }`}
               >
-                {group.range} yrs
+                {group.id === "all" ? "All ages" : `${group.range} yrs`}
               </button>
             ))}
           </div>
@@ -174,10 +181,19 @@ export default function FeaturedProducts({
         {/* View All Link */}
         <div className="text-center mt-10">
           <Link
-            href={`/shop?age=${activeTab}`}
+            href={activeTab === "all" ? "/shop" : `/shop?age=${activeTab}`}
+            onClick={() => {
+              const group = ageGroups.find((g) => g.id === activeTab);
+              posthog.capture("featured_products_view_all_clicked", {
+                age_group: activeTab,
+                label: group?.label,
+              });
+            }}
             className="inline-flex items-center text-navy hover:text-cs-orange font-medium transition-colors"
           >
-            View all {ageGroups.find((g) => g.id === activeTab)?.label} products
+            {activeTab === "all"
+              ? "View all products"
+              : `View products for ages ${ageGroups.find((g) => g.id === activeTab)?.range}`}
             <svg
               className="w-5 h-5 ml-1"
               fill="none"

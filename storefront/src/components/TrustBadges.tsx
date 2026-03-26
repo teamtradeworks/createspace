@@ -137,9 +137,9 @@ export default function TrustBadges({
   }
 
   return (
-    <section className={`py-12 border-y border-gray-100 ${className}`}>
+    <section className={`py-16 border-y border-gray-100 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-8 md:gap-10">
+        <div className="flex flex-wrap justify-center gap-10 md:gap-14">
           {badges.map((badge) => (
             <div
               key={badge.id}

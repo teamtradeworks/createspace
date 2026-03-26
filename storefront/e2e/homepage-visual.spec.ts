@@ -107,20 +107,4 @@ test.describe("Homepage Visual Regression", () => {
       element: testimonials,
     });
   });
-
-  test("CTA section", async ({ page }) => {
-    await page.goto("/");
-    const cta = page
-      .locator("section")
-      .filter({ hasText: "Ready to Spark Curiosity?" })
-      .first();
-
-    await expect(cta).toBeVisible();
-    await prepareForScreenshot(page);
-    await cta.scrollIntoViewIfNeeded();
-
-    await argosScreenshot(page, "cta-section", {
-      element: cta,
-    });
-  });
 });
