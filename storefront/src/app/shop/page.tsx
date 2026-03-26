@@ -19,7 +19,27 @@ type Props = {
 
 export default async function ShopPage({ searchParams }: Props) {
   const { age, category, brand } = await searchParams;
-  const { products } = await getCollectionProducts("shop-all-headless", 100);
+
+  const [
+    { products },
+    { products: age35Products },
+    { products: age68Products },
+    { products: age912Products },
+    { products: age13Products },
+  ] = await Promise.all([
+    getCollectionProducts("shop-all-headless", 100),
+    getCollectionProducts("age-3-5", 100),
+    getCollectionProducts("age-6-8", 100),
+    getCollectionProducts("ages-9-12", 100),
+    getCollectionProducts("ages-13", 100),
+  ]);
+
+  const ageCollectionOrder: Record<string, string[]> = {
+    "3-5": age35Products.map((p) => p.handle),
+    "6-8": age68Products.map((p) => p.handle),
+    "9-12": age912Products.map((p) => p.handle),
+    "13+": age13Products.map((p) => p.handle),
+  };
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -38,7 +58,14 @@ export default async function ShopPage({ searchParams }: Props) {
       </div>
 
       {/* Products with inline filters */}
-      <ShopGallery products={products} initialAge={age} initialCategory={category} initialBrand={brand} key={`${age || "all"}-${category || "all"}-${brand || "all"}`} />
+      <ShopGallery
+        products={products}
+        ageCollectionOrder={ageCollectionOrder}
+        initialAge={age}
+        initialCategory={category}
+        initialBrand={brand}
+        key={`${age || "all"}-${category || "all"}-${brand || "all"}`}
+      />
     </main>
   );
 }

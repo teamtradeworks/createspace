@@ -24,12 +24,35 @@ export const metadata: Metadata = {
 // Async component that fetches and renders featured products
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
+  let age35Products: Product[] = [];
+  let age68Products: Product[] = [];
+  let age912Products: Product[] = [];
+  let age13Products: Product[] = [];
 
   try {
-    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 100));
+    ([
+      { products: allProducts },
+      { products: age35Products },
+      { products: age68Products },
+      { products: age912Products },
+      { products: age13Products },
+    ] = await Promise.all([
+      getCollectionProducts("shop-all-headless", 100),
+      getCollectionProducts("age-3-5", 100),
+      getCollectionProducts("age-6-8", 100),
+      getCollectionProducts("ages-9-12", 100),
+      getCollectionProducts("ages-13", 100),
+    ]));
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
+
+  const ageCollectionHandles: Record<string, string[]> = {
+    "3-5": age35Products.map((p) => p.handle),
+    "6-8": age68Products.map((p) => p.handle),
+    "9-12": age912Products.map((p) => p.handle),
+    "13+": age13Products.map((p) => p.handle),
+  };
 
   // Filter products by age metafields — show if the product's age range overlaps with the group's range
   const ageRanges: Record<string, [number, number]> = {
@@ -48,13 +71,25 @@ async function FeaturedProductsLoader() {
   });
 
   for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
-    productsByAge[groupId] = allProducts.filter((product) => {
+    const filtered = allProducts.filter((product) => {
       const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
       if (minAge === null) return false;
       const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
       const productMax = maxAge ?? Infinity;
       return minAge <= maxRange && productMax >= minRange;
     });
+
+    // Sort by the age-specific collection order
+    const orderMap = new Map(
+      ageCollectionHandles[groupId].map((handle, i) => [handle, i])
+    );
+    filtered.sort((a, b) => {
+      const posA = orderMap.get(a.handle) ?? Infinity;
+      const posB = orderMap.get(b.handle) ?? Infinity;
+      return posA - posB;
+    });
+
+    productsByAge[groupId] = filtered;
   }
 
   return <FeaturedProducts productsByAge={productsByAge} />;

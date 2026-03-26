@@ -7,6 +7,7 @@ import TrustBadges from "@/components/TrustBadges";
 
 interface ShopGalleryProps {
   products: Product[];
+  ageCollectionOrder?: Record<string, string[]>;
   initialAge?: string;
   initialCategory?: string;
   initialBrand?: string;
@@ -45,6 +46,7 @@ const categories = [
 
 export default function ShopGallery({
   products,
+  ageCollectionOrder,
   initialAge,
   initialCategory,
   initialBrand,
@@ -138,11 +140,22 @@ export default function ShopGallery({
         result.sort((a, b) => b.title.localeCompare(a.title));
         break;
       default:
+        // When exactly one age group is selected, sort by that collection's order
+        if (selectedAges.length === 1 && ageCollectionOrder?.[selectedAges[0]]?.length) {
+          const orderMap = new Map(
+            ageCollectionOrder[selectedAges[0]].map((handle, i) => [handle, i])
+          );
+          result.sort((a, b) => {
+            const posA = orderMap.get(a.handle) ?? Infinity;
+            const posB = orderMap.get(b.handle) ?? Infinity;
+            return posA - posB;
+          });
+        }
         break;
     }
 
     return result;
-  }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
+  }, [products, ageCollectionOrder, selectedAges, selectedCategories, selectedBrands, sortBy]);
 
   const hasActiveFilters =
     selectedAges.length > 0 ||
