@@ -25,7 +25,7 @@ const phases = [
     title: "Intermediate Phase",
     grades: "Grade 4 – 7",
     description:
-      "Learners get hands-on with LEGO building elements and intuitive drag-and-drop coding using Scratch and Sphero Edu. Designed to develop critical thinking at every learning level.",
+      "Learners get hands-on with Makerzoid robotics kits and intuitive block-based coding. Designed to develop critical thinking at every learning level.",
     color: "bg-cs-blue",
     image: "/images/education/stem-tutors/two-children-robotics-kits.jpg",
     imageAlt: "Two children in school uniform working with robotics kits",
@@ -86,27 +86,6 @@ export default function StemTutorsPage() {
                 >
                   Book a Session
                 </Link>
-                <a
-                  href="https://robotixkids.co.za/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg font-semibold transition-colors"
-                >
-                  Visit Robotixkids
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
               </div>
             </div>
             <div className="hidden lg:block">
@@ -149,9 +128,9 @@ export default function StemTutorsPage() {
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Learners explore robotics, coding, and creative
-                problem-solving through hands-on activities using tools like
-                LEGO, Scratch, and Sphero. Every session is designed to be fun
-                first and educational by design.
+                problem-solving through hands-on activities using Makerzoid
+                kits. Every session is designed to be fun first and educational
+                by design.
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Through our partnership with Robotixkids, CREATESPACE makes it
@@ -211,7 +190,7 @@ export default function StemTutorsPage() {
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                   <Image
                     src="/images/education/stem-tutors/boys-building-lego-kits.jpg"
-                    alt="Two boys building with LEGO robotics kits at their desks"
+                    alt="Two boys building with Makerzoid robotics kits at their desks"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 25vw"
@@ -262,7 +241,7 @@ export default function StemTutorsPage() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/images/education/stem-tutors/foundation-phase-group-building.jpg"
-                alt="Young children sitting together building with LEGO robotics kits"
+                alt="Young children sitting together building with Makerzoid robotics kits"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -335,7 +314,7 @@ export default function StemTutorsPage() {
           {[
             {
               src: "/images/education/stem-tutors/boy-sitting-lego-kit-floor.jpg",
-              alt: "Boy sitting on the floor focused on his LEGO robotics kit",
+              alt: "Boy sitting on the floor focused on his Makerzoid robotics kit",
             },
             {
               src: "/images/education/stem-tutors/boy-building-robot-tablet-event.jpg",
@@ -464,27 +443,6 @@ export default function StemTutorsPage() {
               >
                 Get in Touch
               </Link>
-              <a
-                href="https://robotixkids.co.za/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg font-semibold transition-colors"
-              >
-                Visit Robotixkids
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
