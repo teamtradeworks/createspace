@@ -211,9 +211,21 @@ Grid of features with icons. Good for highlighting key selling points.
 ```
 
 **Available icons:**
-`code`, `sensor`, `battery`, `book`, `app`, `tools`, `lightbulb`, `puzzle`, `brain`, `globe`, `shield`, `robot`, `wifi`, `star`, `music`, `microphone`, `compass`, `touch`, `bluetooth`
+Icons are rendered using SVG files from `public/images/icons/`. Use any of the following names:
 
-Can also use image paths (e.g., `/images/icons/custom.svg`).
+| Category | Icons |
+|----------|-------|
+| Coding & Tech | `code`, `cpu`, `brain`, `robot`, `sensor`, `wifi`, `bluetooth`, `radio`, `app`, `display`, `ai` |
+| Learning | `book`, `guide`, `lightbulb`, `compass`, `pencil`, `layers`, `thought-bubble`, `mind` |
+| Activities | `puzzle`, `blocks`, `building-blocks`, `tools`, `tool`, `dice` |
+| Power | `battery`, `zap`, `sun`, `plug` |
+| People | `users`, `age`, `globe`, `map`, `handshake` |
+| Achievement | `star`, `award`, `shield`, `target`, `rocket`, `medal`, `podium` |
+| Media | `music`, `microphone`, `camera`, `eye`, `video` |
+| Data | `chart`, `activity`, `progress` |
+| Misc | `time`, `clock`, `calendar`, `refresh-cw`, `refresh`, `sparkles`, `palette`, `no-solder`, `touch`, `tag`, `math`, `temperature`, `robotic`, `arm`, `smile` |
+
+Can also use image paths (e.g., `/images/icons/custom.svg`) or add new SVG files to `public/images/icons/`.
 
 **Example:**
 ```tsx

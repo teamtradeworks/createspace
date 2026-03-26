@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getProductByHandle, formatPrice, getProductRating, getStockStatus } from "@/lib/shopify";
 import siteConfig from "@/config/site.json";
 import { StarRating } from "@/components/StarRating";
@@ -313,19 +314,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       />
                     </svg>
                   ) : feature.icon === "no-solder" ? (
-                    <svg
-                      className="w-6 h-6 text-cs-blue"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
+                    <Image src="/images/icons/welding.svg" alt="" width={24} height={24} className="w-6 h-6" />
                   ) : (
                     <svg
                       className="w-6 h-6 text-cs-blue"

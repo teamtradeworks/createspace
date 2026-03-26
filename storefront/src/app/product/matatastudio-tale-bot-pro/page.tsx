@@ -97,7 +97,7 @@ export default async function TaleBotProPage() {
               "Record up to 30 seconds of storytelling per file — develop language skills and creative expression",
           },
           {
-            icon: "globe",
+            icon: "language",
             title: "11 Languages Supported",
             description:
               "Speaks English, French, German, Spanish, Mandarin, and more — perfect for multilingual learning",

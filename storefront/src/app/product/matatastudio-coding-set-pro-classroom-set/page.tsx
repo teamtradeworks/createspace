@@ -90,7 +90,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         subtitle="Six Coding Set Pro kits plus complete teacher resources — everything your classroom needs for hands-on coding, right out of the box."
         features={[
           {
-            icon: "shield",
+            icon: "octagon-xmark",
             title: "Fully Screen-Free",
             description:
               "No tablets, apps, computers, or internet required. Learners programme the MatataBot using physical coding blocks — no reading skills needed from age 4.",

@@ -43,9 +43,9 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           { icon: "time", label: "Duration", value: "8-12 Hours" },
           { icon: "age", label: "Audience", value: "Educators" },
           { icon: "tag", label: "SACE Accredited", value: "CPD Points" },
-          { icon: "app", label: "Coding Platform", value: "MakeCode" },
+          { icon: "scratch", label: "Coding Platform", value: "MakeCode" },
           { icon: "guide", label: "Phases", value: "Grade R – Grade 9" },
-          { icon: "tag", label: "Certificate", value: "On Completion" },
+          { icon: "award", label: "Certificate", value: "On Completion" },
           {
             icon: "app",
             label: "Access",

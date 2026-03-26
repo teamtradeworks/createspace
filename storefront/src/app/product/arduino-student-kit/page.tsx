@@ -98,7 +98,7 @@ export default async function ArduinoStudentKitPage() {
         subtitle="One kit, one platform, one clear path from complete beginner to confident maker."
         features={[
           {
-            icon: "globe",
+            icon: "cross-device",
             title: "Online Learning Platform",
             description:
               "Nine lessons and two projects on a dedicated platform — no worksheets, no guesswork, just guided learning.",

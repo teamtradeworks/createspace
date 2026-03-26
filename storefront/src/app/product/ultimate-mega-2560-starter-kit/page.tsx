@@ -119,7 +119,7 @@ export default async function UltimateMega2560StarterKitPage() {
               "All modules are pre-soldered. Just connect with jumper wires and start building — no extra tools, no safety concerns.",
           },
           {
-            icon: "globe",
+            icon: "open-source",
             title: "Arduino Compatible",
             description:
               "Every component works with any Arduino board, unlocking access to thousands of free community projects and tutorials online.",

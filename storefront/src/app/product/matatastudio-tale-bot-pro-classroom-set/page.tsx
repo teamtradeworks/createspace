@@ -108,7 +108,7 @@ export default async function TaleBotProClassroomSetPage() {
               "Six robots support groups of 3–4 learners simultaneously across a class of 18–24",
           },
           {
-            icon: "globe",
+            icon: "language",
             title: "11 Languages Supported",
             description:
               "Speaks English, Afrikaans context, French, Mandarin, and more — ideal for multilingual South African classrooms",

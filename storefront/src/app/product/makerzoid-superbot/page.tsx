@@ -122,7 +122,7 @@ export default async function MakerzoidSuperbotPage() {
               "The free Makerzoid app (iOS & Android) includes illustrated build instructions for every model — no paper manual to lose, always up to date.",
           },
           {
-            icon: "globe",
+            icon: "chess",
             title: "Race Your Friends",
             description:
               "Two Superbots can go head-to-head in battle racing mode — making this the perfect toy for playdates and holidays. Build yours, race theirs.",

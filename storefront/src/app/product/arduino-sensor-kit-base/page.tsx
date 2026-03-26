@@ -108,7 +108,7 @@ export default async function ArduinoSensorKitBasePage() {
               "Write actual code in the free Arduino IDE — the same tool used by engineers and makers worldwide.",
           },
           {
-            icon: "shield",
+            icon: "badget-check",
             title: "Official Arduino Product",
             description:
               "Made by Arduino, the globally trusted open-source electronics brand. High-quality hardware with ongoing platform support.",
@@ -120,7 +120,7 @@ export default async function ArduinoSensorKitBasePage() {
               "Each module introduces a completely different concept — from analog input to I2C communication to display output.",
           },
           {
-            icon: "globe",
+            icon: "layers",
             title: "Unlimited Expansion",
             description:
               "Combine modules for custom projects. Compatible with the entire Grove ecosystem — hundreds of additional sensors available.",

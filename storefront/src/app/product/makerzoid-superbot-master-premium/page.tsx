@@ -88,25 +88,25 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
         subtitle="The Superbot Master Premium packs more intelligence into a single hub than most kits twice its size."
         features={[
           {
-            icon: "robot",
+icon: "robot",
             title: "All-in-One Smart Controller",
             description:
               "Built-in motors, gyroscope, 25-LED matrix, microphone, and speaker in one hub — no wiring tangles, just build and code.",
           },
           {
-            icon: "sensor",
+            icon: "palette",
             title: "Colour Sensor",
             description:
               "Detects and reacts to colours in the real world. Build a colour-sorting machine or a robot that stops at a red line.",
           },
           {
-            icon: "compass",
+icon: "refresh",
             title: "3-Axis Gyroscope",
             description:
               "Measures tilt and orientation in three directions. Make balance bots, tilt-steered vehicles, and self-correcting platforms.",
           },
           {
-            icon: "wifi",
+icon: "wave",
             title: "Infrared Sensors (×2)",
             description:
               "Detect obstacles and proximity. Program a robot that navigates a room on its own — no joystick required.",

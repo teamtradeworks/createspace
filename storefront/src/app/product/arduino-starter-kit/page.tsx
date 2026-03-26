@@ -120,7 +120,7 @@ export default async function ArduinoStarterKitPage() {
               "LEDs, sensors, motors, buttons, and more - all quality components included",
           },
           {
-            icon: "globe",
+            icon: "cloud",
             title: "Free Online Resources",
             description: "Access additional tutorials, community forums, and project ideas",
           },

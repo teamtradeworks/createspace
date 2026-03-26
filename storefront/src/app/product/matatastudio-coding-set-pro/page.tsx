@@ -121,7 +121,7 @@ export default async function MatataStudioCodingSetProPage() {
               "5-hour battery life for MatataBot and Command Tower. USB-C charging included — no disposable batteries to buy or replace.",
           },
           {
-            icon: "blocks",
+            icon: "compatible",
             title: "LEGO® Compatible",
             description:
               "Integrate with your child's existing building blocks. Transform MatataBot into custom creations and add obstacles for endless new coding challenges.",

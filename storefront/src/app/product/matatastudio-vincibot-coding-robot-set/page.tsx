@@ -114,7 +114,7 @@ export default async function VinciBotPage() {
             description: "Respond to brightness for light-following and environmental projects",
           },
           {
-            icon: "volume-2",
+            icon: "microphone",
             title: "Sound Sensor",
             description: "Detects claps, voices, and music for sound-activated programs",
           },
@@ -125,7 +125,7 @@ export default async function VinciBotPage() {
               "1 transmitter + 2 receivers for remote control and robot-to-robot communication",
           },
           {
-            icon: "activity",
+            icon: "arrow-trend-up",
             title: "Line Follower Sensor",
             description: "Precisely tracks lines for maze challenges and drawing projects",
           },
