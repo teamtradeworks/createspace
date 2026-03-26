@@ -225,78 +225,6 @@ export default function BrandSwitcher({
         })}
       </div>
 
-      {/* At a Glance Comparison Table */}
-      <div className="max-w-4xl mx-auto mb-16">
-        <h3 className="text-xl font-semibold text-navy text-center mb-8">
-          At a Glance
-        </h3>
-        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-navy text-white">
-                  <th className="text-left py-4 px-6 font-semibold">
-                    &nbsp;
-                  </th>
-                  <th className="text-left py-4 px-6 font-semibold">
-                    MatataStudio
-                  </th>
-                  <th className="text-left py-4 px-6 font-semibold">
-                    BBC micro:bit
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="text-gray-700">
-                {[
-                  ["Best for ages", "3 – 12 years", "8 – 14 years"],
-                  [
-                    "School phases",
-                    "Foundation – Intermediate",
-                    "Intermediate – Senior",
-                  ],
-                  [
-                    "Coding approach",
-                    "Physical coding blocks (screen-free)",
-                    "Block-based (MakeCode) & Python",
-                  ],
-                  [
-                    "Screens required",
-                    "No (ages 3–9), Yes (ages 8+)",
-                    "Yes (computer or tablet)",
-                  ],
-                  [
-                    "Key strength",
-                    "Tangible, hands-on learning without screens",
-                    "Real-world sensors & physical computing",
-                  ],
-                  [
-                    "Subjects covered",
-                    "Coding, robotics, maths, storytelling, art, music",
-                    "Coding, electronics, science, maths, design",
-                  ],
-                  [
-                    "Expansion options",
-                    "Artist, Musician, Sensor, AI Vision add-ons",
-                    "100+ expansion kits, sensors, robot cars",
-                  ],
-                ].map(([label, matata, microbit], i) => (
-                  <tr
-                    key={label}
-                    className={`border-b border-gray-100 ${i % 2 === 1 ? "bg-gray-50" : ""}`}
-                  >
-                    <td className="py-3 px-6 font-medium text-navy">
-                      {label}
-                    </td>
-                    <td className="py-3 px-6">{matata}</td>
-                    <td className="py-3 px-6">{microbit}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-
       {/* Active Brand Content */}
       <div className="max-w-7xl mx-auto">
         {/* Brand Detail */}
@@ -384,6 +312,78 @@ export default function BrandSwitcher({
             </div>
           </div>
         )}
+      </div>
+
+      {/* At a Glance Comparison Table */}
+      <div className="max-w-4xl mx-auto mt-16">
+        <h3 className="text-xl font-semibold text-navy text-center mb-8">
+          At a Glance
+        </h3>
+        <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="bg-navy text-white">
+                  <th className="text-left py-4 px-6 font-semibold">
+                    &nbsp;
+                  </th>
+                  <th className="text-left py-4 px-6 font-semibold">
+                    MatataStudio
+                  </th>
+                  <th className="text-left py-4 px-6 font-semibold">
+                    BBC micro:bit
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="text-gray-700">
+                {[
+                  ["Best for ages", "3 – 12 years", "8 – 14 years"],
+                  [
+                    "School phases",
+                    "Foundation – Intermediate",
+                    "Intermediate – Senior",
+                  ],
+                  [
+                    "Coding approach",
+                    "Physical coding blocks (screen-free)",
+                    "Block-based (MakeCode) & Python",
+                  ],
+                  [
+                    "Screens required",
+                    "No (ages 3–9), Yes (ages 8+)",
+                    "Yes (computer or tablet)",
+                  ],
+                  [
+                    "Key strength",
+                    "Tangible, hands-on learning without screens",
+                    "Real-world sensors & physical computing",
+                  ],
+                  [
+                    "Subjects covered",
+                    "Coding, robotics, maths, storytelling, art, music",
+                    "Coding, electronics, science, maths, design",
+                  ],
+                  [
+                    "Expansion options",
+                    "Artist, Musician, Sensor, AI Vision add-ons",
+                    "100+ expansion kits, sensors, robot cars",
+                  ],
+                ].map(([label, matata, microbit], i) => (
+                  <tr
+                    key={label}
+                    className={`border-b border-gray-100 ${i % 2 === 1 ? "bg-gray-50" : ""}`}
+                  >
+                    <td className="py-3 px-6 font-medium text-navy">
+                      {label}
+                    </td>
+                    <td className="py-3 px-6">{matata}</td>
+                    <td className="py-3 px-6">{microbit}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   );
