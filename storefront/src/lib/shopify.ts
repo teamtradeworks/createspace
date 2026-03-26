@@ -219,7 +219,7 @@ const COLLECTION_PRODUCTS_QUERY = `
         url
         altText
       }
-      products(first: $first) {
+      products(first: $first, sortKey: COLLECTION_DEFAULT) {
         edges {
           node {
             id
