@@ -202,7 +202,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="What Our Community Has Built"
+        title="See What Others Are Creating"
         subtitle="Real families, real robots — see what your child could create"
         background="white"
         images={[

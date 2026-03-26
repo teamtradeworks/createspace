@@ -204,7 +204,7 @@ export default async function RingBitBricksPackPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="From the ELECFREAKS community — real builds and real code."
         images={[
           {

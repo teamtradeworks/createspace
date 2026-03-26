@@ -210,7 +210,7 @@ export default async function VinciBotClassroomSetPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="VinciBot in Action"
+        title="See What Others Are Creating"
         subtitle="From home learning to coding clubs and classrooms — VinciBot engages learners wherever they are."
         images={[
           {

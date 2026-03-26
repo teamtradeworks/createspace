@@ -203,7 +203,7 @@ export default async function MakerzoidSuperbotPage() {
 
       {/* Customer Photos */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="Real builds from families who've set theirs loose around the house."
         images={[
           {

@@ -198,7 +198,7 @@ export default async function ElecfreaksTinkerKitPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="Real projects built with the Tinker Kit — from classroom first builds to DIY home sensors."
         images={[
           {

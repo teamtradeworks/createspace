@@ -203,7 +203,7 @@ export default async function SnapCircuitsMyHomePage() {
 
       {/* Customer Showcase — all end-user photos */}
       <CustomerShowcase
-        title="What Families Are Building"
+        title="See What Others Are Creating"
         subtitle="Real Snap Circuits My Home builds from our community"
         images={[
           {

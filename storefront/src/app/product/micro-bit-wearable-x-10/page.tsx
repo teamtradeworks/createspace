@@ -140,7 +140,7 @@ export default async function MicroBitWearableX10Page() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Wearable Coding in Action"
+        title="See What Others Are Creating"
         subtitle="Learners wearing what they code — from fitness trackers to gesture controllers."
         images={[
           {

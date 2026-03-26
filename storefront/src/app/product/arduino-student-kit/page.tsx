@@ -204,7 +204,7 @@ export default async function ArduinoStudentKitPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="The Kit in Action"
+        title="See What Others Are Creating"
         subtitle="From unboxing to first circuit, every step is guided."
         images={[
           {

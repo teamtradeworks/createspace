@@ -209,7 +209,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See What's Possible"
+        title="See What Others Are Creating"
         subtitle="Real observations and discoveries from curious young scientists."
         images={[
           {

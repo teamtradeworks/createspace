@@ -197,7 +197,7 @@ export default async function NousAISetPage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="Real Families, Real Learning"
+        title="See What Others Are Creating"
         subtitle="See what students are building and learning with Nous AI"
         images={[
           {

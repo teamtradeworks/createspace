@@ -189,7 +189,7 @@ export default async function ArduinoSensorKitBasePage() {
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="Real builds from makers who started exactly where your child is now."
         images={[
           {

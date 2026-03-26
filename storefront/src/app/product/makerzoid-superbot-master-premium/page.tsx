@@ -193,7 +193,7 @@ icon: "wave",
 
       {/* Customer Showcase */}
       <CustomerShowcase
-        title="See It in Action"
+        title="See What Others Are Creating"
         subtitle="Real moments from kids building and programming their Superbots."
         images={[
           {
