@@ -205,7 +205,7 @@ export function HeroSection({
                         key={tag}
                         className="px-3 py-1 text-xs font-semibold bg-navy/10 text-navy rounded-full"
                       >
-                        {tag}
+                        {(tag.startsWith("category:") ? tag.slice("category:".length).replace(/-/g, " ") : tag).replace(/\b\w/g, (c) => c.toUpperCase())}
                       </span>
                     ))}
                   </div>
