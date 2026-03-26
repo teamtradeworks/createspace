@@ -178,10 +178,10 @@ export default function BrandSwitcher({
             <button
               key={key}
               onClick={() => setActive(key)}
-              className={`relative text-left bg-white rounded-xl border-2 overflow-hidden transition-all duration-200 ${
+              className={`relative text-left bg-white rounded-xl border-3 overflow-hidden transition-all duration-200 ${
                 isActive
-                  ? `${c.borderActive} shadow-md`
-                  : "border-gray-200 opacity-60"
+                  ? `${c.borderActive} shadow-md scale-[1.02]`
+                  : "border-gray-200"
               }`}
             >
               <div className="relative h-24 overflow-hidden">
@@ -189,7 +189,9 @@ export default function BrandSwitcher({
                   src={b.image}
                   alt={b.imageAlt}
                   fill
-                  className="object-cover"
+                  className={`object-cover transition-all duration-300 ${
+                    isActive ? "" : "grayscale opacity-50"
+                  }`}
                   sizes="50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-navy/20" />
@@ -197,7 +199,9 @@ export default function BrandSwitcher({
                   <h3 className="text-sm font-semibold text-white leading-tight">
                     {b.name}
                   </h3>
-                  <span className="text-white/70 text-[11px]">{b.ages}</span>
+                  <span className="text-white/70 text-[11px]">
+                    {isActive ? b.ages : "Tap to explore"}
+                  </span>
                 </div>
               </div>
             </button>
@@ -217,10 +221,10 @@ export default function BrandSwitcher({
               key={key}
               onMouseEnter={() => setActive(key)}
               onClick={() => setActive(key)}
-              className={`text-left bg-white rounded-2xl border-2 overflow-hidden transition-all duration-300 group ${
+              className={`text-left bg-white rounded-2xl border-3 overflow-hidden transition-all duration-300 group ${
                 isActive
-                  ? `${c.borderActive} shadow-lg`
-                  : "border-gray-100 hover:shadow-md opacity-70 hover:opacity-100"
+                  ? `${c.borderActive} shadow-lg scale-[1.02]`
+                  : "border-gray-200 hover:shadow-md"
               }`}
             >
               <div className="relative h-52 overflow-hidden">
@@ -228,32 +232,46 @@ export default function BrandSwitcher({
                   src={b.image}
                   alt={b.imageAlt}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className={`object-cover group-hover:scale-105 transition-all duration-300 ${
+                    isActive ? "" : "grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
+                  }`}
                   sizes="50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/70 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between">
                   <span
-                    className={`${c.ageBadgeBg} text-white text-xs font-semibold px-3 py-1 rounded-full`}
+                    className={`${isActive ? c.ageBadgeBg : "bg-gray-400"} text-white text-xs font-semibold px-3 py-1 rounded-full transition-colors duration-300`}
                   >
                     {b.ages}
                   </span>
-                  {isActive && (
-                    <span className="bg-white/90 text-navy text-xs font-semibold px-3 py-1 rounded-full">
-                      Viewing
-                    </span>
-                  )}
+                  <span
+                    className={`text-xs font-semibold px-3 py-1 rounded-full transition-all duration-300 ${
+                      isActive
+                        ? "bg-white/90 text-navy"
+                        : "bg-white/70 text-gray-500"
+                    }`}
+                  >
+                    {isActive ? "Viewing" : "Hover to explore"}
+                  </span>
                 </div>
               </div>
               <div className="p-5">
-                <h3 className="text-xl font-semibold text-navy mb-2">
+                <h3
+                  className={`text-xl font-semibold mb-2 transition-colors duration-300 ${
+                    isActive ? "text-navy" : "text-gray-400"
+                  }`}
+                >
                   {b.name}
                 </h3>
                 <div className="flex flex-wrap gap-1.5">
                   {b.tags.map((tag) => (
                     <span
                       key={tag}
-                      className={`${c.tagBg} ${c.tagText} text-xs font-medium px-2 py-0.5 rounded-full`}
+                      className={`text-xs font-medium px-2 py-0.5 rounded-full transition-colors duration-300 ${
+                        isActive
+                          ? `${c.tagBg} ${c.tagText}`
+                          : "bg-gray-100 text-gray-400"
+                      }`}
                     >
                       {tag}
                     </span>
