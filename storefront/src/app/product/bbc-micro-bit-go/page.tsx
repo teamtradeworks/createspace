@@ -116,7 +116,7 @@ export default async function MicrobitGoPage() {
               "Respond to sounds and voices. Create sound-activated projects and voice commands",
           },
           {
-            icon: "compass",
+            icon: "running",
             title: "Motion Sensors",
             description: "Accelerometer and compass detect movement, tilt, shaking, and direction",
           },
