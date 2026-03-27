@@ -71,12 +71,14 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
         <p className="text-sm text-gray-500 line-clamp-2 mb-2 sm:mb-4">
           {product.description || "Hands-on STEM learning kit"}
         </p>
-        {ratingData && (
-          <div className="flex items-center gap-1.5 mb-2 sm:mb-3">
-            <StarRating rating={ratingData.average} size="sm" />
-            <span className="text-xs text-gray-500">({ratingData.count})</span>
-          </div>
-        )}
+        <div className="flex items-center gap-1.5 mb-2 sm:mb-3 min-h-[20px]">
+          {ratingData && (
+            <>
+              <StarRating rating={ratingData.average} size="sm" />
+              <span className="text-xs text-gray-500">({ratingData.count})</span>
+            </>
+          )}
+        </div>
         <div className="flex items-center justify-between mt-auto">
           <span className="text-cs-orange font-bold">
             {formatPrice(price.amount, price.currencyCode)}

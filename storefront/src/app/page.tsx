@@ -290,7 +290,9 @@ export default function Home() {
             </div>
 
             {/* Testimonials Grid */}
-            <div className="grid md:grid-cols-3 gap-8">
+            <div
+              className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0"
+            >
               {[
                 {
                   quote:
@@ -314,7 +316,7 @@ export default function Home() {
                   rating: 5,
                 },
               ].map((testimonial, index) => (
-                <div key={index} className="bg-gray-50 rounded-2xl p-8 relative">
+                <div key={index} className="flex-none w-[82vw] md:w-auto snap-start bg-gray-50 rounded-2xl p-8 relative">
                   {/* Quote icon */}
                   <div className="absolute top-6 right-6 text-cs-orange/20">
                     <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">

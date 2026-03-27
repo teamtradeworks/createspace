@@ -8,7 +8,7 @@ test.describe("Homepage", () => {
 
   test("displays featured products", async ({ page }) => {
     await page.goto("/");
-    const productCards = page.locator('main a[href^="/product/"]');
+    const productCards = page.locator('main a[href^="/product/"]:visible');
     await expect(productCards.first()).toBeVisible();
   });
 

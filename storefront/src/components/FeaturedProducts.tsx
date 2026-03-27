@@ -97,11 +97,11 @@ export default function FeaturedProducts({
 
         {/* Products Carousel */}
         <div className="relative">
-          {/* Navigation Arrows */}
+          {/* Desktop-only Navigation Arrows */}
           {canGoPrev && (
             <button
               onClick={handlePrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
               aria-label="Previous products"
             >
               <svg
@@ -123,7 +123,7 @@ export default function FeaturedProducts({
           {canGoNext && (
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
               aria-label="Next products"
             >
               <svg
@@ -142,13 +142,32 @@ export default function FeaturedProducts({
             </button>
           )}
 
-          {/* Products Grid */}
+          {/* Products */}
           {products.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {visibleProducts.map((product, index) => (
-                <ProductCard key={`${product.id}-${index}`} product={product} />
-              ))}
-            </div>
+            <>
+              {/* Mobile: horizontal scroll showing all products */}
+              <div className="md:hidden -mx-4 sm:-mx-6">
+                <div
+                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4"
+                >
+                  {products.map((product, index) => (
+                    <div
+                      key={`${product.id}-${index}-mobile`}
+                      className="flex-none w-[72vw] snap-start"
+                    >
+                      <ProductCard product={product} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Desktop: 3-col grid */}
+              <div className="hidden md:grid grid-cols-3 gap-6">
+                {visibleProducts.map((product, index) => (
+                  <ProductCard key={`${product.id}-${index}`} product={product} />
+                ))}
+              </div>
+            </>
           ) : (
             <div className="text-center py-16 bg-gray-50 rounded-2xl">
               <p className="text-gray-500">
@@ -157,9 +176,9 @@ export default function FeaturedProducts({
             </div>
           )}
 
-          {/* Progress Indicator */}
+          {/* Desktop-only Progress Indicator */}
           {totalProducts > 3 && (
-            <div className="flex justify-center mt-8 gap-2">
+            <div className="hidden md:flex justify-center mt-8 gap-2">
               {Array.from({ length: Math.ceil(totalProducts / 3) }).map(
                 (_, idx) => (
                   <button
