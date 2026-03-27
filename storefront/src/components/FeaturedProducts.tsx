@@ -150,7 +150,6 @@ export default function FeaturedProducts({
                 <div
                   className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4"
                 >
-                >
                   {products.map((product, index) => (
                     <div
                       key={`${product.id}-${index}-mobile`}
