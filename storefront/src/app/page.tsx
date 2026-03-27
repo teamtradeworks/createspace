@@ -291,7 +291,7 @@ export default function Home() {
 
             {/* Testimonials Grid */}
             <div
-              className="flex md:grid md:grid-cols-3 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0"
+              className="flex md:grid md:grid-cols-2 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0"
             >
               {[
                 {
@@ -313,6 +313,13 @@ export default function Home() {
                     "CREATESPACE has consistently demonstrated exceptional service, setting themselves apart as the best in their field. Their dedication and professionalism have made every interaction a positive experience. It is truly an honour to collaborate with CREATESPACE, and their outstanding support continues to strengthen our working relationship.",
                   author: "Erus Pretorius",
                   role: "CEO, Robotixkids",
+                  rating: 5,
+                },
+                {
+                  quote:
+                    "We purchased just over 100 robotics kits last year, and the quality has been excellent. Our school clients really loved them—they've been engaging, reliable, and a great addition to the learning experience.",
+                  author: "Zami Mokhali",
+                  role: "Founder, JustMi-Kid",
                   rating: 5,
                 },
               ].map((testimonial, index) => (
