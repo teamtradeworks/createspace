@@ -7,7 +7,7 @@ const educationOptions = [
     title: "STEM Tutors",
     description:
       "Expert facilitators from our partner Robotixkids bring robotics and coding programmes directly to your school. After-school clubs, workshops, and holiday camps available.",
-    image: "/images/education/stem-tutors-classroom.jpg",
+    image: "/images/education/stem-tutors/facilitator-helping-child-kit.jpg",
     link: "/education/stem-tutors",
     linkText: "Learn More",
   },
@@ -25,7 +25,7 @@ const educationOptions = [
     title: "Classroom Kits",
     description:
       "Equip your classroom with multi-learner STEM kits designed for group work. Teacher guides included with bulk pricing for schools.",
-    image: "/images/education/classroom-kits-students.jpg",
+    image: "/images/education/classroom-kits/microbit-kids-collaborating.jpg",
     link: "/education/classroom-kits",
     linkText: "Shop Kits",
   },
@@ -34,7 +34,7 @@ const educationOptions = [
     title: "Short Courses",
     description:
       "Online STEM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a QR code for instant access.",
-    image: "/images/education/teacher-curriculum-training.jpg",
+    image: "/images/education/stem-tutors/child-coding-on-tablet.jpg",
     link: "/education/courses",
     linkText: "View Courses",
   },
