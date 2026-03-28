@@ -80,13 +80,12 @@ export default function StemTutorsPage() {
                 a proven curriculum directly to your classroom — from Grade R all
                 the way to Matric.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <a
+                <Link
                   href="#contact-form"
                   className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-lg font-semibold transition-colors"
                 >
-                  Contact Us
-                </a>
+                  Book a Session
+                </Link>
               </div>
             </div>
             <div className="hidden lg:block">
