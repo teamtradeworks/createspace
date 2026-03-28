@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
         `Message:`,
         message,
       ]
-        .filter(Boolean)
+        .filter((line) => line !== null)
         .join("\n"),
     });
 
