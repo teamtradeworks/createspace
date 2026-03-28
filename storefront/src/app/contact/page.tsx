@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import SocialLinks from "@/components/SocialLinks";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Contact Us | CREATESPACE",
@@ -48,8 +47,8 @@ const contactInfo = [
     ),
     title: "Location",
     description: "Cape Town, South Africa",
-    value: "Somerset West, 7130",
-    href: "https://maps.google.com/?q=Somerset+West,+Cape+Town",
+    value: "Online only — no physical shop",
+    href: null,
   },
   {
     icon: (
@@ -76,6 +75,16 @@ const faqs = [
       "We dispatch orders within 1 business day (or next day if ordered after 3pm). Delivery typically takes 1-3 business days via The Courier Guy.",
   },
   {
+    question: "Do you deliver nationwide?",
+    answer:
+      "Yes! We deliver to your door across South Africa via The Courier Guy.",
+  },
+  {
+    question: "How do I track my order?",
+    answer:
+      "Once your order has been dispatched, you'll receive an email with tracking details so you can follow your delivery every step of the way.",
+  },
+  {
     question: "Do you offer school or bulk discounts?",
     answer:
       "Yes! We partner with schools across South Africa and offer special pricing for bulk orders. Contact us to discuss your requirements.",
@@ -91,9 +100,24 @@ const faqs = [
       "Absolutely. We offer hassle-free returns within 30 days of delivery. Products must be unused and in original packaging. Contact us to arrange a return.",
   },
   {
-    question: "Do you offer after-school programmes or workshops?",
+    question: "Are your products safe for young children?",
     answer:
-      "Yes, we run STEM clubs and workshops. Visit our Education page or contact us to learn about programmes in your area.",
+      "Safety is a priority. Each product page clearly lists the recommended age range. All our products meet the relevant safety standards for the ages indicated.",
+  },
+  {
+    question: "Can I change or cancel my order?",
+    answer:
+      "If your order hasn't been dispatched yet, we can usually make changes or cancel it. Contact us as soon as possible and we'll do our best to help.",
+  },
+  {
+    question: "Do you have a physical shop?",
+    answer:
+      "Not yet! We currently operate as an online store only, with delivery to your door anywhere in South Africa.",
+  },
+  {
+    question: "What payment methods do you accept?",
+    answer:
+      "We accept secure payments via Stitch, including credit/debit cards and instant EFT.",
   },
 ];
 
@@ -205,91 +229,6 @@ export default function ContactPage() {
                     <div className="px-5 pb-5 text-gray-600">{faq.answer}</div>
                   </details>
                 ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Partnership CTA */}
-      <section className="py-16 bg-navy text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                For Schools & Educators
-              </span>
-              <h2 className="text-2xl md:text-3xl font-semibold mt-2 mb-4">
-                Bring STEM to Your Classroom
-              </h2>
-              <p className="text-white/70 mb-6">
-                We partner with schools across South Africa to deliver engaging
-                STEM programmes. From curriculum-aligned kits to teacher training
-                and after-school clubs—let&apos;s build the future together.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "Bulk pricing for schools",
-                  "Curriculum-aligned resources",
-                  "Teacher training & support",
-                  "After-school STEM clubs",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <svg
-                      className="w-5 h-5 text-cs-green flex-shrink-0"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-white/80">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/education"
-                className="inline-flex items-center px-6 py-3 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-lg font-semibold transition-colors"
-              >
-                Learn About Education Programmes
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </Link>
-            </div>
-            <div className="hidden md:flex justify-center">
-              <div className="relative">
-                <div className="w-64 h-64 bg-cs-orange/20 rounded-full absolute -top-4 -left-4" />
-                <div className="w-64 h-64 bg-cs-blue/20 rounded-full relative flex items-center justify-center">
-                  <svg
-                    className="w-32 h-32 text-white/30"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1}
-                      d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"
-                    />
-                  </svg>
-                </div>
               </div>
             </div>
           </div>
