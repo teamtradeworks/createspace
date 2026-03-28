@@ -53,10 +53,13 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
     setError(null);
 
     try {
+      const submitData = showEducationFields
+        ? { ...formData, subject: "Education Enquiry" }
+        : formData;
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submitData),
       });
 
       const data = await response.json();
@@ -66,14 +69,14 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
         return;
       }
 
-      posthog.capture("contact_form_submitted", { subject: formData.subject });
+      posthog.capture("contact_form_submitted", { subject: submitData.subject });
       if (formData.email) {
         posthog.identify(formData.email, {
           email: formData.email,
           name: formData.name,
         });
       }
-      if (formData.subject === "School / Bulk Order") {
+      if (submitData.subject === "School / Bulk Order" || showEducationFields) {
         posthog.group("enquiry_type", "school", {
           source: "contact_form",
         });
@@ -171,7 +174,7 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
         </div>
       </div>
 
-      <div className="grid sm:grid-cols-2 gap-5">
+      <div className={showEducationFields ? "" : "grid sm:grid-cols-2 gap-5"}>
         {/* Phone */}
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
@@ -188,27 +191,29 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
           />
         </div>
 
-        {/* Subject */}
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-            Subject <span className="text-cs-red">*</span>
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            required
-            value={formData.subject}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors bg-white"
-          >
-            <option value="">Select a topic</option>
-            {subjectOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Subject - hidden for education forms */}
+        {!showEducationFields && (
+          <div>
+            <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+              Subject <span className="text-cs-red">*</span>
+            </label>
+            <select
+              id="subject"
+              name="subject"
+              required
+              value={formData.subject}
+              onChange={handleChange}
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors bg-white"
+            >
+              <option value="">Select a topic</option>
+              {subjectOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
       </div>
 
       {showEducationFields && (
