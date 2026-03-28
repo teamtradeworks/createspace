@@ -590,7 +590,7 @@ export default function CurriculumPage() {
             </p>
           </div>
           <div className="bg-white rounded-2xl p-8 shadow-lg">
-            <ContactForm />
+            <ContactForm showEducationFields />
           </div>
         </div>
       </section>

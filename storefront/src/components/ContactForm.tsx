@@ -9,6 +9,12 @@ interface FormData {
   phone: string;
   subject: string;
   message: string;
+  schoolName: string;
+  position: string;
+}
+
+interface ContactFormProps {
+  showEducationFields?: boolean;
 }
 
 const subjectOptions = [
@@ -20,13 +26,15 @@ const subjectOptions = [
   "Other",
 ];
 
-export default function ContactForm() {
+export default function ContactForm({ showEducationFields = false }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     subject: "",
     message: "",
+    schoolName: "",
+    position: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -77,6 +85,8 @@ export default function ContactForm() {
         phone: "",
         subject: "",
         message: "",
+        schoolName: "",
+        position: "",
       });
     } catch {
       setError("Something went wrong. Please try again.");
@@ -200,6 +210,44 @@ export default function ContactForm() {
           </select>
         </div>
       </div>
+
+      {showEducationFields && (
+        <div className="grid sm:grid-cols-2 gap-5">
+          {/* School Name */}
+          <div>
+            <label htmlFor="schoolName" className="block text-sm font-medium text-gray-700 mb-1">
+              School Name <span className="text-cs-red">*</span>
+            </label>
+            <input
+              type="text"
+              id="schoolName"
+              name="schoolName"
+              required
+              value={formData.schoolName}
+              onChange={handleChange}
+              placeholder="Your school name"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+            />
+          </div>
+
+          {/* Position Held */}
+          <div>
+            <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1">
+              Position Held <span className="text-cs-red">*</span>
+            </label>
+            <input
+              type="text"
+              id="position"
+              name="position"
+              required
+              value={formData.position}
+              onChange={handleChange}
+              placeholder="e.g. Principal, HOD, Teacher"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Message */}
       <div>
