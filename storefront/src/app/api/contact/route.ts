@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
 
   const { name, email, subject, phone, message, schoolName, position } = body;
 
-  if (!name || !email || !subject || !message) {
+  if (!name || !email || !subject) {
     return NextResponse.json(
       { error: "Please fill in all required fields." },
       { status: 400 }

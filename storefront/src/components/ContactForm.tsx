@@ -311,12 +311,12 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message <span className="text-cs-red">*</span>
+          Message {!showEducationFields && <span className="text-cs-red">*</span>}
         </label>
         <textarea
           id="message"
           name="message"
-          required
+          required={!showEducationFields}
           rows={5}
           value={formData.message}
           onChange={handleChange}
