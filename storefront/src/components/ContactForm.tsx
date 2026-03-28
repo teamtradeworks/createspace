@@ -140,7 +140,7 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
 
       {showEducationFields ? (
         <>
-          {/* Education layout: Name + School, Position, Email + Phone, Message */}
+          {/* Education layout: Name + Position, School, Email + Phone, Message */}
           <div className="grid sm:grid-cols-2 gap-5">
             {/* Name */}
             <div>
@@ -159,35 +159,35 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
               />
             </div>
 
-            {/* School Name */}
+            {/* Position Held */}
             <div>
-              <label htmlFor="schoolName" className="block text-sm font-medium text-gray-700 mb-1">
-                School Name
+              <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1">
+                Position Held
               </label>
               <input
                 type="text"
-                id="schoolName"
-                name="schoolName"
-                value={formData.schoolName}
+                id="position"
+                name="position"
+                value={formData.position}
                 onChange={handleChange}
-                placeholder="Your school name"
+                placeholder="e.g. Principal, HOD, Teacher"
                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
               />
             </div>
           </div>
 
-          {/* Position Held */}
+          {/* School Name */}
           <div>
-            <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1">
-              Position Held
+            <label htmlFor="schoolName" className="block text-sm font-medium text-gray-700 mb-1">
+              School Name
             </label>
             <input
               type="text"
-              id="position"
-              name="position"
-              value={formData.position}
+              id="schoolName"
+              name="schoolName"
+              value={formData.schoolName}
               onChange={handleChange}
-              placeholder="e.g. Principal, HOD, Teacher"
+              placeholder="Your school name"
               className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
             />
           </div>

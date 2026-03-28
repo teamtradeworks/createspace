@@ -85,7 +85,7 @@ export default function StemTutorsPage() {
                   href="#contact-form"
                   className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-lg font-semibold transition-colors"
                 >
-                  Book a Session
+                  Contact Us
                 </a>
               </div>
             </div>
