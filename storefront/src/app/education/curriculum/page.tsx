@@ -366,12 +366,12 @@ export default function CurriculumPage() {
                   </li>
                 ))}
               </ul>
-              <Link
+              <a
                 href="#contact-form"
                 className="inline-flex items-center px-8 py-4 bg-cs-blue hover:bg-cs-blue/90 text-white rounded-lg font-semibold transition-colors"
               >
                 Contact Us
-              </Link>
+              </a>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
