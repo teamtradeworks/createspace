@@ -365,6 +365,7 @@ export default function CurriculumPage() {
                     {item}
                   </li>
                 ))}
+              </ul>
               <Link
                 href="#contact-form"
                 className="inline-flex items-center px-8 py-4 bg-cs-blue hover:bg-cs-blue/90 text-white rounded-lg font-semibold transition-colors"
