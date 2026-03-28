@@ -44,10 +44,20 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setError(null);
 
-    // Simulate form submission
-    // In production, this would send to an API endpoint
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
       posthog.capture("contact_form_submitted", { subject: formData.subject });
       if (formData.email) {
         posthog.identify(formData.email, {
@@ -163,7 +173,7 @@ export default function ContactForm() {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+27 00 000 0000"
+            placeholder=""
             className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
           />
         </div>
