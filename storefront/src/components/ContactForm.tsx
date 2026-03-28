@@ -9,6 +9,12 @@ interface FormData {
   phone: string;
   subject: string;
   message: string;
+  schoolName: string;
+  position: string;
+}
+
+interface ContactFormProps {
+  showEducationFields?: boolean;
 }
 
 const subjectOptions = [
@@ -20,13 +26,15 @@ const subjectOptions = [
   "Other",
 ];
 
-export default function ContactForm() {
+export default function ContactForm({ showEducationFields = false }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     subject: "",
     message: "",
+    schoolName: "",
+    position: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -45,10 +53,13 @@ export default function ContactForm() {
     setError(null);
 
     try {
+      const submitData = showEducationFields
+        ? { ...formData, subject: "Education Enquiry" }
+        : formData;
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submitData),
       });
 
       const data = await response.json();
@@ -58,14 +69,14 @@ export default function ContactForm() {
         return;
       }
 
-      posthog.capture("contact_form_submitted", { subject: formData.subject });
+      posthog.capture("contact_form_submitted", { subject: submitData.subject });
       if (formData.email) {
         posthog.identify(formData.email, {
           email: formData.email,
           name: formData.name,
         });
       }
-      if (formData.subject === "School / Bulk Order") {
+      if (submitData.subject === "School / Bulk Order" || showEducationFields) {
         posthog.group("enquiry_type", "school", {
           source: "contact_form",
         });
@@ -77,6 +88,8 @@ export default function ContactForm() {
         phone: "",
         subject: "",
         message: "",
+        schoolName: "",
+        position: "",
       });
     } catch {
       setError("Something went wrong. Please try again.");
@@ -125,91 +138,185 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div className="grid sm:grid-cols-2 gap-5">
-        {/* Name */}
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-            Name <span className="text-cs-red">*</span>
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your name"
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
-          />
-        </div>
+      {showEducationFields ? (
+        <>
+          {/* Education layout: Name + Position, School, Email + Phone, Message */}
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                Name <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
 
-        {/* Email */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email <span className="text-cs-red">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="your@email.com"
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
-          />
-        </div>
-      </div>
+            {/* Position Held */}
+            <div>
+              <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1">
+                Position Held
+              </label>
+              <input
+                type="text"
+                id="position"
+                name="position"
+                value={formData.position}
+                onChange={handleChange}
+                placeholder="e.g. Principal, HOD, Teacher"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+          </div>
 
-      <div className="grid sm:grid-cols-2 gap-5">
-        {/* Phone */}
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-            Phone
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder=""
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
-          />
-        </div>
+          {/* School Name */}
+          <div>
+            <label htmlFor="schoolName" className="block text-sm font-medium text-gray-700 mb-1">
+              School Name
+            </label>
+            <input
+              type="text"
+              id="schoolName"
+              name="schoolName"
+              value={formData.schoolName}
+              onChange={handleChange}
+              placeholder="Your school name"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+            />
+          </div>
 
-        {/* Subject */}
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-            Subject <span className="text-cs-red">*</span>
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            required
-            value={formData.subject}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors bg-white"
-          >
-            <option value="">Select a topic</option>
-            {subjectOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your@email.com"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+
+            {/* Phone */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder=""
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Standard layout: Name + Email, Phone + Subject, Message */}
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                Name <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your@email.com"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Phone */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder=""
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+
+            {/* Subject */}
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                Subject <span className="text-cs-red">*</span>
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                required
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors bg-white"
+              >
+                <option value="">Select a topic</option>
+                {subjectOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message <span className="text-cs-red">*</span>
+          Message {!showEducationFields && <span className="text-cs-red">*</span>}
         </label>
         <textarea
           id="message"
           name="message"
-          required
+          required={!showEducationFields}
           rows={5}
           value={formData.message}
           onChange={handleChange}

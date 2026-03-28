@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Coding & Robotics Curriculum for Schools | Education | CREATESPACE",
@@ -365,12 +366,12 @@ export default function CurriculumPage() {
                   </li>
                 ))}
               </ul>
-              <Link
-                href="/contact"
+              <a
+                href="#contact-form"
                 className="inline-flex items-center px-8 py-4 bg-cs-blue hover:bg-cs-blue/90 text-white rounded-lg font-semibold transition-colors"
               >
                 Contact Us
-              </Link>
+              </a>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
@@ -573,27 +574,23 @@ export default function CurriculumPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-cs-blue">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-semibold text-white mb-4">
-                Ready to Bring Coding &amp; Robotics to Your School?
-              </h2>
-              <p className="text-white/90">
-                Get in touch and we&apos;ll help you find the right curriculum
-                pathway, hardware, and training plan for your school.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4 md:justify-end">
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
-              >
-                Contact Us
-              </Link>
-            </div>
+      {/* Contact Form */}
+      <section id="contact-form" className="py-20 bg-cs-blue scroll-mt-8">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-white/70 font-medium text-sm uppercase tracking-wider">
+              Get Started
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold text-white mt-2 mb-4">
+              Ready to Bring Coding &amp; Robotics to Your School?
+            </h2>
+            <p className="text-white/80">
+              Get in touch and we&apos;ll help you find the right curriculum
+              pathway, hardware, and training plan for your school.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <ContactForm showEducationFields />
           </div>
         </div>
       </section>

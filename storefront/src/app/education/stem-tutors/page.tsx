@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "STEM Tutors | Education | CREATESPACE",
@@ -80,12 +81,12 @@ export default function StemTutorsPage() {
                 the way to Matric.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
+                <a
+                  href="#contact-form"
                   className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-lg font-semibold transition-colors"
                 >
                   Book a Session
-                </Link>
+                </a>
               </div>
             </div>
             <div className="hidden lg:block">
@@ -423,27 +424,23 @@ export default function StemTutorsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-cs-orange">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-semibold text-white mb-4">
-                Get STEM Education at Your School
-              </h2>
-              <p className="text-white/90">
-                Get in touch and we&apos;ll connect you with Robotixkids to set
-                up a programme that works for your school.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-4 md:justify-end">
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
-              >
-                Get in Touch
-              </Link>
-            </div>
+      {/* Contact Form */}
+      <section id="contact-form" className="py-20 bg-navy text-white scroll-mt-8">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
+              Get Started
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold mt-2 mb-4">
+              Get STEM Education at Your School
+            </h2>
+            <p className="text-white/70">
+              Get in touch and we&apos;ll connect you with Robotixkids to set
+              up a programme that works for your school.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <ContactForm showEducationFields />
           </div>
         </div>
       </section>

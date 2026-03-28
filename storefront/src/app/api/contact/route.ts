@@ -15,6 +15,8 @@ export async function POST(request: NextRequest) {
     phone: string;
     subject: string;
     message: string;
+    schoolName?: string;
+    position?: string;
   };
 
   try {
@@ -23,9 +25,9 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const { name, email, subject, phone, message } = body;
+  const { name, email, subject, phone, message, schoolName, position } = body;
 
-  if (!name || !email || !subject || !message) {
+  if (!name || !email || !subject) {
     return NextResponse.json(
       { error: "Please fill in all required fields." },
       { status: 400 }
@@ -44,11 +46,13 @@ export async function POST(request: NextRequest) {
       from: process.env.RESEND_FROM_EMAIL || `CREATESPACE Contact Form <no-reply@thecreatespace.co.za>`,
       to: [CONTACT_EMAIL],
       replyTo: email,
-      subject: `[Contact Form] ${subject}`,
+      subject: `[Contact Form] ${subject} — ${name}${schoolName ? ` (${schoolName})` : ""}`,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
         phone ? `Phone: ${phone}` : null,
+        schoolName ? `School: ${schoolName}` : null,
+        position ? `Position: ${position}` : null,
         `Subject: ${subject}`,
         ``,
         `Message:`,
