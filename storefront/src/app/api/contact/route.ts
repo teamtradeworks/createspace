@@ -46,7 +46,7 @@ export async function POST(request: NextRequest) {
       from: process.env.RESEND_FROM_EMAIL || `CREATESPACE Contact Form <no-reply@thecreatespace.co.za>`,
       to: [CONTACT_EMAIL],
       replyTo: email,
-      subject: `[Contact Form] ${subject}`,
+      subject: `[Contact Form] ${subject} — ${name}${schoolName ? ` (${schoolName})` : ""}`,
       text: [
         `Name: ${name}`,
         `Email: ${email}`,
