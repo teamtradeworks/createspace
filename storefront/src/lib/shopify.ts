@@ -393,6 +393,22 @@ export type ProductDetail = {
       };
     }[];
   };
+  media: {
+    edges: {
+      node: {
+        mediaContentType: string;
+        previewImage: {
+          url: string;
+          altText: string | null;
+        } | null;
+        sources?: {
+          url: string;
+          mimeType: string;
+          format: string;
+        }[];
+      };
+    }[];
+  };
   variants: {
     edges: {
       node: {
@@ -462,6 +478,24 @@ const PRODUCT_BY_HANDLE_QUERY = `
           node {
             url
             altText
+          }
+        }
+      }
+      media(first: 10) {
+        edges {
+          node {
+            mediaContentType
+            previewImage {
+              url
+              altText
+            }
+            ... on Video {
+              sources {
+                url
+                mimeType
+                format
+              }
+            }
           }
         }
       }
