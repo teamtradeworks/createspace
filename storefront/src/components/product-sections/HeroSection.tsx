@@ -26,6 +26,7 @@ interface HeroSectionProps {
   defaultSelectedAddons?: string[];
   canonicalPath?: string;
   digital?: boolean;
+  addonUpsellModal?: boolean;
 }
 
 export function HeroSection({
@@ -37,6 +38,7 @@ export function HeroSection({
   defaultSelectedAddons,
   canonicalPath,
   digital,
+  addonUpsellModal,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
@@ -309,6 +311,7 @@ export function HeroSection({
                     digital={isDigital}
                     addons={addons}
                     defaultSelectedAddons={defaultSelectedAddons}
+                    addonUpsellModal={addonUpsellModal}
                   />
                 </div>
               </div>

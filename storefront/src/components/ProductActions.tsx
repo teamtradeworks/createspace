@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
 import { useCart } from "@/context/CartContext";
 import { SerializedAddon } from "@/lib/product-addons";
+import AddonUpsellModal from "./AddonUpsellModal";
 
 interface ProductActionsProps {
   productId: string;
@@ -20,6 +21,7 @@ interface ProductActionsProps {
   digital?: boolean;
   addons?: SerializedAddon[];
   defaultSelectedAddons?: string[];
+  addonUpsellModal?: boolean;
 }
 
 export default function ProductActions({
@@ -35,12 +37,14 @@ export default function ProductActions({
   digital,
   addons = [],
   defaultSelectedAddons = [],
+  addonUpsellModal = false,
 }: ProductActionsProps) {
   const [quantity, setQuantity] = useState(1);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [isBuyingNow, setIsBuyingNow] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
   const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set(defaultSelectedAddons));
+  const [showUpsellModal, setShowUpsellModal] = useState(false);
   const { addItem } = useCart();
 
   const handleQuantityChange = (delta: number) => {
@@ -74,9 +78,7 @@ export default function ProductActions({
     return addons.filter((addon) => selectedAddons.has(addon.handle));
   };
 
-  const handleAddToCart = async () => {
-    if (!available) return;
-
+  const performAddToCart = useCallback(async (addonHandles: Set<string>) => {
     setIsAddingToCart(true);
 
     // Add main product to cart
@@ -97,7 +99,7 @@ export default function ProductActions({
     );
 
     // Add selected add-ons to cart (with discounted price)
-    const selectedAddonsData = getSelectedAddonsData();
+    const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
     for (const addon of selectedAddonsData) {
       const addonPrice = addon.discountPercent > 0
         ? addon.discountedPrice / addon.quantity
@@ -136,6 +138,31 @@ export default function ProductActions({
 
     // Reset success state after 2 seconds
     setTimeout(() => setAddedToCart(false), 2000);
+  }, [addItem, productId, variantId, title, price, currencyCode, image, handle, available, currentlyNotInStock, digital, quantity, addons]);
+
+  const handleAddToCart = async () => {
+    if (!available) return;
+
+    // If upsell modal is enabled, addons exist, and none are selected, show the modal
+    const hasAvailableAddons = addons.some((a) => a.available);
+    if (addonUpsellModal && hasAvailableAddons && selectedAddons.size === 0) {
+      setShowUpsellModal(true);
+      return;
+    }
+
+    await performAddToCart(selectedAddons);
+  };
+
+  const handleUpsellConfirm = async (modalSelectedAddons: Set<string>) => {
+    setShowUpsellModal(false);
+    // Update the selected addons state to reflect modal choices
+    setSelectedAddons(modalSelectedAddons);
+    await performAddToCart(modalSelectedAddons);
+  };
+
+  const handleUpsellSkip = async () => {
+    setShowUpsellModal(false);
+    await performAddToCart(new Set());
   };
 
   const handleBuyNow = async () => {
@@ -390,6 +417,14 @@ export default function ProductActions({
         </button>
       </div>
 
+      {/* Addon Upsell Modal */}
+      {showUpsellModal && (
+        <AddonUpsellModal
+          addons={addons}
+          onConfirm={handleUpsellConfirm}
+          onSkip={handleUpsellSkip}
+        />
+      )}
     </div>
   );
 }
