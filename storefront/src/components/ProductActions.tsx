@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
 import { useCart } from "@/context/CartContext";
+import { gtmAddToCart } from "@/lib/gtm";
 import { SerializedAddon } from "@/lib/product-addons";
 import AddonUpsellModal from "./AddonUpsellModal";
 
@@ -129,6 +130,22 @@ export default function ProductActions({
         addon_handles: selectedAddonsData.map((a) => a.handle),
         $value: price * quantity,
       });
+
+      const gtmItems = [
+        { item_id: handle, item_name: title, price, currency: currencyCode, quantity },
+        ...selectedAddonsData.map((addon) => ({
+          item_id: addon.handle,
+          item_name: addon.title,
+          price:
+            addon.discountPercent > 0
+              ? addon.discountedPrice / addon.quantity
+              : addon.originalPrice / addon.quantity,
+          currency: addon.currencyCode,
+          quantity: addon.quantity * quantity,
+        })),
+      ];
+      const gtmValue = gtmItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      gtmAddToCart(gtmItems, gtmValue, currencyCode);
 
       // Show success state briefly
       await new Promise((resolve) => setTimeout(resolve, 300));

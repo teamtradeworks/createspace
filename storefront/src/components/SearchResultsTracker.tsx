@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import posthog from "posthog-js";
+import { gtmSearch } from "@/lib/gtm";
 
 interface SearchResultsTrackerProps {
   query: string;
@@ -15,6 +16,7 @@ export default function SearchResultsTracker({ query, resultCount }: SearchResul
         query,
         result_count: resultCount,
       });
+      gtmSearch(query);
     }
   }, [query, resultCount]);
 

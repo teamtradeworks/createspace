@@ -51,8 +51,8 @@ export default function Footer() {
             <Image
               src="/images/brand/logo-dark.png"
               alt="CREATESPACE"
-              width={150}
-              height={27}
+              width={600}
+              height={73}
               className="h-7 w-auto mb-4"
             />
             <p className="text-white/70 text-sm mb-4 md:w-0 md:min-w-full">

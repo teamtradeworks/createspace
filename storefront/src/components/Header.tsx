@@ -177,8 +177,8 @@ export default function Header({ products = [] }: HeaderProps) {
             <Image
               src="/images/brand/logo-dark.png"
               alt="CREATESPACE"
-              width={120}
-              height={24}
+              width={600}
+              height={73}
               className="h-6 w-auto"
               priority
             />
