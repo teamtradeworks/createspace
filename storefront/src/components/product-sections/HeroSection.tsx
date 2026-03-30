@@ -29,6 +29,8 @@ interface HeroSectionProps {
   addonUpsellModal?: boolean;
   /** Insert videos after this image index (0 = after first image). Defaults to appending after all images. */
   insertVideosAfterImage?: number;
+  /** Override the vendor/brand label shown in the hero. */
+  vendorOverride?: string;
 }
 
 export function HeroSection({
@@ -42,6 +44,7 @@ export function HeroSection({
   digital,
   addonUpsellModal,
   insertVideosAfterImage,
+  vendorOverride,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
@@ -136,9 +139,12 @@ export function HeroSection({
               {/* Right - Product Info */}
               <div className="flex flex-col min-w-0">
                 {/* Brand */}
-                {product.vendor && (
+                {(vendorOverride ?? product.vendor) && (
                   <p className="text-sm text-gray-500 mb-2">
-                    Brand: <span className="text-cs-orange font-medium">{product.vendor}</span>
+                    Brand:{" "}
+                    <span className="text-cs-orange font-medium">
+                      {vendorOverride ?? product.vendor}
+                    </span>
                   </p>
                 )}
 

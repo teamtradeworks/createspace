@@ -39,6 +39,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         addons={addons}
         addonUpsellModal
         insertVideosAfterImage={0}
+        vendorOverride="InspireAfrica"
       />
       <QuickInfoBadges
         badges={[
