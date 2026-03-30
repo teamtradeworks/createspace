@@ -44,13 +44,13 @@ const slides: Slide[] = [
     textColor: "dark",
   },
   {
-    id: "tutoring",
+    id: "education",
     type: "lifestyle",
-    tag: "STEM Tutoring Programme",
-    headline: "Expert STEM Tutors for Your School",
+    tag: "CREATESPACE for Schools",
+    headline: "STEM Education Solutions for Every School",
     description:
-      "Bring hands-on robotics and coding education to your learners. Our trained facilitators run engaging workshops and after-school programmes tailored to your curriculum.",
-    cta: { label: "Book a Session", href: "/education/tutors" },
+      "From trained tutors and classroom kits to teacher training and online courses — bring STEM to life at your school.",
+    cta: { label: "Explore Education", href: "/education" },
     lifestyleImages: [
       "/images/home/stem-tutoring-workshop-1.png",
       "/images/home/stem-tutoring-workshop-2.png",
