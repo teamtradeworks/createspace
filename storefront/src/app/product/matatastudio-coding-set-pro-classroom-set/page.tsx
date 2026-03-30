@@ -41,7 +41,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         highlights={[
           "Serves up to 24 learners simultaneously — 6 kits, 4 learners per group",
           "Complete teacher guides included — no STEM background required",
-          "Aligns with CAPS Foundation Phase: Technology, Mathematics & Life Skills",
+          "Covers key Foundation Phase skills: Technology, Mathematics & Life Skills",
           "Fully rechargeable — no disposable batteries, no apps, no screens",
         ]}
         addons={addons}
@@ -58,7 +58,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
           {
             title: "Curriculum Aligned",
             description:
-              "Structured 12-lesson curriculum with 4 progressive units covers sequencing, loops, functions, and creative integration. Cross-curricular tie-ins to Mathematics (spatial reasoning, geometry), Life Skills (collaboration, problem-solving), and Arts & Culture (music and drawing) align with CAPS Foundation Phase outcomes for Grades R–3.",
+              "Structured 12-lesson curriculum with 4 progressive units covers sequencing, loops, functions, and creative integration. Cross-curricular tie-ins to Mathematics (spatial reasoning, geometry), Life Skills (collaboration, problem-solving), and Arts & Culture (music and drawing) support key Foundation Phase learning outcomes for Grades R–3.",
           },
           {
             title: "Teacher-Ready",
@@ -133,7 +133,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       {/* Classroom Activities */}
       <ProjectShowcase
         title="Classroom Activities Across 4 Progressive Units"
-        highlight="12 CAPS-aligned lessons with complete teacher guides — from basic sequencing to creative coding"
+        highlight="12 structured lessons with complete teacher guides — from basic sequencing to creative coding"
         subtitle="Activities progress from foundational concepts to advanced challenges, suitable for mixed-ability Foundation Phase classrooms."
         projects={[
           {
@@ -244,9 +244,9 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         title="Educator Questions"
         faqs={[
           {
-            question: "Does this align with the CAPS curriculum?",
+            question: "Does this cover skills from the national curriculum?",
             answer:
-              "Yes. The 12-lesson curriculum covers computational thinking and coding concepts that align with CAPS Foundation Phase outcomes across Technology, Mathematics, and Life Skills. Coding activities link to spatial reasoning, number concepts, and geometry in Mathematics. Collaborative group activities support Life Skills outcomes around teamwork, problem-solving, and communication. The Musician and Artist add-ons integrate with Arts & Culture. While MatataStudio does not carry a formal CAPS endorsement stamp, the content maps naturally to Grade R–3 learning areas.",
+              "The 12-lesson curriculum covers computational thinking concepts that feature prominently in South African curricula — sequencing, loops, functions, and debugging. Coding activities develop spatial reasoning, number concepts, and geometry relevant to Mathematics. Collaborative group activities build teamwork, problem-solving, and communication skills. The Musician and Artist add-ons connect to Arts & Culture. However, we don't provide a formal CAPS mapping document for this product.",
           },
           {
             question: "How many learners can use the set simultaneously?",
@@ -341,7 +341,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       {/* Call to Action */}
       <CallToAction
         title="Equip Your Foundation Phase Classroom"
-        subtitle="Trusted by 1,000+ educational institutions worldwide. Bring structured, screen-free coding to every learner in your classroom."
+        subtitle="Six kits, 24 learners, 12 structured lessons, and three teacher manuals. Everything your Foundation Phase classroom needs."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse Classroom Kits"
@@ -362,7 +362,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Screen-free coding for Foundation Phase classrooms. Serves 24 learners, 12 CAPS-aligned lessons, 3 teacher manuals included. No STEM background required. Grades R–3.",
+      "Screen-free coding for Foundation Phase classrooms. Serves 24 learners, 12 structured lessons, 3 teacher manuals included. No STEM background required. Grades R–3.",
     alternates: {
       canonical: "/product/matatastudio-coding-set-pro-classroom-set",
     },

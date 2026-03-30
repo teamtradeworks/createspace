@@ -38,7 +38,7 @@ export default async function ArduinoStarterKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Your gateway to electronics, coding, and endless creativity"
+        tagline="Learn electronics and coding by building 15 real projects"
         highlights={[
           "15 hands-on projects with step-by-step instructions",
           "170-page project book included",
@@ -314,7 +314,7 @@ export default async function ArduinoStarterKitPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="Join millions of makers worldwide. The Arduino Starter Kit has everything you need to begin your journey into electronics and programming."
+        subtitle="15 projects, 170-page guidebook, and 100+ components. Everything you need to start building real circuits."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

@@ -320,7 +320,7 @@ export default async function TaleBotProPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with Tale-Bot Pro"
-        subtitle="Give your child the gift of screen-free STEM learning. Tale-Bot Pro makes coding playful, tangible, and age-appropriate for preschoolers."
+        subtitle="Screen-free coding with voice recording, interactive maps, and Scratch support. Designed for ages 3-5, no tablets needed."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Coding Toys"

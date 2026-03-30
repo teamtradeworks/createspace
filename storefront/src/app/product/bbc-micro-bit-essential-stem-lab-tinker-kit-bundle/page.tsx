@@ -176,7 +176,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "From Coding to Innovation",
                 description:
-                  "Move beyond basic programming into creative, sensor-driven robotics. Empower your learners to design their own solutions to real-world problems.",
+                  "Move beyond basic programming into creative, sensor-driven robotics. Give your learners the tools to design their own solutions to real-world problems.",
               },
             ],
           },

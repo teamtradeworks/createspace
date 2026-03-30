@@ -67,7 +67,7 @@ export default async function ClassroomKitsPage() {
             </h1>
             <p className="text-xl text-white/80 max-w-xl mb-4">
               Hands-on coding and robotics kits built for classroom learning.
-              Choose from two world-class brands, each designed for different
+              Choose from two trusted brands, each designed for different
               ages and teaching approaches.
             </p>
             <p className="text-white/60 mb-8">
@@ -174,7 +174,7 @@ export default async function ClassroomKitsPage() {
                 Curriculum for Schools
               </h3>
               <p className="text-gray-600 text-sm">
-                Training and resources to empower your educators.
+                CAPS-aligned training and lesson plans for your teachers.
               </p>
             </Link>
             <Link

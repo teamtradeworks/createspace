@@ -67,9 +67,9 @@ export default async function VinciBotPage() {
               "VinciBot is the only robot in this price range that seamlessly progresses from visual block-based coding (like Scratch) to real Python programming. Then it goes further with on-device AI and IoT projects.",
           },
           {
-            title: "Used by 20,000+ Schools Worldwide",
+            title: "Built by Education Specialists",
             description:
-              "Created by MatataStudio, a leader in educational robotics since 2017. VinciBot is trusted by educators globally and aligns with international STEM standards (CSTA, NGSS, ISTE).",
+              "Created by MatataStudio, specialists in educational robotics since 2017. VinciBot aligns with international STEM standards (CSTA, NGSS, ISTE) and is designed for curriculum use.",
           },
         ]}
         background="navy-card"
@@ -87,7 +87,7 @@ export default async function VinciBotPage() {
         image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-with-coding-tablet.jpg"
         imageAlt="Child programming VinciBot on tablet with block-based coding"
         title="Real AI Your Child Can Touch"
-        body="VinciBot includes Tiny Machine Learning — artificial intelligence that runs directly on the robot without needing the internet. Your child will train the robot to recognise hand gestures, identify handwritten letters, and respond to real-world conditions. This isn't simulated AI or a simplified demo — it's the same machine learning technology used in smartphones and self-driving cars, just made accessible for kids. When they program VinciBot to wave when it sees a thumbs-up gesture, they're learning the foundations of computer vision and neural networks. That's an incredible head start for future careers in AI, data science, and robotics."
+        body="VinciBot includes Tiny Machine Learning — artificial intelligence that runs directly on the robot without needing the internet. Your child will train the robot to recognise hand gestures, identify handwritten letters, and respond to real-world conditions. This isn't simulated AI or a simplified demo — it's the same machine learning technology used in smartphones and self-driving cars, just made accessible for kids. When they program VinciBot to wave when it sees a thumbs-up gesture, they're learning the foundations of computer vision and neural networks. That's a genuine foundation for careers in AI, data science, and robotics."
         layout="image-left"
         background="white"
       />
@@ -340,7 +340,7 @@ export default async function VinciBotPage() {
           },
           {
             label: "Connectivity",
-            value: "Bluetooth 4.0+ for device connection, IoT cloud capabilities",
+            value: "Bluetooth for device connection, IoT cloud capabilities",
           },
           {
             label: "Software Compatibility",
@@ -354,7 +354,7 @@ export default async function VinciBotPage() {
             label: "Activities Included",
             value: "75 online lessons + 18 challenge booklet = 93+ total",
           },
-          { label: "Educational Standards", value: "CSTA, NGSS, Common Core, ISTE certified" },
+          { label: "Educational Standards", value: "CSTA, NGSS, Common Core aligned. ISTE certified" },
           { label: "Dimensions", value: "Compact robot design (approx. 10cm x 10cm)" },
         ]}
         background="white"
@@ -362,8 +362,8 @@ export default async function VinciBotPage() {
 
       {/* Call to Action */}
       <CallToAction
-        title="Give Your Child the Gift of Future-Ready Skills"
-        subtitle="VinciBot delivers years of learning in coding, AI, and robotics. Invest in your child's future today."
+        title="Get Started with VinciBot"
+        subtitle="93+ activities, block coding to Python, and on-device AI. One robot that grows with your child for years."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More STEM Kits"

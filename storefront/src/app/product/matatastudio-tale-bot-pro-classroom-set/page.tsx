@@ -57,7 +57,7 @@ export default async function TaleBotProClassroomSetPage() {
           {
             title: "Curriculum Aligned",
             description:
-              "Supports the CAPS Technology and Natural Sciences curriculum for Grades R–3. Activities develop computational thinking, sequencing, and algorithmic reasoning — foundational skills embedded in the Technology learning area.",
+              "Activities develop computational thinking, sequencing, and algorithmic reasoning — foundational skills that feature prominently in South African curricula for Grades R–3, including the Technology and Natural Sciences learning areas.",
           },
           {
             title: "Teacher-Ready",
@@ -242,9 +242,9 @@ export default async function TaleBotProClassroomSetPage() {
         title="Educator Questions"
         faqs={[
           {
-            question: "Does this align with the CAPS curriculum?",
+            question: "Does this cover skills from the national curriculum?",
             answer:
-              "Yes. Tale-Bot Pro supports the CAPS Technology curriculum for Foundation Phase (Grades R–3), specifically developing computational thinking, sequencing, and algorithmic reasoning. The interactive maps also link to Natural Sciences (Life and Living) and the drawing activities connect to Arts and Crafts. We recommend mapping activities to your specific term plan using the included teacher guide.",
+              "Tale-Bot Pro covers computational thinking, sequencing, and algorithmic reasoning — skills that feature prominently in South African curricula for Foundation Phase (Grades R–3). The interactive maps also connect to Natural Sciences (Life and Living) and the drawing activities link to Arts and Crafts. However, we don't provide a formal CAPS mapping document for this product. We recommend mapping activities to your specific term plan using the included teacher guide.",
           },
           {
             question: "How many learners can use the classroom set simultaneously?",
@@ -329,7 +329,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Screen-free coding classroom kit with 6 robots. CAPS-aligned for Grades R–3, complete teacher guide included. Serves 18–24 learners per session.",
+      "Screen-free coding classroom kit with 6 robots. Covers key curriculum skills for Grades R–3, complete teacher guide included. Serves 18–24 learners per session.",
     alternates: {
       canonical: "/product/matatastudio-tale-bot-pro-classroom-set",
     },

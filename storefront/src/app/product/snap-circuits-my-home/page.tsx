@@ -341,7 +341,7 @@ export default async function SnapCircuitsMyHomePage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="Join thousands of families who've discovered how electricity powers their home — one snap at a time."
+        subtitle="30+ home-themed projects, Circuit Safe technology, and no tools required. Build real doorbells, alarms, and fans."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

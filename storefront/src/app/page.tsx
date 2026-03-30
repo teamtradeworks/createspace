@@ -128,7 +128,7 @@ export default function Home() {
                 {
                   number: "75%",
                   label:
-                    "of the fastest-growing careers require STEM skills. Early exposure gives your child a head start.",
+                    "of the fastest-growing careers require STEM skills. Hands-on experience now builds confidence for later.",
                   color: "text-cs-red",
                   border: "border-cs-red/30",
                 },
@@ -180,8 +180,8 @@ export default function Home() {
                 Trusted Names in STEM
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                We are official, registered suppliers of the world&apos;s leading STEM
-                brands—bringing you authentic, quality products backed by full manufacturer support.
+                We are official, registered suppliers of trusted STEM
+                brands — bringing you authentic, quality products backed by full manufacturer support.
               </p>
             </div>
 
@@ -284,8 +284,7 @@ export default function Home() {
                 What Parents & Educators Say
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Join thousands of families and schools who trust CREATESPACE to inspire the next
-                generation of innovators.
+                Hear from the families and schools who love what we do.
               </p>
             </div>
 

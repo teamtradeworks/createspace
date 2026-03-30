@@ -52,7 +52,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Why Choose This Kit */}
       <NumberedSteps
         title="Why Choose Makerzoid?"
-        subtitle="Designed by robotics professors and engineers, Makerzoid transforms playtime into powerful learning moments."
+        subtitle="Designed by robotics professors and engineers, Makerzoid kits teach real mechanical engineering through building and play."
         steps={[
           {
             title: "Limitless Creativity",
@@ -119,7 +119,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             icon: "shield",
             title: "Trusted Quality",
-            description: "Created by robotics professors, used by 3,000+ STEM schools worldwide",
+            description: "Created by robotics professors and engineers, with durable components built for repeated use",
           },
         ]}
         columns={3}
@@ -266,7 +266,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         imageAlt="Contents of the Makerzoid Smart Robot Premium kit laid out"
         items={[
           "400+ construction blocks in various shapes, sizes, and colours",
-          "Bluetooth motor module with rechargeable battery",
+          "Bluetooth motor module",
           "Infrared (IR) sensor module",
           "Pre-assembled motor chassis",
           "Sensor assembly components",
@@ -300,7 +300,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="Join 3,000+ schools and thousands of families worldwide using Makerzoid to inspire the next generation of engineers and innovators."
+        subtitle="200+ robot designs, three control modes, and Scratch Junior coding. Everything in the box for ages 6+."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

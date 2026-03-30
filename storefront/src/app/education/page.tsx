@@ -44,7 +44,7 @@ const educationOptions = [
   {
     title: "Curriculum for Schools",
     description:
-      "Empower your educators to teach STEM with confidence. Our partner Inspire Africa provides comprehensive training and curriculum materials for teachers.",
+      "Give your teachers the tools and training to teach STEM with confidence. Our partner Inspire Africa provides CAPS-aligned curriculum materials and ongoing support.",
     href: "/education/curriculum",
     color: "cs-blue",
     icon: (
@@ -139,7 +139,7 @@ export default function EducationPage() {
               STEM Education
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
-              Bring STEM to Your School
+              STEM Programmes for South African Schools
             </h1>
             <p className="text-xl text-white/80 max-w-2xl mb-8">
               Whether you need expert tutors, teacher training, classroom
@@ -177,7 +177,7 @@ export default function EducationPage() {
               Our Solutions
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              Choose Your Path
+              Four Ways to Get STEM into Your School
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Every school is different. Select the option that best fits your
@@ -259,12 +259,12 @@ export default function EducationPage() {
                 Why STEM Matters
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-6">
-                Preparing Learners for Tomorrow
+                Why STEM Skills Matter in South Africa
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 South Africa faces a growing skills gap in technology and
-                engineering. By introducing STEM education early, we can inspire
-                the next generation of innovators and problem-solvers.
+                engineering. Introducing STEM education early gives learners
+                real skills and confidence they can build on.
               </p>
               <div className="space-y-4">
                 {[
@@ -337,8 +337,7 @@ export default function EducationPage() {
             Ready to Bring STEM to Your School?
           </h2>
           <p className="text-white/90 mb-8 max-w-xl mx-auto">
-            Join hundreds of schools across South Africa who are already
-            inspiring the next generation of innovators.
+            Get in touch to find the right STEM programme for your school.
           </p>
           <Link
             href="/contact"

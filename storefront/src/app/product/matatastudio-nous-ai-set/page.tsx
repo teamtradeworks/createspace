@@ -62,9 +62,9 @@ export default async function NousAISetPage() {
               "Not just coding — your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
           },
           {
-            title: "Future-Ready Skills",
+            title: "Skills That Matter Now",
             description:
-              "AI and robotics engineers are among the highest-paid careers today. Give your child hands-on experience with the technologies shaping tomorrow's job market.",
+              "AI and robotics engineers are among the highest-paid careers today. Give your child hands-on experience with the technologies behind voice assistants, self-driving cars, and smart devices.",
           },
           {
             title: "Works Offline",
@@ -323,7 +323,7 @@ export default async function NousAISetPage() {
       {/* Final CTA */}
       <CallToAction
         title="Start Your AI Journey"
-        subtitle="Join 20,000+ schools and institutions worldwide using MatataStudio to teach the next generation of AI innovators."
+        subtitle="18+ hands-on AI projects, ChatGPT-4o integration, and on-device machine learning. Built for ages 12+."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Robots"

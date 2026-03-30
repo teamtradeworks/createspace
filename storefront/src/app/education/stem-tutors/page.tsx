@@ -466,7 +466,7 @@ export default function StemTutorsPage() {
                 Curriculum for Schools
               </h3>
               <p className="text-gray-600 text-sm">
-                Training and resources to empower your educators.
+                CAPS-aligned training and lesson plans for your teachers.
               </p>
             </Link>
             <Link

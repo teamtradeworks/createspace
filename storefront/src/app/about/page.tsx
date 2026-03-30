@@ -6,7 +6,7 @@ import PageViewTracker from "@/components/PageViewTracker";
 export const metadata: Metadata = {
   title: "About Us | CREATESPACE",
   description:
-    "Learn about CREATESPACE's mission to inspire young minds through STEM education. Meet our team and discover our story.",
+    "CREATESPACE is South Africa's specialist STEM store — curated robotics kits, coding toys, and science sets for kids and schools.",
   alternates: {
     canonical: "/about",
   },
@@ -24,7 +24,7 @@ export default function AboutPage() {
               About Us
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
-              Inspiring the Next Generation of Innovators
+              South Africa&apos;s Specialist STEM Store
             </h1>
             <p className="text-xl text-white/80 max-w-2xl">
               We believe every child has the potential to become a scientist, engineer,
@@ -85,11 +85,10 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-2xl font-semibold text-navy mb-4">Our Mission</h2>
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  To provide a curated range of top-shelf educational products and programmes
-                  to inspire and educate young minds in science, technology, engineering and
-                  mathematics. We aim to spark a passion and positive attitude towards the
-                  sciences from an early age as we believe this can foster curiosity, build
-                  appreciation for STEM, and open new worlds of opportunity.
+                  To provide a curated range of hands-on educational products and programmes
+                  in science, technology, engineering and mathematics. We believe that early,
+                  playful exposure to STEM builds curiosity, confidence, and a genuine
+                  appreciation for how the world works.
                 </p>
               </div>
             </div>
@@ -108,9 +107,8 @@ export default function AboutPage() {
               Meet the Team
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We&apos;re a passionate group of educators, engineers, and STEM enthusiasts
-              united by a common goal: making science and technology accessible and
-              exciting for every young learner.
+              We&apos;re a team of educators and engineers who believe STEM should be
+              hands-on, fun, and available to every kid in South Africa.
             </p>
           </div>
 
@@ -126,53 +124,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Brands Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-              Our Brands
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              Trusted Names in STEM
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              We are official, registered suppliers of the world&apos;s leading
-              STEM brands—bringing you authentic, quality products backed by
-              full manufacturer support.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { name: "MatataStudio", logo: "/images/brands/matatastudio.png" },
-              { name: "Makerzoid", logo: "/images/brands/makerzoid.png" },
-              { name: "BBC micro:bit", logo: "/images/brands/bbc-microbit.png" },
-              { name: "ELECFREAKS", logo: "/images/brands/elecfreaks.png" },
-              { name: "Snap Circuits", logo: "/images/brands/snap-circuits.png" },
-              { name: "Arduino", logo: "/images/brands/arduino.png" },
-              { name: "National Geographic", logo: "/images/brands/national-geographic.png" },
-              { name: "Blockaroo", logo: "/images/brands/blockaroo.png" },
-              { name: "NASA", logo: "/images/brands/nasa.png" },
-              { name: "Robotico", logo: "/images/brands/robotico.png" },
-            ].map((brand) => (
-              <div
-                key={brand.name}
-                className="bg-white rounded-xl p-6 flex items-center justify-center aspect-square shadow-sm hover:shadow-md transition-shadow"
-              >
-                <Image
-                  src={brand.logo}
-                  alt={brand.name}
-                  width={160}
-                  height={160}
-                  className="object-contain w-full h-full max-w-[140px] max-h-[140px]"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* What Sets Us Apart Section */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -184,12 +135,11 @@ export default function AboutPage() {
               More Than a Toy Store
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
-              We are the trusted and preferred store for STEM-related products and
-              programmes. Unlike general toy stores, we specialise in STEM education
-              and have carefully curated a selection of products that offer a hands-on,
-              guided experience that is not just fun, but also educational. We take
-              the time to understand each product&apos;s target age group and educational
-              value, ensuring that every item has the greatest impact possible.
+              We&apos;re not a general toy store. We specialise in STEM education
+              and carefully curate products that offer a hands-on, guided experience
+              — fun first, genuinely educational by design. We take the time to
+              understand each product&apos;s age range, skill level, and learning
+              value before adding it to our range.
             </p>
           </div>
         </div>
@@ -241,7 +191,7 @@ export default function AboutPage() {
                 ),
                 title: "Curiosity",
                 description:
-                  "We nurture a lifelong love for exploration, discovery, and problem-solving. By offering hands-on experiences, we empower young minds to ask questions, think critically, and create boldly.",
+                  "We nurture a love for exploration, discovery, and problem-solving. Through hands-on experiences, kids learn to ask questions, think critically, and build with confidence.",
               },
               {
                 icon: (
@@ -251,7 +201,7 @@ export default function AboutPage() {
                 ),
                 title: "Excellence",
                 description:
-                  "We are committed to providing only the highest-quality STEM products that truly inspire learning and engagement. We stand behind our products and our approach, ensuring they meet the highest standards of education and enjoyment.",
+                  "We test and curate our range carefully — if a product doesn't deliver a great learning experience, it doesn't make the cut. We stand behind the quality of everything we sell.",
               },
               {
                 icon: (
@@ -304,7 +254,7 @@ export default function AboutPage() {
               "Early STEM engagement can spark a lifelong curiosity and appreciation for the sciences.",
               "It's important to challenge the misconception that the sciences are boring; STEM is exciting and engaging.",
               "STEM is for everyone—regardless of background, gender, or ability.",
-              "Both parents and educators are important partners in nurturing the next generation of innovators.",
+              "Both parents and educators play a key role in helping kids develop STEM skills.",
             ].map((belief, index) => (
               <div
                 key={index}
@@ -326,7 +276,7 @@ export default function AboutPage() {
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-semibold text-navy mb-4">
-            Ready to Start the Journey?
+            Browse the Range
           </h2>
           <p className="text-gray-600 mb-8 max-w-xl mx-auto">
             Explore our curated collection of STEM products or get in touch to learn

@@ -25,7 +25,7 @@ const slides: Slide[] = [
     type: "hero",
     headline: "Build. Play. Learn.",
     description:
-      "Curated STEM kits that ignite innovation and creativity. Inspire the next generation of scientists, engineers, and creators.",
+      "Curated STEM kits for curious kids — from first circuits to advanced coding.",
     cta: { label: "Shop Now", href: "/shop" },
     ctaSecondary: { label: "For Educators", href: "/education" },
     heroImage: "/images/home/hero-stem-education.jpg",

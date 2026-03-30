@@ -15,7 +15,7 @@ const educationOptions = [
     id: "curriculum",
     title: "Curriculum for Schools",
     description:
-      "Empower your educators with our partner Inspire Africa's comprehensive training platform. CAPS-aligned lesson plans and ongoing support included.",
+      "Give your teachers ready-to-use, CAPS-aligned lesson plans through our partner Inspire Africa's training platform. Ongoing support included.",
     image: "/images/education/teacher-curriculum-training.jpg",
     link: "/education/curriculum",
     linkText: "View Training",
@@ -50,7 +50,7 @@ export default function EducationSection() {
             For Educators
           </span>
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-            Resources for Every Teaching Need
+            STEM Programmes for Schools
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Whether you need equipment, expertise, or training, we&apos;re here to
