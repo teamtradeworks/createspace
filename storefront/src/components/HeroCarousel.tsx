@@ -49,7 +49,7 @@ const slides: Slide[] = [
     tag: "CREATESPACE for Schools",
     headline: "STEM Education Solutions for Every School",
     description:
-      "From trained tutors and classroom kits to teacher training and online courses — we have everything your school needs to bring STEM to life.",
+      "From trained tutors and classroom kits to teacher training and online courses — bring STEM to life at your school.",
     cta: { label: "Explore Education", href: "/education" },
     lifestyleImages: [
       "/images/home/stem-tutoring-workshop-1.png",
