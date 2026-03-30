@@ -287,7 +287,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           { label: "Robot Models", value: "200+ designs" },
           { label: "Programming Language", value: "Scratch Junior (visual drag-and-drop)" },
           { label: "Control Modes", value: "Electric, Intelligent (IR sensor), Bluetooth" },
-          { label: "Motor Type", value: "Bluetooth-enabled with rechargeable battery" },
+          { label: "Motor Type", value: "Bluetooth-enabled motor module" },
           { label: "Sensors Included", value: "Infrared (IR) sensor for intelligent mode" },
           { label: "App Compatibility", value: "iOS, Android, Web" },
           { label: "Battery Requirements", value: "2 x AAA (not included)" },
