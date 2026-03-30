@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import TestimonialCarousel from "@/components/TestimonialCarousel";
 import ContactForm from "@/components/ContactForm";
@@ -335,33 +336,42 @@ export default function CurriculumPage() {
                 Contact Us
               </a>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              {[
-                {
-                  stat: "Grade R–12",
-                  label: "Full curriculum coverage",
-                },
-                {
-                  stat: "CAPS",
-                  label: "Fully aligned to national curriculum",
-                },
-                {
-                  stat: "SACE",
-                  label: "Accredited teacher certification",
-                },
-                {
-                  stat: "Self-Paced",
-                  label: "Teachers train on their own schedule",
-                },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
-                >
-                  <p className="text-2xl font-bold text-cs-blue mb-1">{item.stat}</p>
-                  <p className="text-white/70 text-sm">{item.label}</p>
+            <div className="flex flex-col gap-4">
+              <div className="relative rounded-2xl overflow-hidden">
+                <Image
+                  src="/images/education/curriculum/teacher-coding-classroom.jpg"
+                  alt="Teacher guiding students through a coding lesson"
+                  width={600}
+                  height={450}
+                  className="w-full h-auto object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                />
+                <div className="absolute bottom-4 left-4 bg-white rounded-lg px-3 py-2 shadow">
+                  <Image
+                    src="/images/education/inspire-africa/inspire-africa-logo.png"
+                    alt="Inspire Africa"
+                    width={120}
+                    height={31}
+                  />
                 </div>
-              ))}
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  { stat: "Grade R–12", label: "Full curriculum coverage" },
+                  { stat: "CAPS", label: "Aligned to national curriculum" },
+                  { stat: "SACE", label: "Accredited teacher certification" },
+                  { stat: "Self-Paced", label: "Train on their own schedule" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="bg-white/10 border border-white/20 rounded-xl p-4 text-center"
+                  >
+                    <p className="text-xl font-bold text-cs-blue mb-1">{item.stat}</p>
+                    <p className="text-white/70 text-xs">{item.label}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -370,18 +380,30 @@ export default function CurriculumPage() {
       {/* What You Get */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-              What Your School Gets
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              A Complete Programme, Not Just Resources
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Your school gets access to the Inspire Campus — an online platform where teachers
-              train at their own pace, download lesson plans, and earn accredited certification.
-              Everything is managed from one dashboard.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="relative rounded-2xl overflow-hidden">
+              <Image
+                src="/images/education/curriculum/students-laptops-classroom.jpg"
+                alt="Students collaborating with laptops in a South African classroom"
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div>
+              <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
+                What Your School Gets
+              </span>
+              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+                A Complete Programme, Not Just Resources
+              </h2>
+              <p className="text-gray-600">
+                Your school gets access to the Inspire Campus — an online platform where teachers
+                train at their own pace, download lesson plans, and earn accredited certification.
+                Everything is managed from one dashboard.
+              </p>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -458,6 +480,42 @@ export default function CurriculumPage() {
         </div>
       </section>
 
+      {/* Real Learners Callout */}
+      <section className="py-20 bg-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
+                Real Results
+              </span>
+              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+                Learners Who Build, Code, and Compete
+              </h2>
+              <p className="text-gray-600 mb-4 leading-relaxed">
+                When teachers are confident, learners thrive. The curriculum gives educators the
+                tools to take learners from unplugged concepts all the way to building and
+                programming physical robots — using the same micro:bit hardware used in global
+                robotics competitions.
+              </p>
+              <p className="text-gray-600 leading-relaxed">
+                From Foundation Phase to FET, the programme is designed to grow with your school
+                — building lasting STEM capacity in your staff and your learners.
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden">
+              <Image
+                src="/images/education/curriculum/student-microbit-robot.jpg"
+                alt="Learner proudly holding a micro:bit robot car built during a coding lesson"
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="py-20 bg-navy text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -481,15 +539,29 @@ export default function CurriculumPage() {
       {/* How It Works */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-              Getting Started
-            </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">How It Works</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Getting your school set up with the Inspire Africa coding and robotics curriculum is
-              straightforward.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+            <div className="text-center lg:text-left">
+              <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
+                Getting Started
+              </span>
+              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+                How It Works
+              </h2>
+              <p className="text-gray-600">
+                Getting your school set up with the Inspire Africa coding and robotics curriculum is
+                straightforward.
+              </p>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden">
+              <Image
+                src="/images/education/curriculum/robotics-classroom-training.jpg"
+                alt="Teachers and learners in a robotics training session"
+                width={600}
+                height={450}
+                className="w-full h-auto object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
 
           <div className="grid md:grid-cols-4 gap-8">
