@@ -148,9 +148,11 @@ export default async function MakerzoidRobotMasterTournamentPage() {
         projects={[
           {
             name: "Programmable Hub",
-            description: "Learn to store and switch between multiple programmes on the central controller",
+            description:
+              "Learn to store and switch between multiple programmes on the central controller",
             concepts: "Programme storage, Bluetooth control",
-            image: "/images/products/makerzoid-robot-master-tournament/projects/programmable-hub.png",
+            image:
+              "/images/products/makerzoid-robot-master-tournament/projects/programmable-hub.png",
           },
           {
             name: "Servo Drive",
@@ -168,19 +170,22 @@ export default async function MakerzoidRobotMasterTournamentPage() {
             name: "Line Following",
             description: "Master the core competition skill — programming a robot to follow a line",
             concepts: "Grayscale sensor, algorithm tuning",
-            image: "/images/products/makerzoid-robot-master-tournament/projects/greyscale-sensor.png",
+            image:
+              "/images/products/makerzoid-robot-master-tournament/projects/greyscale-sensor.png",
           },
           {
             name: "Precision Steering",
             description: "Navigate exact distances and angles using the built-in gyroscope",
             concepts: "Gyroscope data, calibration",
-            image: "/images/products/makerzoid-robot-master-tournament/projects/smart-gyroscope.png",
+            image:
+              "/images/products/makerzoid-robot-master-tournament/projects/smart-gyroscope.png",
           },
           {
             name: "Graphical Programming",
             description: "Build complete autonomous programmes using Scratch 3.0's visual editor",
             concepts: "Scratch 3.0, event-driven code",
-            image: "/images/products/makerzoid-robot-master-tournament/projects/graphical-programming.png",
+            image:
+              "/images/products/makerzoid-robot-master-tournament/projects/graphical-programming.png",
           },
         ]}
         moreText="Plus 200+ robot models to build — from simple Level 1 structures to fully autonomous Level 3 competition machines"
@@ -280,13 +285,20 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           { label: "Weight", value: "2.3 kg" },
           { label: "Programmable Hub", value: "Stores up to 7 programmes simultaneously" },
           { label: "Hub Sensors", value: "Built-in 3-axis gyroscope" },
-          { label: "Hub Ports", value: "7 cross-ports (supports up to 4 servo motors, 4 colour sensors, 4 grayscale sensors)" },
+          {
+            label: "Hub Ports",
+            value:
+              "7 cross-ports (supports up to 4 servo motors, 4 colour sensors, 4 grayscale sensors)",
+          },
           { label: "Connectivity", value: "Bluetooth (for Makerzoid App)" },
           { label: "Coding Platforms", value: "Blockly (app) and Scratch 3.0 (lab.makerzoid.com)" },
           { label: "App Compatibility", value: "iOS and Android" },
           { label: "Batteries", value: "AA required, not included" },
           { label: "Soldering Required", value: "No" },
-          { label: "Warranty", value: "12 months (30-day quality warranty on motors, hub, and sensors)" },
+          {
+            label: "Warranty",
+            value: "12 months (30-day quality warranty on motors, hub, and sensors)",
+          },
         ]}
         background="white"
       />

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { formatPrice } from "@/lib/shopify";
 
-
 interface BundleComparisonProps {
   foundationPrice: string | null;
   inventionPrice: string | null;
@@ -13,7 +12,12 @@ const foundationCourses = [
     shortTitle: "Intro to STEAM",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+        />
       </svg>
     ),
   },
@@ -22,7 +26,12 @@ const foundationCourses = [
     shortTitle: "Getting Started",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+        />
       </svg>
     ),
   },
@@ -31,7 +40,12 @@ const foundationCourses = [
     shortTitle: "Micro:bit L1",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5"
+        />
       </svg>
     ),
   },
@@ -42,7 +56,12 @@ const essentialCourse = {
   shortTitle: "STEM Lab",
   icon: (
     <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5" />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+        d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"
+      />
     </svg>
   ),
 };
@@ -114,12 +133,7 @@ export default function BundleComparison({
             href="/education"
             className="inline-flex items-center text-white/60 hover:text-white transition-colors"
           >
-            <svg
-              className="w-4 h-4 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -140,9 +154,8 @@ export default function BundleComparison({
             Choose Your Starting Point
           </h1>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Two bundles designed for educators. Start with the Foundation Phase
-            to get up and running, or go all-in with the Invention Phase for
-            specialist training and more courses.
+            Two bundles designed for educators. Start with the Foundation Phase to get up and
+            running, or go all-in with the Invention Phase for specialist training and more courses.
           </p>
         </div>
 
@@ -158,12 +171,9 @@ export default function BundleComparison({
                 </span>
               </div>
 
-              <h3 className="text-2xl font-semibold text-white mb-2">
-                Foundation Phase
-              </h3>
+              <h3 className="text-2xl font-semibold text-white mb-2">Foundation Phase</h3>
               <p className="text-white/50 text-sm mb-6">
-                The essentials to start teaching Coding and Robotics with
-                confidence.
+                The essentials to start teaching Coding and Robotics with confidence.
               </p>
 
               {/* Courses */}
@@ -214,9 +224,7 @@ export default function BundleComparison({
                 </span>
               </div>
 
-              <h3 className="text-2xl font-semibold text-white mb-2">
-                Invention Phase
-              </h3>
+              <h3 className="text-2xl font-semibold text-white mb-2">Invention Phase</h3>
               <p className="text-white/50 text-sm mb-6">
                 Everything in Foundation, plus specialist STEM Lab training.
               </p>
@@ -245,7 +253,13 @@ export default function BundleComparison({
               <div className="flex items-center gap-3 my-5">
                 <div className="flex-1 border-t border-dashed border-white/20" />
                 <div className="w-10 h-10 rounded-full bg-white/10 border-2 border-white/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <svg
+                    className="w-5 h-5 text-white/60"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                   </svg>
                 </div>
@@ -290,8 +304,8 @@ export default function BundleComparison({
 
         {/* Bottom note */}
         <p className="text-center text-white/30 text-xs mt-10 max-w-lg mx-auto">
-          Both bundles include access to the Inspire Africa learning platform.
-          Courses are self-paced with certificates on completion.
+          Both bundles include access to the Inspire Africa learning platform. Courses are
+          self-paced with certificates on completion.
         </p>
       </div>
     </section>

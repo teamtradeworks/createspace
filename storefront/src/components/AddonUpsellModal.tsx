@@ -11,11 +11,7 @@ interface AddonUpsellModalProps {
   onSkip: () => void;
 }
 
-export default function AddonUpsellModal({
-  addons,
-  onConfirm,
-  onSkip,
-}: AddonUpsellModalProps) {
+export default function AddonUpsellModal({ addons, onConfirm, onSkip }: AddonUpsellModalProps) {
   const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set());
 
   useEffect(() => {
@@ -50,10 +46,7 @@ export default function AddonUpsellModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/50"
-        onClick={onSkip}
-      />
+      <div className="absolute inset-0 bg-black/50" onClick={onSkip} />
 
       {/* Modal */}
       <div
@@ -67,18 +60,19 @@ export default function AddonUpsellModal({
           aria-label="Close"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         </button>
 
         {/* Header */}
         <div className="mb-5">
-          <h3 className="text-xl font-semibold text-navy">
-            Complete your purchase
-          </h3>
-          <p className="text-sm text-gray-500 mt-1">
-            These go great with your order:
-          </p>
+          <h3 className="text-xl font-semibold text-navy">Complete your purchase</h3>
+          <p className="text-sm text-gray-500 mt-1">These go great with your order:</p>
         </div>
 
         {/* Add-ons list */}
@@ -100,22 +94,13 @@ export default function AddonUpsellModal({
               />
               {addon.image && (
                 <div className="relative w-14 h-14 flex-shrink-0 rounded overflow-hidden bg-white border">
-                  <Image
-                    src={addon.image}
-                    alt={addon.title}
-                    fill
-                    className="object-contain p-1"
-                  />
+                  <Image src={addon.image} alt={addon.title} fill className="object-contain p-1" />
                 </div>
               )}
               <div className="flex-grow min-w-0">
-                <span className="text-sm font-medium text-navy line-clamp-2">
-                  {addon.title}
-                </span>
+                <span className="text-sm font-medium text-navy line-clamp-2">{addon.title}</span>
                 {addon.description && (
-                  <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">
-                    {addon.description}
-                  </p>
+                  <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">{addon.description}</p>
                 )}
                 {addon.viewProductLink && (
                   <Link

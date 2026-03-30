@@ -7,7 +7,13 @@ export default function HeaderSkeleton() {
       {/* Promo banner - same as real header */}
       <div className="bg-cs-orange text-white text-center py-2 text-sm font-medium">
         <span className="inline-flex items-center gap-1.5">
-          <Image src="/images/brand/flag-za.svg" alt="South African flag" width={18} height={12} className="rounded-sm" />
+          <Image
+            src="/images/brand/flag-za.svg"
+            alt="South African flag"
+            width={18}
+            height={12}
+            className="rounded-sm"
+          />
           Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
         </span>
       </div>
@@ -20,10 +26,7 @@ export default function HeaderSkeleton() {
           {/* Desktop navigation placeholders */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             {[1, 2, 3, 4, 5].map((i) => (
-              <div
-                key={i}
-                className="w-16 h-4 bg-white/20 rounded animate-pulse"
-              />
+              <div key={i} className="w-16 h-4 bg-white/20 rounded animate-pulse" />
             ))}
           </div>
 

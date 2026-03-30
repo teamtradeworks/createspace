@@ -31,16 +31,14 @@ export interface ResolvedAddon {
  */
 export function getAddonConfigsForHandle(parentHandle: string): AddonConfig[] {
   return (addonsConfig.addons as AddonConfig[]).filter(
-    (addon) => addon.parentHandle === parentHandle
+    (addon) => addon.parentHandle === parentHandle,
   );
 }
 
 /**
  * Resolve add-on configs to full product data with pricing
  */
-export async function resolveAddonsForHandle(
-  parentHandle: string
-): Promise<ResolvedAddon[]> {
+export async function resolveAddonsForHandle(parentHandle: string): Promise<ResolvedAddon[]> {
   const configs = getAddonConfigsForHandle(parentHandle);
 
   if (configs.length === 0) {
@@ -79,19 +77,10 @@ export async function resolveAddonsForHandle(
       originalPrice,
       discountedPrice,
       currencyCode: variant.price.currencyCode,
-      formattedOriginalPrice: formatPrice(
-        originalPrice.toString(),
-        variant.price.currencyCode
-      ),
-      formattedDiscountedPrice: formatPrice(
-        discountedPrice.toFixed(2),
-        variant.price.currencyCode
-      ),
+      formattedOriginalPrice: formatPrice(originalPrice.toString(), variant.price.currencyCode),
+      formattedDiscountedPrice: formatPrice(discountedPrice.toFixed(2), variant.price.currencyCode),
       savings,
-      formattedSavings: formatPrice(
-        savings.toFixed(2),
-        variant.price.currencyCode
-      ),
+      formattedSavings: formatPrice(savings.toFixed(2), variant.price.currencyCode),
       description: config.description,
       viewProductLink: config.viewProductLink ?? true,
     });
@@ -130,10 +119,7 @@ export function serializeAddons(addons: ResolvedAddon[]): SerializedAddon[] {
   return addons.map((addon) => ({
     productId: addon.product.id,
     variantId: addon.variantId,
-    title:
-      addon.quantity > 1
-        ? `${addon.quantity} x ${addon.product.title}`
-        : addon.product.title,
+    title: addon.quantity > 1 ? `${addon.quantity} x ${addon.product.title}` : addon.product.title,
     handle: addon.product.handle,
     image: addon.product.images.edges[0]?.node.url || null,
     discountPercent: addon.discountPercent,

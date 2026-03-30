@@ -37,14 +37,11 @@ declare global {
   }
 
   interface FeraApi {
-    getRating: (
-      productId: string,
-      callback: (rating: FeraProductRating) => void
-    ) => void;
+    getRating: (productId: string, callback: (rating: FeraProductRating) => void) => void;
     getReviews: (
       options: { product_id: string; page?: number; per_page?: number },
       callback: (response: FeraReviewsResponse) => void,
-      errorCallback?: (error: unknown) => void
+      errorCallback?: (error: unknown) => void,
     ) => void;
   }
 

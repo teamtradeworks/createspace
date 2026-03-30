@@ -81,19 +81,25 @@ export function CartProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ variantIds }),
       })
         .then((res) => res.json())
-        .then(({ availability }: { availability: Record<string, { available: boolean; currentlyNotInStock: boolean }> }) => {
-          setItems((prev) =>
-            prev.map((item) =>
-              item.variantId in availability
-                ? {
-                    ...item,
-                    available: availability[item.variantId].available,
-                    currentlyNotInStock: availability[item.variantId].currentlyNotInStock,
-                  }
-                : item
-            )
-          );
-        })
+        .then(
+          ({
+            availability,
+          }: {
+            availability: Record<string, { available: boolean; currentlyNotInStock: boolean }>;
+          }) => {
+            setItems((prev) =>
+              prev.map((item) =>
+                item.variantId in availability
+                  ? {
+                      ...item,
+                      available: availability[item.variantId].available,
+                      currentlyNotInStock: availability[item.variantId].currentlyNotInStock,
+                    }
+                  : item,
+              ),
+            );
+          },
+        )
         .catch((e) => {
           console.error("Failed to refresh cart availability:", e);
         });
@@ -119,7 +125,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         return prevItems.map((item) =>
           item.variantId === newItem.variantId
             ? { ...item, ...newItem, quantity: item.quantity + quantity }
-            : item
+            : item,
         );
       }
 
@@ -137,9 +143,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (quantity < 1) return;
 
     setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.variantId === variantId ? { ...item, quantity } : item
-      )
+      prevItems.map((item) => (item.variantId === variantId ? { ...item, quantity } : item)),
     );
   };
 

@@ -88,7 +88,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
         subtitle="The Superbot Master Premium packs more intelligence into a single hub than most kits twice its size."
         features={[
           {
-icon: "robot",
+            icon: "robot",
             title: "All-in-One Smart Controller",
             description:
               "Built-in motors, gyroscope, 25-LED matrix, microphone, and speaker in one hub — no wiring tangles, just build and code.",
@@ -100,13 +100,13 @@ icon: "robot",
               "Detects and reacts to colours in the real world. Build a colour-sorting machine or a robot that stops at a red line.",
           },
           {
-icon: "refresh",
+            icon: "refresh",
             title: "3-Axis Gyroscope",
             description:
               "Measures tilt and orientation in three directions. Make balance bots, tilt-steered vehicles, and self-correcting platforms.",
           },
           {
-icon: "wave",
+            icon: "wave",
             title: "Infrared Sensors (×2)",
             description:
               "Detect obstacles and proximity. Program a robot that navigates a room on its own — no joystick required.",
@@ -155,8 +155,7 @@ icon: "wave",
             name: "Patrol Vehicle",
             description: "A robot that surveys and patrols an area on its own",
             concepts: "Motor control, loops, sensor-triggered decisions",
-            image:
-              "/images/products/makerzoid-superbot-master-premium/projects/patrol-vehicle.png",
+            image: "/images/products/makerzoid-superbot-master-premium/projects/patrol-vehicle.png",
           },
           {
             name: "Racing Competition",

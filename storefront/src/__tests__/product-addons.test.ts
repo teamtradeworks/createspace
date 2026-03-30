@@ -8,9 +8,7 @@ import type { ProductDetail } from "@/lib/shopify";
 
 describe("getAddonConfigsForHandle", () => {
   it("returns matching addon configs for a known parent", () => {
-    const configs = getAddonConfigsForHandle(
-      "elecfreaks-micro-bit-tinker-kit"
-    );
+    const configs = getAddonConfigsForHandle("elecfreaks-micro-bit-tinker-kit");
     expect(configs).toHaveLength(2);
     expect(configs[0]).toMatchObject({
       parentHandle: "elecfreaks-micro-bit-tinker-kit",
@@ -49,9 +47,7 @@ describe("serializeAddons", () => {
       minVariantPrice: { amount: "0.00", currencyCode: "ZAR" },
     },
     images: {
-      edges: [
-        { node: { url: "https://cdn.shopify.com/image.jpg", altText: null } },
-      ],
+      edges: [{ node: { url: "https://cdn.shopify.com/image.jpg", altText: null } }],
     },
     variants: { edges: [] },
     minAge: null,

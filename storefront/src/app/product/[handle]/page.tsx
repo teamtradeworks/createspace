@@ -314,7 +314,13 @@ export default async function ProductPage({ params }: ProductPageProps) {
                       />
                     </svg>
                   ) : feature.icon === "no-solder" ? (
-                    <Image src="/images/icons/welding.svg" alt="" width={24} height={24} className="w-6 h-6" />
+                    <Image
+                      src="/images/icons/welding.svg"
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="w-6 h-6"
+                    />
                   ) : (
                     <svg
                       className="w-6 h-6 text-cs-blue"

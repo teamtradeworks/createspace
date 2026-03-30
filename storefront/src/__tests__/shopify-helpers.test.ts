@@ -116,16 +116,12 @@ describe("getProductAgeRange", () => {
   });
 
   it("returns X+ format when only min age", () => {
-    expect(
-      getProductAgeRange(makeProduct({ minAge: { value: "8" } }))
-    ).toBe("8+");
+    expect(getProductAgeRange(makeProduct({ minAge: { value: "8" } }))).toBe("8+");
   });
 
   it("returns X-Y format with both ages", () => {
     expect(
-      getProductAgeRange(
-        makeProduct({ minAge: { value: "6" }, maxAge: { value: "12" } })
-      )
+      getProductAgeRange(makeProduct({ minAge: { value: "6" }, maxAge: { value: "12" } })),
     ).toBe("6-12");
   });
 });
@@ -136,11 +132,9 @@ describe("getProductBatteryInfo", () => {
   });
 
   it("returns 'No batteries required' when not required", () => {
-    expect(
-      getProductBatteryInfo(
-        makeProduct({ batteriesRequired: { value: "false" } })
-      )
-    ).toBe("No batteries required");
+    expect(getProductBatteryInfo(makeProduct({ batteriesRequired: { value: "false" } }))).toBe(
+      "No batteries required",
+    );
   });
 
   it("returns battery type with included status", () => {
@@ -155,8 +149,8 @@ describe("getProductBatteryInfo", () => {
               fields: [{ key: "label", value: "2x AA" }],
             },
           },
-        })
-      )
+        }),
+      ),
     ).toBe("2x AA (included)");
   });
 
@@ -172,8 +166,8 @@ describe("getProductBatteryInfo", () => {
               fields: [{ key: "label", value: "3x AAA" }],
             },
           },
-        })
-      )
+        }),
+      ),
     ).toBe("3x AAA (not included)");
   });
 
@@ -183,8 +177,8 @@ describe("getProductBatteryInfo", () => {
         makeProduct({
           batteriesRequired: { value: "true" },
           batteriesIncluded: { value: "true" },
-        })
-      )
+        }),
+      ),
     ).toBe("Included");
   });
 
@@ -194,8 +188,8 @@ describe("getProductBatteryInfo", () => {
         makeProduct({
           batteriesRequired: { value: "true" },
           batteriesIncluded: { value: "false" },
-        })
-      )
+        }),
+      ),
     ).toBe("Required");
   });
 });
@@ -206,37 +200,30 @@ describe("getProductRating", () => {
   });
 
   it("returns null when rating but no count", () => {
-    expect(
-      getProductRating({ value: '{"value":"4.5"}' }, null)
-    ).toBeNull();
+    expect(getProductRating({ value: '{"value":"4.5"}' }, null)).toBeNull();
   });
 
   it("parses valid rating and count", () => {
-    const result = getProductRating(
-      { value: '{"value":"4.5"}' },
-      { value: "12" }
-    );
+    const result = getProductRating({ value: '{"value":"4.5"}' }, { value: "12" });
     expect(result).toEqual({ average: 4.5, count: 12 });
   });
 
   it("returns null for zero count", () => {
-    expect(
-      getProductRating({ value: '{"value":"4.5"}' }, { value: "0" })
-    ).toBeNull();
+    expect(getProductRating({ value: '{"value":"4.5"}' }, { value: "0" })).toBeNull();
   });
 
   it("returns null for invalid JSON", () => {
-    expect(
-      getProductRating({ value: "not json" }, { value: "5" })
-    ).toBeNull();
+    expect(getProductRating({ value: "not json" }, { value: "5" })).toBeNull();
   });
 });
 
-function makeVariant(overrides: {
-  availableForSale?: boolean;
-  currentlyNotInStock?: boolean;
-  requiresShipping?: boolean;
-} = {}) {
+function makeVariant(
+  overrides: {
+    availableForSale?: boolean;
+    currentlyNotInStock?: boolean;
+    requiresShipping?: boolean;
+  } = {},
+) {
   return {
     node: {
       id: "gid://shopify/ProductVariant/1",
@@ -327,10 +314,7 @@ describe("isDigitalProduct", () => {
   it("returns false when any variant requires shipping", () => {
     const product = makeProduct({
       variants: {
-        edges: [
-          makeVariant({ requiresShipping: false }),
-          makeVariant({ requiresShipping: true }),
-        ],
+        edges: [makeVariant({ requiresShipping: false }), makeVariant({ requiresShipping: true })],
       },
     });
     expect(isDigitalProduct(product)).toBe(false);

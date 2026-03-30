@@ -13,12 +13,7 @@ interface BrandSwitcherProps {
 }
 
 const CHECK_ICON = (
-  <path
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    strokeWidth={2}
-    d="M5 13l4 4L19 7"
-  />
+  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
 );
 
 const brands = {
@@ -28,8 +23,7 @@ const brands = {
     phases: "Foundation – Intermediate Phase",
     color: "cs-orange",
     image: "/images/products/matatastudio-coding-set-pro/child-playing-with-kit.png",
-    imageAlt:
-      "Child placing physical coding blocks on MatataStudio Coding Set Pro board",
+    imageAlt: "Child placing physical coding blocks on MatataStudio Coding Set Pro board",
     tags: ["Screen-Free Coding", "Tangible Blocks", "No Literacy Needed", "Robotics"],
     intro:
       "MatataStudio makes coding tangible. Young learners place physical coding blocks on a board to programme a robot \u2014 no screens, no apps, no reading required. It\u2019s as intuitive as building with blocks.",
@@ -80,8 +74,7 @@ const brands = {
     phases: "Intermediate \u2013 Senior Phase",
     color: "cs-blue",
     image: "/images/products/bbc-micro-bit-go/boy-holding-microbit.jpg",
-    imageAlt:
-      "Boy holding a BBC micro:bit board showing the LED matrix and sensors",
+    imageAlt: "Boy holding a BBC micro:bit board showing the LED matrix and sensors",
     tags: ["Physical Computing", "Block & Python Coding", "Built-in Sensors", "Expandable"],
     intro:
       "The BBC micro:bit is a pocket-sized computer (5cm \u00d7 4cm) packed with sensors, LEDs, buttons, a speaker, and a microphone. Learners write real code and see it come to life instantly on the hardware.",
@@ -155,10 +148,7 @@ const colorMap = {
   },
 };
 
-export default function BrandSwitcher({
-  matataProducts,
-  microbitProducts,
-}: BrandSwitcherProps) {
+export default function BrandSwitcher({ matataProducts, microbitProducts }: BrandSwitcherProps) {
   const [active, setActive] = useState<Brand>("matata");
 
   const brand = brands[active];
@@ -179,9 +169,7 @@ export default function BrandSwitcher({
               key={key}
               onClick={() => setActive(key)}
               className={`relative text-left bg-white rounded-xl border-3 overflow-hidden transition-all duration-200 ${
-                isActive
-                  ? `${c.borderActive} shadow-md scale-[1.02]`
-                  : "border-gray-200"
+                isActive ? `${c.borderActive} shadow-md scale-[1.02]` : "border-gray-200"
               }`}
             >
               <div className="relative h-24 overflow-hidden">
@@ -196,9 +184,7 @@ export default function BrandSwitcher({
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-navy/20" />
                 <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <h3 className="text-sm font-semibold text-white leading-tight">
-                    {b.name}
-                  </h3>
+                  <h3 className="text-sm font-semibold text-white leading-tight">{b.name}</h3>
                   <span className="text-white/70 text-[11px]">
                     {isActive ? b.ages : "Tap to explore"}
                   </span>
@@ -233,7 +219,9 @@ export default function BrandSwitcher({
                   alt={b.imageAlt}
                   fill
                   className={`object-cover group-hover:scale-105 transition-all duration-300 ${
-                    isActive ? "" : "grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
+                    isActive
+                      ? ""
+                      : "grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100"
                   }`}
                   sizes="50vw"
                 />
@@ -246,9 +234,7 @@ export default function BrandSwitcher({
                   </span>
                   <span
                     className={`text-xs font-semibold px-3 py-1 rounded-full transition-all duration-300 ${
-                      isActive
-                        ? "bg-white/90 text-navy"
-                        : "bg-white/70 text-gray-500"
+                      isActive ? "bg-white/90 text-navy" : "bg-white/70 text-gray-500"
                     }`}
                   >
                     {isActive ? "Viewing" : "Hover to explore"}
@@ -268,9 +254,7 @@ export default function BrandSwitcher({
                     <span
                       key={tag}
                       className={`text-xs font-medium px-2 py-0.5 rounded-full transition-colors duration-300 ${
-                        isActive
-                          ? `${c.tagBg} ${c.tagText}`
-                          : "bg-gray-100 text-gray-400"
+                        isActive ? `${c.tagBg} ${c.tagText}` : "bg-gray-100 text-gray-400"
                       }`}
                     >
                       {tag}
@@ -290,21 +274,15 @@ export default function BrandSwitcher({
         {/* Brand Detail */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
-            <span
-              className={`${colors.labelText} font-medium text-sm uppercase tracking-wider`}
-            >
+            <span className={`${colors.labelText} font-medium text-sm uppercase tracking-wider`}>
               {brand.ages} &middot; {brand.phases}
             </span>
-            <h3 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-6">
-              {brand.name}
-            </h3>
+            <h3 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-6">{brand.name}</h3>
             <p className="text-gray-600 mb-6 text-lg">{brand.intro}</p>
             <p className="text-gray-600 mb-6">{brand.background}</p>
 
             <div className="space-y-4">
-              <h4 className="font-semibold text-navy">
-                Why teachers choose {brand.name}:
-              </h4>
+              <h4 className="font-semibold text-navy">Why teachers choose {brand.name}:</h4>
               <ul className="space-y-3">
                 {brand.reasons.map((item) => (
                   <li key={item} className="flex items-start text-gray-600">
@@ -325,10 +303,7 @@ export default function BrandSwitcher({
 
           <div className="grid grid-cols-2 gap-4">
             {brand.images.map((img) => (
-              <div
-                key={img.src}
-                className="relative h-48 md:h-64 rounded-xl overflow-hidden"
-              >
+              <div key={img.src} className="relative h-48 md:h-64 rounded-xl overflow-hidden">
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -348,12 +323,8 @@ export default function BrandSwitcher({
               key={line.name}
               className={`${colors.cardBg} rounded-xl p-6 border ${colors.cardBorder}`}
             >
-              <span className={`${colors.labelText} font-semibold text-sm`}>
-                {line.ages}
-              </span>
-              <h4 className="font-semibold text-navy mt-1 mb-2">
-                {line.name}
-              </h4>
+              <span className={`${colors.labelText} font-semibold text-sm`}>{line.ages}</span>
+              <h4 className="font-semibold text-navy mt-1 mb-2">{line.name}</h4>
               <p className="text-gray-600 text-sm">{line.description}</p>
             </div>
           ))}
@@ -362,9 +333,7 @@ export default function BrandSwitcher({
         {/* Products Grid */}
         {products.length > 0 && (
           <div>
-            <h3 className="text-2xl font-semibold text-navy mb-6">
-              {brand.productsTitle}
-            </h3>
+            <h3 className="text-2xl font-semibold text-navy mb-6">{brand.productsTitle}</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {products.map((product) => (
                 <ProductCard key={product.id} product={product} />
@@ -376,43 +345,27 @@ export default function BrandSwitcher({
 
       {/* At a Glance Comparison Table */}
       <div className="max-w-4xl mx-auto mt-16">
-        <h3 className="text-xl font-semibold text-navy text-center mb-8">
-          At a Glance
-        </h3>
+        <h3 className="text-xl font-semibold text-navy text-center mb-8">At a Glance</h3>
         <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-navy text-white">
-                  <th className="text-left py-4 px-6 font-semibold">
-                    &nbsp;
-                  </th>
-                  <th className="text-left py-4 px-6 font-semibold">
-                    MatataStudio
-                  </th>
-                  <th className="text-left py-4 px-6 font-semibold">
-                    BBC micro:bit
-                  </th>
+                  <th className="text-left py-4 px-6 font-semibold">&nbsp;</th>
+                  <th className="text-left py-4 px-6 font-semibold">MatataStudio</th>
+                  <th className="text-left py-4 px-6 font-semibold">BBC micro:bit</th>
                 </tr>
               </thead>
               <tbody className="text-gray-700">
                 {[
                   ["Best for ages", "3 – 12 years", "8 – 14 years"],
-                  [
-                    "School phases",
-                    "Foundation – Intermediate",
-                    "Intermediate – Senior",
-                  ],
+                  ["School phases", "Foundation – Intermediate", "Intermediate – Senior"],
                   [
                     "Coding approach",
                     "Physical coding blocks (screen-free)",
                     "Block-based (MakeCode) & Python",
                   ],
-                  [
-                    "Screens required",
-                    "No (ages 3–9), Yes (ages 8+)",
-                    "Yes (computer or tablet)",
-                  ],
+                  ["Screens required", "No (ages 3–9), Yes (ages 8+)", "Yes (computer or tablet)"],
                   [
                     "Key strength",
                     "Tangible, hands-on learning without screens",
@@ -433,9 +386,7 @@ export default function BrandSwitcher({
                     key={label}
                     className={`border-b border-gray-100 ${i % 2 === 1 ? "bg-gray-50" : ""}`}
                   >
-                    <td className="py-3 px-6 font-medium text-navy">
-                      {label}
-                    </td>
+                    <td className="py-3 px-6 font-medium text-navy">{label}</td>
                     <td className="py-3 px-6">{matata}</td>
                     <td className="py-3 px-6">{microbit}</td>
                   </tr>

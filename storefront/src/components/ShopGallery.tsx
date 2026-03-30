@@ -50,13 +50,13 @@ export default function ShopGallery({
   initialBrand,
 }: ShopGalleryProps) {
   const [selectedAges, setSelectedAges] = useState<string[]>(
-    initialAge && initialAge !== "all" ? [initialAge] : []
+    initialAge && initialAge !== "all" ? [initialAge] : [],
   );
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
-    initialCategory && initialCategory !== "all" ? [initialCategory] : []
+    initialCategory && initialCategory !== "all" ? [initialCategory] : [],
   );
   const [selectedBrands, setSelectedBrands] = useState<string[]>(
-    initialBrand ? [initialBrand] : []
+    initialBrand ? [initialBrand] : [],
   );
   const [sortBy, setSortBy] = useState("featured");
 
@@ -83,17 +83,12 @@ export default function ShopGallery({
 
       if (selectedRanges.length > 0) {
         result = result.filter((product) => {
-          const minAge = product.minAge?.value
-            ? parseInt(product.minAge.value, 10)
-            : null;
+          const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
           if (minAge === null) return false;
-          const maxAge = product.maxAge?.value
-            ? parseInt(product.maxAge.value, 10)
-            : null;
+          const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
           const productMax = maxAge ?? Infinity;
           return selectedRanges.some(
-            ([minRange, maxRange]) =>
-              minAge <= maxRange && productMax >= minRange
+            ([minRange, maxRange]) => minAge <= maxRange && productMax >= minRange,
           );
         });
       }
@@ -102,16 +97,14 @@ export default function ShopGallery({
     // Filter by categories (union — product matches if it has ANY selected category tag)
     if (selectedCategories.length > 0) {
       result = result.filter((product) =>
-        selectedCategories.some((cat) =>
-          product.tags?.includes(`category:${cat}`)
-        )
+        selectedCategories.some((cat) => product.tags?.includes(`category:${cat}`)),
       );
     }
 
     // Filter by brands (union — product matches if its vendor is ANY selected brand)
     if (selectedBrands.length > 0) {
       result = result.filter((product) =>
-        selectedBrands.some((b) => b.toLowerCase() === product.vendor.toLowerCase())
+        selectedBrands.some((b) => b.toLowerCase() === product.vendor.toLowerCase()),
       );
     }
 
@@ -121,14 +114,14 @@ export default function ShopGallery({
         result.sort(
           (a, b) =>
             parseFloat(a.priceRange.minVariantPrice.amount) -
-            parseFloat(b.priceRange.minVariantPrice.amount)
+            parseFloat(b.priceRange.minVariantPrice.amount),
         );
         break;
       case "price-high":
         result.sort(
           (a, b) =>
             parseFloat(b.priceRange.minVariantPrice.amount) -
-            parseFloat(a.priceRange.minVariantPrice.amount)
+            parseFloat(a.priceRange.minVariantPrice.amount),
         );
         break;
       case "name-az":
@@ -145,9 +138,7 @@ export default function ShopGallery({
   }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
 
   const hasActiveFilters =
-    selectedAges.length > 0 ||
-    selectedCategories.length > 0 ||
-    selectedBrands.length > 0;
+    selectedAges.length > 0 || selectedCategories.length > 0 || selectedBrands.length > 0;
 
   const clearFilters = () => {
     setSelectedAges([]);
@@ -156,22 +147,18 @@ export default function ShopGallery({
   };
 
   const toggleAge = (id: string) => {
-    setSelectedAges((prev) =>
-      prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]
-    );
+    setSelectedAges((prev) => (prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]));
   };
 
   const toggleCategory = (id: string) => {
     setSelectedCategories((prev) =>
-      prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]
+      prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id],
     );
   };
 
   const toggleBrand = (brand: string) => {
     setSelectedBrands((prev) =>
-      prev.includes(brand)
-        ? prev.filter((v) => v !== brand)
-        : [...prev, brand]
+      prev.includes(brand) ? prev.filter((v) => v !== brand) : [...prev, brand],
     );
   };
 
@@ -181,12 +168,7 @@ export default function ShopGallery({
         {/* Mobile Filters */}
         <div className="sticky top-[100px] z-30 bg-gray-50 flex flex-col gap-2.5 mb-6 pb-3 pt-4 border-b-2 border-navy/10 sm:hidden">
           {/* Row 1: Age pills */}
-          <AgePills
-            selected={selectedAges}
-            onToggle={toggleAge}
-            color={TRACK_COLORS.age}
-            stretch
-          />
+          <AgePills selected={selectedAges} onToggle={toggleAge} color={TRACK_COLORS.age} stretch />
           {/* Row 2: Category, Brand dropdowns + Sort icon */}
           <div className="flex items-end gap-2">
             <div className="flex-1">
@@ -231,7 +213,15 @@ export default function ShopGallery({
                 title="Clear Filters"
                 className="shrink-0 self-end min-w-[44px] min-h-[44px] flex items-center justify-center text-navy/30 active:text-cs-red transition-colors"
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
                   <path d="M4 4L12 12M12 4L4 12" />
                 </svg>
               </button>
@@ -274,7 +264,15 @@ export default function ShopGallery({
               title="Clear Filters"
               className="shrink-0 self-end pb-3 p-1.5 text-navy/30 hover:text-cs-red transition-colors"
             >
-              <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              >
                 <path d="M4 4L12 12M12 4L4 12" />
               </svg>
             </button>
@@ -325,9 +323,7 @@ export default function ShopGallery({
                 />
               </svg>
             </div>
-            <h2 className="text-xl font-medium text-gray-900 mb-2">
-              No products found
-            </h2>
+            <h2 className="text-xl font-medium text-gray-900 mb-2">No products found</h2>
             <p className="text-gray-600 mb-6">
               Try adjusting your filters to find what you&apos;re looking for.
             </p>
@@ -420,23 +416,16 @@ function MultiSelect({
   const isLg = size === "lg";
 
   // Close on outside click
-  const handleClickOutside = useCallback(
-    (e: MouseEvent) => {
-      if (
-        containerRef.current &&
-        !containerRef.current.contains(e.target as Node)
-      ) {
-        setIsOpen(false);
-      }
-    },
-    []
-  );
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      setIsOpen(false);
+    }
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
-      return () =>
-        document.removeEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
     }
   }, [isOpen, handleClickOutside]);
 
@@ -455,9 +444,7 @@ function MultiSelect({
     selected.length === 0
       ? placeholder
       : selected.length <= 2
-        ? selected
-            .map((v) => options.find((o) => o.value === v)?.label ?? v)
-            .join(", ")
+        ? selected.map((v) => options.find((o) => o.value === v)?.label ?? v).join(", ")
         : `${selected.length} selected`;
 
   return (
@@ -485,9 +472,7 @@ function MultiSelect({
           "--tw-ring-color": `${color}30`,
         }}
       >
-        <span className={selected.length === 0 ? "text-navy/40" : ""}>
-          {displayLabel}
-        </span>
+        <span className={selected.length === 0 ? "text-navy/40" : ""}>{displayLabel}</span>
         <svg
           className={`pointer-events-none absolute top-1/2 -translate-y-1/2 transition-transform ${isOpen ? "rotate-180" : ""} ${isLg ? "right-3.5" : "right-2.5"}`}
           style={{ marginTop: isLg ? 12 : 10 }}
@@ -531,12 +516,7 @@ function MultiSelect({
                     }}
                   >
                     {isChecked && (
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 10 10"
-                        fill="none"
-                      >
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                         <path
                           d="M2 5.5L4 7.5L8 3"
                           stroke="white"
@@ -631,7 +611,16 @@ function SortButton({
                   className={`w-full text-left px-4 py-2.5 text-sm transition-colors flex items-center gap-2 ${isActive ? "bg-navy/5 text-navy font-bold" : "text-navy/70 hover:bg-gray-50"}`}
                 >
                   {isActive && (
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <path d="M2 7l3.5 3.5L12 4" />
                     </svg>
                   )}

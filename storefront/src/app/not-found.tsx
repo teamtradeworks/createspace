@@ -21,8 +21,8 @@ export default function NotFound() {
           We couldn&apos;t find that page
         </h1>
         <p className="text-xl text-white/70 max-w-2xl mb-10">
-          The page you&apos;re looking for may have been moved or no longer
-          exists. Let&apos;s get you back on track.
+          The page you&apos;re looking for may have been moved or no longer exists. Let&apos;s get
+          you back on track.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <Link

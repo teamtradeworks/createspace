@@ -23,10 +23,7 @@ export async function POST(request: NextRequest) {
   };
 
   if (!lines?.length) {
-    return NextResponse.json(
-      { error: "No items provided" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "No items provided" }, { status: 400 });
   }
 
   const data = await shopifyFetch<{
@@ -46,21 +43,17 @@ export async function POST(request: NextRequest) {
   });
 
   if (data.cartCreate.userErrors.length > 0) {
-    return NextResponse.json(
-      { error: data.cartCreate.userErrors[0].message },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: data.cartCreate.userErrors[0].message }, { status: 400 });
   }
 
   if (!data.cartCreate.cart) {
-    return NextResponse.json(
-      { error: "Failed to create checkout" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Failed to create checkout" }, { status: 500 });
   }
 
   const cookieStore = await cookies();
-  const phCookie = cookieStore.getAll().find((c) => c.name.startsWith("ph_") && c.name.endsWith("_posthog"));
+  const phCookie = cookieStore
+    .getAll()
+    .find((c) => c.name.startsWith("ph_") && c.name.endsWith("_posthog"));
   let distinctId: string | undefined;
   try {
     distinctId = phCookie?.value ? JSON.parse(phCookie.value).distinct_id : undefined;

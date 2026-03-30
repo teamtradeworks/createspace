@@ -24,9 +24,7 @@ type FeaturedProductsProps = {
   productsByAge: Record<string, Product[]>;
 };
 
-export default function FeaturedProducts({
-  productsByAge,
-}: FeaturedProductsProps) {
+export default function FeaturedProducts({ productsByAge }: FeaturedProductsProps) {
   const [activeTab, setActiveTab] = useState(ageGroups[0].id);
   const [currentIndex, setCurrentIndex] = useState(0);
   const products = productsByAge[activeTab] || [];
@@ -68,9 +66,7 @@ export default function FeaturedProducts({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-navy mb-3">
-            Featured Products
-          </h2>
+          <h2 className="text-3xl font-semibold text-navy mb-3">Featured Products</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Discover our most popular STEM kits, organised by age group
           </p>
@@ -104,12 +100,7 @@ export default function FeaturedProducts({
               className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
               aria-label="Previous products"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -126,12 +117,7 @@ export default function FeaturedProducts({
               className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
               aria-label="Next products"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -147,9 +133,7 @@ export default function FeaturedProducts({
             <>
               {/* Mobile: horizontal scroll showing all products */}
               <div className="md:hidden -mx-4 sm:-mx-6">
-                <div
-                  className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4"
-                >
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4">
                   {products.map((product, index) => (
                     <div
                       key={`${product.id}-${index}-mobile`}
@@ -170,29 +154,25 @@ export default function FeaturedProducts({
             </>
           ) : (
             <div className="text-center py-16 bg-gray-50 rounded-2xl">
-              <p className="text-gray-500">
-                No products found for this age group yet.
-              </p>
+              <p className="text-gray-500">No products found for this age group yet.</p>
             </div>
           )}
 
           {/* Desktop-only Progress Indicator */}
           {totalProducts > 3 && (
             <div className="hidden md:flex justify-center mt-8 gap-2">
-              {Array.from({ length: Math.ceil(totalProducts / 3) }).map(
-                (_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentIndex(idx * 3)}
-                    className={`h-1.5 rounded-full transition-all ${
-                      Math.floor(currentIndex / 3) === idx
-                        ? "w-8 bg-navy"
-                        : "w-4 bg-gray-300 hover:bg-gray-400"
-                    }`}
-                    aria-label={`Go to page ${idx + 1}`}
-                  />
-                )
-              )}
+              {Array.from({ length: Math.ceil(totalProducts / 3) }).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx * 3)}
+                  className={`h-1.5 rounded-full transition-all ${
+                    Math.floor(currentIndex / 3) === idx
+                      ? "w-8 bg-navy"
+                      : "w-4 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                  aria-label={`Go to page ${idx + 1}`}
+                />
+              ))}
             </div>
           )}
         </div>
@@ -213,12 +193,7 @@ export default function FeaturedProducts({
             {activeTab === "all"
               ? "View all products"
               : `View products for ages ${ageGroups.find((g) => g.id === activeTab)?.range}`}
-            <svg
-              className="w-5 h-5 ml-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

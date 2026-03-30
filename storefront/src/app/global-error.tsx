@@ -4,11 +4,7 @@ import * as Sentry from "@sentry/nextjs";
 import { useEffect } from "react";
 import "./globals.css";
 
-export default function GlobalError({
-  error,
-}: {
-  error: Error & { digest?: string };
-}) {
+export default function GlobalError({ error }: { error: Error & { digest?: string } }) {
   useEffect(() => {
     Sentry.captureException(error);
   }, [error]);
@@ -43,8 +39,8 @@ export default function GlobalError({
                 Oops! We hit a snag
               </h1>
               <p className="text-xl text-gray-600 max-w-2xl mb-10">
-                Something unexpected happened. Please try refreshing the page —
-                if the problem persists, contact us at{" "}
+                Something unexpected happened. Please try refreshing the page — if the problem
+                persists, contact us at{" "}
                 <a
                   href="mailto:hello@thecreatespace.co.za"
                   className="text-[#FF8B00] hover:underline"

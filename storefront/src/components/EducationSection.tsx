@@ -53,8 +53,8 @@ export default function EducationSection() {
             STEM Programmes for Schools
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Whether you need equipment, expertise, or training, we&apos;re here to
-            support STEM education in your school.
+            Whether you need equipment, expertise, or training, we&apos;re here to support STEM
+            education in your school.
           </p>
         </div>
 
@@ -76,12 +76,8 @@ export default function EducationSection() {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-semibold text-navy mb-2">
-                {option.title}
-              </h3>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                {option.description}
-              </p>
+              <h3 className="text-xl font-semibold text-navy mb-2">{option.title}</h3>
+              <p className="text-gray-600 mb-4 leading-relaxed">{option.description}</p>
               <Link
                 href={option.link}
                 className="inline-flex items-center text-cs-orange hover:text-cs-red font-medium transition-colors"
@@ -107,20 +103,13 @@ export default function EducationSection() {
 
         {/* Bottom CTA */}
         <div className="text-center mt-12">
-          <p className="text-gray-500 mb-4">
-            Not sure what your school needs? Let&apos;s chat.
-          </p>
+          <p className="text-gray-500 mb-4">Not sure what your school needs? Let&apos;s chat.</p>
           <Link
             href="/contact"
             className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-lg font-medium transition-colors"
           >
             Contact Our Education Team
-            <svg
-              className="w-5 h-5 ml-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

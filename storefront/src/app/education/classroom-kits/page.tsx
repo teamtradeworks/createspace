@@ -18,8 +18,7 @@ function filterProductsByBrand(products: Product[], brand: string): Product[] {
   const brandLower = brand.toLowerCase();
   return products.filter(
     (p) =>
-      p.vendor?.toLowerCase().includes(brandLower) ||
-      p.title.toLowerCase().includes(brandLower)
+      p.vendor?.toLowerCase().includes(brandLower) || p.title.toLowerCase().includes(brandLower),
   );
 }
 
@@ -31,7 +30,7 @@ export default async function ClassroomKitsPage() {
 
   // Fallback: products that don't match either brand
   const otherProducts = products.filter(
-    (p) => !matataProducts.includes(p) && !microbitProducts.includes(p)
+    (p) => !matataProducts.includes(p) && !microbitProducts.includes(p),
   );
 
   return (
@@ -44,12 +43,7 @@ export default async function ClassroomKitsPage() {
               href="/education"
               className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
             >
-              <svg
-                className="w-4 h-4 mr-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -66,9 +60,8 @@ export default async function ClassroomKitsPage() {
               Classroom STEM Kits
             </h1>
             <p className="text-xl text-white/80 max-w-xl mb-4">
-              Hands-on coding and robotics kits built for classroom learning.
-              Choose from two trusted brands, each designed for different
-              ages and teaching approaches.
+              Hands-on coding and robotics kits built for classroom learning. Choose from two
+              trusted brands, each designed for different ages and teaching approaches.
             </p>
             <p className="text-white/60 mb-8">
               Bulk pricing available for schools ordering 10+ units.
@@ -107,16 +100,12 @@ export default async function ClassroomKitsPage() {
               Which Brand Suits Your Classroom?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              We carry classroom kits from two globally recognised STEM
-              education brands. Hover over a brand to explore its approach, age
-              focus, and product range.
+              We carry classroom kits from two globally recognised STEM education brands. Hover over
+              a brand to explore its approach, age focus, and product range.
             </p>
           </div>
 
-          <BrandSwitcher
-            matataProducts={matataProducts}
-            microbitProducts={microbitProducts}
-          />
+          <BrandSwitcher matataProducts={matataProducts} microbitProducts={microbitProducts} />
         </div>
       </section>
 
@@ -149,8 +138,8 @@ export default async function ClassroomKitsPage() {
               Explore Other Education Solutions
             </h2>
             <p className="text-gray-600">
-              Looking for tutors, teacher training, or online courses? We have
-              more options for your school.
+              Looking for tutors, teacher training, or online courses? We have more options for your
+              school.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -162,8 +151,7 @@ export default async function ClassroomKitsPage() {
                 STEM Tutors
               </h3>
               <p className="text-gray-600 text-sm">
-                Expert facilitators bring STEM education directly to your
-                school.
+                Expert facilitators bring STEM education directly to your school.
               </p>
             </Link>
             <Link

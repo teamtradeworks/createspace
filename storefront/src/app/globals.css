@@ -48,14 +48,32 @@ body {
 }
 
 /* JS-controlled visibility via data attribute */
-.hero-carousel-wrapper[data-current-slide="0"] .hero-slide { opacity: 0; pointer-events: none; }
-.hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] { opacity: 1; pointer-events: auto; }
+.hero-carousel-wrapper[data-current-slide="0"] .hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-.hero-carousel-wrapper[data-current-slide="1"] .hero-slide { opacity: 0; pointer-events: none; }
-.hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] { opacity: 1; pointer-events: auto; }
+.hero-carousel-wrapper[data-current-slide="1"] .hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-.hero-carousel-wrapper[data-current-slide="2"] .hero-slide { opacity: 0; pointer-events: none; }
-.hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] { opacity: 1; pointer-events: auto; }
+.hero-carousel-wrapper[data-current-slide="2"] .hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* Thin scrollbar for review containers */
 .scrollbar-thin {
