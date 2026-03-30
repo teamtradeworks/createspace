@@ -7,7 +7,7 @@ import {
   isDigitalProduct,
 } from "@/lib/shopify";
 import siteConfig from "@/config/site.json";
-import ProductGallery from "@/components/ProductGallery";
+import ProductGallery, { GalleryItem } from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
 import ProductViewTracker from "@/components/ProductViewTracker";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
@@ -27,6 +27,10 @@ interface HeroSectionProps {
   canonicalPath?: string;
   digital?: boolean;
   addonUpsellModal?: boolean;
+  /** Insert videos after this image index (0 = after first image). Defaults to appending after all images. */
+  insertVideosAfterImage?: number;
+  /** Override the vendor/brand label shown in the hero. */
+  vendorOverride?: string;
 }
 
 export function HeroSection({
@@ -39,6 +43,8 @@ export function HeroSection({
   canonicalPath,
   digital,
   addonUpsellModal,
+  insertVideosAfterImage,
+  vendorOverride,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
@@ -54,10 +60,35 @@ export function HeroSection({
     altText: edge.node.altText || product.title,
   }));
 
-  // If a custom hero image is provided, prepend it to the gallery
-  const galleryImages = heroImage
-    ? [{ url: heroImage, altText: product.title }, ...images]
-    : images;
+  // Build gallery items: images first, then videos from media connection
+  const imageItems: GalleryItem[] = (
+    heroImage ? [{ url: heroImage, altText: product.title }, ...images] : images
+  ).map((img) => ({ type: "image", url: img.url, altText: img.altText }));
+
+  const videoItems: GalleryItem[] = (product.media?.edges ?? [])
+    .filter((edge) => edge.node.mediaContentType === "VIDEO" && edge.node.sources?.length)
+    .map((edge) => {
+      // Prefer mp4 source
+      const sources = edge.node.sources ?? [];
+      const source =
+        sources.find((s) => s.format === "mp4" || s.mimeType === "video/mp4") ?? sources[0];
+      return {
+        type: "video",
+        url: source.url,
+        mimeType: source.mimeType,
+        previewUrl: edge.node.previewImage?.url ?? "",
+        altText: edge.node.previewImage?.altText || product.title,
+      } satisfies GalleryItem;
+    });
+
+  const galleryItems: GalleryItem[] =
+    insertVideosAfterImage !== undefined
+      ? [
+          ...imageItems.slice(0, insertVideosAfterImage + 1),
+          ...videoItems,
+          ...imageItems.slice(insertVideosAfterImage + 1),
+        ]
+      : [...imageItems, ...videoItems];
 
   return (
     <SectionTracker name="HeroSection">
@@ -102,15 +133,18 @@ export function HeroSection({
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Left - Image Gallery */}
               <div className="min-w-0">
-                <ProductGallery images={galleryImages} title={product.title} />
+                <ProductGallery items={galleryItems} title={product.title} />
               </div>
 
               {/* Right - Product Info */}
               <div className="flex flex-col min-w-0">
                 {/* Brand */}
-                {product.vendor && (
+                {(vendorOverride ?? product.vendor) && (
                   <p className="text-sm text-gray-500 mb-2">
-                    Brand: <span className="text-cs-orange font-medium">{product.vendor}</span>
+                    Brand:{" "}
+                    <span className="text-cs-orange font-medium">
+                      {vendorOverride ?? product.vendor}
+                    </span>
                   </p>
                 )}
 
