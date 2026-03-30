@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import posthog from "posthog-js";
 import { useCart } from "@/context/CartContext";
+import { gtmAddToCart } from "@/lib/gtm";
 
 interface QuickAddButtonProps {
   variantId: string;
@@ -51,6 +52,11 @@ export default function QuickAddButton({
           currency_code: currencyCode,
           $value: price,
         });
+        gtmAddToCart(
+          [{ item_id: handle, item_name: title, price, currency: currencyCode, quantity: 1 }],
+          price,
+          currencyCode
+        );
         setAdded(true);
         if (timerRef.current) clearTimeout(timerRef.current);
         timerRef.current = setTimeout(() => setAdded(false), 1500);

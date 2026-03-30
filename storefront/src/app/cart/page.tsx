@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import posthog from "posthog-js";
 import { useCart, getAvailableItems } from "@/context/CartContext";
+import { gtmViewCart, gtmBeginCheckout } from "@/lib/gtm";
 import { formatPrice } from "@/lib/shopify";
 import {
   DELIVERY_CONFIG,
@@ -18,6 +19,26 @@ import siteConfig from "@/config/site.json";
 export default function CartPage() {
   const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } = useCart();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const viewCartFired = useRef(false);
+
+  useEffect(() => {
+    if (isHydrated && items.length > 0 && !viewCartFired.current) {
+      viewCartFired.current = true;
+      const available = getAvailableItems(items);
+      gtmViewCart(
+        available.map((item, index) => ({
+          item_id: item.handle,
+          item_name: item.title,
+          price: item.price,
+          currency: item.currencyCode,
+          quantity: item.quantity,
+          index,
+        })),
+        subtotal,
+        currencyCode
+      );
+    }
+  }, [isHydrated, items, subtotal, currencyCode]);
 
   // Sort items: available first, then unavailable
   const sortedItems = [...items].sort((a, b) => {
@@ -38,6 +59,19 @@ export default function CartPage() {
       product_handles: available.map((item) => item.handle),
       $value: subtotal,
     });
+
+    gtmBeginCheckout(
+      available.map((item, index) => ({
+        item_id: item.handle,
+        item_name: item.title,
+        price: item.price,
+        currency: item.currencyCode,
+        quantity: item.quantity,
+        index,
+      })),
+      subtotal,
+      currencyCode
+    );
 
     setIsCheckingOut(true);
     try {

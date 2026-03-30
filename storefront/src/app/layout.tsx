@@ -13,6 +13,8 @@ import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 import EmailPopup from "@/components/EmailPopup";
 import PostHogPageview from "@/components/PostHogPageview";
+import GTMPageview from "@/components/GTMPageview";
+import GoogleTagManager from "@/components/GoogleTagManager";
 import ClarityAnalytics from "@/components/ClarityAnalytics";
 
 const outfit = localFont({
@@ -72,6 +74,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
         <OrganizationJsonLd />
         <CartProvider>
           <Suspense fallback={<HeaderSkeleton />}>
@@ -81,6 +86,7 @@ export default function RootLayout({
           <Footer />
           <Suspense fallback={null}>
             <PostHogPageview />
+            <GTMPageview />
           </Suspense>
           <EmailPopup />
           <SpeedInsights />
