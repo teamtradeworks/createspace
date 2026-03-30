@@ -310,7 +310,7 @@ export default async function MicrobitGoPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with micro:bit"
-        subtitle="Join millions of makers, students, and educators worldwide. The micro:bit Go has everything you need to begin your coding journey today."
+        subtitle="Board, USB cable, batteries, and battery holder — everything in the box to start coding right away."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

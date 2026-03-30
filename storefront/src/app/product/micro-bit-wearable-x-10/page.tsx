@@ -133,7 +133,7 @@ export default async function MicroBitWearableX10Page() {
         image="/images/products/micro-bit-wearable-x-10/kids-running-with-strapped-microbit.jpg"
         imageAlt="Children running in a group with BBC micro:bit wearables strapped to their wrists"
         title="Movement-Based Learning That Works Cross-Curricular"
-        body="Wearable micro:bit activities connect naturally to CAPS Natural Sciences and Life Orientation as well as Technology. Learners build fitness trackers tied to health goals, walking-for-water step counters linked to global citizenship, and gesture controllers that demonstrate Newton's laws. Research published in the Journal of Science Education and Technology confirms that wearable STEM projects are particularly effective at improving attitudes toward computing — especially among female learners — because they blend personal relevance with technical challenge."
+        body="Wearable micro:bit activities connect naturally to science, health, and technology learning areas. Learners build fitness trackers tied to health goals, walking-for-water step counters linked to global citizenship, and gesture controllers that demonstrate Newton's laws. Research published in the Journal of Science Education and Technology confirms that wearable STEM projects are particularly effective at improving attitudes toward computing — especially among female learners — because they blend personal relevance with technical challenge."
         layout="image-right"
         background="white"
       />
@@ -187,9 +187,9 @@ export default async function MicroBitWearableX10Page() {
         title="Educator Questions"
         faqs={[
           {
-            question: "Does this align with the CAPS curriculum?",
+            question: "Does this cover skills from the national curriculum?",
             answer:
-              "Yes. The wearable enables activities that map directly to CAPS Technology (physical computing, design and iteration), Natural Sciences (data collection, measurement, environmental sensing), and Life Orientation (health, fitness, and active living). The micro:bit platform's official lesson library includes activities explicitly linked to STEM curriculum standards, suitable for Grades 4 through 12.",
+              "The micro:bit covers physical computing, data handling, and computational thinking — skills that feature prominently in South African curricula across Technology, Natural Sciences, and Life Orientation. Learners work with real sensor data, measurement, and design iteration. The micro:bit platform's official lesson library includes activities linked to STEM curriculum standards, suitable for Grades 4 through 12. However, we don't provide a formal CAPS mapping document for this product.",
           },
           {
             question: "How many learners can use this pack simultaneously?",

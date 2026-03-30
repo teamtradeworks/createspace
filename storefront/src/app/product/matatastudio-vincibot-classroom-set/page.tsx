@@ -42,7 +42,7 @@ export default async function VinciBotClassroomSetPage() {
         tagline="Complete coding, robotics, and AI classroom solution for Grades 3–7"
         highlights={[
           "Supports up to 24 learners simultaneously — 6 robots, groups of 4",
-          "75 structured activities aligned with DBE Coding and Robotics curriculum",
+          "75 structured activities covering key computational thinking concepts for Grades 3–7",
           "Scratch and Python on one robot — no equipment change needed",
           "On-device AI and TinyML — works without internet connectivity",
         ]}
@@ -58,9 +58,9 @@ export default async function VinciBotClassroomSetPage() {
         subtitle="VinciBot is built for real classroom conditions — mixed abilities, limited prep time, and the need to demonstrate curriculum value."
         steps={[
           {
-            title: "Curriculum-Aligned from Day One",
+            title: "Curriculum-Ready from Day One",
             description:
-              "VinciBot's 75-activity curriculum maps directly to the DBE Coding and Robotics Curriculum for Grades 3–7. Activities cover sequencing, loops, conditionals, functions, and variables — every concept required by the national framework.",
+              "VinciBot's 75-activity curriculum covers sequencing, loops, conditionals, functions, and variables — core computational thinking concepts for Grades 3–7. Activities are structured and progressive, ready to integrate into your existing teaching programme.",
           },
           {
             title: "Designed for Group Learning",
@@ -152,7 +152,7 @@ export default async function VinciBotClassroomSetPage() {
       {/* Activity Showcase */}
       <ProjectShowcase
         title="Classroom Activities"
-        highlight="75 curriculum-aligned activities across 5 progressive modules"
+        highlight="75 structured activities across 5 progressive modules"
         subtitle="Activities progress from foundational sequences to multi-robot communication and AI — suitable for mixed-ability classrooms at Grades 3–7. Each fits a standard 45-minute lesson period."
         projects={[
           {
@@ -269,9 +269,9 @@ export default async function VinciBotClassroomSetPage() {
         title="Educator Questions"
         faqs={[
           {
-            question: "Does VinciBot align with the South African CAPS or DBE curriculum?",
+            question: "Does VinciBot cover skills from the national curriculum?",
             answer:
-              "Yes. VinciBot's 75-activity curriculum covers the core computational thinking concepts mandated by the DBE Coding and Robotics Curriculum: sequencing, loops, events, conditionals, functions, and variables. The progression maps directly to Grades 3–7 requirements, and the curriculum holds ISTE certification. A formal CAPS-specific mapping document is not currently published, but the content alignment is strong.",
+              "VinciBot's 75-activity curriculum covers core computational thinking concepts — sequencing, loops, events, conditionals, functions, and variables — that feature prominently in South African curricula for Grades 3–7. The curriculum holds ISTE certification. However, we don't provide a formal CAPS mapping document for this product.",
           },
           {
             question: "How many learners can use the classroom set simultaneously?",
@@ -354,7 +354,7 @@ export default async function VinciBotClassroomSetPage() {
           },
           {
             label: "Curriculum Standards",
-            value: "ISTE certified; aligns with CSTA, NGSS, DBE Coding & Robotics",
+            value: "ISTE certified; covers concepts from CSTA, NGSS frameworks",
           },
           { label: "Storage Bin Dimensions", value: "41 × 30 × 14 cm" },
           { label: "Material", value: "ABS plastic; safety certified" },
@@ -387,7 +387,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Complete coding and robotics classroom set for Grades 3–7. 6 robots, 75 DBE-aligned activities, Scratch and Python. Supports 24 learners simultaneously.",
+      "Complete coding and robotics classroom set for Grades 3–7. 6 robots, 75 structured activities, Scratch and Python. Supports 24 learners simultaneously.",
     alternates: {
       canonical: "/product/matatastudio-vincibot-classroom-set",
     },

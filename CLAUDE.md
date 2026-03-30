@@ -98,7 +98,7 @@ Delivery pricing is configured in `storefront/src/config/site.json`. Update that
 
 # Brand and Tone
 
-See our full brand strategy document at `assets/brand/brand-strategy.md`.  When writing content, always refer to our brand strategy to ensure correct tone, correct audience, appropriate messaging, etc.
+See our full brand strategy document at `assets/brand/brand-strategy.md` and our voice and tone guide at `assets/brand/voice-and-tone.md`. When writing or editing any website content, always refer to both documents to ensure correct tone, correct audience, appropriate messaging, and to avoid banned phrases.
 
 ## Brand Voice
 - **Personality**: Fun, playful, enthusiastic, trustworthy, knowledgeable, inviting, integral

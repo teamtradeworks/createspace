@@ -351,8 +351,8 @@ export default async function MatataStudioCodingSetProPage() {
 
       {/* Call to Action */}
       <CallToAction
-        title="Give Your Child a Head Start in Coding"
-        subtitle="Join 8,000+ schools worldwide using MatataStudio to teach computational thinking through screen-free play"
+        title="Get Started with Screen-Free Coding"
+        subtitle="Screen-free coding for ages 4-9. No batteries, no devices, no reading skills needed."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Coding Kits"

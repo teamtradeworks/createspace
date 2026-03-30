@@ -233,7 +233,7 @@ export default function EducationPage() {
                 For Schools — Full Curriculum
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-5 leading-tight">
-                Empower your teachers to own STEM — not outsource it
+                Give your teachers the tools to own STEM — not outsource it
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Our partner <strong className="text-navy">Inspire Africa</strong> provides comprehensive online teacher
@@ -383,7 +383,7 @@ export default function EducationPage() {
             {[
               {
                 number: "75%",
-                label: "of the fastest-growing careers require STEM skills. Early exposure gives your child a head start.",
+                label: "of the fastest-growing careers require STEM skills. Hands-on experience now builds confidence for later.",
                 color: "text-cs-red",
                 border: "border-cs-red/30",
               },

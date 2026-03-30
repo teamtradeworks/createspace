@@ -37,6 +37,15 @@ export default async function ShopPage({ searchParams }: Props) {
         </div>
       </div>
 
+      {/* Page heading */}
+      <div className="bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 pb-2">
+          <h1 className="text-3xl md:text-4xl font-semibold text-navy">
+            STEM Kits &amp; Educational Toys
+          </h1>
+        </div>
+      </div>
+
       {/* Products with inline filters */}
       <ShopGallery products={products} initialAge={age} initialCategory={category} initialBrand={brand} key={`${age || "all"}-${category || "all"}-${brand || "all"}`} />
     </main>

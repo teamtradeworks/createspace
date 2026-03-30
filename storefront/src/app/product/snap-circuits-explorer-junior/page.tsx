@@ -338,7 +338,7 @@ export default async function SnapCircuitJuniorPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with Snap Circuits"
-        subtitle="Join millions of young builders worldwide. Everything you need to start exploring electronics is in the box."
+        subtitle="101 projects, 30+ components, and a full-colour manual. Everything you need to start exploring electronics is in the box."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

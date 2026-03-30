@@ -245,9 +245,9 @@ export default async function BbcMicroBitClubPage() {
         title="Educator FAQs"
         faqs={[
           {
-            question: "Does this align with the CAPS curriculum?",
+            question: "Does this cover skills from the national curriculum?",
             answer:
-              "The micro:bit supports CAPS Technology, Natural Sciences, and Mathematics learning areas across Grades 4–12. Coding, algorithms, physical computing, and data handling align directly with CAPS Technology curriculum goals. The free lesson plans on microbit.org include structured activities with defined learning outcomes that can be mapped to specific CAPS content areas.",
+              "The micro:bit covers coding, algorithms, physical computing, and data handling — skills that feature prominently in South African curricula across Technology, Natural Sciences, and Mathematics for Grades 4–12. The free lesson plans on microbit.org include structured activities with defined learning outcomes. However, we don't provide a formal CAPS mapping document for this product.",
           },
           {
             question: "How many learners can use the kit at the same time?",

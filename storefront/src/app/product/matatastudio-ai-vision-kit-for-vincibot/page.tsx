@@ -164,7 +164,7 @@ export default async function AIVisionKitPage() {
 
       {/* Call to Action */}
       <CallToAction
-        title="Unlock AI Vision for Your VinciBot"
+        title="Add AI Vision to Your VinciBot"
         subtitle="The next step in your child's STEM journey — from coding a robot to building their own AI."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"

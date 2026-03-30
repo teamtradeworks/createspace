@@ -331,8 +331,8 @@ export default function CurriculumPage() {
                 Coding &amp; Robotics Curriculum for Schools
               </h1>
               <p className="text-xl text-white/80 mb-4">
-                Unlike hiring external facilitators, this programme empowers
-                your own teachers to deliver coding and robotics — from Grade R
+                Unlike hiring external facilitators, this programme gives
+                your own teachers the skills to deliver coding and robotics — from Grade R
                 to 12. Once trained, your educators have the skills, lesson
                 plans, and confidence to teach STEM year after year.
               </p>
@@ -524,7 +524,7 @@ export default function CurriculumPage() {
               From Schools Like Yours
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold mt-2 mb-4">
-              Trusted by Schools Across South Africa
+              What Teachers Are Saying
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
               Educators from primary schools, high schools, and colleges have
