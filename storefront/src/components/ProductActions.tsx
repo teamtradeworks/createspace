@@ -45,6 +45,7 @@ export default function ProductActions({
   const [addedToCart, setAddedToCart] = useState(false);
   const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set(defaultSelectedAddons));
   const [showUpsellModal, setShowUpsellModal] = useState(false);
+  const [upsellAction, setUpsellAction] = useState<"cart" | "buy">("cart");
   const { addItem } = useCart();
 
   const handleQuantityChange = (delta: number) => {
@@ -72,10 +73,6 @@ export default function ProductActions({
       addon_title: addon?.title,
       addon_action: isAdding ? "added" : "removed",
     });
-  };
-
-  const getSelectedAddonsData = () => {
-    return addons.filter((addon) => selectedAddons.has(addon.handle));
   };
 
   const performAddToCart = useCallback(async (addonHandles: Set<string>) => {
@@ -146,6 +143,7 @@ export default function ProductActions({
     // If upsell modal is enabled, addons exist, and none are selected, show the modal
     const hasAvailableAddons = addons.some((a) => a.available);
     if (addonUpsellModal && hasAvailableAddons && selectedAddons.size === 0) {
+      setUpsellAction("cart");
       setShowUpsellModal(true);
       return;
     }
@@ -155,19 +153,24 @@ export default function ProductActions({
 
   const handleUpsellConfirm = async (modalSelectedAddons: Set<string>) => {
     setShowUpsellModal(false);
-    // Update the selected addons state to reflect modal choices
     setSelectedAddons(modalSelectedAddons);
-    await performAddToCart(modalSelectedAddons);
+    if (upsellAction === "buy") {
+      await performBuyNow(modalSelectedAddons);
+    } else {
+      await performAddToCart(modalSelectedAddons);
+    }
   };
 
   const handleUpsellSkip = async () => {
     setShowUpsellModal(false);
-    await performAddToCart(new Set());
+    if (upsellAction === "buy") {
+      await performBuyNow(new Set());
+    } else {
+      await performAddToCart(new Set());
+    }
   };
 
-  const handleBuyNow = async () => {
-    if (!available) return;
-
+  const performBuyNow = useCallback(async (addonHandles: Set<string>) => {
     setIsBuyingNow(true);
 
     // Add main product to cart first
@@ -188,7 +191,7 @@ export default function ProductActions({
     );
 
     // Add selected add-ons to cart (with discounted price)
-    const selectedAddonsData = getSelectedAddonsData();
+    const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
     for (const addon of selectedAddonsData) {
       const addonPrice = addon.discountPercent > 0
         ? addon.discountedPrice / addon.quantity
@@ -224,6 +227,19 @@ export default function ProductActions({
     await new Promise((resolve) => setTimeout(resolve, 300));
     setIsBuyingNow(false);
     window.location.href = "/cart";
+  }, [addItem, productId, variantId, title, price, currencyCode, image, handle, available, currentlyNotInStock, digital, quantity, addons]);
+
+  const handleBuyNow = async () => {
+    if (!available) return;
+
+    const hasAvailableAddons = addons.some((a) => a.available);
+    if (addonUpsellModal && hasAvailableAddons && selectedAddons.size === 0) {
+      setUpsellAction("buy");
+      setShowUpsellModal(true);
+      return;
+    }
+
+    await performBuyNow(selectedAddons);
   };
 
   return (
