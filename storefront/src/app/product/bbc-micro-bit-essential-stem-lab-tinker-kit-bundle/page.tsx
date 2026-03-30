@@ -38,6 +38,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         ]}
         addons={addons}
         addonUpsellModal
+        insertVideosAfterImage={0}
         vendorOverride="InspireAfrica"
       />
       <QuickInfoBadges
