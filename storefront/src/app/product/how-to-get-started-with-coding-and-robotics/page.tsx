@@ -37,6 +37,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           "No prior STEM experience required",
         ]}
         addons={addons}
+        addonUpsellModal
       />
       <QuickInfoBadges
         badges={[
