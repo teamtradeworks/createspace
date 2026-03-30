@@ -38,6 +38,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         ]}
         addons={addons}
         addonUpsellModal
+        insertVideosAfterImage={0}
       />
       <QuickInfoBadges
         badges={[

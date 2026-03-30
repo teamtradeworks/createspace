@@ -27,6 +27,8 @@ interface HeroSectionProps {
   canonicalPath?: string;
   digital?: boolean;
   addonUpsellModal?: boolean;
+  /** Insert videos after this image index (0 = after first image). Defaults to appending after all images. */
+  insertVideosAfterImage?: number;
 }
 
 export function HeroSection({
@@ -39,6 +41,7 @@ export function HeroSection({
   canonicalPath,
   digital,
   addonUpsellModal,
+  insertVideosAfterImage,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
@@ -75,7 +78,14 @@ export function HeroSection({
       } satisfies GalleryItem;
     });
 
-  const galleryItems: GalleryItem[] = [...imageItems, ...videoItems];
+  const galleryItems: GalleryItem[] =
+    insertVideosAfterImage !== undefined
+      ? [
+          ...imageItems.slice(0, insertVideosAfterImage + 1),
+          ...videoItems,
+          ...imageItems.slice(insertVideosAfterImage + 1),
+        ]
+      : [...imageItems, ...videoItems];
 
   return (
     <SectionTracker name="HeroSection">
