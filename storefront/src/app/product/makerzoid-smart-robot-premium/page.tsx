@@ -119,7 +119,8 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             icon: "shield",
             title: "Trusted Quality",
-            description: "Created by robotics professors and engineers, with durable components built for repeated use",
+            description:
+              "Created by robotics professors and engineers, with durable components built for repeated use",
           },
         ]}
         columns={3}

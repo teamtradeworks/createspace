@@ -1,6 +1,5 @@
 const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
-const storefrontAccessToken =
-  process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
+const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
 const endpoint = `https://${domain}/api/2025-10/graphql.json`;
 
@@ -291,12 +290,10 @@ export async function getProducts(first: number = 8): Promise<Product[]> {
 // Get products within a specific collection by handle
 export async function getCollectionProducts(
   handle: string,
-  first: number = 50
+  first: number = 50,
 ): Promise<{ collection: Collection | null; products: Product[] }> {
   const data = await shopifyFetch<{
-    collection:
-      | (Collection & { products: { edges: { node: Product }[] } })
-      | null;
+    collection: (Collection & { products: { edges: { node: Product }[] } }) | null;
   }>({
     query: COLLECTION_PRODUCTS_QUERY,
     variables: { handle, first },
@@ -314,10 +311,7 @@ export async function getCollectionProducts(
 }
 
 // Search products by text query
-export async function searchProducts(
-  query: string,
-  first: number = 20
-): Promise<Product[]> {
+export async function searchProducts(query: string, first: number = 20): Promise<Product[]> {
   const data = await shopifyFetch<{
     products: { edges: { node: Product }[] };
   }>({
@@ -537,9 +531,7 @@ const PRODUCT_BY_HANDLE_QUERY = `
 `;
 
 // Get single product by handle
-export async function getProductByHandle(
-  handle: string
-): Promise<ProductDetail | null> {
+export async function getProductByHandle(handle: string): Promise<ProductDetail | null> {
   const data = await shopifyFetch<{
     product: ProductDetail | null;
   }>({
@@ -553,7 +545,7 @@ export async function getProductByHandle(
 // Helper to parse Fera review rating from Shopify metafields
 export function getProductRating(
   rating: Metafield,
-  ratingCount: Metafield
+  ratingCount: Metafield,
 ): { average: number; count: number } | null {
   if (!rating?.value || !ratingCount?.value) return null;
 
@@ -602,7 +594,7 @@ export function getProductBatteryInfo(product: ProductDetail): string | undefine
   let batteryType = "";
   if (batteryMetaobject?.fields) {
     const labelField = batteryMetaobject.fields.find(
-      (f) => f.key === "label" || f.key === "name" || f.key === "title" || f.key === "type"
+      (f) => f.key === "label" || f.key === "name" || f.key === "title" || f.key === "type",
     );
     batteryType = labelField?.value || "";
   }
@@ -624,14 +616,9 @@ type StockStatus = "in-stock" | "lead-time" | "out-of-stock";
 export function getStockStatus(product: ProductDetail): StockStatus {
   if (!product.availableForSale) return "out-of-stock";
 
-  const availableVariants = product.variants.edges.filter(
-    (e) => e.node.availableForSale
-  );
+  const availableVariants = product.variants.edges.filter((e) => e.node.availableForSale);
 
-  if (
-    availableVariants.length > 0 &&
-    availableVariants.every((e) => e.node.currentlyNotInStock)
-  ) {
+  if (availableVariants.length > 0 && availableVariants.every((e) => e.node.currentlyNotInStock)) {
     return "lead-time";
   }
 

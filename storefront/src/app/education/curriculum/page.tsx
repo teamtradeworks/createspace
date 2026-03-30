@@ -73,12 +73,7 @@ const platformFeatures = [
     description:
       "Teachers train through short, focused video tutorials they can pause, rewatch, and practise alongside — fitting around their existing teaching schedule.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -99,12 +94,7 @@ const platformFeatures = [
     description:
       "Complete, structured lesson plans with activities, worksheets, and assessments. Teachers walk into the classroom ready to deliver — no preparation from scratch.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -119,12 +109,7 @@ const platformFeatures = [
     description:
       "Every lesson, activity, and assessment maps directly to the South African CAPS curriculum. It fits straight into your school's existing timetable — no extra planning needed.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -139,12 +124,7 @@ const platformFeatures = [
     description:
       "Your teachers earn SACE-accredited professional development points upon completion — recognised certification that counts towards their CPD requirements.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -159,12 +139,7 @@ const platformFeatures = [
     description:
       "Your school accesses everything through the Inspire Campus — a dedicated learning management system with progress tracking, certificates, and a community of educators.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -179,12 +154,7 @@ const platformFeatures = [
     description:
       "Designed for all skill levels — whether your teachers have never touched a micro:bit or are already teaching coding. The training meets them where they are.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -235,8 +205,7 @@ const testimonials = [
     logo: `${LOGO_PATH}/st-johns-college.png`,
   },
   {
-    quote:
-      "As a Grade R teacher I found it very useful to be introduced to the basics.",
+    quote: "As a Grade R teacher I found it very useful to be introduced to the basics.",
     name: "Nastashia Schenck",
     school: "Greenfield Girls Primary School",
     logo: `${LOGO_PATH}/greenfield-girls-primary.png`,
@@ -262,8 +231,7 @@ const testimonials = [
     logo: `${LOGO_PATH}/spark-school.png`,
   },
   {
-    quote:
-      "A good experience. It was great to be able to pause videos and see the notes.",
+    quote: "A good experience. It was great to be able to pause videos and see the notes.",
     name: "Tasmin Strydom",
     school: "Wings Discovery Centre",
     logo: `${LOGO_PATH}/wings-discovery-centre.png`,
@@ -307,12 +275,7 @@ export default function CurriculumPage() {
             href="/education"
             className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
           >
-            <svg
-              className="w-4 h-4 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -331,15 +294,14 @@ export default function CurriculumPage() {
                 Coding &amp; Robotics Curriculum for Schools
               </h1>
               <p className="text-xl text-white/80 mb-4">
-                Unlike hiring external facilitators, this programme gives
-                your own teachers the skills to deliver coding and robotics — from Grade R
-                to 12. Once trained, your educators have the skills, lesson
-                plans, and confidence to teach STEM year after year.
+                Unlike hiring external facilitators, this programme gives your own teachers the
+                skills to deliver coding and robotics — from Grade R to 12. Once trained, your
+                educators have the skills, lesson plans, and confidence to teach STEM year after
+                year.
               </p>
               <p className="text-white/60 mb-6">
-                The training is self-paced and CAPS-aligned, so it slots
-                directly into your school timetable. No prior coding experience
-                needed.
+                The training is self-paced and CAPS-aligned, so it slots directly into your school
+                timetable. No prior coding experience needed.
               </p>
               <ul className="space-y-2 mb-8">
                 {[
@@ -396,9 +358,7 @@ export default function CurriculumPage() {
                   key={item.label}
                   className="bg-white/10 border border-white/20 rounded-xl p-6 text-center"
                 >
-                  <p className="text-2xl font-bold text-cs-blue mb-1">
-                    {item.stat}
-                  </p>
+                  <p className="text-2xl font-bold text-cs-blue mb-1">{item.stat}</p>
                   <p className="text-white/70 text-sm">{item.label}</p>
                 </div>
               ))}
@@ -418,10 +378,9 @@ export default function CurriculumPage() {
               A Complete Programme, Not Just Resources
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Your school gets access to the Inspire Campus — an online platform
-              where teachers train at their own pace, download lesson plans, and
-              earn accredited certification. Everything is managed from one
-              dashboard.
+              Your school gets access to the Inspire Campus — an online platform where teachers
+              train at their own pace, download lesson plans, and earn accredited certification.
+              Everything is managed from one dashboard.
             </p>
           </div>
 
@@ -434,12 +393,8 @@ export default function CurriculumPage() {
                 <div className="w-12 h-12 bg-cs-blue/10 rounded-xl flex items-center justify-center mb-4">
                   <div className="text-cs-blue">{feature.icon}</div>
                 </div>
-                <h3 className="font-semibold text-navy mb-2 text-lg">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed">
-                  {feature.description}
-                </p>
+                <h3 className="font-semibold text-navy mb-2 text-lg">{feature.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -457,40 +412,27 @@ export default function CurriculumPage() {
               A Clear Progression from Unplugged to Advanced Coding
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              The curriculum builds skills progressively — starting with
-              unplugged activities in Foundation Phase, introducing block-based
-              coding and micro:bit robotics in Intermediate, and advancing to
-              text-based programming and IoT in the senior grades.
+              The curriculum builds skills progressively — starting with unplugged activities in
+              Foundation Phase, introducing block-based coding and micro:bit robotics in
+              Intermediate, and advancing to text-based programming and IoT in the senior grades.
             </p>
           </div>
 
           <div className="space-y-6">
             {curriculumPhases.map((phase) => (
-              <div
-                key={phase.phase}
-                className="bg-white rounded-xl shadow-sm overflow-hidden"
-              >
+              <div key={phase.phase} className="bg-white rounded-xl shadow-sm overflow-hidden">
                 <div className="md:flex">
                   <div
                     className={`${phase.color} text-white p-6 md:w-64 md:shrink-0 flex flex-col justify-center`}
                   >
-                    <p className="text-white/80 text-sm font-medium">
-                      {phase.grades}
-                    </p>
-                    <h3 className="text-xl font-semibold mt-1">
-                      {phase.phase}
-                    </h3>
+                    <p className="text-white/80 text-sm font-medium">{phase.grades}</p>
+                    <h3 className="text-xl font-semibold mt-1">{phase.phase}</h3>
                   </div>
                   <div className="p-6 flex-1">
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {phase.description}
-                    </p>
+                    <p className="text-gray-600 mb-4 leading-relaxed">{phase.description}</p>
                     <div className="grid sm:grid-cols-2 gap-2">
                       {phase.highlights.map((highlight) => (
-                        <div
-                          key={highlight}
-                          className="flex items-center text-sm text-gray-700"
-                        >
+                        <div key={highlight} className="flex items-center text-sm text-gray-700">
                           <svg
                             className="w-4 h-4 text-cs-blue mr-2 shrink-0"
                             fill="none"
@@ -527,9 +469,8 @@ export default function CurriculumPage() {
               What Teachers Are Saying
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              Educators from primary schools, high schools, and colleges have
-              completed the Inspire Africa training. Here is what they had to
-              say.
+              Educators from primary schools, high schools, and colleges have completed the Inspire
+              Africa training. Here is what they had to say.
             </p>
           </div>
 
@@ -544,12 +485,10 @@ export default function CurriculumPage() {
             <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
               Getting Started
             </span>
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              How It Works
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">How It Works</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Getting your school set up with the Inspire Africa coding and
-              robotics curriculum is straightforward.
+              Getting your school set up with the Inspire Africa coding and robotics curriculum is
+              straightforward.
             </p>
           </div>
 
@@ -561,9 +500,7 @@ export default function CurriculumPage() {
                 )}
                 <div className="relative z-10 text-center">
                   <div className="w-16 h-16 bg-cs-blue rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span className="text-2xl font-bold text-white">
-                      {step.number}
-                    </span>
+                    <span className="text-2xl font-bold text-white">{step.number}</span>
                   </div>
                   <h3 className="font-semibold text-navy mb-2">{step.title}</h3>
                   <p className="text-gray-600 text-sm">{step.description}</p>
@@ -585,8 +522,8 @@ export default function CurriculumPage() {
               Ready to Bring Coding &amp; Robotics to Your School?
             </h2>
             <p className="text-white/80">
-              Get in touch and we&apos;ll help you find the right curriculum
-              pathway, hardware, and training plan for your school.
+              Get in touch and we&apos;ll help you find the right curriculum pathway, hardware, and
+              training plan for your school.
             </p>
           </div>
           <div className="bg-white rounded-2xl p-8 shadow-lg">
@@ -603,8 +540,8 @@ export default function CurriculumPage() {
               Explore Other Education Solutions
             </h2>
             <p className="text-gray-600">
-              Looking for tutors, classroom kits, or online courses? We have more
-              options for your school.
+              Looking for tutors, classroom kits, or online courses? We have more options for your
+              school.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

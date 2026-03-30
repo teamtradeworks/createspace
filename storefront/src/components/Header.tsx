@@ -20,13 +20,21 @@ const ageGroups = [
     id: "6-8",
     label: "Age 6-8",
     href: "/shop?age=6-8",
-    handles: ["makerzoid-smart-robot-premium", "elecfreaks-micro-bit-6-in-1-ring-bit-kit", "makerzoid-robot-master-premium"],
+    handles: [
+      "makerzoid-smart-robot-premium",
+      "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
+      "makerzoid-robot-master-premium",
+    ],
   },
   {
     id: "9-12",
     label: "Age 9-12",
     href: "/shop?age=9-12",
-    handles: ["matatastudio-vincibot-coding-robot-set", "bbc-micro-bit-go", "elecfreaks-micro-bit-smart-cutebot-pro"],
+    handles: [
+      "matatastudio-vincibot-coding-robot-set",
+      "bbc-micro-bit-go",
+      "elecfreaks-micro-bit-smart-cutebot-pro",
+    ],
   },
   {
     id: "13+",
@@ -124,7 +132,11 @@ export default function Header({ products = [] }: HeaderProps) {
   const [searchOpen, setSearchOpen] = useState(false);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const { itemCount, cartAnimKey } = useCart();
-  const mounted = useSyncExternalStore(() => () => {}, () => true, () => false);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   const closeDropdown = () => setActiveDropdown(null);
 
@@ -147,7 +159,13 @@ export default function Header({ products = [] }: HeaderProps) {
       {/* Promo banner */}
       <div className="bg-cs-orange text-white text-center py-2 text-sm font-medium">
         <span className="inline-flex items-center gap-1.5">
-          <Image src="/images/brand/flag-za.svg" alt="South African flag" width={18} height={12} className="rounded-sm" />
+          <Image
+            src="/images/brand/flag-za.svg"
+            alt="South African flag"
+            width={18}
+            height={12}
+            className="rounded-sm"
+          />
           Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
         </span>
       </div>
@@ -265,11 +283,7 @@ export default function Header({ products = [] }: HeaderProps) {
                 stroke="currentColor"
               >
                 {mobileMenuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18 18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                 ) : (
                   <path
                     strokeLinecap="round"
@@ -348,115 +362,117 @@ export default function Header({ products = [] }: HeaderProps) {
       {/* Shop Mega Menu Dropdown */}
       <div
         className={`absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
-          activeDropdown === "shop" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          activeDropdown === "shop"
+            ? "opacity-100 visible"
+            : "opacity-0 invisible pointer-events-none"
         }`}
         onMouseEnter={() => handleMenuEnter("shop")}
         onMouseLeave={handleMenuLeave}
       >
         <div className="bg-white shadow-xl">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-          <div className="grid grid-cols-4 gap-8">
-            {ageGroups.map((group) => {
-              // Look up hardcoded products by handle, preserving order
-              const groupProducts = group.handles
-                .map((handle) => products.find((p) => p.handle === handle))
-                .filter(Boolean) as Product[];
+            <div className="grid grid-cols-4 gap-8">
+              {ageGroups.map((group) => {
+                // Look up hardcoded products by handle, preserving order
+                const groupProducts = group.handles
+                  .map((handle) => products.find((p) => p.handle === handle))
+                  .filter(Boolean) as Product[];
 
-              return (
-                <div key={group.id}>
-                  {/* Column Header */}
-                  <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-                    <span className="font-semibold text-navy">{group.label}</span>
-                    <Link
-                      href={group.href}
-                      className="text-sm text-gray-500 hover:text-cs-orange transition-colors flex items-center"
-                      onClick={closeDropdown}
-                    >
-                      Shop All
-                      <svg
-                        className="w-3 h-3 ml-1"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                return (
+                  <div key={group.id}>
+                    {/* Column Header */}
+                    <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
+                      <span className="font-semibold text-navy">{group.label}</span>
+                      <Link
+                        href={group.href}
+                        className="text-sm text-gray-500 hover:text-cs-orange transition-colors flex items-center"
+                        onClick={closeDropdown}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </Link>
-                  </div>
-
-                  {/* Products List */}
-                  <ul className="space-y-3">
-                    {groupProducts.map((product) => (
-                      <li key={product.id}>
-                        <Link
-                          href={`/product/${product.handle}`}
-                          className="flex items-center gap-3 group/item"
-                          onClick={closeDropdown}
+                        Shop All
+                        <svg
+                          className="w-3 h-3 ml-1"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
                         >
-                          {/* Product Thumbnail */}
-                          <div className="w-10 h-10 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
-                            {product.images.edges[0]?.node.url && (
-                              <Image
-                                src={product.images.edges[0].node.url}
-                                alt={product.images.edges[0].node.altText || product.title}
-                                width={40}
-                                height={40}
-                                className="w-full h-full object-cover"
-                              />
-                            )}
-                          </div>
-                          <span className="text-sm text-gray-700 group-hover/item:text-cs-orange transition-colors line-clamp-2">
-                            {product.title}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      </Link>
+                    </div>
 
-          {/* Bottom Banner */}
-          <div className="mt-8 pt-6 border-t border-gray-100">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-cs-orange/10 rounded-full flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-cs-orange"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="font-medium text-navy">Need help choosing?</p>
-                  <p className="text-sm text-gray-500">
-                    Our team can recommend the perfect kit for any age or skill level.
-                  </p>
-                </div>
-              </div>
-              <Link
-                href="/contact"
-                className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
-                onClick={closeDropdown}
-              >
-                Get Advice
-              </Link>
+                    {/* Products List */}
+                    <ul className="space-y-3">
+                      {groupProducts.map((product) => (
+                        <li key={product.id}>
+                          <Link
+                            href={`/product/${product.handle}`}
+                            className="flex items-center gap-3 group/item"
+                            onClick={closeDropdown}
+                          >
+                            {/* Product Thumbnail */}
+                            <div className="w-10 h-10 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+                              {product.images.edges[0]?.node.url && (
+                                <Image
+                                  src={product.images.edges[0].node.url}
+                                  alt={product.images.edges[0].node.altText || product.title}
+                                  width={40}
+                                  height={40}
+                                  className="w-full h-full object-cover"
+                                />
+                              )}
+                            </div>
+                            <span className="text-sm text-gray-700 group-hover/item:text-cs-orange transition-colors line-clamp-2">
+                              {product.title}
+                            </span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                );
+              })}
             </div>
-          </div>
+
+            {/* Bottom Banner */}
+            <div className="mt-8 pt-6 border-t border-gray-100">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-cs-orange/10 rounded-full flex items-center justify-center">
+                    <svg
+                      className="w-6 h-6 text-cs-orange"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="font-medium text-navy">Need help choosing?</p>
+                    <p className="text-sm text-gray-500">
+                      Our team can recommend the perfect kit for any age or skill level.
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href="/contact"
+                  className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
+                  onClick={closeDropdown}
+                >
+                  Get Advice
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -467,7 +483,9 @@ export default function Header({ products = [] }: HeaderProps) {
       {/* Education Dropdown */}
       <div
         className={`absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
-          activeDropdown === "education" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          activeDropdown === "education"
+            ? "opacity-100 visible"
+            : "opacity-0 invisible pointer-events-none"
         }`}
         onMouseEnter={() => handleMenuEnter("education")}
         onMouseLeave={handleMenuLeave}
@@ -489,9 +507,7 @@ export default function Header({ products = [] }: HeaderProps) {
                     <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors">
                       {option.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mt-1">
-                      {option.description}
-                    </p>
+                    <p className="text-sm text-gray-600 mt-1">{option.description}</p>
                   </div>
                 </Link>
               ))}

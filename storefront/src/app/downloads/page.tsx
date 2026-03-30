@@ -114,12 +114,7 @@ const acebott = [
 
 function DownloadIcon() {
   return (
-    <svg
-      className="w-5 h-5 flex-shrink-0"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-    >
+    <svg className="w-5 h-5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -169,8 +164,8 @@ export default function DownloadsPage() {
               Guides &amp; Downloads
             </h1>
             <p className="text-white/70 text-lg">
-              Download the tutorials, code, and other resources for your
-              CREATESPACE electronics kit.
+              Download the tutorials, code, and other resources for your CREATESPACE electronics
+              kit.
             </p>
           </div>
         </div>
@@ -200,8 +195,8 @@ export default function DownloadsPage() {
             Can&apos;t find what you&apos;re looking for?
           </h2>
           <p className="text-white/70 mb-6 max-w-xl mx-auto">
-            If your kit isn&apos;t listed or you need additional support, get in touch
-            and we&apos;ll help you out.
+            If your kit isn&apos;t listed or you need additional support, get in touch and
+            we&apos;ll help you out.
           </p>
           <Link
             href="/contact"

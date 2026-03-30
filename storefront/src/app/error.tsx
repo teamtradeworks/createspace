@@ -35,8 +35,8 @@ export default function Error({
           Oops! We hit a snag
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mb-10">
-          Something unexpected happened while loading this page. Give it another
-          try — if the problem persists, please{" "}
+          Something unexpected happened while loading this page. Give it another try — if the
+          problem persists, please{" "}
           <Link href="/contact" className="text-cs-orange hover:underline">
             let us know
           </Link>

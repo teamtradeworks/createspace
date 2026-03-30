@@ -76,8 +76,7 @@ const faqs = [
   },
   {
     question: "Do you deliver nationwide?",
-    answer:
-      "Yes! We deliver to your door across South Africa via The Courier Guy.",
+    answer: "Yes! We deliver to your door across South Africa via The Courier Guy.",
   },
   {
     question: "How do I track my order?",
@@ -116,8 +115,7 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer:
-      "We accept secure payments via Stitch, including credit/debit cards and instant EFT.",
+    answer: "We accept secure payments via Stitch, including credit/debit cards and instant EFT.",
   },
 ];
 
@@ -135,9 +133,8 @@ export default function ContactPage() {
               We&apos;d Love to Hear From You
             </h1>
             <p className="text-white/70 text-lg">
-              Whether you have a question about our products, need help choosing
-              the right kit, or want to discuss a school partnership—we&apos;re here
-              to help.
+              Whether you have a question about our products, need help choosing the right kit, or
+              want to discuss a school partnership—we&apos;re here to help.
             </p>
           </div>
         </div>
@@ -181,35 +178,25 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Form */}
             <div>
-              <h2 className="text-2xl font-semibold text-navy mb-2">
-                Send Us a Message
-              </h2>
+              <h2 className="text-2xl font-semibold text-navy mb-2">Send Us a Message</h2>
               <p className="text-gray-600 mb-8">
-                Fill out the form below and we&apos;ll get back to you as soon as
-                possible.
+                Fill out the form below and we&apos;ll get back to you as soon as possible.
               </p>
               <ContactForm />
             </div>
 
             {/* FAQ Section */}
             <div>
-              <h2 className="text-2xl font-semibold text-navy mb-2">
-                Frequently Asked Questions
-              </h2>
+              <h2 className="text-2xl font-semibold text-navy mb-2">Frequently Asked Questions</h2>
               <p className="text-gray-600 mb-8">
-                Quick answers to common questions. Can&apos;t find what you&apos;re
-                looking for? Send us a message.
+                Quick answers to common questions. Can&apos;t find what you&apos;re looking for?
+                Send us a message.
               </p>
               <div className="space-y-4">
                 {faqs.map((faq, index) => (
-                  <details
-                    key={index}
-                    className="group bg-gray-50 rounded-xl overflow-hidden"
-                  >
+                  <details key={index} className="group bg-gray-50 rounded-xl overflow-hidden">
                     <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
-                      <span className="font-medium text-navy pr-4">
-                        {faq.question}
-                      </span>
+                      <span className="font-medium text-navy pr-4">{faq.question}</span>
                       <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cs-orange/10 flex items-center justify-center text-cs-orange group-open:rotate-180 transition-transform">
                         <svg
                           className="w-4 h-4"
@@ -238,9 +225,7 @@ export default function ContactPage() {
       {/* Social Links */}
       <section className="py-12 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-lg font-semibold text-navy mb-4">
-            Follow Us on Social Media
-          </h3>
+          <h3 className="text-lg font-semibold text-navy mb-4">Follow Us on Social Media</h3>
           <p className="text-gray-600 mb-6">
             Stay updated with the latest products, STEM tips, and educational content.
           </p>

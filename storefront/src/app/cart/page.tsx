@@ -17,7 +17,8 @@ import TrustBadges from "@/components/TrustBadges";
 import siteConfig from "@/config/site.json";
 
 export default function CartPage() {
-  const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } = useCart();
+  const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } =
+    useCart();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const viewCartFired = useRef(false);
 
@@ -35,7 +36,7 @@ export default function CartPage() {
           index,
         })),
         subtotal,
-        currencyCode
+        currencyCode,
       );
     }
   }, [isHydrated, items, subtotal, currencyCode]);
@@ -70,7 +71,7 @@ export default function CartPage() {
         index,
       })),
       subtotal,
-      currencyCode
+      currencyCode,
     );
 
     setIsCheckingOut(true);
@@ -122,9 +123,24 @@ export default function CartPage() {
             /* Loading State */
             <div className="text-center py-16">
               <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="animate-spin h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                <svg
+                  className="animate-spin h-10 w-10 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  />
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                  />
                 </svg>
               </div>
               <p className="text-gray-500">Loading your cart...</p>
@@ -162,12 +178,7 @@ export default function CartPage() {
                 className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
               >
                 Continue Shopping
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -195,28 +206,76 @@ export default function CartPage() {
                   {sortedItems.map((item) => {
                     const isUnavailable = item.available === false;
                     return (
-                    <div
-                      key={item.variantId}
-                      className={`py-6 grid grid-cols-12 gap-4 items-center${isUnavailable ? " opacity-50" : ""}`}
-                    >
-                      {/* Product Image & Info */}
-                      <div className="col-span-12 md:col-span-6 flex items-center gap-4">
-                        <Link
-                          href={`/product/${item.handle}`}
-                          className="flex-shrink-0 w-20 h-20 bg-gray-100 rounded-lg overflow-hidden"
-                        >
-                          {item.image ? (
-                            <Image
-                              src={item.image}
-                              alt={item.title}
-                              width={80}
-                              height={80}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center">
+                      <div
+                        key={item.variantId}
+                        className={`py-6 grid grid-cols-12 gap-4 items-center${isUnavailable ? " opacity-50" : ""}`}
+                      >
+                        {/* Product Image & Info */}
+                        <div className="col-span-12 md:col-span-6 flex items-center gap-4">
+                          <Link
+                            href={`/product/${item.handle}`}
+                            className="flex-shrink-0 w-20 h-20 bg-gray-100 rounded-lg overflow-hidden"
+                          >
+                            {item.image ? (
+                              <Image
+                                src={item.image}
+                                alt={item.title}
+                                width={80}
+                                height={80}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full flex items-center justify-center">
+                                <svg
+                                  className="w-8 h-8 text-gray-300"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={1.5}
+                                    d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                                  />
+                                </svg>
+                              </div>
+                            )}
+                          </Link>
+                          <div className="flex-1 min-w-0">
+                            <Link
+                              href={`/product/${item.handle}`}
+                              className="text-navy font-medium hover:text-cs-orange transition-colors line-clamp-2"
+                            >
+                              {item.title}
+                            </Link>
+                            {isUnavailable ? (
+                              <span className="inline-flex items-center gap-1 text-xs text-cs-red mt-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
+                                Out of Stock — excluded from order
+                              </span>
+                            ) : item.digital ? (
+                              <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
+                                Online Course
+                              </span>
+                            ) : item.currentlyNotInStock ? (
+                              <span className="inline-flex items-center gap-1 text-xs text-cs-orange mt-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-cs-orange" />
+                                Delivery in {siteConfig.leadTime.estimatedDays}
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
+                                <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
+                                In Stock
+                              </span>
+                            )}
+                            <button
+                              onClick={() => removeItem(item.variantId)}
+                              className="mt-1 text-sm text-gray-500 hover:text-cs-red transition-colors flex items-center gap-1 block"
+                            >
                               <svg
-                                className="w-8 h-8 text-gray-300"
+                                className="w-4 h-4"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor"
@@ -225,130 +284,92 @@ export default function CartPage() {
                                   strokeLinecap="round"
                                   strokeLinejoin="round"
                                   strokeWidth={1.5}
-                                  d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
                                 />
                               </svg>
+                              Remove
+                            </button>
+                          </div>
+                        </div>
+
+                        {/* Price */}
+                        <div className="col-span-4 md:col-span-2 text-center">
+                          <span className="md:hidden text-sm text-gray-500 mr-2">Price:</span>
+                          <span
+                            className={
+                              isUnavailable ? "text-gray-400 line-through" : "text-gray-700"
+                            }
+                          >
+                            {formatPrice(item.price, item.currencyCode)}
+                          </span>
+                        </div>
+
+                        {/* Quantity */}
+                        <div className="col-span-4 md:col-span-2 flex justify-center">
+                          {isUnavailable ? (
+                            <span className="text-sm text-gray-400">—</span>
+                          ) : (
+                            <div className="flex items-center border rounded-lg">
+                              <button
+                                onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
+                                disabled={item.quantity <= 1}
+                                className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                                aria-label="Decrease quantity"
+                              >
+                                <svg
+                                  className="w-3 h-3"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M20 12H4"
+                                  />
+                                </svg>
+                              </button>
+                              <span className="w-10 text-center text-sm font-medium">
+                                {item.quantity}
+                              </span>
+                              <button
+                                onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
+                                className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
+                                aria-label="Increase quantity"
+                              >
+                                <svg
+                                  className="w-3 h-3"
+                                  fill="none"
+                                  viewBox="0 0 24 24"
+                                  stroke="currentColor"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M12 4v16m8-8H4"
+                                  />
+                                </svg>
+                              </button>
                             </div>
                           )}
-                        </Link>
-                        <div className="flex-1 min-w-0">
-                          <Link
-                            href={`/product/${item.handle}`}
-                            className="text-navy font-medium hover:text-cs-orange transition-colors line-clamp-2"
-                          >
-                            {item.title}
-                          </Link>
-                          {isUnavailable ? (
-                            <span className="inline-flex items-center gap-1 text-xs text-cs-red mt-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
-                              Out of Stock — excluded from order
-                            </span>
-                          ) : item.digital ? (
-                            <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
-                              Online Course
-                            </span>
-                          ) : item.currentlyNotInStock ? (
-                            <span className="inline-flex items-center gap-1 text-xs text-cs-orange mt-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-cs-orange" />
-                              Delivery in {siteConfig.leadTime.estimatedDays}
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
-                              In Stock
-                            </span>
-                          )}
-                          <button
-                            onClick={() => removeItem(item.variantId)}
-                            className="mt-1 text-sm text-gray-500 hover:text-cs-red transition-colors flex items-center gap-1 block"
-                          >
-                            <svg
-                              className="w-4 h-4"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={1.5}
-                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                              />
-                            </svg>
-                            Remove
-                          </button>
                         </div>
-                      </div>
 
-                      {/* Price */}
-                      <div className="col-span-4 md:col-span-2 text-center">
-                        <span className="md:hidden text-sm text-gray-500 mr-2">Price:</span>
-                        <span className={isUnavailable ? "text-gray-400 line-through" : "text-gray-700"}>
-                          {formatPrice(item.price, item.currencyCode)}
-                        </span>
-                      </div>
-
-                      {/* Quantity */}
-                      <div className="col-span-4 md:col-span-2 flex justify-center">
-                        {isUnavailable ? (
-                          <span className="text-sm text-gray-400">—</span>
-                        ) : (
-                        <div className="flex items-center border rounded-lg">
-                          <button
-                            onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
-                            disabled={item.quantity <= 1}
-                            className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                            aria-label="Decrease quantity"
+                        {/* Line Total */}
+                        <div className="col-span-4 md:col-span-2 text-right">
+                          <span className="md:hidden text-sm text-gray-500 mr-2">Total:</span>
+                          <span
+                            className={
+                              isUnavailable
+                                ? "text-gray-400 line-through"
+                                : "font-semibold text-navy"
+                            }
                           >
-                            <svg
-                              className="w-3 h-3"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M20 12H4"
-                              />
-                            </svg>
-                          </button>
-                          <span className="w-10 text-center text-sm font-medium">
-                            {item.quantity}
+                            {formatPrice(item.price * item.quantity, item.currencyCode)}
                           </span>
-                          <button
-                            onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
-                            className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
-                            aria-label="Increase quantity"
-                          >
-                            <svg
-                              className="w-3 h-3"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M12 4v16m8-8H4"
-                              />
-                            </svg>
-                          </button>
                         </div>
-                        )}
                       </div>
-
-                      {/* Line Total */}
-                      <div className="col-span-4 md:col-span-2 text-right">
-                        <span className="md:hidden text-sm text-gray-500 mr-2">Total:</span>
-                        <span className={isUnavailable ? "text-gray-400 line-through" : "font-semibold text-navy"}>
-                          {formatPrice(item.price * item.quantity, item.currencyCode)}
-                        </span>
-                      </div>
-                    </div>
                     );
                   })}
                 </div>
@@ -390,12 +411,15 @@ export default function CartPage() {
                       {qualifiesForFreeDelivery(subtotal) ? (
                         <span className="text-cs-green font-semibold">FREE</span>
                       ) : (
-                        <span>{formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode)}</span>
+                        <span>
+                          {formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode)}
+                        </span>
                       )}
                     </div>
                     {!qualifiesForFreeDelivery(subtotal) && subtotal > 0 && (
                       <p className="text-xs text-cs-orange">
-                        Add {formatPrice(amountToFreeDelivery(subtotal), currencyCode)} more for FREE delivery!
+                        Add {formatPrice(amountToFreeDelivery(subtotal), currencyCode)} more for
+                        FREE delivery!
                       </p>
                     )}
                   </div>
@@ -404,18 +428,23 @@ export default function CartPage() {
                     <div className="flex justify-between text-lg font-semibold text-navy">
                       <span>Total</span>
                       <span>
-                        {formatPrice(
-                          subtotal + calculateDeliveryCost(subtotal),
-                          currencyCode
-                        )}
+                        {formatPrice(subtotal + calculateDeliveryCost(subtotal), currencyCode)}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">
-                      VAT included.
-                    </p>
+                    <p className="text-xs text-gray-500 mt-1">VAT included.</p>
                     <p className="text-xs text-cs-blue mt-2 flex items-center gap-1">
-                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <svg
+                        className="w-3.5 h-3.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
                       </svg>
                       Next day delivery option available at checkout
                     </p>
@@ -430,8 +459,19 @@ export default function CartPage() {
                     {isCheckingOut ? (
                       <>
                         <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          />
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                          />
                         </svg>
                         Redirecting to Checkout...
                       </>
@@ -466,20 +506,38 @@ export default function CartPage() {
                   {/* Trust Badges */}
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <div className="flex items-center gap-2 text-sm">
-                      <svg className="w-5 h-5 text-cs-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
+                      <svg
+                        className="w-5 h-5 text-cs-green flex-shrink-0"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                        />
                       </svg>
                       <span>
                         <span className="font-medium text-navy">Secure Checkout</span>
-                        <span className="text-gray-500"> &middot; Protected by Stitch Payments</span>
+                        <span className="text-gray-500">
+                          {" "}
+                          &middot; Protected by Stitch Payments
+                        </span>
                       </span>
                     </div>
                     <div className="flex flex-wrap gap-1.5 mt-3 ml-7">
-                      {["Mastercard", "Visa", "Apple Pay", "Capitec Pay", "Buy Now Pay Later"].map((method) => (
-                        <span key={method} className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded">
-                          {method}
-                        </span>
-                      ))}
+                      {["Mastercard", "Visa", "Apple Pay", "Capitec Pay", "Buy Now Pay Later"].map(
+                        (method) => (
+                          <span
+                            key={method}
+                            className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded"
+                          >
+                            {method}
+                          </span>
+                        ),
+                      )}
                     </div>
                   </div>
                 </div>

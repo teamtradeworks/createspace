@@ -76,82 +76,101 @@ export default function ProductActions({
     });
   };
 
-  const performAddToCart = useCallback(async (addonHandles: Set<string>) => {
-    setIsAddingToCart(true);
+  const performAddToCart = useCallback(
+    async (addonHandles: Set<string>) => {
+      setIsAddingToCart(true);
 
-    // Add main product to cart
-    addItem(
-      {
-        id: productId,
-        variantId,
-        title,
-        price,
-        currencyCode,
-        image,
-        handle,
-        available,
-        currentlyNotInStock,
-        digital,
-      },
-      quantity
-    );
-
-    // Add selected add-ons to cart (with discounted price)
-    const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
-    for (const addon of selectedAddonsData) {
-      const addonPrice = addon.discountPercent > 0
-        ? addon.discountedPrice / addon.quantity
-        : addon.originalPrice / addon.quantity;
+      // Add main product to cart
       addItem(
         {
-          id: addon.productId,
-          variantId: addon.variantId,
-          title: addon.title,
-          price: addonPrice,
-          currencyCode: addon.currencyCode,
-          image: addon.image || undefined,
-          handle: addon.handle,
-          available: addon.available,
+          id: productId,
+          variantId,
+          title,
+          price,
+          currencyCode,
+          image,
+          handle,
+          available,
+          currentlyNotInStock,
+          digital,
         },
-        addon.quantity * quantity
+        quantity,
       );
-    }
 
-    posthog.capture("product_added_to_cart", {
-      product_handle: handle,
-      product_title: title,
-      product_price: price,
-      currency_code: currencyCode,
+      // Add selected add-ons to cart (with discounted price)
+      const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
+      for (const addon of selectedAddonsData) {
+        const addonPrice =
+          addon.discountPercent > 0
+            ? addon.discountedPrice / addon.quantity
+            : addon.originalPrice / addon.quantity;
+        addItem(
+          {
+            id: addon.productId,
+            variantId: addon.variantId,
+            title: addon.title,
+            price: addonPrice,
+            currencyCode: addon.currencyCode,
+            image: addon.image || undefined,
+            handle: addon.handle,
+            available: addon.available,
+          },
+          addon.quantity * quantity,
+        );
+      }
+
+      posthog.capture("product_added_to_cart", {
+        product_handle: handle,
+        product_title: title,
+        product_price: price,
+        currency_code: currencyCode,
+        quantity,
+        digital: digital ?? false,
+        addon_count: selectedAddonsData.length,
+        addon_handles: selectedAddonsData.map((a) => a.handle),
+        $value: price * quantity,
+      });
+
+      const gtmItems = [
+        { item_id: handle, item_name: title, price, currency: currencyCode, quantity },
+        ...selectedAddonsData.map((addon) => ({
+          item_id: addon.handle,
+          item_name: addon.title,
+          price:
+            addon.discountPercent > 0
+              ? addon.discountedPrice / addon.quantity
+              : addon.originalPrice / addon.quantity,
+          currency: addon.currencyCode,
+          quantity: addon.quantity * quantity,
+        })),
+      ];
+      const gtmValue = gtmItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+      gtmAddToCart(gtmItems, gtmValue, currencyCode);
+
+      // Show success state briefly
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      setIsAddingToCart(false);
+      setAddedToCart(true);
+
+      // Reset success state after 2 seconds
+      setTimeout(() => setAddedToCart(false), 2000);
+    },
+    [
+      addItem,
+      productId,
+      variantId,
+      title,
+      price,
+      currencyCode,
+      image,
+      handle,
+      available,
+      currentlyNotInStock,
+      digital,
       quantity,
-      digital: digital ?? false,
-      addon_count: selectedAddonsData.length,
-      addon_handles: selectedAddonsData.map((a) => a.handle),
-      $value: price * quantity,
-    });
-
-    const gtmItems = [
-      { item_id: handle, item_name: title, price, currency: currencyCode, quantity },
-      ...selectedAddonsData.map((addon) => ({
-        item_id: addon.handle,
-        item_name: addon.title,
-        price: addon.discountPercent > 0
-          ? addon.discountedPrice / addon.quantity
-          : addon.originalPrice / addon.quantity,
-        currency: addon.currencyCode,
-        quantity: addon.quantity * quantity,
-      })),
-    ];
-    const gtmValue = gtmItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    gtmAddToCart(gtmItems, gtmValue, currencyCode);
-
-    // Show success state briefly
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    setIsAddingToCart(false);
-    setAddedToCart(true);
-
-    // Reset success state after 2 seconds
-    setTimeout(() => setAddedToCart(false), 2000);
-  }, [addItem, productId, variantId, title, price, currencyCode, image, handle, available, currentlyNotInStock, digital, quantity, addons]);
+      addons,
+    ],
+  );
 
   const handleAddToCart = async () => {
     if (!available) return;
@@ -186,64 +205,82 @@ export default function ProductActions({
     }
   };
 
-  const performBuyNow = useCallback(async (addonHandles: Set<string>) => {
-    setIsBuyingNow(true);
+  const performBuyNow = useCallback(
+    async (addonHandles: Set<string>) => {
+      setIsBuyingNow(true);
 
-    // Add main product to cart first
-    addItem(
-      {
-        id: productId,
-        variantId,
-        title,
-        price,
-        currencyCode,
-        image,
-        handle,
-        available,
-        currentlyNotInStock,
-        digital,
-      },
-      quantity
-    );
-
-    // Add selected add-ons to cart (with discounted price)
-    const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
-    for (const addon of selectedAddonsData) {
-      const addonPrice = addon.discountPercent > 0
-        ? addon.discountedPrice / addon.quantity
-        : addon.originalPrice / addon.quantity;
+      // Add main product to cart first
       addItem(
         {
-          id: addon.productId,
-          variantId: addon.variantId,
-          title: addon.title,
-          price: addonPrice,
-          currencyCode: addon.currencyCode,
-          image: addon.image || undefined,
-          handle: addon.handle,
-          available: addon.available,
+          id: productId,
+          variantId,
+          title,
+          price,
+          currencyCode,
+          image,
+          handle,
+          available,
+          currentlyNotInStock,
+          digital,
         },
-        addon.quantity * quantity
+        quantity,
       );
-    }
 
-    posthog.capture("product_buy_now_clicked", {
-      product_handle: handle,
-      product_title: title,
-      product_price: price,
-      currency_code: currencyCode,
+      // Add selected add-ons to cart (with discounted price)
+      const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
+      for (const addon of selectedAddonsData) {
+        const addonPrice =
+          addon.discountPercent > 0
+            ? addon.discountedPrice / addon.quantity
+            : addon.originalPrice / addon.quantity;
+        addItem(
+          {
+            id: addon.productId,
+            variantId: addon.variantId,
+            title: addon.title,
+            price: addonPrice,
+            currencyCode: addon.currencyCode,
+            image: addon.image || undefined,
+            handle: addon.handle,
+            available: addon.available,
+          },
+          addon.quantity * quantity,
+        );
+      }
+
+      posthog.capture("product_buy_now_clicked", {
+        product_handle: handle,
+        product_title: title,
+        product_price: price,
+        currency_code: currencyCode,
+        quantity,
+        digital: digital ?? false,
+        addon_count: selectedAddonsData.length,
+        addon_handles: selectedAddonsData.map((a) => a.handle),
+        $value: price * quantity,
+      });
+
+      // Redirect to cart/checkout
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      setIsBuyingNow(false);
+      window.location.href = "/cart";
+    },
+    [
+      addItem,
+      productId,
+      variantId,
+      title,
+      price,
+      currencyCode,
+      image,
+      handle,
+      available,
+      currentlyNotInStock,
+      digital,
       quantity,
-      digital: digital ?? false,
-      addon_count: selectedAddonsData.length,
-      addon_handles: selectedAddonsData.map((a) => a.handle),
-      $value: price * quantity,
-    });
-
-    // Redirect to cart/checkout
-    await new Promise((resolve) => setTimeout(resolve, 300));
-    setIsBuyingNow(false);
-    window.location.href = "/cart";
-  }, [addItem, productId, variantId, title, price, currencyCode, image, handle, available, currentlyNotInStock, digital, quantity, addons]);
+      addons,
+    ],
+  );
 
   const handleBuyNow = async () => {
     if (!available) return;
@@ -268,7 +305,7 @@ export default function ProductActions({
             onClick={() => handleQuantityChange(-1)}
             disabled={quantity <= 1}
             aria-label="Decrease quantity"
-            className="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
@@ -278,10 +315,15 @@ export default function ProductActions({
           <button
             onClick={() => handleQuantityChange(1)}
             aria-label="Increase quantity"
-            className="w-10 h-10 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
+            className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 4v16m8-8H4"
+              />
             </svg>
           </button>
         </div>
@@ -332,8 +374,18 @@ export default function ProductActions({
                               className="text-gray-400 hover:text-gray-600 transition-colors"
                               onClick={(e) => e.preventDefault()}
                             >
-                              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                              <svg
+                                className="w-4 h-4"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
                               </svg>
                             </button>
                             <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-navy text-white text-xs rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-48 text-center z-10 pointer-events-none">
@@ -380,9 +432,11 @@ export default function ProductActions({
                   </div>
                   {quantity > 1 && selectedAddons.has(addon.handle) && (
                     <p className="text-xs text-gray-500 mt-1">
-                      {quantity}x @ {addon.discountPercent > 0
+                      {quantity}x @{" "}
+                      {addon.discountPercent > 0
                         ? addon.formattedDiscountedPrice
-                        : addon.formattedOriginalPrice} each
+                        : addon.formattedOriginalPrice}{" "}
+                      each
                     </p>
                   )}
                 </div>
@@ -407,22 +461,43 @@ export default function ProductActions({
           {isAddingToCart ? (
             <>
               <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
               </svg>
               Adding...
             </>
           ) : addedToCart ? (
             <>
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M5 13l4 4L19 7"
+                />
               </svg>
               ADDED TO CART
             </>
           ) : (
             <>
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
               </svg>
               ADD TO CART
             </>
@@ -438,8 +513,19 @@ export default function ProductActions({
           {isBuyingNow ? (
             <>
               <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                />
               </svg>
               Processing...
             </>

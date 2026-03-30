@@ -4,7 +4,7 @@ declare global {
   }
 }
 
-export type GA4Item = {
+type GA4Item = {
   item_id: string;
   item_name: string;
   price: number;
@@ -14,10 +14,7 @@ export type GA4Item = {
   index?: number;
 };
 
-function pushEcommerceEvent(
-  event: string,
-  ecommerce: Record<string, unknown>
-) {
+function pushEcommerceEvent(event: string, ecommerce: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
   // Clear previous ecommerce data (Google recommendation)
@@ -47,11 +44,7 @@ export function gtmViewCart(items: GA4Item[], value: number, currency: string) {
   });
 }
 
-export function gtmAddToCart(
-  items: GA4Item[],
-  value: number,
-  currency: string
-) {
+export function gtmAddToCart(items: GA4Item[], value: number, currency: string) {
   pushEcommerceEvent("add_to_cart", {
     currency,
     value,
@@ -59,11 +52,7 @@ export function gtmAddToCart(
   });
 }
 
-export function gtmBeginCheckout(
-  items: GA4Item[],
-  value: number,
-  currency: string
-) {
+export function gtmBeginCheckout(items: GA4Item[], value: number, currency: string) {
   pushEcommerceEvent("begin_checkout", {
     currency,
     value,

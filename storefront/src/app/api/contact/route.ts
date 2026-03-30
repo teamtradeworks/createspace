@@ -28,22 +28,17 @@ export async function POST(request: NextRequest) {
   const { name, email, subject, phone, message, schoolName, position } = body;
 
   if (!name || !email || !subject) {
-    return NextResponse.json(
-      { error: "Please fill in all required fields." },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Please fill in all required fields." }, { status: 400 });
   }
 
   if (!email.includes("@")) {
-    return NextResponse.json(
-      { error: "Please enter a valid email address." },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
   }
 
   try {
     const { error } = await getResend().emails.send({
-      from: process.env.RESEND_FROM_EMAIL || `CREATESPACE Contact Form <no-reply@thecreatespace.co.za>`,
+      from:
+        process.env.RESEND_FROM_EMAIL || `CREATESPACE Contact Form <no-reply@thecreatespace.co.za>`,
       to: [CONTACT_EMAIL],
       replyTo: email,
       subject: `[Contact Form] ${subject} — ${name}${schoolName ? ` (${schoolName})` : ""}`,
@@ -66,7 +61,7 @@ export async function POST(request: NextRequest) {
       console.error("[contact] Resend error:", error);
       return NextResponse.json(
         { error: "Failed to send message. Please try again." },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
@@ -89,9 +84,6 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[contact] Error:", err);
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
   }
 }

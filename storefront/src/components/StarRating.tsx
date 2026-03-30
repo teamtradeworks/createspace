@@ -51,11 +51,7 @@ export function StarRating({ rating, size = "md" }: StarRatingProps) {
         // Partial star
         const clipId = `star-clip-${star_index}`;
         return (
-          <svg
-            key={star_index}
-            className={`${star}`}
-            viewBox="0 0 24 24"
-          >
+          <svg key={star_index} className={`${star}`} viewBox="0 0 24 24">
             <defs>
               <clipPath id={clipId}>
                 <rect x="0" y="0" width={24 * fill} height="24" />

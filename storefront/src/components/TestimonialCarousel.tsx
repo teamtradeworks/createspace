@@ -14,9 +14,7 @@ interface TestimonialCarouselProps {
   testimonials: Testimonial[];
 }
 
-export default function TestimonialCarousel({
-  testimonials,
-}: TestimonialCarouselProps) {
+export default function TestimonialCarousel({ testimonials }: TestimonialCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -73,9 +71,7 @@ export default function TestimonialCarousel({
             >
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151C7.546 6.068 5.983 8.789 5.983 11H10v10H0z" />
             </svg>
-            <p className="text-white/90 text-sm leading-relaxed mb-6 flex-1">
-              {testimonial.quote}
-            </p>
+            <p className="text-white/90 text-sm leading-relaxed mb-6 flex-1">{testimonial.quote}</p>
             <div className="flex items-center gap-3 pt-4 border-t border-white/10">
               {testimonial.logo && (
                 <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 shrink-0 flex items-center justify-center p-1">
@@ -89,12 +85,8 @@ export default function TestimonialCarousel({
                 </div>
               )}
               <div className="min-w-0">
-                <p className="font-semibold text-white text-sm truncate">
-                  {testimonial.school}
-                </p>
-                <p className="text-white/50 text-xs truncate">
-                  {testimonial.name}
-                </p>
+                <p className="font-semibold text-white text-sm truncate">{testimonial.school}</p>
+                <p className="text-white/50 text-xs truncate">{testimonial.name}</p>
               </div>
             </div>
           </div>
@@ -105,24 +97,12 @@ export default function TestimonialCarousel({
       <button
         onClick={() => scroll("left")}
         className={`absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-all z-10 ${
-          canScrollLeft
-            ? "opacity-100"
-            : "opacity-0 pointer-events-none"
+          canScrollLeft ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         aria-label="Previous reviews"
       >
-        <svg
-          className="w-5 h-5 text-white"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
@@ -130,24 +110,12 @@ export default function TestimonialCarousel({
       <button
         onClick={() => scroll("right")}
         className={`absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center transition-all z-10 ${
-          canScrollRight
-            ? "opacity-100"
-            : "opacity-0 pointer-events-none"
+          canScrollRight ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
         aria-label="Next reviews"
       >
-        <svg
-          className="w-5 h-5 text-white"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
+        <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
 

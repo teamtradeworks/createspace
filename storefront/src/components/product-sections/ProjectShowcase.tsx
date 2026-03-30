@@ -62,7 +62,9 @@ export function ProjectShowcase({
             <p className={`${subtitleClass} text-center max-w-2xl mx-auto mb-10`}>{subtitle}</p>
           )}
           {!highlight && !subtitle && <div className="mb-6" />}
-          <div className={`-mx-4 px-4 pb-4 overflow-x-auto flex gap-4 snap-x snap-mandatory md:mx-0 md:px-0 md:pb-0 md:overflow-visible md:grid ${gridCols} md:gap-6`}>
+          <div
+            className={`-mx-4 px-4 pb-4 overflow-x-auto flex gap-4 snap-x snap-mandatory md:mx-0 md:px-0 md:pb-0 md:overflow-visible md:grid ${gridCols} md:gap-6`}
+          >
             {projects.map((project, index) => (
               <div
                 key={index}

@@ -89,16 +89,12 @@ describe("cart availability helpers", () => {
     });
 
     it("returns 0 when all items are out of stock", () => {
-      const items = [
-        makeItem({ variantId: "v1", price: 999, quantity: 10, available: false }),
-      ];
+      const items = [makeItem({ variantId: "v1", price: 999, quantity: 10, available: false })];
       expect(getCartSubtotal(items)).toBe(0);
     });
 
     it("includes items without available field (legacy data)", () => {
-      const items = [
-        makeItem({ variantId: "v1", price: 100, quantity: 1, available: undefined }),
-      ];
+      const items = [makeItem({ variantId: "v1", price: 100, quantity: 1, available: undefined })];
       expect(getCartSubtotal(items)).toBe(100);
     });
   });

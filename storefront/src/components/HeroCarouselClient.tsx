@@ -7,10 +7,7 @@ interface HeroCarouselClientProps {
   slideCount: number;
 }
 
-export default function HeroCarouselClient({
-  children,
-  slideCount,
-}: HeroCarouselClientProps) {
+export default function HeroCarouselClient({ children, slideCount }: HeroCarouselClientProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isLight, setIsLight] = useState(true);
 
@@ -53,9 +50,7 @@ export default function HeroCarouselClient({
 
       {/* Navigation arrows */}
       <button
-        onClick={() =>
-          setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount)
-        }
+        onClick={() => setCurrentSlide((prev) => (prev - 1 + slideCount) % slideCount)}
         className={`absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition-colors z-20 ${
           isLight ? "bg-white/20 hover:bg-white/40" : "bg-white/80 hover:bg-white"
         }`}
@@ -67,12 +62,7 @@ export default function HeroCarouselClient({
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 19l-7-7 7-7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       <button
@@ -88,12 +78,7 @@ export default function HeroCarouselClient({
           viewBox="0 0 24 24"
           stroke="currentColor"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9 5l7 7-7 7"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
     </div>

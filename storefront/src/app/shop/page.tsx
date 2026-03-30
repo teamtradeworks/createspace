@@ -47,7 +47,13 @@ export default async function ShopPage({ searchParams }: Props) {
       </div>
 
       {/* Products with inline filters */}
-      <ShopGallery products={products} initialAge={age} initialCategory={category} initialBrand={brand} key={`${age || "all"}-${category || "all"}-${brand || "all"}`} />
+      <ShopGallery
+        products={products}
+        initialAge={age}
+        initialCategory={category}
+        initialBrand={brand}
+        key={`${age || "all"}-${category || "all"}-${brand || "all"}`}
+      />
     </main>
   );
 }

@@ -7,9 +7,7 @@ describe("shopifyIdToFeraId", () => {
   });
 
   it("extracts numeric ID from variant GID", () => {
-    expect(shopifyIdToFeraId("gid://shopify/ProductVariant/123456")).toBe(
-      "123456"
-    );
+    expect(shopifyIdToFeraId("gid://shopify/ProductVariant/123456")).toBe("123456");
   });
 
   it("handles string with no slashes", () => {

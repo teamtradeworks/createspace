@@ -23,9 +23,7 @@ export default async function SearchPage({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         {/* Search Header */}
         <div className="max-w-2xl mx-auto mb-10">
-          <h1 className="text-3xl font-bold text-navy mb-6 text-center">
-            Search
-          </h1>
+          <h1 className="text-3xl font-bold text-navy mb-6 text-center">Search</h1>
           <SearchInput defaultValue={query} autoFocus={!query} />
         </div>
 
@@ -34,14 +32,18 @@ export default async function SearchPage({
           <>
             <SearchResultsTracker query={query} resultCount={products.length} />
             <p className="text-sm text-gray-500 mb-6">
-              {products.length} result{products.length !== 1 ? "s" : ""} for
-              &ldquo;{query}&rdquo;
+              {products.length} result{products.length !== 1 ? "s" : ""} for &ldquo;{query}&rdquo;
             </p>
 
             {products.length > 0 ? (
               <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
                 {products.map((product, index) => (
-                  <ProductCard key={product.id} product={product} searchQuery={query} searchPosition={index + 1} />
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    searchQuery={query}
+                    searchPosition={index + 1}
+                  />
                 ))}
               </div>
             ) : (
@@ -61,12 +63,10 @@ export default async function SearchPage({
                     />
                   </svg>
                 </div>
-                <h2 className="text-xl font-medium text-gray-900 mb-2">
-                  No results found
-                </h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-2">No results found</h2>
                 <p className="text-gray-600 mb-6">
-                  We couldn&apos;t find anything matching &ldquo;{query}&rdquo;.
-                  Try a different search or browse our full range.
+                  We couldn&apos;t find anything matching &ldquo;{query}&rdquo;. Try a different
+                  search or browse our full range.
                 </p>
                 <Link
                   href="/shop"
@@ -80,8 +80,7 @@ export default async function SearchPage({
         ) : (
           <div className="text-center py-16">
             <p className="text-gray-500">
-              Type a search term above to find STEM kits, robots, electronics,
-              and more.
+              Type a search term above to find STEM kits, robots, electronics, and more.
             </p>
           </div>
         )}

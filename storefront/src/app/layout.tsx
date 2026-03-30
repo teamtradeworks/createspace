@@ -92,9 +92,7 @@ export default function RootLayout({
           <SpeedInsights />
           <Analytics />
           {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
-            <ClarityAnalytics
-              projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID}
-            />
+            <ClarityAnalytics projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID} />
           )}
         </CartProvider>
         {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (

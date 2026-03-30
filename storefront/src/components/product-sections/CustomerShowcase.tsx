@@ -286,9 +286,7 @@ export function CustomerShowcase({
           </div>
 
           {/* Images — desktop: multi-layout grid */}
-          <div className="hidden md:block">
-            {renderImages()}
-          </div>
+          <div className="hidden md:block">{renderImages()}</div>
         </div>
       </section>
     </SectionTracker>

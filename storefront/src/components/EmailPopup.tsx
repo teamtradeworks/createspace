@@ -176,7 +176,14 @@ export default function EmailPopup() {
           className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-white/60 transition-colors hover:bg-white/10 hover:text-white"
           aria-label="Close"
         >
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M2 2l12 12M14 2L2 14" />
           </svg>
         </button>
@@ -207,11 +214,10 @@ export default function EmailPopup() {
           </div>
         ) : (
           <>
-            <h2 className="mb-2 text-center text-2xl font-semibold">
-              Stay in the loop
-            </h2>
+            <h2 className="mb-2 text-center text-2xl font-semibold">Stay in the loop</h2>
             <p className="mb-6 text-center text-sm text-white/70">
-              Join South African parents discovering STEM toys their kids actually love. Be the first to hear about new products and exclusive deals.
+              Join South African parents discovering STEM toys their kids actually love. Be the
+              first to hear about new products and exclusive deals.
             </p>
 
             <form onSubmit={handleSubmit} className="space-y-3">

@@ -82,21 +82,14 @@ export default function TrustBadges({
   className = "",
 }: TrustBadgesProps) {
   const defaults =
-    variant === "bar"
-      ? BAR_DEFAULTS
-      : variant === "compact"
-        ? COMPACT_DEFAULTS
-        : INLINE_DEFAULTS;
+    variant === "bar" ? BAR_DEFAULTS : variant === "compact" ? COMPACT_DEFAULTS : INLINE_DEFAULTS;
   const badges = getBadges(badgeIds ?? defaults);
 
   if (variant === "compact") {
     return (
       <div className={`space-y-2 ${className}`}>
         {badges.map((badge) => (
-          <div
-            key={badge.id}
-            className="flex items-center gap-2 text-sm text-gray-600"
-          >
+          <div key={badge.id} className="flex items-center gap-2 text-sm text-gray-600">
             <Image
               src={badge.icon}
               alt={badge.title}
@@ -118,17 +111,10 @@ export default function TrustBadges({
 
   if (variant === "inline") {
     return (
-      <div
-        className={`flex items-center justify-center gap-4 text-xs text-gray-500 ${className}`}
-      >
+      <div className={`flex items-center justify-center gap-4 text-xs text-gray-500 ${className}`}>
         {badges.map((badge) => (
           <div key={badge.id} className="flex items-center gap-1">
-            <Image
-              src={badge.icon}
-              alt={badge.title}
-              width={16}
-              height={16}
-            />
+            <Image src={badge.icon} alt={badge.title} width={16} height={16} />
             {badge.title}
           </div>
         ))}
@@ -139,25 +125,18 @@ export default function TrustBadges({
   return (
     <section className={`py-16 border-y border-gray-100 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div
-          className="flex md:flex-wrap md:justify-center gap-8 md:gap-10 lg:gap-14 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0"
-        >
+        <div className="flex md:flex-wrap md:justify-center gap-8 md:gap-10 lg:gap-14 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0">
           {badges.map((badge) => (
             <div
               key={badge.id}
               className="flex-none flex flex-col items-center text-center min-w-[130px] md:min-w-[150px] snap-start"
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${badge.color} mb-3`}>
-                <Image
-                  src={badge.icon}
-                  alt={badge.title}
-                  width={42}
-                  height={42}
-                />
+              <div
+                className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${badge.color} mb-3`}
+              >
+                <Image src={badge.icon} alt={badge.title} width={42} height={42} />
               </div>
-              <h3 className="font-semibold text-navy text-base">
-                {badge.title}
-              </h3>
+              <h3 className="font-semibold text-navy text-base">{badge.title}</h3>
               <p className="text-sm text-gray-500">{badge.description}</p>
             </div>
           ))}

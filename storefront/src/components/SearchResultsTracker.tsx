@@ -9,10 +9,7 @@ interface SearchResultsTrackerProps {
   resultCount: number;
 }
 
-export default function SearchResultsTracker({
-  query,
-  resultCount,
-}: SearchResultsTrackerProps) {
+export default function SearchResultsTracker({ query, resultCount }: SearchResultsTrackerProps) {
   useEffect(() => {
     if (query) {
       posthog.capture("search_results_viewed", {

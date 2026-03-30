@@ -18,12 +18,7 @@ const benefits = [
     description:
       "Self-paced online modules that fit around your schedule. Complete lessons whenever it suits you.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -38,12 +33,7 @@ const benefits = [
     description:
       "Hands-on content you can apply directly in the classroom or in your own learning journey.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -58,12 +48,7 @@ const benefits = [
     description:
       "Courses developed by Inspire Africa education specialists with real-world STEM expertise.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -78,12 +63,7 @@ const benefits = [
     description:
       "Start learning as soon as you receive your QR code. No waiting for delivery — it's all digital.",
     icon: (
-      <svg
-        className="w-8 h-8"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
+      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -101,18 +81,13 @@ export default async function CoursesPage() {
     getProductByHandle("bbc-micro-bit-essential-stem-lab-tinker-kit-bundle"),
   ]);
 
-  const foundationPrice =
-    foundationProduct?.variants.edges[0]?.node.price.amount ?? null;
-  const inventionPrice =
-    inventionProduct?.variants.edges[0]?.node.price.amount ?? null;
+  const foundationPrice = foundationProduct?.variants.edges[0]?.node.price.amount ?? null;
+  const inventionPrice = inventionProduct?.variants.edges[0]?.node.price.amount ?? null;
 
   return (
     <>
       {/* Bundle Comparison */}
-      <BundleComparison
-        foundationPrice={foundationPrice}
-        inventionPrice={inventionPrice}
-      />
+      <BundleComparison foundationPrice={foundationPrice} inventionPrice={inventionPrice} />
 
       {/* Benefits */}
       <section className="py-20 bg-gray-50">
@@ -125,8 +100,8 @@ export default async function CoursesPage() {
               Flexible Digital Learning
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Our short courses on the Inspire Africa platform offer a flexible
-              way to build STEM skills.
+              Our short courses on the Inspire Africa platform offer a flexible way to build STEM
+              skills.
             </p>
           </div>
 
@@ -136,9 +111,7 @@ export default async function CoursesPage() {
                 <div className="w-16 h-16 bg-cs-green/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <div className="text-cs-green">{benefit.icon}</div>
                 </div>
-                <h3 className="font-semibold text-navy mb-2">
-                  {benefit.title}
-                </h3>
+                <h3 className="font-semibold text-navy mb-2">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm">{benefit.description}</p>
               </div>
             ))}
@@ -149,12 +122,9 @@ export default async function CoursesPage() {
       {/* CTA Section */}
       <section className="py-16 bg-cs-green">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-semibold text-navy mb-4">
-            Ready to Upskill?
-          </h2>
+          <h2 className="text-3xl font-semibold text-navy mb-4">Ready to Upskill?</h2>
           <p className="text-navy/80 mb-8 max-w-xl mx-auto">
-            Contact us for group bookings or custom course packages for your
-            school or organisation.
+            Contact us for group bookings or custom course packages for your school or organisation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -170,12 +140,7 @@ export default async function CoursesPage() {
               className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-navy text-navy hover:bg-navy/10 rounded-lg font-semibold transition-colors"
             >
               Visit Inspire Africa
-              <svg
-                className="w-4 h-4 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -196,8 +161,8 @@ export default async function CoursesPage() {
               Explore Other Education Solutions
             </h2>
             <p className="text-gray-600">
-              Looking for tutors, teacher training, or classroom kits? We have
-              more options for your school.
+              Looking for tutors, teacher training, or classroom kits? We have more options for your
+              school.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

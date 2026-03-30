@@ -24,8 +24,7 @@ const slides: Slide[] = [
     id: "main",
     type: "hero",
     headline: "Build. Play. Learn.",
-    description:
-      "Curated STEM kits for curious kids — from first circuits to advanced coding.",
+    description: "Curated STEM kits for curious kids — from first circuits to advanced coding.",
     cta: { label: "Shop Now", href: "/shop" },
     ctaSecondary: { label: "For Educators", href: "/education" },
     heroImage: "/images/home/hero-stem-education.jpg",
@@ -161,12 +160,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-full font-semibold transition-colors"
               >
                 {slide.cta.label}
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -224,12 +218,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-full font-semibold transition-colors"
               >
                 {slide.cta.label}
-                <svg
-                  className="ml-2 w-5 h-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+                <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

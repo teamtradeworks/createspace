@@ -354,7 +354,10 @@ export default async function VinciBotPage() {
             label: "Activities Included",
             value: "75 online lessons + 18 challenge booklet = 93+ total",
           },
-          { label: "Educational Standards", value: "CSTA, NGSS, Common Core aligned. ISTE certified" },
+          {
+            label: "Educational Standards",
+            value: "CSTA, NGSS, Common Core aligned. ISTE certified",
+          },
           { label: "Dimensions", value: "Compact robot design (approx. 10cm x 10cm)" },
         ]}
         background="white"

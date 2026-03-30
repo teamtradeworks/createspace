@@ -180,8 +180,8 @@ export default function Home() {
                 Trusted Names in STEM
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                We are official, registered suppliers of trusted STEM
-                brands — bringing you authentic, quality products backed by full manufacturer support.
+                We are official, registered suppliers of trusted STEM brands — bringing you
+                authentic, quality products backed by full manufacturer support.
               </p>
             </div>
 
@@ -233,11 +233,7 @@ export default function Home() {
 
                 if (brand.vendor) {
                   return (
-                    <BrandLink
-                      key={brand.name}
-                      brand={brand.name}
-                      vendor={brand.vendor}
-                    >
+                    <BrandLink key={brand.name} brand={brand.name} vendor={brand.vendor}>
                       {card}
                     </BrandLink>
                   );
@@ -289,9 +285,7 @@ export default function Home() {
             </div>
 
             {/* Testimonials Grid */}
-            <div
-              className="flex md:grid md:grid-cols-2 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0"
-            >
+            <div className="flex md:grid md:grid-cols-2 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0">
               {[
                 {
                   quote:
@@ -322,7 +316,10 @@ export default function Home() {
                   rating: 5,
                 },
               ].map((testimonial, index) => (
-                <div key={index} className="flex-none w-[82vw] md:w-auto snap-start bg-gray-50 rounded-2xl p-8 relative">
+                <div
+                  key={index}
+                  className="flex-none w-[82vw] md:w-auto snap-start bg-gray-50 rounded-2xl p-8 relative"
+                >
                   {/* Quote icon */}
                   <div className="absolute top-6 right-6 text-cs-orange/20">
                     <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
@@ -395,7 +392,6 @@ export default function Home() {
       <TrackedSection name="Education" page="home">
         <EducationSection />
       </TrackedSection>
-
     </>
   );
 }

@@ -203,7 +203,11 @@ export function HeroSection({
                 {product.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mb-6">
                     {product.tags.slice(0, 6).map((tag) => {
-                      const label = (tag.startsWith("category:") ? tag.slice("category:".length).replace(/-/g, " ") : tag).replace(/\b\w/g, (c) => c.toUpperCase());
+                      const label = (
+                        tag.startsWith("category:")
+                          ? tag.slice("category:".length).replace(/-/g, " ")
+                          : tag
+                      ).replace(/\b\w/g, (c) => c.toUpperCase());
                       if (tag.startsWith("category:")) {
                         const categoryValue = tag.slice("category:".length);
                         return (
