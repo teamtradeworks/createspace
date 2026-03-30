@@ -264,7 +264,7 @@ export default function CartPage() {
                           <button
                             onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
                             disabled={item.quantity <= 1}
-                            className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+                            className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                             aria-label="Decrease quantity"
                           >
                             <svg
@@ -286,7 +286,7 @@ export default function CartPage() {
                           </span>
                           <button
                             onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
-                            className="w-8 h-8 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
+                            className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
                             aria-label="Increase quantity"
                           >
                             <svg

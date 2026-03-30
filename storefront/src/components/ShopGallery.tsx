@@ -229,7 +229,7 @@ export default function ShopGallery({
               <button
                 onClick={clearFilters}
                 title="Clear Filters"
-                className="shrink-0 self-end pb-2 p-1 text-navy/30 active:text-cs-red transition-colors"
+                className="shrink-0 self-end min-w-[44px] min-h-[44px] flex items-center justify-center text-navy/30 active:text-cs-red transition-colors"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                   <path d="M4 4L12 12M12 4L4 12" />
@@ -370,7 +370,7 @@ function AgePills({
   return (
     <div className={stretch ? "" : "shrink-0"}>
       <span
-        className={`block font-extrabold uppercase tracking-widest mb-1 ${isLg ? "text-xs" : "text-[10px]"}`}
+        className={`block font-extrabold uppercase tracking-widest mb-1 text-xs`}
         style={{ color }}
       >
         Age Groups
@@ -382,7 +382,7 @@ function AgePills({
             <button
               key={group.id}
               onClick={() => onToggle(group.id)}
-              className={`rounded-lg font-bold transition-all duration-150 active:scale-95 text-center ${stretch ? "flex-1" : ""} ${isLg ? "px-6 py-3 text-sm min-w-[90px]" : "px-3 py-3 text-xs"}`}
+              className={`rounded-lg font-bold transition-all duration-150 active:scale-95 text-center ${stretch ? "flex-1" : ""} ${isLg ? "px-6 py-3 text-sm min-w-[90px]" : "px-3 py-3.5 text-xs"}`}
               style={{
                 border: `2px solid ${color}`,
                 backgroundColor: isSelected ? color : "transparent",
@@ -463,7 +463,7 @@ function MultiSelect({
   return (
     <div className="relative" ref={containerRef}>
       <span
-        className={`block font-extrabold uppercase tracking-widest mb-1 ${isLg ? "text-xs" : "text-[10px]"}`}
+        className={`block font-extrabold uppercase tracking-widest mb-1 text-xs`}
         style={{ color }}
       >
         {label}
@@ -472,7 +472,7 @@ function MultiSelect({
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`relative w-full text-left appearance-none rounded-xl bg-white font-semibold text-navy transition-all focus:outline-none focus:ring-2 ${isLg ? "pl-4 pr-10 py-3 text-sm" : "pl-3 pr-8 py-2.5 text-sm"}`}
+        className={`relative w-full text-left appearance-none rounded-xl bg-white font-semibold text-navy transition-all focus:outline-none focus:ring-2 ${isLg ? "pl-4 pr-10 py-3 text-sm" : "pl-3 pr-8 py-3 text-sm"}`}
         style={{
           borderWidth: 2,
           borderStyle: "solid",
@@ -519,7 +519,7 @@ function MultiSelect({
                   key={opt.value}
                   type="button"
                   onClick={() => onToggle(opt.value)}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 text-sm font-semibold text-navy transition-colors hover:bg-gray-50 active:bg-gray-100"
+                  className="w-full flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-navy transition-colors hover:bg-gray-50 active:bg-gray-100"
                 >
                   <span
                     className="shrink-0 flex items-center justify-center rounded border-2 transition-all"
@@ -599,7 +599,7 @@ function SortButton({
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
         title={`Sort: ${currentLabel}`}
-        className={`flex items-center gap-1.5 rounded-xl bg-white font-semibold text-navy border-2 transition-all focus:outline-none focus:ring-2 focus:ring-navy/20 ${isOpen ? "border-navy" : "border-navy/20"} ${isLg ? "px-3 py-3 text-sm" : "px-2.5 py-2.5 text-sm"}`}
+        className={`flex items-center gap-1.5 rounded-xl bg-white font-semibold text-navy border-2 transition-all focus:outline-none focus:ring-2 focus:ring-navy/20 ${isOpen ? "border-navy" : "border-navy/20"} ${isLg ? "px-3 py-3 text-sm" : "px-2.5 py-3 text-sm"}`}
       >
         {/* Sort icon: 3 horizontal lines of decreasing width */}
         <svg

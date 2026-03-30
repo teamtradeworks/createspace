@@ -55,7 +55,7 @@ export default function QuickAddButton({
         if (timerRef.current) clearTimeout(timerRef.current);
         timerRef.current = setTimeout(() => setAdded(false), 1500);
       }}
-      className={`grid px-4 py-2 text-white text-xs font-medium rounded-lg transition-colors duration-300 ${
+      className={`grid px-4 py-3 text-white text-xs font-medium rounded-lg transition-colors duration-300 ${
         added ? "bg-green-600" : "bg-navy hover:bg-cs-orange"
       }`}
     >
