@@ -16,7 +16,7 @@ const educationOptions = [
     title: "Curriculum for Schools",
     description:
       "Give your teachers ready-to-use, CAPS-aligned lesson plans through our partner Inspire Africa's training platform. Ongoing support included.",
-    image: "/images/education/teacher-curriculum-training.jpg",
+    image: "/images/education/teacher-curriculum-classroom.jpg",
     link: "/education/curriculum",
     linkText: "View Training",
   },
