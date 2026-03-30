@@ -414,12 +414,6 @@ export default function EducationPage() {
                     />
                   </svg>
                 </Link>
-                <Link
-                  href="/contact"
-                  className="text-sm font-semibold text-gray-500 hover:text-navy transition-colors underline underline-offset-4"
-                >
-                  Book a free consultation
-                </Link>
               </div>
             </div>
             <div className="order-1 lg:order-2 relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">
@@ -447,9 +441,9 @@ export default function EducationPage() {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={100}
-                    height={48}
-                    className="object-contain h-10 w-auto"
+                    width={130}
+                    height={64}
+                    className="object-contain h-14 w-auto"
                   />
                 </div>
               ))}
@@ -619,7 +613,7 @@ export default function EducationPage() {
               href="/contact"
               className="inline-flex items-center px-8 py-4 bg-navy hover:bg-navy/90 text-white rounded-xl font-semibold transition-colors"
             >
-              Get free advice
+              Get advice
               <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
