@@ -239,7 +239,7 @@ export default async function TaleBotProClassroomSetPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
       <ProductFAQ
