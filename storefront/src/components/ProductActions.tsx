@@ -108,7 +108,7 @@ export default function ProductActions({
           {
             id: addon.productId,
             variantId: addon.variantId,
-            title: addon.title,
+            title: addon.productTitle,
             price: addonPrice,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,
@@ -237,7 +237,7 @@ export default function ProductActions({
           {
             id: addon.productId,
             variantId: addon.variantId,
-            title: addon.title,
+            title: addon.productTitle,
             price: addonPrice,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,

@@ -88,6 +88,7 @@ describe("serializeAddons", () => {
       productId: "gid://shopify/Product/123",
       variantId: "gid://shopify/ProductVariant/456",
       title: "BBC micro:bit Go",
+      productTitle: "BBC micro:bit Go",
       handle: "bbc-micro-bit-go",
       image: "https://cdn.shopify.com/image.jpg",
       discountPercent: 15,
