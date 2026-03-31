@@ -154,7 +154,7 @@ export default function StemTutorsPage() {
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
-                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                <div className="relative aspect-[2/1] rounded-2xl overflow-hidden">
                   <Image
                     src="/images/education/stem-tutors/girl-coding-with-robotics-kit.jpg"
                     alt="Girl using a tablet to code alongside her robotics kit"
@@ -165,19 +165,19 @@ export default function StemTutorsPage() {
                 </div>
               </div>
               <div className="space-y-4 pt-8">
-                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                <div className="relative aspect-[2/1] rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/education/stem-tutors/facilitator-helping-child-kit.jpg"
-                    alt="Robotixkids facilitator helping a child with their robotics kit"
+                    src="/images/education/stem-tutors/boys-building-lego-kits.jpg"
+                    alt="Boys collaborating on building a Makerzoid robotics kit"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
-                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+                <div className="relative aspect-square rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/education/stem-tutors/wro-robotics-competition.jpg"
-                    alt="Students competing at a WRO robotics competition"
+                    src="/images/education/stem-tutors/facilitator-helping-child-kit.jpg"
+                    alt="Robotixkids facilitator helping a child with their robotics kit"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 25vw"
@@ -223,10 +223,10 @@ export default function StemTutorsPage() {
                 ))}
               </ul>
             </div>
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden">
               <Image
                 src="/images/education/stem-tutors/classroom-session-setup.jpg"
-                alt="Children seated in a classroom working on robotics kits during a Robotixkids session"
+                alt="STEM classroom session with children working on robotics kits"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -328,7 +328,7 @@ export default function StemTutorsPage() {
                 alt={photo.alt}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="512px"
+                sizes="768px"
               />
             </div>
           ))}
