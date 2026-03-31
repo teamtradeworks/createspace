@@ -219,7 +219,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
       <ProductFAQ
