@@ -82,7 +82,7 @@ product(handle: "example") {
 # General Conventions
 
  - This is a South African business and we only sell locally.
- - Currency is Rand (ZAR).  For example, use R1,200.
+ - Currency is Rand (ZAR).  For example, use R 1,200.
  - Number formats use commas for thousand seperation and period for decimals, e.g. 2,500.99
  - We use The Courier Guy for deliveries - https://thecourierguy.co.za/
  - We use Stitch for secure payments - https://stitch.money/
