@@ -72,6 +72,8 @@ export type Product = {
         id: string;
         title: string;
         sku: string | null;
+        availableForSale: boolean;
+        currentlyNotInStock: boolean;
         price: {
           amount: string;
           currencyCode: string;
@@ -130,12 +132,14 @@ const PRODUCTS_QUERY = `
               }
             }
           }
-          variants(first: 1) {
+          variants(first: 5) {
             edges {
               node {
                 id
                 title
                 sku
+                availableForSale
+                currentlyNotInStock
                 price {
                   amount
                   currencyCode
@@ -194,12 +198,14 @@ const PRODUCTS_BY_TAG_QUERY = `
               }
             }
           }
-          variants(first: 1) {
+          variants(first: 5) {
             edges {
               node {
                 id
                 title
                 sku
+                availableForSale
+                currentlyNotInStock
                 price {
                   amount
                   currencyCode
@@ -267,12 +273,14 @@ const COLLECTION_PRODUCTS_QUERY = `
                 }
               }
             }
-            variants(first: 1) {
+            variants(first: 5) {
               edges {
                 node {
                   id
                   title
                   sku
+                  availableForSale
+                  currentlyNotInStock
                   price {
                     amount
                     currencyCode
@@ -672,10 +680,14 @@ export function getProductBatteryInfo(product: ProductDetail): string | undefine
   return batteriesIncluded ? "Included" : "Required";
 }
 
-// Stock status for product detail pages
+// Stock status for product pages and product cards
 type StockStatus = "in-stock" | "lead-time" | "out-of-stock";
 
-export function getStockStatus(product: ProductDetail): StockStatus {
+type StockStatusProduct = Pick<Product | ProductDetail, "availableForSale"> & {
+  variants: { edges: { node: { availableForSale: boolean; currentlyNotInStock: boolean } }[] };
+};
+
+export function getStockStatus(product: StockStatusProduct): StockStatus {
   if (!product.availableForSale) return "out-of-stock";
 
   const availableVariants = product.variants.edges.filter((e) => e.node.availableForSale);
