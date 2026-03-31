@@ -75,6 +75,13 @@ export default async function SnapCircuitsMyHomePage() {
         background="navy-card"
       />
 
+      {/* Video */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=6LwVQaEjQUM"
+        title="See Snap Circuits My Home in Action"
+        background="gray"
+      />
+
       {/* Your Home in Their Hands */}
       <ImageTextBlock
         image="/images/products/snap-circuits-my-home/boy-playing-with-my-home.jpg"
@@ -139,13 +146,6 @@ export default async function SnapCircuitsMyHomePage() {
         body="Every time a circuit doesn't work, your child faces a choice: give up or figure it out. Most choose to figure it out. That debugging mindset — asking what could be wrong and systematically trying different answers — is one of the most valuable habits a child can develop. It's the foundation of engineering, smart home technology, and renewable energy careers. Parents regularly report children becoming noticeably more patient and persistent in other areas of life after spending time with Snap Circuits."
         layout="image-right"
         background="white"
-      />
-
-      {/* Video */}
-      <VideoEmbed
-        url="https://www.youtube.com/watch?v=6LwVQaEjQUM"
-        title="See Snap Circuits My Home in Action"
-        background="gray"
       />
 
       {/* Project Showcase */}
