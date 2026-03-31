@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import posthog from "posthog-js";
-import { Product, formatPrice, formatAgeRange, getProductRating } from "@/lib/shopify";
+import { Product, formatPrice, formatAgeRange, getProductRating, getStockStatus } from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
 import { StarRating } from "@/components/StarRating";
@@ -16,6 +16,7 @@ type ProductCardProps = {
 export default function ProductCard({ product, searchQuery, searchPosition }: ProductCardProps) {
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
+  const stockStatus = getStockStatus(product);
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
   const hasDiscount =
@@ -83,9 +84,35 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
         <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug text-sm sm:text-base mb-1 sm:mb-2">
           {product.title}
         </h3>
-        <p className="text-sm text-gray-500 line-clamp-2 mb-2 sm:mb-4">
+        <p className="text-sm text-gray-500 line-clamp-2 mb-2">
           {product.description || "Hands-on STEM learning kit"}
         </p>
+        <div className="mb-2 sm:mb-3">
+          <span
+            className={`inline-flex items-center gap-1.5 text-xs font-medium ${
+              stockStatus === "out-of-stock"
+                ? "text-cs-red"
+                : stockStatus === "lead-time"
+                  ? "text-cs-orange"
+                  : "text-cs-green"
+            }`}
+          >
+            <span
+              className={`w-1.5 h-1.5 rounded-full ${
+                stockStatus === "out-of-stock"
+                  ? "bg-cs-red"
+                  : stockStatus === "lead-time"
+                    ? "bg-cs-orange"
+                    : "bg-cs-green"
+              }`}
+            />
+            {stockStatus === "in-stock"
+              ? "In Stock"
+              : stockStatus === "lead-time"
+                ? "Lead Time"
+                : "Out of Stock"}
+          </span>
+        </div>
         <div className="flex items-center gap-1.5 mb-2 sm:mb-3 min-h-[20px]">
           {ratingData && (
             <>
