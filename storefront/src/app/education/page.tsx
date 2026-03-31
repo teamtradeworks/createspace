@@ -414,6 +414,16 @@ export default function EducationPage() {
                     />
                   </svg>
                 </Link>
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <span>In partnership with</span>
+                  <Image
+                    src="/images/education/inspire-africa/inspire-africa-logo.png"
+                    alt="Inspire Africa"
+                    width={110}
+                    height={28}
+                    className="object-contain"
+                  />
+                </div>
               </div>
             </div>
             <div className="order-1 lg:order-2 relative rounded-2xl overflow-hidden aspect-[4/3] shadow-xl">

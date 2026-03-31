@@ -10,6 +10,7 @@ import {
   ImageTextBlock,
   ProjectShowcase,
   CustomerShowcase,
+  ProductReviews,
   ProductFAQ,
   WhatsIncluded,
   Specifications,
@@ -216,6 +217,9 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         ]}
         background="gray"
       />
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
       <ProductFAQ

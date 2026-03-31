@@ -52,6 +52,12 @@ export type Product = {
       currencyCode: string;
     };
   };
+  compareAtPriceRange?: {
+    minVariantPrice: {
+      amount: string;
+      currencyCode: string;
+    };
+  };
   images: {
     edges: {
       node: {
@@ -110,6 +116,12 @@ const PRODUCTS_QUERY = `
               currencyCode
             }
           }
+          compareAtPriceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
           images(first: 3) {
             edges {
               node {
@@ -163,6 +175,12 @@ const PRODUCTS_BY_TAG_QUERY = `
           availableForSale
           updatedAt
           priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          compareAtPriceRange {
             minVariantPrice {
               amount
               currencyCode
@@ -230,6 +248,12 @@ const COLLECTION_PRODUCTS_QUERY = `
             availableForSale
             updatedAt
             priceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            compareAtPriceRange {
               minVariantPrice {
                 amount
                 currencyCode
@@ -324,14 +348,18 @@ export async function searchProducts(query: string, first: number = 20): Promise
 
 // Helper to format price consistently (avoids hydration mismatch)
 // Uses manual formatting to ensure identical output on server and client
-export function formatPrice(amount: string | number, currencyCode: string): string {
+export function formatPrice(
+  amount: string | number,
+  currencyCode: string,
+  { showCents = false }: { showCents?: boolean } = {},
+): string {
   const num = typeof amount === "number" ? amount : parseFloat(amount);
   const [whole, decimal = "00"] = num.toFixed(2).split(".");
   const withCommas = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // Format as R1,234.56 per CLAUDE.md spec
+  const suffix = showCents ? `.${decimal}` : "";
   return currencyCode === "ZAR"
-    ? `R${withCommas}.${decimal}`
-    : `${currencyCode} ${withCommas}.${decimal}`;
+    ? `R ${withCommas}${suffix}`
+    : `${currencyCode} ${withCommas}${suffix}`;
 }
 
 export function formatAgeRange(minAge: Metafield, maxAge: Metafield): string | null {
@@ -390,6 +418,22 @@ export type ProductDetail = {
       node: {
         url: string;
         altText: string | null;
+      };
+    }[];
+  };
+  media: {
+    edges: {
+      node: {
+        mediaContentType: string;
+        previewImage: {
+          url: string;
+          altText: string | null;
+        } | null;
+        sources?: {
+          url: string;
+          mimeType: string;
+          format: string;
+        }[];
       };
     }[];
   };
@@ -462,6 +506,24 @@ const PRODUCT_BY_HANDLE_QUERY = `
           node {
             url
             altText
+          }
+        }
+      }
+      media(first: 10) {
+        edges {
+          node {
+            mediaContentType
+            previewImage {
+              url
+              altText
+            }
+            ... on Video {
+              sources {
+                url
+                mimeType
+                format
+              }
+            }
           }
         }
       }

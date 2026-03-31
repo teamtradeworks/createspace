@@ -1,8 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeroCarouselClient from "./HeroCarouselClient";
+import SubscribeButton from "./SubscribeButton";
 
-type SlideType = "hero" | "product" | "lifestyle";
+type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon";
+
+interface BrandLogo {
+  src: string;
+  name: string;
+}
 
 interface Slide {
   id: string;
@@ -15,6 +21,7 @@ interface Slide {
   productImage?: string;
   heroImage?: string;
   lifestyleImages?: string[];
+  brandLogos?: BrandLogo[];
   bgColor: string;
   textColor?: "light" | "dark";
 }
@@ -32,25 +39,29 @@ const slides: Slide[] = [
     textColor: "light",
   },
   {
-    id: "makerzoid",
-    type: "product",
-    tag: "Makerzoid - STEM Building Blocks",
-    headline: "Build, Code, Create!",
+    id: "brands-coming-soon",
+    type: "brands-coming-soon",
+    tag: "Coming Soon",
+    headline: "Exciting New Brands on the Way",
     description:
-      "Makerzoid combines building blocks with coding to create an engaging STEM learning experience. Perfect for ages 6-12 to explore robotics and programming.",
-    cta: { label: "Shop Makerzoid", href: "/shop?brand=makerzoid" },
-    productImage: "/images/home/makerzoid-stem-building-blocks.jpg",
-    bgColor: "bg-gradient-to-br from-blue-50 to-cyan-50",
-    textColor: "dark",
+      "We're adding some amazing new STEM and educational brands to CREATESPACE. Watch this space!",
+    cta: { label: "Notify Me", href: "#" },
+    brandLogos: [
+      { src: "/images/brands/national-geographic.png", name: "National Geographic" },
+      { src: "/images/brands/nasa.png", name: "NASA" },
+      { src: "/images/brands/blockaroo.png", name: "Blockaroo" },
+    ],
+    bgColor: "bg-navy",
+    textColor: "light",
   },
   {
-    id: "tutoring",
+    id: "education",
     type: "lifestyle",
-    tag: "STEM Tutoring Programme",
-    headline: "Expert STEM Tutors for Your School",
+    tag: "CREATESPACE for Schools",
+    headline: "STEM Education Solutions for Every School",
     description:
-      "Bring hands-on robotics and coding education to your learners. Our trained facilitators run engaging workshops and after-school programmes tailored to your curriculum.",
-    cta: { label: "Book a Session", href: "/education/tutors" },
+      "From trained tutors and classroom kits to teacher training and online courses — bring STEM to life at your school.",
+    cta: { label: "Explore Education", href: "/education" },
     lifestyleImages: [
       "/images/home/stem-tutoring-workshop-1.png",
       "/images/home/stem-tutoring-workshop-2.png",
@@ -193,6 +204,59 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
         </div>
       )}
 
+      {/* Brands Coming Soon type */}
+      {slide.type === "brands-coming-soon" && slide.brandLogos && (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
+          <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] py-12 lg:py-0">
+            <div className="z-10">
+              {slide.tag && (
+                <span className="inline-flex items-center gap-2 text-cs-yellow font-semibold text-sm uppercase tracking-wider mb-3">
+                  <span className="w-2 h-2 rounded-full bg-cs-yellow animate-pulse" />
+                  {slide.tag}
+                </span>
+              )}
+              <Heading className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight text-white">
+                {slide.headline}
+              </Heading>
+              <p className="text-lg md:text-xl mb-8 max-w-lg text-white/80">
+                {slide.description}
+              </p>
+              <SubscribeButton
+                label="Notify Me"
+                className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+              />
+            </div>
+            <div className="flex flex-col items-center justify-center gap-6">
+              <p className="text-white/50 text-xs uppercase tracking-widest font-medium">
+                Brands arriving soon
+              </p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                {slide.brandLogos.map((brand) => (
+                  <div
+                    key={brand.name}
+                    className="relative bg-white rounded-2xl p-5 flex flex-col items-center justify-center gap-3 w-36 h-36 shadow-lg"
+                  >
+                    <div className="relative w-20 h-16">
+                      <Image
+                        src={brand.src}
+                        alt={brand.name}
+                        fill
+                        className="object-contain"
+                        sizes="80px"
+                        loading="lazy"
+                      />
+                    </div>
+                    <span className="text-[10px] font-semibold text-navy/40 uppercase tracking-widest">
+                      Coming Soon
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Lifestyle type */}
       {slide.type === "lifestyle" && slide.lifestyleImages && (
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
@@ -274,7 +338,10 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
 export default function HeroCarousel() {
   return (
     <section className="relative overflow-hidden min-h-[500px]">
-      <HeroCarouselClient slideCount={slides.length}>
+      <HeroCarouselClient
+        slideCount={slides.length}
+        slideTextColors={slides.map((s) => s.textColor ?? "dark")}
+      >
         {slides.map((slide, index) => (
           <HeroSlide key={slide.id} slide={slide} index={index} />
         ))}

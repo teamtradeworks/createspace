@@ -133,22 +133,6 @@ export default async function CoursesPage() {
             >
               Contact Us
             </Link>
-            <a
-              href="https://inspire.africa/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-navy text-navy hover:bg-navy/10 rounded-lg font-semibold transition-colors"
-            >
-              Visit Inspire Africa
-              <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                />
-              </svg>
-            </a>
           </div>
         </div>
       </section>

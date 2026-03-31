@@ -12,6 +12,7 @@ import {
   ProductFAQ,
   ProjectShowcase,
   CustomerShowcase,
+  ProductReviews,
   CallToAction,
   VideoEmbed,
   ProductTrackingProvider,
@@ -236,6 +237,9 @@ export default async function TaleBotProClassroomSetPage() {
         ]}
         background="white"
       />
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ */}
       <ProductFAQ
