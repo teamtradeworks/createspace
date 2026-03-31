@@ -365,7 +365,7 @@ export default function ProductActions({
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-1.5">
                         <span className="text-sm font-medium text-navy line-clamp-2">
-                          {addon.title}
+                          {addon.quantity > 1 ? `${addon.quantity} x ${addon.title}` : addon.title}
                         </span>
                         {addon.description && (
                           <div className="relative group">

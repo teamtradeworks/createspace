@@ -116,7 +116,7 @@ describe("serializeAddons", () => {
     expect(serialized[0].image).toBeNull();
   });
 
-  it("prefixes title with quantity when greater than 1", () => {
+  it("uses plain product title regardless of quantity", () => {
     const multiQty: ResolvedAddon[] = [
       {
         ...resolved[0],
@@ -126,13 +126,8 @@ describe("serializeAddons", () => {
       },
     ];
     const serialized = serializeAddons(multiQty);
-    expect(serialized[0].title).toBe("2 x BBC micro:bit Go");
-    expect(serialized[0].quantity).toBe(2);
-  });
-
-  it("does not prefix title when quantity is 1", () => {
-    const serialized = serializeAddons(resolved);
     expect(serialized[0].title).toBe("BBC micro:bit Go");
+    expect(serialized[0].quantity).toBe(2);
   });
 
   it("returns empty array for empty input", () => {
