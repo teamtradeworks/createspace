@@ -96,7 +96,6 @@ export interface SerializedAddon {
   productId: string;
   variantId: string;
   title: string;
-  productTitle: string;
   handle: string;
   image: string | null;
   discountPercent: number;
@@ -120,8 +119,7 @@ export function serializeAddons(addons: ResolvedAddon[]): SerializedAddon[] {
   return addons.map((addon) => ({
     productId: addon.product.id,
     variantId: addon.variantId,
-    title: addon.quantity > 1 ? `${addon.quantity} x ${addon.product.title}` : addon.product.title,
-    productTitle: addon.product.title,
+    title: addon.product.title,
     handle: addon.product.handle,
     image: addon.product.images.edges[0]?.node.url || null,
     discountPercent: addon.discountPercent,
