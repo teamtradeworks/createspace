@@ -300,7 +300,7 @@ export default function CartPage() {
                               isUnavailable ? "text-gray-400 line-through" : "text-gray-700"
                             }
                           >
-                            {formatPrice(item.price, item.currencyCode)}
+                            {formatPrice(item.price, item.currencyCode, { showCents: true })}
                           </span>
                         </div>
 
@@ -366,7 +366,7 @@ export default function CartPage() {
                                 : "font-semibold text-navy"
                             }
                           >
-                            {formatPrice(item.price * item.quantity, item.currencyCode)}
+                            {formatPrice(item.price * item.quantity, item.currencyCode, { showCents: true })}
                           </span>
                         </div>
                       </div>
@@ -383,7 +383,7 @@ export default function CartPage() {
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal ({itemCount} items)</span>
-                      <span>{formatPrice(subtotal, currencyCode)}</span>
+                      <span>{formatPrice(subtotal, currencyCode, { showCents: true })}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
                       <span className="flex items-center gap-1">
@@ -412,13 +412,13 @@ export default function CartPage() {
                         <span className="text-cs-green font-semibold">FREE</span>
                       ) : (
                         <span>
-                          {formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode)}
+                          {formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode, { showCents: true })}
                         </span>
                       )}
                     </div>
                     {!qualifiesForFreeDelivery(subtotal) && subtotal > 0 && (
                       <p className="text-xs text-cs-orange">
-                        Add {formatPrice(amountToFreeDelivery(subtotal), currencyCode)} more for
+                        Add {formatPrice(amountToFreeDelivery(subtotal), currencyCode, { showCents: true })} more for
                         FREE delivery!
                       </p>
                     )}
@@ -428,7 +428,7 @@ export default function CartPage() {
                     <div className="flex justify-between text-lg font-semibold text-navy">
                       <span>Total</span>
                       <span>
-                        {formatPrice(subtotal + calculateDeliveryCost(subtotal), currencyCode)}
+                        {formatPrice(subtotal + calculateDeliveryCost(subtotal), currencyCode, { showCents: true })}
                       </span>
                     </div>
                     <p className="text-xs text-gray-500 mt-1">VAT included.</p>

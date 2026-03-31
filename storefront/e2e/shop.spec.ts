@@ -10,7 +10,7 @@ test.describe("Shop page", () => {
 
   test("product cards show prices in ZAR", async ({ page }) => {
     await page.goto("/shop");
-    const price = page.locator("main").locator("text=/R[\\d,]+\\.\\d{2}/").first();
+    const price = page.locator("main").locator("text=/R [\\d,]+/").first();
     await expect(price).toBeVisible();
   });
 
