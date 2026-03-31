@@ -11,6 +11,7 @@ import {
   FeatureGrid,
   ProjectShowcase,
   CustomerShowcase,
+  ProductReviews,
   WhatsIncluded,
   ProductFAQ,
   Specifications,
@@ -234,6 +235,9 @@ export default async function MatataStudioCodingSetProPage() {
         ]}
         background="white"
       />
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* What's in the Box */}
       <WhatsIncluded

@@ -12,6 +12,7 @@ import {
   ImageTextBlock,
   ProjectShowcase,
   CustomerShowcase,
+  ProductReviews,
   ProductFAQ,
   WhatsIncluded,
   Specifications,
@@ -229,6 +230,9 @@ export default async function VinciBotPage() {
         ]}
         background="white"
       />
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* Expansion Kits */}
       <ImageTextBlock
