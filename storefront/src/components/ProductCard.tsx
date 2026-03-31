@@ -17,6 +17,16 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const price = product.priceRange.minVariantPrice;
+  const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
+  const hasDiscount =
+    compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
+  const discountPercent = hasDiscount
+    ? Math.round(
+        ((parseFloat(compareAtPrice.amount) - parseFloat(price.amount)) /
+          parseFloat(compareAtPrice.amount)) *
+          100,
+      )
+    : 0;
 
   return (
     <Link
@@ -58,6 +68,11 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
             </svg>
           </div>
         )}
+        {hasDiscount && discountPercent > 0 && (
+          <span className="absolute top-3 left-3 bg-cs-red text-white text-[10px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
+            -{discountPercent}%
+          </span>
+        )}
         {ageRange && (
           <span className="absolute top-3 right-3 bg-navy/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
             {ageRange}
@@ -80,9 +95,16 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
           )}
         </div>
         <div className="flex items-center justify-between mt-auto">
-          <span className="text-cs-orange font-bold text-base sm:text-lg">
-            {formatPrice(price.amount, price.currencyCode)}
-          </span>
+          <div className="flex items-baseline gap-1.5">
+            <span className={`font-bold text-base sm:text-lg ${hasDiscount ? "text-cs-red" : "text-cs-orange"}`}>
+              {formatPrice(price.amount, price.currencyCode)}
+            </span>
+            {hasDiscount && (
+              <span className="text-xs sm:text-sm text-gray-400 line-through">
+                {formatPrice(compareAtPrice.amount, compareAtPrice.currencyCode)}
+              </span>
+            )}
+          </div>
           <QuickAddButton
             variantId={product.variants.edges[0]?.node.id}
             productId={product.id}

@@ -50,6 +50,13 @@ export function HeroSection({
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
   const hasDiscount =
     compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
+  const discountPercent = hasDiscount
+    ? Math.round(
+        ((parseFloat(compareAtPrice.amount) - parseFloat(price.amount)) /
+          parseFloat(compareAtPrice.amount)) *
+          100,
+      )
+    : 0;
 
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
@@ -168,13 +175,18 @@ export function HeroSection({
                 {tagline && <p className="text-lg text-gray-600 mb-4">{tagline}</p>}
 
                 {/* Price */}
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span className="text-3xl font-bold text-navy">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className={`text-3xl font-bold ${hasDiscount ? "text-cs-red" : "text-navy"}`}>
                     {formatPrice(price.amount, price.currencyCode)}
                   </span>
                   {hasDiscount && (
                     <span className="text-lg text-gray-400 line-through">
                       {formatPrice(compareAtPrice.amount, compareAtPrice.currencyCode)}
+                    </span>
+                  )}
+                  {hasDiscount && discountPercent > 0 && (
+                    <span className="px-2.5 py-1 text-sm font-bold bg-cs-red/10 text-cs-red rounded-full">
+                      -{discountPercent}%
                     </span>
                   )}
                 </div>
