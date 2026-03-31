@@ -11,36 +11,43 @@ import {
 } from "@/lib/shopify";
 
 describe("formatPrice", () => {
-  it("formats ZAR prices with R prefix", () => {
-    expect(formatPrice("1234.56", "ZAR")).toBe("R1,234.56");
+  it("hides cents by default for ZAR", () => {
+    expect(formatPrice("1234.56", "ZAR")).toBe("R 1,234");
   });
 
-  it("formats whole numbers with .00", () => {
-    expect(formatPrice("100", "ZAR")).toBe("R100.00");
+  it("formats whole numbers without cents by default", () => {
+    expect(formatPrice("100", "ZAR")).toBe("R 100");
   });
 
   it("adds commas for thousands", () => {
-    expect(formatPrice("1000", "ZAR")).toBe("R1,000.00");
-    expect(formatPrice("1000000", "ZAR")).toBe("R1,000,000.00");
+    expect(formatPrice("1000", "ZAR")).toBe("R 1,000");
+    expect(formatPrice("1000000", "ZAR")).toBe("R 1,000,000");
   });
 
   it("handles small amounts", () => {
-    expect(formatPrice("0.99", "ZAR")).toBe("R0.99");
-    expect(formatPrice("0", "ZAR")).toBe("R0.00");
+    expect(formatPrice("0.99", "ZAR")).toBe("R 0");
+    expect(formatPrice("0", "ZAR")).toBe("R 0");
   });
 
   it("handles numeric input", () => {
-    expect(formatPrice(1234.5, "ZAR")).toBe("R1,234.50");
+    expect(formatPrice(1234.5, "ZAR")).toBe("R 1,234");
   });
 
-  it("formats non-ZAR with currency prefix", () => {
-    expect(formatPrice("1234.56", "USD")).toBe("USD 1,234.56");
-    expect(formatPrice("99.99", "EUR")).toBe("EUR 99.99");
+  it("formats non-ZAR without cents by default", () => {
+    expect(formatPrice("1234.56", "USD")).toBe("USD 1,234");
+    expect(formatPrice("99.99", "EUR")).toBe("EUR 99");
   });
 
   it("rounds to 2 decimal places", () => {
-    expect(formatPrice("10.999", "ZAR")).toBe("R11.00");
-    expect(formatPrice("10.005", "ZAR")).toBe("R10.01");
+    expect(formatPrice("10.999", "ZAR")).toBe("R 11");
+    expect(formatPrice("10.005", "ZAR")).toBe("R 10");
+  });
+
+  it("shows cents when showCents is true", () => {
+    expect(formatPrice("1234.56", "ZAR", { showCents: true })).toBe("R 1,234.56");
+    expect(formatPrice("100", "ZAR", { showCents: true })).toBe("R 100.00");
+    expect(formatPrice(1234.5, "ZAR", { showCents: true })).toBe("R 1,234.50");
+    expect(formatPrice("99.99", "EUR", { showCents: true })).toBe("EUR 99.99");
   });
 });
 

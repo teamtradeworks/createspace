@@ -80,7 +80,7 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
           )}
         </div>
         <div className="flex items-center justify-between mt-auto">
-          <span className="text-cs-orange font-bold">
+          <span className="text-cs-orange font-bold text-base sm:text-lg">
             {formatPrice(price.amount, price.currencyCode)}
           </span>
           <QuickAddButton
