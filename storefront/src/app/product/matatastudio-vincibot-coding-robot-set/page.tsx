@@ -232,7 +232,7 @@ export default async function VinciBotPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* Expansion Kits */}
       <ImageTextBlock
