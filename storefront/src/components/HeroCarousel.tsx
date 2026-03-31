@@ -44,7 +44,7 @@ const slides: Slide[] = [
     tag: "Coming Soon",
     headline: "Exciting New Brands on the Way",
     description:
-      "We're thrilled to announce that some of the world's most iconic STEM and educational brands are coming to CREATESPACE. Watch this space!",
+      "We're adding some amazing new STEM and educational brands to CREATESPACE. Watch this space!",
     cta: { label: "Notify Me", href: "#" },
     brandLogos: [
       { src: "/images/brands/national-geographic.png", name: "National Geographic" },
@@ -338,7 +338,10 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
 export default function HeroCarousel() {
   return (
     <section className="relative overflow-hidden min-h-[500px]">
-      <HeroCarouselClient slideCount={slides.length}>
+      <HeroCarouselClient
+        slideCount={slides.length}
+        slideTextColors={slides.map((s) => s.textColor ?? "dark")}
+      >
         {slides.map((slide, index) => (
           <HeroSlide key={slide.id} slide={slide} index={index} />
         ))}

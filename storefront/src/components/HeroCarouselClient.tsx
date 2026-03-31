@@ -5,11 +5,13 @@ import { useState, useEffect, ReactNode } from "react";
 interface HeroCarouselClientProps {
   children: ReactNode;
   slideCount: number;
+  slideTextColors: ("light" | "dark")[];
 }
 
-export default function HeroCarouselClient({ children, slideCount }: HeroCarouselClientProps) {
+export default function HeroCarouselClient({ children, slideCount, slideTextColors }: HeroCarouselClientProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isLight, setIsLight] = useState(true);
+
+  const isLight = slideTextColors[currentSlide] === "light";
 
   // Auto-rotate slides
   useEffect(() => {
@@ -18,11 +20,6 @@ export default function HeroCarouselClient({ children, slideCount }: HeroCarouse
     }, 6000);
     return () => clearInterval(timer);
   }, [slideCount]);
-
-  // Update isLight based on current slide (slide 0 is light, others are dark)
-  useEffect(() => {
-    setIsLight(currentSlide === 0);
-  }, [currentSlide]);
 
   return (
     <div
