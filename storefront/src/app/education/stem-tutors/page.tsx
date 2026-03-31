@@ -176,8 +176,8 @@ export default function StemTutorsPage() {
                 </div>
                 <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
                   <Image
-                    src="/images/education/stem-tutors/boys-building-lego-kits.jpg"
-                    alt="Two boys building with Makerzoid robotics kits at their desks"
+                    src="/images/education/stem-tutors/wro-robotics-competition.jpg"
+                    alt="Students competing at a WRO robotics competition"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 25vw"
@@ -225,8 +225,8 @@ export default function StemTutorsPage() {
             </div>
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/images/education/stem-tutors/foundation-phase-group-building.jpg"
-                alt="Young children sitting together building with Makerzoid robotics kits"
+                src="/images/education/stem-tutors/classroom-session-setup.jpg"
+                alt="Children seated in a classroom working on robotics kits during a Robotixkids session"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -299,8 +299,8 @@ export default function StemTutorsPage() {
               alt: "Two children collaborating on a robotics build with a tablet",
             },
             {
-              src: "/images/education/stem-tutors/girls-building-with-tablets.jpg",
-              alt: "Two girls in school uniform working with robotics kits and tablets",
+              src: "/images/education/stem-tutors/two-children-robotics-kits.jpg",
+              alt: "Two children in school uniform working with Makerzoid robotics kits",
             },
             {
               src: "/images/education/stem-tutors/girl-standing-robotics-kit.jpg",
@@ -328,7 +328,7 @@ export default function StemTutorsPage() {
                 alt={photo.alt}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="256px"
+                sizes="512px"
               />
             </div>
           ))}
