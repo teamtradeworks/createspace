@@ -52,6 +52,12 @@ export type Product = {
       currencyCode: string;
     };
   };
+  compareAtPriceRange?: {
+    minVariantPrice: {
+      amount: string;
+      currencyCode: string;
+    };
+  };
   images: {
     edges: {
       node: {
@@ -110,6 +116,12 @@ const PRODUCTS_QUERY = `
               currencyCode
             }
           }
+          compareAtPriceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
           images(first: 3) {
             edges {
               node {
@@ -163,6 +175,12 @@ const PRODUCTS_BY_TAG_QUERY = `
           availableForSale
           updatedAt
           priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          compareAtPriceRange {
             minVariantPrice {
               amount
               currencyCode
@@ -230,6 +248,12 @@ const COLLECTION_PRODUCTS_QUERY = `
             availableForSale
             updatedAt
             priceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            compareAtPriceRange {
               minVariantPrice {
                 amount
                 currencyCode
