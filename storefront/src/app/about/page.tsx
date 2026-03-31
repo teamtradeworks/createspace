@@ -137,13 +137,15 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="relative rounded-2xl overflow-hidden">
+          <div className="relative rounded-2xl overflow-hidden max-w-4xl mx-auto">
             <Image
-              src="/images/about/team-createspace.jpg"
+              src="/images/about/team-createspace-larger.jpg"
               alt="The CREATESPACE Team"
-              width={1200}
-              height={600}
-              className="w-full h-auto object-cover"
+              width={1600}
+              height={1131}
+              quality={90}
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="w-full h-auto contrast-[1.03] saturate-[1.05]"
             />
           </div>
         </div>
