@@ -48,22 +48,22 @@ export default function StemTutorsPage() {
       {/* Hero Section */}
       <section className="bg-navy text-white py-20 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <Link
+            href="/education"
+            className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Education
+          </Link>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Link
-                href="/education"
-                className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
-              >
-                <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Education
-              </Link>
               <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
                 Partner Programme
               </span>
