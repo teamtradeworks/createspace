@@ -75,6 +75,13 @@ export default async function TaleBotProPage() {
         background="navy-card"
       />
 
+      {/* Video Section */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=THeGYKwX_8k"
+        title="See Tale-Bot Pro in Action"
+        background="white"
+      />
+
       {/* Why Screen-Free Matters */}
       <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro/finger-pressing-button-on-tale-bot-pro.png"
@@ -189,13 +196,6 @@ export default async function TaleBotProPage() {
         ]}
         moreText="Plus blank maps for open-ended creativity, voice recording activities, multi-language exploration, and advanced Scratch programming when they're ready"
         background="gray"
-      />
-
-      {/* Video Section */}
-      <VideoEmbed
-        url="https://www.youtube.com/watch?v=THeGYKwX_8k"
-        title="See Tale-Bot Pro in Action"
-        background="white"
       />
 
       {/* Customer Showcase */}
