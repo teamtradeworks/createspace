@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 
@@ -53,7 +53,7 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
 
   const handleTabChange = (tabId: string) => {
     const group = ageGroups.find((g) => g.id === tabId);
-    posthog.capture("featured_products_filter_clicked", {
+    capture("featured_products_filter_clicked", {
       age_group: tabId,
       label: group?.label,
     });
@@ -133,7 +133,7 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
             <>
               {/* Mobile: horizontal scroll showing all products */}
               <div className="md:hidden -mx-4 sm:-mx-6">
-                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4">
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4 scrollbar-none">
                   {products.map((product, index) => (
                     <div
                       key={`${product.id}-${index}-mobile`}
@@ -165,13 +165,17 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx * 3)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    Math.floor(currentIndex / 3) === idx
-                      ? "w-8 bg-navy"
-                      : "w-4 bg-gray-300 hover:bg-gray-400"
-                  }`}
+                  className="relative flex items-center justify-center w-11 h-11"
                   aria-label={`Go to page ${idx + 1}`}
-                />
+                >
+                  <span
+                    className={`block h-1.5 rounded-full transition-all ${
+                      Math.floor(currentIndex / 3) === idx
+                        ? "w-8 bg-navy"
+                        : "w-4 bg-gray-300"
+                    }`}
+                  />
+                </button>
               ))}
             </div>
           )}
@@ -183,7 +187,7 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
             href={activeTab === "all" ? "/shop" : `/shop?age=${activeTab}`}
             onClick={() => {
               const group = ageGroups.find((g) => g.id === activeTab);
-              posthog.capture("featured_products_view_all_clicked", {
+              capture("featured_products_view_all_clicked", {
                 age_group: activeTab,
                 label: group?.label,
               });

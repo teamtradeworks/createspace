@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import { gtmSearch } from "@/lib/gtm";
 
 interface SearchResultsTrackerProps {
@@ -12,7 +12,7 @@ interface SearchResultsTrackerProps {
 export default function SearchResultsTracker({ query, resultCount }: SearchResultsTrackerProps) {
   useEffect(() => {
     if (query) {
-      posthog.capture("search_results_viewed", {
+      capture("search_results_viewed", {
         query,
         result_count: resultCount,
       });

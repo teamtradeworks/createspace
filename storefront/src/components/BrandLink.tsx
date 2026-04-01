@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 type BrandLinkProps = {
   brand: string;
@@ -14,7 +14,7 @@ export default function BrandLink({ brand, vendor, children }: BrandLinkProps) {
     <Link
       href={`/shop?brand=${encodeURIComponent(vendor)}`}
       onClick={() => {
-        posthog.capture("brand_clicked", { brand });
+        capture("brand_clicked", { brand });
       }}
       className="hover:shadow-md transition-shadow rounded-xl"
     >

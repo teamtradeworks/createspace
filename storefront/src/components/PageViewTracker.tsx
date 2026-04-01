@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 interface PageViewTrackerProps {
   event: string;
@@ -10,7 +10,7 @@ interface PageViewTrackerProps {
 
 export default function PageViewTracker({ event, properties }: PageViewTrackerProps) {
   useEffect(() => {
-    posthog.capture(event, properties);
+    capture(event, properties);
   }, [event, properties]);
 
   return null;

@@ -3,7 +3,7 @@
 import { useState, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import { useCart } from "@/context/CartContext";
 import { gtmAddToCart } from "@/lib/gtm";
 import { SerializedAddon } from "@/lib/product-addons";
@@ -67,7 +67,7 @@ export default function ProductActions({
       return newSet;
     });
 
-    posthog.capture("addon_selected", {
+    capture("addon_selected", {
       product_handle: handle,
       product_title: title,
       addon_handle: addonHandle,
@@ -119,7 +119,7 @@ export default function ProductActions({
         );
       }
 
-      posthog.capture("product_added_to_cart", {
+      capture("product_added_to_cart", {
         product_handle: handle,
         product_title: title,
         product_price: price,
@@ -248,7 +248,7 @@ export default function ProductActions({
         );
       }
 
-      posthog.capture("product_buy_now_clicked", {
+      capture("product_buy_now_clicked", {
         product_handle: handle,
         product_title: title,
         product_price: price,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import posthog from "posthog-js";
+import { capture, identify, group } from "@/lib/analytics";
 
 interface FormData {
   name: string;
@@ -69,15 +69,15 @@ export default function ContactForm({ showEducationFields = false }: ContactForm
         return;
       }
 
-      posthog.capture("contact_form_submitted", { subject: submitData.subject });
+      capture("contact_form_submitted", { subject: submitData.subject });
       if (formData.email) {
-        posthog.identify(formData.email, {
+        identify(formData.email, {
           email: formData.email,
           name: formData.name,
         });
       }
       if (submitData.subject === "School / Bulk Order" || showEducationFields) {
-        posthog.group("enquiry_type", "school", {
+        group("enquiry_type", "school", {
           source: "contact_form",
         });
       }

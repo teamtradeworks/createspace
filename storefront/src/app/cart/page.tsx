@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import { useCart, getAvailableItems } from "@/context/CartContext";
 import { gtmViewCart, gtmBeginCheckout } from "@/lib/gtm";
 import { formatPrice } from "@/lib/shopify";
@@ -52,7 +52,7 @@ export default function CartPage() {
     const available = getAvailableItems(items);
     if (available.length === 0) return;
 
-    posthog.capture("checkout_initiated", {
+    capture("checkout_initiated", {
       item_count: available.length,
       subtotal,
       currency_code: currencyCode,
