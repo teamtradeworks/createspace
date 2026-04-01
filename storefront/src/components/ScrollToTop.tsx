@@ -6,18 +6,15 @@ import { useEffect, useRef } from "react";
 export default function ScrollToTop() {
   const pathname = usePathname();
   const isMounted = useRef(false);
-  const isPopNavigation = useRef(false);
+  // Counter incremented on every popstate event. The pathname effect compares
+  // against lastPopCounter to detect back/forward navigations deterministically,
+  // with no timing dependency (handles slow RSC transitions correctly).
+  const popCounter = useRef(0);
+  const lastPopCounter = useRef(0);
 
   useEffect(() => {
     const handlePopState = () => {
-      isPopNavigation.current = true;
-      // Auto-clear if no pathname change consumes the flag (e.g. same-pathname
-      // popstate from search-param or hash-only history entries). React effects
-      // always run before requestAnimationFrame, so if the pathname effect runs
-      // it will clear the flag first and this becomes a no-op.
-      requestAnimationFrame(() => {
-        isPopNavigation.current = false;
-      });
+      popCounter.current += 1;
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
@@ -30,8 +27,8 @@ export default function ScrollToTop() {
       return;
     }
     // Skip back/forward navigation — let browser restore scroll position
-    if (isPopNavigation.current) {
-      isPopNavigation.current = false;
+    if (popCounter.current !== lastPopCounter.current) {
+      lastPopCounter.current = popCounter.current;
       return;
     }
     // Skip hash navigation — browser will scroll to the anchor
