@@ -133,7 +133,7 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
             <>
               {/* Mobile: horizontal scroll showing all products */}
               <div className="md:hidden -mx-4 sm:-mx-6">
-                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4">
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4 scrollbar-none">
                   {products.map((product, index) => (
                     <div
                       key={`${product.id}-${index}-mobile`}
