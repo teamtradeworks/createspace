@@ -74,13 +74,13 @@ export default function TestimonialCarousel({ testimonials }: TestimonialCarouse
             <p className="text-white/90 text-sm leading-relaxed mb-6 flex-1">{testimonial.quote}</p>
             <div className="flex items-center gap-3 pt-4 border-t border-white/10">
               {testimonial.logo && (
-                <div className="w-12 h-12 rounded-full overflow-hidden bg-white/10 shrink-0 flex items-center justify-center p-1">
+                <div className="w-12 h-12 rounded-lg overflow-hidden bg-white/10 shrink-0">
                   <Image
                     src={testimonial.logo}
                     alt={`${testimonial.school} logo`}
                     width={48}
                     height={48}
-                    className="object-contain"
+                    className="w-full h-full object-cover"
                   />
                 </div>
               )}
