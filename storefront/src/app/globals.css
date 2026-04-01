@@ -35,7 +35,7 @@ body {
   min-height: 560px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .hero-carousel-wrapper {
     min-height: 520px;
   }
