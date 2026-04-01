@@ -1,11 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
-import clarity from "@microsoft/clarity";
 
 export default function ClarityAnalytics({ projectId }: { projectId: string }) {
   useEffect(() => {
-    clarity.init(projectId);
+    const init = () => {
+      import("@microsoft/clarity").then((mod) => mod.default.init(projectId));
+    };
+
+    if (typeof requestIdleCallback !== "undefined") {
+      requestIdleCallback(init);
+    } else {
+      setTimeout(init, 2000);
+    }
   }, [projectId]);
 
   return null;

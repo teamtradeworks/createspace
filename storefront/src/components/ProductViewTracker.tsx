@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import { gtmViewItem } from "@/lib/gtm";
 
 interface ProductViewTrackerProps {
@@ -22,7 +22,7 @@ export default function ProductViewTracker({
   vendor,
 }: ProductViewTrackerProps) {
   useEffect(() => {
-    posthog.capture("product_viewed", {
+    capture("product_viewed", {
       product_handle: handle,
       product_title: title,
       product_sku: sku,

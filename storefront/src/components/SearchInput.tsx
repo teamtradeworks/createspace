@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 interface SearchInputProps {
   defaultValue?: string;
@@ -35,7 +35,7 @@ export default function SearchInput({
     e.preventDefault();
     const trimmed = query.trim();
     if (!trimmed) return;
-    posthog.capture("search_performed", { query: trimmed });
+    capture("search_performed", { query: trimmed });
     router.push(`/search?q=${encodeURIComponent(trimmed)}`);
     onSubmit?.();
   };

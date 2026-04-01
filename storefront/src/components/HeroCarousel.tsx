@@ -227,7 +227,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               />
             </div>
             <div className="flex flex-col items-center justify-center gap-6">
-              <p className="text-white/50 text-xs uppercase tracking-widest font-medium">
+              <p className="text-white/70 text-xs uppercase tracking-widest font-medium">
                 Brands arriving soon
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
@@ -246,7 +246,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                         loading="lazy"
                       />
                     </div>
-                    <span className="text-[10px] font-semibold text-navy/40 uppercase tracking-widest">
+                    <span className="text-[10px] font-semibold text-navy/70 uppercase tracking-widest">
                       Coming Soon
                     </span>
                   </div>

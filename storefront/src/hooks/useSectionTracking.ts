@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const MIN_DURATION_MS = 1500;
 
@@ -32,7 +32,7 @@ export default function useSectionTracking(sectionName: string, page: string) {
       }
 
       if (s.accumulatedMs >= MIN_DURATION_MS) {
-        posthog.capture("section_viewed", {
+        capture("section_viewed", {
           section_name: sectionName,
           page,
           duration_seconds: Math.round(s.accumulatedMs / 100) / 10,

@@ -10,7 +10,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import ProductViewTracker from "@/components/ProductViewTracker";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import { DELIVERY_CONFIG } from "@/config/delivery";
-import { ProductReviews, ProductTrackingProvider } from "@/components/product-sections";
+import { LazyProductReviews, ProductTrackingProvider } from "@/components/product-sections";
 
 interface ProductPageProps {
   params: Promise<{ handle: string }>;
@@ -411,7 +411,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </section>
 
       {/* Customer Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <LazyProductReviews productId={product.id} background="gray" />
 
       {/* Final CTA Section */}
       <section className="py-12 bg-gray-50">

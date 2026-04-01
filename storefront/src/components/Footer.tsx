@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const footerLinks = {
   shop: [
@@ -66,7 +66,7 @@ export default function Footer() {
                 className="text-white/70 hover:text-cs-orange transition-colors"
                 aria-label="Instagram"
                 onClick={() =>
-                  posthog.capture("social_link_clicked", {
+                  capture("social_link_clicked", {
                     platform: "instagram",
                     location: "footer",
                   })
@@ -83,7 +83,7 @@ export default function Footer() {
                 className="text-white/70 hover:text-cs-orange transition-colors"
                 aria-label="Facebook"
                 onClick={() =>
-                  posthog.capture("social_link_clicked", {
+                  capture("social_link_clicked", {
                     platform: "facebook",
                     location: "footer",
                   })
@@ -94,7 +94,7 @@ export default function Footer() {
                 </svg>
               </a>
             </div>
-            <div className="text-white/30 text-xs leading-relaxed">
+            <div className="text-white/50 text-xs leading-relaxed">
               <p>Tradeworks Online (Pty) Ltd</p>
               <p>Reg No.: 2021/432299/07</p>
               <p>VAT No.: 4450302973</p>
@@ -112,7 +112,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    onClick={() => posthog.capture(link.event)}
+                    onClick={() => capture(link.event)}
                     className="text-white/70 hover:text-cs-orange transition-colors text-sm"
                   >
                     {link.name}
@@ -187,11 +187,11 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-white/50 text-sm">
+          <p className="text-white/70 text-sm">
             &copy; {new Date().getFullYear()} CREATESPACE. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <span className="text-white/50 text-sm flex items-center gap-1.5">
+            <span className="text-white/70 text-sm flex items-center gap-1.5">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
