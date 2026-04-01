@@ -11,6 +11,13 @@ export default function ScrollToTop() {
   useEffect(() => {
     const handlePopState = () => {
       isPopNavigation.current = true;
+      // Auto-clear if no pathname change consumes the flag (e.g. same-pathname
+      // popstate from search-param or hash-only history entries). React effects
+      // always run before requestAnimationFrame, so if the pathname effect runs
+      // it will clear the flag first and this becomes a no-op.
+      requestAnimationFrame(() => {
+        isPopNavigation.current = false;
+      });
     };
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
