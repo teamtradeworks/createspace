@@ -82,9 +82,24 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
       data-index={index}
       data-type={slide.type}
     >
-      {/* Hero type - full width image on right */}
+      {/* Hero type - full width image on right (desktop), background image on mobile */}
       {slide.type === "hero" && (
         <>
+          {/* Mobile background image with overlay */}
+          {slide.heroImage && (
+            <div className="lg:hidden absolute inset-0">
+              <Image
+                src={slide.heroImage}
+                alt=""
+                fill
+                className="object-cover object-[30%_center]"
+                sizes="100vw"
+                priority={index === 0}
+                fetchPriority={index === 0 ? "high" : "auto"}
+              />
+              <div className="absolute inset-0 bg-navy/70" />
+            </div>
+          )}
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10 h-full">
             <div className="py-12 lg:py-20">
               <div className={`max-w-xl ${isLight ? "text-white" : "text-navy"}`}>
@@ -218,40 +233,40 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               <Heading className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight text-white">
                 {slide.headline}
               </Heading>
-              <p className="text-lg md:text-xl mb-8 max-w-lg text-white/80">
+              <p className="text-lg md:text-xl max-w-lg text-white/80">
                 {slide.description}
               </p>
-              <SubscribeButton
-                label="Notify Me"
-                className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
-              />
             </div>
-            <div className="flex flex-col items-center justify-center gap-6">
-              <p className="text-white/70 text-xs uppercase tracking-widest font-medium">
+            <div className="flex flex-col items-center justify-center gap-4 lg:gap-6">
+              <p className="hidden lg:block text-white/70 text-xs uppercase tracking-widest font-medium">
                 Brands arriving soon
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex flex-row flex-wrap gap-3 lg:gap-4 justify-center">
                 {slide.brandLogos.map((brand) => (
                   <div
                     key={brand.name}
-                    className="relative bg-white rounded-2xl p-5 flex flex-col items-center justify-center gap-3 w-36 h-36 shadow-lg"
+                    className="relative bg-white rounded-2xl p-3 lg:p-5 flex flex-col items-center justify-center gap-2 w-24 h-24 lg:w-36 lg:h-36 shadow-lg"
                   >
-                    <div className="relative w-20 h-16">
+                    <div className="relative w-14 h-10 lg:w-20 lg:h-16">
                       <Image
                         src={brand.src}
                         alt={brand.name}
                         fill
                         className="object-contain"
-                        sizes="80px"
+                        sizes="(max-width: 1024px) 56px, 80px"
                         loading="lazy"
                       />
                     </div>
-                    <span className="text-[10px] font-semibold text-navy/70 uppercase tracking-widest">
+                    <span className="text-[9px] lg:text-[10px] font-semibold text-navy/70 uppercase tracking-widest">
                       Coming Soon
                     </span>
                   </div>
                 ))}
               </div>
+              <SubscribeButton
+                label="Notify Me"
+                className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+              />
             </div>
           </div>
         </div>
@@ -292,7 +307,31 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 </svg>
               </Link>
             </div>
-            <div className="relative h-[350px] lg:h-[450px]">
+            {/* Mobile: simple two-image row */}
+            <div className="lg:hidden flex gap-2 h-32">
+              <div className="relative flex-1 rounded-xl overflow-hidden">
+                <Image
+                  src={slide.lifestyleImages[0]}
+                  alt="Kids learning robotics"
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                  loading="lazy"
+                />
+              </div>
+              <div className="relative flex-1 rounded-xl overflow-hidden">
+                <Image
+                  src={slide.lifestyleImages[1]}
+                  alt="STEM education workshop"
+                  fill
+                  className="object-cover"
+                  sizes="50vw"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            {/* Desktop: scattered collage */}
+            <div className="hidden lg:block relative h-[450px]">
               <div className="relative h-full">
                 <div className="absolute top-0 right-20 w-24 h-24 bg-cs-orange rounded-full opacity-30" />
                 <div className="absolute bottom-10 left-10 w-16 h-16 bg-cs-blue rounded-full opacity-30" />

@@ -32,7 +32,13 @@ body {
 /* Hero Carousel - CSS-first approach for LCP optimization */
 .hero-carousel-wrapper {
   position: relative;
-  min-height: 500px;
+  min-height: 560px;
+}
+
+@media (min-width: 1024px) {
+  .hero-carousel-wrapper {
+    min-height: 520px;
+  }
 }
 
 /* All slides hidden by default */
