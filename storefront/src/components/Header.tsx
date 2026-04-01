@@ -303,25 +303,34 @@ export default function Header({ products = [] }: HeaderProps) {
               <div key={item.name}>
                 {item.dropdown === "education" ? (
                   <>
-                    <button
-                      className="w-full flex items-center justify-between py-2 text-white hover:text-cs-orange transition-colors"
-                      onClick={() => setMobileEducationOpen(!mobileEducationOpen)}
-                    >
-                      {item.name}
-                      <svg
-                        className={`w-4 h-4 transition-transform ${mobileEducationOpen ? "rotate-180" : ""}`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                    <div className="flex items-center justify-between">
+                      <Link
+                        href={item.href}
+                        className="py-2 text-white hover:text-cs-orange transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
+                        {item.name}
+                      </Link>
+                      <button
+                        className="py-2 pl-4 text-white hover:text-cs-orange transition-colors"
+                        onClick={() => setMobileEducationOpen(!mobileEducationOpen)}
+                        aria-label="Toggle education menu"
+                      >
+                        <svg
+                          className={`w-4 h-4 transition-transform ${mobileEducationOpen ? "rotate-180" : ""}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                     {mobileEducationOpen && (
                       <div className="pl-4 pb-2 space-y-2">
                         {educationOptions.map((option) => (
