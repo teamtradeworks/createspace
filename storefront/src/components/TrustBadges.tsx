@@ -34,8 +34,8 @@ const ALL_BADGES: TrustBadge[] = [
   {
     id: "quality-curated",
     icon: "/images/icons/stem-specialists.png",
-    title: "Education",
-    description: "Only products that make a real impact",
+    title: "Play With Purpose",
+    description: "Handpicked educational STEM toys",
     color: "bg-cs-red",
   },
   {
