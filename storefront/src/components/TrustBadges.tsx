@@ -32,17 +32,10 @@ const ALL_BADGES: TrustBadge[] = [
     color: "bg-cs-blue",
   },
   {
-    id: "tested-by-educators",
-    icon: "/images/icons/tested-by-educators.png",
-    title: "Tested by Educators",
-    description: "Used in 100s of schools across SA",
-    color: "bg-cs-purple",
-  },
-  {
-    id: "stem-specialists",
+    id: "quality-curated",
     icon: "/images/icons/stem-specialists.png",
-    title: "STEM Specialists",
-    description: "Curated for real learning",
+    title: "Education",
+    description: "Only products that make a real impact",
     color: "bg-cs-red",
   },
   {
@@ -58,8 +51,7 @@ const BAR_DEFAULTS = [
   "fast-delivery",
   "free-delivery",
   "easy-returns",
-  "tested-by-educators",
-  "stem-specialists",
+  "quality-curated",
 ];
 const COMPACT_DEFAULTS = ["secure-checkout", "free-delivery"];
 const INLINE_DEFAULTS = ["secure-checkout", "fast-delivery"];

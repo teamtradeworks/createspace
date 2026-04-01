@@ -5,6 +5,13 @@ import { useRef, useState, useEffect, useCallback } from "react";
 const testimonials = [
   {
     quote:
+      "CREATESPACE has consistently demonstrated exceptional service, setting themselves apart as the best in their field. Their dedication and professionalism have made every interaction a positive experience. It is truly an honour to collaborate with CREATESPACE, and their outstanding support continues to strengthen our working relationship.",
+    author: "Erus Pretorius",
+    role: "CEO, Robotixkids",
+    rating: 5,
+  },
+  {
+    quote:
       "Our homeschool group have loved working with their Makerzoid kits this term. They have found the builds to be challenging and interesting and have been able to apply creativity in adding on their own ideas.",
     author: "Michelle Edwards",
     role: "Educational Psychologist, Durban",
@@ -15,13 +22,6 @@ const testimonials = [
       "CREATESPACE is our go to for high quality hardware and accessories. Their extensive range and technical reliability make them an invaluable partner, and their expertise and efficient service allow us to focus on our mission to deliver world class STEAM education. Partnering with the CREATESPACE team has been a game changer for us.",
     author: "Simon Robinson",
     role: "CEO, Inspire Africa",
-    rating: 5,
-  },
-  {
-    quote:
-      "CREATESPACE has consistently demonstrated exceptional service, setting themselves apart as the best in their field. Their dedication and professionalism have made every interaction a positive experience. It is truly an honour to collaborate with CREATESPACE, and their outstanding support continues to strengthen our working relationship.",
-    author: "Erus Pretorius",
-    role: "CEO, Robotixkids",
     rating: 5,
   },
   {
