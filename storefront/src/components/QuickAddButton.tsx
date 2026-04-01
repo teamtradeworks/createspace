@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import { useCart } from "@/context/CartContext";
 import { gtmAddToCart } from "@/lib/gtm";
 
@@ -45,7 +45,7 @@ export default function QuickAddButton({
           image,
           available,
         });
-        posthog.capture("product_quick_added_to_cart", {
+        capture("product_quick_added_to_cart", {
           product_handle: handle,
           product_title: title,
           product_price: price,

@@ -35,13 +35,17 @@ export default function HeroCarouselClient({ children, slideCount, slideTextColo
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              index === currentSlide
-                ? `${isLight ? "bg-white" : "bg-cs-orange"} w-8`
-                : `${isLight ? "bg-white/40 hover:bg-white/60" : "bg-gray-300 hover:bg-gray-400"}`
-            }`}
+            className="relative flex items-center justify-center w-11 h-11"
             aria-label={`Go to slide ${index + 1}`}
-          />
+          >
+            <span
+              className={`block h-3 rounded-full transition-all ${
+                index === currentSlide
+                  ? `${isLight ? "bg-white" : "bg-cs-orange"} w-8`
+                  : `${isLight ? "bg-white/40 hover:bg-white/60" : "bg-gray-300 hover:bg-gray-400"} w-3`
+              }`}
+            />
+          </button>
         ))}
       </div>
 

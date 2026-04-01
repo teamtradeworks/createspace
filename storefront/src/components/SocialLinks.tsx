@@ -1,6 +1,6 @@
 "use client";
 
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const links = [
   {
@@ -29,7 +29,7 @@ export default function SocialLinks({ location }: { location: string }) {
           className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-cs-orange hover:shadow-md transition-all"
           aria-label={link.label}
           onClick={() =>
-            posthog.capture("social_link_clicked", {
+            capture("social_link_clicked", {
               platform: link.platform,
               location,
             })

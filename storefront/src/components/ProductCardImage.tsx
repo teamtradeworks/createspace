@@ -8,6 +8,8 @@ interface ProductCardImageProps {
   primaryAlt: string;
   secondarySrc?: string;
   secondaryAlt?: string;
+  priority?: boolean;
+  sizes?: string;
 }
 
 export default function ProductCardImage({
@@ -15,6 +17,8 @@ export default function ProductCardImage({
   primaryAlt,
   secondarySrc,
   secondaryAlt,
+  priority = false,
+  sizes = "(max-width: 880px) 50vw, 33vw",
 }: ProductCardImageProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -30,6 +34,8 @@ export default function ProductCardImage({
         src={primarySrc}
         alt={primaryAlt}
         fill
+        sizes={sizes}
+        priority={priority}
         className={`object-cover transition-opacity duration-300 ${showSecondary ? "opacity-0" : "opacity-100"}`}
       />
       {secondarySrc && (

@@ -12,6 +12,7 @@ export { ProjectShowcase } from "./ProjectShowcase";
 export { CallToAction } from "./CallToAction";
 export { CustomerShowcase } from "./CustomerShowcase";
 export { ProductReviews } from "./ProductReviews";
+export { LazyProductReviews } from "./LazyProductReviews";
 export { CourseTabs } from "./CourseTabs";
 export { StepPath } from "./StepPath";
 export { SkillTags } from "./SkillTags";

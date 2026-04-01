@@ -210,7 +210,7 @@ export default function ShopGallery({
               <button
                 onClick={clearFilters}
                 title="Clear Filters"
-                className="shrink-0 self-end min-w-[44px] min-h-[44px] flex items-center justify-center text-navy/30 active:text-cs-red transition-colors"
+                className="shrink-0 self-end min-w-[44px] min-h-[44px] flex items-center justify-center text-navy/50 active:text-cs-red transition-colors"
               >
                 <svg
                   width="16"
@@ -261,7 +261,7 @@ export default function ShopGallery({
             <button
               onClick={clearFilters}
               title="Clear Filters"
-              className="shrink-0 self-end pb-3 p-1.5 text-navy/30 hover:text-cs-red transition-colors"
+              className="shrink-0 self-end pb-3 p-1.5 text-navy/50 hover:text-cs-red transition-colors"
             >
               <svg
                 width="18"
@@ -301,8 +301,8 @@ export default function ShopGallery({
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-2 min-[880px]:grid-cols-3 gap-3 min-[880px]:gap-6">
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+            {filteredProducts.map((product, index) => (
+              <ProductCard key={product.id} product={product} priority={index < 6} />
             ))}
           </div>
         ) : (

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 const ageGroups = [
   {
@@ -54,7 +54,7 @@ export default function AgeGroups() {
                   "13+": "home_page_13plus_clicked",
                 };
                 const event = eventMap[group.range];
-                if (event) posthog.capture(event);
+                if (event) capture(event);
               }}
               className={`${group.color} rounded-xl p-6 text-white hover:scale-105 transition-transform relative overflow-hidden group`}
             >

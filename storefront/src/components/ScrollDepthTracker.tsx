@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 
 interface ScrollDepthTrackerProps {
   event: string;
@@ -29,7 +29,7 @@ export default function ScrollDepthTracker({
       for (const threshold of thresholds) {
         if (percent >= threshold && !fired.has(threshold)) {
           fired.add(threshold);
-          posthog.capture(event, { depth: threshold });
+          capture(event, { depth: threshold });
         }
       }
     }

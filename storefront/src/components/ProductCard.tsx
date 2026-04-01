@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import posthog from "posthog-js";
+import { capture } from "@/lib/analytics";
 import { Product, formatPrice, formatAgeRange, getProductRating } from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
@@ -11,9 +11,10 @@ type ProductCardProps = {
   product: Product;
   searchQuery?: string;
   searchPosition?: number;
+  priority?: boolean;
 };
 
-export default function ProductCard({ product, searchQuery, searchPosition }: ProductCardProps) {
+export default function ProductCard({ product, searchQuery, searchPosition, priority = false }: ProductCardProps) {
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const price = product.priceRange.minVariantPrice;
@@ -33,7 +34,7 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
       href={`/product/${product.handle}`}
       onClick={() => {
         if (searchQuery) {
-          posthog.capture("search_result_clicked", {
+          capture("search_result_clicked", {
             query: searchQuery,
             product_handle: product.handle,
             product_title: product.title,
@@ -50,6 +51,7 @@ export default function ProductCard({ product, searchQuery, searchPosition }: Pr
             primaryAlt={product.images.edges[0].node.altText || product.title}
             secondarySrc={product.images.edges[1]?.node.url}
             secondaryAlt={product.images.edges[1]?.node.altText || product.title}
+            priority={priority}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">

@@ -9,7 +9,7 @@ const educationOptions = [
       "Expert facilitators from our partner Robotixkids bring robotics and coding programmes directly to your school. After-school clubs, workshops, and holiday camps available.",
     image: "/images/education/stem-tutors/facilitator-helping-child-kit.jpg",
     link: "/education/stem-tutors",
-    linkText: "Learn More",
+    linkText: "Explore STEM Tutors",
   },
   {
     id: "curriculum",
@@ -18,7 +18,7 @@ const educationOptions = [
       "Give your teachers ready-to-use, CAPS-aligned lesson plans through our partner Inspire Africa's training platform. Ongoing support included.",
     image: "/images/education/teacher-curriculum-classroom.jpg",
     link: "/education/curriculum",
-    linkText: "View Training",
+    linkText: "Explore Teacher Training",
   },
   {
     id: "classroom-kits",
