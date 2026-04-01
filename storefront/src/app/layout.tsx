@@ -16,6 +16,7 @@ import PostHogPageview from "@/components/PostHogPageview";
 import GTMPageview from "@/components/GTMPageview";
 import GoogleTagManager from "@/components/GoogleTagManager";
 import ClarityAnalytics from "@/components/ClarityAnalytics";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
@@ -85,6 +86,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
           <Suspense fallback={null}>
+            <ScrollToTop />
             <PostHogPageview />
             <GTMPageview />
           </Suspense>
