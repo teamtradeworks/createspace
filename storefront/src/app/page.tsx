@@ -284,8 +284,15 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Testimonials Grid */}
-            <div className="flex md:grid md:grid-cols-2 gap-6 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none -mx-4 sm:-mx-6 md:mx-0 px-4 sm:px-6 md:px-0 pb-4 md:pb-0">
+            {/* Testimonials Row */}
+            <div
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8 pb-4"
+              style={{
+                scrollbarWidth: "none",
+                msOverflowStyle: "none",
+                WebkitOverflowScrolling: "touch",
+              }}
+            >
               {[
                 {
                   quote:
@@ -318,7 +325,7 @@ export default function Home() {
               ].map((testimonial, index) => (
                 <div
                   key={index}
-                  className="flex-none w-[82vw] md:w-auto snap-start bg-gray-50 rounded-2xl p-8 relative"
+                  className="flex-none w-[82vw] sm:w-[380px] md:w-[400px] snap-start bg-gray-50 rounded-2xl p-8 relative"
                 >
                   {/* Quote icon */}
                   <div className="absolute top-6 right-6 text-cs-orange/20">
