@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/cart", "/search", "/product/kitchen-sink", "/thank-you"],
+      disallow: ["/cart", "/search", "/product/kitchen-sink"],
     },
     sitemap: "https://thecreatespace.co.za/sitemap.xml",
   };
