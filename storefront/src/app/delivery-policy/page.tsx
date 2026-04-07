@@ -19,9 +19,9 @@ export default function DeliveryPolicyPage() {
           <div>
             <h2 className="text-lg font-semibold text-navy mb-3">Delivery Costs</h2>
             <ul className="list-disc pl-5 space-y-2">
-              <li>Standard delivery: R115</li>
+              <li>Standard delivery: R128</li>
+              <li>Next day delivery: R218</li>
               <li>Free delivery on orders over R1,500</li>
-              <li>Next day delivery is available at checkout at an additional cost</li>
             </ul>
           </div>
 

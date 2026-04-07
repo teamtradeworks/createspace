@@ -10,7 +10,7 @@ describe("delivery", () => {
   describe("DELIVERY_CONFIG", () => {
     it("loads config from site.json", () => {
       expect(DELIVERY_CONFIG.freeDeliveryThreshold).toBe(1500);
-      expect(DELIVERY_CONFIG.standardDeliveryCost).toBe(115);
+      expect(DELIVERY_CONFIG.standardDeliveryCost).toBe(128);
     });
   });
 
@@ -32,8 +32,8 @@ describe("delivery", () => {
 
   describe("calculateDeliveryCost", () => {
     it("returns standard cost below threshold", () => {
-      expect(calculateDeliveryCost(0)).toBe(115);
-      expect(calculateDeliveryCost(1499.99)).toBe(115);
+      expect(calculateDeliveryCost(0)).toBe(128);
+      expect(calculateDeliveryCost(1499.99)).toBe(128);
     });
 
     it("returns 0 at or above threshold", () => {
