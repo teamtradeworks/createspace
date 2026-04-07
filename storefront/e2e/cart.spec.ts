@@ -56,7 +56,7 @@ test.describe("Cart", () => {
 
     await page.goto("/cart");
     const deliveryInfo = page
-      .locator("text=/deliver|R115|free delivery/i")
+      .locator("text=/deliver|R128|free delivery/i")
       .first();
     await expect(deliveryInfo).toBeVisible();
   });
