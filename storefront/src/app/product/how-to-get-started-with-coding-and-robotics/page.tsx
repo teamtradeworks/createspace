@@ -46,7 +46,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           { icon: "time", label: "Duration", value: "6-8 Hours" },
           { icon: "age", label: "Audience", value: "Educators" },
           { icon: "tag", label: "SACE Accredited", value: "CPD Points" },
-          { icon: "scratch", label: "Coding Platform", value: "MakeCode" },
+          { icon: "scratch", label: "Coding Platforms", value: "ScratchJr & MakeCode" },
           { icon: "guide", label: "Phases", value: "Grade R – Grade 9" },
           { icon: "award", label: "Certificate", value: "On Completion" },
           { icon: "app", label: "Access", value: "Computer, Tablet & Mobile" },
@@ -125,29 +125,29 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           },
           {
             label: "Course 3",
-            title: "Micro:bit Level 1",
+            title: "ScratchJr Training",
             subtitle:
-              "A self-paced online course that takes you from initial setup to coding intermediate exercises in MakeCode — in under two hours. Includes a lesson plan and worksheet materials.",
+              "Teach coding through stories and animation. A practical course that gives classroom teachers the confidence to introduce visual block-based coding with ScratchJr — from first blocks to full lesson integration.",
             steps: [
               {
-                title: "Setup & Getting Started",
+                title: "Explore ScratchJr & Sequencing",
                 description:
-                  "Learn how to set up your BBC micro:bit, connect it to your computer, and navigate the MakeCode coding environment step by step.",
+                  "Understand what ScratchJr is, how it fits into early coding lessons, and build foundational skills in sequencing and logical thinking.",
               },
               {
-                title: "Guided Coding Exercises",
+                title: "Master the Coding Blocks",
                 description:
-                  "Work through foundational and intermediate coding exercises with clear, step-by-step instructions — building your skills progressively.",
+                  "Learn each block type — Trigger, Motion, Looks, Sound, Control, and End blocks — introducing one at a time and linking each to its on-screen action.",
               },
               {
-                title: "Lesson Plan & Worksheets",
+                title: "Create Stories & Animations",
                 description:
-                  "Receive a comprehensive lesson plan and worksheet materials so you can take what you've learnt and deliver it directly to your learners.",
+                  "Guide learners to build their own stories and animations, reinforcing cause-and-effect thinking through creative, hands-on projects.",
               },
               {
-                title: "Certificate on Completion",
+                title: "Classroom Integration",
                 description:
-                  "Earn a professional development certificate when you complete the course — proof of your new micro:bit skills for your school and portfolio.",
+                  "Discover open-ended classroom activities and strategies for weaving ScratchJr into your broader teaching — ready to use in your very next lesson.",
               },
             ],
           },
@@ -218,7 +218,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             title: "Practise What You Learn",
             description:
-              "Follow along with the Micro:bit Level 1 course. Add the hardware as an optional extra when you're ready to go hands-on.",
+              "Follow along with the ScratchJr Training course. Download the free ScratchJr app and start creating stories and animations with your learners.",
           },
           {
             title: "Earn Your Certificates",
@@ -234,7 +234,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get three Inspire Africa micro courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, and Micro:bit Level 1. You can also add a BBC micro:bit Go as an optional extra.",
+              "You get three Inspire Africa micro courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, and ScratchJr Training. You can also add a BBC micro:bit Go as an optional extra.",
           },
           {
             question: "How do I access the courses?",
@@ -244,7 +244,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "Do I need any prior STEM or coding knowledge?",
             answer:
-              "Not at all. The courses are designed specifically for educators who are new to Coding and Robotics. Everything is explained in plain, jargon-free language — from curriculum understanding to hands-on micro:bit coding.",
+              "Not at all. The courses are designed specifically for educators who are new to Coding and Robotics. Everything is explained in plain, jargon-free language — from curriculum understanding to visual block-based coding with ScratchJr.",
           },
           {
             question: "Is this bundle SACE-accredited?",
@@ -254,12 +254,12 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "Which grades and phases does this cover?",
             answer:
-              "Between the three courses, you're covered from pre-school and Foundation Phase (with the unplugged STEAM course) through to Intermediate and Senior Phase (with the starter course and micro:bit training). That's Grade R through Grade 9.",
+              "Between the three courses, you're covered from pre-school and Foundation Phase (with the unplugged STEAM course and ScratchJr Training) through to Intermediate and Senior Phase (with the starter course). That's Grade R through Grade 9.",
           },
           {
             question: "How long do the courses take to complete?",
             answer:
-              "All three courses are self-paced. The Micro:bit Level 1 course takes under two hours, and the other two are similarly compact. Most educators complete everything within a week or two alongside their regular schedule.",
+              "All three courses are self-paced and compact. Most educators complete everything within a week or two alongside their regular schedule.",
           },
           {
             question: "Is this suitable for a whole school or department?",
@@ -269,7 +269,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "Do I need hardware to complete the courses?",
             answer:
-              "The Micro:bit Level 1 course is designed to be used with a BBC micro:bit. You can add one as an optional extra when purchasing. The first two courses don't require any hardware.",
+              "No hardware is required. The ScratchJr Training course uses the free ScratchJr app (available on tablets), and the other two courses don't require any hardware either. You can optionally add a BBC micro:bit Go as an extra.",
           },
         ]}
       />
@@ -296,7 +296,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Educator starter bundle: 3 Inspire Africa micro courses covering curriculum, STEAM foundations, and micro:bit coding. SACE-accredited.",
+      "Educator starter bundle: 3 Inspire Africa micro courses covering curriculum, STEAM foundations, and ScratchJr coding. SACE-accredited.",
     alternates: {
       canonical: `/product/${PRODUCT_HANDLE}`,
     },
