@@ -29,6 +29,8 @@ interface HeroSectionProps {
   addonUpsellModal?: boolean;
   /** Insert videos after this image index (0 = after first image). Defaults to appending after all images. */
   insertVideosAfterImage?: number;
+  /** Interleave images and videos: img[0], vid[0], img[1], vid[1], ... */
+  interleaveMedia?: boolean;
   /** Override the vendor/brand label shown in the hero. */
   vendorOverride?: string;
 }
@@ -44,6 +46,7 @@ export function HeroSection({
   digital,
   addonUpsellModal,
   insertVideosAfterImage,
+  interleaveMedia,
   vendorOverride,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
@@ -88,14 +91,25 @@ export function HeroSection({
       } satisfies GalleryItem;
     });
 
-  const galleryItems: GalleryItem[] =
-    insertVideosAfterImage !== undefined
-      ? [
-          ...imageItems.slice(0, insertVideosAfterImage + 1),
-          ...videoItems,
-          ...imageItems.slice(insertVideosAfterImage + 1),
-        ]
-      : [...imageItems, ...videoItems];
+  const galleryItems: GalleryItem[] = (() => {
+    if (interleaveMedia) {
+      const maxLen = Math.max(imageItems.length, videoItems.length);
+      const result: GalleryItem[] = [];
+      for (let i = 0; i < maxLen; i++) {
+        if (imageItems[i]) result.push(imageItems[i]);
+        if (videoItems[i]) result.push(videoItems[i]);
+      }
+      return result;
+    }
+    if (insertVideosAfterImage !== undefined) {
+      return [
+        ...imageItems.slice(0, insertVideosAfterImage + 1),
+        ...videoItems,
+        ...imageItems.slice(insertVideosAfterImage + 1),
+      ];
+    }
+    return [...imageItems, ...videoItems];
+  })();
 
   return (
     <SectionTracker name="HeroSection">
