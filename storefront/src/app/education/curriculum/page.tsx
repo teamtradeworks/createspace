@@ -5,9 +5,9 @@ import TestimonialCarousel from "@/components/TestimonialCarousel";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Coding & Robotics Curriculum for Schools | Education | CREATESPACE",
+  title: "STEAM Coding & Robotics Curriculum for Schools | Education | CREATESPACE",
   description:
-    "A complete coding and robotics programme for schools — CAPS-aligned, Grade R–12 lesson plans, SACE-accredited teacher training, and micro:bit robotics. Powered by Inspire Africa.",
+    "A complete coding and robotics programme for schools — Grade R–12 lesson plans that enrich CAPS, SACE-accredited teacher training, and micro:bit robotics. Powered by Inspire Africa.",
   alternates: {
     canonical: "/education/curriculum",
   },
@@ -45,10 +45,10 @@ const curriculumPhases = [
     grades: "Grade 7–9",
     color: "bg-cs-purple",
     description:
-      "Coding advances from block-based to text-based programming. Learners tackle more complex robotics projects with micro:bit, exploring real-world applications of computational thinking, data handling, and automation.",
+      "Learners progress from block-based to text-based programming and tackle more complex robotics projects with micro:bit — exploring real-world applications of computational thinking, sensor-based learning, and automation.",
     highlights: [
-      "Transition to text-based coding",
-      "Advanced micro:bit robotics projects",
+      "Transition to text-based programming",
+      "Sensor-based robotics projects",
       "Data handling and automation",
       "Real-world problem-solving challenges",
     ],
@@ -58,12 +58,12 @@ const curriculumPhases = [
     grades: "Grade 10–12",
     color: "bg-cs-orange",
     description:
-      "Senior learners work with advanced programming concepts including Python, IoT applications, and AI fundamentals. Projects integrate coding with robotics hardware to solve complex, interdisciplinary challenges.",
+      "Senior learners explore IoT applications, innovation, and sensor-based learning with Python. Projects integrate robotics hardware with real-world problem-solving to tackle complex, interdisciplinary challenges.",
     highlights: [
-      "Python and text-based programming",
-      "IoT and AI fundamentals",
-      "Advanced robotics integration",
-      "Interdisciplinary STEM projects",
+      "IoT and sensor-based learning",
+      "Python programming",
+      "Innovation and robotics integration",
+      "Interdisciplinary STEAM projects",
     ],
   },
 ];
@@ -106,9 +106,9 @@ const platformFeatures = [
     ),
   },
   {
-    title: "CAPS-Aligned Curriculum",
+    title: "Enriches CAPS Curriculum",
     description:
-      "Every lesson, activity, and assessment maps directly to the South African CAPS curriculum. It fits straight into your school's existing timetable — no extra planning needed.",
+      "Our STEAM programme meets CAPS baseline requirements while going further — enriching the curriculum with hands-on coding, robotics, and creative problem-solving that slots into your existing timetable.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -244,7 +244,7 @@ const steps = [
     number: "1",
     title: "Get in Touch",
     description:
-      "Contact us to discuss your school's needs. We'll help you choose the right curriculum pathway and hardware.",
+      "Contact us to discuss your school's needs. We'll map out a bespoke curriculum tailored to your hardware and goals.",
   },
   {
     number: "2",
@@ -256,13 +256,13 @@ const steps = [
     number: "3",
     title: "Access Lesson Plans",
     description:
-      "Download ready-to-use, CAPS-aligned lesson plans, worksheets, and assessment materials for your phase.",
+      "Download ready-to-use lesson plans, worksheets, and assessment materials that enrich CAPS for your phase.",
   },
   {
     number: "4",
     title: "Teach with Confidence",
     description:
-      "Deliver engaging coding and robotics lessons using the tools and support provided. Your school builds lasting STEM capacity.",
+      "Deliver engaging coding and robotics lessons using the tools and support provided. Your school builds lasting STEAM capacity.",
   },
 ];
 
@@ -297,19 +297,19 @@ export default function CurriculumPage() {
               <p className="text-xl text-white/80 mb-4">
                 Unlike hiring external facilitators, this programme gives your own teachers the
                 skills to deliver coding and robotics — from Grade R to 12. Once trained, your
-                educators have the skills, lesson plans, and confidence to teach STEM year after
+                educators have the skills, lesson plans, and confidence to teach STEAM year after
                 year.
               </p>
               <p className="text-white/60 mb-6">
-                The training is self-paced and CAPS-aligned, so it slots directly into your school
-                timetable. No prior coding experience needed.
+                  The training is self-paced and enriches your CAPS curriculum, so it slots
+                directly into your school timetable. No prior coding experience needed.
               </p>
               <ul className="space-y-2 mb-8">
                 {[
                   "Teach coding and robotics without hiring specialist staff",
-                  "Meet CAPS requirements for Coding & Robotics",
+                  "Enrich your CAPS curriculum with hands-on STEAM",
                   "Give teachers SACE-accredited professional development",
-                  "Build a sustainable, long-term STEM programme",
+                  "Build a sustainable, long-term STEAM programme",
                 ].map((item) => (
                   <li key={item} className="flex items-start text-white/80">
                     <svg
@@ -359,7 +359,7 @@ export default function CurriculumPage() {
               <div className="grid grid-cols-2 gap-3">
                 {[
                   { stat: "Grade R–12", label: "Full curriculum coverage" },
-                  { stat: "CAPS", label: "Aligned to national curriculum" },
+                  { stat: "CAPS", label: "Enriches national curriculum" },
                   { stat: "SACE", label: "Accredited teacher certification" },
                   { stat: "Self-Paced", label: "Train on their own schedule" },
                 ].map((item) => (
@@ -431,12 +431,13 @@ export default function CurriculumPage() {
               Grade R–12 Curriculum
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              A Clear Progression from Unplugged to Advanced Coding
+              A Clear Progression from Unplugged to Advanced Robotics
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               The curriculum builds skills progressively — starting with unplugged activities in
               Foundation Phase, introducing block-based coding and micro:bit robotics in
-              Intermediate, and advancing to text-based programming and IoT in the senior grades.
+              Intermediate, and advancing to IoT, innovation, and sensor-based learning in the
+              senior grades.
             </p>
           </div>
 
@@ -476,42 +477,6 @@ export default function CurriculumPage() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Real Learners Callout */}
-      <section className="py-20 bg-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-                Real Results
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                Learners Who Build, Code, and Compete
-              </h2>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                When teachers are confident, learners thrive. The curriculum gives educators the
-                tools to take learners from unplugged concepts all the way to building and
-                programming physical robots — using the same micro:bit hardware used in global
-                robotics competitions.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                From Foundation Phase to FET, the programme is designed to grow with your school
-                — building lasting STEM capacity in your staff and your learners.
-              </p>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden">
-              <Image
-                src="/images/education/curriculum/student-microbit-robot.jpg"
-                alt="Learner proudly holding a micro:bit robot car built during a coding lesson"
-                width={600}
-                height={450}
-                className="w-full h-auto object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -594,8 +559,8 @@ export default function CurriculumPage() {
               Ready to Bring Coding &amp; Robotics to Your School?
             </h2>
             <p className="text-white/80">
-              Get in touch and we&apos;ll help you find the right curriculum pathway, hardware, and
-              training plan for your school.
+              Get in touch and we&apos;ll map out a bespoke curriculum tailored to your school&apos;s
+              hardware and goals.
             </p>
           </div>
           <div className="bg-white rounded-2xl p-8 shadow-lg">
