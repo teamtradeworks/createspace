@@ -103,27 +103,27 @@ export default async function MicrobitEssentialStemLabBundlePage() {
             label: "Course 2",
             title: "Introduction to STEAM, Coding & Robotics",
             subtitle:
-              "An unplugged, screen-free approach to early STEAM education. Perfect for pre-school and Foundation Phase educators looking to integrate Coding and Robotics into daily teaching.",
+              "A two-hour foundational course that demystifies STEAM and shows you how Coding and Robotics fits into the bigger picture. No hardware or software required — just a clear path from theory to structured classroom practice.",
             steps: [
               {
-                title: "Pattern Recognition & Sequencing",
+                title: "Understand STEAM & Coding Foundations",
                 description:
-                  "Teach learners to identify patterns, arrange steps in order, and build the foundational thinking skills that underpin all coding and robotics.",
+                  "Learn what STEAM really means in schools and how Coding and Robotics connects Science, Technology, Engineering, Arts, and Mathematics through real-world learning.",
               },
               {
-                title: "Algorithms Without Screens",
+                title: "Plan & Structure Integrated Lessons",
                 description:
-                  "Introduce algorithmic thinking through hands-on activities using simple, reusable classroom materials — no devices or expensive kits required.",
+                  "Turn ideas into structured, practical STEAM lessons. Includes a free lesson plan template to help you hit the ground running.",
               },
               {
-                title: "CAPS-Aligned Framework",
+                title: "Set Up Your STEAM Learning Space",
                 description:
-                  "Every activity aligns with the CAPS curriculum, giving you confidence that your STEAM teaching meets national education standards.",
+                  "Understand the requirements for establishing an effective STEAM learning environment — and how CAPS curriculum strands translate into practical classroom implementation.",
               },
               {
-                title: "Ready-to-Use Activities",
+                title: "Guide Hands-On, Real-World Learning",
                 description:
-                  "Walk away with practical, structured activities you can integrate into your daily teaching — bringing clarity, structure, and confidence to your STEAM lessons.",
+                  "Move from theory to practice — confidently facilitate learner-led, hands-on problem solving as part of your everyday teaching.",
               },
             ],
           },
