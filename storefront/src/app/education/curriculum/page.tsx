@@ -106,9 +106,9 @@ const platformFeatures = [
     ),
   },
   {
-    title: "Enriches CAPS Curriculum",
+    title: "CAPS-Aligned Curriculum",
     description:
-      "Our STEAM programme meets CAPS baseline requirements while going further — enriching the curriculum with hands-on coding, robotics, and creative problem-solving that slots into your existing timetable.",
+      "Our CAPS-aligned STEAM programme not only meets required competencies, but enhances learning through hands-on Coding, Robotics, and creative problem-solving that slots into your existing timetable.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
