@@ -34,7 +34,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           "4 Inspire Africa courses included",
           "SACE-accredited professional development",
           "Covers Grade R through Grade 9",
-          "No prior STEM experience required",
+          "No prior STEAM experience required",
         ]}
         addons={addons}
         addonUpsellModal
@@ -213,7 +213,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Homeschool Educators",
                 description:
-                  "A structured, self-paced programme to deliver engaging STEM lessons at home. Add the hardware when you're ready.",
+                  "A structured, self-paced programme to deliver engaging STEAM lessons at home. Add the hardware when you're ready.",
               },
             ].map((persona, index) => (
               <div
@@ -236,7 +236,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
       />
       <StepPath
         title="How the Inspire Campus Works"
-        subtitle="All four courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
+        subtitle="All four courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEAM education in South Africa."
         steps={[
           {
             title: "Purchase & Get Your QR Code",
@@ -276,7 +276,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               "After purchase, you'll receive a QR code via email that gives you instant access to all four courses on the Inspire Africa learning platform.",
           },
           {
-            question: "Do I need any prior STEM or coding knowledge?",
+            question: "Do I need any prior STEAM or coding knowledge?",
             answer:
               "Not at all. The courses are designed to take you from zero experience to delivering hands-on, sensor-driven lessons. Course 1 covers the curriculum, Course 2 introduces unplugged STEAM, Course 3 teaches micro:bit coding from scratch, and Course 4 builds on that with the Tinker Kit sensors.",
           },
