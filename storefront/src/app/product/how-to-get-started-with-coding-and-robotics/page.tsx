@@ -38,7 +38,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         ]}
         addons={addons}
         addonUpsellModal
-        insertVideosAfterImage={0}
+        interleaveMedia
         vendorOverride="InspireAfrica"
       />
       <QuickInfoBadges
