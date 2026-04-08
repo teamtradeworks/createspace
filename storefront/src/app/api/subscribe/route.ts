@@ -1,22 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { shopifyFetch } from "@/lib/shopify";
 import { getPostHogClient } from "@/lib/posthog-server";
 
-const CUSTOMER_CREATE_MUTATION = `
-  mutation CustomerCreate($input: CustomerCreateInput!) {
-    customerCreate(input: $input) {
-      customer {
-        id
-        email
-      }
-      customerUserErrors {
-        field
-        message
-        code
-      }
-    }
-  }
-`;
+const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
+const adminAccessToken = process.env.SHOPIFY_ADMIN_ACCESS_TOKEN!;
+
+const ADMIN_ENDPOINT = `https://${domain}/admin/api/2025-10/customers.json`;
 
 export async function POST(request: NextRequest) {
   let email: string;
@@ -31,30 +19,30 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const data = await shopifyFetch<{
-      customerCreate: {
-        customer: { id: string; email: string } | null;
-        customerUserErrors: { field: string[]; message: string; code: string }[];
-      };
-    }>({
-      query: CUSTOMER_CREATE_MUTATION,
-      cache: "no-store",
-      variables: {
-        input: {
-          email,
-          acceptsMarketing: true,
-          // Random password since this is a newsletter signup, not account creation
-          password: crypto.randomUUID(),
-        },
+    const res = await fetch(ADMIN_ENDPOINT, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Shopify-Access-Token": adminAccessToken,
       },
+      body: JSON.stringify({
+        customer: {
+          email,
+          email_marketing_consent: {
+            state: "subscribed",
+            opt_in_level: "single_opt_in",
+          },
+          send_email_welcome: false,
+        },
+      }),
     });
 
-    const errors = data.customerCreate.customerUserErrors;
+    const data = await res.json();
 
-    if (errors.length > 0) {
+    if (!res.ok) {
       // If the customer already exists, treat it as a success
-      const alreadyExists = errors.some((e) => e.code === "TAKEN");
-      if (alreadyExists) {
+      const errors = data.errors;
+      if (errors?.email?.[0] === "has already been taken") {
         try {
           const posthog = getPostHogClient();
           posthog.capture({
@@ -69,7 +57,10 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ success: true, alreadySubscribed: true });
       }
 
-      return NextResponse.json({ error: errors[0].message }, { status: 400 });
+      return NextResponse.json(
+        { error: "Something went wrong. Please try again." },
+        { status: 400 },
+      );
     }
 
     try {
@@ -93,6 +84,9 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again." },
+      { status: 500 },
+    );
   }
 }
