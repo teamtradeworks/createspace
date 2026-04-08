@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
-import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
@@ -21,9 +21,6 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
     notFound();
   }
 
-  const resolvedAddons = await resolveAddonsForHandle(PRODUCT_HANDLE);
-  const addons = serializeAddons(resolvedAddons);
-
   return (
     <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
@@ -36,8 +33,6 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           "Covers Grade R through Grade 9",
           "No prior STEM experience required",
         ]}
-        addons={addons}
-        addonUpsellModal
         interleaveMedia
         vendorOverride="InspireAfrica"
       />
@@ -234,7 +229,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get three Inspire Africa micro courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, and ScratchJr Training. You can also add a BBC micro:bit Go as an optional extra.",
+              "You get three Inspire Africa micro courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, and ScratchJr Training.",
           },
           {
             question: "How do I access the courses?",
@@ -269,7 +264,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "Do I need hardware to complete the courses?",
             answer:
-              "No hardware is required. The ScratchJr Training course uses the free ScratchJr app (available on tablets), and the other two courses don't require any hardware either. You can optionally add a BBC micro:bit Go as an extra.",
+              "No hardware is required. The ScratchJr Training course uses the free ScratchJr app (available on tablets), and the other two courses don't require any hardware either.",
           },
         ]}
       />
