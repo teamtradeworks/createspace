@@ -101,34 +101,6 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           },
           {
             label: "Course 2",
-            title: "Micro:bit Level 1",
-            subtitle:
-              "A self-paced online course that takes you from initial setup to coding intermediate exercises in MakeCode — in under two hours. Includes a lesson plan and worksheet materials.",
-            steps: [
-              {
-                title: "Setup & Getting Started",
-                description:
-                  "Learn how to set up your BBC micro:bit, connect it to your computer, and navigate the MakeCode coding environment step by step.",
-              },
-              {
-                title: "Guided Coding Exercises",
-                description:
-                  "Work through foundational and intermediate coding exercises with clear, step-by-step instructions — building your skills progressively.",
-              },
-              {
-                title: "Lesson Plan & Worksheets",
-                description:
-                  "Receive a comprehensive lesson plan and worksheet materials so you can take what you've learnt and deliver it directly to your learners.",
-              },
-              {
-                title: "Certificate on Completion",
-                description:
-                  "Earn a professional development certificate when you complete the course — proof of your new micro:bit skills for your school and portfolio.",
-              },
-            ],
-          },
-          {
-            label: "Course 3",
             title: "Introduction to STEAM, Coding & Robotics",
             subtitle:
               "An unplugged, screen-free approach to early STEAM education. Perfect for pre-school and Foundation Phase educators looking to integrate Coding and Robotics into daily teaching.",
@@ -152,6 +124,34 @@ export default async function MicrobitEssentialStemLabBundlePage() {
                 title: "Ready-to-Use Activities",
                 description:
                   "Walk away with practical, structured activities you can integrate into your daily teaching — bringing clarity, structure, and confidence to your STEAM lessons.",
+              },
+            ],
+          },
+          {
+            label: "Course 3",
+            title: "Micro:bit Level 1",
+            subtitle:
+              "A self-paced online course that takes you from initial setup to coding intermediate exercises in MakeCode — in under two hours. Includes a lesson plan and worksheet materials.",
+            steps: [
+              {
+                title: "Setup & Getting Started",
+                description:
+                  "Learn how to set up your BBC micro:bit, connect it to your computer, and navigate the MakeCode coding environment step by step.",
+              },
+              {
+                title: "Guided Coding Exercises",
+                description:
+                  "Work through foundational and intermediate coding exercises with clear, step-by-step instructions — building your skills progressively.",
+              },
+              {
+                title: "Lesson Plan & Worksheets",
+                description:
+                  "Receive a comprehensive lesson plan and worksheet materials so you can take what you've learnt and deliver it directly to your learners.",
+              },
+              {
+                title: "Certificate on Completion",
+                description:
+                  "Earn a professional development certificate when you complete the course — proof of your new micro:bit skills for your school and portfolio.",
               },
             ],
           },
@@ -268,7 +268,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get four Inspire Africa courses — How to Get Started with Coding and Robotics, Micro:bit Level 1, Introduction to STEAM, Coding & Robotics, and Essential STEAM Lab Kit Training. You can also add a BBC micro:bit Go and ELECFREAKS Tinker Kit as optional extras.",
+              "You get four Inspire Africa courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, Micro:bit Level 1, and Essential STEAM Lab Kit Training. You can also add a BBC micro:bit Go and ELECFREAKS Tinker Kit as optional extras.",
           },
           {
             question: "How do I access the courses?",
@@ -278,7 +278,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "Do I need any prior STEM or coding knowledge?",
             answer:
-              "Not at all. The courses are designed to take you from zero experience to delivering hands-on, sensor-driven lessons. Course 1 covers the curriculum, Course 2 teaches micro:bit coding from scratch, Course 3 introduces unplugged STEAM, and Course 4 builds on that with the Tinker Kit sensors.",
+              "Not at all. The courses are designed to take you from zero experience to delivering hands-on, sensor-driven lessons. Course 1 covers the curriculum, Course 2 introduces unplugged STEAM, Course 3 teaches micro:bit coding from scratch, and Course 4 builds on that with the Tinker Kit sensors.",
           },
           {
             question: "Is this bundle SACE-accredited?",
