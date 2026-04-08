@@ -30,7 +30,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           "3 Inspire Africa micro courses included",
           "SACE-accredited professional development",
           "Covers Grade R through Grade 9",
-          "No prior STEM experience required",
+          "No prior STEAM experience required",
         ]}
         interleaveMedia
         vendorOverride="InspireAfrica"
@@ -152,13 +152,13 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-semibold text-navy mb-4">Who Is This Bundle For?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-            Whether you&apos;re just getting started or looking to formalise your school&apos;s STEM
+            Whether you&apos;re just getting started or looking to formalise your school&apos;s STEAM
             programme, this bundle meets you where you are.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Foundation Phase Teachers New to STEM",
+                title: "Foundation Phase Teachers New to STEAM",
                 description:
                   "Start with unplugged activities and build up to hands-on coding at your own pace.",
               },
@@ -173,7 +173,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
                   "Get the curriculum knowledge and practical training to lead your department with confidence.",
               },
               {
-                title: "Schools Without a Dedicated STEM Lab",
+                title: "Schools Without a Dedicated STEAM Lab",
                 description:
                   "Everything you need fits in a laptop bag — no special classroom setup required.",
               },
@@ -198,7 +198,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
       />
       <StepPath
         title="How the Inspire Campus Works"
-        subtitle="All three courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
+        subtitle="All three courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEAM education in South Africa."
         steps={[
           {
             title: "Purchase & Get Your QR Code",
@@ -236,7 +236,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               "After purchase, you'll receive a QR code via email that gives you instant access to all three courses on the Inspire Africa learning platform.",
           },
           {
-            question: "Do I need any prior STEM or coding knowledge?",
+            question: "Do I need any prior STEAM or coding knowledge?",
             answer:
               "Not at all. The courses are designed specifically for educators who are new to Coding and Robotics. Everything is explained in plain, jargon-free language — from curriculum understanding to visual block-based coding with ScratchJr.",
           },
