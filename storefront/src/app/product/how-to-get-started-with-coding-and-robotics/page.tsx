@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
-import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
@@ -21,9 +20,6 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
     notFound();
   }
 
-  const resolvedAddons = await resolveAddonsForHandle(PRODUCT_HANDLE);
-  const addons = serializeAddons(resolvedAddons);
-
   return (
     <ProductTrackingProvider handle={PRODUCT_HANDLE}>
       <ProductJsonLd product={product} />
@@ -36,14 +32,12 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           "Covers Grade R through Grade 9",
           "No prior STEM experience required",
         ]}
-        addons={addons}
-        addonUpsellModal
         interleaveMedia
         vendorOverride="InspireAfrica"
       />
       <QuickInfoBadges
         badges={[
-          { icon: "time", label: "Duration", value: "6-8 Hours" },
+          { icon: "time", label: "Duration", value: "8-9 Hours" },
           { icon: "age", label: "Audience", value: "Educators" },
           { icon: "tag", label: "SACE Accredited", value: "CPD Points" },
           { icon: "scratch", label: "Coding Platforms", value: "ScratchJr & MakeCode" },
