@@ -6,7 +6,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Short Courses | Education | CREATESPACE",
   description:
-    "Online STEM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a QR code for instant access to hands-on digital learning.",
+    "Online STEAM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a QR code for instant access to hands-on digital learning.",
   alternates: {
     canonical: "/education/courses",
   },
@@ -29,7 +29,7 @@ const benefits = [
     ),
   },
   {
-    title: "Practical STEM Skills",
+    title: "Practical STEAM Skills",
     description:
       "Hands-on content you can apply directly in the classroom or in your own learning journey.",
     icon: (
@@ -46,7 +46,7 @@ const benefits = [
   {
     title: "Expert Content",
     description:
-      "Courses developed by Inspire Africa education specialists with real-world STEM expertise.",
+      "Courses developed by Inspire Africa education specialists with real-world STEAM expertise.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -100,7 +100,7 @@ export default async function CoursesPage() {
               Flexible Digital Learning
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Our short courses on the Inspire Africa platform offer a flexible way to build STEM
+              Our short courses on the Inspire Africa platform offer a flexible way to build STEAM
               skills.
             </p>
           </div>

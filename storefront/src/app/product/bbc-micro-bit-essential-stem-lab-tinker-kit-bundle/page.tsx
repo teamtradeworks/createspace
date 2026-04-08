@@ -34,7 +34,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           "4 Inspire Africa courses included",
           "SACE-accredited professional development",
           "Covers Grade R through Grade 9",
-          "No prior STEM experience required",
+          "No prior STEAM experience required",
         ]}
         addons={addons}
         addonUpsellModal
@@ -103,27 +103,27 @@ export default async function MicrobitEssentialStemLabBundlePage() {
             label: "Course 2",
             title: "Introduction to STEAM, Coding & Robotics",
             subtitle:
-              "An unplugged, screen-free approach to early STEAM education. Perfect for pre-school and Foundation Phase educators looking to integrate Coding and Robotics into daily teaching.",
+              "A two-hour foundational course that demystifies STEAM and shows you how Coding and Robotics fits into the bigger picture. No hardware or software required — just a clear path from theory to structured classroom practice.",
             steps: [
               {
-                title: "Pattern Recognition & Sequencing",
+                title: "Understand STEAM & Coding Foundations",
                 description:
-                  "Teach learners to identify patterns, arrange steps in order, and build the foundational thinking skills that underpin all coding and robotics.",
+                  "Learn what STEAM really means in schools and how Coding and Robotics connects Science, Technology, Engineering, Arts, and Mathematics through real-world learning.",
               },
               {
-                title: "Algorithms Without Screens",
+                title: "Plan & Structure Integrated Lessons",
                 description:
-                  "Introduce algorithmic thinking through hands-on activities using simple, reusable classroom materials — no devices or expensive kits required.",
+                  "Turn ideas into structured, practical STEAM lessons. Includes a free lesson plan template to help you hit the ground running.",
               },
               {
-                title: "CAPS-Aligned Framework",
+                title: "Set Up Your STEAM Learning Space",
                 description:
-                  "Every activity aligns with the CAPS curriculum, giving you confidence that your STEAM teaching meets national education standards.",
+                  "Understand the requirements for establishing an effective STEAM learning environment — and how CAPS curriculum strands translate into practical classroom implementation.",
               },
               {
-                title: "Ready-to-Use Activities",
+                title: "Guide Hands-On, Real-World Learning",
                 description:
-                  "Walk away with practical, structured activities you can integrate into your daily teaching — bringing clarity, structure, and confidence to your STEAM lessons.",
+                  "Move from theory to practice — confidently facilitate learner-led, hands-on problem solving as part of your everyday teaching.",
               },
             ],
           },
@@ -213,7 +213,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Homeschool Educators",
                 description:
-                  "A structured, self-paced programme to deliver engaging STEM lessons at home. Add the hardware when you're ready.",
+                  "A structured, self-paced programme to deliver engaging STEAM lessons at home. Add the hardware when you're ready.",
               },
             ].map((persona, index) => (
               <div
@@ -236,7 +236,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
       />
       <StepPath
         title="How the Inspire Campus Works"
-        subtitle="All four courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
+        subtitle="All four courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEAM education in South Africa."
         steps={[
           {
             title: "Purchase & Get Your QR Code",
@@ -276,7 +276,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               "After purchase, you'll receive a QR code via email that gives you instant access to all four courses on the Inspire Africa learning platform.",
           },
           {
-            question: "Do I need any prior STEM or coding knowledge?",
+            question: "Do I need any prior STEAM or coding knowledge?",
             answer:
               "Not at all. The courses are designed to take you from zero experience to delivering hands-on, sensor-driven lessons. Course 1 covers the curriculum, Course 2 introduces unplugged STEAM, Course 3 teaches micro:bit coding from scratch, and Course 4 builds on that with the Tinker Kit sensors.",
           },
