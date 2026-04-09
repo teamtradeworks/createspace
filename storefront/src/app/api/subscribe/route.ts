@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 import { getPostHogClient } from "@/lib/posthog-server";
 
-const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
-const adminAccessToken = process.env.SHOPIFY_ADMIN_ACCESS_TOKEN!;
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
-const ADMIN_ENDPOINT = `https://${domain}/admin/api/2025-10/customers.json`;
+const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID!;
 
 export async function POST(request: NextRequest) {
   let email: string;
@@ -19,30 +21,16 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const res = await fetch(ADMIN_ENDPOINT, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Shopify-Access-Token": adminAccessToken,
-      },
-      body: JSON.stringify({
-        customer: {
-          email,
-          email_marketing_consent: {
-            state: "subscribed",
-            opt_in_level: "single_opt_in",
-          },
-          send_email_welcome: false,
-        },
-      }),
+    const resend = getResend();
+    const { error } = await resend.contacts.create({
+      audienceId: AUDIENCE_ID,
+      email: email.trim(),
+      unsubscribed: false,
     });
 
-    const data = await res.json();
-
-    if (!res.ok) {
-      // If the customer already exists, treat it as a success
-      const errors = data.errors;
-      if (errors?.email?.[0] === "has already been taken") {
+    if (error) {
+      // Resend returns an error if the contact already exists — treat as success
+      if (error.message?.toLowerCase().includes("already exists")) {
         try {
           const posthog = getPostHogClient();
           posthog.capture({
@@ -57,9 +45,10 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ success: true, alreadySubscribed: true });
       }
 
+      console.error("[subscribe] Resend error:", error);
       return NextResponse.json(
         { error: "Something went wrong. Please try again." },
-        { status: 400 },
+        { status: 500 },
       );
     }
 
