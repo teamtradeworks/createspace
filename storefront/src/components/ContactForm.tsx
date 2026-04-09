@@ -37,6 +37,7 @@ export default function ContactForm({ showEducationFields = false, educationSour
     schoolName: "",
     position: "",
   });
+  const [subscribeToNewsletter, setSubscribeToNewsletter] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -82,6 +83,20 @@ export default function ContactForm({ showEducationFields = false, educationSour
           source: "contact_form",
         });
       }
+
+      if (subscribeToNewsletter && formData.email) {
+        try {
+          await fetch("/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email: formData.email.trim() }),
+          });
+          capture("newsletter_subscribed", { source: "contact_form" });
+        } catch {
+          // Don't let newsletter subscription errors affect the form submission
+        }
+      }
+
       setIsSubmitted(true);
       setFormData({
         name: "",
@@ -315,6 +330,19 @@ export default function ContactForm({ showEducationFields = false, educationSour
           className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors resize-none"
         />
       </div>
+
+      {/* Newsletter opt-in */}
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={subscribeToNewsletter}
+          onChange={(e) => setSubscribeToNewsletter(e.target.checked)}
+          className="mt-0.5 h-5 w-5 rounded border-gray-300 text-cs-orange focus:ring-cs-orange cursor-pointer accent-cs-orange"
+        />
+        <span className="text-sm text-gray-600">
+          Keep me updated with new products, STEM deals, and education resources.
+        </span>
+      </label>
 
       {/* Submit Button */}
       <button
