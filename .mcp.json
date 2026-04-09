@@ -13,6 +13,10 @@
       ],
       "env": {}
     },
+    "posthog-cs": {
+      "type": "http",
+      "url": "https://mcp-eu.posthog.com/mcp"
+    },
     "sentry": {
       "type": "http",
       "url": "https://mcp.sentry.dev/mcp"
