@@ -4,7 +4,195 @@
       "parentHandle": "elecfreaks-micro-bit-tinker-kit",
       "addonHandle": "bbc-micro-bit-go",
       "discountPercent": 15,
-      "description": "The Tinker Kit requires a micro:bit board to function. Add one here at a discounted price."
+      "description": "The Tinker Kit requires a micro:bit board to function. Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-smart-cutebot-pro",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 15,
+      "description": "The Cutebot Pro requires a BBC micro:bit board to operate. Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-smart-cutebot-pro",
+      "addonHandle": "18650-lithium-flat-top-battery",
+      "discountPercent": 0,
+      "description": "The Cutebot Pro requires a 18650 lithium flat-top battery (not included). Add one here so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-tinker-kit",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "makerzoid-robot-master-premium",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuit-junior",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-my-home",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-classic-300",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 4,
+      "discountPercent": 0,
+      "description": "This kit requires 4 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-beginner",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 × AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "makerzoid-smart-robot",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "makerzoid-smart-robot-premium",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-arcade",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "snap-circuits-explorer-junior",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "makerzoid-superbot",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "how-to-get-started-with-coding-and-robotics",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 0,
+      "description": "Need an extra BBC micro:bit for your classroom? Add one here.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 15,
+      "description": "This kit requires a BBC micro:bit board to function. Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "bbc-micro-bit-essential-stem-lab-tinker-kit-bundle",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 0,
+      "description": "Need an extra BBC micro:bit for your classroom? Add one here.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "bbc-micro-bit-essential-stem-lab-tinker-kit-bundle",
+      "addonHandle": "elecfreaks-micro-bit-tinker-kit",
+      "discountPercent": 0,
+      "description": "Need an extra Tinker Kit for your classroom? Add one here.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-tale-bot-pro",
+      "addonHandle": "matatastudio-activity-box",
+      "discountPercent": 0,
+      "description": "Expand your Tale-Bot Pro with 10 new themed maps, 42 coding challenges, and 98 interactive stickers.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-ai-vision-kit-for-vincibot",
+      "addonHandle": "matatastudio-vincibot-coding-robot-set",
+      "discountPercent": 0,
+      "description": "The AI Vision Kit requires a VinciBot robot to function. Add one here so you have everything you need.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-vincibot-coding-robot-set",
+      "addonHandle": "matatastudio-ai-vision-kit-for-vincibot",
+      "discountPercent": 0,
+      "description": "Take your VinciBot further with AI vision — face recognition, colour tracking, and custom model training.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-vincibot-coding-robot-set",
+      "addonHandle": "matatastudio-creator-kit-for-vincibot",
+      "discountPercent": 0,
+      "description": "Expand VinciBot with 434+ building blocks, a DC motor, and 20 guided engineering builds. Build crankshafts, cams, and motorised machines.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-creator-kit-for-vincibot",
+      "addonHandle": "matatastudio-vincibot-coding-robot-set",
+      "discountPercent": 0,
+      "description": "The Creator Kit requires a VinciBot robot to function. Add one here so you have everything you need.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "bbc-micro-bit-club",
+      "addonHandle": "micro-bit-wearable-x-10",
+      "discountPercent": 0,
+      "description": "Extend your club's learning with 10 wearable micro:bit kits — perfect for hands-on wearable tech projects.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "micro-bit-wearable-x-10",
+      "addonHandle": "bbc-micro-bit-club",
+      "discountPercent": 0,
+      "description": "Pair your wearable kits with the BBC micro:bit Club pack — everything you need to run a full coding club.",
+      "viewProductLink": true
     }
   ]
 }

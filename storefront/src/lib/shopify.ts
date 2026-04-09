@@ -1,8 +1,7 @@
 const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
-const storefrontAccessToken =
-  process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
+const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
-const endpoint = `https://${domain}/api/2024-01/graphql.json`;
+const endpoint = `https://${domain}/api/2025-10/graphql.json`;
 
 type ShopifyResponse<T> = {
   data: T;
@@ -12,9 +11,11 @@ type ShopifyResponse<T> = {
 export async function shopifyFetch<T>({
   query,
   variables,
+  cache,
 }: {
   query: string;
   variables?: Record<string, unknown>;
+  cache?: RequestCache;
 }): Promise<T> {
   const response = await fetch(endpoint, {
     method: "POST",
@@ -23,7 +24,7 @@ export async function shopifyFetch<T>({
       "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
     },
     body: JSON.stringify({ query, variables }),
-    next: { revalidate: 60 }, // Revalidate every 60 seconds
+    ...(cache ? { cache } : { next: { revalidate: 60 } }),
   });
 
   const json: ShopifyResponse<T> = await response.json();
@@ -42,7 +43,16 @@ export type Product = {
   handle: string;
   description: string;
   vendor: string;
+  tags: string[];
+  availableForSale: boolean;
+  updatedAt: string;
   priceRange: {
+    minVariantPrice: {
+      amount: string;
+      currencyCode: string;
+    };
+  };
+  compareAtPriceRange?: {
     minVariantPrice: {
       amount: string;
       currencyCode: string;
@@ -61,6 +71,9 @@ export type Product = {
       node: {
         id: string;
         title: string;
+        sku: string | null;
+        availableForSale: boolean;
+        currentlyNotInStock: boolean;
         price: {
           amount: string;
           currencyCode: string;
@@ -68,9 +81,13 @@ export type Product = {
       };
     }[];
   };
+  minAge: Metafield;
+  maxAge: Metafield;
+  rating: Metafield;
+  ratingCount: Metafield;
 };
 
-export type Collection = {
+type Collection = {
   id: string;
   title: string;
   handle: string;
@@ -92,7 +109,16 @@ const PRODUCTS_QUERY = `
           handle
           description
           vendor
+          tags
+          availableForSale
+          updatedAt
           priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          compareAtPriceRange {
             minVariantPrice {
               amount
               currencyCode
@@ -106,17 +132,32 @@ const PRODUCTS_QUERY = `
               }
             }
           }
-          variants(first: 1) {
+          variants(first: 5) {
             edges {
               node {
                 id
                 title
+                sku
+                availableForSale
+                currentlyNotInStock
                 price {
                   amount
                   currencyCode
                 }
               }
             }
+          }
+          minAge: metafield(namespace: "custom", key: "minimum_age") {
+            value
+          }
+          maxAge: metafield(namespace: "custom", key: "maximum_age") {
+            value
+          }
+          rating: metafield(namespace: "reviews", key: "rating") {
+            value
+          }
+          ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+            value
           }
         }
       }
@@ -126,14 +167,24 @@ const PRODUCTS_QUERY = `
 
 const PRODUCTS_BY_TAG_QUERY = `
   query ProductsByTag($first: Int!, $query: String!) {
-    products(first: $first, query: $query) {
+    products(first: $first, query: $query, sortKey: RELEVANCE) {
       edges {
         node {
           id
           title
           handle
           description
+          vendor
+          tags
+          availableForSale
+          updatedAt
           priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          compareAtPriceRange {
             minVariantPrice {
               amount
               currencyCode
@@ -147,11 +198,14 @@ const PRODUCTS_BY_TAG_QUERY = `
               }
             }
           }
-          variants(first: 1) {
+          variants(first: 5) {
             edges {
               node {
                 id
                 title
+                sku
+                availableForSale
+                currentlyNotInStock
                 price {
                   amount
                   currencyCode
@@ -159,24 +213,93 @@ const PRODUCTS_BY_TAG_QUERY = `
               }
             }
           }
+          minAge: metafield(namespace: "custom", key: "minimum_age") {
+            value
+          }
+          maxAge: metafield(namespace: "custom", key: "maximum_age") {
+            value
+          }
+          rating: metafield(namespace: "reviews", key: "rating") {
+            value
+          }
+          ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+            value
+          }
         }
       }
     }
   }
 `;
 
-const COLLECTIONS_QUERY = `
-  query Collections($first: Int!) {
-    collections(first: $first) {
-      edges {
-        node {
-          id
-          title
-          handle
-          description
-          image {
-            url
-            altText
+const COLLECTION_PRODUCTS_QUERY = `
+  query CollectionProducts($handle: String!, $first: Int!) {
+    collection(handle: $handle) {
+      id
+      title
+      handle
+      description
+      image {
+        url
+        altText
+      }
+      products(first: $first, sortKey: COLLECTION_DEFAULT) {
+        edges {
+          node {
+            id
+            title
+            handle
+            description
+            vendor
+            tags
+            availableForSale
+            updatedAt
+            priceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            compareAtPriceRange {
+              minVariantPrice {
+                amount
+                currencyCode
+              }
+            }
+            images(first: 3) {
+              edges {
+                node {
+                  url
+                  altText
+                }
+              }
+            }
+            variants(first: 5) {
+              edges {
+                node {
+                  id
+                  title
+                  sku
+                  availableForSale
+                  currentlyNotInStock
+                  price {
+                    amount
+                    currencyCode
+                  }
+                }
+              }
+            }
+            minAge: metafield(namespace: "custom", key: "minimum_age") {
+              value
+            }
+            maxAge: metafield(namespace: "custom", key: "maximum_age") {
+              value
+            }
+            rating: metafield(namespace: "reviews", key: "rating") {
+              value
+            }
+            ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+              value
+            }
           }
         }
       }
@@ -196,29 +319,36 @@ export async function getProducts(first: number = 8): Promise<Product[]> {
   return data.products.edges.map((edge) => edge.node);
 }
 
-export async function getCollections(
-  first: number = 10
-): Promise<Collection[]> {
+// Get products within a specific collection by handle
+export async function getCollectionProducts(
+  handle: string,
+  first: number = 50,
+): Promise<{ collection: Collection | null; products: Product[] }> {
   const data = await shopifyFetch<{
-    collections: { edges: { node: Collection }[] };
+    collection: (Collection & { products: { edges: { node: Product }[] } }) | null;
   }>({
-    query: COLLECTIONS_QUERY,
-    variables: { first },
+    query: COLLECTION_PRODUCTS_QUERY,
+    variables: { handle, first },
   });
 
-  return data.collections.edges.map((edge) => edge.node);
+  if (!data.collection) {
+    return { collection: null, products: [] };
+  }
+
+  const { products, ...collectionData } = data.collection;
+  return {
+    collection: collectionData,
+    products: products.edges.map((edge) => edge.node),
+  };
 }
 
-// Get products by tag (for age groups)
-export async function getProductsByTag(
-  tag: string,
-  first: number = 12
-): Promise<Product[]> {
+// Search products by text query
+export async function searchProducts(query: string, first: number = 20): Promise<Product[]> {
   const data = await shopifyFetch<{
     products: { edges: { node: Product }[] };
   }>({
     query: PRODUCTS_BY_TAG_QUERY,
-    variables: { first, query: `tag:${tag}` },
+    variables: { first, query },
   });
 
   return data.products.edges.map((edge) => edge.node);
@@ -226,15 +356,43 @@ export async function getProductsByTag(
 
 // Helper to format price consistently (avoids hydration mismatch)
 // Uses manual formatting to ensure identical output on server and client
-export function formatPrice(amount: string | number, currencyCode: string): string {
+export function formatPrice(
+  amount: string | number,
+  currencyCode: string,
+  { showCents = false }: { showCents?: boolean } = {},
+): string {
   const num = typeof amount === "number" ? amount : parseFloat(amount);
   const [whole, decimal = "00"] = num.toFixed(2).split(".");
   const withCommas = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  // Format as R1,234.56 per CLAUDE.md spec
+  const suffix = showCents ? `.${decimal}` : "";
   return currencyCode === "ZAR"
-    ? `R${withCommas}.${decimal}`
-    : `${currencyCode} ${withCommas}.${decimal}`;
+    ? `R ${withCommas}${suffix}`
+    : `${currencyCode} ${withCommas}${suffix}`;
 }
+
+export function formatAgeRange(minAge: Metafield, maxAge: Metafield): string | null {
+  if (!minAge?.value) return null;
+  const min = parseInt(minAge.value, 10);
+  if (isNaN(min)) return null;
+  if (!maxAge?.value) return `Ages ${min}+`;
+  const max = parseInt(maxAge.value, 10);
+  if (isNaN(max)) return `Ages ${min}+`;
+  return `Ages ${min}-${max}`;
+}
+
+// Metafield type
+export type Metafield = {
+  value: string;
+} | null;
+
+// Metaobject reference for battery type
+export type BatteryMetaobject = {
+  type: string;
+  fields: {
+    key: string;
+    value: string | null;
+  }[];
+} | null;
 
 // Extended product type for product detail page
 export type ProductDetail = {
@@ -271,12 +429,31 @@ export type ProductDetail = {
       };
     }[];
   };
+  media: {
+    edges: {
+      node: {
+        mediaContentType: string;
+        previewImage: {
+          url: string;
+          altText: string | null;
+        } | null;
+        sources?: {
+          url: string;
+          mimeType: string;
+          format: string;
+        }[];
+      };
+    }[];
+  };
   variants: {
     edges: {
       node: {
         id: string;
         title: string;
+        sku: string | null;
         availableForSale: boolean;
+        currentlyNotInStock: boolean;
+        requiresShipping: boolean;
         price: {
           amount: string;
           currencyCode: string;
@@ -288,6 +465,20 @@ export type ProductDetail = {
       };
     }[];
   };
+  // Metafields for QuickInfoBadges
+  minAge: Metafield;
+  maxAge: Metafield;
+  batteriesRequired: Metafield;
+  batteriesIncluded: Metafield;
+  batteriesList: {
+    reference: BatteryMetaobject;
+  } | null;
+  projects: Metafield;
+  guide: Metafield;
+  soldering: Metafield;
+  codingPlatform: Metafield;
+  rating: Metafield;
+  ratingCount: Metafield;
 };
 
 const PRODUCT_BY_HANDLE_QUERY = `
@@ -326,12 +517,33 @@ const PRODUCT_BY_HANDLE_QUERY = `
           }
         }
       }
+      media(first: 10) {
+        edges {
+          node {
+            mediaContentType
+            previewImage {
+              url
+              altText
+            }
+            ... on Video {
+              sources {
+                url
+                mimeType
+                format
+              }
+            }
+          }
+        }
+      }
       variants(first: 10) {
         edges {
           node {
             id
             title
+            sku
             availableForSale
+            currentlyNotInStock
+            requiresShipping
             price {
               amount
               currencyCode
@@ -343,14 +555,53 @@ const PRODUCT_BY_HANDLE_QUERY = `
           }
         }
       }
+      minAge: metafield(namespace: "custom", key: "minimum_age") {
+        value
+      }
+      maxAge: metafield(namespace: "custom", key: "maximum_age") {
+        value
+      }
+      batteriesRequired: metafield(namespace: "custom", key: "batteries_required") {
+        value
+      }
+      batteriesIncluded: metafield(namespace: "custom", key: "batteries_included") {
+        value
+      }
+      batteriesList: metafield(namespace: "custom", key: "batteries_list") {
+        reference {
+          ... on Metaobject {
+            type
+            fields {
+              key
+              value
+            }
+          }
+        }
+      }
+      projects: metafield(namespace: "custom", key: "projects") {
+        value
+      }
+      guide: metafield(namespace: "custom", key: "guide") {
+        value
+      }
+      soldering: metafield(namespace: "custom", key: "soldering") {
+        value
+      }
+      codingPlatform: metafield(namespace: "custom", key: "coding_platform") {
+        value
+      }
+      rating: metafield(namespace: "reviews", key: "rating") {
+        value
+      }
+      ratingCount: metafield(namespace: "reviews", key: "rating_count") {
+        value
+      }
     }
   }
 `;
 
 // Get single product by handle
-export async function getProductByHandle(
-  handle: string
-): Promise<ProductDetail | null> {
+export async function getProductByHandle(handle: string): Promise<ProductDetail | null> {
   const data = await shopifyFetch<{
     product: ProductDetail | null;
   }>({
@@ -361,129 +612,95 @@ export async function getProductByHandle(
   return data.product;
 }
 
-// Product type for SKU lookup (includes SKU in variants)
-export type ProductWithSku = Omit<ProductDetail, "variants"> & {
-  variants: {
-    edges: {
-      node: {
-        id: string;
-        title: string;
-        sku: string | null;
-        availableForSale: boolean;
-        price: {
-          amount: string;
-          currencyCode: string;
-        };
-        compareAtPrice: {
-          amount: string;
-          currencyCode: string;
-        } | null;
-      };
-    }[];
-  };
-};
+// Helper to parse Fera review rating from Shopify metafields
+export function getProductRating(
+  rating: Metafield,
+  ratingCount: Metafield,
+): { average: number; count: number } | null {
+  if (!rating?.value || !ratingCount?.value) return null;
 
-const PRODUCTS_WITH_SKU_QUERY = `
-  query ProductsWithSku($first: Int!, $after: String) {
-    products(first: $first, after: $after) {
-      pageInfo {
-        hasNextPage
-        endCursor
-      }
-      edges {
-        node {
-          id
-          title
-          handle
-          description
-          descriptionHtml
-          vendor
-          productType
-          tags
-          availableForSale
-          priceRange {
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-            maxVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          compareAtPriceRange {
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          images(first: 10) {
-            edges {
-              node {
-                url
-                altText
-              }
-            }
-          }
-          variants(first: 10) {
-            edges {
-              node {
-                id
-                title
-                sku
-                availableForSale
-                price {
-                  amount
-                  currencyCode
-                }
-                compareAtPrice {
-                  amount
-                  currencyCode
-                }
-              }
-            }
-          }
-        }
-      }
-    }
+  try {
+    const parsed = JSON.parse(rating.value);
+    const average = parseFloat(parsed.value);
+    const count = parseInt(ratingCount.value, 10);
+
+    if (isNaN(average) || isNaN(count) || count === 0) return null;
+
+    return { average, count };
+  } catch {
+    return null;
   }
-`;
+}
 
-type ProductsWithSkuResponse = {
-  products: {
-    pageInfo: { hasNextPage: boolean; endCursor: string };
-    edges: { node: ProductWithSku }[];
-  };
-};
+// Helper function to format age range from product metafields
+export function getProductAgeRange(product: ProductDetail): string | undefined {
+  const minAge = product.minAge?.value;
+  const maxAge = product.maxAge?.value;
 
-// Get single product by SKU (exact match)
-// Note: Shopify's SKU search is unreliable, so we fetch products and filter by exact SKU
-export async function getProductBySku(
-  sku: string
-): Promise<ProductWithSku | null> {
-  let hasNextPage = true;
-  let cursor: string | null = null;
+  if (!minAge) return undefined;
 
-  while (hasNextPage) {
-    const response: ProductsWithSkuResponse = await shopifyFetch<ProductsWithSkuResponse>({
-      query: PRODUCTS_WITH_SKU_QUERY,
-      variables: { first: 50, after: cursor },
-    });
-
-    // Find product with matching SKU in variants
-    for (const edge of response.products.edges) {
-      const product = edge.node;
-      const hasMatchingSku = product.variants.edges.some(
-        (variantEdge) => variantEdge.node.sku === sku
-      );
-      if (hasMatchingSku) {
-        return product;
-      }
-    }
-
-    hasNextPage = response.products.pageInfo.hasNextPage;
-    cursor = response.products.pageInfo.endCursor;
+  // If no maxAge, format as "X+"
+  if (!maxAge) {
+    return `${minAge}+`;
   }
 
-  return null;
+  // Format as "X-Y"
+  return `${minAge}-${maxAge}`;
+}
+
+// Helper function to format battery info from product metafields
+export function getProductBatteryInfo(product: ProductDetail): string | undefined {
+  // If the metafield doesn't exist at all, don't show the badge
+  if (product.batteriesRequired === null) return undefined;
+
+  const batteriesRequired = product.batteriesRequired?.value === "true";
+  const batteriesIncluded = product.batteriesIncluded?.value === "true";
+  const batteryMetaobject = product.batteriesList?.reference;
+
+  // If batteries not required
+  if (!batteriesRequired) return "No batteries required";
+
+  // Get battery type label from metaobject if available
+  let batteryType = "";
+  if (batteryMetaobject?.fields) {
+    const labelField = batteryMetaobject.fields.find(
+      (f) => f.key === "label" || f.key === "name" || f.key === "title" || f.key === "type",
+    );
+    batteryType = labelField?.value || "";
+  }
+
+  // Format: "{battery type} (included)" or "{battery type} (not included)"
+  const suffix = batteriesIncluded ? "(included)" : "(not included)";
+
+  if (batteryType) {
+    return `${batteryType} ${suffix}`;
+  }
+
+  // Fallback if no battery type specified
+  return batteriesIncluded ? "Included" : "Required";
+}
+
+// Stock status for product pages and product cards
+type StockStatus = "in-stock" | "lead-time" | "out-of-stock";
+
+type StockStatusProduct = Pick<Product | ProductDetail, "availableForSale"> & {
+  variants: { edges: { node: { availableForSale: boolean; currentlyNotInStock: boolean } }[] };
+};
+
+export function getStockStatus(product: StockStatusProduct): StockStatus {
+  if (!product.availableForSale) return "out-of-stock";
+
+  const availableVariants = product.variants.edges.filter((e) => e.node.availableForSale);
+
+  if (availableVariants.length > 0 && availableVariants.every((e) => e.node.currentlyNotInStock)) {
+    return "lead-time";
+  }
+
+  return "in-stock";
+}
+
+// Returns true when no variant requires shipping (i.e. digital/non-inventory product)
+export function isDigitalProduct(product: ProductDetail): boolean {
+  const { edges } = product.variants;
+  return edges.length > 0 && edges.every((e) => !e.node.requiresShipping);
 }

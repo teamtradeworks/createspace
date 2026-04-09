@@ -1,26 +1,62 @@
 "use client";
 
-import { useState, useMemo } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Product, formatPrice } from "@/lib/shopify";
+import { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import { Product } from "@/lib/shopify";
+import ProductCard from "@/components/ProductCard";
+import TrustBadges from "@/components/TrustBadges";
 
 interface ShopGalleryProps {
   products: Product[];
   initialAge?: string;
+  initialCategory?: string;
+  initialBrand?: string;
 }
 
+const BRAND_COLORS = {
+  navy: "#0C1446",
+  red: "#F70B28",
+  blue: "#3CC7F7",
+  purple: "#AC4DFF",
+  orange: "#FF8B00",
+  green: "#93DB21",
+  yellow: "#FFD500",
+};
+
+const TRACK_COLORS = {
+  age: BRAND_COLORS.navy,
+  category: BRAND_COLORS.red,
+  brand: BRAND_COLORS.orange,
+};
+
 const ageGroups = [
-  { id: "all", label: "All Ages", range: null },
-  { id: "3-5", label: "Ages 3-5", range: [3, 5] },
-  { id: "6-8", label: "Ages 6-8", range: [6, 8] },
-  { id: "9-12", label: "Ages 9-12", range: [9, 12] },
-  { id: "13+", label: "Ages 13+", range: [13, 99] },
+  { id: "3-5", label: "3-5", range: [3, 5] as [number, number] },
+  { id: "6-8", label: "6-8", range: [6, 8] as [number, number] },
+  { id: "9-12", label: "9-12", range: [9, 12] as [number, number] },
+  { id: "13+", label: "13+", range: [13, 99] as [number, number] },
 ];
 
-export default function ShopGallery({ products, initialAge }: ShopGalleryProps) {
-  const [selectedAge, setSelectedAge] = useState(initialAge || "all");
-  const [selectedBrand, setSelectedBrand] = useState("all");
+const categories = [
+  { id: "robotics", label: "Robotics" },
+  { id: "electricity", label: "Electricity" },
+  { id: "building-mechanics", label: "Building & Mechanics" },
+  { id: "earth-sciences", label: "Earth Sciences" },
+];
+
+export default function ShopGallery({
+  products,
+  initialAge,
+  initialCategory,
+  initialBrand,
+}: ShopGalleryProps) {
+  const [selectedAges, setSelectedAges] = useState<string[]>(
+    initialAge && initialAge !== "all" ? [initialAge] : [],
+  );
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(
+    initialCategory && initialCategory !== "all" ? [initialCategory] : [],
+  );
+  const [selectedBrands, setSelectedBrands] = useState<string[]>(
+    initialBrand ? [initialBrand] : [],
+  );
   const [sortBy, setSortBy] = useState("featured");
 
   // Extract unique brands from products
@@ -34,13 +70,41 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
     return Array.from(uniqueBrands).sort();
   }, [products]);
 
-  // Filter products by age group and brand
+  // Filter and sort products
   const filteredProducts = useMemo(() => {
     let result = [...products];
 
-    // Filter by brand
-    if (selectedBrand !== "all") {
-      result = result.filter((product) => product.vendor === selectedBrand);
+    // Filter by age groups (union — product matches if it overlaps ANY selected age range)
+    if (selectedAges.length > 0) {
+      const selectedRanges = selectedAges
+        .map((id) => ageGroups.find((g) => g.id === id)?.range)
+        .filter((r): r is [number, number] => r !== undefined);
+
+      if (selectedRanges.length > 0) {
+        result = result.filter((product) => {
+          const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
+          if (minAge === null) return false;
+          const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
+          const productMax = maxAge ?? Infinity;
+          return selectedRanges.some(
+            ([minRange, maxRange]) => minAge <= maxRange && productMax >= minRange,
+          );
+        });
+      }
+    }
+
+    // Filter by categories (union — product matches if it has ANY selected category tag)
+    if (selectedCategories.length > 0) {
+      result = result.filter((product) =>
+        selectedCategories.some((cat) => product.tags?.includes(`category:${cat}`)),
+      );
+    }
+
+    // Filter by brands (union — product matches if its vendor is ANY selected brand)
+    if (selectedBrands.length > 0) {
+      result = result.filter((product) =>
+        selectedBrands.some((b) => b.toLowerCase() === product.vendor.toLowerCase()),
+      );
     }
 
     // Sort products
@@ -49,14 +113,14 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
         result.sort(
           (a, b) =>
             parseFloat(a.priceRange.minVariantPrice.amount) -
-            parseFloat(b.priceRange.minVariantPrice.amount)
+            parseFloat(b.priceRange.minVariantPrice.amount),
         );
         break;
       case "price-high":
         result.sort(
           (a, b) =>
             parseFloat(b.priceRange.minVariantPrice.amount) -
-            parseFloat(a.priceRange.minVariantPrice.amount)
+            parseFloat(a.priceRange.minVariantPrice.amount),
         );
         break;
       case "name-az":
@@ -66,124 +130,179 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
         result.sort((a, b) => b.title.localeCompare(a.title));
         break;
       default:
-        // Featured - keep original order
         break;
     }
 
     return result;
-  }, [products, selectedAge, selectedBrand, sortBy]);
+  }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
+
+  const hasActiveFilters =
+    selectedAges.length > 0 || selectedCategories.length > 0 || selectedBrands.length > 0;
+
+  const clearFilters = () => {
+    setSelectedAges([]);
+    setSelectedCategories([]);
+    setSelectedBrands([]);
+  };
+
+  const toggleAge = (id: string) => {
+    setSelectedAges((prev) => (prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]));
+  };
+
+  const toggleCategory = (id: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id],
+    );
+  };
+
+  const toggleBrand = (brand: string) => {
+    setSelectedBrands((prev) =>
+      prev.includes(brand) ? prev.filter((v) => v !== brand) : [...prev, brand],
+    );
+  };
 
   return (
-    <section className="py-12">
+    <section className="pt-4 pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Filters Bar */}
-        <div className="flex flex-col gap-4 mb-8 pb-6 border-b">
-          {/* Age Group Filters */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-medium text-gray-700 mr-2">Age:</span>
-            {ageGroups.map((group) => (
-              <button
-                key={group.id}
-                onClick={() => setSelectedAge(group.id)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedAge === group.id
-                    ? "bg-navy text-white"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                {group.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Brand and Sort Row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-            {/* Brand Filter */}
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-gray-700">Brand:</span>
-              <select
-                value={selectedBrand}
-                onChange={(e) => setSelectedBrand(e.target.value)}
-                className="px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cs-orange bg-white min-w-[160px]"
-              >
-                <option value="all">All Brands</option>
-                {brands.map((brand) => (
-                  <option key={brand} value={brand}>
-                    {brand}
-                  </option>
-                ))}
-              </select>
+        {/* Mobile Filters */}
+        <div className="sticky top-[100px] z-30 bg-gray-50 flex flex-col gap-2.5 mb-6 pb-3 pt-4 border-b-2 border-navy/10 sm:hidden">
+          {/* Row 1: Age pills */}
+          <AgePills selected={selectedAges} onToggle={toggleAge} color={TRACK_COLORS.age} stretch />
+          {/* Row 2: Category, Brand dropdowns + Sort icon */}
+          <div className="flex items-end gap-2">
+            <div className="flex-1">
+              <MultiSelect
+                label="Category"
+                color={TRACK_COLORS.category}
+                selected={selectedCategories}
+                onToggle={toggleCategory}
+                options={categories.map((c) => ({
+                  value: c.id,
+                  label: c.label,
+                }))}
+                placeholder="All"
+              />
             </div>
-
-            {/* Sort Dropdown */}
-            <div className="flex items-center gap-3">
-              <span className="text-sm text-gray-500">Sort by:</span>
-              <select
+            <div className="flex-1">
+              <MultiSelect
+                label="Brand"
+                color={TRACK_COLORS.brand}
+                selected={selectedBrands}
+                onToggle={toggleBrand}
+                options={brands.map((b) => ({ value: b, label: b }))}
+                placeholder="All"
+              />
+            </div>
+            <div className="shrink-0 self-end">
+              <SortButton
                 value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-cs-orange bg-white"
-              >
-                <option value="featured">Featured</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="name-az">Name: A to Z</option>
-                <option value="name-za">Name: Z to A</option>
-              </select>
+                onChange={setSortBy}
+                options={[
+                  { value: "featured", label: "Featured" },
+                  { value: "price-low", label: "Low → High" },
+                  { value: "price-high", label: "High → Low" },
+                  { value: "name-az", label: "A → Z" },
+                  { value: "name-za", label: "Z → A" },
+                ]}
+              />
             </div>
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                title="Clear Filters"
+                className="shrink-0 self-end min-w-[44px] min-h-[44px] flex items-center justify-center text-navy/50 active:text-cs-red transition-colors"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
+                  <path d="M4 4L12 12M12 4L4 12" />
+                </svg>
+              </button>
+            )}
+          </div>
+        </div>
+
+        {/* Desktop Filters */}
+        <div className="sticky top-[100px] z-30 bg-gray-50 hidden sm:flex items-end gap-4 mb-10 pb-4 pt-4 border-b-2 border-navy/10">
+          <AgePills
+            selected={selectedAges}
+            onToggle={toggleAge}
+            color={TRACK_COLORS.age}
+            size="lg"
+          />
+          <MultiSelect
+            label="Category"
+            color={TRACK_COLORS.category}
+            selected={selectedCategories}
+            onToggle={toggleCategory}
+            options={categories.map((c) => ({
+              value: c.id,
+              label: c.label,
+            }))}
+            placeholder="All"
+            size="lg"
+          />
+          <MultiSelect
+            label="Brand"
+            color={TRACK_COLORS.brand}
+            selected={selectedBrands}
+            onToggle={toggleBrand}
+            options={brands.map((b) => ({ value: b, label: b }))}
+            placeholder="All"
+            size="lg"
+          />
+          {hasActiveFilters && (
+            <button
+              onClick={clearFilters}
+              title="Clear Filters"
+              className="shrink-0 self-end pb-3 p-1.5 text-navy/50 hover:text-cs-red transition-colors"
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 16 16"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              >
+                <path d="M4 4L12 12M12 4L4 12" />
+              </svg>
+            </button>
+          )}
+          <div className="ml-auto">
+            <SortButton
+              value={sortBy}
+              onChange={setSortBy}
+              options={[
+                { value: "featured", label: "Featured" },
+                { value: "price-low", label: "Price: Low to High" },
+                { value: "price-high", label: "Price: High to Low" },
+                { value: "name-az", label: "Name: A to Z" },
+                { value: "name-za", label: "Name: Z to A" },
+              ]}
+              size="lg"
+            />
           </div>
         </div>
 
         {/* Results Count */}
-        <p className="text-sm text-gray-500 mb-6">
+        <p className="text-sm text-navy/50 font-medium mb-6">
           Showing {filteredProducts.length} product
           {filteredProducts.length !== 1 ? "s" : ""}
         </p>
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filteredProducts.map((product) => (
-              <Link
-                key={product.id}
-                href={`/product/${product.handle}`}
-                className="group"
-              >
-                <div className="bg-gray-50 rounded-xl overflow-hidden mb-3 aspect-square relative">
-                  {product.images.edges[0] ? (
-                    <Image
-                      src={product.images.edges[0].node.url}
-                      alt={product.images.edges[0].node.altText || product.title}
-                      fill
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <svg
-                        className="w-16 h-16 text-gray-300"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                    </div>
-                  )}
-                </div>
-                <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2 mb-1">
-                  {product.title}
-                </h3>
-                <p className="text-cs-orange font-semibold">
-                  {formatPrice(
-                    product.priceRange.minVariantPrice.amount,
-                    product.priceRange.minVariantPrice.currencyCode
-                  )}
-                </p>
-              </Link>
+          <div className="grid grid-cols-2 min-[880px]:grid-cols-3 gap-3 min-[880px]:gap-6">
+            {filteredProducts.map((product, index) => (
+              <ProductCard key={product.id} product={product} priority={index < 6} />
             ))}
           </div>
         ) : (
@@ -203,116 +322,314 @@ export default function ShopGallery({ products, initialAge }: ShopGalleryProps) 
                 />
               </svg>
             </div>
-            <h2 className="text-xl font-medium text-gray-900 mb-2">
-              No products found
-            </h2>
+            <h2 className="text-xl font-medium text-gray-900 mb-2">No products found</h2>
             <p className="text-gray-600 mb-6">
               Try adjusting your filters to find what you&apos;re looking for.
             </p>
-            <button
-              onClick={() => {
-                setSelectedAge("all");
-                setSelectedBrand("all");
-              }}
-              className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
-            >
-              View All Products
-            </button>
+            {hasActiveFilters && (
+              <button
+                onClick={clearFilters}
+                className="inline-flex items-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-xl font-semibold transition-colors"
+              >
+                Clear All Filters
+              </button>
+            )}
           </div>
         )}
 
         {/* Trust Banner */}
-        <div className="mt-16 bg-gray-50 rounded-2xl p-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              {
-                icon: (
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
-                    />
-                  </svg>
-                ),
-                title: "Fast Delivery",
-                description: "1-3 business days",
-              },
-              {
-                icon: (
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-                    />
-                  </svg>
-                ),
-                title: "Secure Payment",
-                description: "100% protected",
-              },
-              {
-                icon: (
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
-                    />
-                  </svg>
-                ),
-                title: "Easy Returns",
-                description: "Full refund available",
-              },
-              {
-                icon: (
-                  <svg
-                    className="w-8 h-8"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
-                    />
-                  </svg>
-                ),
-                title: "Expert Support",
-                description: "Here to help",
-              },
-            ].map((item, index) => (
-              <div key={index} className="flex flex-col items-center">
-                <div className="w-14 h-14 bg-cs-orange/10 rounded-full flex items-center justify-center text-cs-orange mb-3">
-                  {item.icon}
-                </div>
-                <h3 className="font-semibold text-navy text-sm">{item.title}</h3>
-                <p className="text-xs text-gray-500">{item.description}</p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-16">
+          <TrustBadges />
         </div>
       </div>
     </section>
+  );
+}
+
+/* ── Sub-components ─────────────────────────────────────── */
+
+function AgePills({
+  selected,
+  onToggle,
+  color,
+  size = "default",
+  stretch = false,
+}: {
+  selected: string[];
+  onToggle: (id: string) => void;
+  color: string;
+  size?: "default" | "lg";
+  stretch?: boolean;
+}) {
+  const isLg = size === "lg";
+  return (
+    <div className={stretch ? "" : "shrink-0"}>
+      <span
+        className={`block font-extrabold uppercase tracking-widest mb-1 text-xs`}
+        style={{ color }}
+      >
+        Age Groups
+      </span>
+      <div className="flex gap-1.5">
+        {ageGroups.map((group) => {
+          const isSelected = selected.includes(group.id);
+          return (
+            <button
+              key={group.id}
+              onClick={() => onToggle(group.id)}
+              className={`rounded-lg font-bold transition-all duration-150 active:scale-95 text-center ${stretch ? "flex-1" : ""} ${isLg ? "px-6 py-3 text-sm min-w-[90px]" : "px-3 py-3.5 text-xs"}`}
+              style={{
+                border: `2px solid ${color}`,
+                backgroundColor: isSelected ? color : "transparent",
+                color: isSelected ? "#fff" : color,
+              }}
+            >
+              {group.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function MultiSelect({
+  label,
+  color,
+  selected,
+  onToggle,
+  options,
+  placeholder,
+  size = "default",
+}: {
+  label: string;
+  color: string;
+  selected: string[];
+  onToggle: (value: string) => void;
+  options: { value: string; label: string }[];
+  placeholder: string;
+  size?: "default" | "lg";
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isLg = size === "lg";
+
+  // Close on outside click
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+      setIsOpen(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [isOpen, handleClickOutside]);
+
+  // Close on escape
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [isOpen]);
+
+  // Build display label
+  const displayLabel =
+    selected.length === 0
+      ? placeholder
+      : selected.length <= 2
+        ? selected.map((v) => options.find((o) => o.value === v)?.label ?? v).join(", ")
+        : `${selected.length} selected`;
+
+  return (
+    <div className="relative" ref={containerRef}>
+      <span
+        className={`block font-extrabold uppercase tracking-widest mb-1 text-xs`}
+        style={{ color }}
+      >
+        {label}
+      </span>
+      {/* Trigger */}
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        className={`relative w-full text-left appearance-none rounded-xl bg-white font-semibold text-navy transition-all focus:outline-none focus:ring-2 ${isLg ? "pl-4 pr-10 py-3 text-sm" : "pl-3 pr-8 py-3 text-sm"}`}
+        style={{
+          borderWidth: 2,
+          borderStyle: "solid",
+          borderTopColor: isOpen ? color : `${color}35`,
+          borderRightColor: isOpen ? color : `${color}35`,
+          borderBottomColor: isOpen ? color : `${color}35`,
+          borderLeftWidth: 4,
+          borderLeftColor: color,
+          // @ts-expect-error -- CSS custom property for focus ring
+          "--tw-ring-color": `${color}30`,
+        }}
+      >
+        <span className={selected.length === 0 ? "text-navy/40" : ""}>{displayLabel}</span>
+        <svg
+          className={`pointer-events-none absolute top-1/2 -translate-y-1/2 transition-transform ${isOpen ? "rotate-180" : ""} ${isLg ? "right-3.5" : "right-2.5"}`}
+          style={{ marginTop: isLg ? 12 : 10 }}
+          width={isLg ? 14 : 12}
+          height={isLg ? 14 : 12}
+          viewBox="0 0 12 12"
+          fill="none"
+        >
+          <path
+            d="M3 4.5L6 7.5L9 4.5"
+            stroke={color}
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+      {/* Dropdown */}
+      {isOpen && (
+        <div
+          className="absolute z-40 left-0 min-w-[200px] mt-1 bg-white rounded-xl border-2 shadow-lg overflow-hidden"
+          style={{ borderColor: `${color}30` }}
+        >
+          <div className="max-h-60 overflow-y-auto py-1">
+            {options.map((opt) => {
+              const isChecked = selected.includes(opt.value);
+              return (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => onToggle(opt.value)}
+                  className="w-full flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-navy transition-colors hover:bg-gray-50 active:bg-gray-100"
+                >
+                  <span
+                    className="shrink-0 flex items-center justify-center rounded border-2 transition-all"
+                    style={{
+                      width: 18,
+                      height: 18,
+                      borderColor: isChecked ? color : `${color}40`,
+                      backgroundColor: isChecked ? color : "transparent",
+                    }}
+                  >
+                    {isChecked && (
+                      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                        <path
+                          d="M2 5.5L4 7.5L8 3"
+                          stroke="white"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    )}
+                  </span>
+                  {opt.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function SortButton({
+  value,
+  onChange,
+  options,
+  size = "default",
+}: {
+  value: string;
+  onChange: (value: string) => void;
+  options: { value: string; label: string }[];
+  size?: "default" | "lg";
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isLg = size === "lg";
+
+  useEffect(() => {
+    if (!isOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [isOpen]);
+
+  const currentLabel = options.find((o) => o.value === value)?.label ?? "Sort";
+
+  return (
+    <div className="relative" ref={containerRef}>
+      <button
+        type="button"
+        onClick={() => setIsOpen((prev) => !prev)}
+        title={`Sort: ${currentLabel}`}
+        className={`flex items-center gap-1.5 rounded-xl bg-white font-semibold text-navy border-2 transition-all focus:outline-none focus:ring-2 focus:ring-navy/20 ${isOpen ? "border-navy" : "border-navy/20"} ${isLg ? "px-3 py-3 text-sm" : "px-2.5 py-3 text-sm"}`}
+      >
+        {/* Sort icon: 3 horizontal lines of decreasing width */}
+        <svg
+          width={isLg ? 18 : 16}
+          height={isLg ? 18 : 16}
+          viewBox="0 0 18 18"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        >
+          <path d="M3 5h12" />
+          <path d="M3 9h8" />
+          <path d="M3 13h4" />
+        </svg>
+      </button>
+      {isOpen && (
+        <div className="absolute z-40 right-0 min-w-[180px] mt-1 bg-white rounded-xl border-2 border-navy/15 shadow-lg overflow-hidden">
+          <div className="py-1">
+            {options.map((opt) => {
+              const isActive = value === opt.value;
+              return (
+                <button
+                  key={opt.value}
+                  onClick={() => {
+                    onChange(opt.value);
+                    setIsOpen(false);
+                  }}
+                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors flex items-center gap-2 ${isActive ? "bg-navy/5 text-navy font-bold" : "text-navy/70 hover:bg-gray-50"}`}
+                >
+                  {isActive && (
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M2 7l3.5 3.5L12 4" />
+                    </svg>
+                  )}
+                  <span className={isActive ? "" : "ml-[22px]"}>{opt.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }

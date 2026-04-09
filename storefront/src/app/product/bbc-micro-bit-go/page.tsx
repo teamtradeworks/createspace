@@ -1,20 +1,22 @@
 import { notFound } from "next/navigation";
-import { getProductByHandle, getProducts } from "@/lib/shopify";
+import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
+import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
   NumberedSteps,
-  LearningOutcomes,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
   VideoEmbed,
   Specifications,
+  ProductReviews,
   ProjectShowcase,
+  CustomerShowcase,
   CallToAction,
-  RelatedProducts,
+  ProductTrackingProvider,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "bbc-micro-bit-go";
@@ -26,17 +28,13 @@ export default async function MicrobitGoPage() {
     notFound();
   }
 
-  // Get related products and add-ons in parallel
-  const [allProducts, resolvedAddons] = await Promise.all([
-    getProducts(8),
-    resolveAddonsForHandle(PRODUCT_HANDLE),
-  ]);
-
-  const relatedProducts = allProducts.filter((p) => p.handle !== product.handle).slice(0, 4);
+  const resolvedAddons = await resolveAddonsForHandle(PRODUCT_HANDLE);
   const addons = serializeAddons(resolvedAddons);
 
   return (
-    <>
+    <ProductTrackingProvider handle={PRODUCT_HANDLE}>
+      <ProductJsonLd product={product} />
+
       {/* Hero Section */}
       <HeroSection
         product={product}
@@ -51,17 +49,7 @@ export default async function MicrobitGoPage() {
       />
 
       {/* Quick Info Badges */}
-      <QuickInfoBadges
-        age="8+"
-        skill="beginner"
-        supervision={false}
-        batteries="2x AAA (included)"
-        badges={[
-          { icon: "projects", label: "Projects", value: "200+ Free" },
-          { icon: "no-soldering", label: "Soldering", value: "Not Required" },
-          { icon: "scratch", label: "Coding", value: "Block & Text" },
-        ]}
-      />
+      <QuickInfoBadges product={product} />
 
       {/* Why micro:bit Section */}
       <NumberedSteps
@@ -70,15 +58,18 @@ export default async function MicrobitGoPage() {
         steps={[
           {
             title: "Code in Minutes",
-            description: "Open your browser, drag some blocks, and flash your code. No downloads, no setup, no complicated configurations.",
+            description:
+              "Open your browser, drag some blocks, and flash your code. No downloads, no setup, no complicated configurations.",
           },
           {
             title: "Real Hardware, Real Results",
-            description: "See your code come to life instantly. Light up LEDs, play sounds, detect motion - it's coding you can touch.",
+            description:
+              "See your code come to life instantly. Light up LEDs, play sounds, detect motion - it's coding you can touch.",
           },
           {
             title: "Grow at Your Own Pace",
-            description: "Start with visual blocks, progress to JavaScript or Python. The micro:bit grows with you from first project to advanced maker.",
+            description:
+              "Start with visual blocks, progress to JavaScript or Python. The micro:bit grows with you from first project to advanced maker.",
           },
         ]}
         background="navy-card"
@@ -91,38 +82,41 @@ export default async function MicrobitGoPage() {
         background="gray"
       />
 
-      {/* Code in Your Browser Section */}
+      {/* What Is micro:bit Section */}
       <ImageTextBlock
         image="/images/products/bbc-micro-bit-go/blocks-coding-example-in-makecode.png"
         imageAlt="MakeCode block-based coding interface showing a micro:bit program"
-        title="Code in Your Browser"
-        body="No software to install - just open MakeCode in any web browser and start coding. Drag colourful blocks to create programs, then flash them to your micro:bit with one click. When you're ready, switch to JavaScript or Python to see real code."
+        title="A Pocket-Sized Programmable Computer"
+        body="The BBC micro:bit V2 is a tiny computer — about the size of a credit card — designed from the ground up to teach coding. Despite its size, the board packs a 25-LED display, built-in speaker, microphone, accelerometer, compass, temperature sensor, and wireless connectivity. You program it directly in your web browser using Microsoft MakeCode's drag-and-drop blocks — no software to install. The Go bundle includes the micro:bit V2 board, a USB cable, battery holder, and batteries, so everything you need to start coding is right in the box."
         layout="image-left"
         background="white"
       />
 
       {/* Features Grid */}
       <FeatureGrid
-        title="Packed with Possibilities"
+        title="Key Features"
         subtitle="The micro:bit V2 has everything built-in to create amazing projects - no extra components needed to get started."
         features={[
           {
             icon: "lightbulb",
             title: "25 LED Display",
-            description: "Show images, animations, text, and numbers. The LEDs also work as light sensors",
+            description:
+              "Show images, animations, text, and numbers. The LEDs also work as light sensors",
           },
           {
             icon: "music",
             title: "Built-in Speaker",
-            description: "Play sounds, music, and speech without connecting any external components",
+            description:
+              "Play sounds, music, and speech without connecting any external components",
           },
           {
             icon: "microphone",
             title: "Microphone",
-            description: "Respond to sounds and voices. Create sound-activated projects and voice commands",
+            description:
+              "Respond to sounds and voices. Create sound-activated projects and voice commands",
           },
           {
-            icon: "compass",
+            icon: "running",
             title: "Motion Sensors",
             description: "Accelerometer and compass detect movement, tilt, shaking, and direction",
           },
@@ -145,116 +139,98 @@ export default async function MicrobitGoPage() {
       <ImageTextBlock
         image="/images/products/bbc-micro-bit-go/kids-holding-microbits.jpg"
         imageAlt="Two children holding micro:bit boards and smiling"
-        title="Learn Together, Build Together"
+        title="Built for Group Learning"
         body="The micro:bit's built-in radio lets devices talk to each other wirelessly. Create multiplayer games, send secret messages, or build collaborative projects. Learning is always more fun with friends."
         layout="image-right"
-        background="white"
-      />
-
-      {/* Learning Outcomes */}
-      <LearningOutcomes
-        title="Skills They'll Develop"
-        subtitle="Research shows 80% of students feel anyone can learn to code after using micro:bit. Here's what they'll learn along the way."
-        outcomes={[
-          "Computational thinking and problem-solving",
-          "Programming fundamentals - loops, variables, conditionals",
-          "Understanding inputs, outputs, and sensors",
-          "Debugging and iterative development",
-          "Creative design and project planning",
-          "Collaboration through wireless projects",
-        ]}
-        background="white"
-      />
-
-      {/* What's Included */}
-      <WhatsIncluded
-        title="What's in the Box"
-        items={[
-          "BBC micro:bit V2 Board",
-          "Micro USB Cable",
-          "Battery Holder with JST Connector",
-          "2x AAA Batteries",
-          "Quick Start Guide",
-        ]}
-        background="gray"
-      />
-
-      {/* Expand Your Projects Section */}
-      <ImageTextBlock
-        image="/images/products/bbc-micro-bit-go/board-connected-wires-with-hand.jpg"
-        imageAlt="Hands connecting wires to a micro:bit board on a breadboard"
-        title="Expand When You're Ready"
-        body="Start with the built-in features, then grow. The edge connector lets you add motors, sensors, and LEDs. Use crocodile clips for quick experiments, or connect to breakout boards for more advanced projects."
-        layout="image-left"
         background="white"
       />
 
       {/* Project Showcase */}
       <ProjectShowcase
         title="Projects to Get Started"
+        highlight="200+ free projects available on microbit.org"
         subtitle="No extra parts needed - these projects use only what's built into the micro:bit."
         projects={[
           {
-            name: "Flashing Heart",
+            name: "Beating Heart",
             description: "Your first program - animate a beating heart on the LED display",
             concepts: "Loops, timing, LED control",
+            image: "/images/products/bbc-micro-bit-go/projects/beating-heart.png",
           },
           {
             name: "Digital Dice",
             description: "Shake to roll a random number from 1 to 6",
             concepts: "Random numbers, accelerometer",
+            image: "/images/products/bbc-micro-bit-go/projects/digital-dice.png",
           },
           {
             name: "Rock Paper Scissors",
             description: "Play against a friend using shake to choose",
             concepts: "Variables, conditionals, random",
+            image: "/images/products/bbc-micro-bit-go/projects/rock-paper-scissors.png",
           },
           {
-            name: "Step Counter",
-            description: "Build a pedometer that counts your steps",
-            concepts: "Accelerometer, variables, math",
+            name: "Compass",
+            description: "Turn your micro:bit into a working compass that points North",
+            concepts: "Compass sensor, mapping values",
+            image: "/images/products/bbc-micro-bit-go/projects/compass.png",
           },
           {
-            name: "Noise Meter",
-            description: "Display how loud your environment is",
-            concepts: "Microphone input, mapping values",
+            name: "Display Messages",
+            description: "Scroll custom text and messages across the LED display",
+            concepts: "Strings, loops, LED display",
+            image: "/images/products/bbc-micro-bit-go/projects/display-messages.png",
           },
           {
-            name: "Reaction Game",
-            description: "Test your reflexes with this timing challenge",
-            concepts: "Buttons, timing, comparison",
+            name: "Displaying Images",
+            description: "Draw and animate your own pixel art on the 5x5 LED grid",
+            concepts: "LED grid, arrays, animation",
+            image: "/images/products/bbc-micro-bit-go/projects/displaying-images.png",
           },
         ]}
         moreText="Plus 200+ free projects on microbit.org including games, music makers, and science experiments"
         background="white"
       />
 
-      {/* Specifications */}
-      <Specifications
-        title="Technical Details"
-        specs={[
-          { label: "Processor", value: "ARM Cortex-M4 @ 64MHz" },
-          { label: "Memory", value: "512KB Flash, 128KB RAM" },
-          { label: "Display", value: "25 LEDs (5x5 grid)" },
-          { label: "Audio", value: "Built-in speaker and microphone" },
-          { label: "Sensors", value: "Accelerometer, compass, temperature, light, touch" },
-          { label: "Connectivity", value: "Bluetooth LE, Radio, USB" },
-          { label: "I/O Pins", value: "25 edge connector pins" },
-          { label: "Power", value: "USB or 2x AAA batteries" },
-          { label: "Dimensions", value: "4cm x 5cm" },
-          { label: "Programming", value: "MakeCode, Python, Scratch" },
-        ]}
-        background="white"
-      />
-
-      {/* Young Makers Section */}
-      <ImageTextBlock
-        image="/images/products/bbc-micro-bit-go/boy-holding-microbit.jpg"
-        imageAlt="Young boy proudly holding his micro:bit creation"
-        title="From First Program to Proud Maker"
-        body="There's nothing quite like seeing your code come to life. The micro:bit transforms abstract concepts into tangible results - LEDs light up, sounds play, and sensors respond. Every project builds confidence and sparks curiosity for the next challenge."
-        layout="image-right"
+      {/* Customer Showcase */}
+      <CustomerShowcase
+        title="See What Others Are Creating"
+        subtitle="Real kids, real projects, real fun — from first-timers to confident coders."
         background="gray"
+        images={[
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/kids-looking-at-amkecode-screen-holding-microbit.jpg",
+            alt: "Two boys in a classroom looking at MakeCode on a laptop, one holding a micro:bit",
+          },
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/hand-holding-microbit-device-with-coding-screen-in-the-back.jpg",
+            alt: "Hand holding a micro:bit in front of a MakeCode block-coding screen",
+          },
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/two-kids-helping-eachother-with-makecode.jpg",
+            alt: "A girl and boy sitting together at laptops, both working on MakeCode",
+          },
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/child-working-on-computer-on-microbit-app.png",
+            alt: "Young girl coding with MakeCode blocks on a laptop",
+          },
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/holding-microbit-with-battery-holder-in-front-of-screen.jpeg",
+            alt: "Hands holding a micro:bit with battery holder in front of a large monitor",
+          },
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/girls-hand-holding-microbit-infront-of-computer.png",
+            alt: "Hand holding a micro:bit in front of a computer showing the micro:bit interface",
+          },
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/displaying-messages.png",
+            alt: "micro:bit board with glowing red LEDs displaying a message",
+          },
+          {
+            src: "/images/products/bbc-micro-bit-go/end-user/kids-on-computers-Python-and-block-based-learning.png",
+            alt: "Two girls at desktop computers coding with MakeCode in a school computer lab",
+          },
+        ]}
       />
 
       {/* FAQ Section */}
@@ -295,20 +271,53 @@ export default async function MicrobitGoPage() {
         background="gray"
       />
 
+      {/* What's in the Box */}
+      <WhatsIncluded
+        title="What's in the Box"
+        image="/images/products/bbc-micro-bit-go/whats-in-the-box.jpeg"
+        imageAlt="BBC micro:bit Go box contents: micro:bit V2 board, USB cable, battery holder, and AAA batteries"
+        items={[
+          "BBC micro:bit V2 Board",
+          "Micro USB Cable",
+          "Battery Holder with JST Connector",
+          "2x AAA Batteries",
+          "Quick Start Guide",
+        ]}
+        background="white"
+      />
+
+      {/* Specifications */}
+      <Specifications
+        title="Technical Details"
+        specs={[
+          { label: "Processor", value: "ARM Cortex-M4 @ 64MHz" },
+          { label: "Memory", value: "512KB Flash, 128KB RAM" },
+          { label: "Display", value: "25 LEDs (5x5 grid)" },
+          { label: "Audio", value: "Built-in speaker and microphone" },
+          { label: "Sensors", value: "Accelerometer, compass, temperature, light, touch" },
+          { label: "Connectivity", value: "Bluetooth LE, Radio, USB" },
+          { label: "I/O Pins", value: "25 edge connector pins" },
+          { label: "Power", value: "USB or 2x AAA batteries" },
+          { label: "Dimensions", value: "4cm x 5cm" },
+          { label: "Programming", value: "MakeCode, Python, Scratch" },
+        ]}
+        background="gray"
+      />
+
+      {/* Reviews */}
+      <ProductReviews productId={product.id} background="gray" />
+
       {/* Final CTA */}
       <CallToAction
-        title="Ready to Start Coding?"
-        subtitle="Join millions of makers, students, and educators worldwide. The micro:bit Go has everything you need to begin your coding journey today."
+        title="Get Started with micro:bit"
+        subtitle="Board, USB cable, batteries, and battery holder — everything in the box to start coding right away."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
         secondaryHref="/shop"
         background="navy"
       />
-
-      {/* Related Products */}
-      <RelatedProducts products={relatedProducts} background="gray" />
-    </>
+    </ProductTrackingProvider>
   );
 }
 
@@ -323,5 +332,13 @@ export async function generateMetadata() {
     title: `${product.title} | CREATESPACE`,
     description:
       "Get started with coding using the BBC micro:bit Go. Complete starter kit with micro:bit V2, USB cable, batteries, and battery holder. Perfect for beginners aged 8+.",
+    alternates: {
+      canonical: "/product/bbc-micro-bit-go",
+    },
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

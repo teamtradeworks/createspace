@@ -13,7 +13,13 @@
   --cs-grey: #b3b3b3;
 }
 
+html {
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+}
+
 body {
+  /* eslint-disable-next-line css/no-invalid-properties -- Next.js injects --font-outfit at runtime */
   font-family: var(--font-outfit), sans-serif;
 }
 
@@ -26,7 +32,13 @@ body {
 /* Hero Carousel - CSS-first approach for LCP optimization */
 .hero-carousel-wrapper {
   position: relative;
-  min-height: 500px;
+  min-height: 560px;
+}
+
+@media (min-width: 1024px) {
+  .hero-carousel-wrapper {
+    min-height: 520px;
+  }
 }
 
 /* All slides hidden by default */
@@ -42,11 +54,57 @@ body {
 }
 
 /* JS-controlled visibility via data attribute */
-.hero-carousel-wrapper[data-current-slide="0"] .hero-slide { opacity: 0; pointer-events: none; }
-.hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] { opacity: 1; pointer-events: auto; }
+.hero-carousel-wrapper[data-current-slide="0"] .hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-.hero-carousel-wrapper[data-current-slide="1"] .hero-slide { opacity: 0; pointer-events: none; }
-.hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] { opacity: 1; pointer-events: auto; }
+.hero-carousel-wrapper[data-current-slide="1"] .hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] {
+  opacity: 1;
+  pointer-events: auto;
+}
 
-.hero-carousel-wrapper[data-current-slide="2"] .hero-slide { opacity: 0; pointer-events: none; }
-.hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] { opacity: 1; pointer-events: auto; }
+.hero-carousel-wrapper[data-current-slide="2"] .hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Thin scrollbar for review containers */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+}
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 3px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(156, 163, 175, 0.8);
+}
+
+/* Hide scrollbar completely */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

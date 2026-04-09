@@ -1,55 +1,149 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { Product, formatPrice } from "@/lib/shopify";
+import { capture } from "@/lib/analytics";
+import { Product, formatPrice, formatAgeRange, getProductRating, getStockStatus } from "@/lib/shopify";
+import QuickAddButton from "@/components/QuickAddButton";
+import ProductCardImage from "@/components/ProductCardImage";
+import { StarRating } from "@/components/StarRating";
 
 type ProductCardProps = {
   product: Product;
+  searchQuery?: string;
+  searchPosition?: number;
+  priority?: boolean;
 };
 
-export default function ProductCard({ product }: ProductCardProps) {
-  const image = product.images.edges[0]?.node;
+export default function ProductCard({ product, searchQuery, searchPosition, priority = false }: ProductCardProps) {
+  const ageRange = formatAgeRange(product.minAge, product.maxAge);
+  const ratingData = getProductRating(product.rating, product.ratingCount);
+  const stockStatus = getStockStatus(product);
   const price = product.priceRange.minVariantPrice;
+  const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
+  const hasDiscount =
+    compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
+  const discountPercent = hasDiscount
+    ? Math.round(
+        ((parseFloat(compareAtPrice.amount) - parseFloat(price.amount)) /
+          parseFloat(compareAtPrice.amount)) *
+          100,
+      )
+    : 0;
 
   return (
-    <Link href={`/product/${product.handle}`} className="group">
-      <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-        {/* Image */}
-        <div className="aspect-square relative bg-gray-100 overflow-hidden">
-          {image ? (
-            <Image
-              src={image.url}
-              alt={image.altText || product.title}
-              fill
-              className="object-cover group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+    <Link
+      href={`/product/${product.handle}`}
+      onClick={() => {
+        if (searchQuery) {
+          capture("search_result_clicked", {
+            query: searchQuery,
+            product_handle: product.handle,
+            product_title: product.title,
+            position: searchPosition,
+          });
+        }
+      }}
+      className="group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+    >
+      <div className="bg-gray-50 aspect-square relative overflow-hidden">
+        {product.images.edges[0] ? (
+          <ProductCardImage
+            primarySrc={product.images.edges[0].node.url}
+            primaryAlt={product.images.edges[0].node.altText || product.title}
+            secondarySrc={product.images.edges[1]?.node.url}
+            secondaryAlt={product.images.edges[1]?.node.altText || product.title}
+            priority={priority}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <svg
+              className="w-16 h-16 text-gray-300"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1}
+                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+              />
+            </svg>
+          </div>
+        )}
+        {hasDiscount && discountPercent > 0 && (
+          <span className="absolute top-3 left-3 bg-cs-red text-white text-[10px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
+            -{discountPercent}%
+          </span>
+        )}
+        {ageRange && (
+          <span className="absolute top-3 right-3 bg-navy/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+            {ageRange}
+          </span>
+        )}
+      </div>
+      <div className="p-3 sm:p-5 flex flex-col flex-1">
+        <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug text-sm sm:text-base mb-1 sm:mb-2">
+          {product.title}
+        </h3>
+        <p className="text-sm text-gray-500 line-clamp-2 mb-2">
+          {product.description || "Hands-on STEM learning kit"}
+        </p>
+        <div className="mb-2 sm:mb-3">
+          <span
+            className={`inline-flex items-center gap-1.5 text-xs font-medium ${
+              stockStatus === "out-of-stock"
+                ? "text-cs-red"
+                : stockStatus === "lead-time"
+                  ? "text-cs-orange"
+                  : "text-cs-green"
+            }`}
+          >
+            <span
+              className={`w-1.5 h-1.5 rounded-full ${
+                stockStatus === "out-of-stock"
+                  ? "bg-cs-red"
+                  : stockStatus === "lead-time"
+                    ? "bg-cs-orange"
+                    : "bg-cs-green"
+              }`}
             />
-          ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-400">
-              <svg
-                className="w-16 h-16"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1}
-                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                />
-              </svg>
-            </div>
+            {stockStatus === "in-stock"
+              ? "In Stock"
+              : stockStatus === "lead-time"
+                ? "Lead Time"
+                : "Out of Stock"}
+          </span>
+        </div>
+        <div className="flex items-center gap-1.5 mb-2 sm:mb-3 min-h-[20px]">
+          {ratingData && (
+            <>
+              <StarRating rating={ratingData.average} size="sm" />
+              <span className="text-xs text-gray-500">({ratingData.count})</span>
+            </>
           )}
         </div>
-
-        {/* Content */}
-        <div className="p-4">
-          <h3 className="font-medium text-navy line-clamp-2 mb-2 group-hover:text-cs-orange transition-colors">
-            {product.title}
-          </h3>
-          <p className="text-cs-orange font-semibold">
-            {formatPrice(price.amount, price.currencyCode)}
-          </p>
+        <div className="flex items-center justify-between mt-auto">
+          <div className="flex items-baseline gap-1.5">
+            <span className={`font-bold text-base sm:text-lg ${hasDiscount ? "text-cs-red" : "text-cs-orange"}`}>
+              {formatPrice(price.amount, price.currencyCode)}
+            </span>
+            {hasDiscount && (
+              <span className="text-xs sm:text-sm text-gray-400 line-through">
+                {formatPrice(compareAtPrice.amount, compareAtPrice.currencyCode)}
+              </span>
+            )}
+          </div>
+          <QuickAddButton
+            variantId={product.variants.edges[0]?.node.id}
+            productId={product.id}
+            title={product.title}
+            price={parseFloat(price.amount)}
+            currencyCode={price.currencyCode}
+            handle={product.handle}
+            image={product.images.edges[0]?.node.url}
+            available={product.availableForSale}
+          />
         </div>
       </div>
     </Link>

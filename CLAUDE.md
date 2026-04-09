@@ -8,11 +8,81 @@ This is a Shopify headless ecommerce store for our online store.  The website is
  - Deployed to Vercel
  - Uses the Shopify GraphQL storefront API
  - Design must work on desktop and mobile
+ - **Internal links must use Next.js `Link` from `next/link`** — never use raw `<a>` tags for internal routes. Raw `<a>` tags cause full page reloads, bypass client-side navigation, and can lose client state (e.g. cart). Reserve `<a>` for external URLs only.
+ - **Before pushing changes**, always run `npm run lint` from the `storefront/` directory and verify it passes. Do not push if linting fails.
+ - **Before pushing changes**, always run `npm run build` from the `storefront/` directory and verify it succeeds. Do not push if the build fails.
+ - **Before pushing changes**, always run `npm test` from the `storefront/` directory and verify all unit tests pass. Do not push if tests fail.
+
+## Testing
+
+Unit tests use **Vitest** and live in `storefront/src/__tests__/`. E2E tests use **Playwright** and live in `storefront/e2e/`.
+
+**Commands** (run from `storefront/`):
+- `npm run lint` — run linter (must pass before pushing)
+- `npm test` — run unit tests (must pass before pushing)
+- `npm run test:watch` — run unit tests in watch mode during development
+- `npm run test:e2e` — run E2E tests (requires built app or dev server on localhost:3000)
+- `npm run test:e2e:ui` — interactive Playwright UI
+
+**When to run tests:**
+- Run `npm test` before every push
+- Run `npm test` after modifying any code in `src/lib/`, `src/config/`, or `src/context/`
+
+**When to write/update tests:**
+- When adding or modifying business logic (pricing, delivery, formatting, add-ons)
+- When fixing a bug — add a test that reproduces the bug before fixing it
+- When adding new utility functions or helpers
+- Unit tests go in `src/__tests__/{module}.test.ts`
+- E2E tests go in `e2e/{feature}.spec.ts`
+
+**CI:** GitHub Actions runs lint, unit tests, build, and E2E tests on every PR to `main`. All must pass to merge.
+
+## SEO
+
+The site has foundational SEO infrastructure that must be maintained:
+
+- **Sitemap** (`storefront/src/app/sitemap.ts`): Products are pulled dynamically from Shopify. Static pages are listed manually — **when adding a new page, add it to the sitemap**.
+- **Robots** (`storefront/src/app/robots.ts`): Blocks `/cart`, `/search`, `/product/kitchen-sink`. Add any new non-indexable pages here.
+- **Open Graph**: Root layout (`layout.tsx`) sets `metadataBase`, default OG image, siteName, locale, and Twitter Card config. Child pages inherit these defaults — their `title`/`description` automatically become `og:title`/`og:description`. Product pages should include `openGraph.images` with the product image in `generateMetadata`.
+- **JSON-LD**: Product pages include `<ProductJsonLd>` for schema.org structured data. Always include this on new product pages.
+- **Heading hierarchy**: Every page must have exactly one `<h1>` tag. Do not add multiple `<h1>` tags to a page.
+- **Metadata**: Every page must export `metadata` or `generateMetadata` with a `title` and `description`.
+
+## Product Metafields
+
+Product attributes are configured in Shopify admin via metafield definitions. These are accessible via the Storefront API.
+
+| Metafield Key | Type | Description |
+|---------------|------|-------------|
+| `custom.minimum_age` | Integer | Minimum recommended age |
+| `custom.maximum_age` | Integer | Maximum recommended age (leave empty for "X+" products) |
+| `custom.batteries_required` | Boolean | Whether the product requires batteries |
+| `custom.batteries_included` | Boolean | Whether batteries are included in the box |
+| `custom.batteries_list` | Metaobject reference | Reference to a battery type metaobject |
+| `custom.projects` | Single line text | Number of projects included (e.g., "15+", "200+") |
+| `custom.guide` | Single line text | Guide/manual description (e.g., "170-page book") |
+| `custom.soldering` | Boolean | Whether soldering is required |
+| `custom.coding_platform` | Single line text | Coding platform/language (e.g., "Scratch", "Block & Text") |
+
+**Querying metafields in GraphQL:**
+```graphql
+product(handle: "example") {
+  minAge: metafield(namespace: "custom", key: "minimum_age") { value }
+  maxAge: metafield(namespace: "custom", key: "maximum_age") { value }
+  projects: metafield(namespace: "custom", key: "projects") { value }
+}
+```
+
+# Git & PR Conventions
+
+- Do NOT include `Co-Authored-By: Claude` or any AI co-author lines in commit messages
+- Do NOT mention Claude or AI in pull request descriptions
+- **Always update the PR title and description** when pushing further commits to reflect all changes in the PR
 
 # General Conventions
 
  - This is a South African business and we only sell locally.
- - Currency is Rand (ZAR).  For example, use R1,200.
+ - Currency is Rand (ZAR).  For example, use R 1,200.
  - Number formats use commas for thousand seperation and period for decimals, e.g. 2,500.99
  - We use The Courier Guy for deliveries - https://thecourierguy.co.za/
  - We use Stitch for secure payments - https://stitch.money/
@@ -28,7 +98,7 @@ Delivery pricing is configured in `storefront/src/config/site.json`. Update that
 
 # Brand and Tone
 
-See our full brand strategy document at `assets/brand/brand-strategy.md`.  When writing content, always refer to our brand strategy to ensure correct tone, correct audience, appropriate messaging, etc.
+See our full brand strategy document at `assets/brand/brand-strategy.md` and our voice and tone guide at `assets/brand/voice-and-tone.md`. When writing or editing any website content, always refer to both documents to ensure correct tone, correct audience, appropriate messaging, and to avoid banned phrases.
 
 ## Brand Voice
 - **Personality**: Fun, playful, enthusiastic, trustworthy, knowledgeable, inviting, integral
@@ -115,7 +185,7 @@ When adding new pages, create a corresponding subfolder (e.g., `images/contact/`
 sips --resampleWidth 1200 path/to/image.jpg
 
 # Compress JPEGs
-npx sharp-cli --input image.jpg --output image.jpg --quality 80
+npx sharp-cli --input image.jpg --output image.jpg --quality 85
 
 # Compress PNGs
 npx sharp-cli --input image.png --output image.png --compressionLevel 9
@@ -152,13 +222,13 @@ import Image from "next/image";
 # Website Content and Structure
 
 ## Education Section
-The education pages target teachers, principals, and educators (B2B audience). We offer three education solutions:
+The education pages target teachers, principals, and educators (B2B audience). We offer four education solutions:
 
 1. **STEM Tutors** (`/education/stem-tutors`)
    - Partner: Robotixkids (https://robotixkids.co.za/)
    - Trained facilitators deliver robotics and coding programmes at schools
 
-2. **Curriculum for Teachers** (`/education/curriculum`)
+2. **Curriculum for Schools** (`/education/curriculum`)
    - Partner: Inspire Africa (https://inspire.africa/)
    - Online teacher training platform with CAPS-aligned content
    - Ready-to-use lesson plans and resources
@@ -169,41 +239,92 @@ The education pages target teachers, principals, and educators (B2B audience). W
    - Bulk pricing for schools (10+ units)
    - Reusable materials for ongoing use
 
+4. **Short Courses** (`/education/courses`)
+   - Partner: Inspire Africa (https://inspire.africa/)
+   - Digital products — online STEM courses on the Inspire Africa platform
+   - Shopify collection: "courses"
+   - On purchase, CREATESPACE manually sends a QR code for platform access
+
 ## Product Pages
 
 When creating, improving, or modifying product pages, you MUST follow this section and referenced documents.
 
 We often differentiate and reference products by their unique slug (`{slug}`), which comes from the Shopify API (e.g. arduino-starter-kit).
 
-Working on product pages has two parts:
- 1. Content research: 
+Working on product pages has three parts:
+ 1. Content research:
     - Triggered by the Claude command `/research {slug}`.
     - This involved gathering written content about a product from online sources.
     - There should be more than enough content gathered for us to write product pages.
     - The content doesn't need to be rewritten with our tone or style yet.
     - There should be enough content to satisfy the guidelines in `assets/brand/product-content-framework.md`.
     - The content is to be stored in `assets/product/{slug}/content.md`.
- 2. Turning research content into a suitable product page:
+ 2. Turning research content into a parent-focused product page:
     - This involved uses the researched content in `assets/product/{slug}/content.md` and the following two documents to create product pages:
       - `assets/brand/product-content-framework.md`
       - `assets/brand/product-page-design.md`
-    - Rewrite the content from `assets/product/{slug}/content.md` using the product-content-framework.md. 
+    - Rewrite the content from `assets/product/{slug}/content.md` using the product-content-framework.md.
     - No copying and pasting.
     - Triggered by the Claude command `/product-page {slug}`
-   
-We keep these two parts above seperate so that we don't need to repeat researching online while reworking the product page.
+ 3. Turning research content into an educator/school-focused product page:
+    - Uses the researched content in `assets/product/{slug}/content.md` and the following two documents:
+      - `assets/brand/edu-product-content-framework.md`
+      - `assets/brand/product-page-design.md`
+    - Rewrite the content from `assets/product/{slug}/content.md` using the edu-product-content-framework.md.
+    - Addresses educators, teachers, and school administrators (not parents).
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page-edu {slug}`
+
+ 4. Turning research content into a course-focused product page:
+    - Uses the researched content in `assets/courses/{slug}/content.md` and `assets/brand/product-page-design.md`
+    - Simpler pages focused on: what the course teaches, duration, modules, and outcomes
+    - These are digital products (no physical contents, batteries, specs, etc.)
+    - Addresses educators/learners, mentions Inspire Africa platform and QR code access
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page-course {slug}`
+
+ 5. Turning research content into an extension/expansion product page:
+    - Uses the researched content in `assets/product/{slug}/content.md` and the following documents:
+      - `assets/brand/ext-product-content-framework.md`
+      - `assets/brand/product-page-design.md`
+    - Shorter, more concise pages for products that extend/expand another product
+    - Prominently highlights the parent product relationship with an `ExtensionBanner` component
+    - CTA links to the parent product instead of `/shop`
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page-ext {slug} {parent-slug}`
+
+We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2, 3, 4, and 5 are alternatives — use `/product-page` for consumer products (Shop), `/product-page-edu` for classroom kits (Education), `/product-page-course` for online courses (Education), and `/product-page-ext` for extension/expansion products.
 
 **Content Framework** - `assets/brand/product-content-framework.md`
+   - Parent-focused content guidelines (consumer product pages)
    - What information to include (age, skill level, learning outcomes)
    - Skill tag taxonomy (STEM Skills + Life Skills)
    - Writing guidelines and tone
    - Imagery requirements (lifestyle photos, videos/GIFs)
+
+**Education Content Framework** - `assets/brand/edu-product-content-framework.md`
+   - Educator-focused content guidelines (classroom kit pages)
+   - Three educator personas (STEM Champions, Decision-Makers, STEM-Hesitant)
+   - Three educator questions (curriculum alignment, cost-per-learner, support)
+   - Education-specific writing guidelines and tone
+
+**Extension Content Framework** - `assets/brand/ext-product-content-framework.md`
+   - Extension/expansion product content guidelines
+   - Concise copy approach (shorter than standard pages)
+   - Parent product relationship messaging
+   - Extension-specific FAQ and CTA patterns
 
 **Page Design Spec** - `assets/brand/product-page-design.md`
    - Page structure with 15 component sections
    - Component usage examples with TSX code
    - Required vs optional sections
    - Minimal vs full page guidance
+
+**Component Reference** - `assets/brand/product-page-components.md`
+   - Detailed specification for every product section component
+   - Props, types, defaults, and usage examples
+   - **Must be updated whenever a component is modified**
+   - Kitchen sink preview available at `/product/kitchen-sink`
 
 **Rules to always obey:**
 - Research content lives in `assets/product/{slug}/content.md`
@@ -215,6 +336,26 @@ We keep these two parts above seperate so that we don't need to repeat researchi
 1. Create folder: `storefront/src/app/product/{slug}/page.tsx` (folder name must match Shopify handle/slug)
 2. Define `PRODUCT_SKU` constant for add-on resolution
 3. Use `getProductByHandle("handle")` to fetch product data
+4. Add `<ProductJsonLd product={product} />` inside the JSX (import from `@/components/ProductJsonLd`)
+5. Export `generateMetadata` with `title`, `description`, `alternates.canonical`, and `openGraph.images`:
+   ```ts
+   export async function generateMetadata() {
+     const product = await getProductByHandle(PRODUCT_HANDLE);
+     if (!product) return { title: "Product Not Found" };
+     return {
+       title: `${product.title} | CREATESPACE`,
+       description: "Benefit-led description under 160 characters.",
+       alternates: {
+         canonical: "/product/{slug}",  // Use the folder name (URL path), not the Shopify handle
+       },
+       openGraph: {
+         images: product.images.edges[0]?.node.url
+           ? [{ url: product.images.edges[0].node.url }]
+           : undefined,
+       },
+     };
+   }
+   ```
 
 ### Product add-ons
 
@@ -251,6 +392,7 @@ Product-specific images are stored in `assets/product/[product-handle]/` with th
 | `end-user/`   | Customer photos of projects and creations | Social proof, use in groups at small scale (not studio quality) |
 | `lifestyle/`  | Professional lifestyle photography        | Hero images, large format, primary visual content               |
 | `logo/`       | Official brand logos                      | Brand attribution, partnerships                                 |
+| `projects/`   | Small images representing individual projects/activities | ProjectShowcase card thumbnails, one per project  |
 
 **Guidelines:**
 - Filenames describe the photo content - use this to pair images with relevant sections

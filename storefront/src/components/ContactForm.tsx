@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { capture, identify, group } from "@/lib/analytics";
 
 interface FormData {
   name: string;
@@ -8,6 +9,13 @@ interface FormData {
   phone: string;
   subject: string;
   message: string;
+  schoolName: string;
+  position: string;
+}
+
+interface ContactFormProps {
+  showEducationFields?: boolean;
+  educationSource?: string;
 }
 
 const subjectOptions = [
@@ -19,20 +27,23 @@ const subjectOptions = [
   "Other",
 ];
 
-export default function ContactForm() {
+export default function ContactForm({ showEducationFields = false, educationSource }: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     phone: "",
     subject: "",
     message: "",
+    schoolName: "",
+    position: "",
   });
+  const [subscribeToNewsletter, setSubscribeToNewsletter] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -43,10 +54,54 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setError(null);
 
-    // Simulate form submission
-    // In production, this would send to an API endpoint
     try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      const submitData = showEducationFields
+        ? { ...formData, subject: educationSource ? `Education Enquiry — ${educationSource}` : "Education Enquiry" }
+        : formData;
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(submitData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.error || "Something went wrong. Please try again.");
+        return;
+      }
+
+      capture("contact_form_submitted", { subject: submitData.subject });
+      if (formData.email) {
+        identify(formData.email, {
+          email: formData.email,
+          name: formData.name,
+        });
+      }
+      if (submitData.subject === "School / Bulk Order" || showEducationFields) {
+        group("enquiry_type", "school", {
+          source: "contact_form",
+        });
+      }
+
+      if (formData.email) {
+        try {
+          const res = await fetch("/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: formData.email.trim(),
+              subscribed: subscribeToNewsletter,
+            }),
+          });
+          if (res.ok && subscribeToNewsletter) {
+            capture("newsletter_subscribed", { source: "contact_form" });
+          }
+        } catch {
+          // Don't let newsletter subscription errors affect the form submission
+        }
+      }
+
       setIsSubmitted(true);
       setFormData({
         name: "",
@@ -54,6 +109,8 @@ export default function ContactForm() {
         phone: "",
         subject: "",
         message: "",
+        schoolName: "",
+        position: "",
       });
     } catch {
       setError("Something went wrong. Please try again.");
@@ -66,18 +123,8 @@ export default function ContactForm() {
     return (
       <div className="bg-cs-green/10 border border-cs-green/20 rounded-xl p-8 text-center">
         <div className="w-16 h-16 bg-cs-green rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg
-            className="w-8 h-8 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 13l4 4L19 7"
-            />
+          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
         <h3 className="text-xl font-semibold text-navy mb-2">Message Sent!</h3>
@@ -102,91 +149,185 @@ export default function ContactForm() {
         </div>
       )}
 
-      <div className="grid sm:grid-cols-2 gap-5">
-        {/* Name */}
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-            Name <span className="text-cs-red">*</span>
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your name"
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
-          />
-        </div>
+      {showEducationFields ? (
+        <>
+          {/* Education layout: Name + Position, School, Email + Phone, Message */}
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                Name <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
 
-        {/* Email */}
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-            Email <span className="text-cs-red">*</span>
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="your@email.com"
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
-          />
-        </div>
-      </div>
+            {/* Position Held */}
+            <div>
+              <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1">
+                Position Held
+              </label>
+              <input
+                type="text"
+                id="position"
+                name="position"
+                value={formData.position}
+                onChange={handleChange}
+                placeholder="e.g. Principal, HOD, Teacher"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+          </div>
 
-      <div className="grid sm:grid-cols-2 gap-5">
-        {/* Phone */}
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-            Phone
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="+27 00 000 0000"
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
-          />
-        </div>
+          {/* School Name */}
+          <div>
+            <label htmlFor="schoolName" className="block text-sm font-medium text-gray-700 mb-1">
+              School Name
+            </label>
+            <input
+              type="text"
+              id="schoolName"
+              name="schoolName"
+              value={formData.schoolName}
+              onChange={handleChange}
+              placeholder="Your school name"
+              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+            />
+          </div>
 
-        {/* Subject */}
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-            Subject <span className="text-cs-red">*</span>
-          </label>
-          <select
-            id="subject"
-            name="subject"
-            required
-            value={formData.subject}
-            onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors bg-white"
-          >
-            <option value="">Select a topic</option>
-            {subjectOptions.map((option) => (
-              <option key={option} value={option}>
-                {option}
-              </option>
-            ))}
-          </select>
-        </div>
-      </div>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your@email.com"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+
+            {/* Phone */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder=""
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+          </div>
+        </>
+      ) : (
+        <>
+          {/* Standard layout: Name + Email, Phone + Subject, Message */}
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Name */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                Name <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Your name"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+
+            {/* Email */}
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                Email <span className="text-cs-red">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="your@email.com"
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-5">
+            {/* Phone */}
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder=""
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              />
+            </div>
+
+            {/* Subject */}
+            <div>
+              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
+                Subject <span className="text-cs-red">*</span>
+              </label>
+              <select
+                id="subject"
+                name="subject"
+                required
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors bg-white"
+              >
+                <option value="">Select a topic</option>
+                {subjectOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </>
+      )}
 
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message <span className="text-cs-red">*</span>
+          Message {!showEducationFields && <span className="text-cs-red">*</span>}
         </label>
         <textarea
           id="message"
           name="message"
-          required
+          required={!showEducationFields}
           rows={5}
           value={formData.message}
           onChange={handleChange}
@@ -194,6 +335,19 @@ export default function ContactForm() {
           className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors resize-none"
         />
       </div>
+
+      {/* Newsletter opt-in */}
+      <label className="flex items-start gap-3 cursor-pointer">
+        <input
+          type="checkbox"
+          checked={subscribeToNewsletter}
+          onChange={(e) => setSubscribeToNewsletter(e.target.checked)}
+          className="mt-0.5 h-5 w-5 rounded border-gray-300 text-cs-orange focus:ring-cs-orange cursor-pointer accent-cs-orange"
+        />
+        <span className="text-sm text-gray-600">
+          Keep me updated with new products, STEM deals, and education resources.
+        </span>
+      </label>
 
       {/* Submit Button */}
       <button
@@ -223,12 +377,7 @@ export default function ContactForm() {
         ) : (
           <>
             Send Message
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

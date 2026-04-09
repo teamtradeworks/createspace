@@ -1,100 +1,44 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "STEM Tutors | Education | CREATESPACE",
   description:
-    "Expert STEM facilitators for your school. Partner programme with Robotixkids offering robotics, coding, and electronics education.",
+    "Hands-on STEM education at your school. Our partner Robotixkids brings robotics, coding, and creative problem-solving to learners from Grade R to 12.",
+  alternates: {
+    canonical: "/education/stem-tutors",
+  },
 };
 
-const programmes = [
+const phases = [
   {
-    title: "After-School Clubs",
+    title: "Foundation Phase",
+    grades: "Grade RRR – 3",
     description:
-      "Weekly sessions that build skills progressively. Learners complete exciting projects while developing problem-solving abilities.",
-    duration: "1-2 hours per week",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Workshops",
-    description:
-      "Single-session or multi-day intensive workshops. Perfect for science weeks, special events, or curriculum enrichment.",
-    duration: "Half day to full week",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Holiday Camps",
-    description:
-      "Intensive holiday programmes where learners dive deep into STEM projects. A productive and fun way to spend school breaks.",
-    duration: "3-5 days",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Curriculum Integration",
-    description:
-      "STEM sessions integrated into your school timetable. Our tutors work alongside your teachers to deliver curriculum-aligned content.",
-    duration: "Ongoing",
-    icon: (
-      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-        />
-      </svg>
-    ),
-  },
-];
-
-const subjects = [
-  {
-    name: "Robotics",
-    description: "Build and program robots using LEGO, Arduino, and more",
+      "Young learners are introduced to STEM concepts through creative, play-based activities. They build collaboration skills while exploring how things work — no screens required at this stage.",
     color: "bg-cs-orange",
+    image: "/images/education/stem-tutors/toddlers-exploring-robotics-kit.jpg",
+    imageAlt: "Young children exploring a robotics kit on the floor",
   },
   {
-    name: "Coding",
-    description: "From Scratch to Python, age-appropriate programming",
+    title: "Intermediate Phase",
+    grades: "Grade 4 – 7",
+    description:
+      "Learners get hands-on with Makerzoid robotics kits and intuitive block-based coding. Designed to develop critical thinking at every learning level.",
     color: "bg-cs-blue",
+    image: "/images/education/stem-tutors/two-children-robotics-kits.jpg",
+    imageAlt: "Two children in school uniform working with robotics kits",
   },
   {
-    name: "Electronics",
-    description: "Circuits, sensors, and hands-on maker projects",
+    title: "Secondary Phase",
+    grades: "Grade 8 – 12",
+    description:
+      "Older learners tackle pattern recognition, algorithmic thinking, robotics, and electronic communication — building real 21st-century skills for the world ahead.",
     color: "bg-cs-purple",
-  },
-  {
-    name: "3D Design",
-    description: "CAD software and 3D printing fundamentals",
-    color: "bg-cs-green",
+    image: "/images/education/stem-tutors/boy-coding-robot-at-event.jpg",
+    imageAlt: "Boy in school uniform coding a robot with a tablet at an event",
   },
 ];
 
@@ -104,64 +48,38 @@ export default function StemTutorsPage() {
       {/* Hero Section */}
       <section className="bg-navy text-white py-20 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+          <Link
+            href="/education"
+            className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
+          >
+            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+            Education
+          </Link>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <Link
-                href="/education"
-                className="inline-flex items-center text-white/60 hover:text-white mb-4 transition-colors"
-              >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M15 19l-7-7 7-7"
-                  />
-                </svg>
-                Education
-              </Link>
               <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
                 Partner Programme
               </span>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
-                Expert STEM Tutors for Your School
+                STEM Education, Delivered to Your School
               </h1>
               <p className="text-xl text-white/80 max-w-xl mb-8">
-                Bring hands-on robotics and coding education to your learners
-                with trained facilitators from our partner, Robotixkids.
+                Robotixkids brings trained facilitators, all the equipment, and a proven curriculum
+                directly to your classroom — from Grade R all the way to Matric.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
+                <a
+                  href="#contact-form"
                   className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 text-white rounded-lg font-semibold transition-colors"
                 >
                   Book a Session
-                </Link>
-                <a
-                  href="https://robotixkids.co.za/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg font-semibold transition-colors"
-                >
-                  Visit Robotixkids
-                  <svg
-                    className="w-4 h-4 ml-2"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
                 </a>
               </div>
             </div>
@@ -170,21 +88,14 @@ export default function StemTutorsPage() {
                 <div className="w-80 h-80 bg-cs-orange/20 rounded-full absolute -top-10 -right-10" />
                 <div className="w-64 h-64 bg-cs-blue/20 rounded-full absolute bottom-0 left-0" />
                 <div className="relative z-10 bg-white/10 backdrop-blur rounded-2xl p-8">
-                  <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-4 bg-white rounded-2xl flex items-center justify-center">
-                      <Image
-                        src="/images/illustrations/robot-orange.png"
-                        alt="Robotics"
-                        width={64}
-                        height={64}
-                        className="object-contain"
-                      />
-                    </div>
-                    <p className="text-white/60 text-sm">Powered by</p>
-                    <p className="text-2xl font-bold">Robotixkids</p>
-                    <p className="text-white/80 mt-2">
-                      South Africa&apos;s leading STEM education provider
-                    </p>
+                  <div className="flex items-center justify-center">
+                    <Image
+                      src="/images/education/stem-tutors/robotix-kids-logo.png"
+                      alt="Robotix Kids logo"
+                      width={220}
+                      height={220}
+                      className="object-contain"
+                    />
                   </div>
                 </div>
               </div>
@@ -193,57 +104,105 @@ export default function StemTutorsPage() {
         </div>
       </section>
 
-      {/* About Robotixkids */}
+      {/* How It Works */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                Our Partner
+                How It Works
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-6">
-                About Robotixkids
+                They Come to You
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Robotixkids is a leading STEM education provider in South
-                Africa, specialising in robotics and coding programmes for
-                schools. Their trained facilitators bring engaging, hands-on
-                learning experiences directly to your classroom.
+                Robotixkids runs as an extramural or curriculum programme at your school. Their trained
+                facilitators arrive with everything they need — kits, tablets, lesson plans — so
+                your school doesn&apos;t have to invest in equipment or train existing staff.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Through our partnership, CREATESPACE connects schools with
-                Robotixkids&apos; expert tutors and proven curriculum, making it
-                easy to bring quality STEM education to your learners.
+                Learners explore robotics, coding, and creative problem-solving through hands-on
+                activities using Makerzoid kits. Every session is designed to be fun first and
+                educational by design.
+              </p>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Through our partnership with Robotixkids, CREATESPACE makes it easy to bring quality
+                STEM education to your school — just get in touch and we&apos;ll handle the rest.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: "500+", label: "Schools served" },
-                  { value: "50,000+", label: "Learners trained" },
-                  { value: "10+", label: "Years experience" },
-                  { value: "100%", label: "SA developed" },
+                  { value: "R800", label: "Per term (primary)" },
+                  { value: "R875", label: "Per term (pre-primary)" },
+                  { value: "0", label: "Registration fees" },
+                  { value: "0", label: "Catch-up fees" },
                 ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="bg-gray-50 rounded-xl p-4 text-center"
-                  >
-                    <p className="text-2xl font-bold text-cs-orange">
-                      {stat.value}
-                    </p>
+                  <div key={stat.label} className="bg-gray-50 rounded-xl p-4 text-center">
+                    <p className="text-2xl font-bold text-cs-orange">{stat.value}</p>
                     <p className="text-sm text-gray-600">{stat.label}</p>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="bg-navy rounded-2xl p-8 text-white">
-              <h3 className="text-2xl font-semibold mb-6">What&apos;s Included</h3>
-              <ul className="space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/education/stem-tutors/girl-holding-robot-classroom.jpg"
+                    alt="Girl smiling while holding a robot she built in class"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="relative aspect-[2/1] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/education/stem-tutors/girl-coding-with-robotics-kit.jpg"
+                    alt="Girl using a tablet to code alongside her robotics kit"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+              </div>
+              <div className="space-y-4 pt-8">
+                <div className="relative aspect-[2/1] rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/education/stem-tutors/boys-building-lego-kits.jpg"
+                    alt="Boys collaborating on building a Makerzoid robotics kit"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+                <div className="relative aspect-square rounded-2xl overflow-hidden">
+                  <Image
+                    src="/images/education/stem-tutors/facilitator-helping-child-kit.jpg"
+                    alt="Robotixkids facilitator helping a child with their robotics kit"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What's Included */}
+      <section className="py-20 bg-navy text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-8">What&apos;s Included</h2>
+              <ul className="space-y-5">
                 {[
                   "Trained STEM facilitators at your school",
                   "All equipment and materials provided",
                   "Age-appropriate curriculum (Grade R to 12)",
-                  "Progress reports for learners",
-                  "Certificates of completion",
-                  "Flexible scheduling options",
+                  "No registration or catch-up fees",
+                  "6–8 lessons per term",
+                  "Flexible scheduling as an extramural",
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <svg
@@ -259,134 +218,262 @@ export default function StemTutorsPage() {
                         d="M5 13l4 4L19 7"
                       />
                     </svg>
-                    <span className="text-white/90">{item}</span>
+                    <span className="text-white/90 text-lg">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
+            <div className="relative aspect-[3/2] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/education/stem-tutors/classroom-session-setup.jpg"
+                alt="STEM classroom session with children working on robotics kits"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Programme Types */}
+      {/* Age Groups / Phases */}
       <section className="py-20 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-              Programme Options
+              Age Groups
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              Choose Your Format
+              Programmes for Every Phase
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              From once-off workshops to ongoing programmes, we have options to
-              suit every school&apos;s schedule and budget.
+              Robotixkids tailors their curriculum to three developmental phases, so every learner
+              gets the right level of challenge.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {programmes.map((programme) => (
-              <div
-                key={programme.title}
-                className="bg-white rounded-2xl p-8 shadow-sm"
-              >
-                <div className="w-16 h-16 bg-cs-orange/10 rounded-2xl flex items-center justify-center mb-6">
-                  <div className="text-cs-orange">{programme.icon}</div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {phases.map((phase) => (
+              <div key={phase.title} className="bg-white rounded-2xl overflow-hidden shadow-sm">
+                <div className="relative aspect-[16/10]">
+                  <Image
+                    src={phase.image}
+                    alt={phase.imageAlt}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
                 </div>
-                <h3 className="text-xl font-semibold text-navy mb-2">
-                  {programme.title}
-                </h3>
-                <p className="text-cs-orange text-sm font-medium mb-3">
-                  {programme.duration}
-                </p>
-                <p className="text-gray-600">{programme.description}</p>
+                <div className="p-8">
+                  <div className={`inline-block px-3 py-1 ${phase.color} rounded-full mb-4`}>
+                    <span className="text-white font-semibold text-sm">{phase.grades}</span>
+                  </div>
+                  <h3 className="text-xl font-semibold text-navy mb-3">{phase.title}</h3>
+                  <p className="text-gray-600">{phase.description}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Subjects */}
+      {/* Photo Gallery */}
       <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">In Action</h2>
+          </div>
+        </div>
+        <div className="flex gap-4 overflow-x-auto px-4 sm:px-6 lg:px-8 pb-4 scrollbar-none">
+          {[
+            {
+              src: "/images/education/stem-tutors/boy-sitting-lego-kit-floor.jpg",
+              alt: "Boy sitting on the floor focused on his Makerzoid robotics kit",
+            },
+            {
+              src: "/images/education/stem-tutors/boy-building-robot-tablet-event.jpg",
+              alt: "Boy building a robot alongside a tablet at a STEM event",
+            },
+            {
+              src: "/images/education/stem-tutors/children-building-with-tablet.jpg",
+              alt: "Two children collaborating on a robotics build with a tablet",
+            },
+            {
+              src: "/images/education/stem-tutors/two-children-robotics-kits.jpg",
+              alt: "Two children in school uniform working with Makerzoid robotics kits",
+            },
+            {
+              src: "/images/education/stem-tutors/girl-standing-robotics-kit.jpg",
+              alt: "Girl standing at a table engaged with her robotics kit",
+            },
+            {
+              src: "/images/education/stem-tutors/wro-robotics-competition.jpg",
+              alt: "Students competing at a WRO robotics competition",
+            },
+            {
+              src: "/images/education/stem-tutors/boys-testing-robot-car.jpg",
+              alt: "Boys building and testing a robot car on the floor",
+            },
+            {
+              src: "/images/education/stem-tutors/girl-coding-with-robotics-kit.jpg",
+              alt: "Girl using a tablet to code alongside her robotics kit",
+            },
+          ].map((photo) => (
+            <div
+              key={photo.src}
+              className="relative h-64 w-64 flex-shrink-0 rounded-xl overflow-hidden"
+            >
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="512px"
+              />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Who It's For */}
+      <section className="py-20 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-              Curriculum
+              Who It&apos;s For
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-              What Learners Will Explore
+              Is This Right for Your School?
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Our programmes cover a range of STEM disciplines, tailored to
-              different age groups and skill levels.
-            </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {subjects.map((subject) => (
-              <div
-                key={subject.name}
-                className="text-center"
-              >
-                <div
-                  className={`w-20 h-20 ${subject.color} rounded-2xl flex items-center justify-center mx-auto mb-4`}
-                >
-                  <span className="text-3xl text-white font-bold">
-                    {subject.name.charAt(0)}
-                  </span>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                title: "Schools Without STEM Staff",
+                description:
+                  "No need to hire or train — Robotixkids provides the facilitators and all the equipment. Your school just provides the space.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342"
+                    />
+                  </svg>
+                ),
+              },
+              {
+                title: "Parents Looking for After-School Activities",
+                description:
+                  "A productive extramural that builds real skills. Learners explore robotics and coding right at school — no extra transport needed.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                    />
+                  </svg>
+                ),
+              },
+              {
+                title: "Schools That Want to Stand Out",
+                description:
+                  "Offering STEM education sets your school apart. It signals innovation and gives learners skills they won&apos;t get in a standard curriculum.",
+                icon: (
+                  <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+                    />
+                  </svg>
+                ),
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl p-8 shadow-sm text-center">
+                <div className="w-16 h-16 bg-cs-orange/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <div className="text-cs-orange">{item.icon}</div>
                 </div>
-                <h3 className="text-lg font-semibold text-navy mb-2">
-                  {subject.name}
-                </h3>
-                <p className="text-gray-600 text-sm">{subject.description}</p>
+                <h3 className="text-lg font-semibold text-navy mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 bg-cs-orange">
+      {/* Contact Form */}
+      <section id="contact-form" className="py-20 bg-navy text-white scroll-mt-8">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
+              Get Started
+            </span>
+            <h2 className="text-3xl md:text-4xl font-semibold mt-2 mb-4">
+              Get STEM Education at Your School
+            </h2>
+            <p className="text-white/70">
+              Get in touch and we&apos;ll connect you with Robotixkids to set up a programme that
+              works for your school.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl p-8 shadow-lg text-navy">
+            <ContactForm showEducationFields educationSource="STEM Tutors" />
+          </div>
+        </div>
+      </section>
+
+      {/* Other Education Options */}
+      <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-semibold text-white mb-4">
-                Ready to Bring Expert Tutors to Your School?
-              </h2>
-              <p className="text-white/90">
-                Contact us to discuss your requirements and get a customised
-                quote for your school.
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-semibold text-navy mb-4">
+              Explore Other Education Solutions
+            </h2>
+            <p className="text-gray-600">
+              Looking for curriculum, classroom kits, or online courses? We have more options for
+              your school.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Link
+              href="/education/curriculum"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <h3 className="font-semibold text-navy group-hover:text-cs-blue transition-colors mb-2">
+                Curriculum for Schools
+              </h3>
+              <p className="text-gray-600 text-sm">
+                CAPS-aligned training and lesson plans for your teachers.
               </p>
-            </div>
-            <div className="flex flex-wrap gap-4 md:justify-end">
-              <Link
-                href="/contact"
-                className="inline-flex items-center px-8 py-4 bg-navy hover:bg-navy/90 text-white rounded-lg font-semibold transition-colors"
-              >
-                Get a Quote
-              </Link>
-              <a
-                href="https://robotixkids.co.za/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/30 text-white rounded-lg font-semibold transition-colors"
-              >
-                Learn More
-                <svg
-                  className="w-4 h-4 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </a>
-            </div>
+            </Link>
+            <Link
+              href="/education/classroom-kits"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <h3 className="font-semibold text-navy group-hover:text-cs-purple transition-colors mb-2">
+                Classroom Kits
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Hands-on STEM kits designed for group learning in the classroom.
+              </p>
+            </Link>
+            <Link
+              href="/education/courses"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow group"
+            >
+              <h3 className="font-semibold text-navy group-hover:text-cs-green transition-colors mb-2">
+                Short Courses
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Online STEM courses hosted on the Inspire Africa platform.
+              </p>
+            </Link>
           </div>
         </div>
       </section>

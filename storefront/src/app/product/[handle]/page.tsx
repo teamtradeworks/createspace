@@ -1,17 +1,24 @@
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
-import { getProductByHandle, getProducts, formatPrice } from "@/lib/shopify";
+import Image from "next/image";
+import { getProductByHandle, formatPrice, getProductRating, getStockStatus } from "@/lib/shopify";
+import siteConfig from "@/config/site.json";
+import { StarRating } from "@/components/StarRating";
 import ProductGallery from "@/components/ProductGallery";
 import ProductActions from "@/components/ProductActions";
+import ProductJsonLd from "@/components/ProductJsonLd";
+import ProductViewTracker from "@/components/ProductViewTracker";
+import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import { DELIVERY_CONFIG } from "@/config/delivery";
+import { LazyProductReviews, ProductTrackingProvider } from "@/components/product-sections";
 
 interface ProductPageProps {
-  params: { handle: string };
+  params: Promise<{ handle: string }>;
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const product = await getProductByHandle(params.handle);
+  const { handle } = await params;
+  const product = await getProductByHandle(handle);
 
   if (!product) {
     notFound();
@@ -21,10 +28,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
   const hasDiscount =
     compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
-
-  // Get related products
-  const allProducts = await getProducts(8);
-  const relatedProducts = allProducts.filter((p) => p.handle !== product.handle).slice(0, 4);
+  const discountPercent = hasDiscount
+    ? Math.round(
+        ((parseFloat(compareAtPrice.amount) - parseFloat(price.amount)) /
+          parseFloat(compareAtPrice.amount)) *
+          100,
+      )
+    : 0;
+  const ratingData = getProductRating(product.rating, product.ratingCount);
+  const stockStatus = getStockStatus(product);
 
   // Extract images
   const images = product.images.edges.map((edge) => ({
@@ -33,7 +45,18 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }));
 
   return (
-    <>
+    <ProductTrackingProvider handle={handle}>
+      <ProductJsonLd product={product} />
+      <ProductViewTracker
+        handle={product.handle}
+        title={product.title}
+        sku={product.variants.edges[0]?.node.sku || undefined}
+        price={parseFloat(price.amount)}
+        currencyCode={price.currencyCode}
+        vendor={product.vendor || undefined}
+      />
+      <ScrollDepthTracker event="product_page_scroll_depth" />
+
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
@@ -68,18 +91,32 @@ export default async function ProductPage({ params }: ProductPageProps) {
               )}
 
               {/* Title */}
-              <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-4">
-                {product.title}
-              </h1>
+              <h1 className="text-3xl lg:text-4xl font-semibold text-navy mb-2">{product.title}</h1>
+
+              {/* Rating */}
+              {ratingData && (
+                <div className="flex items-center gap-2 mb-2">
+                  <StarRating rating={ratingData.average} size="md" />
+                  <span className="text-sm text-gray-500">
+                    {ratingData.average.toFixed(1)} ({ratingData.count}{" "}
+                    {ratingData.count === 1 ? "review" : "reviews"})
+                  </span>
+                </div>
+              )}
 
               {/* Price */}
-              <div className="flex items-baseline gap-3 mb-4">
-                <span className="text-3xl font-bold text-navy">
+              <div className="flex items-center gap-3 mb-4">
+                <span className={`text-3xl font-bold ${hasDiscount ? "text-cs-red" : "text-navy"}`}>
                   {formatPrice(price.amount, price.currencyCode)}
                 </span>
                 {hasDiscount && (
                   <span className="text-lg text-gray-400 line-through">
                     {formatPrice(compareAtPrice.amount, compareAtPrice.currencyCode)}
+                  </span>
+                )}
+                {hasDiscount && discountPercent > 0 && (
+                  <span className="px-2.5 py-1 text-sm font-bold bg-cs-red/10 text-cs-red rounded-full">
+                    -{discountPercent}%
                   </span>
                 )}
               </div>
@@ -88,15 +125,27 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <div className="flex items-center gap-2 mb-4">
                 <span
                   className={`inline-flex items-center gap-1.5 text-sm ${
-                    product.availableForSale ? "text-cs-green" : "text-cs-red"
+                    stockStatus === "in-stock"
+                      ? "text-cs-green"
+                      : stockStatus === "lead-time"
+                        ? "text-cs-orange"
+                        : "text-cs-red"
                   }`}
                 >
                   <span
                     className={`w-2 h-2 rounded-full ${
-                      product.availableForSale ? "bg-cs-green" : "bg-cs-red"
+                      stockStatus === "in-stock"
+                        ? "bg-cs-green"
+                        : stockStatus === "lead-time"
+                          ? "bg-cs-orange"
+                          : "bg-cs-red"
                     }`}
                   />
-                  {product.availableForSale ? "In Stock" : "Out of Stock"}
+                  {stockStatus === "in-stock"
+                    ? "In Stock"
+                    : stockStatus === "lead-time"
+                      ? `Delivery in ${siteConfig.leadTime.estimatedDays}`
+                      : "Out of Stock"}
                 </span>
               </div>
 
@@ -117,43 +166,98 @@ export default async function ProductPage({ params }: ProductPageProps) {
               {/* Delivery & Benefits */}
               <div className="border-t border-b py-4 mb-6 space-y-3">
                 <div className="flex items-center gap-3 text-sm">
-                  <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                  <svg
+                    className="w-5 h-5 text-cs-orange"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"
+                    />
                   </svg>
-                  <span><strong>1-3 days delivery</strong> with The Courier Guy</span>
+                  <span>
+                    <strong>
+                      {stockStatus === "lead-time"
+                        ? `${siteConfig.leadTime.estimatedDays} delivery`
+                        : "1-3 days delivery"}
+                    </strong>{" "}
+                    with The Courier Guy
+                  </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                  <svg
+                    className="w-5 h-5 text-cs-orange"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                    />
                   </svg>
-                  <span><strong>FREE delivery</strong> on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}</span>
+                  <span>
+                    <strong>FREE delivery</strong> on orders over R
+                    {DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
+                  </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" />
+                  <svg
+                    className="w-5 h-5 text-cs-orange"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z"
+                    />
                   </svg>
-                  <span><strong>Safe and secure payments</strong> with multiple options</span>
+                  <span>
+                    <strong>Safe and secure payments</strong> with multiple options
+                  </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">
-                  <svg className="w-5 h-5 text-cs-orange" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3" />
+                  <svg
+                    className="w-5 h-5 text-cs-orange"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+                    />
                   </svg>
-                  <span><strong>Easy returns</strong> with a full refund</span>
+                  <span>
+                    <strong>Easy returns</strong> with a full refund
+                  </span>
                 </div>
               </div>
 
               {/* Add to Cart Actions */}
               <div id="product-actions">
-              <ProductActions
-                productId={product.id}
-                variantId={product.variants.edges[0]?.node.id}
-                available={product.availableForSale}
-                title={product.title}
-                price={parseFloat(price.amount)}
-                currencyCode={price.currencyCode}
-                image={images[0]?.url}
-                handle={product.handle}
-              />
+                <ProductActions
+                  productId={product.id}
+                  variantId={product.variants.edges[0]?.node.id}
+                  available={product.availableForSale}
+                  currentlyNotInStock={product.variants.edges[0]?.node.currentlyNotInStock}
+                  title={product.title}
+                  price={parseFloat(price.amount)}
+                  currencyCode={price.currencyCode}
+                  image={images[0]?.url}
+                  handle={product.handle}
+                />
               </div>
             </div>
           </div>
@@ -180,24 +284,68 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   {feature.icon === "6+" ? (
                     <span className="text-lg font-bold text-cs-blue">6+</span>
                   ) : feature.icon === "code" ? (
-                    <svg className="w-6 h-6 text-cs-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                    <svg
+                      className="w-6 h-6 text-cs-blue"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+                      />
                     </svg>
                   ) : feature.icon === "app" ? (
-                    <svg className="w-6 h-6 text-cs-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    <svg
+                      className="w-6 h-6 text-cs-blue"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"
+                      />
                     </svg>
                   ) : feature.icon === "book" ? (
-                    <svg className="w-6 h-6 text-cs-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    <svg
+                      className="w-6 h-6 text-cs-blue"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                      />
                     </svg>
                   ) : feature.icon === "no-solder" ? (
-                    <svg className="w-6 h-6 text-cs-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                    <Image
+                      src="/images/icons/welding.svg"
+                      alt=""
+                      width={24}
+                      height={24}
+                      className="w-6 h-6"
+                    />
                   ) : (
-                    <svg className="w-6 h-6 text-cs-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
+                    <svg
+                      className="w-6 h-6 text-cs-blue"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z"
+                      />
                     </svg>
                   )}
                 </div>
@@ -228,22 +376,26 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <div className="text-center mb-10">
             <h2 className="text-3xl font-semibold mb-4">Why Choose {product.title}?</h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              This kit is designed to make learning fun and engaging, combining hands-on building with coding fundamentals.
+              This kit is designed to make learning fun and engaging, combining hands-on building
+              with coding fundamentals.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 title: "Learn by Doing",
-                description: "Hands-on experience building real projects that work, making abstract concepts tangible and memorable.",
+                description:
+                  "Hands-on experience building real projects that work, making abstract concepts tangible and memorable.",
               },
               {
                 title: "Curriculum Aligned",
-                description: "Designed to complement school STEM curricula, reinforcing key concepts from coding to engineering.",
+                description:
+                  "Designed to complement school STEM curricula, reinforcing key concepts from coding to engineering.",
               },
               {
                 title: "Future-Ready Skills",
-                description: "Develop problem-solving, critical thinking, and creativity - skills essential for tomorrow's careers.",
+                description:
+                  "Develop problem-solving, critical thinking, and creativity - skills essential for tomorrow's careers.",
               },
             ].map((benefit, index) => (
               <div key={index} className="text-center">
@@ -258,44 +410,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
       </section>
 
-      {/* Related Products */}
-      {relatedProducts.length > 0 && (
-        <section className="py-12">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-semibold text-navy mb-8">You May Also Like</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {relatedProducts.map((relatedProduct) => (
-                <Link
-                  key={relatedProduct.id}
-                  href={`/product/${relatedProduct.handle}`}
-                  className="group"
-                >
-                  <div className="aspect-square bg-gray-100 rounded-xl overflow-hidden mb-3">
-                    {relatedProduct.images.edges[0] && (
-                      <Image
-                        src={relatedProduct.images.edges[0].node.url}
-                        alt={relatedProduct.title}
-                        width={300}
-                        height={300}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    )}
-                  </div>
-                  <h3 className="font-medium text-navy group-hover:text-cs-orange transition-colors line-clamp-2">
-                    {relatedProduct.title}
-                  </h3>
-                  <p className="text-cs-orange font-semibold mt-1">
-                    {formatPrice(
-                      relatedProduct.priceRange.minVariantPrice.amount,
-                      relatedProduct.priceRange.minVariantPrice.currencyCode
-                    )}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+      {/* Customer Reviews */}
+      <LazyProductReviews productId={product.id} background="gray" />
 
       {/* Final CTA Section */}
       <section className="py-12 bg-gray-50">
@@ -312,17 +428,23 @@ export default async function ProductPage({ params }: ProductPageProps) {
           >
             Add to Cart
             <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M5 10l7-7m0 0l7 7m-7-7v18"
+              />
             </svg>
           </Link>
         </div>
       </section>
-    </>
+    </ProductTrackingProvider>
   );
 }
 
 export async function generateMetadata({ params }: ProductPageProps) {
-  const product = await getProductByHandle(params.handle);
+  const { handle } = await params;
+  const product = await getProductByHandle(handle);
 
   if (!product) {
     return { title: "Product Not Found" };
@@ -331,5 +453,13 @@ export async function generateMetadata({ params }: ProductPageProps) {
   return {
     title: `${product.title} | CREATESPACE`,
     description: product.description.slice(0, 160),
+    alternates: {
+      canonical: `/product/${handle}`,
+    },
+    openGraph: {
+      images: product.images.edges[0]?.node.url
+        ? [{ url: product.images.edges[0].node.url }]
+        : undefined,
+    },
   };
 }

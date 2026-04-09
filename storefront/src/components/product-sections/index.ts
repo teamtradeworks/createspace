@@ -1,15 +1,20 @@
 export { HeroSection } from "./HeroSection";
 export { FeatureGrid } from "./FeatureGrid";
 export { QuickInfoBadges } from "./QuickInfoBadges";
-export { LearningOutcomes } from "./LearningOutcomes";
 export { WhatsIncluded } from "./WhatsIncluded";
 export { ImageTextBlock } from "./ImageTextBlock";
 export { ProductFAQ } from "./ProductFAQ";
 export { VideoEmbed } from "./VideoEmbed";
 export { Specifications } from "./Specifications";
-export { ProductTestimonials } from "./ProductTestimonials";
-export { SkillTags } from "./SkillTags";
+
 export { NumberedSteps } from "./NumberedSteps";
 export { ProjectShowcase } from "./ProjectShowcase";
 export { CallToAction } from "./CallToAction";
-export { RelatedProducts } from "./RelatedProducts";
+export { CustomerShowcase } from "./CustomerShowcase";
+export { ProductReviews } from "./ProductReviews";
+export { LazyProductReviews } from "./LazyProductReviews";
+export { CourseTabs } from "./CourseTabs";
+export { StepPath } from "./StepPath";
+export { SkillTags } from "./SkillTags";
+export { ExtensionBanner } from "./ExtensionBanner";
+export { ProductTrackingProvider } from "./ProductTrackingContext";

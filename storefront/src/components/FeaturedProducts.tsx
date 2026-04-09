@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { Product, formatPrice } from "@/lib/shopify";
+import { capture } from "@/lib/analytics";
+import { Product } from "@/lib/shopify";
+import ProductCard from "@/components/ProductCard";
 
 type AgeGroup = {
   id: string;
@@ -12,6 +13,7 @@ type AgeGroup = {
 };
 
 const ageGroups: AgeGroup[] = [
+  { id: "all", label: "All Ages", range: "All" },
   { id: "3-5", label: "Early Explorers", range: "3-5" },
   { id: "6-8", label: "Junior Innovators", range: "6-8" },
   { id: "9-12", label: "Budding Engineers", range: "9-12" },
@@ -22,13 +24,9 @@ type FeaturedProductsProps = {
   productsByAge: Record<string, Product[]>;
 };
 
-export default function FeaturedProducts({
-  productsByAge,
-}: FeaturedProductsProps) {
+export default function FeaturedProducts({ productsByAge }: FeaturedProductsProps) {
   const [activeTab, setActiveTab] = useState(ageGroups[0].id);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
-
   const products = productsByAge[activeTab] || [];
   const totalProducts = products.length;
   const visibleProducts = products.slice(currentIndex, currentIndex + 3);
@@ -54,6 +52,11 @@ export default function FeaturedProducts({
   };
 
   const handleTabChange = (tabId: string) => {
+    const group = ageGroups.find((g) => g.id === tabId);
+    capture("featured_products_filter_clicked", {
+      age_group: tabId,
+      label: group?.label,
+    });
     setActiveTab(tabId);
     setCurrentIndex(0);
   };
@@ -63,11 +66,9 @@ export default function FeaturedProducts({
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-navy mb-3">
-            Featured Products
-          </h2>
+          <h2 className="text-3xl font-semibold text-navy mb-3">Featured Products</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular STEM kits, organized by age group
+            Discover our most popular STEM kits, organised by age group
           </p>
         </div>
 
@@ -84,7 +85,7 @@ export default function FeaturedProducts({
                     : "text-gray-600 hover:text-navy"
                 }`}
               >
-                {group.range} yrs
+                {group.id === "all" ? "All ages" : `${group.range} yrs`}
               </button>
             ))}
           </div>
@@ -92,19 +93,14 @@ export default function FeaturedProducts({
 
         {/* Products Carousel */}
         <div className="relative">
-          {/* Navigation Arrows */}
+          {/* Desktop-only Navigation Arrows */}
           {canGoPrev && (
             <button
               onClick={handlePrev}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
               aria-label="Previous products"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -118,15 +114,10 @@ export default function FeaturedProducts({
           {canGoNext && (
             <button
               onClick={handleNext}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
               aria-label="Next products"
             >
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -137,142 +128,55 @@ export default function FeaturedProducts({
             </button>
           )}
 
-          {/* Products Grid */}
+          {/* Products */}
           {products.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {visibleProducts.map((product, index) => {
-                const isHovered = hoveredProduct === `${product.id}-${index}`;
-                const primaryImage = product.images.edges[0]?.node;
-                const hoverImage =
-                  product.images.edges[1]?.node ||
-                  product.images.edges[2]?.node ||
-                  primaryImage;
-                const price = product.priceRange.minVariantPrice;
-
-                return (
-                  <div
-                    key={`${product.id}-${index}`}
-                    className="group"
-                    onMouseEnter={() =>
-                      setHoveredProduct(`${product.id}-${index}`)
-                    }
-                    onMouseLeave={() => setHoveredProduct(null)}
-                  >
-                    <div className="bg-gradient-to-br from-slate-50 to-blue-50/50 rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl">
-                      {/* Image Container */}
-                      <Link href={`/product/${product.handle}`}>
-                        <div className="aspect-square relative overflow-hidden">
-                          {primaryImage && (
-                            <>
-                              {/* Primary Image */}
-                              <Image
-                                src={primaryImage.url}
-                                alt={primaryImage.altText || product.title}
-                                fill
-                                className={`object-contain p-6 transition-all duration-500 ${
-                                  isHovered
-                                    ? "opacity-0 scale-105"
-                                    : "opacity-100 scale-100"
-                                }`}
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                              />
-                              {/* Hover Image */}
-                              <Image
-                                src={hoverImage.url}
-                                alt={hoverImage.altText || product.title}
-                                fill
-                                className={`object-contain p-6 transition-all duration-500 ${
-                                  isHovered
-                                    ? "opacity-100 scale-100"
-                                    : "opacity-0 scale-95"
-                                }`}
-                                sizes="(max-width: 768px) 100vw, 33vw"
-                              />
-                            </>
-                          )}
-                          {!primaryImage && (
-                            <div className="w-full h-full flex items-center justify-center text-gray-300">
-                              <svg
-                                className="w-20 h-20"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={1}
-                                  d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
-                                />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                      </Link>
-
-                      {/* Product Info */}
-                      <div className="p-5">
-                        <Link href={`/product/${product.handle}`}>
-                          <h3 className="font-semibold text-navy text-lg mb-1 line-clamp-1 group-hover:text-cs-orange transition-colors">
-                            {product.title}
-                          </h3>
-                        </Link>
-                        <p className="text-gray-500 text-sm mb-4 line-clamp-2">
-                          {product.description || "STEM learning kit"}
-                        </p>
-
-                        <div className="flex items-center justify-between">
-                          <span className="text-xl font-bold text-navy">
-                            {formatPrice(price.amount, price.currencyCode)}
-                          </span>
-                          <button className="inline-flex items-center text-cs-orange hover:text-cs-red font-medium text-sm transition-colors">
-                            Add to Cart
-                            <svg
-                              className="w-4 h-4 ml-1"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
+            <>
+              {/* Mobile: horizontal scroll showing all products */}
+              <div className="md:hidden -mx-4 sm:-mx-6">
+                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4 scrollbar-none">
+                  {products.map((product, index) => (
+                    <div
+                      key={`${product.id}-${index}-mobile`}
+                      className="flex-none w-[72vw] snap-start"
+                    >
+                      <ProductCard product={product} />
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Desktop: 3-col grid */}
+              <div className="hidden md:grid grid-cols-3 gap-6">
+                {visibleProducts.map((product, index) => (
+                  <ProductCard key={`${product.id}-${index}`} product={product} />
+                ))}
+              </div>
+            </>
           ) : (
             <div className="text-center py-16 bg-gray-50 rounded-2xl">
-              <p className="text-gray-500">
-                No products found for this age group yet.
-              </p>
+              <p className="text-gray-500">No products found for this age group yet.</p>
             </div>
           )}
 
-          {/* Progress Indicator */}
+          {/* Desktop-only Progress Indicator */}
           {totalProducts > 3 && (
-            <div className="flex justify-center mt-8 gap-2">
-              {Array.from({ length: Math.ceil(totalProducts / 3) }).map(
-                (_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentIndex(idx * 3)}
-                    className={`h-1.5 rounded-full transition-all ${
+            <div className="hidden md:flex justify-center mt-8 gap-2">
+              {Array.from({ length: Math.ceil(totalProducts / 3) }).map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx * 3)}
+                  className="relative flex items-center justify-center w-11 h-11"
+                  aria-label={`Go to page ${idx + 1}`}
+                >
+                  <span
+                    className={`block h-1.5 rounded-full transition-all ${
                       Math.floor(currentIndex / 3) === idx
                         ? "w-8 bg-navy"
-                        : "w-4 bg-gray-300 hover:bg-gray-400"
+                        : "w-4 bg-gray-300"
                     }`}
-                    aria-label={`Go to page ${idx + 1}`}
                   />
-                )
-              )}
+                </button>
+              ))}
             </div>
           )}
         </div>
@@ -280,16 +184,20 @@ export default function FeaturedProducts({
         {/* View All Link */}
         <div className="text-center mt-10">
           <Link
-            href={`/shop?age=${activeTab}`}
+            href={activeTab === "all" ? "/shop" : `/shop?age=${activeTab}`}
+            onClick={() => {
+              const group = ageGroups.find((g) => g.id === activeTab);
+              capture("featured_products_view_all_clicked", {
+                age_group: activeTab,
+                label: group?.label,
+              });
+            }}
             className="inline-flex items-center text-navy hover:text-cs-orange font-medium transition-colors"
           >
-            View all {ageGroups.find((g) => g.id === activeTab)?.label} products
-            <svg
-              className="w-5 h-5 ml-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
+            {activeTab === "all"
+              ? "View all products"
+              : `View products for ages ${ageGroups.find((g) => g.id === activeTab)?.range}`}
+            <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

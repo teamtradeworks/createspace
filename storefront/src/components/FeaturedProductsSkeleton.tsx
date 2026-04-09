@@ -4,11 +4,9 @@ export default function FeaturedProductsSkeleton() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-navy mb-3">
-            Featured Products
-          </h2>
+          <h2 className="text-3xl font-semibold text-navy mb-3">Featured Products</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular STEM kits, organized by age group
+            Discover our most popular STEM kits, organised by age group
           </p>
         </div>
 
