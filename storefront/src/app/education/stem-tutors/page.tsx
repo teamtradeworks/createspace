@@ -422,7 +422,7 @@ export default function StemTutorsPage() {
               works for your school.
             </p>
           </div>
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-white rounded-2xl p-8 shadow-lg text-navy">
             <ContactForm showEducationFields educationSource="STEM Tutors" />
           </div>
         </div>
