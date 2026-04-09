@@ -6,8 +6,6 @@ function getResend() {
   return new Resend(process.env.RESEND_API_KEY);
 }
 
-const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID!;
-
 export async function POST(request: NextRequest) {
   let email: string;
   try {
@@ -23,7 +21,6 @@ export async function POST(request: NextRequest) {
   try {
     const resend = getResend();
     const { error } = await resend.contacts.create({
-      audienceId: AUDIENCE_ID,
       email: email.trim(),
       unsubscribed: false,
     });
