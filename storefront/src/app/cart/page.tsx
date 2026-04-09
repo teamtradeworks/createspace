@@ -38,6 +38,13 @@ export default function CartPage() {
         subtotal,
         currencyCode,
       );
+      capture("cart_viewed", {
+        item_count: available.length,
+        subtotal,
+        currency_code: currencyCode,
+        qualifies_for_free_delivery: qualifiesForFreeDelivery(subtotal),
+        product_handles: available.map((item) => item.handle),
+      });
     }
   }, [isHydrated, items, subtotal, currencyCode]);
 
@@ -271,7 +278,16 @@ export default function CartPage() {
                               </span>
                             )}
                             <button
-                              onClick={() => removeItem(item.variantId)}
+                              onClick={() => {
+                                capture("product_removed_from_cart", {
+                                  product_handle: item.handle,
+                                  product_title: item.title,
+                                  price: item.price,
+                                  currency_code: item.currencyCode,
+                                  quantity: item.quantity,
+                                });
+                                removeItem(item.variantId);
+                              }}
                               className="mt-1 text-sm text-gray-500 hover:text-cs-red transition-colors flex items-center gap-1 block"
                             >
                               <svg
@@ -311,7 +327,16 @@ export default function CartPage() {
                           ) : (
                             <div className="flex items-center border rounded-lg">
                               <button
-                                onClick={() => updateQuantity(item.variantId, item.quantity - 1)}
+                                onClick={() => {
+                                  capture("cart_quantity_changed", {
+                                    product_handle: item.handle,
+                                    product_title: item.title,
+                                    previous_quantity: item.quantity,
+                                    new_quantity: item.quantity - 1,
+                                    direction: "decrease",
+                                  });
+                                  updateQuantity(item.variantId, item.quantity - 1);
+                                }}
                                 disabled={item.quantity <= 1}
                                 className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                                 aria-label="Decrease quantity"
@@ -334,7 +359,16 @@ export default function CartPage() {
                                 {item.quantity}
                               </span>
                               <button
-                                onClick={() => updateQuantity(item.variantId, item.quantity + 1)}
+                                onClick={() => {
+                                  capture("cart_quantity_changed", {
+                                    product_handle: item.handle,
+                                    product_title: item.title,
+                                    previous_quantity: item.quantity,
+                                    new_quantity: item.quantity + 1,
+                                    direction: "increase",
+                                  });
+                                  updateQuantity(item.variantId, item.quantity + 1);
+                                }}
                                 className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
                                 aria-label="Increase quantity"
                               >

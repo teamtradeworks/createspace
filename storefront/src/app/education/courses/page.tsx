@@ -2,6 +2,7 @@ import { getProductByHandle } from "@/lib/shopify";
 import BundleComparison from "@/components/BundleComparison";
 import Link from "next/link";
 import { Metadata } from "next";
+import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
   title: "Short Courses | Education | CREATESPACE",
@@ -86,6 +87,7 @@ export default async function CoursesPage() {
 
   return (
     <>
+      <PageViewTracker event="collection_viewed" properties={{ collection: "courses" }} />
       {/* Bundle Comparison */}
       <BundleComparison foundationPrice={foundationPrice} inventionPrice={inventionPrice} />
 

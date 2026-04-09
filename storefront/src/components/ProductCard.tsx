@@ -34,6 +34,12 @@ export default function ProductCard({ product, searchQuery, searchPosition, prio
     <Link
       href={`/product/${product.handle}`}
       onClick={() => {
+        capture("product_clicked", {
+          product_handle: product.handle,
+          product_title: product.title,
+          price: parseFloat(price.amount),
+          currency_code: price.currencyCode,
+        });
         if (searchQuery) {
           capture("search_result_clicked", {
             query: searchQuery,
