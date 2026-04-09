@@ -8,8 +8,11 @@ function getResend() {
 
 export async function POST(request: NextRequest) {
   let email: string;
+  let subscribed: boolean = true;
   try {
-    ({ email } = (await request.json()) as { email: string });
+    const body = (await request.json()) as { email: string; subscribed?: boolean };
+    email = body.email;
+    if (body.subscribed === false) subscribed = false;
   } catch {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
@@ -22,7 +25,7 @@ export async function POST(request: NextRequest) {
     const resend = getResend();
     const { error } = await resend.contacts.create({
       email: email.trim(),
-      unsubscribed: false,
+      unsubscribed: !subscribed,
     });
 
     if (error) {

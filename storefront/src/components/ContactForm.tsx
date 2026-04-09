@@ -84,14 +84,19 @@ export default function ContactForm({ showEducationFields = false, educationSour
         });
       }
 
-      if (subscribeToNewsletter && formData.email) {
+      if (formData.email) {
         try {
           await fetch("/api/subscribe", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email: formData.email.trim() }),
+            body: JSON.stringify({
+              email: formData.email.trim(),
+              subscribed: subscribeToNewsletter,
+            }),
           });
-          capture("newsletter_subscribed", { source: "contact_form" });
+          if (subscribeToNewsletter) {
+            capture("newsletter_subscribed", { source: "contact_form" });
+          }
         } catch {
           // Don't let newsletter subscription errors affect the form submission
         }
