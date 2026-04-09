@@ -34,7 +34,7 @@ function suppressForever() {
 export default function EmailPopup() {
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const hasTriggered = useRef(false);
 
@@ -67,14 +67,12 @@ export default function EmailPopup() {
   const close = useCallback(() => {
     setVisible(false);
     unlockScroll();
-    if (status !== "success") {
-      capture("email_popup_dismissed");
-      const existingExpiry = getSuppressionExpiry();
-      if (!existingExpiry || Date.now() >= existingExpiry) {
-        suppress();
-      }
+    capture("email_popup_dismissed");
+    const existingExpiry = getSuppressionExpiry();
+    if (!existingExpiry || Date.now() >= existingExpiry) {
+      suppress();
     }
-  }, [unlockScroll, status]);
+  }, [unlockScroll]);
 
   // Listen for manual open event (e.g. footer "Subscribe" link)
   useEffect(() => {
@@ -139,13 +137,14 @@ export default function EmailPopup() {
         return;
       }
 
-      setStatus("success");
       suppressForever();
       identify(email.trim(), {
         email: email.trim(),
         newsletter_subscriber: true,
       });
       capture("newsletter_subscribed", { source: "email_popup" });
+      setVisible(false);
+      unlockScroll();
     } catch {
       setStatus("error");
       setErrorMessage("Something went wrong. Please try again.");
@@ -199,55 +198,38 @@ export default function EmailPopup() {
           />
         </div>
 
-        {status === "success" ? (
-          <div className="py-4 text-center">
-            <h2 className="mb-2 text-2xl font-semibold">You&apos;re in!</h2>
-            <p className="text-white/70">
-              Keep an eye on your inbox for STEM deals and new arrivals.
-            </p>
-            <button
-              onClick={close}
-              className="mt-6 rounded-full bg-white px-6 py-2 font-semibold text-navy transition-opacity hover:opacity-90"
-            >
-              Continue shopping
-            </button>
-          </div>
-        ) : (
-          <>
-            <h2 className="mb-2 text-center text-2xl font-semibold">Stay in the loop</h2>
-            <p className="mb-6 text-center text-sm text-white/70">
-              Join South African parents discovering STEM toys their kids actually love. Be the
-              first to hear about new products and exclusive deals.
-            </p>
+        <h2 className="mb-2 text-center text-2xl font-semibold">Stay in the loop</h2>
+        <p className="mb-6 text-center text-sm text-white/70">
+          Join South African parents discovering STEM toys their kids actually love. Be the
+          first to hear about new products and exclusive deals.
+        </p>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                className="w-full rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white placeholder-white/40 outline-none transition-colors focus:border-white/50"
-                disabled={status === "loading"}
-              />
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="w-full rounded-full bg-cs-orange py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
-              >
-                {status === "loading" ? "Subscribing..." : "Subscribe"}
-              </button>
-            </form>
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+            className="w-full rounded-full border border-white/20 bg-white/10 px-5 py-3 text-white placeholder-white/40 outline-none transition-colors focus:border-white/50"
+            disabled={status === "loading"}
+          />
+          <button
+            type="submit"
+            disabled={status === "loading"}
+            className="w-full rounded-full bg-cs-orange py-3 font-semibold text-white transition-opacity hover:opacity-90 disabled:opacity-60"
+          >
+            {status === "loading" ? "Subscribing..." : "Subscribe"}
+          </button>
+        </form>
 
-            {status === "error" && (
-              <p className="mt-3 text-center text-sm text-cs-red">{errorMessage}</p>
-            )}
-
-            <p className="mt-4 text-center text-xs text-white/40">
-              No spam, ever. Unsubscribe anytime.
-            </p>
-          </>
+        {status === "error" && (
+          <p className="mt-3 text-center text-sm text-cs-red">{errorMessage}</p>
         )}
+
+        <p className="mt-4 text-center text-xs text-white/40">
+          No spam, ever. Unsubscribe anytime.
+        </p>
       </div>
     </div>
   );

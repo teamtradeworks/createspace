@@ -1,27 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
-import { shopifyFetch } from "@/lib/shopify";
+import { Resend } from "resend";
 import { getPostHogClient } from "@/lib/posthog-server";
 
-const CUSTOMER_CREATE_MUTATION = `
-  mutation CustomerCreate($input: CustomerCreateInput!) {
-    customerCreate(input: $input) {
-      customer {
-        id
-        email
-      }
-      customerUserErrors {
-        field
-        message
-        code
-      }
-    }
-  }
-`;
+function getResend() {
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 export async function POST(request: NextRequest) {
   let email: string;
+  let subscribed: boolean = true;
   try {
-    ({ email } = (await request.json()) as { email: string });
+    const body = (await request.json()) as { email: string; subscribed?: boolean };
+    email = body.email;
+    if (body.subscribed === false) subscribed = false;
   } catch {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
@@ -31,30 +22,15 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const data = await shopifyFetch<{
-      customerCreate: {
-        customer: { id: string; email: string } | null;
-        customerUserErrors: { field: string[]; message: string; code: string }[];
-      };
-    }>({
-      query: CUSTOMER_CREATE_MUTATION,
-      cache: "no-store",
-      variables: {
-        input: {
-          email,
-          acceptsMarketing: true,
-          // Random password since this is a newsletter signup, not account creation
-          password: crypto.randomUUID(),
-        },
-      },
+    const resend = getResend();
+    const { error } = await resend.contacts.create({
+      email: email.trim(),
+      unsubscribed: !subscribed,
     });
 
-    const errors = data.customerCreate.customerUserErrors;
-
-    if (errors.length > 0) {
-      // If the customer already exists, treat it as a success
-      const alreadyExists = errors.some((e) => e.code === "TAKEN");
-      if (alreadyExists) {
+    if (error) {
+      // Resend returns an error if the contact already exists — treat as success
+      if (error.message?.toLowerCase().includes("already exists")) {
         try {
           const posthog = getPostHogClient();
           posthog.capture({
@@ -69,7 +45,11 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ success: true, alreadySubscribed: true });
       }
 
-      return NextResponse.json({ error: errors[0].message }, { status: 400 });
+      console.error("[subscribe] Resend error:", error);
+      return NextResponse.json(
+        { error: "Something went wrong. Please try again." },
+        { status: 500 },
+      );
     }
 
     try {
@@ -93,6 +73,9 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
+    return NextResponse.json(
+      { error: "Something went wrong. Please try again." },
+      { status: 500 },
+    );
   }
 }
