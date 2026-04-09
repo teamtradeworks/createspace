@@ -4,6 +4,7 @@ import ProductCard from "@/components/ProductCard";
 import BrandSwitcher from "@/components/education/BrandSwitcher";
 import Link from "next/link";
 import { Metadata } from "next";
+import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
   title: "Classroom Kits | Education | CREATESPACE",
@@ -35,6 +36,7 @@ export default async function ClassroomKitsPage() {
 
   return (
     <>
+      <PageViewTracker event="collection_viewed" properties={{ collection: "classroom-kits" }} />
       {/* Hero Section */}
       <section className="bg-navy text-white py-20 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
