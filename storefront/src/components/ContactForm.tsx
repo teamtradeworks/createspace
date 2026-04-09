@@ -86,7 +86,7 @@ export default function ContactForm({ showEducationFields = false, educationSour
 
       if (formData.email) {
         try {
-          await fetch("/api/subscribe", {
+          const res = await fetch("/api/subscribe", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -94,7 +94,7 @@ export default function ContactForm({ showEducationFields = false, educationSour
               subscribed: subscribeToNewsletter,
             }),
           });
-          if (subscribeToNewsletter) {
+          if (res.ok && subscribeToNewsletter) {
             capture("newsletter_subscribed", { source: "contact_form" });
           }
         } catch {
