@@ -35,6 +35,7 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN!, {
   api_host: "/ingest",
   ui_host: "https://eu.posthog.com",
   defaults: "2026-01-30",
+  person_profiles: "always",
   capture_pageview: false, // We handle pageviews manually via PostHogPageview for SPA navigation
   capture_exceptions: true,
   session_recording: {
