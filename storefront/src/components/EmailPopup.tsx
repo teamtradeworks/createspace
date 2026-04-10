@@ -46,14 +46,18 @@ export default function EmailPopup() {
     document.documentElement.style.overflow = "";
   }, []);
 
-  const show = useCallback(() => {
-    if (hasTriggered.current) return;
-    const expiry = getSuppressionExpiry();
-    if (expiry && Date.now() < expiry) return;
-    hasTriggered.current = true;
-    setVisible(true);
-    lockScroll();
-  }, [lockScroll]);
+  const show = useCallback(
+    (trigger: "delay" | "exit_intent") => {
+      if (hasTriggered.current) return;
+      const expiry = getSuppressionExpiry();
+      if (expiry && Date.now() < expiry) return;
+      hasTriggered.current = true;
+      setVisible(true);
+      lockScroll();
+      capture("email_popup_shown", { trigger });
+    },
+    [lockScroll],
+  );
 
   // Force-show bypasses suppression (for manual triggers like footer link)
   const forceShow = useCallback(() => {
@@ -62,6 +66,7 @@ export default function EmailPopup() {
     setErrorMessage("");
     setVisible(true);
     lockScroll();
+    capture("email_popup_shown", { trigger: "manual" });
   }, [lockScroll]);
 
   const close = useCallback(() => {
@@ -88,7 +93,7 @@ export default function EmailPopup() {
     const expiry = getSuppressionExpiry();
     if (expiry && Date.now() < expiry) return;
 
-    const timer = setTimeout(show, DELAY_MS);
+    const timer = setTimeout(() => show("delay"), DELAY_MS);
     return () => clearTimeout(timer);
   }, [show]);
 
@@ -98,7 +103,7 @@ export default function EmailPopup() {
     if (expiry && Date.now() < expiry) return;
 
     function handleMouseLeave(e: MouseEvent) {
-      if (e.clientY <= 0) show();
+      if (e.clientY <= 0) show("exit_intent");
     }
 
     document.addEventListener("mouseleave", handleMouseLeave);

@@ -1,6 +1,7 @@
 "use client";
 
 import * as Sentry from "@sentry/nextjs";
+import posthog from "posthog-js";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
@@ -14,6 +15,11 @@ export default function Error({
 }) {
   useEffect(() => {
     Sentry.captureException(error);
+    posthog.capture("$exception", {
+      $exception_type: error.name,
+      $exception_message: error.message,
+      $exception_source: "error_boundary",
+    });
   }, [error]);
 
   return (
