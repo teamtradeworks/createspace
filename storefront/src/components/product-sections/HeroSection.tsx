@@ -33,6 +33,8 @@ interface HeroSectionProps {
   interleaveMedia?: boolean;
   /** Override the vendor/brand label shown in the hero. */
   vendorOverride?: string;
+  /** Units currently in physical stock. When the selected quantity exceeds this, a lead-time warning is shown. */
+  stockQuantity?: number;
 }
 
 export function HeroSection({
@@ -48,6 +50,7 @@ export function HeroSection({
   insertVideosAfterImage,
   interleaveMedia,
   vendorOverride,
+  stockQuantity,
 }: HeroSectionProps) {
   const price = product.priceRange.minVariantPrice;
   const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
@@ -367,6 +370,7 @@ export function HeroSection({
                     variantId={product.variants.edges[0]?.node.id}
                     available={product.availableForSale}
                     currentlyNotInStock={product.variants.edges[0]?.node.currentlyNotInStock}
+                    stockQuantity={stockQuantity}
                     title={product.title}
                     price={parseFloat(price.amount)}
                     currencyCode={price.currencyCode}

@@ -37,6 +37,7 @@ export default async function TaleBotProClassroomSetPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
+        stockQuantity={1}
         tagline="Bring screen-free coding to every learner in your Foundation Phase classroom"
         highlights={[
           "6 robots — serves groups of 3–4 learners simultaneously across a full class",

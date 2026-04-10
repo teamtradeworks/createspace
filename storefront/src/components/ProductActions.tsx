@@ -8,12 +8,15 @@ import { useCart } from "@/context/CartContext";
 import { gtmAddToCart } from "@/lib/gtm";
 import { SerializedAddon } from "@/lib/product-addons";
 import AddonUpsellModal from "./AddonUpsellModal";
+import siteConfig from "@/config/site.json";
 
 interface ProductActionsProps {
   productId: string;
   variantId: string;
   available: boolean;
   currentlyNotInStock?: boolean;
+  /** Total units currently in stock. When quantity exceeds this, a lead-time notice is shown. */
+  stockQuantity?: number;
   title: string;
   price: number;
   currencyCode: string;
@@ -30,6 +33,7 @@ export default function ProductActions({
   variantId,
   available,
   currentlyNotInStock,
+  stockQuantity,
   title,
   price,
   currencyCode,
@@ -328,6 +332,29 @@ export default function ProductActions({
           </button>
         </div>
       </div>
+
+      {/* Lead-time notice when selected quantity exceeds available stock */}
+      {stockQuantity != null && stockQuantity > 0 && quantity > stockQuantity && (
+        <div className="flex items-start gap-2 rounded-lg bg-cs-orange/10 px-3 py-2.5 text-sm text-cs-orange">
+          <svg
+            className="mt-0.5 h-4 w-4 flex-shrink-0"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
+            />
+          </svg>
+          <span>
+            Only {stockQuantity} in stock — ordering more will be on a{" "}
+            <strong>{siteConfig.leadTime.estimatedDays}</strong> lead time.
+          </span>
+        </div>
+      )}
 
       {/* Add-ons Section */}
       {addons.length > 0 && (
