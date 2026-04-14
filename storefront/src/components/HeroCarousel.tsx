@@ -345,8 +345,8 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
 
                 {/* Product line */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="h-px w-4 bg-white/30" />
-                  <p className="text-sm font-semibold text-white/80 uppercase tracking-[0.18em]">
+                  <div className="h-0.5 w-5 bg-cs-orange" />
+                  <p className="text-xl md:text-2xl font-semibold text-white uppercase tracking-[0.12em]">
                     {slide.headline}
                   </p>
                 </div>
