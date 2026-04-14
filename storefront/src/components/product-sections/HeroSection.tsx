@@ -166,9 +166,12 @@ export function HeroSection({
                 {(vendorOverride ?? product.vendor) && (
                   <p className="text-sm text-gray-500 mb-2">
                     Brand:{" "}
-                    <span className="text-cs-orange font-medium">
+                    <Link
+                      href={`/shop?brand=${encodeURIComponent(vendorOverride ?? product.vendor ?? "")}`}
+                      className="text-cs-orange font-medium hover:underline"
+                    >
                       {vendorOverride ?? product.vendor}
-                    </span>
+                    </Link>
                   </p>
                 )}
 
