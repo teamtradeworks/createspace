@@ -293,97 +293,77 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
       {/* Sale type */}
       {slide.type === "sale" && slide.lifestyleImages && (
         <div className="relative h-full overflow-hidden">
-          {/* Bold background shapes */}
+          {/* Background colour blobs */}
           <div className="absolute -top-10 -left-10 w-64 h-64 bg-cs-purple opacity-20 rounded-full" />
           <div className="absolute bottom-0 right-1/2 w-48 h-48 bg-cs-blue opacity-10 rounded-full" />
-          {/* Diagonal stripe texture */}
-          <div
-            className="absolute inset-0 opacity-[0.035] pointer-events-none"
-            style={{ backgroundImage: "repeating-linear-gradient(45deg, #FFD500 0px, #FFD500 2px, transparent 2px, transparent 20px)" }}
-          />
-          {/* Bold red top strip — z-20 so it sits above the images */}
+          {/* Bold red top strip — z-20 sits above everything */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-cs-red z-20" />
 
-          {/* Desktop image collage — absolutely positioned, full height, right half */}
-          <div className="hidden lg:block absolute top-0 bottom-0 right-0 w-1/2">
-            <div className="relative h-full px-4">
-              <div className="absolute top-6 right-4 w-40 h-40 bg-cs-orange opacity-20 rounded-3xl transform rotate-12" />
-              <div className="absolute bottom-12 left-2 w-24 h-24 bg-cs-blue opacity-25 rounded-full" />
-              <div className="absolute top-0 right-0 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
-                <Image src={slide.lifestyleImages[0]} alt="Makerzoid robot kit" fill className="object-cover" sizes="290px" loading="lazy" />
-              </div>
-              <div className="absolute top-28 left-4 w-80 h-60 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
-                <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="320px" loading="lazy" />
-              </div>
-              <div className="absolute bottom-4 right-8 w-64 h-48 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
-                <Image src={slide.lifestyleImages[2]} alt="Kids with robotics kit" fill className="object-cover" sizes="260px" loading="lazy" />
-              </div>
-              <div className="absolute bottom-0 left-16 w-16 h-16 opacity-40">
-                <Image src="/images/illustrations/robot-orange.png" alt="" fill className="object-contain" sizes="64px" loading="lazy" />
-              </div>
-            </div>
-          </div>
-
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full relative z-10">
-            <div className="lg:w-1/2 flex flex-col justify-center min-h-[500px] py-10 lg:py-0">
+            <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] py-10 lg:py-0">
 
-              {/* Tag */}
-              {slide.tag && (
-                <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em] mb-8">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
-                  {slide.tag}
-                </span>
-              )}
+              {/* Left: Sale copy */}
+              <div className="z-10">
 
-              {/* Yellow SALE card + badge side by side */}
-              <div className="flex items-end gap-3 mb-6">
-                <div className="bg-cs-yellow rounded-2xl px-5 py-3">
-                  <Heading
-                    className="font-semibold text-navy tracking-tight leading-none"
-                    style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
-                  >
-                    SALE
-                  </Heading>
-                </div>
-                {slide.salePercent && (
-                  <div
-                    className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 mb-[-3.5rem]"
-                    style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
-                  >
-                    <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}>
-                      {slide.salePercent}
-                    </span>
-                    <span className="text-white/85 font-semibold uppercase tracking-widest leading-none mt-0.5" style={{ fontSize: "clamp(0.6rem,1.2vw,0.8rem)" }}>
-                      OFF
-                    </span>
-                  </div>
+                {/* Tag */}
+                {slide.tag && (
+                  <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em] mb-8">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
+                    {slide.tag}
+                  </span>
                 )}
-              </div>
 
-              {/* MAKERZOID KITS */}
-              <div className="mb-3">
-                <p className="font-semibold text-cs-orange uppercase leading-none" style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}>
-                  {slide.headline}
+                {/* Yellow SALE card + badge — badge pulled slightly left to overlap card edge */}
+                <div className="flex items-end mb-6">
+                  <div className="bg-cs-yellow rounded-2xl px-5 py-3">
+                    <Heading
+                      className="font-semibold text-navy tracking-tight leading-none"
+                      style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
+                    >
+                      SALE
+                    </Heading>
+                  </div>
+                  {slide.salePercent && (
+                    <div
+                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-3.5rem]"
+                      style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
+                    >
+                      <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}>
+                        {slide.salePercent}
+                      </span>
+                      <span className="text-white/85 font-semibold uppercase tracking-widest leading-none mt-0.5" style={{ fontSize: "clamp(0.6rem,1.2vw,0.8rem)" }}>
+                        OFF
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* MAKERZOID KITS */}
+                <div className="mb-3">
+                  <p className="font-semibold text-cs-orange uppercase leading-none" style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}>
+                    {slide.headline}
+                  </p>
+                </div>
+
+                <p className="text-sm text-white/50 mb-7 max-w-xs leading-relaxed">
+                  {slide.description}
                 </p>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link
+                    href={slide.cta.href}
+                    className="inline-flex items-center px-7 py-3.5 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30"
+                  >
+                    {slide.cta.label}
+                    <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </Link>
+                  <span className="text-[11px] text-white/30 uppercase tracking-wider">Limited time only</span>
+                </div>
               </div>
 
-              <p className="text-sm text-white/50 mb-7 max-w-xs leading-relaxed">
-                {slide.description}
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4">
-                <Link
-                  href={slide.cta.href}
-                  className="inline-flex items-center px-7 py-3.5 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30"
-                >
-                  {slide.cta.label}
-                  <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </Link>
-                <span className="text-[11px] text-white/30 uppercase tracking-wider">Limited time only</span>
-              </div>
-
+              {/* Right: image collage */}
               {/* Mobile: two-image row */}
               <div className="lg:hidden flex gap-2 h-44 mt-8">
                 <div className="relative flex-1 rounded-xl overflow-hidden ring-2 ring-cs-yellow/20">
@@ -391,6 +371,23 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 </div>
                 <div className="relative flex-1 rounded-xl overflow-hidden ring-2 ring-cs-orange/20">
                   <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="50vw" loading="lazy" />
+                </div>
+              </div>
+              {/* Desktop: scattered collage */}
+              <div className="hidden lg:block relative h-[500px]">
+                <div className="absolute top-6 right-4 w-40 h-40 bg-cs-orange opacity-20 rounded-3xl transform rotate-12" />
+                <div className="absolute bottom-12 left-2 w-24 h-24 bg-cs-blue opacity-25 rounded-full" />
+                <div className="absolute top-0 right-0 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
+                  <Image src={slide.lifestyleImages[0]} alt="Makerzoid robot kit" fill className="object-cover" sizes="290px" loading="lazy" />
+                </div>
+                <div className="absolute top-28 left-4 w-80 h-60 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
+                  <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="320px" loading="lazy" />
+                </div>
+                <div className="absolute bottom-4 right-8 w-64 h-48 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
+                  <Image src={slide.lifestyleImages[2]} alt="Kids with robotics kit" fill className="object-cover" sizes="260px" loading="lazy" />
+                </div>
+                <div className="absolute bottom-0 left-16 w-16 h-16 opacity-40">
+                  <Image src="/images/illustrations/robot-orange.png" alt="" fill className="object-contain" sizes="64px" loading="lazy" />
                 </div>
               </div>
 
