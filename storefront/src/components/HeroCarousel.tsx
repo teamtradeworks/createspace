@@ -330,8 +330,8 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
             </p>
 
             {/* Single bold image */}
-            <div className="relative h-48 rounded-2xl overflow-hidden ring-4 ring-cs-yellow/30 shadow-2xl">
-              <Image src={slide.lifestyleImages[1]} alt="Makerzoid robot kit" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
+            <div className="relative h-36 rounded-2xl overflow-hidden ring-4 ring-cs-yellow/30 shadow-2xl">
+              <Image src={slide.lifestyleImages[2]} alt="Makerzoid robot kit" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
             </div>
 
             {/* CTA */}
@@ -405,7 +405,6 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </Link>
-                  <span className="text-[11px] text-white/30 uppercase tracking-wider">Limited time only</span>
                 </div>
               </div>
 
