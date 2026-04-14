@@ -3,7 +3,7 @@ import Link from "next/link";
 import HeroCarouselClient from "./HeroCarouselClient";
 import SubscribeButton from "./SubscribeButton";
 
-type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon";
+type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon" | "sale";
 
 interface BrandLogo {
   src: string;
@@ -23,6 +23,7 @@ interface Slide {
   lifestyleImages?: string[];
   largeImages?: boolean;
   brandLogos?: BrandLogo[];
+  salePercent?: string;
   bgColor: string;
   textColor?: "light" | "dark";
 }
@@ -30,18 +31,17 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: "makerzoid-sale",
-    type: "lifestyle",
-    tag: "Limited Time Sale",
-    headline: "20% Off Makerzoid",
-    description:
-      "Let them build, code, and bring their own robots to life. Makerzoid kits make learning feel like play.",
+    type: "sale",
+    tag: "Limited Time",
+    headline: "Makerzoid Kits",
+    description: "Build, code, and bring robots to life — now at 20% off.",
     cta: { label: "Shop the Sale", href: "/shop?brand=Makerzoid" },
+    salePercent: "20%",
     lifestyleImages: [
       "/images/products/makerzoid-robot-master-premium/lifestyle/boy-coding-on-tablet-with-robot-on-floor.jpg",
       "/images/products/makerzoid-smart-robot-premium/lifestyle/child-building-while-coding-on-tablet.png",
       "/images/products/makerzoid-robot-master-premium/lifestyle/kids-playing-with-pieces-with-tablet-instructions.png",
     ],
-    largeImages: true,
     bgColor: "bg-navy",
     textColor: "light",
   },
@@ -285,6 +285,148 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 label="Notify Me"
                 className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
               />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sale type */}
+      {slide.type === "sale" && slide.lifestyleImages && (
+        <div className="relative h-full overflow-hidden">
+          {/* Background colour blobs */}
+          <div className="absolute -top-10 -left-10 w-64 h-64 bg-cs-purple opacity-20 rounded-full" />
+          <div className="absolute bottom-0 right-1/2 w-48 h-48 bg-cs-blue opacity-10 rounded-full" />
+          {/* Bold red top strip — z-20 sits above everything */}
+          <div className="absolute top-0 left-0 right-0 h-2 bg-cs-red z-20" />
+
+          {/* ── Mobile layout ── */}
+          <div className="lg:hidden relative z-10 flex flex-col px-4 pt-8 pb-6 gap-5 min-h-[500px]">
+            {/* Tag */}
+            {slide.tag && (
+              <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em]">
+                <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
+                {slide.tag}
+              </span>
+            )}
+
+            {/* SALE card + badge */}
+            <div className="flex items-end">
+              <div className="bg-cs-yellow rounded-2xl px-5 py-3">
+                <Heading className="text-[5.5rem] font-semibold text-navy tracking-tight leading-none">
+                  SALE
+                </Heading>
+              </div>
+              {slide.salePercent && (
+                <div className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-2.5rem] w-28 h-28">
+                  <span className="text-white font-semibold text-[2rem] leading-none">{slide.salePercent}</span>
+                  <span className="text-white/85 font-semibold text-[0.7rem] uppercase tracking-widest leading-none mt-0.5">OFF</span>
+                </div>
+              )}
+            </div>
+
+            {/* MAKERZOID KITS */}
+            <p className="text-[1.5rem] font-semibold text-cs-orange uppercase tracking-wide leading-none mt-3">
+              {slide.headline}
+            </p>
+
+            {/* Single bold image */}
+            <div className="relative h-48 rounded-2xl overflow-hidden ring-4 ring-cs-yellow/30 shadow-2xl">
+              <Image src={slide.lifestyleImages[1]} alt="Makerzoid robot kit" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
+            </div>
+
+            {/* CTA */}
+            <Link
+              href={slide.cta.href}
+              className="inline-flex items-center justify-center w-full px-7 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30 text-base"
+            >
+              {slide.cta.label}
+              <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+          </div>
+
+          {/* ── Desktop layout ── */}
+          <div className="hidden lg:block mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full relative z-10">
+            <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] lg:py-0">
+
+              <div className="z-10">
+                {/* Tag */}
+                {slide.tag && (
+                  <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em] mb-8">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
+                    {slide.tag}
+                  </span>
+                )}
+
+                {/* Yellow SALE card + badge */}
+                <div className="flex items-end mb-6">
+                  <div className="bg-cs-yellow rounded-2xl px-5 py-3">
+                    <Heading
+                      className="font-semibold text-navy tracking-tight leading-none"
+                      style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
+                    >
+                      SALE
+                    </Heading>
+                  </div>
+                  {slide.salePercent && (
+                    <div
+                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-3.5rem]"
+                      style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
+                    >
+                      <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}>
+                        {slide.salePercent}
+                      </span>
+                      <span className="text-white/85 font-semibold uppercase tracking-widest leading-none mt-0.5" style={{ fontSize: "clamp(0.6rem,1.2vw,0.8rem)" }}>
+                        OFF
+                      </span>
+                    </div>
+                  )}
+                </div>
+
+                {/* MAKERZOID KITS */}
+                <div className="mb-3">
+                  <p className="font-semibold text-cs-orange uppercase leading-none" style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}>
+                    {slide.headline}
+                  </p>
+                </div>
+
+                <p className="text-sm text-white/50 mb-7 max-w-xs leading-relaxed">
+                  {slide.description}
+                </p>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <Link
+                    href={slide.cta.href}
+                    className="inline-flex items-center px-7 py-3.5 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30"
+                  >
+                    {slide.cta.label}
+                    <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </Link>
+                  <span className="text-[11px] text-white/30 uppercase tracking-wider">Limited time only</span>
+                </div>
+              </div>
+
+              {/* Desktop: scattered collage */}
+              <div className="relative h-[500px]">
+                <div className="absolute top-6 right-4 w-40 h-40 bg-cs-orange opacity-20 rounded-3xl transform rotate-12" />
+                <div className="absolute bottom-12 left-2 w-24 h-24 bg-cs-blue opacity-25 rounded-full" />
+                <div className="absolute top-0 right-0 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
+                  <Image src={slide.lifestyleImages[0]} alt="Makerzoid robot kit" fill className="object-cover" sizes="290px" loading="lazy" />
+                </div>
+                <div className="absolute top-28 left-4 w-80 h-60 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
+                  <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="320px" loading="lazy" />
+                </div>
+                <div className="absolute bottom-4 right-8 w-64 h-48 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
+                  <Image src={slide.lifestyleImages[2]} alt="Kids with robotics kit" fill className="object-cover" sizes="260px" loading="lazy" />
+                </div>
+                <div className="absolute bottom-0 left-16 w-16 h-16 opacity-40">
+                  <Image src="/images/illustrations/robot-orange.png" alt="" fill className="object-contain" sizes="64px" loading="lazy" />
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
