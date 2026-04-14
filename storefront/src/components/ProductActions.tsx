@@ -19,6 +19,7 @@ interface ProductActionsProps {
   stockQuantity?: number;
   title: string;
   price: number;
+  compareAtPrice?: number;
   currencyCode: string;
   image?: string;
   handle: string;
@@ -36,6 +37,7 @@ export default function ProductActions({
   stockQuantity,
   title,
   price,
+  compareAtPrice,
   currencyCode,
   image,
   handle,
@@ -91,6 +93,7 @@ export default function ProductActions({
           variantId,
           title,
           price,
+          compareAtPrice,
           currencyCode,
           image,
           handle,
@@ -114,6 +117,7 @@ export default function ProductActions({
             variantId: addon.variantId,
             title: addon.title,
             price: addonPrice,
+            compareAtPrice: addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,
             handle: addon.handle,
@@ -165,6 +169,7 @@ export default function ProductActions({
       variantId,
       title,
       price,
+      compareAtPrice,
       currencyCode,
       image,
       handle,
@@ -220,6 +225,7 @@ export default function ProductActions({
           variantId,
           title,
           price,
+          compareAtPrice,
           currencyCode,
           image,
           handle,
@@ -243,6 +249,7 @@ export default function ProductActions({
             variantId: addon.variantId,
             title: addon.title,
             price: addonPrice,
+            compareAtPrice: addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,
             handle: addon.handle,
@@ -275,6 +282,7 @@ export default function ProductActions({
       variantId,
       title,
       price,
+      compareAtPrice,
       currencyCode,
       image,
       handle,
