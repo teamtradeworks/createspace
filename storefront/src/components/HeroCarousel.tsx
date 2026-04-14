@@ -21,12 +21,30 @@ interface Slide {
   productImage?: string;
   heroImage?: string;
   lifestyleImages?: string[];
+  largeImages?: boolean;
   brandLogos?: BrandLogo[];
   bgColor: string;
   textColor?: "light" | "dark";
 }
 
 const slides: Slide[] = [
+  {
+    id: "makerzoid-sale",
+    type: "lifestyle",
+    tag: "Limited Time Sale",
+    headline: "20% Off Makerzoid",
+    description:
+      "Let them build, code, and bring their own robots to life. Makerzoid kits make learning feel like play.",
+    cta: { label: "Shop the Sale", href: "/shop?brand=Makerzoid" },
+    lifestyleImages: [
+      "/images/products/makerzoid-robot-master-premium/lifestyle/boy-coding-on-tablet-with-robot-on-floor.jpg",
+      "/images/products/makerzoid-smart-robot-premium/lifestyle/child-building-while-coding-on-tablet.png",
+      "/images/products/makerzoid-robot-master-premium/lifestyle/kids-playing-with-pieces-with-tablet-instructions.png",
+    ],
+    largeImages: true,
+    bgColor: "bg-navy",
+    textColor: "light",
+  },
   {
     id: "main",
     type: "hero",
@@ -308,7 +326,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               </Link>
             </div>
             {/* Mobile: simple two-image row */}
-            <div className="lg:hidden flex gap-2 h-32">
+            <div className={`lg:hidden flex gap-2 ${slide.largeImages ? "h-48" : "h-32"}`}>
               <div className="relative flex-1 rounded-xl overflow-hidden">
                 <Image
                   src={slide.lifestyleImages[0]}
@@ -331,37 +349,37 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               </div>
             </div>
             {/* Desktop: scattered collage */}
-            <div className="hidden lg:block relative h-[450px]">
+            <div className={`hidden lg:block relative ${slide.largeImages ? "h-[500px]" : "h-[450px]"}`}>
               <div className="relative h-full">
                 <div className="absolute top-0 right-20 w-24 h-24 bg-cs-orange rounded-full opacity-30" />
                 <div className="absolute bottom-10 left-10 w-16 h-16 bg-cs-blue rounded-full opacity-30" />
-                <div className="absolute top-0 right-0 w-48 h-36 rounded-2xl overflow-hidden shadow-lg transform rotate-3">
+                <div className={`absolute top-0 right-0 rounded-2xl overflow-hidden shadow-lg transform rotate-3 ${slide.largeImages ? "w-72 h-56" : "w-48 h-36"}`}>
                   <Image
                     src={slide.lifestyleImages[0]}
                     alt="Kids learning robotics"
                     fill
                     className="object-cover"
-                    sizes="200px"
+                    sizes={slide.largeImages ? "290px" : "200px"}
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute top-24 left-8 w-52 h-40 rounded-2xl overflow-hidden shadow-lg transform -rotate-2">
+                <div className={`absolute top-28 left-4 rounded-2xl overflow-hidden shadow-lg transform -rotate-2 ${slide.largeImages ? "w-80 h-60" : "w-52 h-40"}`}>
                   <Image
                     src={slide.lifestyleImages[1]}
                     alt="STEM education workshop"
                     fill
                     className="object-cover"
-                    sizes="220px"
+                    sizes={slide.largeImages ? "320px" : "220px"}
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute bottom-8 right-12 w-44 h-32 rounded-2xl overflow-hidden shadow-lg transform rotate-1">
+                <div className={`absolute bottom-4 right-8 rounded-2xl overflow-hidden shadow-lg transform rotate-1 ${slide.largeImages ? "w-64 h-48" : "w-44 h-32"}`}>
                   <Image
                     src={slide.lifestyleImages[2]}
                     alt="Robotics class"
                     fill
                     className="object-cover"
-                    sizes="180px"
+                    sizes={slide.largeImages ? "260px" : "180px"}
                     loading="lazy"
                   />
                 </div>
