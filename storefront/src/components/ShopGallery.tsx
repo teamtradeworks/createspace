@@ -52,7 +52,9 @@ export default function ShopGallery({
     initialAge && initialAge !== "all" ? [initialAge] : [],
   );
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
-    initialCategory && initialCategory !== "all" ? [initialCategory] : [],
+    initialCategory && initialCategory !== "all"
+      ? [initialCategory.toLowerCase()]
+      : [],
   );
   const [selectedBrands, setSelectedBrands] = useState<string[]>(
     initialBrand ? [initialBrand] : [],
