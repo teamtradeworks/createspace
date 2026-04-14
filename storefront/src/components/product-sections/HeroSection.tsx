@@ -373,6 +373,7 @@ export function HeroSection({
                     stockQuantity={stockQuantity}
                     title={product.title}
                     price={parseFloat(price.amount)}
+                    compareAtPrice={hasDiscount ? parseFloat(compareAtPrice!.amount) : undefined}
                     currencyCode={price.currencyCode}
                     image={images[0]?.url}
                     handle={product.handle}

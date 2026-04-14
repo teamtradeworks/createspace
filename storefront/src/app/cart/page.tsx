@@ -19,6 +19,13 @@ import siteConfig from "@/config/site.json";
 export default function CartPage() {
   const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } =
     useCart();
+
+  const totalDiscount = getAvailableItems(items).reduce((sum, item) => {
+    if (item.compareAtPrice && item.compareAtPrice > item.price) {
+      return sum + (item.compareAtPrice - item.price) * item.quantity;
+    }
+    return sum;
+  }, 0);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const viewCartFired = useRef(false);
 
@@ -311,13 +318,24 @@ export default function CartPage() {
                         {/* Price */}
                         <div className="col-span-4 md:col-span-2 text-center">
                           <span className="md:hidden text-sm text-gray-500 mr-2">Price:</span>
-                          <span
-                            className={
-                              isUnavailable ? "text-gray-400 line-through" : "text-gray-700"
-                            }
-                          >
-                            {formatPrice(item.price, item.currencyCode, { showCents: true })}
-                          </span>
+                          {item.compareAtPrice && item.compareAtPrice > item.price && !isUnavailable ? (
+                            <span className="flex flex-col items-center gap-0.5">
+                              <span className="text-gray-400 line-through text-sm">
+                                {formatPrice(item.compareAtPrice, item.currencyCode, { showCents: true })}
+                              </span>
+                              <span className="text-cs-red font-medium">
+                                {formatPrice(item.price, item.currencyCode, { showCents: true })}
+                              </span>
+                            </span>
+                          ) : (
+                            <span
+                              className={
+                                isUnavailable ? "text-gray-400 line-through" : "text-gray-700"
+                              }
+                            >
+                              {formatPrice(item.price, item.currencyCode, { showCents: true })}
+                            </span>
+                          )}
                         </div>
 
                         {/* Quantity */}
@@ -419,6 +437,12 @@ export default function CartPage() {
                       <span>Subtotal ({itemCount} items)</span>
                       <span>{formatPrice(subtotal, currencyCode, { showCents: true })}</span>
                     </div>
+                    {totalDiscount > 0 && (
+                      <div className="flex justify-between text-cs-red">
+                        <span>Discount</span>
+                        <span>-{formatPrice(totalDiscount, currencyCode, { showCents: true })}</span>
+                      </div>
+                    )}
                     <div className="flex justify-between text-gray-600">
                       <span className="flex items-center gap-1">
                         Delivery
