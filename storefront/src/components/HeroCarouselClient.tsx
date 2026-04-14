@@ -10,22 +10,26 @@ interface HeroCarouselClientProps {
 
 export default function HeroCarouselClient({ children, slideCount, slideTextColors }: HeroCarouselClientProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   const isLight = slideTextColors[currentSlide] === "light";
 
-  // Auto-rotate slides
+  // Auto-rotate slides, pausing on hover
   useEffect(() => {
+    if (paused) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slideCount);
-    }, 6000);
+    }, 7000);
     return () => clearInterval(timer);
-  }, [slideCount]);
+  }, [slideCount, paused]);
 
   return (
     <div
       className="hero-carousel-wrapper"
       data-current-slide={currentSlide}
       style={{ "--current-slide": currentSlide } as React.CSSProperties}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
     >
       {children}
 
