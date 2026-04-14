@@ -144,11 +144,16 @@ export default function ShopGallery({
 
   // Sync filter state to URL query parameters (no page reload)
   useEffect(() => {
-    const params = new URLSearchParams();
+    const params = new URLSearchParams(window.location.search);
+
     if (selectedAges.length > 0) params.set("age", selectedAges.join(","));
+    else params.delete("age");
     if (selectedCategories.length > 0) params.set("category", selectedCategories.join(","));
+    else params.delete("category");
     if (selectedBrands.length > 0) params.set("brand", selectedBrands.join(","));
+    else params.delete("brand");
     if (sortBy !== "featured") params.set("sort", sortBy);
+    else params.delete("sort");
 
     const query = params.toString();
     const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
