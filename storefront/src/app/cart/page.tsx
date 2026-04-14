@@ -435,7 +435,7 @@ export default function CartPage() {
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal ({itemCount} items)</span>
-                      <span>{formatPrice(subtotal, currencyCode, { showCents: true })}</span>
+                      <span>{formatPrice(subtotal + totalDiscount, currencyCode, { showCents: true })}</span>
                     </div>
                     {totalDiscount > 0 && (
                       <div className="flex justify-between text-cs-red">
