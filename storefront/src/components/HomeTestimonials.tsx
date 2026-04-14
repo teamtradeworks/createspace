@@ -31,6 +31,13 @@ const testimonials = [
     role: "Founder, JustMi-Kid",
     rating: 5,
   },
+  {
+    quote:
+      "There are not many companies left that go out of their way to ensure a satisfied customer, this is one of them.",
+    author: "Charl Jordan",
+    role: "Parent of 9-year-old son",
+    rating: 5,
+  },
 ];
 
 export default function HomeTestimonials() {
