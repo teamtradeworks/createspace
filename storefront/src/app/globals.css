@@ -81,6 +81,15 @@ body {
   pointer-events: auto;
 }
 
+.hero-carousel-wrapper[data-current-slide="3"] .hero-slide {
+  opacity: 0;
+  pointer-events: none;
+}
+.hero-carousel-wrapper[data-current-slide="3"] .hero-slide[data-index="3"] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 /* Thin scrollbar for review containers */
 .scrollbar-thin {
   scrollbar-width: thin;
