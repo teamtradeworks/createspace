@@ -10,6 +10,7 @@ interface ShopGalleryProps {
   initialAge?: string;
   initialCategory?: string;
   initialBrand?: string;
+  initialSort?: string;
 }
 
 const BRAND_COLORS = {
@@ -47,19 +48,22 @@ export default function ShopGallery({
   initialAge,
   initialCategory,
   initialBrand,
+  initialSort,
 }: ShopGalleryProps) {
   const [selectedAges, setSelectedAges] = useState<string[]>(
-    initialAge && initialAge !== "all" ? [initialAge] : [],
+    initialAge && initialAge !== "all"
+      ? initialAge.split(",").filter(Boolean)
+      : [],
   );
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     initialCategory && initialCategory !== "all"
-      ? [initialCategory.toLowerCase()]
+      ? initialCategory.toLowerCase().split(",").filter(Boolean)
       : [],
   );
   const [selectedBrands, setSelectedBrands] = useState<string[]>(
-    initialBrand ? [initialBrand] : [],
+    initialBrand ? initialBrand.split(",").filter(Boolean) : [],
   );
-  const [sortBy, setSortBy] = useState("featured");
+  const [sortBy, setSortBy] = useState(initialSort || "featured");
 
   // Extract unique brands from products
   const brands = useMemo(() => {
@@ -137,6 +141,19 @@ export default function ShopGallery({
 
     return result;
   }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
+
+  // Sync filter state to URL query parameters (no page reload)
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (selectedAges.length > 0) params.set("age", selectedAges.join(","));
+    if (selectedCategories.length > 0) params.set("category", selectedCategories.join(","));
+    if (selectedBrands.length > 0) params.set("brand", selectedBrands.join(","));
+    if (sortBy !== "featured") params.set("sort", sortBy);
+
+    const query = params.toString();
+    const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+    window.history.replaceState(null, "", newUrl);
+  }, [selectedAges, selectedCategories, selectedBrands, sortBy]);
 
   const hasActiveFilters =
     selectedAges.length > 0 || selectedCategories.length > 0 || selectedBrands.length > 0;
