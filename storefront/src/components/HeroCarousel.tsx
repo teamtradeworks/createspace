@@ -3,7 +3,7 @@ import Link from "next/link";
 import HeroCarouselClient from "./HeroCarouselClient";
 import SubscribeButton from "./SubscribeButton";
 
-type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon";
+type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon" | "sale";
 
 interface BrandLogo {
   src: string;
@@ -23,6 +23,7 @@ interface Slide {
   lifestyleImages?: string[];
   largeImages?: boolean;
   brandLogos?: BrandLogo[];
+  salePercent?: string;
   bgColor: string;
   textColor?: "light" | "dark";
 }
@@ -30,18 +31,17 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: "makerzoid-sale",
-    type: "lifestyle",
-    tag: "Limited Time Sale",
-    headline: "20% Off Makerzoid",
-    description:
-      "Let them build, code, and bring their own robots to life. Makerzoid kits make learning feel like play.",
+    type: "sale",
+    tag: "Limited Time",
+    headline: "Makerzoid Robots",
+    description: "Build, code, and bring robots to life — now at 20% off.",
     cta: { label: "Shop the Sale", href: "/shop?brand=Makerzoid" },
+    salePercent: "20%",
     lifestyleImages: [
       "/images/products/makerzoid-robot-master-premium/lifestyle/boy-coding-on-tablet-with-robot-on-floor.jpg",
       "/images/products/makerzoid-smart-robot-premium/lifestyle/child-building-while-coding-on-tablet.png",
       "/images/products/makerzoid-robot-master-premium/lifestyle/kids-playing-with-pieces-with-tablet-instructions.png",
     ],
-    largeImages: true,
     bgColor: "bg-navy",
     textColor: "light",
   },
@@ -285,6 +285,83 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 label="Notify Me"
                 className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
               />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Sale type */}
+      {slide.type === "sale" && slide.lifestyleImages && (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
+          <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] py-10 lg:py-0">
+            {/* Left: Sale copy */}
+            <div className="z-10">
+              {slide.tag && (
+                <span className="inline-flex items-center gap-2 text-cs-yellow font-semibold text-xs uppercase tracking-widest mb-4">
+                  <span className="w-2 h-2 rounded-full bg-cs-yellow animate-pulse" />
+                  {slide.tag}
+                </span>
+              )}
+              {/* Big SALE word */}
+              <div className="flex items-baseline gap-4 mb-2">
+                <Heading
+                  className="text-[5.5rem] md:text-[7rem] lg:text-[8rem] font-semibold leading-none text-cs-yellow tracking-tight"
+                  style={{ lineHeight: 1 }}
+                >
+                  SALE
+                </Heading>
+              </div>
+              {/* Discount badge */}
+              <div className="flex items-baseline gap-2 mb-4">
+                {slide.salePercent && (
+                  <span className="text-4xl md:text-5xl font-semibold text-white leading-none">
+                    {slide.salePercent}{" "}
+                    <span className="text-2xl md:text-3xl font-semibold text-white/70">OFF</span>
+                  </span>
+                )}
+              </div>
+              {/* Product line */}
+              <p className="text-base md:text-lg font-semibold text-white/90 uppercase tracking-wider mb-3">
+                {slide.headline}
+              </p>
+              <p className="text-sm md:text-base text-white/60 mb-8 max-w-sm">
+                {slide.description}
+              </p>
+              <Link
+                href={slide.cta.href}
+                className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+              >
+                {slide.cta.label}
+                <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </div>
+            {/* Right: lifestyle image collage */}
+            {/* Mobile: two-image row */}
+            <div className="lg:hidden flex gap-2 h-44">
+              <div className="relative flex-1 rounded-xl overflow-hidden">
+                <Image src={slide.lifestyleImages[0]} alt="Makerzoid robot kit" fill className="object-cover" sizes="50vw" loading="lazy" />
+              </div>
+              <div className="relative flex-1 rounded-xl overflow-hidden">
+                <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="50vw" loading="lazy" />
+              </div>
+            </div>
+            {/* Desktop: scattered collage */}
+            <div className="hidden lg:block relative h-[500px]">
+              <div className="relative h-full">
+                <div className="absolute top-0 right-20 w-20 h-20 bg-cs-yellow rounded-full opacity-20" />
+                <div className="absolute bottom-10 left-10 w-14 h-14 bg-cs-red rounded-full opacity-20" />
+                <div className="absolute top-0 right-0 w-72 h-56 rounded-2xl overflow-hidden shadow-xl transform rotate-3">
+                  <Image src={slide.lifestyleImages[0]} alt="Makerzoid robot kit" fill className="object-cover" sizes="290px" loading="lazy" />
+                </div>
+                <div className="absolute top-28 left-4 w-80 h-60 rounded-2xl overflow-hidden shadow-xl transform -rotate-2">
+                  <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="320px" loading="lazy" />
+                </div>
+                <div className="absolute bottom-4 right-8 w-64 h-48 rounded-2xl overflow-hidden shadow-xl transform rotate-1">
+                  <Image src={slide.lifestyleImages[2]} alt="Kids with robotics kit" fill className="object-cover" sizes="260px" loading="lazy" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
