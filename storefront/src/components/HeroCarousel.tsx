@@ -330,7 +330,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                   {/* 20% OFF circle badge — nudged down so it sits below centre of SALE */}
                   {slide.salePercent && (
                     <div
-                      className="relative flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red shadow-[0_0_0_4px_rgba(255,255,255,0.15),0_0_0_8px_rgba(247,11,40,0.25)] transform -rotate-12 mt-8"
+                      className="relative flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red shadow-[0_0_0_4px_rgba(255,255,255,0.15),0_0_0_8px_rgba(247,11,40,0.25)] transform -rotate-12 mt-14"
                       style={{ width: "clamp(88px,11vw,130px)", height: "clamp(88px,11vw,130px)" }}
                     >
                       <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.75rem,4.5vw,2.75rem)" }}>
@@ -343,23 +343,12 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                   )}
                 </div>
 
-                {/* Makerzoid logo + product line */}
+                {/* Product line */}
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-white rounded-lg px-2.5 py-1.5 inline-flex items-center">
-                    <Image
-                      src="/images/brands/makerzoid.png"
-                      alt="Makerzoid"
-                      width={90}
-                      height={28}
-                      className="h-6 w-auto object-contain"
-                    />
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="h-px w-4 bg-white/30" />
-                    <p className="text-sm font-semibold text-white/80 uppercase tracking-[0.18em]">
-                      {slide.headline}
-                    </p>
-                  </div>
+                  <div className="h-px w-4 bg-white/30" />
+                  <p className="text-sm font-semibold text-white/80 uppercase tracking-[0.18em]">
+                    {slide.headline}
+                  </p>
                 </div>
 
                 <p className="text-sm md:text-base text-white/55 mb-8 max-w-xs leading-relaxed">
