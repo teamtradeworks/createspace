@@ -332,7 +332,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                   {/* 20% OFF circle badge — sits to the right, slightly below card bottom */}
                   {slide.salePercent && (
                     <div
-                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 mb-[-1.5rem]"
+                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 mb-[-3.5rem]"
                       style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
                     >
                       <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}>
