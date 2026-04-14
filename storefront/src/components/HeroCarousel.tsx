@@ -312,16 +312,16 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
 
                 {/* Tag */}
                 {slide.tag && (
-                  <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em] mb-4">
+                  <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em] mb-8">
                     <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
                     {slide.tag}
                   </span>
                 )}
 
-                {/* Yellow SALE card + overlapping badge */}
-                <div className="relative inline-block mb-6">
+                {/* Yellow SALE card + badge side by side */}
+                <div className="flex items-end gap-3 mb-6">
                   {/* Yellow card */}
-                  <div className="bg-cs-yellow rounded-2xl px-5 py-3 pr-16">
+                  <div className="bg-cs-yellow rounded-2xl px-5 py-3">
                     <Heading
                       className="font-semibold text-navy tracking-tight leading-none"
                       style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
@@ -329,10 +329,10 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                       SALE
                     </Heading>
                   </div>
-                  {/* 20% OFF circle badge — overlapping bottom-right corner */}
+                  {/* 20% OFF circle badge — sits to the right, slightly below card bottom */}
                   {slide.salePercent && (
                     <div
-                      className="absolute -bottom-8 -right-8 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12"
+                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 mb-[-1.5rem]"
                       style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
                     >
                       <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}>
