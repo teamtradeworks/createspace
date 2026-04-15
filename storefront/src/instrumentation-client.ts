@@ -28,6 +28,14 @@ if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_IS_CI) {
     // Enable sending user PII (Personally Identifiable Information)
     // https://docs.sentry.io/platforms/javascript/guides/nextjs/configuration/options/#sendDefaultPii
     sendDefaultPii: true,
+
+    // Filter out errors from third-party scripts we don't control
+    ignoreErrors: [
+      /Object\.keys\(this\.buckets\)/, // Fera reviews widget
+      /Jsloader error/, // Google API script timeouts
+      /Cannot read properties of null \(reading 'click'\)/, // Bot / browser extension noise
+    ],
+    denyUrls: [/fera\.js/, /apis\.google\.com/],
   });
 }
 
@@ -38,9 +46,7 @@ posthog.init(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN!, {
   person_profiles: "always",
   capture_pageview: false, // We handle pageviews manually via PostHogPageview for SPA navigation
   capture_exceptions: true,
-  session_recording: {
-    recordCrossOriginIframes: true,
-  },
+  session_recording: {},
   debug: process.env.NODE_ENV === "development",
 });
 
