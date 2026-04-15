@@ -65,6 +65,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable}>
       <head>
+        {/* Facebook Pixel stub — must be synchronous so it's defined before GTM fires */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if(!window.fbq){window.fbq=function(){window.fbq.callMethod?window.fbq.callMethod.apply(window.fbq,arguments):window.fbq.queue.push(arguments)};window._fbq=window.fbq;window.fbq.push=window.fbq;window.fbq.loaded=!0;window.fbq.version='2.0';window.fbq.queue=[]}`,
+          }}
+        />
         {/* Preload hero image for faster LCP */}
         <link
           rel="preload"
