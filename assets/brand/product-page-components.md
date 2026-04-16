@@ -507,6 +507,8 @@ Displays STEM and life skill tags with colour-coded styling.
 
 Product specifications in table format.
 
+**Mobile behaviour:** On screens below `lg` (1024px), this section collapses behind a navy toggle button. Tapping the button expands/collapses the table with an animated chevron. On desktop the section is always visible with its standard heading.
+
 **Props:**
 
 | Prop | Type | Required | Default | Description |
@@ -568,6 +570,8 @@ Embedded YouTube or Vimeo video with privacy-enhanced mode.
 ## WhatsIncluded
 
 Checklist of box contents with optional image.
+
+**Mobile behaviour:** On screens below `lg` (1024px), this section collapses behind a navy toggle button. Tapping the button expands/collapses the content with an animated chevron. On desktop the section is always visible — when an image is provided, the layout is `[Image | Title + Items]` in a two-column grid.
 
 **Props:**
 
