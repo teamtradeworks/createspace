@@ -35,7 +35,7 @@ test.describe("Cart", () => {
     await page.goto("/cart");
     const cartItem = page
       .locator("main")
-      .locator("text=/R [\\d,]+\\.\\d{2}/")
+      .locator("text=/R[\\s\\u00a0][\\d,]+\\.\\d{2}/")
       .first();
     await expect(cartItem).toBeVisible();
   });
