@@ -126,6 +126,12 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
     el.scrollBy({ left: direction === "left" ? -cardWidth : cardWidth, behavior: "smooth" });
   };
 
+  const openReviewForm = () => {
+    if (window.fera) {
+      window.fera.showContentSubmitter();
+    }
+  };
+
   if (loading) return null;
   if (!rating || rating.count === 0) return null;
   if (reviews.length === 0) return null;
@@ -159,8 +165,7 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
               </span>
             </div>
             <button
-              data-fera-action="open_review_form"
-              data-fera-product-id={feraId}
+              onClick={openReviewForm}
               className={`px-5 py-2 rounded-full text-sm font-semibold border-2 transition-colors ${
                 background === "navy"
                   ? "border-white text-white hover:bg-white hover:text-navy"
