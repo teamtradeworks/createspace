@@ -203,11 +203,11 @@ export function QuickInfoBadges({ product, badges: manualBadges }: QuickInfoBadg
           <h3 className="text-center text-sm font-medium text-gray-500 uppercase tracking-wide mb-6">
             At a Glance
           </h3>
-          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+          <div className="flex overflow-x-auto gap-3 pb-2 md:flex-wrap md:justify-center md:gap-4 md:overflow-x-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {allBadges.map((badge, index) => (
               <div
                 key={index}
-                className="flex items-center gap-3 px-5 py-4 bg-white rounded-xl shadow-sm border border-gray-100"
+                className="flex items-center gap-3 px-5 py-4 bg-white rounded-xl shadow-sm border border-gray-100 shrink-0 md:shrink"
               >
                 <div className="w-10 h-10 rounded-full bg-cs-blue/10 flex items-center justify-center text-cs-blue">
                   {icons[badge.icon]}
