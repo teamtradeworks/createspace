@@ -32,7 +32,7 @@ body {
 /* Hero Carousel - CSS-first approach for LCP optimization */
 .hero-carousel-wrapper {
   position: relative;
-  min-height: 560px;
+  min-height: 460px;
 }
 
 @media (min-width: 1024px) {
@@ -44,7 +44,7 @@ body {
 /* Desktop: track fills wrapper and provides positioning context for absolute slides */
 .hero-carousel-track {
   position: relative;
-  min-height: 560px;
+  min-height: 460px;
   width: 100%;
 }
 
@@ -69,7 +69,7 @@ body {
   /* All slides visible and laid out side-by-side for swipe scrolling */
   .hero-slide {
     flex: 0 0 100%;
-    min-height: 560px;
+    min-height: 460px;
     position: relative;
     inset: auto;
     scroll-snap-align: start;
