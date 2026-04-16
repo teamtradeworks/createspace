@@ -9,7 +9,7 @@ test.describe("Product page", () => {
 
     await expect(page.locator("main h1").first()).toBeVisible();
     await expect(
-      page.locator("main").locator("text=/R [\\d,]+/").first()
+      page.locator("main").locator("text=/R[\\s\\u00a0][\\d,]+/").first()
     ).toBeVisible();
   });
 

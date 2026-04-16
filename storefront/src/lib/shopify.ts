@@ -366,8 +366,8 @@ export function formatPrice(
   const withCommas = whole.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   const suffix = showCents ? `.${decimal}` : "";
   return currencyCode === "ZAR"
-    ? `R ${withCommas}${suffix}`
-    : `${currencyCode} ${withCommas}${suffix}`;
+    ? `R\u00a0${withCommas}${suffix}`
+    : `${currencyCode}\u00a0${withCommas}${suffix}`;
 }
 
 export function formatAgeRange(minAge: Metafield, maxAge: Metafield): string | null {
