@@ -163,7 +163,7 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
             {canScrollLeft && (
               <button
                 onClick={() => scroll("left")}
-                className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
                 aria-label="Scroll reviews left"
               >
                 <svg
@@ -180,7 +180,7 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
             <div
               ref={scrollRef}
               className={`flex gap-6 overflow-x-auto pb-4 scrollbar-none ${
-                reviews.length <= 2 ? "sm:justify-center sm:overflow-x-visible" : ""
+                reviews.length <= 2 ? "md:justify-center md:overflow-x-visible" : ""
               }`}
             >
               {reviews.map((review) => (
@@ -199,7 +199,7 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
             {canScrollRight && (
               <button
                 onClick={() => scroll("right")}
-                className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
                 aria-label="Scroll reviews right"
               >
                 <svg
