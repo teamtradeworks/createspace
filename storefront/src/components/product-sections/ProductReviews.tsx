@@ -160,26 +160,10 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
 
           {/* Review Cards Carousel */}
           <div className="relative">
-            {reviews.length <= 2 && (
-              <div className="flex gap-6 justify-center flex-wrap">
-                {reviews.map((review) => (
-                  <ReviewCard
-                    key={review.id}
-                    review={review}
-                    cardBg={cardBg}
-                    cardBorder={cardBorder}
-                    textClass={textClass}
-                    subtextClass={subtextClass}
-                    bodyTextClass={bodyTextClass}
-                    onReadMore={() => setSelectedReview(review)}
-                  />
-                ))}
-              </div>
-            )}
-            {reviews.length > 2 && canScrollLeft && (
+            {canScrollLeft && (
               <button
                 onClick={() => scroll("left")}
-                className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+                className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
                 aria-label="Scroll reviews left"
               >
                 <svg
@@ -193,26 +177,29 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
                 </svg>
               </button>
             )}
-            {reviews.length > 2 && (
-              <div ref={scrollRef} className="flex gap-6 overflow-x-auto pb-4 scrollbar-none">
-                {reviews.map((review) => (
-                  <ReviewCard
-                    key={review.id}
-                    review={review}
-                    cardBg={cardBg}
-                    cardBorder={cardBorder}
-                    textClass={textClass}
-                    subtextClass={subtextClass}
-                    bodyTextClass={bodyTextClass}
-                    onReadMore={() => setSelectedReview(review)}
-                  />
-                ))}
-              </div>
-            )}
-            {reviews.length > 2 && canScrollRight && (
+            <div
+              ref={scrollRef}
+              className={`flex gap-6 overflow-x-auto pb-4 scrollbar-none ${
+                reviews.length <= 2 ? "md:justify-center md:overflow-x-visible" : ""
+              }`}
+            >
+              {reviews.map((review) => (
+                <ReviewCard
+                  key={review.id}
+                  review={review}
+                  cardBg={cardBg}
+                  cardBorder={cardBorder}
+                  textClass={textClass}
+                  subtextClass={subtextClass}
+                  bodyTextClass={bodyTextClass}
+                  onReadMore={() => setSelectedReview(review)}
+                />
+              ))}
+            </div>
+            {canScrollRight && (
               <button
                 onClick={() => scroll("right")}
-                className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-navy hover:bg-gray-50 transition-colors"
+                className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
                 aria-label="Scroll reviews right"
               >
                 <svg
