@@ -41,53 +41,92 @@ body {
   }
 }
 
-/* All slides hidden by default */
-.hero-slide {
-  opacity: 0;
-  pointer-events: none;
+/* Desktop: track fills wrapper and provides positioning context for absolute slides */
+.hero-carousel-track {
+  position: relative;
+  min-height: 560px;
+  width: 100%;
 }
 
-/* First slide visible by default (before JS hydrates) */
-.hero-slide[data-index="0"] {
-  opacity: 1;
-  pointer-events: auto;
+@media (min-width: 1024px) {
+  .hero-carousel-track {
+    min-height: 520px;
+  }
 }
 
-/* JS-controlled visibility via data attribute */
-.hero-carousel-wrapper[data-current-slide="0"] .hero-slide {
-  opacity: 0;
-  pointer-events: none;
-}
-.hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.hero-carousel-wrapper[data-current-slide="1"] .hero-slide {
-  opacity: 0;
-  pointer-events: none;
-}
-.hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.hero-carousel-wrapper[data-current-slide="2"] .hero-slide {
-  opacity: 0;
-  pointer-events: none;
-}
-.hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] {
-  opacity: 1;
-  pointer-events: auto;
+/* Mobile: track becomes a horizontal scroll snap container */
+@media (max-width: 1023px) {
+  .hero-carousel-track {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .hero-carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+  /* All slides visible and laid out side-by-side for swipe scrolling */
+  .hero-slide {
+    flex: 0 0 100%;
+    min-height: 560px;
+    position: relative;
+    inset: auto;
+    scroll-snap-align: start;
+    overflow: hidden;
+  }
 }
 
-.hero-carousel-wrapper[data-current-slide="3"] .hero-slide {
-  opacity: 0;
-  pointer-events: none;
-}
-.hero-carousel-wrapper[data-current-slide="3"] .hero-slide[data-index="3"] {
-  opacity: 1;
-  pointer-events: auto;
+/* Desktop-only: opacity-based slide switching */
+@media (min-width: 1024px) {
+  /* All slides hidden by default */
+  .hero-slide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* First slide visible by default (before JS hydrates) */
+  .hero-slide[data-index="0"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* JS-controlled visibility via data attribute */
+  .hero-carousel-wrapper[data-current-slide="0"] .hero-slide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hero-carousel-wrapper[data-current-slide="1"] .hero-slide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hero-carousel-wrapper[data-current-slide="2"] .hero-slide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .hero-carousel-wrapper[data-current-slide="3"] .hero-slide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .hero-carousel-wrapper[data-current-slide="3"] .hero-slide[data-index="3"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }
 
 /* Thin scrollbar for review containers */
