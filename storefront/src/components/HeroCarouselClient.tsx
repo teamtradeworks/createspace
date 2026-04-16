@@ -32,10 +32,13 @@ export default function HeroCarouselClient({ children, slideCount, slideTextColo
     if (!track) return;
     // Only scrollable on mobile (scrollWidth > clientWidth means flex overflow is active)
     if (track.scrollWidth > track.clientWidth + 10) {
-      isScrollingProgrammatically.current = true;
-      track.scrollTo({ left: currentSlide * track.clientWidth, behavior: "smooth" });
-      const t = setTimeout(() => { isScrollingProgrammatically.current = false; }, 700);
-      return () => clearTimeout(t);
+      const targetLeft = currentSlide * track.clientWidth;
+      if (Math.abs(track.scrollLeft - targetLeft) > 5) {
+        isScrollingProgrammatically.current = true;
+        track.scrollTo({ left: targetLeft, behavior: "smooth" });
+        const t = setTimeout(() => { isScrollingProgrammatically.current = false; }, 700);
+        return () => clearTimeout(t);
+      }
     }
   }, [currentSlide]);
 
