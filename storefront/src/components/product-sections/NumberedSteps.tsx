@@ -20,6 +20,9 @@ export function NumberedSteps({
   background = "white",
   columns = 3,
 }: NumberedStepsProps) {
+  // Temporarily hidden — remove this line to restore the section
+  return null;
+
   const isNavyCard = background === "navy-card";
   const isNavy = background === "navy" || isNavyCard;
 
