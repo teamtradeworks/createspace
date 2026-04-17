@@ -44,6 +44,7 @@ PostHog analytics has been integrated into the CREATESPACE Next.js (App Router) 
 | `newsletter_subscribed` | Fired on successful newsletter subscription | `storefront/src/components/EmailPopup.tsx` |
 | `newsletter_signup` | Server-side — fired on the subscribe API route (includes `already_subscribed` flag) | `storefront/src/app/api/subscribe/route.ts` |
 | `contact_form_submitted` | Fired when the contact form is successfully submitted | `storefront/src/components/ContactForm.tsx` |
+| `purchase_completed` | Server-side — fired via Shopify `orders/create` webhook with order value, items, discounts, shipping location, and repeat customer flag | `storefront/src/app/api/webhooks/shopify/orders/route.ts` |
 
 ---
 

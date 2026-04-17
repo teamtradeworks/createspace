@@ -1,3 +1,5 @@
+import { getFirstTouchUtm } from "@/lib/utm";
+
 declare global {
   interface Window {
     dataLayer: Record<string, unknown>[];
@@ -17,9 +19,22 @@ type GA4Item = {
 function pushEcommerceEvent(event: string, ecommerce: Record<string, unknown>) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
+
+  // Attach first-touch UTM attribution to ecommerce events
+  const utm = getFirstTouchUtm();
+  const attribution = utm
+    ? {
+        utm_source: utm.utm_source,
+        utm_medium: utm.utm_medium,
+        utm_campaign: utm.utm_campaign,
+        utm_term: utm.utm_term,
+        utm_content: utm.utm_content,
+      }
+    : {};
+
   // Clear previous ecommerce data (Google recommendation)
   window.dataLayer.push({ ecommerce: null });
-  window.dataLayer.push({ event, ecommerce });
+  window.dataLayer.push({ event, ecommerce, ...attribution });
 }
 
 export function gtmPageView(url: string) {

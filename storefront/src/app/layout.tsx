@@ -15,7 +15,6 @@ import EmailPopup from "@/components/EmailPopup";
 import PostHogPageview from "@/components/PostHogPageview";
 import GTMPageview from "@/components/GTMPageview";
 import GoogleTagManager from "@/components/GoogleTagManager";
-import ClarityAnalytics from "@/components/ClarityAnalytics";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const outfit = localFont({
@@ -99,9 +98,6 @@ export default function RootLayout({
           <EmailPopup />
           <SpeedInsights />
           <Analytics />
-          {process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID && (
-            <ClarityAnalytics projectId={process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID} />
-          )}
         </CartProvider>
         {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
           <Script

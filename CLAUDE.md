@@ -400,6 +400,34 @@ Product-specific images are stored in `assets/product/[product-handle]/` with th
 - Not all images need to be used - select the most relevant ones
 - Copy images to `storefront/public/images/products/[handle]/` before using on the website
 
+# Marketing & Analytics
 
+The `marketing/` folder contains user behaviour analysis, optimisation recommendations, and campaign planning. Refer to it when working on analytics, tracking, conversion optimisation, or marketing-related tasks.
 
+## Analytics Stack
+- **PostHog** — Primary product analytics: funnels, session recordings, heatmaps, user identification, feature flags, A/B testing
+- **Google Analytics (GA4 via GTM)** — Traffic sources, campaign attribution, audience demographics, ecommerce reporting
+- **Meta Pixel (via GTM)** — Facebook/Instagram ad tracking, managed entirely through Google Tag Manager
+- **Sentry** — Error tracking and session replay on errors
 
+## Key Files
+- `marketing/overview.md` — Current state assessment, analytics stack, tracking gaps, key questions
+- `marketing/user-journeys.md` — Mapped funnels, drop-off points, optimisation hypotheses
+- `marketing/recommendations.md` — Prioritised optimisation recommendations with status tracking
+- `marketing/data/` — Analytics data exports
+- `marketing/campaigns/` — Campaign planning and performance
+
+## Tracking Architecture
+- **PostHog events** are fired from client components via `src/lib/analytics.ts` (lazy wrapper) and server-side via `src/lib/posthog-server.ts`
+- **GTM/GA4 events** are fired via `src/lib/gtm.ts` — handles all GA4 ecommerce events (view_item, add_to_cart, view_cart, begin_checkout, search)
+- **Meta Pixel** is managed through GTM — code only provides a `window.fbq` stub in `layout.tsx` so GTM tags can call it
+- **UTM attribution** is captured on first touch via `src/lib/utm.ts` and set as PostHog user properties + included in GTM ecommerce events
+- **Purchase tracking** is handled by a Shopify `orders/create` webhook at `/api/webhooks/shopify/orders` which fires `purchase_completed` in PostHog
+
+## Environment Variables (analytics-related)
+| Variable | Purpose |
+|----------|---------|
+| `NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN` | PostHog project token |
+| `NEXT_PUBLIC_POSTHOG_HOST` | PostHog host (EU instance) |
+| `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container ID |
+| `SHOPIFY_WEBHOOK_SECRET` | HMAC secret for Shopify webhook verification |
