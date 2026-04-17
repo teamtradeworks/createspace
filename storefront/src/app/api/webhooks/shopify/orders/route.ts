@@ -127,7 +127,7 @@ export async function POST(request: NextRequest) {
     // If we have both an anonymous ID and an email, create an alias so
     // PostHog merges the anonymous browsing person with the email identity.
     if (posthogAnonymousId && posthogAnonymousId !== email) {
-      posthog.alias({ distinctId: posthogAnonymousId, alias: email });
+      posthog.alias({ distinctId: email, alias: posthogAnonymousId });
     }
 
     await posthog.flush();
