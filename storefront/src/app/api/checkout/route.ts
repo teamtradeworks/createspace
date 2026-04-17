@@ -4,8 +4,8 @@ import { shopifyFetch } from "@/lib/shopify";
 import { getPostHogClient } from "@/lib/posthog-server";
 
 const CART_CREATE_MUTATION = `
-  mutation CartCreate($lines: [CartLineInput!]!) {
-    cartCreate(input: { lines: $lines }) {
+  mutation CartCreate($lines: [CartLineInput!]!, $attributes: [AttributeInput!]) {
+    cartCreate(input: { lines: $lines, attributes: $attributes }) {
       cart {
         checkoutUrl
       }
@@ -26,6 +26,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "No items provided" }, { status: 400 });
   }
 
+  const cookieStore = await cookies();
+  const phCookie = cookieStore
+    .getAll()
+    .find((c) => c.name.startsWith("ph_") && c.name.endsWith("_posthog"));
+  let distinctId: string | undefined;
+  try {
+    distinctId = phCookie?.value ? JSON.parse(phCookie.value).distinct_id : undefined;
+  } catch {
+    // Ignore malformed PostHog cookie
+  }
+
+  const attributes: { key: string; value: string }[] = [];
+  if (distinctId) {
+    attributes.push({ key: "_posthog_distinct_id", value: distinctId });
+  }
+
   const data = await shopifyFetch<{
     cartCreate: {
       cart: { checkoutUrl: string } | null;
@@ -39,6 +55,7 @@ export async function POST(request: NextRequest) {
         merchandiseId: line.variantId,
         quantity: line.quantity,
       })),
+      attributes,
     },
   });
 
@@ -48,17 +65,6 @@ export async function POST(request: NextRequest) {
 
   if (!data.cartCreate.cart) {
     return NextResponse.json({ error: "Failed to create checkout" }, { status: 500 });
-  }
-
-  const cookieStore = await cookies();
-  const phCookie = cookieStore
-    .getAll()
-    .find((c) => c.name.startsWith("ph_") && c.name.endsWith("_posthog"));
-  let distinctId: string | undefined;
-  try {
-    distinctId = phCookie?.value ? JSON.parse(phCookie.value).distinct_id : undefined;
-  } catch {
-    // Ignore malformed PostHog cookie — don't break checkout
   }
 
   if (distinctId) {
