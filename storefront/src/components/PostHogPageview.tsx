@@ -23,7 +23,7 @@ export default function PostHogPageview() {
         const utm = getFirstTouchUtm();
         if (utm) {
           posthog.register(utm);
-          posthog.setPersonProperties({
+          posthog.setPersonProperties({}, {
             initial_utm_source: utm.utm_source,
             initial_utm_medium: utm.utm_medium,
             initial_utm_campaign: utm.utm_campaign,

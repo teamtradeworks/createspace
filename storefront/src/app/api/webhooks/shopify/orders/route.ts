@@ -40,12 +40,12 @@ function verifyWebhook(body: Buffer, hmacHeader: string): boolean {
   const secret = process.env.SHOPIFY_WEBHOOK_SECRET;
   if (!secret) return false;
 
-  const digest = crypto
-    .createHmac("sha256", secret)
-    .update(body)
-    .digest("base64");
-
-  return crypto.timingSafeEqual(Buffer.from(digest), Buffer.from(hmacHeader));
+  const a = Buffer.from(
+    crypto.createHmac("sha256", secret).update(body).digest("base64"),
+  );
+  const b = Buffer.from(hmacHeader);
+  if (a.length !== b.length) return false;
+  return crypto.timingSafeEqual(a, b);
 }
 
 export async function POST(request: NextRequest) {

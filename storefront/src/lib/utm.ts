@@ -8,10 +8,10 @@ const UTM_PARAMS = [
 
 const STORAGE_KEY = "cs_first_touch_utm";
 
-export type UtmParams = Partial<Record<(typeof UTM_PARAMS)[number], string>>;
+type UtmParams = Partial<Record<(typeof UTM_PARAMS)[number], string>>;
 
 /** Extract UTM parameters from the current URL. Returns null if none present. */
-export function extractUtmFromUrl(): UtmParams | null {
+function extractUtmFromUrl(): UtmParams | null {
   if (typeof window === "undefined") return null;
 
   const params = new URLSearchParams(window.location.search);
