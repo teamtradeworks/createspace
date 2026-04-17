@@ -34,6 +34,7 @@ type ShopifyOrder = {
     country: string;
   };
   discount_codes?: { code: string; amount: string; type: string }[];
+  note_attributes?: { name: string; value: string }[];
 };
 
 function verifyWebhook(body: Buffer, hmacHeader: string): boolean {
@@ -63,11 +64,21 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
   }
 
-  const distinctId = order.email || order.customer?.email;
-  if (!distinctId) {
+  const email = order.email || order.customer?.email;
+  if (!email) {
     // No email to identify the user — acknowledge but skip tracking
     return NextResponse.json({ ok: true });
   }
+
+  // Check if we have the PostHog anonymous ID from cart attributes
+  const posthogAnonymousId = order.note_attributes?.find(
+    (attr) => attr.name === "_posthog_distinct_id",
+  )?.value;
+
+  // Use the anonymous ID as distinctId so the purchase event lands on the
+  // same person as the browsing session.  Fall back to email when no
+  // anonymous ID was attached (e.g. orders placed before this change).
+  const distinctId = posthogAnonymousId || email;
 
   try {
     const posthog = getPostHogClient();
@@ -101,15 +112,23 @@ export async function POST(request: NextRequest) {
       },
     });
 
+    // Identify links the distinctId (anonymous or email) to the user's
+    // email and name, merging the browsing session with the purchase.
     posthog.identify({
       distinctId,
       properties: {
-        email: distinctId,
+        email,
         first_name: order.customer?.first_name,
         last_name: order.customer?.last_name,
         total_orders: order.customer?.orders_count,
       },
     });
+
+    // If we have both an anonymous ID and an email, create an alias so
+    // PostHog merges the anonymous browsing person with the email identity.
+    if (posthogAnonymousId && posthogAnonymousId !== email) {
+      posthog.alias({ distinctId: email, alias: posthogAnonymousId });
+    }
 
     await posthog.flush();
   } catch (err) {
