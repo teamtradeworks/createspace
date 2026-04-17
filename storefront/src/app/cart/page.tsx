@@ -87,7 +87,6 @@ export default function CartPage() {
       subtotal,
       currencyCode,
     );
-
     setIsCheckingOut(true);
     try {
       const res = await fetch("/api/checkout", {
