@@ -1,3 +1,5 @@
+import { fuzzySearchProducts } from "@/lib/fuzzy-search";
+
 const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
 const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 
@@ -102,72 +104,6 @@ type Collection = {
 const PRODUCTS_QUERY = `
   query Products($first: Int!) {
     products(first: $first) {
-      edges {
-        node {
-          id
-          title
-          handle
-          description
-          vendor
-          tags
-          availableForSale
-          updatedAt
-          priceRange {
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          compareAtPriceRange {
-            minVariantPrice {
-              amount
-              currencyCode
-            }
-          }
-          images(first: 3) {
-            edges {
-              node {
-                url
-                altText
-              }
-            }
-          }
-          variants(first: 5) {
-            edges {
-              node {
-                id
-                title
-                sku
-                availableForSale
-                currentlyNotInStock
-                price {
-                  amount
-                  currencyCode
-                }
-              }
-            }
-          }
-          minAge: metafield(namespace: "custom", key: "minimum_age") {
-            value
-          }
-          maxAge: metafield(namespace: "custom", key: "maximum_age") {
-            value
-          }
-          rating: metafield(namespace: "reviews", key: "rating") {
-            value
-          }
-          ratingCount: metafield(namespace: "reviews", key: "rating_count") {
-            value
-          }
-        }
-      }
-    }
-  }
-`;
-
-const PRODUCTS_BY_TAG_QUERY = `
-  query ProductsByTag($first: Int!, $query: String!) {
-    products(first: $first, query: $query, sortKey: RELEVANCE) {
       edges {
         node {
           id
@@ -342,16 +278,12 @@ export async function getCollectionProducts(
   };
 }
 
-// Search products by text query
-export async function searchProducts(query: string, first: number = 20): Promise<Product[]> {
-  const data = await shopifyFetch<{
-    products: { edges: { node: Product }[] };
-  }>({
-    query: PRODUCTS_BY_TAG_QUERY,
-    variables: { first, query },
-  });
-
-  return data.products.edges.map((edge) => edge.node);
+// Search products by text query using client-side fuzzy matching.
+// Fetches the full product catalogue (Shopify caches the response) and ranks
+// matches with Fuse.js so typos like "microbit" → "micro:bit" still resolve.
+export async function searchProducts(query: string, limit: number = 20): Promise<Product[]> {
+  const products = await getProducts(250);
+  return fuzzySearchProducts(products, query).slice(0, limit);
 }
 
 // Helper to format price consistently (avoids hydration mismatch)
