@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
-import { Product } from "@/lib/shopify";
+import { Product, getStockStatus } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import TrustBadges from "@/components/TrustBadges";
 
@@ -138,6 +138,13 @@ export default function ShopGallery({
       default:
         break;
     }
+
+    // Always push out-of-stock products to the end, regardless of sort
+    result.sort((a, b) => {
+      const aOut = getStockStatus(a) === "out-of-stock" ? 1 : 0;
+      const bOut = getStockStatus(b) === "out-of-stock" ? 1 : 0;
+      return aOut - bOut;
+    });
 
     return result;
   }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
