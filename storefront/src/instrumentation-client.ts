@@ -34,6 +34,7 @@ if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_IS_CI) {
       /Object\.keys\(this\.buckets\)/, // Fera reviews widget
       /Jsloader error/, // Google API script timeouts
       /Cannot read properties of null \(reading 'click'\)/, // Bot / browser extension noise
+      /Java object is gone/, // Facebook in-app browser (Android) keyboard-logging hook
     ],
     denyUrls: [/fera\.js/, /apis\.google\.com/],
   });

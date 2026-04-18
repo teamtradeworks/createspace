@@ -3,16 +3,16 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { capture, identify } from "@/lib/analytics";
+import { safeGetItem, safeSetItem } from "@/lib/safe-storage";
 
 const STORAGE_KEY = "createspace_email_popup";
 const DELAY_MS = 15_000; // 15 seconds
 const SUPPRESS_DAYS = 7;
 
 function getSuppressionExpiry(): number | null {
-  if (typeof window === "undefined") return null;
+  const stored = safeGetItem(STORAGE_KEY);
+  if (!stored) return null;
   try {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (!stored) return null;
     const { expiry } = JSON.parse(stored);
     return typeof expiry === "number" ? expiry : null;
   } catch {
@@ -22,13 +22,13 @@ function getSuppressionExpiry(): number | null {
 
 function suppress() {
   const expiry = Date.now() + SUPPRESS_DAYS * 24 * 60 * 60 * 1000;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ expiry }));
+  safeSetItem(STORAGE_KEY, JSON.stringify({ expiry }));
 }
 
 function suppressForever() {
-  // Set expiry far in the future for subscribed users
+  // Far-future expiry for subscribed users
   const expiry = Date.now() + 365 * 10 * 24 * 60 * 60 * 1000;
-  localStorage.setItem(STORAGE_KEY, JSON.stringify({ expiry }));
+  safeSetItem(STORAGE_KEY, JSON.stringify({ expiry }));
 }
 
 export default function EmailPopup() {
