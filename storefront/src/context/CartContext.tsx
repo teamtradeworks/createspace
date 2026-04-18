@@ -1,6 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import { safeGetItem, safeSetItem } from "@/lib/safe-storage";
 
 export interface CartItem {
   id: string;
@@ -60,7 +61,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   // Load cart from localStorage on mount, then refresh availability from Shopify
   useEffect(() => {
-    const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+    const storedCart = safeGetItem(CART_STORAGE_KEY);
     let parsedItems: CartItem[] = [];
     if (storedCart) {
       try {
@@ -110,7 +111,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   // Save cart to localStorage whenever it changes
   useEffect(() => {
     if (isHydrated) {
-      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+      safeSetItem(CART_STORAGE_KEY, JSON.stringify(items));
     }
   }, [items, isHydrated]);
 
