@@ -1,0 +1,8 @@
+{
+  "synonyms": [
+    {
+      "match": "MatataStudio",
+      "aliases": ["MatataLabs", "Matata Labs"]
+    }
+  ]
+}
