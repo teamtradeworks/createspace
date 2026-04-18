@@ -6,6 +6,7 @@ import { Product, formatPrice, formatAgeRange, getProductRating, getStockStatus 
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
 import { StarRating } from "@/components/StarRating";
+import siteConfig from "@/config/site.json";
 
 type ProductCardProps = {
   product: Product;
@@ -117,7 +118,7 @@ export default function ProductCard({ product, searchQuery, searchPosition, prio
             {stockStatus === "in-stock"
               ? "In Stock"
               : stockStatus === "lead-time"
-                ? "Lead Time"
+                ? `Delivery in ${siteConfig.leadTime.estimatedDays}`
                 : "Out of Stock"}
           </span>
         </div>
