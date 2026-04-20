@@ -34,7 +34,7 @@ const slides: Slide[] = [
     type: "sale",
     tag: "Limited Time",
     headline: "Makerzoid Kits",
-    description: "Build, code, and bring robots to life — now at 20% off.",
+    description: "Build, code, and bring robots to life — now at 20% off. Sale ends 21 April.",
     cta: { label: "Shop the Sale", href: "/shop?brand=Makerzoid" },
     salePercent: "20%",
     lifestyleImages: [
@@ -333,6 +333,13 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
             <div className="relative h-36 rounded-2xl overflow-hidden ring-4 ring-cs-yellow/30 shadow-2xl">
               <Image src={slide.lifestyleImages[2]} alt="Makerzoid robot kit" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
             </div>
+
+            {/* Description */}
+            {slide.description && (
+              <p className="text-sm text-white/50 leading-relaxed -mt-1">
+                {slide.description}
+              </p>
+            )}
 
             {/* CTA */}
             <Link
