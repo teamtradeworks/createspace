@@ -86,7 +86,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       <ImageTextBlock
         image="/images/products/makerzoid-robot-master-premium/boy-coding-on-tablet-with-robot-on-floor.jpg"
         imageAlt="Child programming a Makerzoid robot using a tablet"
-        title="What's Inside the System"
+        title="Meet the Robot Master Premium"
         body="The Makerzoid Robot Master Premium is a programmable robotics kit with over 600 building blocks that lets your child build and code more than 200 different robot designs. From simple mechanical structures to Bluetooth-controlled robots with sensors, the kit spans three skill levels — Structural, Dynamics, and Programmable — each with dedicated video lessons. Children program their robots using Scratch 3.0, a visual drag-and-drop language designed for young learners, and see their code come to life instantly as their robot responds. The blocks are fully compatible with LEGO and LEGO Technic, so your child can combine them with pieces they already own."
         layout="image-left"
         background="white"
