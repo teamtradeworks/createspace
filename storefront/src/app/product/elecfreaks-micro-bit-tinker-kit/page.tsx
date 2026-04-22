@@ -279,7 +279,7 @@ export default async function ElecfreaksTinkerKitPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend ages 10–16 for independent use. Younger children (8–9) can enjoy it comfortably with a parent or older sibling helping with the initial setup. The block-based coding is genuinely beginner-friendly, and the projects stay engaging well into the teen years.",
+              "We recommend ages 8–16. Children aged 8–9 enjoy it best with a parent or older sibling for initial setup, while children 10+ can typically work independently. The block-based coding is genuinely beginner-friendly, and the projects stay engaging well into the teen years.",
           },
           {
             question: "Is soldering required?",
@@ -378,7 +378,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Expand your micro:bit with 13 plug-and-play sensors and 39 projects. Build alarms, games, robots and more. No soldering. Ages 10–16.",
+      "Expand your micro:bit with 13 plug-and-play sensors and 39 projects. Build alarms, games, robots and more. No soldering. Ages 8–16.",
     alternates: {
       canonical: "/product/elecfreaks-micro-bit-tinker-kit",
     },
