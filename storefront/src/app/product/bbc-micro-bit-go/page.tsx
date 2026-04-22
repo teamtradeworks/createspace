@@ -250,7 +250,7 @@ export default async function MicrobitGoPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The micro:bit is designed for ages 8 and up. Younger children can enjoy it with adult guidance using the block-based MakeCode editor. It's used in schools worldwide from primary through to secondary level.",
+              "The micro:bit is designed for ages 8–14. Younger children can enjoy it with adult guidance using the block-based MakeCode editor. It's used in schools worldwide from primary through to secondary level.",
           },
           {
             question: "Can I use it without a computer?",
@@ -331,7 +331,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Get started with coding using the BBC micro:bit Go. Complete starter kit with micro:bit V2, USB cable, batteries, and battery holder. Perfect for beginners aged 8+.",
+      "Get started with coding using the BBC micro:bit Go. Complete starter kit with micro:bit V2, USB cable, batteries, and battery holder. Perfect for beginners aged 8–14.",
     alternates: {
       canonical: "/product/bbc-micro-bit-go",
     },

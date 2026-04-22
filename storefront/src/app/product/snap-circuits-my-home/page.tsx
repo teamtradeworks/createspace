@@ -362,7 +362,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build real doorbells, alarms, fans, and more with the Snap Circuits My Home kit. 30+ home-themed circuit projects for ages 8+. No tools or soldering needed.",
+      "Build real doorbells, alarms, fans, and more with the Snap Circuits My Home kit. 30+ home-themed circuit projects for ages 8–14. No tools or soldering needed.",
     alternates: {
       canonical: "/product/snap-circuits-my-home",
     },

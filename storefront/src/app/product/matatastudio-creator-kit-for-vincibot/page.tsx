@@ -179,7 +179,7 @@ export default async function VinciBotCreatorKitPage() {
           {
             question: "What age is the Creator Kit best suited to?",
             answer:
-              "The Creator Kit is designed for ages 8 and up — the same as VinciBot. Children who've already spent time coding with VinciBot will find the Creator Kit a natural and exciting next step. The builds progress from straightforward (15–30 minutes) to more complex multi-part structures (60–90 minutes), so there's always an appropriate challenge regardless of where your child is in their learning journey.",
+              "The Creator Kit is designed for ages 8–12 — the same as VinciBot. Children who've already spent time coding with VinciBot will find the Creator Kit a natural and exciting next step. The builds progress from straightforward (15–30 minutes) to more complex multi-part structures (60–90 minutes), so there's always an appropriate challenge regardless of where your child is in their learning journey.",
           },
           {
             question: "Does it need batteries or extra tools?",

@@ -261,7 +261,7 @@ export default async function SnapCircuitsArcadePage() {
           {
             question: "What age is this best suited for?",
             answer:
-              "The kit is designed for ages 8 and up, which is Grade 3 and above. Younger children (6–7) may enjoy it with a parent alongside. There's no upper age limit — the electronics concepts are genuinely educational at any age, and the 200+ project count keeps older children engaged for longer.",
+              "The kit is designed for ages 8–14. Younger children (6–7) may enjoy it with a parent alongside. The 200+ project count and 21 arcade games keep children and teens engaged for a long time.",
           },
           {
             question: "What happens when they finish all the projects?",
@@ -351,7 +351,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build real circuits and play 21 arcade games with the Snap Circuits Arcade. 200+ projects, no soldering needed. Perfect for curious kids aged 8+.",
+      "Build real circuits and play 21 arcade games with the Snap Circuits Arcade. 200+ projects, no soldering needed. Perfect for curious kids aged 8–14.",
     alternates: {
       canonical: "/product/snap-circuits-arcade",
     },

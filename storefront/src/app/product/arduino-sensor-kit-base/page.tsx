@@ -243,7 +243,7 @@ export default async function ArduinoSensorKitBasePage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend this kit for ages 12 and up, as it uses real text-based C++ programming in the Arduino IDE. Motivated learners aged 10–11 can absolutely work through it — especially with a parent nearby for the initial setup. It's also excellent for teenagers and adults who want to move beyond beginner block coding.",
+              "We recommend this kit for ages 12–16, as it uses real text-based C++ programming in the Arduino IDE. Motivated learners aged 10–11 can absolutely work through it — especially with a parent nearby for the initial setup. It's also excellent for older teenagers who want to move beyond beginner block coding.",
           },
           {
             question: "Do we need to buy an Arduino UNO board separately?",
@@ -337,7 +337,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Learn real electronics and C++ coding with 10 plug-and-play Grove sensors. 10 guided lessons, no soldering required. Perfect for beginners aged 12+.",
+      "Learn real electronics and C++ coding with 10 plug-and-play Grove sensors. 10 guided lessons, no soldering required. Perfect for beginners aged 12–16.",
     alternates: {
       canonical: "/product/arduino-sensor-kit-base",
     },

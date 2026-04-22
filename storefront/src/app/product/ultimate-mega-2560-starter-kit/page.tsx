@@ -202,7 +202,7 @@ export default async function UltimateMega2560StarterKitPage() {
           {
             question: "What age is this kit suitable for?",
             answer:
-              "We recommend the Mega 2560 kit for ages 13 and up. The lessons involve reading circuit diagrams and writing code, so it suits teens and adults best. Children aged 10–12 who are already comfortable with technology may manage well with some adult support.",
+              "We recommend the Mega 2560 kit for ages 13–18. The lessons involve reading circuit diagrams and writing code, so it suits teens best. Children aged 10–12 who are already comfortable with technology may manage well with some adult support.",
           },
           {
             question: "Does my child need a computer?",
@@ -328,7 +328,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Learn electronics and coding with 33 step-by-step lessons. Includes 200+ components, RFID, gyroscope, motors and a 223-page guide. Ages 13+, no soldering required.",
+      "Learn electronics and coding with 33 step-by-step lessons. Includes 200+ components, RFID, gyroscope, motors and a 223-page guide. Ages 13–18, no soldering required.",
     alternates: {
       canonical: "/product/ultimate-mega-2560-starter-kit",
     },

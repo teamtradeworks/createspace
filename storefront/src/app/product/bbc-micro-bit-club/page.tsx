@@ -355,7 +355,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "10-board classroom coding kit for ages 8+. Every learner gets their own micro:bit. Free lesson plans, no soldering, works from any browser.",
+      "10-board classroom coding kit for ages 8–14. Every learner gets their own micro:bit. Free lesson plans, no soldering, works from any browser.",
     alternates: {
       canonical: "/product/bbc-micro-bit-club",
     },

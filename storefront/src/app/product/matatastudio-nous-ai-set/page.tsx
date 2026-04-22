@@ -95,7 +95,7 @@ export default async function NousAISetPage() {
       {/* Key Features Grid */}
       <FeatureGrid
         title="What Makes Nous AI Different"
-        subtitle="This isn't a toy robot — it's a complete AI education platform built around professional-grade concepts, made accessible for children aged 12+."
+        subtitle="This isn't a toy robot — it's a complete AI education platform built around professional-grade concepts, made accessible for children aged 12–16."
         features={[
           {
             icon: "sparkles",
@@ -299,7 +299,7 @@ export default async function NousAISetPage() {
       <Specifications
         title="Technical Details"
         specs={[
-          { label: "Recommended Age", value: "12+ years" },
+          { label: "Recommended Age", value: "12–16 years" },
           { label: "Programming Languages", value: "Block coding (Scratch-style) and Python" },
           {
             label: "AI Technologies",
@@ -323,7 +323,7 @@ export default async function NousAISetPage() {
       {/* Final CTA */}
       <CallToAction
         title="Start Your AI Journey"
-        subtitle="18+ hands-on AI projects, ChatGPT-4o integration, and on-device machine learning. Built for ages 12+."
+        subtitle="18+ hands-on AI projects, ChatGPT-4o integration, and on-device machine learning. Built for ages 12–16."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Robots"
@@ -344,7 +344,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Advanced AI robot for ages 12+. Learn machine learning, computer vision, and Python programming with ChatGPT-4o. 18+ projects, TinyML, award-winning curriculum.",
+      "Advanced AI robot for ages 12–16. Learn machine learning, computer vision, and Python programming with ChatGPT-4o. 18+ projects, TinyML, award-winning curriculum.",
     alternates: {
       canonical: "/product/matatastudio-nous-ai-set",
     },

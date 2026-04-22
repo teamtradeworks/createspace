@@ -87,7 +87,7 @@ export default async function SnapCircuitsClassic300Page() {
       {/* Feature Grid */}
       <FeatureGrid
         title="What Makes Snap Circuits Different"
-        subtitle="Designed to make real electronics accessible to anyone aged 8 and up."
+        subtitle="Designed to make real electronics accessible to children and teens aged 8–14."
         features={[
           {
             icon: "puzzle",
@@ -259,7 +259,7 @@ export default async function SnapCircuitsClassic300Page() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The kit is designed for ages 8 and up. Most children from about age 8 can work through the foundational projects on their own. Parents with younger children (ages 6–7) may enjoy working through the first few projects together.",
+              "The kit is designed for ages 8–14. Most children from about age 8 can work through the foundational projects on their own. Parents with younger children (ages 6–7) may enjoy working through the first few projects together.",
           },
           {
             question: "Are batteries included?",
@@ -321,7 +321,7 @@ export default async function SnapCircuitsClassic300Page() {
         specs={[
           { label: "Model", value: "SC-300" },
           { label: "Manufacturer", value: "Elenco Electronics" },
-          { label: "Recommended Age", value: "8+ years" },
+          { label: "Recommended Age", value: "8–14 years" },
           { label: "Parts Included", value: "60+ snap-together modules" },
           { label: "Total Projects", value: "305" },
           { label: "Manuals", value: "Two full-colour printed project books (1–101 and 102–305)" },
@@ -361,7 +361,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 305 guided electronics projects with Snap Circuits Classic. No tools, no soldering, two full-colour manuals included. For ages 8+.",
+      "Build 305 guided electronics projects with Snap Circuits Classic. No tools, no soldering, two full-colour manuals included. For ages 8–14.",
     alternates: {
       canonical: "/product/snap-circuits-classic-300",
     },

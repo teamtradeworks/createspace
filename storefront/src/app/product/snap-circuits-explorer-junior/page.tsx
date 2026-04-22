@@ -88,7 +88,7 @@ export default async function SnapCircuitJuniorPage() {
       {/* Features Grid */}
       <FeatureGrid
         title="What Makes It Special"
-        subtitle="Snap Circuits Explorer Junior is designed for children aged 8+ who are ready to explore how electronics work through hands-on discovery."
+        subtitle="Snap Circuits Explorer Junior is designed for children aged 8–12 who are ready to explore how electronics work through hands-on discovery."
         features={[
           {
             icon: "puzzle",
@@ -251,7 +251,7 @@ export default async function SnapCircuitJuniorPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The kit is recommended for ages 8 and up. Most children aged 8-12 can work through the projects independently after the first few. Younger children (ages 5-7) can enjoy it with adult guidance. It's also great for adults who want to learn electronics!",
+              "The kit is recommended for ages 8–12. Most children in this range can work through the projects independently after the first few. Younger children (ages 5–7) can enjoy it with adult guidance.",
           },
           {
             question: "Is it safe?",
@@ -315,7 +315,7 @@ export default async function SnapCircuitJuniorPage() {
         specs={[
           { label: "Model Number", value: "SC-100" },
           { label: "Manufacturer", value: "Elenco Electronics" },
-          { label: "Age Range", value: "8+ years (Grades 3-8)" },
+          { label: "Age Range", value: "8–12 years (Grades 3–7)" },
           { label: "Projects Included", value: "101" },
           { label: "Components", value: "30+ pieces" },
           { label: "Manual", value: "46-page full-colour guidebook" },
@@ -359,7 +359,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 101 real electronic circuits with Snap Circuits Explorer Junior. No soldering or tools needed—perfect for kids aged 8+ to learn electronics hands-on.",
+      "Build 101 real electronic circuits with Snap Circuits Explorer Junior. No soldering or tools needed—perfect for kids aged 8–12 to learn electronics hands-on.",
     alternates: {
       canonical: "/product/snap-circuits-explorer-junior",
     },

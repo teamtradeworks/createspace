@@ -213,7 +213,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend this kit for ages 12 and up working independently. Younger children (10–11) can absolutely enjoy it with some adult involvement, especially for the first few lessons. The Scratch block-coding option via ACECode also makes it more accessible for younger beginners.",
+              "We recommend this kit for ages 12–16 working independently. Younger children (10–11) can absolutely enjoy it with some adult involvement, especially for the first few lessons. The Scratch block-coding option via ACECode also makes it more accessible for younger beginners.",
           },
           {
             question: "Do I need a computer?",
@@ -338,7 +338,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "27 hands-on electronics and coding projects for beginners aged 12+. Includes RFID, sensors, motors, displays, and a downloadable guide. No soldering required.",
+      "27 hands-on electronics and coding projects for beginners aged 12–16. Includes RFID, sensors, motors, displays, and a downloadable guide. No soldering required.",
     alternates: {
       canonical: "/product/upgraded-uno-r3-starter-kit",
     },

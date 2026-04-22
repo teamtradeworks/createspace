@@ -263,7 +263,7 @@ export default async function CutebotProPage() {
           {
             question: "What age is the Cutebot Pro for?",
             answer:
-              "ELECFREAKS recommends ages 9 and up. Children who've done a little coding before will get the most out of it. That said, complete beginners can absolutely start here — the first projects are beginner-friendly and the free step-by-step tutorials walk through everything.",
+              "ELECFREAKS recommends ages 9–14. Children who've done a little coding before will get the most out of it. That said, complete beginners can absolutely start here — the first projects are beginner-friendly and the free step-by-step tutorials walk through everything.",
           },
           {
             question: "Does my child need coding experience?",
@@ -278,7 +278,7 @@ export default async function CutebotProPage() {
           {
             question: "Do I need to help my child, or can they work independently?",
             answer:
-              "Most children aged 10+ can work through the beginner projects independently using the free ELECFREAKS wiki tutorials, which include sample code for every project. Having a parent nearby for the first session is useful, but the kit is designed for independent use.",
+              "Most children aged 10–14 can work through the beginner projects independently using the free ELECFREAKS wiki tutorials, which include sample code for every project. Having a parent nearby for the first session is useful, but the kit is designed for independent use.",
           },
           {
             question: "What can they do after the 19 projects?",
@@ -353,7 +353,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "A programmable robot car for BBC micro:bit with 19 guided projects, precision encoder motors, and USB charging. Ages 9+. No soldering required.",
+      "A programmable robot car for BBC micro:bit with 19 guided projects, precision encoder motors, and USB charging. Ages 9–14. No soldering required.",
     alternates: {
       canonical: "/product/elecfreaks-micro-bit-smart-cutebot-pro",
     },

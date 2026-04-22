@@ -236,7 +236,7 @@ export default async function ArduinoStarterKitPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend the kit for ages 10 and up. Younger children (8-10) can also enjoy it with adult supervision. It's also perfect for adults who want to learn electronics.",
+              "We recommend the kit for ages 10–16. Younger children (8–9) can also enjoy it with adult supervision. It's also popular with adults who want to learn electronics.",
           },
           {
             question: "Do I need a computer?",
@@ -335,7 +335,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Learn electronics and coding with the official Arduino Starter Kit. Includes 15 hands-on projects, 170-page guide, and 100+ components. Perfect for beginners aged 10+.",
+      "Learn electronics and coding with the official Arduino Starter Kit. Includes 15 hands-on projects, 170-page guide, and 100+ components. Perfect for beginners aged 10–16.",
     alternates: {
       canonical: "/product/arduino-starter-kit",
     },

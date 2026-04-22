@@ -203,7 +203,7 @@ export default async function UltimateUnoR3StarterKitPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend the Ultimate kit for ages 12 and up for independent use. Curious 10–11 year olds can also tackle it well with some parental involvement, especially in the early lessons. The components and guide are all clearly labelled — this isn't a fiddly kit.",
+              "We recommend the Ultimate kit for ages 12–18 for independent use. Curious 10–11 year olds can also tackle it well with some parental involvement, especially in the early lessons. The components and guide are all clearly labelled — this isn't a fiddly kit.",
           },
           {
             question: "Do I need a computer?",
@@ -321,7 +321,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Learn electronics and coding with 33 hands-on lessons. Includes RFID, gyroscope, motors, LCD, and 50+ components. No soldering required. Ages 12+.",
+      "Learn electronics and coding with 33 hands-on lessons. Includes RFID, gyroscope, motors, LCD, and 50+ components. No soldering required. Ages 12–18.",
     alternates: {
       canonical: "/product/ultimate-uno-r3-starter-kit",
     },

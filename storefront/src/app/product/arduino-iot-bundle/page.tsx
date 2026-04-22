@@ -241,7 +241,7 @@ export default async function ArduinoIoTBundlePage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend this for ages 16 and up. The projects involve cloud setup, Arduino programming, and some problem-solving that suits older teenagers and adults. A younger teen with a strong interest in tech can also enjoy it — they may want a parent nearby for initial software setup.",
+              "We recommend this for ages 16–18. The projects involve cloud setup, Arduino programming, and some problem-solving that suits older teenagers. A younger teen (14–15) with a strong interest in tech can also enjoy it — they may want a parent nearby for initial software setup.",
           },
           {
             question: "Do I need a computer?",
@@ -359,7 +359,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 5 real IoT projects with the Arduino IoT Bundle. Includes Arduino Nano RP2040 Connect with built-in Wi-Fi, Bluetooth, and full online tutorials. Ages 16+.",
+      "Build 5 real IoT projects with the Arduino IoT Bundle. Includes Arduino Nano RP2040 Connect with built-in Wi-Fi, Bluetooth, and full online tutorials. Ages 16–18.",
     alternates: {
       canonical: "/product/arduino-iot-bundle",
     },

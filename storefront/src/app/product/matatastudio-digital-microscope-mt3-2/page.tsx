@@ -274,7 +274,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The MT3-2 is designed for ages 11 and up. Younger children (9–10) can also enjoy it with a parent present for the first few sessions. Adults find it just as fascinating — it's a genuinely powerful scientific instrument.",
+              "The MT3-2 is designed for ages 11–16. Younger children (9–10) can also enjoy it with a parent present for the first few sessions. Adults find it just as fascinating — it's a genuinely powerful scientific instrument.",
           },
           {
             question: "Do we need batteries or any extra equipment?",
