@@ -22,7 +22,7 @@ The Makerzoid Robot Master Tournament is a dynamic STEM learning kit designed to
 coding, construction, electronics, engineering, robotics, technology
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 10+ (designed for competitive robotics; general Makerzoid range is 6+, but Tournament edition targets ages 10+ for competition)
+- **Age Range:** 10–14
 - **Batteries:** Required; AA batteries recommended (Duracell specifically recommended by manufacturer for optimal performance); NOT included
 - **Projects:** 200+ models can be built (47 video courses across 3 levels)
 - **Guide:** Paper manual included + digital app (lab.makerzoid.com) + 47 video courses

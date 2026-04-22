@@ -28,7 +28,7 @@ Batteries required: 2 x AAA (not included)
 
 ### Product Attributes (from Shopify metafields)
 
-- **Age Range:** 6+
+- **Age Range:** 5–8
 - **Batteries:** 2 x AAA required, not included
 - **Projects:** 72+
 - **Guide:** 2D and 3D graphical instruction manuals

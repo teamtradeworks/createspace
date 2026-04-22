@@ -18,7 +18,7 @@ Product confirmed in Shopify. The following are handled automatically by the sto
 "Ignite your imagination and foster a love for building with the Makerzoid Diverse Building Blocks set. Enhanced with over 370 pieces, this versatile kit offers more than 100 official models, including cars, aircraft, Star Wars series, and the newly added Dancing Man series. Perfect for children aged 4 and up, it seamlessly blends fun and education for an engaging building experience."
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 4–8 (description says 4+, retailer sources say 6+; Shopify description says 4 to 8)
+- **Age Range:** 5–8
 - **Batteries:** Not required — no motor or electronics; purely mechanical/physical construction
 - **Projects:** 100+ models
 - **Guide:** 3D instruction app (iOS & Android) + paper instructions included
