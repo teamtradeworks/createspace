@@ -372,7 +372,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Explore the microscopic world with the MT3-2 digital microscope. 400× magnification, 7-inch screen, 10 prepared slides, and WiFi connectivity. Ages 11+.",
+      "Explore the microscopic world with the MT3-2 digital microscope. 400× magnification, 7-inch screen, 10 prepared slides, and WiFi connectivity. Ages 11–16.",
     alternates: {
       canonical: "/product/matatastudio-digital-microscope-mt3-2",
     },

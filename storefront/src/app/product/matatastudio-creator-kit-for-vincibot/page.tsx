@@ -231,7 +231,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Expand your VinciBot with 434+ building blocks, a DC motor, and 20 guided engineering builds. Construct crankshafts, cams, and motorised machines. Ages 8+.",
+      "Expand your VinciBot with 434+ building blocks, a DC motor, and 20 guided engineering builds. Construct crankshafts, cams, and motorised machines. Ages 8–12.",
     alternates: {
       canonical: `/product/${PRODUCT_HANDLE}`,
     },
