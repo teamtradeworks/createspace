@@ -50,7 +50,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges
         badges={[
-          { icon: "age", label: "Age", value: "6+" },
+          { icon: "age", label: "Age", value: "6–14" },
           { icon: "projects", label: "Models", value: "72+" },
           { icon: "scratch", label: "Coding", value: "Scratch 3.0" },
           { icon: "battery", label: "Battery", value: "3.7V lithium (included)" },
@@ -230,7 +230,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The manufacturer recommends ages 6 and up. The three difficulty levels mean younger children can start with simple vehicle builds while older kids tackle autonomous robots and sensor programming. It grows with your child rather than being outgrown quickly.",
+              "We recommend ages 6–14. The three difficulty levels mean younger children can start with simple vehicle builds while older kids tackle autonomous robots and sensor programming. It grows with your child rather than being outgrown quickly.",
           },
           {
             question: "Does my child need a phone, tablet, or computer?",
@@ -325,7 +325,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 72+ robot models and program with Scratch 3.0. Advanced sensors, LEGO-compatible, no soldering. Perfect for ages 6+.",
+      "Build 72+ robot models and program with Scratch 3.0. Advanced sensors, LEGO-compatible, no soldering. Perfect for ages 6–14.",
     alternates: {
       canonical: "/product/makerzoid-superbot-master-premium",
     },

@@ -233,7 +233,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend ages 6 and up. Younger children (6-8) may need adult help with more complex builds, while children 9+ can typically work independently. The progressive difficulty means the kit grows with your child for years.",
+              "We recommend ages 6–12. Younger children (6–8) may need adult help with more complex builds, while children 9–12 can typically work independently. The progressive difficulty means the kit grows with your child over the years.",
           },
           {
             question: "What do I need besides the kit?",
@@ -296,7 +296,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           { label: "Sensors Included", value: "Infrared (IR) sensor for intelligent mode" },
           { label: "App Compatibility", value: "iOS, Android, Web" },
           { label: "Battery Requirements", value: "2 x AAA (not included)" },
-          { label: "Recommended Age", value: "6 years and older" },
+          { label: "Recommended Age", value: "6–12 years" },
           { label: "Skill Level", value: "Beginner to Intermediate" },
         ]}
         background="white"
@@ -305,7 +305,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="200+ robot designs, three control modes, and Scratch Junior coding. Everything in the box for ages 6+."
+        subtitle="200+ robot designs, three control modes, and Scratch Junior coding. Everything in the box for ages 6–12."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -326,7 +326,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 200+ robots with Scratch Junior coding. Three control modes, 400+ blocks, 2D/3D instructions. Perfect for ages 6+ learning STEM through hands-on play.",
+      "Build 200+ robots with Scratch Junior coding. Three control modes, 400+ blocks, 2D/3D instructions. Perfect for ages 6–12 learning STEM through hands-on play.",
     alternates: {
       canonical: "/product/makerzoid-smart-robot-premium",
     },

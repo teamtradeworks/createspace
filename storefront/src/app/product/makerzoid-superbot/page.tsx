@@ -338,7 +338,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build, code, and race with the Makerzoid Superbot. 26+ motorised models, 400+ Lego-compatible bricks, drag-and-drop coding. Perfect for beginners aged 6+.",
+      "Build, code, and race with the Makerzoid Superbot. 26+ motorised models, 400+ Lego-compatible bricks, drag-and-drop coding. Perfect for beginners aged 6–14.",
     alternates: {
       canonical: "/product/makerzoid-superbot",
     },

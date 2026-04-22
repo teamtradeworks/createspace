@@ -123,7 +123,7 @@ export default async function MakerzoidSmartRobotPage() {
             icon: "shield",
             title: "Safe by Design",
             description:
-              "Smooth rounded edges on every brick, low-voltage battery operation, and all electronics safely enclosed — designed for ages 6 and up",
+              "Smooth rounded edges on every brick, low-voltage battery operation, and all electronics safely enclosed — designed for ages 6–10",
           },
         ]}
         columns={3}
@@ -237,12 +237,12 @@ export default async function MakerzoidSmartRobotPage() {
           {
             question: "Does my child need any experience with robotics or coding?",
             answer:
-              "Not at all. The Smart Robot is designed for complete beginners aged 6 and up. No coding, no app, no prior knowledge needed — just follow the 3D instructions and start building. It's one of the most accessible robotics kits available.",
+              "Not at all. The Smart Robot is designed for complete beginners aged 6–10. No coding, no app, no prior knowledge needed — just follow the 3D instructions and start building. It's one of the most accessible robotics kits available.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend ages 6 and up. Children aged 6–8 may need a bit of help with more complex builds, while children 9+ can usually work independently. The clear 3D instructions and chunky bricks are specifically designed for small hands and developing readers.",
+              "We recommend ages 6–10. Children aged 6–8 may need a bit of help with more complex builds, while children 9–10 can usually work independently. The clear 3D instructions and chunky bricks are specifically designed for small hands and developing readers.",
           },
           {
             question: "Do I need a phone or computer?",
@@ -307,7 +307,7 @@ export default async function MakerzoidSmartRobotPage() {
           { label: "App Required", value: "No" },
           { label: "Instructions", value: "2D and 3D graphical step-by-step guides" },
           { label: "Build Time", value: "Most builds under 1 hour" },
-          { label: "Recommended Age", value: "6 years and older" },
+          { label: "Recommended Age", value: "6–10 years" },
           { label: "Skill Level", value: "Beginner" },
           { label: "Materials", value: "ABS plastic bricks with smooth, rounded edges" },
         ]}
@@ -338,7 +338,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 72+ moving robots with no coding required. The Makerzoid Smart Robot uses a built-in Intelligent Motor so robots react on their own. Ages 6+.",
+      "Build 72+ moving robots with no coding required. The Makerzoid Smart Robot uses a built-in Intelligent Motor so robots react on their own. Ages 6–10.",
     alternates: {
       canonical: "/product/makerzoid-smart-robot",
     },
