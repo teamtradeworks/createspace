@@ -225,7 +225,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           {
             question: "Does my child need any prior experience with coding or robotics?",
             answer:
-              "Not at all. The Superbot Master Premium is designed for beginners. The free Makerzoid app provides step-by-step graphical assembly guides, and Scratch 3.0 is a drag-and-drop language — no typing required. Most children aged 6+ can get started independently.",
+              "Not at all. The Superbot Master Premium is designed for beginners. The free Makerzoid app provides step-by-step graphical assembly guides, and Scratch 3.0 is a drag-and-drop language — no typing required. Most children aged 6–14 can get started independently.",
           },
           {
             question: "What age is this suitable for?",

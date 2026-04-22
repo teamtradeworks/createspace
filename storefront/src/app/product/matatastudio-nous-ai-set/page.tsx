@@ -238,7 +238,7 @@ export default async function NousAISetPage() {
           {
             question: "Is this suitable for beginners?",
             answer:
-              "Yes! While Nous AI is recommended for ages 12+, the curriculum starts with basic concepts and gradually builds to advanced AI topics. No prior coding or robotics experience is needed — the online platform includes step-by-step tutorials from beginner to advanced.",
+              "Yes! While Nous AI is recommended for ages 12–16, the curriculum starts with basic concepts and gradually builds to advanced AI topics. No prior coding or robotics experience is needed — the online platform includes step-by-step tutorials from beginner to advanced.",
           },
           {
             question: "What makes this different from other coding robots?",

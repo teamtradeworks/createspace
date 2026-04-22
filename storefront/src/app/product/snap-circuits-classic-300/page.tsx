@@ -269,7 +269,7 @@ export default async function SnapCircuitsClassic300Page() {
           {
             question: "Is this safe? Does my child need adult supervision?",
             answer:
-              "Yes, Snap Circuits is designed with safety as a priority. The low-voltage battery-powered circuits are safe for children, with no sharp edges and no soldering involved. The built-in CircuitSafe® system prevents any component damage from incorrect wiring. Most children aged 8+ can build independently.",
+              "Yes, Snap Circuits is designed with safety as a priority. The low-voltage battery-powered circuits are safe for children, with no sharp edges and no soldering involved. The built-in CircuitSafe® system prevents any component damage from incorrect wiring. Most children aged 8–14 can build independently.",
           },
           {
             question: "What does my child do after finishing all 305 projects?",

@@ -322,7 +322,7 @@ export default async function ArduinoStudentKitPage() {
         title="Technical Details"
         specs={[
           { label: "Product Code", value: "AKX00025" },
-          { label: "Age Range", value: "11–14 (ages 11+)" },
+          { label: "Age Range", value: "11–14 years" },
           { label: "Learning Time", value: "Up to 25 hours (9 lessons + 2 projects)" },
           { label: "Lesson Duration", value: "~90 minutes each" },
           { label: "Microcontroller", value: "Arduino UNO R3 (ATmega328P)" },
@@ -362,7 +362,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Teach electronics and coding with the Arduino Student Kit. 9 guided lessons, 2 projects, professional multimeter included. Up to 25 hours of structured learning for ages 11+.",
+      "Teach electronics and coding with the Arduino Student Kit. 9 guided lessons, 2 projects, professional multimeter included. Up to 25 hours of structured learning for ages 11–14.",
     alternates: {
       canonical: "/product/arduino-student-kit",
     },

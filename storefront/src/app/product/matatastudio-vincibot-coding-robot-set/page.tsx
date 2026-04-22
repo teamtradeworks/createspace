@@ -278,7 +278,7 @@ export default async function VinciBotPage() {
           {
             question: "Does my child need prior coding experience?",
             answer:
-              "No! VinciBot is designed for complete beginners aged 8+. The 75 online lessons start with the absolute basics (like 'what is a loop?') and gradually introduce more advanced concepts. The first activities use simple drag-and-drop blocks — no typing required. VinciBot also has 3 preset modes (line following, drawing, and remote control) that work immediately without any programming, so your child can start having fun straight out of the box.",
+              "No! VinciBot is designed for complete beginners aged 8–12. The 75 online lessons start with the absolute basics (like 'what is a loop?') and gradually introduce more advanced concepts. The first activities use simple drag-and-drop blocks — no typing required. VinciBot also has 3 preset modes (line following, drawing, and remote control) that work immediately without any programming, so your child can start having fun straight out of the box.",
           },
           {
             question: "What's the difference between this and cheaper coding robots?",

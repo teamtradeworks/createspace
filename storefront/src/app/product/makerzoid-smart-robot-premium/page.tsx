@@ -41,7 +41,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         highlights={[
           "200+ unique robot models to build and program",
           "3 control modes: manual, sensor-driven, and Bluetooth programming",
-          "Scratch Junior coding - perfect for beginners aged 6+",
+          "Scratch Junior coding - perfect for beginners aged 6–12",
           "2D and 3D animated building instructions",
         ]}
         addons={addons}
@@ -258,7 +258,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             question: "Is this safe for my child?",
             answer:
-              "Yes. The blocks are appropriately sized for ages 6+, the motor operates on low-voltage AAA batteries, and all electronic components are safely enclosed. No soldering or complex tools required.",
+              "Yes. The blocks are appropriately sized for ages 6–12, the motor operates on low-voltage AAA batteries, and all electronic components are safely enclosed. No soldering or complex tools required.",
           },
         ]}
         background="white"

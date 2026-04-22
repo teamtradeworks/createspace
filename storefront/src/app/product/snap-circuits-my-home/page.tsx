@@ -113,7 +113,7 @@ export default async function SnapCircuitsMyHomePage() {
             icon: "shield",
             title: "Circuit Safe® Technology",
             description:
-              "Elenco's patented safety system is built in. No live electricity — just battery-powered, worry-free exploration for ages 8+.",
+              "Elenco's patented safety system is built in. No live electricity — just battery-powered, worry-free exploration for ages 8–14.",
           },
           {
             icon: "tools",
