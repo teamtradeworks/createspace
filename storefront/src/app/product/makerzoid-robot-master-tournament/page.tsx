@@ -228,12 +228,12 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The Tournament edition is designed for ages 10–16. The competition-specific training and advanced programming in Level 3 suit older children who are ready for a serious challenge. Younger children (8–10) can absolutely start with the structural builds, but the full curriculum is designed with 10+ in mind.",
+              "The Tournament edition is designed for ages 6–16. Younger children can start with the structural builds, while the competition-specific training and advanced Scratch 3.0 programming in Level 3 are designed for children ready for a serious challenge.",
           },
           {
             question: "Do I need to help my child with this?",
             answer:
-              "Most children aged 10–16 can work through the kit independently using the Makerzoid App and the 47 video courses. The structured progression means they always know what to do next. Adult support is welcome but not required.",
+              "Most children aged 6–16 can work through the kit independently using the Makerzoid App and the 47 video courses. The structured progression means they always know what to do next. Adult support is welcome but not required.",
           },
           {
             question: "What do we need to get started?",
@@ -327,7 +327,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Competition-grade robotics kit for ages 10–16. Build 200+ robot models, learn Scratch 3.0 coding, and train for tournaments with 47 structured video courses.",
+      "Competition-grade robotics kit for ages 6–16. Build 200+ robot models, learn Scratch 3.0 coding, and train for tournaments with 47 structured video courses.",
     alternates: {
       canonical: "/product/makerzoid-robot-master-tournament",
     },
