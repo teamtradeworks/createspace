@@ -30,22 +30,6 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    id: "makerzoid-sale",
-    type: "sale",
-    tag: "Limited Time",
-    headline: "Makerzoid Kits",
-    description: "Build, code, and bring robots to life — now at 20% off. Sale ends 21 April.",
-    cta: { label: "Shop the Sale", href: "/shop?brand=Makerzoid" },
-    salePercent: "20%",
-    lifestyleImages: [
-      "/images/products/makerzoid-robot-master-premium/lifestyle/boy-coding-on-tablet-with-robot-on-floor.jpg",
-      "/images/products/makerzoid-smart-robot-premium/lifestyle/child-building-while-coding-on-tablet.png",
-      "/images/products/makerzoid-robot-master-premium/lifestyle/kids-playing-with-pieces-with-tablet-instructions.png",
-    ],
-    bgColor: "bg-navy",
-    textColor: "light",
-  },
-  {
     id: "main",
     type: "hero",
     headline: "Build. Play. Learn.",
