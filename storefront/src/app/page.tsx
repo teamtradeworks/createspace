@@ -288,30 +288,6 @@ export default function Home() {
             {/* Testimonials Row */}
             <HomeTestimonials />
 
-            {/* Trust indicators */}
-            <div className="mt-12 pt-8 border-t border-gray-100">
-              <div className="flex flex-wrap justify-center items-center gap-8 text-center">
-                <div>
-                  <p className="text-3xl font-semibold text-navy">2,500+</p>
-                  <p className="text-sm text-gray-500">Happy Families</p>
-                </div>
-                <div className="w-px h-12 bg-gray-200 hidden sm:block" />
-                <div>
-                  <p className="text-3xl font-semibold text-navy">100+</p>
-                  <p className="text-sm text-gray-500">Partner Schools</p>
-                </div>
-                <div className="w-px h-12 bg-gray-200 hidden sm:block" />
-                <div>
-                  <p className="text-3xl font-semibold text-navy">4.9/5</p>
-                  <p className="text-sm text-gray-500">Average Rating</p>
-                </div>
-                <div className="w-px h-12 bg-gray-200 hidden sm:block" />
-                <div>
-                  <p className="text-3xl font-semibold text-navy">15,000+</p>
-                  <p className="text-sm text-gray-500">Kits Delivered</p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </TrackedSection>
