@@ -24,8 +24,8 @@ coding, construction, electronics, engineering, robotics, technology
 ### Product Attributes (from Shopify metafields)
 - **Age Range:** 10+ (designed for competitive robotics; general Makerzoid range is 6+, but Tournament edition targets ages 10+ for competition)
 - **Batteries:** Required; AA batteries recommended (Duracell specifically recommended by manufacturer for optimal performance); NOT included
-- **Projects:** 200+ models can be built (47 video courses across 3 levels)
-- **Guide:** Paper manual included + digital app (lab.makerzoid.com) + 47 video courses
+- **Projects:** 200+ models can be built
+- **Guide:** Paper manual included + digital app (lab.makerzoid.com) + 4 video lessons
 - **Soldering:** Not required
 - **Coding Platform:** Scratch 3.0
 
@@ -78,7 +78,7 @@ The Tournament edition is described as "designed to achieve high results in comp
 
 6. **LEGO-compatible blocks** — 640+ building blocks are LEGO-compatible, meaning they can be combined with existing LEGO collections for expanded building possibilities
 
-7. **47 structured video courses** across three levels:
+7. **4 video lessons** to help children get started, covering key concepts across the three learning levels:
    - **Level 1 (Structural)** — basic mechanics, gears, and construction principles
    - **Level 2 (Dynamics/Electricity)** — power, motors, and movement
    - **Level 3 (Programmable/Coding)** — Scratch programming, sensors, autonomous behaviour
@@ -102,7 +102,7 @@ The Tournament edition is described as "designed to achieve high results in comp
 - Grayscale Sensor
 - Paper instruction manual
 - Access to Makerzoid App (iOS and Android download)
-- Access to 47 online video courses (via app or lab.makerzoid.com)
+- Access to 4 video lessons (via app or lab.makerzoid.com)
 
 **Note:** Batteries NOT included. AA batteries required (manufacturer recommends Duracell).
 
@@ -182,9 +182,9 @@ Research consistently shows that hands-on, project-based learning produces signi
 ### Complete Project, Challenge & Activity List
 
 **Summary:**
-The Tournament kit supports **200+ buildable robot models** across increasing complexity levels. The 47 structured video courses map directly to building and programming challenges. Unlike some kits where projects are fixed, Makerzoid's system allows children to build any of the 200+ models and program them with increasing sophistication as their skills grow.
+The Tournament kit supports **200+ buildable robot models** across increasing complexity levels. 4 video lessons introduce key concepts; the app and online platform guide children through the building and programming challenges. Unlike some kits where projects are fixed, Makerzoid's system allows children to build any of the 200+ models and program them with increasing sophistication as their skills grow.
 
-**Course Level Structure (47 Video Courses):**
+**Three Learning Levels (4 video lessons cover introductory content):**
 
 | Level | Name | Focus | Examples of Content |
 |-------|------|--------|---------------------|
@@ -206,7 +206,7 @@ The Tournament kit supports **200+ buildable robot models** across increasing co
 | 8 | Multi-Sensor Integration | Build robots that use two or more sensors simultaneously | Complex programming, sensor fusion, parallel processing concepts |
 | 9 | Creative Engineering | Design a custom robot that solves a stated problem | Open-ended engineering, creativity, design thinking |
 
-**Note on Project Count:** The 200+ models is a library of guided builds at varying complexity. The 47 video courses provide structured guided learning. Competition training involves mastering specific challenge types (line following, obstacle avoidance, colour detection, precision movement) — these are the activities children prepare for in tournaments. Specific named model builds (e.g. car, dinosaur, helicopter) are not individually listed in publicly available documentation.
+**Note on Project Count:** The 200+ models is a library of guided builds at varying complexity. The 4 video lessons provide introductory guided learning; the app and platform guide ongoing builds. Competition training involves mastering specific challenge types (line following, obstacle avoidance, colour detection, precision movement) — these are the activities children prepare for in tournaments. Specific named model builds (e.g. car, dinosaur, helicopter) are not individually listed in publicly available documentation.
 
 **Difficulty Progression:** Items are structured from simple (L1: structural builds, no electronics) to intermediate (L2: powered builds) to advanced (L3: fully programmed autonomous robots). This scaffolded approach ensures children are never overwhelmed.
 
@@ -299,7 +299,7 @@ Research found that pre-program, most children lacked awareness of computer scie
 ### Longevity
 
 - The 200+ buildable models from 640+ blocks means this kit has exceptional longevity — children can keep returning to new builds and programming challenges for months or years
-- 47 video courses provide a structured multi-month learning journey even for dedicated learners
+- 4 introductory video lessons plus the app and online platform provide guidance throughout
 - The 3-level course structure means children can grow with the kit from beginner to advanced
 - LEGO-compatible blocks can be combined with any existing LEGO collection for infinite expansion
 - **Ecosystem add-ons available:**
@@ -310,14 +310,14 @@ Research found that pre-program, most children lacked awareness of computer scie
 ### Build Time
 
 - Individual model builds: varies by complexity — Level 1 simple builds could take 30–60 minutes; complex Level 3 builds could take several hours
-- Full 47-course curriculum: designed for sustained multi-month engagement
+- Full 3-level curriculum (Structural → Dynamics → Programmable): designed for sustained multi-month engagement
 - Competition challenge preparation: ongoing practice with specific tasks
 
 ### Unique Features
 
 1. **Competition-specific positioning** — this is not just a STEM toy; it is explicitly designed to prepare children for robotics tournaments. This is unusual in the consumer market and appeals to serious young learners.
 
-2. **47-course structured curriculum** across 3 levels — more comprehensive than most comparable kits which offer basic instructions only
+2. **Structured 3-level curriculum** (Structural → Dynamics → Programmable) — more comprehensive than most comparable kits which offer basic instructions only. 4 introductory video lessons plus the app and online platform guide children through the full programme.
 
 3. **Closed-loop servo motors** — most consumer robotics kits use simple DC motors. Closed-loop servos with encoder feedback is a professional/engineering-grade technology that gives children experience with real industrial robotics principles.
 
@@ -332,7 +332,7 @@ Research found that pre-program, most children lacked awareness of computer scie
 ## Research Gaps
 
 - **Exact named model list not available** — Makerzoid does not publicly list all 200+ model names in accessible documentation. The manual PDF (manuals.plus) returned a 403 error. A complete named list of models would strengthen the ProjectShowcase section.
-- **Number of courses specific to Tournament vs Premium** — the 47 courses are confirmed for the Premium version; the Tournament may share these or have additional competition-specific content. Needs confirmation.
+- **Video lessons** — confirmed 4 video lessons for the Tournament kit (not 47; the earlier research incorrectly carried over a Premium figure). The video lessons are introductory; the app and lab.makerzoid.com guide ongoing learning.
 - **Exact battery count** — "AA batteries required" is confirmed but the exact quantity (likely 4x or 6x AA) was not confirmed in accessible sources.
 - **Safety certifications** — CE marking or other specific safety certifications were not found in accessible sources.
 - **Scratch version compatibility details** — whether Scratch 3.0 requires an account on scratch.mit.edu or is fully embedded in the Makerzoid app was not confirmed.
