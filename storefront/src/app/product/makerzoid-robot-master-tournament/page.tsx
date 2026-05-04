@@ -39,8 +39,8 @@ export default async function MakerzoidRobotMasterTournamentPage() {
         product={product}
         tagline="From first build to competition-ready — a robotics kit that grows with your child"
         highlights={[
-          "200+ robot models across 3 skill levels",
-          "47 video courses from basic mechanics to autonomous programming",
+          "200+ robot models to build and programme",
+          "4 video lessons to get you started",
           "Learn Scratch 3.0 coding — no experience needed",
           "LEGO-compatible blocks expand any existing collection",
         ]}
@@ -61,9 +61,9 @@ export default async function MakerzoidRobotMasterTournamentPage() {
               "The Tournament edition is purpose-built for robotics tournament training. Your child learns the specific challenges — line following, obstacle avoidance, colour detection — that real competitions test.",
           },
           {
-            title: "Three Levels of Learning",
+            title: "A Progressive Learning Journey",
             description:
-              "47 structured video courses progress from basic construction (Level 1) through powered builds (Level 2) to full Scratch 3.0 autonomous programming (Level 3). No overwhelm — just steady progress.",
+              "Start with basic mechanics and construction, build toward powered models with motors and electronics, and progress to full Scratch 3.0 autonomous programming. Video lessons and 16 guided PDF lessons help your child advance at their own pace.",
           },
           {
             title: "Real Engineering Inside",
@@ -105,13 +105,13 @@ export default async function MakerzoidRobotMasterTournamentPage() {
             icon: "puzzle",
             title: "200+ Robot Models",
             description:
-              "Build anything from simple Level 1 structures to complex Level 3 autonomous robots. Always a new challenge.",
+              "Build anything from simple mechanical models to complex autonomous robots. Always a new challenge.",
           },
           {
             icon: "book",
-            title: "47 Video Courses",
+            title: "Video Lessons Included",
             description:
-              "Guided video learning across three levels. Your child always knows what to build next and why.",
+              "Introductory video lessons help your child get started. The app and online platform guide the rest with step-by-step instructions.",
           },
           {
             icon: "layers",
@@ -143,7 +143,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="Challenges, Courses & Builds"
-        highlight="47 structured video courses and 200+ buildable robot models across 3 levels"
+        highlight="200+ buildable robot models and 16 guided lessons to take you from first build to competition-ready"
         subtitle="From your first gear assembly to programming a robot that navigates an obstacle course on its own."
         projects={[
           {
@@ -188,7 +188,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
               "/images/products/makerzoid-robot-master-tournament/projects/graphical-programming.png",
           },
         ]}
-        moreText="Plus 200+ robot models to build — from simple Level 1 structures to fully autonomous Level 3 competition machines"
+        moreText="Plus 200+ robot models to build — from simple mechanical structures to fully autonomous competition machines"
         background="gray"
       />
 
@@ -223,22 +223,22 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           {
             question: "Does my child need any coding or robotics experience?",
             answer:
-              "Not at all. The kit starts from zero — Level 1 teaches basic mechanics with no electronics involved. By the time your child reaches Scratch 3.0 programming in Level 3, they'll have built up the knowledge gradually through 47 video courses.",
+              "Not at all. The kit starts from zero — early builds focus on basic mechanics with no electronics involved. Your child builds up knowledge gradually through the 16 guided lessons, video lessons, and the Makerzoid App, progressing naturally toward Scratch 3.0 programming.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "The Tournament edition is designed for ages 10 and up. The competition-specific training and advanced programming in Level 3 suit older children who are ready for a serious challenge. Younger children (8–10) can absolutely start with the structural builds, but the full curriculum is designed with 10+ in mind.",
+              "The Tournament edition is designed for ages 10 and up. The competition-specific training and advanced Scratch 3.0 programming suit older children who are ready for a serious challenge. Younger children (8–10) can start with the mechanical builds, but the full curriculum is designed with 10+ in mind.",
           },
           {
             question: "Do I need to help my child with this?",
             answer:
-              "Most children aged 10+ can work through the kit independently using the Makerzoid App and the 47 video courses. The structured progression means they always know what to do next. Adult support is welcome but not required.",
+              "Most children aged 10+ can work through the kit independently using the Makerzoid App and the included video lessons. The structured progression means they always know what to do next. Adult support is welcome but not required.",
           },
           {
             question: "What do we need to get started?",
             answer:
-              "A Bluetooth-enabled smartphone or tablet (iOS or Android) for the free Makerzoid App, and AA batteries (not included — Duracell recommended). No tools required and no soldering. For Level 3 Scratch programming, a computer with internet access is needed to use lab.makerzoid.com.",
+              "A Bluetooth-enabled smartphone or tablet (iOS or Android) for the free Makerzoid App, and AA batteries (not included — Duracell recommended). No tools required and no soldering. For Scratch 3.0 programming, a computer with internet access is needed to use lab.makerzoid.com.",
           },
           {
             question: "We already have LEGO — does this work with it?",
@@ -251,7 +251,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
               "Yes — that's exactly what the Tournament edition is designed for. It trains the specific skills tested in competitions: line following, obstacle avoidance, colour detection, and precision movement. The challenges align with formats like the World Robot Olympiad (WRO) and similar youth robotics competitions.",
           },
           {
-            question: "What happens once my child finishes the 47 video courses?",
+            question: "What happens once my child finishes the video lessons?",
             answer:
               "There are still 200+ robot models to build, competition challenges to practise and improve, and an online community at lab.makerzoid.com. The LEGO-compatible blocks also open up endless original builds. This kit is designed for months of sustained engagement, not a one-time experience.",
           },
@@ -270,7 +270,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           "Grayscale sensor",
           "Paper instruction manual",
           "Makerzoid App access (free — iOS and Android)",
-          "47 structured video courses (via app or lab.makerzoid.com)",
+          "4 video lessons + 16 guided PDF lessons (via app or lab.makerzoid.com)",
           "AA batteries NOT included — Duracell recommended",
         ]}
         background="gray"
@@ -327,7 +327,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Competition-grade robotics kit for ages 10+. Build 200+ robot models, learn Scratch 3.0 coding, and train for tournaments with 47 structured video courses.",
+      "Competition-grade robotics kit for ages 10+. Build 200+ robot models, learn Scratch 3.0 coding, and train for robotics tournaments.",
     alternates: {
       canonical: "/product/makerzoid-robot-master-tournament",
     },
