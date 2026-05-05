@@ -38,6 +38,14 @@
       "viewProductLink": false
     },
     {
+      "parentHandle": "makerzoid-robot-master-tournament",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 2,
+      "discountPercent": 0,
+      "description": "This kit requires 2 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
       "parentHandle": "snap-circuit-junior",
       "addonHandle": "varta-long-life-aa-alkaline-battery",
       "quantity": 2,
