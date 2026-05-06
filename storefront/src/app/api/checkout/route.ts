@@ -19,7 +19,7 @@ const CART_CREATE_MUTATION = `
 
 export async function POST(request: NextRequest) {
   const { lines } = (await request.json()) as {
-    lines: { variantId: string; quantity: number }[];
+    lines: { variantId: string; quantity: number; handle?: string }[];
   };
 
   if (!lines?.length) {
@@ -40,6 +40,19 @@ export async function POST(request: NextRequest) {
   const attributes: { key: string; value: string }[] = [];
   if (distinctId) {
     attributes.push({ key: "_posthog_distinct_id", value: distinctId });
+  }
+
+  // Map numeric variant ID -> product handle so the order webhook can attach
+  // the handle to each purchase_completed item, enabling joins with
+  // product_viewed / product_added_to_cart events.
+  const handleMap: Record<string, string> = {};
+  for (const line of lines) {
+    if (!line.handle) continue;
+    const numericId = line.variantId.split("/").pop();
+    if (numericId) handleMap[numericId] = line.handle;
+  }
+  if (Object.keys(handleMap).length > 0) {
+    attributes.push({ key: "_posthog_handles", value: JSON.stringify(handleMap) });
   }
 
   const data = await shopifyFetch<{

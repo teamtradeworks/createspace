@@ -422,7 +422,24 @@ The `marketing/` folder contains user behaviour analysis, optimisation recommend
 - **GTM/GA4 events** are fired via `src/lib/gtm.ts` — handles all GA4 ecommerce events (view_item, add_to_cart, view_cart, begin_checkout, search)
 - **Meta Pixel** is managed through GTM — code only provides a `window.fbq` stub in `layout.tsx` so GTM tags can call it
 - **UTM attribution** is captured on first touch via `src/lib/utm.ts` and set as PostHog user properties + included in GTM ecommerce events
-- **Purchase tracking** is handled by a Shopify `orders/create` webhook at `/api/webhooks/shopify/orders` which fires `purchase_completed` in PostHog
+
+## Purchase tracking & session linkage
+
+Purchases come in via a Shopify `orders/create` webhook at `/api/webhooks/shopify/orders` and fire `purchase_completed` in PostHog. To attribute a server-side purchase to the same person as the (possibly anonymous) browsing session, we pass identifiers through Shopify on the cart itself:
+
+- **Checkout creation** (`/api/checkout`) reads the PostHog cookie's `distinct_id` and resolves each cart line's product handle, then attaches both as Shopify cart attributes:
+  - `_posthog_distinct_id` — the browsing session's PostHog distinct ID
+  - `_posthog_handles` — JSON map of `{ "<numeric variantId>": "<handle>" }` for every line in the cart
+- Shopify persists cart attributes onto the order's `note_attributes`, so they survive checkout, payment redirects, and any webhook delivery delay.
+- **Webhook handler** reads both attributes back from `note_attributes`:
+  - Uses `_posthog_distinct_id` as the event's `distinctId` so the purchase lands on the same PostHog person as the browsing session.
+  - Uses `_posthog_handles` to attach `handle` to each entry in `purchase_completed.properties.items`, enabling joins with `product_viewed` / `product_added_to_cart` events that key on handle.
+  - Calls `identifyImmediate` with the order's email/name and `aliasImmediate` (anonymous → email) to merge identities.
+
+### Webhook delivery — non-obvious requirements
+
+- **Use `*Immediate` PostHog calls.** The handler runs in Vercel serverless. Queued `capture()` + `flush()` is unsafe because the lambda freezes after `return`; if any earlier call throws synchronously, queued events are lost. Always use `captureImmediate`, `identifyImmediate`, `aliasImmediate` and wrap each in its own `try`/`catch` so one failure can't block the others. Failures should also be reported via `Sentry.captureException` — the handler is otherwise invisible.
+- **Webhook URL must use the canonical hostname.** Shopify webhooks do not follow redirects. Configuring `https://thecreatespace.co.za/...` (apex) when the site canonicalises to `https://www.thecreatespace.co.za/...` returns a `307` that Shopify treats as delivered, silently dropping every event. Always register the `www.` URL.
 
 ## Environment Variables (analytics-related)
 | Variable | Purpose |
