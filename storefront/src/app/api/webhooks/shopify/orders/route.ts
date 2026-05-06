@@ -86,6 +86,21 @@ export async function POST(request: NextRequest) {
   // anonymous ID was attached (e.g. orders placed before this change).
   const distinctId = posthogAnonymousId || email;
 
+  // Map numeric variant ID -> product handle attached at checkout creation.
+  // Lets us include `handle` on each purchase line so events can be joined
+  // with product_viewed / product_added_to_cart.
+  let handleMap: Record<string, string> = {};
+  const handlesAttr = order.note_attributes?.find(
+    (attr) => attr.name === "_posthog_handles",
+  )?.value;
+  if (handlesAttr) {
+    try {
+      handleMap = JSON.parse(handlesAttr);
+    } catch {
+      // Ignore malformed handle map; items will be sent without handles.
+    }
+  }
+
   const posthog = getPostHogClient();
 
   try {
@@ -104,6 +119,7 @@ export async function POST(request: NextRequest) {
         items: order.line_items.map((item) => ({
           title: item.title,
           sku: item.sku,
+          handle: handleMap[String(item.variant_id)],
           price: parseFloat(item.price),
           quantity: item.quantity,
           product_id: item.product_id,

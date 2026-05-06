@@ -96,6 +96,7 @@ export default function CartPage() {
           lines: available.map((item) => ({
             variantId: item.variantId,
             quantity: item.quantity,
+            handle: item.handle,
           })),
         }),
       });
