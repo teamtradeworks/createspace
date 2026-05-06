@@ -49,6 +49,13 @@ const robotico = [
   },
 ];
 
+const makerzoid = [
+  {
+    name: "Makerzoid Robot Master Tournament",
+    url: "https://drive.google.com/drive/folders/15r1zih5CzouOKQfSVT0vom6ecyeLyY8O?usp=sharing",
+  },
+];
+
 const acebott = [
   {
     name: "ACEBOTT Smart Home Basic Starter Kit with Microbit",
@@ -178,6 +185,12 @@ export default function DownloadsPage() {
           <div>
             <h2 className="text-2xl font-semibold text-navy mb-6">Robotico</h2>
             <DownloadList items={robotico} />
+          </div>
+
+          {/* MAKERZOID */}
+          <div>
+            <h2 className="text-2xl font-semibold text-navy mb-6">Makerzoid</h2>
+            <DownloadList items={makerzoid} />
           </div>
 
           {/* ACEBOTT */}
