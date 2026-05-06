@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
+import * as Sentry from "@sentry/nextjs";
 import { getPostHogClient } from "@/lib/posthog-server";
 
 type LineItem = {
@@ -50,10 +51,17 @@ function verifyWebhook(body: Buffer, hmacHeader: string): boolean {
 }
 
 export async function POST(request: NextRequest) {
+  Sentry.addBreadcrumb({
+    category: "webhook",
+    message: "Shopify orders/create webhook received",
+    level: "info",
+  });
+
   const rawBody = Buffer.from(await request.arrayBuffer());
   const hmac = request.headers.get("x-shopify-hmac-sha256");
 
   if (!hmac || !verifyWebhook(rawBody, hmac)) {
+    Sentry.captureMessage("Shopify webhook HMAC verification failed", "warning");
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -66,24 +74,22 @@ export async function POST(request: NextRequest) {
 
   const email = order.email || order.customer?.email;
   if (!email) {
-    // No email to identify the user — acknowledge but skip tracking
     return NextResponse.json({ ok: true });
   }
 
-  // Check if we have the PostHog anonymous ID from cart attributes
   const posthogAnonymousId = order.note_attributes?.find(
     (attr) => attr.name === "_posthog_distinct_id",
   )?.value;
 
   // Use the anonymous ID as distinctId so the purchase event lands on the
-  // same person as the browsing session.  Fall back to email when no
+  // same person as the browsing session. Fall back to email when no
   // anonymous ID was attached (e.g. orders placed before this change).
   const distinctId = posthogAnonymousId || email;
 
-  try {
-    const posthog = getPostHogClient();
+  const posthog = getPostHogClient();
 
-    posthog.capture({
+  try {
+    await posthog.captureImmediate({
       distinctId,
       event: "purchase_completed",
       properties: {
@@ -111,10 +117,16 @@ export async function POST(request: NextRequest) {
         $value: parseFloat(order.total_price),
       },
     });
+  } catch (err) {
+    console.error("PostHog captureImmediate failed for order webhook:", err);
+    Sentry.captureException(err, {
+      tags: { webhook: "shopify_orders", step: "capture" },
+      extra: { order_id: order.id, order_number: order.order_number },
+    });
+  }
 
-    // Identify links the distinctId (anonymous or email) to the user's
-    // email and name, merging the browsing session with the purchase.
-    posthog.identify({
+  try {
+    await posthog.identifyImmediate({
       distinctId,
       properties: {
         email,
@@ -123,17 +135,24 @@ export async function POST(request: NextRequest) {
         total_orders: order.customer?.orders_count,
       },
     });
-
-    // If we have both an anonymous ID and an email, create an alias so
-    // PostHog merges the anonymous browsing person with the email identity.
-    if (posthogAnonymousId && posthogAnonymousId !== email) {
-      posthog.alias({ distinctId: email, alias: posthogAnonymousId });
-    }
-
-    await posthog.flush();
   } catch (err) {
-    console.error("PostHog capture failed for order webhook:", err);
-    // Still return 200 so Shopify doesn't retry
+    console.error("PostHog identifyImmediate failed for order webhook:", err);
+    Sentry.captureException(err, {
+      tags: { webhook: "shopify_orders", step: "identify" },
+      extra: { order_id: order.id, order_number: order.order_number },
+    });
+  }
+
+  if (posthogAnonymousId && posthogAnonymousId !== email) {
+    try {
+      await posthog.aliasImmediate({ distinctId: email, alias: posthogAnonymousId });
+    } catch (err) {
+      console.error("PostHog aliasImmediate failed for order webhook:", err);
+      Sentry.captureException(err, {
+        tags: { webhook: "shopify_orders", step: "alias" },
+        extra: { order_id: order.id, order_number: order.order_number },
+      });
+    }
   }
 
   return NextResponse.json({ ok: true });
