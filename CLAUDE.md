@@ -448,3 +448,37 @@ Purchases come in via a Shopify `orders/create` webhook at `/api/webhooks/shopif
 | `NEXT_PUBLIC_POSTHOG_HOST` | PostHog host (EU instance) |
 | `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container ID |
 | `SHOPIFY_WEBHOOK_SECRET` | HMAC secret for Shopify webhook verification |
+
+# Newsletters
+
+Marketing newsletters are authored as React components in `storefront/emails/` using [react-email](https://react.email/) and published to Resend as **Broadcasts** (drafts). A human reviews and sends them from the Resend dashboard — the script never sends.
+
+## Commands (run from `storefront/`)
+
+- `npm run email:dev` — react-email preview server (renders all files in `emails/` with `PreviewProps`)
+- `npm run newsletter:publish -- <slug>` — creates a draft Broadcast in Resend from `emails/<slug>.tsx`, prints the dashboard URL
+
+## Convention for each email file (`storefront/emails/<slug>.tsx`)
+
+The default export is the React component. The file may also export:
+
+| Export | Purpose |
+|--------|---------|
+| `metadata` | `{ name, subject, previewText }` — used as Broadcast title, subject line, and inbox preview |
+| `loadProps` | `async () => Props` — fetches live data (e.g. a featured Shopify product) at publish time |
+| `Component.PreviewProps` | Static prop for the `email:dev` preview server (mock data, never sent) |
+
+Shared layout lives in `storefront/emails/components/EmailLayout.tsx`.
+
+## Image URLs in emails
+
+Email clients can't fetch local Next.js assets. All `/images/...` references are resolved against `EMAIL_ASSET_BASE_URL` and must be reachable on the public internet at publish time. Set this to a deployed Vercel URL (or production once cut over) — never `localhost`.
+
+## Environment Variables (newsletter-related)
+
+| Variable | Purpose |
+|----------|---------|
+| `RESEND_API_KEY` | Resend API key (also used by `/api/subscribe`) |
+| `RESEND_AUDIENCE_ID` | UUID of the Resend audience the broadcast is sent to |
+| `RESEND_FROM_EMAIL` | Verified sender, e.g. `"CREATESPACE <info@thecreatespace.co.za>"` |
+| `EMAIL_ASSET_BASE_URL` | Public host for `/images/...` referenced in email templates |
