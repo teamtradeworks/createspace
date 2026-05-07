@@ -34,11 +34,29 @@ function extractUtmFromUrl(): UtmParams | null {
  * stores them in sessionStorage so they persist across page navigations.
  * Returns the stored UTMs (or null if the user arrived without any).
  */
+function safeGetItem(key: string): string | null {
+  // sessionStorage access can throw SecurityError in restricted in-app
+  // browsers and some privacy modes — never let that break the page.
+  try {
+    return sessionStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function safeSetItem(key: string, value: string): void {
+  try {
+    sessionStorage.setItem(key, value);
+  } catch {
+    // ignore
+  }
+}
+
 export function getFirstTouchUtm(): UtmParams | null {
   if (typeof window === "undefined") return null;
 
   // If we already captured UTMs this session, return them
-  const stored = sessionStorage.getItem(STORAGE_KEY);
+  const stored = safeGetItem(STORAGE_KEY);
   if (stored) {
     try {
       return JSON.parse(stored) as UtmParams;
@@ -50,7 +68,7 @@ export function getFirstTouchUtm(): UtmParams | null {
   // First pageview: capture UTMs from URL if present
   const utm = extractUtmFromUrl();
   if (utm) {
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(utm));
+    safeSetItem(STORAGE_KEY, JSON.stringify(utm));
   }
 
   return utm;

@@ -10,6 +10,21 @@ type ShopifyResponse<T> = {
   errors?: { message: string }[];
 };
 
+const SHOPIFY_TIMEOUT_MS = 8000;
+
+function isRetriableNetworkError(err: unknown): boolean {
+  if (!(err instanceof Error)) return false;
+  // Common transient causes from undici on Vercel: ConnectTimeoutError,
+  // UND_ERR_SOCKET, ECONNRESET, fetch failed wrapping any of the above.
+  const message = `${err.message} ${err.cause instanceof Error ? err.cause.message : ""}`;
+  return (
+    err.name === "AbortError" ||
+    /ConnectTimeoutError|UND_ERR_|ECONNRESET|ETIMEDOUT|ENETUNREACH|EAI_AGAIN|fetch failed|socket hang up/i.test(
+      message,
+    )
+  );
+}
+
 export async function shopifyFetch<T>({
   query,
   variables,
@@ -19,23 +34,58 @@ export async function shopifyFetch<T>({
   variables?: Record<string, unknown>;
   cache?: RequestCache;
 }): Promise<T> {
-  const response = await fetch(endpoint, {
+  const body = JSON.stringify({ query, variables });
+  const init: RequestInit = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
     },
-    body: JSON.stringify({ query, variables }),
+    body,
     ...(cache ? { cache } : { next: { revalidate: 60 } }),
-  });
+  };
 
-  const json: ShopifyResponse<T> = await response.json();
+  let lastError: unknown;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const response = await fetch(endpoint, {
+        ...init,
+        signal: AbortSignal.timeout(SHOPIFY_TIMEOUT_MS),
+      });
 
-  if (json.errors) {
-    throw new Error(json.errors.map((e) => e.message).join("\n"));
+      if (!response.ok) {
+        // Retry once on 5xx; surface a useful message that won't be a stray
+        // HTML page parsed as JSON downstream.
+        if (response.status >= 500 && attempt === 0) {
+          lastError = new Error(`Shopify ${response.status} ${response.statusText}`);
+          continue;
+        }
+        const snippet = (await response.text()).slice(0, 200);
+        throw new Error(
+          `Shopify ${response.status} ${response.statusText}: ${snippet}`,
+        );
+      }
+
+      const json: ShopifyResponse<T> = await response.json();
+
+      if (json.errors) {
+        // GraphQL-level errors are not retriable.
+        throw new Error(json.errors.map((e) => e.message).join("\n"));
+      }
+
+      return json.data;
+    } catch (err) {
+      lastError = err;
+      if (attempt === 0 && isRetriableNetworkError(err)) {
+        continue;
+      }
+      throw err;
+    }
   }
 
-  return json.data;
+  throw lastError instanceof Error
+    ? lastError
+    : new Error("Shopify request failed");
 }
 
 // Types
