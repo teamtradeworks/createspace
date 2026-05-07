@@ -54,6 +54,10 @@ const makerzoid = [
     name: "Makerzoid Robot Master Tournament",
     url: "https://drive.google.com/drive/folders/15r1zih5CzouOKQfSVT0vom6ecyeLyY8O?usp=sharing",
   },
+  {
+    name: "Makerzoid Robot Master Premium",
+    url: "https://drive.google.com/drive/folders/1yXEEJipyMPVSRrAEOVNtxiHZMmUehLu-",
+  },
 ];
 
 const acebott = [
@@ -181,16 +185,16 @@ export default function DownloadsPage() {
       {/* Content */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-14">
-          {/* ROBOTICO */}
-          <div>
-            <h2 className="text-2xl font-semibold text-navy mb-6">Robotico</h2>
-            <DownloadList items={robotico} />
-          </div>
-
           {/* MAKERZOID */}
           <div>
             <h2 className="text-2xl font-semibold text-navy mb-6">Makerzoid</h2>
             <DownloadList items={makerzoid} />
+          </div>
+
+          {/* ROBOTICO */}
+          <div>
+            <h2 className="text-2xl font-semibold text-navy mb-6">Robotico</h2>
+            <DownloadList items={robotico} />
           </div>
 
           {/* ACEBOTT */}

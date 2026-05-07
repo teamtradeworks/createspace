@@ -35,8 +35,17 @@ if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_IS_CI) {
       /Jsloader error/, // Google API script timeouts
       /Cannot read properties of null \(reading 'click'\)/, // Bot / browser extension noise
       /Java object is gone/, // Facebook in-app browser (Android) keyboard-logging hook
+      /Java bridge method invocation error/, // Android WebView bridge from in-app browsers
+      /window\.webkit\.messageHandlers/, // iOS WKWebView injected bridge
+      /Failed to read the 'sessionStorage' property/, // Privacy mode / restricted in-app browsers
     ],
-    denyUrls: [/fera\.js/, /apis\.google\.com/],
+    denyUrls: [
+      /fera\.js/,
+      /apis\.google\.com/,
+      // Browser extension assets — Next.js bundles live under /_next/static/.
+      // app:///assets/<hash>.js is an injected extension (e.g. fm-ext-bridge).
+      /^app:\/\/\/assets\//,
+    ],
   });
 }
 
