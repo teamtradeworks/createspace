@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { Product, getStockStatus } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import TrustBadges from "@/components/TrustBadges";
@@ -50,6 +51,7 @@ export default function ShopGallery({
   initialBrand,
   initialSort,
 }: ShopGalleryProps) {
+  const router = useRouter();
   const [selectedAges, setSelectedAges] = useState<string[]>(
     initialAge && initialAge !== "all"
       ? initialAge.split(",").filter(Boolean)
@@ -164,8 +166,8 @@ export default function ShopGallery({
 
     const query = params.toString();
     const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
-    window.history.replaceState(null, "", newUrl);
-  }, [selectedAges, selectedCategories, selectedBrands, sortBy]);
+    router.replace(newUrl, { scroll: false });
+  }, [router, selectedAges, selectedCategories, selectedBrands, sortBy]);
 
   const hasActiveFilters =
     selectedAges.length > 0 || selectedCategories.length > 0 || selectedBrands.length > 0;
