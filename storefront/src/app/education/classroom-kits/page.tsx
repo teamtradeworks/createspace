@@ -26,7 +26,12 @@ function filterProductsByBrand(products: Product[], brand: string): Product[] {
 export default async function ClassroomKitsPage() {
   const { products } = await getCollectionProducts("classroom-kits");
 
-  const matataProducts = filterProductsByBrand(products, "matata");
+  const MATATA_ORDER = ["tale-bot", "coding set", "vincibot"];
+  const matataProducts = filterProductsByBrand(products, "matata").sort((a, b) => {
+    const ai = MATATA_ORDER.findIndex((k) => a.title.toLowerCase().includes(k));
+    const bi = MATATA_ORDER.findIndex((k) => b.title.toLowerCase().includes(k));
+    return (ai === -1 ? 99 : ai) - (bi === -1 ? 99 : bi);
+  });
   const microbitProducts = filterProductsByBrand(products, "micro");
 
   // Fallback: products that don't match either brand
