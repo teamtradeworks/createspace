@@ -236,33 +236,40 @@ export default async function VinciBotPage() {
 
       {/* Expansion Kits */}
       <ImageTextBlock
-        image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-expansion-packs.png"
-        imageAlt="VinciBot expansion kits including AI Vision Kit and Creator Kit"
+        image="/images/products/matatastudio-vincibot-coding-robot-set/three-vincibot-expansions.png"
+        imageAlt="Three VinciBot expansion kits: AI Vision Kit, Creator Kit, and Inventor Kit"
         title="Expand VinciBot's Capabilities"
         body={
           <>
             <p>
-              VinciBot grows with your child through expansion kits that unlock new skills and
-              projects. Add the AI Vision Kit to explore computer vision, face recognition, and
-              object tracking with a 180° flip camera — teaching AI concepts through hands-on
-              experimentation. Or choose the Creator Kit with 434+ building blocks and DC motors to
-              design custom robots, moving machines, and mechanical contraptions. Both kits include
-              guided activities and seamlessly integrate with VinciBot&apos;s programming platform.
-              These aren&apos;t just accessories — they&apos;re pathways to advanced STEM learning
-              that keep VinciBot relevant for years.
+              VinciBot grows with your child through three expansion kits that each unlock a new
+              dimension of learning. The <strong>AI Vision Kit</strong> adds a 180° flip camera for
+              computer vision, face recognition, and object tracking. The{" "}
+              <strong>Creator Kit</strong> includes 434+ building blocks and a DC motor to design
+              custom robots and motorised machines. The{" "}
+              <strong>Inventor Kit</strong>{" "}takes engineering further with additional building
+              components and challenges for advanced builds. All three kits include guided activities and integrate seamlessly with
+              VinciBot&apos;s programming platform — pathways to deeper STEM learning that keep
+              VinciBot relevant for years.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
+            <div className="flex flex-row flex-wrap gap-3 mt-6">
               <Link
                 href="/product/matatastudio-ai-vision-kit-for-vincibot"
-                className="inline-flex items-center justify-center px-6 py-3 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
+                className="inline-flex items-center justify-center px-4 py-2.5 bg-navy text-white font-semibold rounded-lg hover:bg-navy/90 transition-colors"
               >
-                View AI Vision Kit
+                AI Vision Kit
               </Link>
               <Link
                 href="/product/matatastudio-creator-kit-for-vincibot"
-                className="inline-flex items-center justify-center px-6 py-3 bg-cs-orange text-white font-semibold rounded-lg hover:bg-cs-orange/90 transition-colors"
+                className="inline-flex items-center justify-center px-4 py-2.5 bg-cs-orange text-white font-semibold rounded-lg hover:bg-cs-orange/90 transition-colors"
               >
-                View Creator Kit
+                Creator Kit
+              </Link>
+              <Link
+                href="/product/matatastudio-inventor-kit-for-vincibot"
+                className="inline-flex items-center justify-center px-4 py-2.5 bg-cs-blue text-white font-semibold rounded-lg hover:bg-cs-blue/90 transition-colors"
+              >
+                Inventor Kit
               </Link>
             </div>
           </>
