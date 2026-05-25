@@ -87,8 +87,8 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       <ImageTextBlock
         image="/images/products/makerzoid-diverse-building-blocks/close-up-of-robot-build-with-girl-in-background.jpeg"
         imageAlt="Close-up of a completed Makerzoid build with a girl in the background"
-        title="Real Builds, Real Pride"
-        body="There's something special about a child standing back and saying 'I built that.' The Diverse Building Blocks set is designed with real mechanical detail — proper gears, axles, and moving joints — so finished models look genuinely impressive. When your child completes their first helicopter or dancing figure, it's not just a toy they've made. It's proof that they can figure things out."
+        title="Proper Gears. Real Axles. Moving Joints."
+        body="The Diverse Building Blocks set is designed with real mechanical detail — proper gears, axles, and moving joints — so finished models look and move like the real thing. Build a helicopter with rotating blades, a walking robot, a dancing figure. Plenty of builds to work on — each one a new challenge."
         layout="image-left"
         background="white"
       />
@@ -151,7 +151,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
         image="/images/products/makerzoid-diverse-building-blocks/girl-with-blocks-looking-at-tablet-screen.jpg"
         imageAlt="Girl at a desk following 3D building instructions on a tablet screen with Makerzoid blocks in front of her"
         title="Build Independently with the Free App"
-        body="The free Makerzoid app (iOS & Android) turns building into a guided adventure. Step-by-step 3D instructions walk your child through each model at their own pace — no parent hovering required. Children who prefer paper can use the included instruction guide instead. Either way, they're building confidently from the very first model."
+        body="The free Makerzoid app (iOS & Android) turns building into a guided adventure. Step-by-step 3D instructions walk your child through each model at their own pace — no parent required. Children who prefer paper can use the included instruction guide instead. Either way, they're building confidently from the very first model."
         layout="image-right"
         background="gray"
       />
