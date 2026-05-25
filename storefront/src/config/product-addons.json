@@ -189,17 +189,17 @@
       "viewProductLink": true
     },
     {
-      "parentHandle": "matatastudio-vincibot-coding-robot-set",
-      "addonHandle": "matatastudio-inventor-kit-for-vincibot",
-      "discountPercent": 0,
-      "description": "Expand VinciBot with the Inventor Kit — more building blocks and engineering challenges to take your robot further.",
-      "viewProductLink": true
-    },
-    {
       "parentHandle": "matatastudio-inventor-kit-for-vincibot",
       "addonHandle": "matatastudio-vincibot-coding-robot-set",
       "discountPercent": 0,
       "description": "The Inventor Kit requires a VinciBot robot to function. Add one here so you have everything you need.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-vincibot-coding-robot-set",
+      "addonHandle": "matatastudio-inventor-kit-for-vincibot",
+      "discountPercent": 0,
+      "description": "Add real electronics to your VinciBot — 5 programmable sensors, 7 guided projects, and a Module Link Unit for Arduino expansion.",
       "viewProductLink": true
     },
     {
