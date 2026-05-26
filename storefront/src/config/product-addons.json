@@ -154,6 +154,13 @@
       "viewProductLink": true
     },
     {
+      "parentHandle": "matatastudio-talemap",
+      "addonHandle": "matatastudio-tale-bot-pro",
+      "discountPercent": 0,
+      "description": "TaleMap requires a Tale-Bot Pro robot to function. Add one here so you have everything you need.",
+      "viewProductLink": true
+    },
+    {
       "parentHandle": "matatastudio-tale-bot-pro",
       "addonHandle": "matatastudio-activity-box",
       "discountPercent": 0,
