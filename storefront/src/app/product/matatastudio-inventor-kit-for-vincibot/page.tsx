@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProductByHandle } from "@/lib/shopify";
 import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
@@ -58,7 +59,7 @@ export default async function VinciBotInventorKitPage() {
       <ExtensionBanner
         parentProductName={parentProductName}
         parentProductHref={parentProductHref}
-        message={`This is an electronics expansion for ${parentProductName}. You'll need VinciBot to use it — already have one? This is your next step.`}
+        message={<>This is an expansion for <Link href={parentProductHref} className="font-semibold text-[#3CC7F7] underline underline-offset-2 hover:text-[#0C1446]">{parentProductName}</Link>. You&apos;ll need VinciBot to use it — already have one? This is your next step.</>}
       />
 
       {/* Quick Info Badges */}

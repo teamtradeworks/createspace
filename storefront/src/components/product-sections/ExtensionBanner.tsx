@@ -1,10 +1,11 @@
+import React from "react";
 import Link from "next/link";
 import SectionTracker from "./SectionTracker";
 
 interface ExtensionBannerProps {
   parentProductName: string;
   parentProductHref: string;
-  message?: string;
+  message?: React.ReactNode;
   background?: "white" | "gray";
 }
 
