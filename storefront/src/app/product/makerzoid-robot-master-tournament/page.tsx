@@ -39,7 +39,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
         product={product}
         tagline="From first build to competition-ready — a robotics kit that grows with your child"
         highlights={[
-          "200+ robot models to build and programme",
+          "640+ building blocks to build and programme",
           "4 video lessons to get you started",
           "Learn Scratch 3.0 coding — no experience needed",
           "LEGO-compatible blocks expand any existing collection",
@@ -103,9 +103,9 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           },
           {
             icon: "puzzle",
-            title: "200+ Robot Models",
+            title: "640+ Building Blocks",
             description:
-              "Build anything from simple mechanical models to complex autonomous robots. Always a new challenge.",
+              "Build anything from simple mechanical models to complex autonomous robots — LEGO-compatible for endless combinations.",
           },
           {
             icon: "book",
@@ -143,7 +143,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="Challenges, Courses & Builds"
-        highlight="200+ buildable robot models and 16 guided lessons to take you from first build to competition-ready"
+        highlight="16 guided lessons to take you from first build to competition-ready"
         subtitle="From your first gear assembly to programming a robot that navigates an obstacle course on its own."
         projects={[
           {
@@ -188,7 +188,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
               "/images/products/makerzoid-robot-master-tournament/projects/graphical-programming.png",
           },
         ]}
-        moreText="Plus 200+ robot models to build — from simple mechanical structures to fully autonomous competition machines"
+        moreText="Plus 640+ LEGO-compatible blocks to build freely — from simple mechanical structures to fully autonomous competition machines"
         background="gray"
       />
 
@@ -253,7 +253,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           {
             question: "What happens once my child finishes the video lessons?",
             answer:
-              "There are still 200+ robot models to build, competition challenges to practise and improve, and an online community at lab.makerzoid.com. The LEGO-compatible blocks also open up endless original builds. This kit is designed for months of sustained engagement, not a one-time experience.",
+              "There are still competition challenges to practise and improve, and an online community at lab.makerzoid.com. The 640+ LEGO-compatible blocks also open up endless original builds. This kit is designed for months of sustained engagement, not a one-time experience.",
           },
         ]}
         background="white"
@@ -327,7 +327,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Competition-grade robotics kit for ages 10+. Build 200+ robot models, learn Scratch 3.0 coding, and train for robotics tournaments.",
+      "Competition-grade robotics kit for ages 10+. Build with 640+ LEGO-compatible blocks, learn Scratch 3.0 coding, and train for robotics tournaments.",
     alternates: {
       canonical: "/product/makerzoid-robot-master-tournament",
     },
