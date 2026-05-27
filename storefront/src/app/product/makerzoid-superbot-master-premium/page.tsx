@@ -50,7 +50,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges
         badges={[
-          { icon: "age", label: "Age", value: "6–14" },
+          { icon: "age", label: "Age", value: "10–14" },
           { icon: "projects", label: "Models", value: "72+" },
           { icon: "scratch", label: "Coding", value: "Scratch 3.0" },
           { icon: "battery", label: "Battery", value: "3.7V lithium (included)" },
@@ -225,12 +225,12 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           {
             question: "Does my child need any prior experience with coding or robotics?",
             answer:
-              "Not at all. The Superbot Master Premium is designed for beginners. The free Makerzoid app provides step-by-step graphical assembly guides, and Scratch 3.0 is a drag-and-drop language — no typing required. Most children aged 6–14 can get started independently.",
+              "Not at all. The Superbot Master Premium is designed for beginners. The free Makerzoid app provides step-by-step graphical assembly guides, and Scratch 3.0 is a drag-and-drop language — no typing required. Most children aged 10–14 can get started independently.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend ages 6–14. The three difficulty levels mean younger children can start with simple vehicle builds while older kids tackle autonomous robots and sensor programming. It grows with your child rather than being outgrown quickly.",
+              "We recommend ages 10–14. The three difficulty levels mean children can start with simpler vehicle builds and progress to autonomous robots and sensor programming. It grows with your child rather than being outgrown quickly.",
           },
           {
             question: "Does my child need a phone, tablet, or computer?",
@@ -255,7 +255,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           {
             question: "Is adult supervision required?",
             answer:
-              "No soldering and no tools are required — construction is fully tool-free. The small parts mean supervision is sensible for children under 6. For children 6 and up, the step-by-step app instructions are clear enough that most kids can work independently.",
+              "No soldering and no tools are required — construction is fully tool-free. The step-by-step app instructions are clear enough that most children aged 10 and up can work independently.",
           },
         ]}
         background="gray"
@@ -325,7 +325,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 72+ robot models and program with Scratch 3.0. Advanced sensors, LEGO-compatible, no soldering. Perfect for ages 6–14.",
+      "Build 72+ robot models and program with Scratch 3.0. Advanced sensors, LEGO-compatible, no soldering. Perfect for ages 10–14.",
     alternates: {
       canonical: "/product/makerzoid-superbot-master-premium",
     },

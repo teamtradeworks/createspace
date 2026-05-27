@@ -41,7 +41,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         highlights={[
           "200+ unique robot models to build and program",
           "3 control modes: manual, sensor-driven, and Bluetooth programming",
-          "Scratch Junior coding - perfect for beginners aged 6–12",
+          "Scratch Junior coding - perfect for beginners aged 5–9",
           "2D and 3D animated building instructions",
         ]}
         addons={addons}
@@ -63,7 +63,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             title: "Grows With Them",
             description:
-              "Start with simple button-controlled builds, progress to sensor interactions, then unlock full programming with Bluetooth - perfect for ages 6 to 12+.",
+              "Start with simple button-controlled builds, progress to sensor interactions, then unlock full programming with Bluetooth - perfect for ages 5 to 9.",
           },
           {
             title: "Real Skills, Real Fun",
@@ -233,7 +233,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend ages 6–12. Younger children (6–8) may need adult help with more complex builds, while children 9–12 can typically work independently. The progressive difficulty means the kit grows with your child over the years.",
+              "We recommend ages 5–9. Younger children (5–6) may need adult help with more complex builds, while children 7–9 can typically work independently. The progressive difficulty means the kit grows with your child over the years.",
           },
           {
             question: "What do I need besides the kit?",
@@ -258,7 +258,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             question: "Is this safe for my child?",
             answer:
-              "Yes. The blocks are appropriately sized for ages 6–12, the motor operates on low-voltage AAA batteries, and all electronic components are safely enclosed. No soldering or complex tools required.",
+              "Yes. The blocks are appropriately sized for ages 5–9, the motor operates on low-voltage AAA batteries, and all electronic components are safely enclosed. No soldering or complex tools required.",
           },
         ]}
         background="white"
@@ -296,7 +296,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           { label: "Sensors Included", value: "Infrared (IR) sensor for intelligent mode" },
           { label: "App Compatibility", value: "iOS, Android, Web" },
           { label: "Battery Requirements", value: "2 x AAA (not included)" },
-          { label: "Recommended Age", value: "6–12 years" },
+          { label: "Recommended Age", value: "5–9 years" },
           { label: "Skill Level", value: "Beginner to Intermediate" },
         ]}
         background="white"
@@ -305,7 +305,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="200+ robot designs, three control modes, and Scratch Junior coding. Everything in the box for ages 6–12."
+        subtitle="200+ robot designs, three control modes, and Scratch Junior coding. Everything in the box for ages 5–9."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -326,7 +326,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 200+ robots with Scratch Junior coding. Three control modes, 400+ blocks, 2D/3D instructions. Perfect for ages 6–12 learning STEM through hands-on play.",
+      "Build 200+ robots with Scratch Junior coding. Three control modes, 400+ blocks, 2D/3D instructions. Perfect for ages 5–9 learning STEM through hands-on play.",
     alternates: {
       canonical: "/product/makerzoid-smart-robot-premium",
     },

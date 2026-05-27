@@ -260,12 +260,12 @@ export default async function SnapCircuitsMyHomePage() {
           {
             question: "Does my child need any prior experience with electronics?",
             answer:
-              "Not at all. The kit is designed for complete beginners aged 8 and up. The project manual starts from the simplest possible circuit and builds step by step — no technical background required from your child or from you.",
+              "Not at all. The kit is designed for complete beginners aged 8–14. The project manual starts from the simplest possible circuit and builds step by step — no technical background required from your child or from you.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "The kit is recommended for ages 8 and up. Children aged 8–10 may appreciate having a parent nearby for the first couple of projects, while children 10+ can typically work independently from the start. Older children and teenagers will still find meaningful challenge in the more complex builds.",
+              "The kit is recommended for ages 8–14. Children aged 8–10 may appreciate having a parent nearby for the first couple of projects, while children 10+ can typically work independently from the start. The more complex builds keep older children genuinely challenged.",
           },
           {
             question: "Are batteries included?",
@@ -325,7 +325,7 @@ export default async function SnapCircuitsMyHomePage() {
         specs={[
           { label: "Brand", value: "Elenco Electronics" },
           { label: "Model Number", value: "SCMYH7" },
-          { label: "Recommended Age", value: "8+" },
+          { label: "Recommended Age", value: "8–14" },
           { label: "Number of Projects", value: "30+" },
           { label: "Number of Parts", value: "60+" },
           { label: "Batteries", value: "3 × AA (not included)" },

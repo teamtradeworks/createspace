@@ -38,7 +38,7 @@ export default async function ArduinoStudentKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Real electronics, real code — a complete semester of structured learning for ages 11 and up"
+        tagline="Real electronics, real code — a complete semester of structured learning for ages 11–14"
         highlights={[
           "9 guided lessons plus 2 open-ended projects — up to 25 hours of learning",
           "Build a traffic light, sports robot, musical keyboard, and more",
@@ -253,7 +253,7 @@ export default async function ArduinoStudentKitPage() {
           {
             question: "What age is the Arduino Student Kit designed for?",
             answer:
-              "The kit is designed for ages 11 and up, with the sweet spot at 11–14 (middle school). It's paced for independent learning at that level. Older teens and adults who are new to electronics will find it equally valuable.",
+              "The kit is designed for ages 11–14 — the sweet spot is middle school, and it's paced for independent learning at that level. Older teens and adults new to electronics will find it equally valuable.",
           },
           {
             question: "Does my child need any prior experience with electronics or coding?",

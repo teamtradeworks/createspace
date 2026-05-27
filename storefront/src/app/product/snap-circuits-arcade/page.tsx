@@ -42,7 +42,7 @@ export default async function SnapCircuitsArcadePage() {
           "200+ projects — from a single blinking LED to 21 fully playable arcade games",
           "No soldering, no tools — components snap together like building blocks",
           "Circuit Safe® design — Elenco's patented protection for worry-free building",
-          "Ages 8 and up — step-by-step instructions for independent builders",
+          "Ages 8–14 — step-by-step instructions for independent builders",
         ]}
         addons={addons}
       />
@@ -241,7 +241,7 @@ export default async function SnapCircuitsArcadePage() {
           {
             question: "Does my child need any prior experience?",
             answer:
-              "Not at all. The very first project is just lighting up a single LED — it takes two minutes. From there, each project adds one new idea at a time. The instructions are illustrated and written for complete beginners. Most children age 8 and up can work through the early projects entirely on their own.",
+              "Not at all. The very first project is just lighting up a single LED — it takes two minutes. From there, each project adds one new idea at a time. The instructions are illustrated and written for complete beginners. Most children aged 8–14 can work through the early projects entirely on their own.",
           },
           {
             question: "What do we need to buy separately?",
@@ -313,7 +313,7 @@ export default async function SnapCircuitsArcadePage() {
         specs={[
           { label: "Brand", value: "Snap Circuits by Elenco Electronics" },
           { label: "Model", value: "SCA-200" },
-          { label: "Age Range", value: "8+ (Grade 3 through adult)" },
+          { label: "Age Range", value: "8–14" },
           { label: "Projects", value: "200+ (61 printed + 142 online)" },
           { label: "Built-In Games", value: "21 mini arcade games (pre-programmed)" },
           { label: "Components", value: "35+ snap modules" },
