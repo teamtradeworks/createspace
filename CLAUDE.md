@@ -293,7 +293,16 @@ Working on product pages has three parts:
     - No copying and pasting.
     - Triggered by the Claude command `/product-page-ext {slug} {parent-slug}`
 
-We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2, 3, 4, and 5 are alternatives — use `/product-page` for consumer products (Shop), `/product-page-edu` for classroom kits (Education), `/product-page-course` for online courses (Education), and `/product-page-ext` for extension/expansion products.
+ 6. Turning research content into a simple product page (non-coding, non-electronics):
+    - Uses the researched content in `assets/product/{slug}/content.md` and the following documents:
+      - `assets/brand/simple-product-content-framework.md`
+      - `assets/brand/product-page-design.md`
+    - Leaner product pages for non-coding, non-electronics physical products (telescopes, building toys, science kits, activity books)
+    - Leads with experience, curiosity, and play rather than structured learning outcomes
+    - No copying and pasting.
+    - Triggered by the Claude command `/product-page-simple {slug}`
+
+We keep the research step separate so that we don't need to repeat researching online while reworking a product page. Steps 2, 3, 4, 5, and 6 are alternatives — use `/product-page` for consumer products (Shop), `/product-page-edu` for classroom kits (Education), `/product-page-course` for online courses (Education), `/product-page-ext` for extension/expansion products, and `/product-page-simple` for non-coding, non-electronics physical products (Shop).
 
 **Content Framework** - `assets/brand/product-content-framework.md`
    - Parent-focused content guidelines (consumer product pages)
