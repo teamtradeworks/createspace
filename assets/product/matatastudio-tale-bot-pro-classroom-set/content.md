@@ -20,7 +20,7 @@ Bring coding & STEM learning to life in every classroom. The MatataStudio Tale-B
 
 ### Product Attributes (from Shopify metafields)
 
-- **Age Range:** 3–5 (manufacturer); 3–8 in practice (educator reviews)
+- **Age Range:** 3–6
 - **Batteries:** Built-in rechargeable (no external batteries required)
 - **Projects:** 42 activities (Activity Cards)
 - **Guide:** Activity Cards + user guide

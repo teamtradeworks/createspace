@@ -37,7 +37,7 @@ Self-Learning with the Arduino Student Kit: Ideal for self-learners, the Arduino
 
 ### Product Attributes (from Shopify metafields)
 Metafields were not returned in the API response. Based on research:
-- **Age Range:** 11–14 (11+)
+- **Age Range:** 11+
 - **Batteries:** 9V battery (1x, included in box)
 - **Projects:** 9 lessons + 2 open-ended projects (11 total experiences)
 - **Guide:** Digital logbook + online platform (studentkit.arduino.cc)
@@ -64,7 +64,7 @@ The platform is activated using a unique code found under the lid of the packagi
 
 - **Product Code:** AKX00025
 - **Weight:** 750g
-- **Age Range:** 11–14 (middle school)
+- **Age Range:** 11+
 - **Learning Time:** Up to 25 hours total (9 lessons × ~90 min each + 2 projects)
 - **Language Support (online platform):** English, Chinese, Croatian, French, German, Italian, Portuguese, Spanish, Thai (more coming)
 - **Curriculum Alignment:** US Common Core (STEM: math & physics) + CSTA (Computer Science)

@@ -25,7 +25,7 @@ Introduce children to coding the fun, screen-free, and words-free way. The Matat
 - technology
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** [Not currently set in metafields - research indicates 4-9 years]
+- **Age Range:** 4–9
 - **Batteries:** Rechargeable Li-ion batteries included (USB-C charging)
 - **Projects:** 100+ stories and challenges
 - **Guide:** 3 challenge booklets

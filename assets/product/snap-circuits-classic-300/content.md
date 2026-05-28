@@ -35,7 +35,7 @@ construction, electronics, engineering, technology
 
 *Metafields not yet populated in Shopify — use researched values below when creating product page and updating metafields.*
 
-- **Age Range:** 8+ (marketed for ages 8–108; suits roughly grades 3 through adult)
+- **Age Range:** 8–14
 - **Batteries:** 4 × AA required, not included
 - **Projects:** 300+ (305 total)
 - **Guide:** Two full-colour project manuals (Projects 1–101 and Projects 102–305)

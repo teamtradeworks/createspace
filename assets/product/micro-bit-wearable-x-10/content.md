@@ -38,7 +38,7 @@ The micro:bit wearable is ideal when portability or physical attachment is neede
 - Workshop facilitators requiring group-ready wearable solutions
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** Not set in metafields (suitable for 8+, aligns with micro:bit age range)
+- **Age Range:** 8–14
 - **Batteries:** Not applicable to the wearable holder itself; batteries required for the micro:bit projects
 - **Projects:** Not set (see researched project list below)
 - **Guide:** Instructions on side of box; assembly guide on microbit.org

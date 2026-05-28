@@ -161,7 +161,7 @@ For older or more advanced learners, the Tale-Bot Pro also supports Scratch prog
 - Cross-curricular learning in science, math, and social studies
 
 ### Age/Skill Information
-- **Recommended Age:** 3–5 years (manufacturer); 3–7/8 years in practice (reviewers/testers)
+- **Recommended Age:** 3–6 years
 - **Skill Level:** Beginner (entry-level coding robot)
 - **Adult Help Required:** Initial setup and charging; younger children (3-4) benefit from guided play; older children (5+) can work independently
 - **Safety Warning:** Choking hazard — small parts; not for children under 3

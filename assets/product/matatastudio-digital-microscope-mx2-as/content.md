@@ -32,7 +32,7 @@ Bring science to life with the MatataStudio Digital Microscope MX2‑AS, designe
 - Computer: Connect via USB-C cable to laptops or desktops for real-time observation, image capture, and analysis
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 5–12 years (Pre-K to Grade 5)
+- **Age Range:** 4–11 years (Pre-K to Grade 5)
 - **Batteries:** Not applicable — built-in 2600mAh rechargeable lithium battery (USB-C charging)
 - **Projects:** Not applicable in traditional sense — open-ended exploration tool with 5 prepared slides and exploration manual
 - **Guide:** Exploration manual included (content/page count not confirmed)
@@ -297,7 +297,7 @@ Concrete, observable outcomes parents can expect to see as children use the MX2-
 
 ### Curriculum Alignment
 
-- **Age/Grade Level:** Pre-K to Grade 5 (ages 5–12)
+- **Age/Grade Level:** Pre-K to Grade 5 (ages 4–11)
 - **Subject Areas:** Life Science / Biology, Earth & Space Science, Physical Science (materials), Technology
 - **Inquiry Skills:** Observation, prediction, recording, comparison, classification
 - **Cross-curricular:** Can be used alongside language (writing observation journals), maths (measurement), and art (detailed observation drawing)

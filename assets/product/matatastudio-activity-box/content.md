@@ -25,7 +25,7 @@ Key Features:
 - Screen-Free Interaction: No apps or devices required — children interact through physical materials and the robot itself.
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 3+ (various sources say 3-5 or 3-9)
+- **Age Range:** 3–6
 - **Batteries:** Not required for Activity Box (batteries are for Tale-Bot Pro robot, sold separately)
 - **Projects:** 42 activity cases
 - **Guide:** Quick guide included

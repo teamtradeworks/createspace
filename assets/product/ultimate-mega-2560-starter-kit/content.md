@@ -27,7 +27,7 @@ This kit includes an Arduino-compatible MEGA 2560 R3 development board and a wid
 - Full Arduino Compatibility: All components are 100% compatible with Arduino products, enabling you to reuse them for future projects.
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** Not set in metafields (research suggests 13+; 11–16 per similar kit guidance)
+- **Age Range:** 12+
 - **Batteries:** 9V battery connector included; 9V 1A mains adapter also included; batteries not included
 - **Projects:** 33 lessons (Lessons 1–33; guide is 223 pages total including setup lesson)
 - **Guide:** 223-page tutorial guide (downloadable PDF via Google Drive)

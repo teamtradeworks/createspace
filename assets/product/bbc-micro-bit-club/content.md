@@ -19,7 +19,7 @@ Product confirmed in Shopify. The following are handled automatically by the sto
 The BBC micro:bit Club V2 is an ideal solution for educators, coding clubs, and makerspaces looking to introduce groups of students to the world of programming and electronics. This comprehensive kit includes 10 BBC micro:bit V2 boards, each equipped with essential accessories, enabling simultaneous hands-on learning experiences. Key Features: LED Matrix: 5×5 programmable LED display for graphics, text, and patterns. Buttons & Touch Input: Two programmable buttons and a touch-sensitive logo. Audio: Built-in microphone and speaker for sound and music projects. Sensors: Accelerometer, magnetometer (compass), temperature, and light level sensors for interactive experiments. Wireless Communication: Bluetooth 5.0 and 2.4 GHz radio for device-to-device interaction. Powerful Processor: Nordic nRF52833 ARM Cortex-M4 at 64 MHz with 512 KB Flash and 128 KB RAM. Edge Connector: 20-pin interface and 5 ring I/O pads for easy connection to accessories and electronics.
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 8+ (suitable for all ages 8 and up; board-only page confirms 8–11, 12–16, 16+)
+- **Age Range:** 8–14
 - **Batteries:** 20x AAA included (2 per board, already in kit)
 - **Projects:** Hundreds of free online projects via MakeCode and microbit.org
 - **Guide:** 10x quick start user guide (one per kit)

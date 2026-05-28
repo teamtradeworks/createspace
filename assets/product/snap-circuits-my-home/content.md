@@ -38,7 +38,7 @@ Product confirmed in Shopify (ID: gid://shopify/Product/8212131872905). The foll
 
 ### Product Attributes (from Shopify metafields)
 *Note: Metafields were not returned via API. Values below are from research.*
-- **Age Range:** 8+
+- **Age Range:** 8–14
 - **Batteries:** 3 × AA required, not included
 - **Projects:** 30+
 - **Guide:** Full-colour illustrated project manual (approx. 60 pages)
@@ -74,7 +74,7 @@ The kit was a **2022 Toy of the Year Finalist** — a recognised award in the to
 | Model Number | SCMYH7 |
 | UPC | 756619013213 |
 | Weight | ~1200g |
-| Age Range | 8+ |
+| Age Range | 8–14 |
 | Number of Parts | ~60–75+ |
 | Number of Projects | 30+ (sources vary: some say 25, some 30+, some 34) |
 | Batteries Required | 3 × AA (not included) |
