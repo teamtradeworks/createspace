@@ -162,6 +162,13 @@
     },
     {
       "parentHandle": "matatastudio-tale-bot-pro",
+      "addonHandle": "matatastudio-talemap",
+      "discountPercent": 0,
+      "description": "Expand your Tale-Bot Pro with 106 themed clip cards and unlimited story map combinations — screen-free storytelling across maths, language, geography, and more.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "matatastudio-tale-bot-pro",
       "addonHandle": "matatastudio-activity-box",
       "discountPercent": 0,
       "description": "Expand your Tale-Bot Pro with 10 new themed maps, 42 coding challenges, and 98 interactive stickers.",
