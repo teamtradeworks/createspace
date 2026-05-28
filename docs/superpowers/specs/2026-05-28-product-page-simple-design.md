@@ -27,20 +27,17 @@ Unchanged from existing parent-focused pages — same three parent personas (STE
    - Documents only what's different: audience reframe, voice rules, section content rules, FAQ topic shift, "lean on research content" rule
    - Lists section requirements specific to this page type
 
-2. **Skill** — `.claude/skills/product-page-simple/SKILL.md`
-   - Mirrors structure of existing `product-page` skill
+2. **Skill** — `.claude/skills/product-page-simple/skill.md`
+   - Mirrors structure of existing `product-page-ext/skill.md`
+   - Frontmatter includes the `/product-page-simple {slug}` trigger (no separate command file is needed — the skill name IS the slash command, matching existing skills)
    - Reads research from `assets/product/{slug}/content.md`
    - Loads `simple-product-content-framework.md` and `product-page-design.md`
    - Generates page at `storefront/src/app/product/{slug}/page.tsx`
    - Enforces: NumberedSteps excluded, no coding/learning-path language, titles drawn from research content
 
-3. **Slash command** — `.claude/commands/product-page-simple.md`
-   - Triggered as `/product-page-simple {slug}`
-   - Invokes the skill with the slug arg
-
 ### Updated files
 
-4. **`CLAUDE.md`** — Add step 6 to the "Product Pages" section, describing `/product-page-simple` alongside the existing four variants. One-paragraph description matching the format of the others.
+3. **`CLAUDE.md`** — Add step 6 to the "Product Pages" section, describing `/product-page-simple` alongside the existing four variants. One-paragraph description matching the format of the others.
 
 ### Out of scope
 
