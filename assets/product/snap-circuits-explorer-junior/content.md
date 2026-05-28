@@ -21,7 +21,7 @@ Introduce young minds to the exciting world of electronics with the Snap Circuit
 ### Product Attributes (from Shopify metafields)
 
 No metafields currently configured for this product. Based on research, recommended values:
-- **Age Range:** 8+
+- **Age Range:** 8–12
 - **Batteries:** Required (2 × AA, not included)
 - **Projects:** 101
 - **Guide:** 46-page full-colour manual

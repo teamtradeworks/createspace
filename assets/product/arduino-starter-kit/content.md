@@ -149,7 +149,7 @@ The projects evolve from simple to complex, building skills progressively. All A
 
 ## Age/Skill Information
 
-- **Recommended Age:** 10+ years (suitable for children 8-16 with scalable projects for different skill levels)
+- **Recommended Age:** 10–16 years
 - **Skill Level:** Beginner (no prior experience required)
 - **Adult Help Required:** Optional for younger children (ages 8-10); older children and teens can work independently
 - **Time to Complete:** Projects vary from 30 minutes to several hours

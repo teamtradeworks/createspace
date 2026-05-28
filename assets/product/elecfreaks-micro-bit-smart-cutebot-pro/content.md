@@ -21,7 +21,7 @@ Take robotics and programming to the next level with the ELECFREAKS Smart Cutebo
 coding, electronics, engineering, robotics, technology
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** Not set in metafields (manufacturer recommends 9+)
+- **Age Range:** 8–14
 - **Batteries:** 1 x 18650 lithium flat-topped battery (not included)
 - **Projects:** Not set in metafields (19 tutorial cases available)
 - **Guide:** English user guide included

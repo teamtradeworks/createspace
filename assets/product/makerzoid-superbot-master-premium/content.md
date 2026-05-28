@@ -29,7 +29,7 @@ With the innovative Makerzoid Superbot Master Premium, your child will dive into
 
 ### Product Attributes (from Shopify metafields)
 
-- **Age Range:** 6+
+- **Age Range:** 10–14
 - **Batteries:** 3.7V Lithium Battery required (not included based on various sources; confirm with supplier)
 - **Projects:** 72+ models
 - **Guide:** Step-by-step app instructions + paper manual

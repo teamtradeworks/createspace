@@ -31,7 +31,7 @@ Note: no micro:bit board included. Batteries required: 3 x AAA. Want to add on B
 coding, construction, electronics, engineering, robotics, technology
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 7+ (official ELECFREAKS documentation); 9+ (listed in product tags on shop page)
+- **Age Range:** 7–12
 - **Batteries:** 3 x AAA (not included)
 - **Projects:** 6 guided projects + 1 bonus extension activity
 - **Guide:** Online wiki with step-by-step assembly instructions and coding tutorials
@@ -68,7 +68,7 @@ The Ring:bit V2 (EF03423) is a compact expansion board for the BBC micro:bit tha
 
 ### Specifications
 - **SKU:** EF08217 (without micro:bit), EF08218 (with micro:bit)
-- **Age:** 7+ (manufacturer), 9+ (product tags)
+- **Age:** 7–12
 - **Weight:** 500g
 - **Package Dimensions:** 278mm × 168mm × 56mm
 - **Batteries:** 3 x AAA (not included)

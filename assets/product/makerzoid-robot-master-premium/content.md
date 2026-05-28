@@ -120,7 +120,7 @@ Children learn to program robots to:
 
 ## Age/Skill Information
 
-- **Recommended Age:** 6+ years
+- **Recommended Age:** 6–14 years
 - **Target Audience:** Boys and girls equally
 - **Skill Level:** Beginner to Advanced (3 progressive tiers)
 - **Adult Help Required:** Minimal - designed for independent learning with easy-to-follow instructions

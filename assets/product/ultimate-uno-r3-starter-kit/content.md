@@ -31,7 +31,7 @@ Some of the included components are: Motion sensor to detect movement, LCD scree
 
 ### Product Attributes (from Shopify metafields)
 
-- **Age Range:** Not set in metafields — research suggests 12+ (see below)
+- **Age Range:** 13–18
 - **Batteries:** Not confirmed — research needed (kit includes 9V battery connector; may require 9V battery not included)
 - **Projects:** 33 lessons
 - **Guide:** Downloadable PDF guide (hosted on Google Drive, linked from thecreatespace.co.za/pages/download-guides)

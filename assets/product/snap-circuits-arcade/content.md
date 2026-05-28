@@ -18,7 +18,7 @@ Product confirmed in Shopify. The following are handled automatically by the sto
 Bring the excitement of electronics and gaming together with the Snap Circuits Arcade - a hands-on STEM kit where kids build and play their own light, sound, and action-packed projects. Product Features: Build Over 200 Projects – Create exciting circuits that feature lights, sounds, and moving parts, including fully playable mini-games. Includes 30+ Snap-Together Parts – Components are colour-coded and numbered for quick, error-free assembly. Onboard Programmable Word Fan – Personalise messages and display them on a spinning LED fan. LED Display with Pre-Programmed Games – Features 13 fun games like a memory game, a whack-a-mole style challenge, and more. Full-Colour Instruction Manual – Easy-to-follow step-by-step guide that combines fun builds with clear learning outcomes. Teaches Real Electronics Concepts – Learn about resistors, capacitors, integrated circuits, light sensors, and switches while building your creations. Safe and Durable – Designed for repeated use, with no sharp edges or soldering needed. Packed with lights, sounds, and hands-on challenges, the Snap Circuits Arcade makes learning electronics as entertaining as it is educational. Note: Requires 3 × AA batteries (not included).
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 8+
+- **Age Range:** 8–14
 - **Batteries:** 3 × AA required, not included
 - **Projects:** 200+
 - **Guide:** Full-colour instruction manual (80 pages; projects 1–61 in print, 62–203 online)
@@ -53,7 +53,7 @@ Elenco Electronics has been manufacturing educational electronics kits since 195
 |---------------|--------|
 | Model Number | SCA-200 |
 | Manufacturer | Elenco Electronics |
-| Age Range | 8+ (Grade 3 through adult) |
+| Age Range | 8–14 |
 | Projects | 200+ (61 printed + 142 online) |
 | Built-in Games | 21 mini arcade games (pre-programmed) |
 | Components | 35+ snap modules |

@@ -20,7 +20,7 @@ The Arduino® Sensor Kit - Base is a great starter kit for Makers who are new to
 
 ### Product Attributes (from Shopify metafields)
 
-- **Age Range:** 12+ (beginners can start with adult guidance from age 10; Arduino IDE coding is most appropriate from 12 onwards)
+- **Age Range:** 12–16
 - **Batteries:** Not required (powered via Arduino UNO board's USB connection)
 - **Projects:** 10 guided lessons (unlimited open-ended projects possible by combining modules)
 - **Guide:** Online platform at sensorkit.arduino.cc

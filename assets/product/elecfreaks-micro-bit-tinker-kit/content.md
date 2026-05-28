@@ -19,7 +19,7 @@ Product confirmed in Shopify. The following are handled automatically by the sto
 The ELECFREAKS micro:bit Tinker Kit is an all-in-one electronics starter kit designed to make learning coding and hardware interaction fun and accessible. Built around the powerful Octopus:bit expansion board, this kit connects seamlessly with the BBC micro:bit (V1 & V2) and enables a wide range of plug-and-play experiments with no soldering required. With 10 modular components - including a crash sensor, temperature sensor, servo, LED light, and more—learners can explore circuits, sensors, and real-world applications in an intuitive, engaging way. Whether you're teaching STEM in a classroom or diving into your first maker project at home, the Tinker Kit provides everything you need to get started.
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 10+ (manufacturer lists 10+; some retailers list 12+ for conservative guidance)
+- **Age Range:** 8–16
 - **Batteries:** 2 × AAA required, not included
 - **Projects:** 39
 - **Guide:** Online wiki tutorials (wiki.elecfreaks.com)
@@ -51,7 +51,7 @@ The kit includes 13 electronic modules and supports 39 documented project cases 
 - **Power Supply:** USB 5V (via micro-B USB cable) or Crystal Battery Box (2 × AAA, not included)
 - **Electronic Modules:** 13
 - **Project Cases:** 39
-- **Age Range:** 10+
+- **Age Range:** 8–16
 - **Compatibility:** BBC micro:bit V1 & V2 (board NOT included)
 - **Programming:** MakeCode (block-based), JavaScript, MicroPython/Python
 - **Soldering:** Not required

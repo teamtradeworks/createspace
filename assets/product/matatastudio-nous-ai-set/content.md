@@ -20,7 +20,7 @@ Unlock the future of AI education with the MatataStudio Nous AI Set — an advan
 
 ### Product Attributes (from research & Shopify)
 
-- **Age Range:** 12+ (primary audience), though curriculum can be adapted for grades 3-10
+- **Age Range:** 12–16
 - **Batteries:** Built-in rechargeable battery, USB-C charging (specific battery type not confirmed in research)
 - **Projects:** 7+ featured AI projects, plus extensive curriculum activities (see detailed list below)
 - **Guide:** Access to online MatataCode platform with tutorials, curriculum framework, and step-by-step lessons

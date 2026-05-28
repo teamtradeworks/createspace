@@ -18,7 +18,7 @@ Product confirmed in Shopify. The following are handled automatically by the sto
 The Arduino IoT Bundle is the best way to start exploring the world of connected devices using the Arduino Nano RP2040 Connect. Follow the 5 step by step tutorials to quickly learn how to build IoT devices. Follow the 5 step by step tutorials Arduino has prepared and combining the electronic components included in the bundle, you'll quickly learn how to build devices that connect to the Arduino IoT Cloud. The 5 step by step tutorials are: I Love You Pillow, Puzzle Box, Pavlov's Cat, The Nerd, Plant Communicator.
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 16+ (recommended for Advanced Users ages 16 and up)
+- **Age Range:** 14–18
 - **Batteries:** 9V battery required for servo motor projects (not included)
 - **Projects:** 5 guided tutorials
 - **Guide:** 5 step-by-step online tutorials (via Arduino documentation)

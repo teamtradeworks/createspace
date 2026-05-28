@@ -18,7 +18,7 @@ Product confirmed in Shopify. The following are handled automatically by the sto
 Take your child's VinciBot experience to the next level with the MatataStudio Creator Kit, an exciting add-on expansion for the VinciBot robot. Designed for ages 8+, this kit includes over 434 building blocks and 20 activity cases, giving young engineers the tools to explore coding, robotics, and hands-on STEM learning in fun and creative ways. Kids can practice assembling structures, experimenting with connections, and learning by doing. Every block and component helps build practical STEM skills while keeping the learning playful and interactive. Encourage creative thinking by designing unique structures, combining blocks in new ways, and imagining how each creation can move or interact. This add-on turns simple building into a creative engineering experience. Explore motion, cause-and-effect, and programming logic as children add DC motors and moving components to their creations. The kit allows for dynamic behaviours that bring projects to life and extend coding experiments beyond the basics. The Creator Kit transforms VinciBot into a platform for endless innovation, helping kids build confidence in coding, engineering, and problem-solving while having hours of hands-on, imaginative fun.
 
 ### Product Attributes (from Shopify metafields)
-- **Age Range:** 8+
+- **Age Range:** 8–12
 - **Batteries:** Not applicable (DC motor powered via VinciBot's onboard power)
 - **Projects:** 20+ building cases
 - **Guide:** Building manual with 20 study cases + user guide

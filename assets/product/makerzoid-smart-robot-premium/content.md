@@ -77,7 +77,7 @@ The Makerzoid Smart Robot Premium is an innovative coding robot kit designed for
 
 ### Age & Skill Level
 
-- **Recommended Age:** 6 years and older
+- **Recommended Age:** 6–12 years
 - **Skill Level:** Beginner to Intermediate
 - **Adult Supervision:** Optional (recommended for assembly of complex models)
 

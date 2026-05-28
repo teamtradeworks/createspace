@@ -20,7 +20,7 @@ Not retrieved (Shopify MCP was unavailable at time of research).
 
 ### Product Attributes (from Shopify metafields — inferred from research)
 
-- **Age Range:** 8+
+- **Age Range:** 8–12
 - **Batteries:** Not required (modules powered through VinciBot's onboard battery via USB-C cable)
 - **Projects:** 7 study cases
 - **Guide:** Building manual with 7 study cases + user guide
