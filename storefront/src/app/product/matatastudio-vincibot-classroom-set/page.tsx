@@ -9,7 +9,6 @@ import {
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
-  SkillTags,
   ProjectShowcase,
   CustomerShowcase,
   WhatsIncluded,
@@ -255,13 +254,6 @@ export default async function VinciBotClassroomSetPage() {
           },
         ]}
         background="white"
-      />
-
-      {/* Skill Tags */}
-      <SkillTags
-        title="Skills Your Learners Will Develop"
-        tags={["Coding", "Robotics", "Problem Solving", "Logical Thinking"]}
-        background="gray"
       />
 
       {/* FAQ Section */}

@@ -9,7 +9,6 @@ import {
   ImageTextBlock,
   FeatureGrid,
   ProjectShowcase,
-  SkillTags,
   ProductFAQ,
   ProductReviews,
   WhatsIncluded,
@@ -192,13 +191,6 @@ export default async function UpgradedUnoR3StarterKitPage() {
         ]}
         moreText="Plus 21 more lessons including stepper motors, relay switches, IR remote control, joystick input, motion detection, and more."
         background="gray"
-      />
-
-      {/* Skill Tags */}
-      <SkillTags
-        title="Skills Developed"
-        tags={["Electronics", "Coding", "Problem Solving", "Logical Thinking"]}
-        background="white"
       />
 
       {/* FAQ */}
