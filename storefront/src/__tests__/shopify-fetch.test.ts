@@ -72,17 +72,13 @@ describe("shopifyFetch", () => {
       .mockResolvedValueOnce(htmlResponse("<!-- gateway error -->", 503))
       .mockResolvedValueOnce(htmlResponse("<!-- still failing -->", 503));
 
-    await expect(shopifyFetch({ query: QUERY })).rejects.toThrow(
-      /Shopify 503/,
-    );
+    await expect(shopifyFetch({ query: QUERY })).rejects.toThrow(/Shopify 503/);
   });
 
   it("does not retry GraphQL-level errors", async () => {
     const fetchMock = vi
       .spyOn(globalThis, "fetch")
-      .mockResolvedValueOnce(
-        jsonResponse({ data: null, errors: [{ message: "Bad query" }] }),
-      );
+      .mockResolvedValueOnce(jsonResponse({ data: null, errors: [{ message: "Bad query" }] }));
 
     await expect(shopifyFetch({ query: QUERY })).rejects.toThrow("Bad query");
     expect(fetchMock).toHaveBeenCalledTimes(1);

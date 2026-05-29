@@ -246,9 +246,9 @@ export default async function VinciBotPage() {
               dimension of learning. The <strong>AI Vision Kit</strong> adds a 180° flip camera for
               computer vision, face recognition, and object tracking. The{" "}
               <strong>Creator Kit</strong> includes 434+ building blocks and a DC motor to design
-              custom robots and motorised machines. The{" "}
-              <strong>Inventor Kit</strong>{" "}takes engineering further with additional building
-              components and challenges for advanced builds. All three kits include guided activities and integrate seamlessly with
+              custom robots and motorised machines. The <strong>Inventor Kit</strong> takes
+              engineering further with additional building components and challenges for advanced
+              builds. All three kits include guided activities and integrate seamlessly with
               VinciBot&apos;s programming platform — pathways to deeper STEM learning that keep
               VinciBot relevant for years.
             </p>

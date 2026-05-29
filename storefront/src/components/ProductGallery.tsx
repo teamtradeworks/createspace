@@ -11,9 +11,17 @@ interface ProductGalleryProps {
   images?: { url: string; altText: string }[];
   items?: GalleryItem[];
   title: string;
+  discountPercent?: number;
+  ageRange?: string | null;
 }
 
-export default function ProductGallery({ images, items, title }: ProductGalleryProps) {
+export default function ProductGallery({
+  images,
+  items,
+  title,
+  discountPercent,
+  ageRange,
+}: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // Support both legacy `images` prop and new `items` prop
@@ -59,6 +67,26 @@ export default function ProductGallery({ images, items, title }: ProductGalleryP
           />
         )}
 
+        {/* Pills overlay (discount + age) */}
+        {(discountPercent && discountPercent > 0) || ageRange ? (
+          <div className="pointer-events-none absolute inset-x-3 top-3 flex items-start justify-between gap-2 sm:inset-x-4 sm:top-4">
+            {discountPercent && discountPercent > 0 ? (
+              <span className="bg-cs-red text-white text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md">
+                -{discountPercent}%
+              </span>
+            ) : (
+              <span />
+            )}
+            {ageRange ? (
+              <span className="bg-navy/85 text-white text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md">
+                {ageRange}
+              </span>
+            ) : (
+              <span />
+            )}
+          </div>
+        ) : null}
+
         {/* Navigation Arrows */}
         {galleryItems.length > 1 && (
           <>
@@ -69,8 +97,18 @@ export default function ProductGallery({ images, items, title }: ProductGalleryP
               className="absolute left-2 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-colors"
               aria-label="Previous"
             >
-              <svg className="w-5 h-5 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              <svg
+                className="w-5 h-5 text-navy"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
             <button
@@ -78,8 +116,18 @@ export default function ProductGallery({ images, items, title }: ProductGalleryP
               className="absolute right-2 top-1/2 -translate-y-1/2 w-11 h-11 bg-white/90 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-colors"
               aria-label="Next"
             >
-              <svg className="w-5 h-5 text-navy" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              <svg
+                className="w-5 h-5 text-navy"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           </>
@@ -111,7 +159,11 @@ export default function ProductGallery({ images, items, title }: ProductGalleryP
                   {/* Play icon overlay */}
                   <div className="absolute inset-0 flex items-center justify-center bg-black/20">
                     <div className="w-6 h-6 bg-white/90 rounded-full flex items-center justify-center">
-                      <svg className="w-3 h-3 text-navy ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                      <svg
+                        className="w-3 h-3 text-navy ml-0.5"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M8 5v14l11-7z" />
                       </svg>
                     </div>

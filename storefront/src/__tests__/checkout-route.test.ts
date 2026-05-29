@@ -40,9 +40,7 @@ function setPostHogCookie(distinctId: string | null, name = "ph_test_posthog") {
     mocks.getCookies.mockReturnValue([]);
     return;
   }
-  mocks.getCookies.mockReturnValue([
-    { name, value: JSON.stringify({ distinct_id: distinctId }) },
-  ]);
+  mocks.getCookies.mockReturnValue([{ name, value: JSON.stringify({ distinct_id: distinctId }) }]);
 }
 
 function mockCartCreateOk(checkoutUrl = "https://shop.example.com/checkouts/abc") {
@@ -78,9 +76,7 @@ describe("checkout API route", () => {
       setPostHogCookie("anon-xyz");
       mockCartCreateOk();
 
-      const lines: Line[] = [
-        { variantId: "gid://shopify/ProductVariant/123", quantity: 1 },
-      ];
+      const lines: Line[] = [{ variantId: "gid://shopify/ProductVariant/123", quantity: 1 }];
       await POST(makeRequest({ lines }));
 
       const call = mocks.shopifyFetch.mock.calls[0][0];
@@ -105,9 +101,7 @@ describe("checkout API route", () => {
     });
 
     it("ignores a malformed PostHog cookie without throwing", async () => {
-      mocks.getCookies.mockReturnValue([
-        { name: "ph_test_posthog", value: "{not-json" },
-      ]);
+      mocks.getCookies.mockReturnValue([{ name: "ph_test_posthog", value: "{not-json" }]);
       mockCartCreateOk();
 
       const res = await POST(

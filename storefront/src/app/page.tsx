@@ -83,92 +83,6 @@ export default function Home() {
         </Suspense>
       </TrackedSection>
 
-      {/* Why STEM Section */}
-      <TrackedSection name="WhyStem" page="home">
-        <section className="py-16 relative overflow-hidden">
-          {/* Decorative illustrations */}
-          <div className="hidden lg:block absolute -left-16 top-1/4 w-32 h-32 opacity-20">
-            <Image
-              src="/images/illustrations/robot-orange.png"
-              alt=""
-              width={128}
-              height={128}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="hidden lg:block absolute -right-8 bottom-1/4 w-24 h-24 opacity-20">
-            <Image
-              src="/images/illustrations/atom.png"
-              alt=""
-              width={96}
-              height={96}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div className="text-center mb-12">
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                The Numbers Don&apos;t Lie
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                Why Early STEM Exposure Matters
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Research shows that early hands-on STEM experience builds the foundation for
-                academic confidence, logical thinking, and future career success.
-              </p>
-            </div>
-
-            {/* Stat Cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {[
-                {
-                  number: "75%",
-                  label:
-                    "of the fastest-growing careers require STEM skills. Hands-on experience now builds confidence for later.",
-                  color: "text-cs-red",
-                  border: "border-cs-red/30",
-                },
-                {
-                  number: "3x",
-                  label: "faster job growth in STEM fields compared to other industries worldwide.",
-                  color: "text-cs-blue",
-                  border: "border-cs-blue/30",
-                },
-                {
-                  number: "2x",
-                  label:
-                    "higher earning potential for STEM graduates compared to non-STEM careers.",
-                  color: "text-cs-green",
-                  border: "border-cs-green/30",
-                },
-                {
-                  number: "80%",
-                  label:
-                    "of jobs in the next decade will require some form of tech or science literacy.",
-                  color: "text-cs-purple",
-                  border: "border-cs-purple/30",
-                },
-              ].map((stat) => (
-                <div
-                  key={stat.number}
-                  className={`bg-gray-50 rounded-xl p-5 md:p-6 text-center border-2 ${stat.border}`}
-                >
-                  <p className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-3 ${stat.color}`}>
-                    {stat.number}
-                  </p>
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </TrackedSection>
-
       {/* Our Brands Section */}
       <TrackedSection name="OurBrands" page="home">
         <section className="py-20 bg-gray-50">
@@ -287,7 +201,92 @@ export default function Home() {
 
             {/* Testimonials Row */}
             <HomeTestimonials />
+          </div>
+        </section>
+      </TrackedSection>
 
+      {/* Why STEM Section */}
+      <TrackedSection name="WhyStem" page="home">
+        <section className="py-16 relative overflow-hidden">
+          {/* Decorative illustrations */}
+          <div className="hidden lg:block absolute -left-16 top-1/4 w-32 h-32 opacity-20">
+            <Image
+              src="/images/illustrations/robot-orange.png"
+              alt=""
+              width={128}
+              height={128}
+              className="object-contain"
+              loading="lazy"
+            />
+          </div>
+          <div className="hidden lg:block absolute -right-8 bottom-1/4 w-24 h-24 opacity-20">
+            <Image
+              src="/images/illustrations/atom.png"
+              alt=""
+              width={96}
+              height={96}
+              className="object-contain"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
+                The Numbers Don&apos;t Lie
+              </span>
+              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
+                Why Early STEM Exposure Matters
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Research shows that early hands-on STEM experience builds the foundation for
+                academic confidence, logical thinking, and future career success.
+              </p>
+            </div>
+
+            {/* Stat Cards */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              {[
+                {
+                  number: "75%",
+                  label:
+                    "of the fastest-growing careers require STEM skills. Hands-on experience now builds confidence for later.",
+                  color: "text-cs-red",
+                  border: "border-cs-red/30",
+                },
+                {
+                  number: "3x",
+                  label: "faster job growth in STEM fields compared to other industries worldwide.",
+                  color: "text-cs-blue",
+                  border: "border-cs-blue/30",
+                },
+                {
+                  number: "2x",
+                  label:
+                    "higher earning potential for STEM graduates compared to non-STEM careers.",
+                  color: "text-cs-green",
+                  border: "border-cs-green/30",
+                },
+                {
+                  number: "80%",
+                  label:
+                    "of jobs in the next decade will require some form of tech or science literacy.",
+                  color: "text-cs-purple",
+                  border: "border-cs-purple/30",
+                },
+              ].map((stat) => (
+                <div
+                  key={stat.number}
+                  className={`bg-gray-50 rounded-xl p-5 md:p-6 text-center border-2 ${stat.border}`}
+                >
+                  <p className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-3 ${stat.color}`}>
+                    {stat.number}
+                  </p>
+                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed">{stat.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </TrackedSection>

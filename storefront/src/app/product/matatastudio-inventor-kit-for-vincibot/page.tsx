@@ -59,7 +59,18 @@ export default async function VinciBotInventorKitPage() {
       <ExtensionBanner
         parentProductName={parentProductName}
         parentProductHref={parentProductHref}
-        message={<>This is an expansion for <Link href={parentProductHref} className="font-semibold text-[#3CC7F7] underline underline-offset-2 hover:text-[#0C1446]">{parentProductName}</Link>. You&apos;ll need VinciBot to use it — already have one? This is your next step.</>}
+        message={
+          <>
+            This is an expansion for{" "}
+            <Link
+              href={parentProductHref}
+              className="font-semibold text-[#3CC7F7] underline underline-offset-2 hover:text-[#0C1446]"
+            >
+              {parentProductName}
+            </Link>
+            . You&apos;ll need VinciBot to use it — already have one? This is your next step.
+          </>
+        }
       />
 
       {/* Quick Info Badges */}
@@ -289,7 +300,10 @@ export default async function VinciBotInventorKitPage() {
           { label: "Building Bricks", value: "128 pieces (3 bags)" },
           { label: "Box Dimensions", value: "10.2 × 13.2 × 2.1 inches" },
           { label: "Material", value: "ABS plastic (LEGO-compatible)" },
-          { label: "Third-Party Compatibility", value: "Arduino, Micro:bit (via Module Link Unit)" },
+          {
+            label: "Third-Party Compatibility",
+            value: "Arduino, Micro:bit (via Module Link Unit)",
+          },
           { label: "LEGO Compatible", value: "Yes" },
           { label: "VinciBot Required", value: "Yes (sold separately)" },
         ]}

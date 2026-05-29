@@ -53,9 +53,7 @@ export default function ShopGallery({
 }: ShopGalleryProps) {
   const router = useRouter();
   const [selectedAges, setSelectedAges] = useState<string[]>(
-    initialAge && initialAge !== "all"
-      ? initialAge.split(",").filter(Boolean)
-      : [],
+    initialAge && initialAge !== "all" ? initialAge.split(",").filter(Boolean) : [],
   );
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     initialCategory && initialCategory !== "all"

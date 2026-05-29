@@ -235,9 +235,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               <Heading className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-6 leading-tight text-white">
                 {slide.headline}
               </Heading>
-              <p className="text-lg md:text-xl max-w-lg text-white/80">
-                {slide.description}
-              </p>
+              <p className="text-lg md:text-xl max-w-lg text-white/80">{slide.description}</p>
             </div>
             <div className="flex flex-col items-center justify-center gap-4 lg:gap-6">
               <p className="hidden lg:block text-white/70 text-xs uppercase tracking-widest font-medium">
@@ -302,8 +300,12 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               </div>
               {slide.salePercent && (
                 <div className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-2.5rem] w-28 h-28">
-                  <span className="text-white font-semibold text-[2rem] leading-none">{slide.salePercent}</span>
-                  <span className="text-white/85 font-semibold text-[0.7rem] uppercase tracking-widest leading-none mt-0.5">OFF</span>
+                  <span className="text-white font-semibold text-[2rem] leading-none">
+                    {slide.salePercent}
+                  </span>
+                  <span className="text-white/85 font-semibold text-[0.7rem] uppercase tracking-widest leading-none mt-0.5">
+                    OFF
+                  </span>
                 </div>
               )}
             </div>
@@ -315,14 +317,19 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
 
             {/* Single bold image */}
             <div className="relative h-36 rounded-2xl overflow-hidden ring-4 ring-cs-yellow/30 shadow-2xl">
-              <Image src={slide.lifestyleImages[2]} alt="Makerzoid robot kit" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
+              <Image
+                src={slide.lifestyleImages[2]}
+                alt="Makerzoid robot kit"
+                fill
+                className="object-cover object-center"
+                sizes="100vw"
+                loading="lazy"
+              />
             </div>
 
             {/* Description */}
             {slide.description && (
-              <p className="text-sm text-white/50 leading-relaxed -mt-1">
-                {slide.description}
-              </p>
+              <p className="text-sm text-white/50 leading-relaxed -mt-1">{slide.description}</p>
             )}
 
             {/* CTA */}
@@ -332,7 +339,12 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
             >
               {slide.cta.label}
               <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
               </svg>
             </Link>
           </div>
@@ -340,7 +352,6 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
           {/* ── Desktop layout ── */}
           <div className="hidden lg:block mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full relative z-10">
             <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] lg:py-0">
-
               <div className="z-10">
                 {/* Tag */}
                 {slide.tag && (
@@ -365,10 +376,16 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                       className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-3.5rem]"
                       style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
                     >
-                      <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}>
+                      <span
+                        className="text-white font-semibold leading-none"
+                        style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}
+                      >
                         {slide.salePercent}
                       </span>
-                      <span className="text-white/85 font-semibold uppercase tracking-widest leading-none mt-0.5" style={{ fontSize: "clamp(0.6rem,1.2vw,0.8rem)" }}>
+                      <span
+                        className="text-white/85 font-semibold uppercase tracking-widest leading-none mt-0.5"
+                        style={{ fontSize: "clamp(0.6rem,1.2vw,0.8rem)" }}
+                      >
                         OFF
                       </span>
                     </div>
@@ -377,7 +394,10 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
 
                 {/* MAKERZOID KITS */}
                 <div className="mb-3">
-                  <p className="font-semibold text-cs-orange uppercase leading-none" style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}>
+                  <p
+                    className="font-semibold text-cs-orange uppercase leading-none"
+                    style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}
+                  >
                     {slide.headline}
                   </p>
                 </div>
@@ -392,8 +412,18 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                     className="inline-flex items-center px-7 py-3.5 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30"
                   >
                     {slide.cta.label}
-                    <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    <svg
+                      className="ml-2 w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -404,19 +434,46 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 <div className="absolute top-6 right-4 w-40 h-40 bg-cs-orange opacity-20 rounded-3xl transform rotate-12" />
                 <div className="absolute bottom-12 left-2 w-24 h-24 bg-cs-blue opacity-25 rounded-full" />
                 <div className="absolute top-0 right-0 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
-                  <Image src={slide.lifestyleImages[0]} alt="Makerzoid robot kit" fill className="object-cover" sizes="290px" loading="lazy" />
+                  <Image
+                    src={slide.lifestyleImages[0]}
+                    alt="Makerzoid robot kit"
+                    fill
+                    className="object-cover"
+                    sizes="290px"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="absolute top-28 left-4 w-80 h-60 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
-                  <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="320px" loading="lazy" />
+                  <Image
+                    src={slide.lifestyleImages[1]}
+                    alt="Child building robot"
+                    fill
+                    className="object-cover"
+                    sizes="320px"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="absolute bottom-4 right-8 w-64 h-48 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
-                  <Image src={slide.lifestyleImages[2]} alt="Kids with robotics kit" fill className="object-cover" sizes="260px" loading="lazy" />
+                  <Image
+                    src={slide.lifestyleImages[2]}
+                    alt="Kids with robotics kit"
+                    fill
+                    className="object-cover"
+                    sizes="260px"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="absolute bottom-0 left-16 w-16 h-16 opacity-40">
-                  <Image src="/images/illustrations/robot-orange.png" alt="" fill className="object-contain" sizes="64px" loading="lazy" />
+                  <Image
+                    src="/images/illustrations/robot-orange.png"
+                    alt=""
+                    fill
+                    className="object-contain"
+                    sizes="64px"
+                    loading="lazy"
+                  />
                 </div>
               </div>
-
             </div>
           </div>
         </div>
@@ -481,11 +538,15 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               </div>
             </div>
             {/* Desktop: scattered collage */}
-            <div className={`hidden lg:block relative ${slide.largeImages ? "h-[500px]" : "h-[450px]"}`}>
+            <div
+              className={`hidden lg:block relative ${slide.largeImages ? "h-[500px]" : "h-[450px]"}`}
+            >
               <div className="relative h-full">
                 <div className="absolute top-0 right-20 w-24 h-24 bg-cs-orange rounded-full opacity-30" />
                 <div className="absolute bottom-10 left-10 w-16 h-16 bg-cs-blue rounded-full opacity-30" />
-                <div className={`absolute top-0 right-0 rounded-2xl overflow-hidden shadow-lg transform rotate-3 ${slide.largeImages ? "w-72 h-56" : "w-48 h-36"}`}>
+                <div
+                  className={`absolute top-0 right-0 rounded-2xl overflow-hidden shadow-lg transform rotate-3 ${slide.largeImages ? "w-72 h-56" : "w-48 h-36"}`}
+                >
                   <Image
                     src={slide.lifestyleImages[0]}
                     alt="Kids learning robotics"
@@ -495,7 +556,9 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                     loading="lazy"
                   />
                 </div>
-                <div className={`absolute top-28 left-4 rounded-2xl overflow-hidden shadow-lg transform -rotate-2 ${slide.largeImages ? "w-80 h-60" : "w-52 h-40"}`}>
+                <div
+                  className={`absolute top-28 left-4 rounded-2xl overflow-hidden shadow-lg transform -rotate-2 ${slide.largeImages ? "w-80 h-60" : "w-52 h-40"}`}
+                >
                   <Image
                     src={slide.lifestyleImages[1]}
                     alt="STEM education workshop"
@@ -505,7 +568,9 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                     loading="lazy"
                   />
                 </div>
-                <div className={`absolute bottom-4 right-8 rounded-2xl overflow-hidden shadow-lg transform rotate-1 ${slide.largeImages ? "w-64 h-48" : "w-44 h-32"}`}>
+                <div
+                  className={`absolute bottom-4 right-8 rounded-2xl overflow-hidden shadow-lg transform rotate-1 ${slide.largeImages ? "w-64 h-48" : "w-44 h-32"}`}
+                >
                   <Image
                     src={slide.lifestyleImages[2]}
                     alt="Robotics class"

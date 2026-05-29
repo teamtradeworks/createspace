@@ -295,8 +295,8 @@ export default function BundleComparison({
 
         {/* Bottom note */}
         <p className="text-center text-white/30 text-xs mt-10 max-w-lg mx-auto">
-          Both bundles include access to the Inspire Africa learning platform. Courses are self-paced
-          with certificates on completion.
+          Both bundles include access to the Inspire Africa learning platform. Courses are
+          self-paced with certificates on completion.
         </p>
       </div>
     </section>

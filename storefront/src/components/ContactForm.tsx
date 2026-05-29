@@ -27,7 +27,10 @@ const subjectOptions = [
   "Other",
 ];
 
-export default function ContactForm({ showEducationFields = false, educationSource }: ContactFormProps) {
+export default function ContactForm({
+  showEducationFields = false,
+  educationSource,
+}: ContactFormProps) {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -56,7 +59,12 @@ export default function ContactForm({ showEducationFields = false, educationSour
 
     try {
       const submitData = showEducationFields
-        ? { ...formData, subject: educationSource ? `Education Enquiry — ${educationSource}` : "Education Enquiry" }
+        ? {
+            ...formData,
+            subject: educationSource
+              ? `Education Enquiry — ${educationSource}`
+              : "Education Enquiry",
+          }
         : formData;
       const response = await fetch("/api/contact", {
         method: "POST",

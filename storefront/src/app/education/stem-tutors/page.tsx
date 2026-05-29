@@ -116,9 +116,9 @@ export default function StemTutorsPage() {
                 They Come to You
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Robotixkids runs as an extramural or curriculum programme at your school. Their trained
-                facilitators arrive with everything they need — kits, tablets, lesson plans — so
-                your school doesn&apos;t have to invest in equipment or train existing staff.
+                Robotixkids runs as an extramural or curriculum programme at your school. Their
+                trained facilitators arrive with everything they need — kits, tablets, lesson plans
+                — so your school doesn&apos;t have to invest in equipment or train existing staff.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Learners explore robotics, coding, and creative problem-solving through hands-on

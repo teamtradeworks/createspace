@@ -170,9 +170,7 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
                 >
                   <span
                     className={`block h-1.5 rounded-full transition-all ${
-                      Math.floor(currentIndex / 3) === idx
-                        ? "w-8 bg-navy"
-                        : "w-4 bg-gray-300"
+                      Math.floor(currentIndex / 3) === idx ? "w-8 bg-navy" : "w-4 bg-gray-300"
                     }`}
                   />
                 </button>
