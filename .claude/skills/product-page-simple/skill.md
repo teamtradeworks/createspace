@@ -143,6 +143,20 @@ Required sections in bold. See `simple-product-content-framework.md` for full ru
 - **No coding or electronics framing** — no platforms, programming, soldering, circuits, microcontrollers unless genuinely a product feature.
 - **Lean on the research content's existing language** for section titles, counts, and framing (especially from Amazon listings or the brand's own copy). Borrow vocabulary, don't invent generic titles. This applies to naming and framing — body copy is still rewritten in CREATESPACE voice (no copy/paste).
 
+## No Inventing Facts — Critical Rule
+
+**Do not invent or fabricate any specific fact.** Every specific claim must be traceable to `assets/product/{slug}/content.md`. This includes:
+
+- Mission, activity, or project names
+- Activity or project counts ("10 missions", "5 experiments")
+- Component or kit contents
+- Dimensions, materials, or technical specifications
+- Safety claims (e.g. "non-toxic", "UV-safe")
+- Age ranges, time estimates, or difficulty levels
+- Brand or manufacturer claims
+
+If a detail isn't in the research file, **omit it or write around it** — do not infer, assume, or fill in the gap. If a critical detail is missing (e.g. a complete contents list), note it as a gap in a comment and inform the user after writing the page.
+
 ## Workflow
 
 ### 1. Validate Prerequisites
@@ -237,6 +251,7 @@ The skill produces:
 Before completing, verify:
 
 - [ ] Content file was read: `assets/product/{slug}/content.md`
+- [ ] Every specific fact (mission names, counts, contents, specs, safety claims, age ranges) is traceable to `content.md` — nothing invented
 - [ ] Simple content framework was read: `assets/brand/simple-product-content-framework.md`
 - [ ] Required sections included: HeroSection, QuickInfoBadges, ProductFAQ, WhatsIncluded, CallToAction
 - [ ] **NumberedSteps is NOT included**
