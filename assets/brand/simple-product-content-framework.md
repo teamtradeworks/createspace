@@ -57,7 +57,7 @@ Required sections in bold. See `product-page-design.md` for component details.
 |---|---|---|---|
 | 1 | **HeroSection** | Required | Tagline leads with experience/wonder, not learning outcomes |
 | 2 | **QuickInfoBadges** | Required | Coding-platform and soldering badges naturally won't appear; age + batteries + guide will |
-| 3 | SkillTags | Optional | 2-3 lighter tags (Creativity, Patience & Focus, Science, Fine Motor Skills). Skip if forced. |
+| 3 | ~~SkillTags~~ | Excluded | Do not use — removed globally. |
 | 4 | VideoEmbed | Optional | If a good video exists |
 | 5 | FeatureGrid | Recommended | The main "what's special" section. 3-4 features. |
 | 6 | ImageTextBlock | Recommended | 1-2 throughout for storytelling/lifestyle imagery |
@@ -71,6 +71,7 @@ Required sections in bold. See `product-page-design.md` for component details.
 
 ### Sections explicitly excluded
 
+- **SkillTags** — removed globally; do not use on any product page
 - **NumberedSteps** — globally excluded across all product pages at present (too content-heavy)
 - **CourseTabs** — courses only
 - **ExtensionBanner** — extensions only

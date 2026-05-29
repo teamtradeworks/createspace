@@ -13,7 +13,6 @@ import {
   Specifications,
   ProductReviews,
   ProjectShowcase,
-  SkillTags,
   CustomerShowcase,
   CallToAction,
   ProductTrackingProvider,
@@ -248,19 +247,6 @@ export default async function ElecfreaksTinkerKitPage() {
       {/* Reviews */}
       <ProductReviews productId={product.id} background="gray" />
 
-      {/* Skill Tags */}
-      <SkillTags
-        title="Skills Developed"
-        tags={[
-          "Electronics",
-          "Coding",
-          "Problem Solving",
-          "Logical Thinking",
-          "Creativity",
-          "Patience & Focus",
-        ]}
-        background="white"
-      />
 
       {/* FAQ Section */}
       <ProductFAQ
