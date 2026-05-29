@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { capture } from "@/lib/analytics";
-import { Product, formatPrice, formatAgeRange, getProductRating, getStockStatus } from "@/lib/shopify";
+import {
+  Product,
+  formatPrice,
+  formatAgeRange,
+  getProductRating,
+  getStockStatus,
+} from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
 import { StarRating } from "@/components/StarRating";
@@ -15,7 +21,12 @@ type ProductCardProps = {
   priority?: boolean;
 };
 
-export default function ProductCard({ product, searchQuery, searchPosition, priority = false }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  searchQuery,
+  searchPosition,
+  priority = false,
+}: ProductCardProps) {
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
@@ -129,7 +140,9 @@ export default function ProductCard({ product, searchQuery, searchPosition, prio
         </div>
         <div className="flex items-center justify-between mt-auto">
           <div className="flex items-baseline gap-1.5">
-            <span className={`font-bold text-base sm:text-lg ${hasDiscount ? "text-cs-red" : "text-cs-orange"}`}>
+            <span
+              className={`font-bold text-base sm:text-lg ${hasDiscount ? "text-cs-red" : "text-cs-orange"}`}
+            >
               {formatPrice(price.amount, price.currencyCode)}
             </span>
             {hasDiscount && (

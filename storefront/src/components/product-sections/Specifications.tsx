@@ -65,7 +65,9 @@ export function Specifications({
                 <tbody>
                   {specs.map((spec, index) => (
                     <tr key={index} className={index % 2 === 0 ? "bg-gray-50" : "bg-white"}>
-                      <td className="px-6 py-4 text-sm font-medium text-navy w-1/3">{spec.label}</td>
+                      <td className="px-6 py-4 text-sm font-medium text-navy w-1/3">
+                        {spec.label}
+                      </td>
                       <td className="px-6 py-4 text-sm text-gray-600">{spec.value}</td>
                     </tr>
                   ))}

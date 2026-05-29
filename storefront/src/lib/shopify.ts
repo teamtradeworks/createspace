@@ -61,9 +61,7 @@ export async function shopifyFetch<T>({
           continue;
         }
         const snippet = (await response.text()).slice(0, 200);
-        throw new Error(
-          `Shopify ${response.status} ${response.statusText}: ${snippet}`,
-        );
+        throw new Error(`Shopify ${response.status} ${response.statusText}: ${snippet}`);
       }
 
       const json: ShopifyResponse<T> = await response.json();
@@ -83,9 +81,7 @@ export async function shopifyFetch<T>({
     }
   }
 
-  throw lastError instanceof Error
-    ? lastError
-    : new Error("Shopify request failed");
+  throw lastError instanceof Error ? lastError : new Error("Shopify request failed");
 }
 
 // Types

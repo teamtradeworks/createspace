@@ -196,7 +196,9 @@ export function HeroSection({
 
                 {/* Price */}
                 <div className="flex items-center gap-3 mb-4">
-                  <span className={`text-3xl font-bold ${hasDiscount ? "text-cs-red" : "text-navy"}`}>
+                  <span
+                    className={`text-3xl font-bold ${hasDiscount ? "text-cs-red" : "text-navy"}`}
+                  >
                     {formatPrice(price.amount, price.currencyCode)}
                   </span>
                   {hasDiscount && (

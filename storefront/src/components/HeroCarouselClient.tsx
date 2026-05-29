@@ -8,7 +8,11 @@ interface HeroCarouselClientProps {
   slideTextColors: ("light" | "dark")[];
 }
 
-export default function HeroCarouselClient({ children, slideCount, slideTextColors }: HeroCarouselClientProps) {
+export default function HeroCarouselClient({
+  children,
+  slideCount,
+  slideTextColors,
+}: HeroCarouselClientProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [paused, setPaused] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -36,7 +40,9 @@ export default function HeroCarouselClient({ children, slideCount, slideTextColo
       if (Math.abs(track.scrollLeft - targetLeft) > 5) {
         isScrollingProgrammatically.current = true;
         track.scrollTo({ left: targetLeft, behavior: "smooth" });
-        const t = setTimeout(() => { isScrollingProgrammatically.current = false; }, 700);
+        const t = setTimeout(() => {
+          isScrollingProgrammatically.current = false;
+        }, 700);
         return () => clearTimeout(t);
       }
     }

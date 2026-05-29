@@ -201,7 +201,6 @@ export default function Home() {
 
             {/* Testimonials Row */}
             <HomeTestimonials />
-
           </div>
         </section>
       </TrackedSection>
