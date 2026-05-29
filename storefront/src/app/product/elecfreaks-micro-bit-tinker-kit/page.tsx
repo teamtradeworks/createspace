@@ -247,7 +247,6 @@ export default async function ElecfreaksTinkerKitPage() {
       {/* Reviews */}
       <ProductReviews productId={product.id} background="gray" />
 
-
       {/* FAQ Section */}
       <ProductFAQ
         title="Common Questions"

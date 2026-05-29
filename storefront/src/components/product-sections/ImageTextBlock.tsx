@@ -42,7 +42,13 @@ export function ImageTextBlock({
             <div
               className={`relative aspect-[4/3] rounded-2xl overflow-hidden ${layout === "image-right" ? "lg:[direction:ltr]" : ""}`}
             >
-              <Image src={image} alt={imageAlt || title} fill className="object-cover" style={{ objectPosition: imageObjectPosition }} />
+              <Image
+                src={image}
+                alt={imageAlt || title}
+                fill
+                className="object-cover"
+                style={{ objectPosition: imageObjectPosition }}
+              />
             </div>
 
             {/* Content */}

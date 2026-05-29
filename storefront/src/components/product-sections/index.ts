@@ -15,6 +15,5 @@ export { ProductReviews } from "./ProductReviews";
 export { LazyProductReviews } from "./LazyProductReviews";
 export { CourseTabs } from "./CourseTabs";
 export { StepPath } from "./StepPath";
-export { SkillTags } from "./SkillTags";
 export { ExtensionBanner } from "./ExtensionBanner";
 export { ProductTrackingProvider } from "./ProductTrackingContext";

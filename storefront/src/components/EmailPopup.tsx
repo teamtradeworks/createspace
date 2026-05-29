@@ -259,8 +259,8 @@ export default function EmailPopup() {
 
         <h2 className="mb-2 text-center text-2xl font-semibold">Stay in the loop</h2>
         <p className="mb-6 text-center text-sm text-white/70">
-          Join South African parents discovering STEM toys their kids actually love. Be the
-          first to hear about new products and exclusive deals.
+          Join South African parents discovering STEM toys their kids actually love. Be the first to
+          hear about new products and exclusive deals.
         </p>
 
         <form onSubmit={handleSubmit} className="space-y-3">
