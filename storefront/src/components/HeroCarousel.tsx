@@ -24,11 +24,32 @@ interface Slide {
   largeImages?: boolean;
   brandLogos?: BrandLogo[];
   salePercent?: string;
+  brandLogoSrc?: string;
+  descriptionSub?: string;
+  note?: string;
   bgColor: string;
   textColor?: "light" | "dark";
 }
 
 const slides: Slide[] = [
+  {
+    id: "matatastudio-sale",
+    type: "sale",
+    tag: "Limited Time — Ends 5 June",
+    headline: "MATATASTUDIO",
+    description: "Robots, coding kits, microscopes & more — save 20%!",
+    cta: { label: "Shop MatataStudio", href: "https://www.thecreatespace.co.za/shop?brand=MatataStudio" },
+    note: "Excludes classroom sets.",
+    lifestyleImages: [
+      "/images/products/matatastudio-tale-bot-pro/bot-drawing-on-paper.jpeg",
+      "/images/products/matatastudio-vincibot-coding-robot-set/line-following.jpeg",
+      "/images/products/matatastudio-coding-set-pro/3-kids-playing-together.jpeg",
+    ],
+    salePercent: "20%",
+    brandLogoSrc: "/images/brands/matatastudio-cropped.png",
+    bgColor: "bg-[#7BC8EB]",
+    textColor: "dark",
+  },
   {
     id: "main",
     type: "hero",
@@ -276,31 +297,56 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
       {slide.type === "sale" && slide.lifestyleImages && (
         <div className="relative h-full overflow-hidden">
           {/* Background colour blobs */}
-          <div className="absolute -top-10 -left-10 w-64 h-64 bg-cs-purple opacity-20 rounded-full" />
-          <div className="absolute bottom-0 right-1/2 w-48 h-48 bg-cs-blue opacity-10 rounded-full" />
+          <div className={`absolute -top-10 -left-10 w-64 h-64 ${isLight ? "bg-cs-purple" : "bg-white"} opacity-20 rounded-full`} />
+          <div className={`absolute bottom-0 right-1/2 w-48 h-48 ${isLight ? "bg-cs-blue" : "bg-white"} opacity-10 rounded-full`} />
           {/* Bold red top strip — z-20 sits above everything */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-cs-red z-20" />
 
           {/* ── Mobile layout ── */}
-          <div className="lg:hidden relative z-10 flex flex-col px-4 pt-8 pb-6 gap-5 min-h-[500px]">
+          <div className="lg:hidden relative z-10 flex flex-col px-4 pt-8 pb-20 gap-5 min-h-[500px]">
             {/* Tag */}
             {slide.tag && (
-              <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em]">
+              <span className={`inline-flex items-center gap-2 mt-3 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em]`}>
                 <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
                 {slide.tag}
               </span>
             )}
 
-            {/* SALE card + badge */}
-            <div className="flex items-end">
-              <div className="bg-cs-yellow rounded-2xl px-5 py-3">
-                <Heading className="text-[5.5rem] font-semibold text-navy tracking-tight leading-none">
+            {/* SALE + brand combined card */}
+            <div className="rounded-2xl overflow-hidden shadow-xl inline-flex flex-col">
+              {slide.brandLogoSrc ? (
+                <div className="bg-white px-4 py-2">
+                  <div className="relative w-full h-[84px]">
+                    <Image src={slide.brandLogoSrc} alt={slide.headline} fill className="object-contain object-center" sizes="300px" loading="lazy" />
+                  </div>
+                </div>
+              ) : (
+                <div className="bg-white px-4 py-3">
+                  <p className="text-[1.25rem] font-semibold text-navy uppercase tracking-wide leading-none">{slide.headline}</p>
+                </div>
+              )}
+              <div className="bg-cs-yellow px-5 py-2 flex justify-center">
+                <Heading className="text-[4.5rem] font-semibold text-navy tracking-tight leading-none">
                   SALE
                 </Heading>
               </div>
+            </div>
+
+            {/* Single bold image with sticker overlay */}
+            <div className="relative h-44 rounded-2xl overflow-visible ring-4 ring-cs-yellow/30 shadow-2xl">
+              <div className="absolute inset-0 rounded-2xl overflow-hidden">
+                <Image
+                  src={slide.lifestyleImages[0]}
+                  alt="Tale-Bot Pro"
+                  fill
+                  className="object-cover object-center"
+                  sizes="100vw"
+                  loading="lazy"
+                />
+              </div>
               {slide.salePercent && (
-                <div className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-2.5rem] w-28 h-28">
-                  <span className="text-white font-semibold text-[2rem] leading-none">
+                <div className="absolute -top-4 -right-3 z-10 flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-orange border-4 border-white shadow-lg transform rotate-12 w-32 h-32">
+                  <span className="text-white font-semibold text-[2.2rem] leading-none">
                     {slide.salePercent}
                   </span>
                   <span className="text-white/85 font-semibold text-[0.7rem] uppercase tracking-widest leading-none mt-0.5">
@@ -310,32 +356,18 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               )}
             </div>
 
-            {/* MAKERZOID KITS */}
-            <p className="text-[1.5rem] font-semibold text-cs-orange uppercase tracking-wide leading-none mt-3">
-              {slide.headline}
-            </p>
-
-            {/* Single bold image */}
-            <div className="relative h-36 rounded-2xl overflow-hidden ring-4 ring-cs-yellow/30 shadow-2xl">
-              <Image
-                src={slide.lifestyleImages[2]}
-                alt="Makerzoid robot kit"
-                fill
-                className="object-cover object-center"
-                sizes="100vw"
-                loading="lazy"
-              />
-            </div>
-
             {/* Description */}
             {slide.description && (
-              <p className="text-sm text-white/50 leading-relaxed -mt-1">{slide.description}</p>
+              <p className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} leading-relaxed`}>{slide.description}</p>
+            )}
+            {slide.note && (
+              <p className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} leading-relaxed -mt-2`}>{slide.note}</p>
             )}
 
             {/* CTA */}
             <Link
               href={slide.cta.href}
-              className="inline-flex items-center justify-center w-full px-7 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30 text-base"
+              className={`inline-flex items-center justify-center w-full px-7 py-4 ${isLight ? "bg-cs-red hover:bg-cs-red/90" : "bg-cs-orange hover:bg-cs-orange/90"} text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30 text-base`}
             >
               {slide.cta.label}
               <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -355,25 +387,43 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               <div className="z-10">
                 {/* Tag */}
                 {slide.tag && (
-                  <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em] mb-8">
+                  <span className={`inline-flex items-center gap-2 mt-4 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em] mb-8`}>
                     <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
                     {slide.tag}
                   </span>
                 )}
 
-                {/* Yellow SALE card + badge */}
-                <div className="flex items-end mb-6">
-                  <div className="bg-cs-yellow rounded-2xl px-5 py-3">
-                    <Heading
-                      className="font-semibold text-navy tracking-tight leading-none"
-                      style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
-                    >
-                      SALE
-                    </Heading>
+                {/* SALE + brand combined card */}
+                <div className="flex items-end mb-8">
+                  <div className="rounded-2xl overflow-hidden shadow-xl inline-flex flex-col">
+                    {slide.brandLogoSrc ? (
+                      <div className="bg-white px-5 py-2">
+                        <div className="relative w-full h-[84px]">
+                          <Image src={slide.brandLogoSrc} alt={slide.headline} fill className="object-contain object-center" sizes="400px" loading="lazy" />
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="bg-white px-5 py-3.5">
+                        <p
+                          className="font-semibold text-navy uppercase leading-none"
+                          style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}
+                        >
+                          {slide.headline}
+                        </p>
+                      </div>
+                    )}
+                    <div className="bg-cs-yellow px-5 py-2">
+                      <Heading
+                        className="font-semibold text-navy tracking-tight leading-none"
+                        style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
+                      >
+                        SALE
+                      </Heading>
+                    </div>
                   </div>
                   {slide.salePercent && (
                     <div
-                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-3.5rem]"
+                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-orange border-4 border-white shadow-lg transform rotate-12 -ml-5 mb-[-3.5rem]"
                       style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
                     >
                       <span
@@ -392,24 +442,19 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                   )}
                 </div>
 
-                {/* MAKERZOID KITS */}
-                <div className="mb-3">
-                  <p
-                    className="font-semibold text-cs-orange uppercase leading-none"
-                    style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}
-                  >
-                    {slide.headline}
-                  </p>
-                </div>
-
-                <p className="text-sm text-white/50 mb-7 max-w-xs leading-relaxed">
+                <p className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} max-w-xs leading-relaxed`}>
                   {slide.description}
                 </p>
+                {slide.note && (
+                  <p className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} mt-1 mb-6 max-w-xs leading-relaxed`}>
+                    {slide.note}
+                  </p>
+                )}
 
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href={slide.cta.href}
-                    className="inline-flex items-center px-7 py-3.5 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30"
+                    className={`inline-flex items-center px-7 py-3.5 ${isLight ? "bg-cs-red hover:bg-cs-red/90" : "bg-cs-orange hover:bg-cs-orange/90"} text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30`}
                   >
                     {slide.cta.label}
                     <svg
@@ -433,43 +478,33 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               <div className="relative h-[500px]">
                 <div className="absolute top-6 right-4 w-40 h-40 bg-cs-orange opacity-20 rounded-3xl transform rotate-12" />
                 <div className="absolute bottom-12 left-2 w-24 h-24 bg-cs-blue opacity-25 rounded-full" />
-                <div className="absolute top-0 right-0 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
+                <div className="absolute top-0 right-0 w-80 h-64 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
                   <Image
                     src={slide.lifestyleImages[0]}
-                    alt="Makerzoid robot kit"
-                    fill
-                    className="object-cover"
-                    sizes="290px"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute top-28 left-4 w-80 h-60 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
-                  <Image
-                    src={slide.lifestyleImages[1]}
-                    alt="Child building robot"
+                    alt="Tale-Bot Pro drawing robot"
                     fill
                     className="object-cover"
                     sizes="320px"
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute bottom-4 right-8 w-64 h-48 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
+                <div className="absolute top-36 left-0 w-[340px] h-[270px] rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
                   <Image
-                    src={slide.lifestyleImages[2]}
-                    alt="Kids with robotics kit"
+                    src={slide.lifestyleImages[1]}
+                    alt="VinciBot on line-following map"
                     fill
                     className="object-cover"
-                    sizes="260px"
+                    sizes="340px"
                     loading="lazy"
                   />
                 </div>
-                <div className="absolute bottom-0 left-16 w-16 h-16 opacity-40">
+                <div className="absolute bottom-0 right-4 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
                   <Image
-                    src="/images/illustrations/robot-orange.png"
-                    alt=""
+                    src={slide.lifestyleImages[2]}
+                    alt="Kids with MatataStudio coding set"
                     fill
-                    className="object-contain"
-                    sizes="64px"
+                    className="object-cover"
+                    sizes="340px"
                     loading="lazy"
                   />
                 </div>
