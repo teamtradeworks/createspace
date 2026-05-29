@@ -38,6 +38,9 @@ if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_IS_CI) {
       /Java bridge method invocation error/, // Android WebView bridge from in-app browsers
       /window\.webkit\.messageHandlers/, // iOS WKWebView injected bridge
       /Failed to read the 'sessionStorage' property/, // Privacy mode / restricted in-app browsers
+      /Cannot read properties of undefined \(reading 'domInteractive'\)/, // Sentry SDK perf timing in some Android WebViews
+      /TypeError: Load failed/, // iOS Safari fetch abort when user navigates away mid-request
+      /SecurityError: The operation is insecure/, // Sandboxed iframes (e.g. Shopify Web Pixel) blocking cookie/storage writes
     ],
     denyUrls: [
       /fera\.js/,
@@ -49,15 +52,28 @@ if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_IS_CI) {
   });
 }
 
-posthog.init(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN!, {
-  api_host: "/ingest",
-  ui_host: "https://eu.posthog.com",
-  defaults: "2026-01-30",
-  person_profiles: "always",
-  capture_pageview: false, // We handle pageviews manually via PostHogPageview for SPA navigation
-  capture_exceptions: true,
-  session_recording: {},
-  debug: process.env.NODE_ENV === "development",
-});
+// Skip PostHog in sandboxed iframes (e.g. Shopify Web Pixel) where cookie /
+// storage writes throw SecurityError. Accessing window.top across origins also
+// throws, so treat any failure as "not the top frame".
+function isTopFrame(): boolean {
+  try {
+    return typeof window !== "undefined" && window.top === window.self;
+  } catch {
+    return false;
+  }
+}
+
+if (isTopFrame()) {
+  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_PROJECT_TOKEN!, {
+    api_host: "/ingest",
+    ui_host: "https://eu.posthog.com",
+    defaults: "2026-01-30",
+    person_profiles: "always",
+    capture_pageview: false, // We handle pageviews manually via PostHogPageview for SPA navigation
+    capture_exceptions: true,
+    session_recording: {},
+    debug: process.env.NODE_ENV === "development",
+  });
+}
 
 export const onRouterTransitionStart = Sentry.captureRouterTransitionStart;
