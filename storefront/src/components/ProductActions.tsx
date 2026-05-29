@@ -117,7 +117,8 @@ export default function ProductActions({
             variantId: addon.variantId,
             title: addon.title,
             price: addonPrice,
-            compareAtPrice: addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
+            compareAtPrice:
+              addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,
             handle: addon.handle,
@@ -249,7 +250,8 @@ export default function ProductActions({
             variantId: addon.variantId,
             title: addon.title,
             price: addonPrice,
-            compareAtPrice: addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
+            compareAtPrice:
+              addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,
             handle: addon.handle,

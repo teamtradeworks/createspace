@@ -80,16 +80,16 @@ function signedRequest(
 ) {
   const raw = typeof body === "string" ? body : JSON.stringify(body);
   const secret = opts.secret ?? "test-secret";
-  const hmac = opts.badHmac
-    ?? crypto.createHmac("sha256", secret).update(raw).digest("base64");
+  const hmac = opts.badHmac ?? crypto.createHmac("sha256", secret).update(raw).digest("base64");
 
   const headers: Record<string, string> = { "content-type": "application/json" };
   if (!opts.omitHmac) headers["x-shopify-hmac-sha256"] = hmac;
 
-  return new NextRequest(
-    "https://www.thecreatespace.co.za/api/webhooks/shopify/orders",
-    { method: "POST", headers, body: raw },
-  );
+  return new NextRequest("https://www.thecreatespace.co.za/api/webhooks/shopify/orders", {
+    method: "POST",
+    headers,
+    body: raw,
+  });
 }
 
 describe("Shopify orders webhook", () => {
@@ -258,9 +258,7 @@ describe("Shopify orders webhook", () => {
 
     it("does not alias when the anonymous id equals the email", async () => {
       const order = makeOrder({
-        note_attributes: [
-          { name: "_posthog_distinct_id", value: "buyer@example.com" },
-        ],
+        note_attributes: [{ name: "_posthog_distinct_id", value: "buyer@example.com" }],
       });
       await POST(signedRequest(order));
       expect(mocks.aliasImmediate).not.toHaveBeenCalled();

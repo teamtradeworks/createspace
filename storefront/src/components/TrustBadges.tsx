@@ -47,12 +47,7 @@ const ALL_BADGES: TrustBadge[] = [
   },
 ];
 
-const BAR_DEFAULTS = [
-  "fast-delivery",
-  "free-delivery",
-  "easy-returns",
-  "quality-curated",
-];
+const BAR_DEFAULTS = ["fast-delivery", "free-delivery", "easy-returns", "quality-curated"];
 const COMPACT_DEFAULTS = ["secure-checkout", "free-delivery"];
 const INLINE_DEFAULTS = ["secure-checkout", "fast-delivery"];
 

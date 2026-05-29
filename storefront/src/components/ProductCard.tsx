@@ -2,7 +2,13 @@
 
 import Link from "next/link";
 import { capture } from "@/lib/analytics";
-import { Product, formatPrice, formatAgeRange, getProductRating, getStockStatus } from "@/lib/shopify";
+import {
+  Product,
+  formatPrice,
+  formatAgeRange,
+  getProductRating,
+  getStockStatus,
+} from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
 import { StarRating } from "@/components/StarRating";
@@ -15,7 +21,12 @@ type ProductCardProps = {
   priority?: boolean;
 };
 
-export default function ProductCard({ product, searchQuery, searchPosition, priority = false }: ProductCardProps) {
+export default function ProductCard({
+  product,
+  searchQuery,
+  searchPosition,
+  priority = false,
+}: ProductCardProps) {
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
@@ -93,9 +104,6 @@ export default function ProductCard({ product, searchQuery, searchPosition, prio
         <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug text-sm sm:text-base mb-1 sm:mb-2">
           {product.title}
         </h3>
-        <p className="text-sm text-gray-500 line-clamp-2 mb-2">
-          {product.description || "Hands-on STEM learning kit"}
-        </p>
         <div className="mb-2 sm:mb-3">
           <span
             className={`inline-flex items-center gap-1.5 text-xs font-medium ${
@@ -132,7 +140,9 @@ export default function ProductCard({ product, searchQuery, searchPosition, prio
         </div>
         <div className="flex items-center justify-between mt-auto">
           <div className="flex items-baseline gap-1.5">
-            <span className={`font-bold text-base sm:text-lg ${hasDiscount ? "text-cs-red" : "text-cs-orange"}`}>
+            <span
+              className={`font-bold text-base sm:text-lg ${hasDiscount ? "text-cs-red" : "text-cs-orange"}`}
+            >
               {formatPrice(price.amount, price.currencyCode)}
             </span>
             {hasDiscount && (

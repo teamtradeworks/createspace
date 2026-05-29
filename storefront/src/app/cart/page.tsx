@@ -29,6 +29,19 @@ export default function CartPage() {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const viewCartFired = useRef(false);
 
+  // Reset the checkout button if the user returns via the browser's bfcache
+  // (e.g. clicking back from Shopify checkout) — otherwise it stays stuck on
+  // "Redirecting to Checkout..."
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        setIsCheckingOut(false);
+      }
+    };
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
+
   useEffect(() => {
     if (isHydrated && items.length > 0 && !viewCartFired.current) {
       viewCartFired.current = true;
@@ -318,10 +331,14 @@ export default function CartPage() {
                         {/* Price */}
                         <div className="col-span-4 md:col-span-2 text-center">
                           <span className="md:hidden text-sm text-gray-500 mr-2">Price:</span>
-                          {item.compareAtPrice && item.compareAtPrice > item.price && !isUnavailable ? (
+                          {item.compareAtPrice &&
+                          item.compareAtPrice > item.price &&
+                          !isUnavailable ? (
                             <span className="flex flex-col items-center gap-0.5">
                               <span className="text-gray-400 line-through text-sm">
-                                {formatPrice(item.compareAtPrice, item.currencyCode, { showCents: true })}
+                                {formatPrice(item.compareAtPrice, item.currencyCode, {
+                                  showCents: true,
+                                })}
                               </span>
                               <span className="text-cs-red font-medium">
                                 {formatPrice(item.price, item.currencyCode, { showCents: true })}
@@ -418,7 +435,9 @@ export default function CartPage() {
                                 : "font-semibold text-navy"
                             }
                           >
-                            {formatPrice(item.price * item.quantity, item.currencyCode, { showCents: true })}
+                            {formatPrice(item.price * item.quantity, item.currencyCode, {
+                              showCents: true,
+                            })}
                           </span>
                         </div>
                       </div>
@@ -435,12 +454,16 @@ export default function CartPage() {
                   <div className="space-y-3 mb-6">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal ({itemCount} items)</span>
-                      <span>{formatPrice(subtotal + totalDiscount, currencyCode, { showCents: true })}</span>
+                      <span>
+                        {formatPrice(subtotal + totalDiscount, currencyCode, { showCents: true })}
+                      </span>
                     </div>
                     {totalDiscount > 0 && (
                       <div className="flex justify-between text-cs-red">
                         <span>Discount</span>
-                        <span>-{formatPrice(totalDiscount, currencyCode, { showCents: true })}</span>
+                        <span>
+                          -{formatPrice(totalDiscount, currencyCode, { showCents: true })}
+                        </span>
                       </div>
                     )}
                     <div className="flex justify-between text-gray-600">
@@ -470,14 +493,19 @@ export default function CartPage() {
                         <span className="text-cs-green font-semibold">FREE</span>
                       ) : (
                         <span>
-                          {formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode, { showCents: true })}
+                          {formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode, {
+                            showCents: true,
+                          })}
                         </span>
                       )}
                     </div>
                     {!qualifiesForFreeDelivery(subtotal) && subtotal > 0 && (
                       <p className="text-xs text-cs-orange">
-                        Add {formatPrice(amountToFreeDelivery(subtotal), currencyCode, { showCents: true })} more for
-                        FREE delivery!
+                        Add{" "}
+                        {formatPrice(amountToFreeDelivery(subtotal), currencyCode, {
+                          showCents: true,
+                        })}{" "}
+                        more for FREE delivery!
                       </p>
                     )}
                   </div>
@@ -486,7 +514,9 @@ export default function CartPage() {
                     <div className="flex justify-between text-lg font-semibold text-navy">
                       <span>Total</span>
                       <span>
-                        {formatPrice(subtotal + calculateDeliveryCost(subtotal), currencyCode, { showCents: true })}
+                        {formatPrice(subtotal + calculateDeliveryCost(subtotal), currencyCode, {
+                          showCents: true,
+                        })}
                       </span>
                     </div>
                     <p className="text-xs text-gray-500 mt-1">VAT included.</p>

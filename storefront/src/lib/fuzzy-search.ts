@@ -8,8 +8,7 @@ const SYNONYMS: { match: string; aliases: string[] }[] = synonymsConfig.synonyms
 // the canonical term. Gives Fuse extra indexed strings to match against so
 // searches like "MatataLabs" can find products branded "MatataStudio".
 function aliasesFor(product: Product): string[] {
-  const haystack =
-    `${product.title} ${product.vendor} ${product.tags.join(" ")}`.toLowerCase();
+  const haystack = `${product.title} ${product.vendor} ${product.tags.join(" ")}`.toLowerCase();
   const out: string[] = [];
   for (const { match, aliases } of SYNONYMS) {
     if (haystack.includes(match.toLowerCase())) {

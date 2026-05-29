@@ -301,8 +301,8 @@ export default function CurriculumPage() {
                 year.
               </p>
               <p className="text-white/60 mb-6">
-                  The training is self-paced and enriches your CAPS curriculum, so it slots
-                directly into your school timetable. No prior coding experience needed.
+                The training is self-paced and enriches your CAPS curriculum, so it slots directly
+                into your school timetable. No prior coding experience needed.
               </p>
               <ul className="space-y-2 mb-8">
                 {[
@@ -559,8 +559,8 @@ export default function CurriculumPage() {
               Ready to Bring Coding &amp; Robotics to Your School?
             </h2>
             <p className="text-white/80">
-              Get in touch and we&apos;ll map out a bespoke curriculum tailored to your school&apos;s
-              hardware and goals.
+              Get in touch and we&apos;ll map out a bespoke curriculum tailored to your
+              school&apos;s hardware and goals.
             </p>
           </div>
           <div className="bg-white rounded-2xl p-8 shadow-lg">

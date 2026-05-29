@@ -67,8 +67,7 @@ export default function HomeTestimonials() {
   const scroll = (direction: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-    const cardWidth =
-      el.querySelector<HTMLElement>(":scope > div")?.offsetWidth ?? 400;
+    const cardWidth = el.querySelector<HTMLElement>(":scope > div")?.offsetWidth ?? 400;
     const gap = 24;
     const distance = direction === "left" ? -(cardWidth + gap) : cardWidth + gap;
     el.scrollBy({ left: distance, behavior: "smooth" });
@@ -112,9 +111,7 @@ export default function HomeTestimonials() {
             </div>
 
             {/* Quote */}
-            <p className="text-gray-700 mb-6 leading-relaxed">
-              &ldquo;{testimonial.quote}&rdquo;
-            </p>
+            <p className="text-gray-700 mb-6 leading-relaxed">&ldquo;{testimonial.quote}&rdquo;</p>
 
             {/* Author */}
             <div>

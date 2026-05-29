@@ -211,10 +211,16 @@ export default async function TaleMatPage() {
         specs={[
           { label: "Grid Format", value: "6×6 OID map, 36 card pockets" },
           { label: "Clip Cards", value: "106 double-sided" },
-          { label: "Card Themes", value: "Mathematics, language, geography, animals, fruit, and more" },
+          {
+            label: "Card Themes",
+            value: "Mathematics, language, geography, animals, fruit, and more",
+          },
           { label: "Dimensions", value: "30 × 10 × 18 cm" },
           { label: "Weight", value: "0.7 kg" },
-          { label: "Software", value: "MatataCode — Windows, macOS, Chrome OS, iOS & Android (free)" },
+          {
+            label: "Software",
+            value: "MatataCode — Windows, macOS, Chrome OS, iOS & Android (free)",
+          },
           { label: "Compatible With", value: "MatataStudio Tale-Bot Pro" },
           { label: "Connection", value: "USB (for .imap file transfer to robot)" },
         ]}

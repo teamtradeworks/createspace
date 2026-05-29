@@ -200,9 +200,6 @@ export function QuickInfoBadges({ product, badges: manualBadges }: QuickInfoBadg
     <SectionTracker name="QuickInfoBadges">
       <section className="py-10 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h3 className="text-center text-sm font-medium text-gray-500 uppercase tracking-wide mb-6">
-            At a Glance
-          </h3>
           <div className="flex overflow-x-auto gap-3 pb-2 md:flex-wrap md:justify-center md:gap-4 md:overflow-x-visible md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
             {allBadges.map((badge, index) => (
               <div

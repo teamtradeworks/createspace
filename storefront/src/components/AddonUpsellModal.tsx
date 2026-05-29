@@ -98,7 +98,9 @@ export default function AddonUpsellModal({ addons, onConfirm, onSkip }: AddonUps
                 </div>
               )}
               <div className="flex-grow min-w-0">
-                <span className="text-sm font-medium text-navy line-clamp-2">{addon.quantity > 1 ? `${addon.quantity} x ${addon.title}` : addon.title}</span>
+                <span className="text-sm font-medium text-navy line-clamp-2">
+                  {addon.quantity > 1 ? `${addon.quantity} x ${addon.title}` : addon.title}
+                </span>
                 {addon.description && (
                   <p className="text-xs text-gray-500 mt-0.5 line-clamp-2">{addon.description}</p>
                 )}

@@ -42,9 +42,7 @@ function verifyWebhook(body: Buffer, hmacHeader: string): boolean {
   const secret = process.env.SHOPIFY_WEBHOOK_SECRET;
   if (!secret) return false;
 
-  const a = Buffer.from(
-    crypto.createHmac("sha256", secret).update(body).digest("base64"),
-  );
+  const a = Buffer.from(crypto.createHmac("sha256", secret).update(body).digest("base64"));
   const b = Buffer.from(hmacHeader);
   if (a.length !== b.length) return false;
   return crypto.timingSafeEqual(a, b);
@@ -128,8 +126,7 @@ export async function POST(request: NextRequest) {
         discount_codes: order.discount_codes?.map((d) => d.code) ?? [],
         shipping_city: order.shipping_address?.city,
         shipping_province: order.shipping_address?.province,
-        is_repeat_customer:
-          order.customer ? order.customer.orders_count > 1 : false,
+        is_repeat_customer: order.customer ? order.customer.orders_count > 1 : false,
         $value: parseFloat(order.total_price),
       },
     });

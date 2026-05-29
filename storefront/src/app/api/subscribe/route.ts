@@ -73,9 +73,6 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch {
-    return NextResponse.json(
-      { error: "Something went wrong. Please try again." },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
   }
 }
