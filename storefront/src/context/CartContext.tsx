@@ -84,11 +84,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
       })
         .then((res) => res.json())
         .then(
-          ({
-            availability,
-          }: {
-            availability: Record<string, { available: boolean; currentlyNotInStock: boolean }>;
+          (body: {
+            availability?: Record<string, { available: boolean; currentlyNotInStock: boolean }>;
           }) => {
+            const availability = body.availability ?? {};
             setItems((prev) =>
               prev.map((item) =>
                 item.variantId in availability
