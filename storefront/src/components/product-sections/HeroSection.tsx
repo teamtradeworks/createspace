@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   ProductDetail,
   formatPrice,
+  formatAgeRange,
   getProductRating,
   getStockStatus,
   isDigitalProduct,
@@ -67,6 +68,7 @@ export function HeroSection({
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
   const isDigital = digital ?? isDigitalProduct(product);
+  const ageRange = formatAgeRange(product.minAge, product.maxAge);
 
   const images = product.images.edges.map((edge) => ({
     url: edge.node.url,
@@ -157,7 +159,12 @@ export function HeroSection({
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Left - Image Gallery */}
               <div className="min-w-0">
-                <ProductGallery items={galleryItems} title={product.title} />
+                <ProductGallery
+                  items={galleryItems}
+                  title={product.title}
+                  discountPercent={hasDiscount ? discountPercent : undefined}
+                  ageRange={ageRange}
+                />
               </div>
 
               {/* Right - Product Info */}

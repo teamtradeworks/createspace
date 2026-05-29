@@ -11,6 +11,7 @@ import { getProducts } from "@/lib/shopify";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
+import EmailPopup from "@/components/EmailPopup";
 import PostHogPageview from "@/components/PostHogPageview";
 import GTMPageview from "@/components/GTMPageview";
 import GoogleTagManager from "@/components/GoogleTagManager";
@@ -94,6 +95,7 @@ export default function RootLayout({
             <PostHogPageview />
             <GTMPageview />
           </Suspense>
+          <EmailPopup />
           <SpeedInsights />
           <Analytics />
         </CartProvider>
