@@ -29,6 +29,19 @@ export default function CartPage() {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const viewCartFired = useRef(false);
 
+  // Reset the checkout button if the user returns via the browser's bfcache
+  // (e.g. clicking back from Shopify checkout) — otherwise it stays stuck on
+  // "Redirecting to Checkout..."
+  useEffect(() => {
+    const handlePageShow = (event: PageTransitionEvent) => {
+      if (event.persisted) {
+        setIsCheckingOut(false);
+      }
+    };
+    window.addEventListener("pageshow", handlePageShow);
+    return () => window.removeEventListener("pageshow", handlePageShow);
+  }, []);
+
   useEffect(() => {
     if (isHydrated && items.length > 0 && !viewCartFired.current) {
       viewCartFired.current = true;

@@ -93,9 +93,6 @@ export default function ProductCard({ product, searchQuery, searchPosition, prio
         <h3 className="font-semibold text-navy group-hover:text-cs-orange transition-colors line-clamp-2 leading-snug text-sm sm:text-base mb-1 sm:mb-2">
           {product.title}
         </h3>
-        <p className="text-sm text-gray-500 line-clamp-2 mb-2">
-          {product.description || "Hands-on STEM learning kit"}
-        </p>
         <div className="mb-2 sm:mb-3">
           <span
             className={`inline-flex items-center gap-1.5 text-xs font-medium ${
