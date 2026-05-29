@@ -23,9 +23,19 @@ type EmailLayoutProps = {
   previewText: string;
   baseUrl: string;
   children: ReactNode;
+  headerVariant?: "navy" | "white";
 };
 
-export function EmailLayout({ previewText, baseUrl, children }: EmailLayoutProps) {
+export function EmailLayout({
+  previewText,
+  baseUrl,
+  children,
+  headerVariant = "navy",
+}: EmailLayoutProps) {
+  const headerBg = headerVariant === "white" ? "bg-white" : "bg-navy";
+  const headerLogo =
+    headerVariant === "white" ? "logo-light.png" : "logo-dark.png";
+
   return (
     <Html>
       <Head />
@@ -50,17 +60,17 @@ export function EmailLayout({ previewText, baseUrl, children }: EmailLayoutProps
       >
         <Body className="bg-[#f5f6fb] font-sans text-navy">
           <Container className="mx-auto my-6 max-w-[600px] overflow-hidden rounded-2xl bg-white">
-            <Section className="bg-navy px-8 py-6 text-center">
+            <Section className={`${headerBg} px-8 py-6 text-center`}>
               <Img
-                src={`${baseUrl}/images/brand/logo-dark.png`}
-                width="200"
-                height="24"
+                src={`${baseUrl}/images/brand/${headerLogo}`}
+                width="320"
+                height="38"
                 alt="CREATESPACE"
                 className="mx-auto"
               />
             </Section>
 
-            <Section className="px-8 pt-8">{children}</Section>
+            <Section className="px-8 pt-2">{children}</Section>
 
             <Hr className="mx-8 my-0 border-gray-200" />
 
