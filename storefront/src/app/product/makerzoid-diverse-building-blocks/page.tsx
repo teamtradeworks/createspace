@@ -6,7 +6,6 @@ import {
   HeroSection,
   QuickInfoBadges,
   NumberedSteps,
-  SkillTags,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -91,13 +90,6 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
         body="The Diverse Building Blocks set is designed with real mechanical detail — proper gears, axles, and moving joints — so finished models look and move like the real thing. Build a helicopter with rotating blades, a walking robot, a dancing figure. Plenty of builds to work on — each one a new challenge."
         layout="image-left"
         background="white"
-      />
-
-      {/* Skill Tags */}
-      <SkillTags
-        title="Skills Developed"
-        tags={["Mechanical Engineering", "Mathematics", "Problem Solving", "Creativity"]}
-        background="gray"
       />
 
       {/* Feature Grid */}

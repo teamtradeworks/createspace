@@ -8,6 +8,7 @@ interface ImageTextBlockProps {
   body: string | React.ReactNode;
   layout?: "image-left" | "image-right";
   background?: "white" | "gray" | "navy";
+  imageObjectPosition?: string;
 }
 
 export function ImageTextBlock({
@@ -17,6 +18,7 @@ export function ImageTextBlock({
   body,
   layout = "image-left",
   background = "white",
+  imageObjectPosition = "center",
 }: ImageTextBlockProps) {
   const bgClass = {
     white: "bg-white",
@@ -40,7 +42,13 @@ export function ImageTextBlock({
             <div
               className={`relative aspect-[4/3] rounded-2xl overflow-hidden ${layout === "image-right" ? "lg:[direction:ltr]" : ""}`}
             >
-              <Image src={image} alt={imageAlt || title} fill className="object-cover" />
+              <Image
+                src={image}
+                alt={imageAlt || title}
+                fill
+                className="object-cover"
+                style={{ objectPosition: imageObjectPosition }}
+              />
             </div>
 
             {/* Content */}

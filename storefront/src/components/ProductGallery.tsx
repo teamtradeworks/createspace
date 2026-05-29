@@ -11,9 +11,17 @@ interface ProductGalleryProps {
   images?: { url: string; altText: string }[];
   items?: GalleryItem[];
   title: string;
+  discountPercent?: number;
+  ageRange?: string | null;
 }
 
-export default function ProductGallery({ images, items, title }: ProductGalleryProps) {
+export default function ProductGallery({
+  images,
+  items,
+  title,
+  discountPercent,
+  ageRange,
+}: ProductGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   // Support both legacy `images` prop and new `items` prop
@@ -58,6 +66,26 @@ export default function ProductGallery({ images, items, title }: ProductGalleryP
             priority
           />
         )}
+
+        {/* Pills overlay (discount + age) */}
+        {(discountPercent && discountPercent > 0) || ageRange ? (
+          <div className="pointer-events-none absolute inset-x-3 top-3 flex items-start justify-between gap-2 sm:inset-x-4 sm:top-4">
+            {discountPercent && discountPercent > 0 ? (
+              <span className="bg-cs-red text-white text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md">
+                -{discountPercent}%
+              </span>
+            ) : (
+              <span />
+            )}
+            {ageRange ? (
+              <span className="bg-navy/85 text-white text-xs sm:text-sm font-semibold px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full shadow-md">
+                {ageRange}
+              </span>
+            ) : (
+              <span />
+            )}
+          </div>
+        ) : null}
 
         {/* Navigation Arrows */}
         {galleryItems.length > 1 && (

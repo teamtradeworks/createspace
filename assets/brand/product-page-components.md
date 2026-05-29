@@ -289,6 +289,7 @@ Split section with image and text content side-by-side. Alternate `layout` for v
 | `body` | `string \| React.ReactNode` | Yes | — | Text content (string or JSX) |
 | `layout` | `"image-left" \| "image-right"` | No | `"image-left"` | Image position |
 | `background` | `"white" \| "gray" \| "navy"` | No | `"white"` | Background colour |
+| `imageObjectPosition` | `string` | No | `"center"` | CSS `object-position` value — use to shift the crop point (e.g. `"50% 70%"` to show more of the bottom) |
 
 **Image guidelines:**
 - Only use lifestyle photos from `assets/product/[slug]/lifestyle/`

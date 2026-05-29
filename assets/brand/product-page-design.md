@@ -162,6 +162,12 @@ Alternate `layout` on consecutive ImageTextBlocks for visual rhythm:
 
 Not every product needs every section.
 
+### Sections excluded globally
+
+These components exist in the codebase but must not be used on any product page:
+
+- **SkillTags** — removed; use FeatureGrid or copy to communicate skills instead
+
 ### Minimal page (simple products)
 
 Use when the product is straightforward with fewer features to highlight:
@@ -287,3 +293,4 @@ All components are in `storefront/src/components/product-sections/`. For full pr
 | Specifications      | Optional    | 11. Details (always last) | white, gray                  |
 | CallToAction        | Yes         | 12. Close         | navy, gray, white            |
 | ImageTextBlock      | Optional    | Floating          | white, gray, navy            |
+| ~~SkillTags~~       | ~~Excluded~~ | —                | —                            |

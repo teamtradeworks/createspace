@@ -90,12 +90,12 @@ export default function ProductCard({
           </div>
         )}
         {hasDiscount && discountPercent > 0 && (
-          <span className="absolute top-3 left-3 bg-cs-red text-white text-[10px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full">
+          <span className="absolute top-3 left-3 bg-cs-red text-white text-[11px] sm:text-xs font-bold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-sm">
             -{discountPercent}%
           </span>
         )}
         {ageRange && (
-          <span className="absolute top-3 right-3 bg-navy/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+          <span className="absolute top-3 right-3 bg-navy/85 text-white text-[11px] sm:text-xs font-semibold px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full shadow-sm">
             {ageRange}
           </span>
         )}
