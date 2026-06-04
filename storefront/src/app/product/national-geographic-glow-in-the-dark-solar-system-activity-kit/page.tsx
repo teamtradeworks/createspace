@@ -5,6 +5,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
+  VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
   CustomerShowcase,
@@ -48,10 +49,17 @@ export default async function NatGeoSolarSystemPage() {
       <QuickInfoBadges product={product} />
 
       {/* white */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=JTXGEMfwLR0"
+        title="National Geographic Glow-in-the-Dark Solar System Activity Kit"
+        background="white"
+      />
+
+      {/* gray */}
       <FeatureGrid
         title="What Makes This Kit Special"
         columns={2}
-        background="white"
+        background="gray"
         features={[
           {
             icon: "sparkles",
@@ -80,21 +88,21 @@ export default async function NatGeoSolarSystemPage() {
         ]}
       />
 
-      {/* gray */}
+      {/* white */}
       <ImageTextBlock
         image="/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/the-solar-system-guide-diagram.jpg"
         imageAlt="National Geographic solar system guide diagram showing the planets"
         title="A Solar System That&rsquo;s Completely Theirs"
         body="This isn't a model you buy finished off a shelf — it's one your child builds, paints, and arranges themselves. Every planet gets its own coat of colour. The Sun gets its glow. Then it all goes up on the movable arm display, ready to light up the bedroom every night. That ownership is what makes it stick — the pride of pointing at Saturn and saying 'I painted that.'"
         layout="image-left"
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
+      {/* gray */}
       <CustomerShowcase
         title="Build, Paint, Glow"
         subtitle="See what this kit looks like in real hands — from unboxing to glowing display"
-        background="white"
+        background="gray"
         images={[
           {
             src: "/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/child-painting.jpg",
@@ -148,13 +156,13 @@ export default async function NatGeoSolarSystemPage() {
         ]}
       />
 
-      {/* gray */}
-      <ProductReviews productId={product.id} background="gray" />
-
       {/* white */}
+      <ProductReviews productId={product.id} background="white" />
+
+      {/* gray */}
       <ProductFAQ
         title="Common Questions"
-        background="white"
+        background="gray"
         faqs={[
           {
             question: "What age is this best for?",
@@ -194,12 +202,12 @@ export default async function NatGeoSolarSystemPage() {
         ]}
       />
 
-      {/* gray */}
+      {/* white */}
       <WhatsIncluded
         title="What&rsquo;s in the Box"
         image="/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/whats-in-the-box.jpg"
         imageAlt="National Geographic Solar System Activity Kit contents laid out"
-        background="gray"
+        background="white"
         items={[
           "3D solar system display model with independently movable arms",
           "All 8 planets (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune) — unpainted",
