@@ -33,24 +33,6 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    id: "matatastudio-sale",
-    type: "sale",
-    tag: "Limited Time — Ends 5 June",
-    headline: "MATATASTUDIO",
-    description: "Robots, coding kits, microscopes & more — save 20%!",
-    cta: { label: "Shop MatataStudio", href: "https://www.thecreatespace.co.za/shop?brand=MatataStudio" },
-    note: "Excludes classroom sets.",
-    lifestyleImages: [
-      "/images/products/matatastudio-tale-bot-pro/bot-drawing-on-paper.jpeg",
-      "/images/products/matatastudio-vincibot-coding-robot-set/line-following.jpeg",
-      "/images/products/matatastudio-coding-set-pro/3-kids-playing-together.jpeg",
-    ],
-    salePercent: "20%",
-    brandLogoSrc: "/images/brands/matatastudio-cropped.png",
-    bgColor: "bg-[#7BC8EB]",
-    textColor: "dark",
-  },
-  {
     id: "main",
     type: "hero",
     headline: "Build. Play. Learn.",
