@@ -114,7 +114,8 @@ export default async function NasaLunarTelescopePage() {
             src: "/images/products/nasa-lunar-telescope/end-user-close-up-of-moon.jpg",
             alt: "Close-up view of the moon's surface through the telescope",
             label: "Moon Surface",
-            description: "Craters, ridges, and volcanic plains visible through the high-power eyepiece",
+            description:
+              "Craters, ridges, and volcanic plains visible through the high-power eyepiece",
           },
           {
             src: "/images/products/nasa-lunar-telescope/end-user-girl-looking-through-scope.jpg",

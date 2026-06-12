@@ -36,7 +36,7 @@ export default async function NatGeoMetalDetectorPage() {
         product={product}
         tagline="Sweep, beep, dig. Real treasure is hiding underground."
         highlights={[
-          '18.8 cm waterproof coil — detects metal up to 10 cm underground',
+          "18.8 cm waterproof coil — detects metal up to 10 cm underground",
           "Lightweight at 545 g — built for all-day exploring",
           "Adjustable arm fits kids aged 8 and up — folds to 33 cm for travel",
           "Full-colour Learning Guide: the science and history of metal detecting",

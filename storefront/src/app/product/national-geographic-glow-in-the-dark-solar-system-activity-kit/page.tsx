@@ -16,8 +16,7 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-const PRODUCT_HANDLE =
-  "national-geographic-glow-in-the-dark-solar-system-activity-kit";
+const PRODUCT_HANDLE = "national-geographic-glow-in-the-dark-solar-system-activity-kit";
 
 export default async function NatGeoSolarSystemPage() {
   const product = await getProductByHandle(PRODUCT_HANDLE);
@@ -108,8 +107,7 @@ export default async function NatGeoSolarSystemPage() {
             src: "/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/child-painting.jpg",
             alt: "Child carefully painting a planet from the solar system kit",
             label: "Painting",
-            description:
-              "Mixing colours, choosing shades — the painting stage is deeply absorbing",
+            description: "Mixing colours, choosing shades — the painting stage is deeply absorbing",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/planets-being-painted-with-instructions.jpg",
@@ -129,22 +127,19 @@ export default async function NatGeoSolarSystemPage() {
             src: "/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/solar-system-finished.jpg",
             alt: "Finished painted solar system model assembled on display arms",
             label: "Finished",
-            description:
-              "Fully assembled, fully painted — and ready for the lights to go out",
+            description: "Fully assembled, fully painted — and ready for the lights to go out",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/hand-holding-solar-system.jpg",
             alt: "Hand holding the completed glowing solar system model",
             label: "Glowing",
-            description:
-              "The glow-in-the-dark reveal — the payoff every child builds toward",
+            description: "The glow-in-the-dark reveal — the payoff every child builds toward",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/solar-system-next-to-globe.jpg",
             alt: "Completed solar system model displayed next to a globe",
             label: "On Display",
-            description:
-              "A striking bedroom display that sparks curiosity every day",
+            description: "A striking bedroom display that sparks curiosity every day",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-solar-system-activity-kit/solar-system-on-display-complete.jpg",
@@ -249,8 +244,7 @@ export async function generateMetadata() {
     description:
       "Paint all 8 planets, assemble a 3D solar system with movable arms, and watch it glow in the dark. Ages 8–12. 2025 NAPPA Award Winner.",
     alternates: {
-      canonical:
-        "/product/national-geographic-glow-in-the-dark-solar-system-activity-kit",
+      canonical: "/product/national-geographic-glow-in-the-dark-solar-system-activity-kit",
     },
     openGraph: {
       images: product.images.edges[0]?.node.url

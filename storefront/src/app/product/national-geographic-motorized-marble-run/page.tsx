@@ -153,7 +153,8 @@ export default async function NatGeoMotorizedMarbleRunPage() {
             src: "/images/products/national-geographic-motorized-marble-run/pieces-on-mat.jpg",
             alt: "All 75 pieces of the National Geographic Motorized Marble Run laid out on a mat",
             label: "All the Pieces",
-            description: "All 75 pieces laid out — track sections, bases, action pieces, and the motorised elevator",
+            description:
+              "All 75 pieces laid out — track sections, bases, action pieces, and the motorised elevator",
           },
         ]}
       />

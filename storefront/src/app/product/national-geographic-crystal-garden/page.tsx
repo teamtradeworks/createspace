@@ -115,15 +115,13 @@ export default async function NatGeoCrystalGardenPage() {
             src: "/images/products/national-geographic-crystal-garden/box-unpacked.jpg",
             alt: "National Geographic Crystal Garden kit contents laid out",
             label: "Kit Contents",
-            description:
-              "Everything you need to grow your crystal garden — included in one box",
+            description: "Everything you need to grow your crystal garden — included in one box",
           },
           {
             src: "/images/products/national-geographic-crystal-garden/crystal-tree-starting-to-grow.jpg",
             alt: "Crystal tree with first crystals beginning to form on the branches",
             label: "First Crystals",
-            description:
-              "Crystals start appearing within minutes of pouring the solution",
+            description: "Crystals start appearing within minutes of pouring the solution",
           },
           {
             src: "/images/products/national-geographic-crystal-garden/some-pieces-unpacked-in-packaging.jpg",

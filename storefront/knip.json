@@ -1,5 +1,11 @@
 {
   "$schema": "https://unpkg.com/knip@latest/schema.json",
   "entry": ["lighthouserc.js", "emails/*.tsx"],
-  "ignoreDependencies": ["postcss-load-config", "@vitejs/plugin-react", "@react-email/ui"]
+  "ignoreDependencies": [
+    "postcss-load-config",
+    "@vitejs/plugin-react",
+    "@react-email/ui",
+    "@emnapi/core",
+    "@emnapi/runtime"
+  ]
 }

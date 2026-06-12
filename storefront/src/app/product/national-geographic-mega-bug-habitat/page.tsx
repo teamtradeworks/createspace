@@ -89,7 +89,7 @@ export default async function NatGeoMegaBugHabitatPage() {
 
       {/* white */}
       <ProjectShowcase
-        title="What You&apos;ll Do"
+        title="What You'll Do"
         highlight="10 open-ended bug adventures — no two sessions are ever the same"
         subtitle="From the garden to under rocks to the flower bed — bugs are everywhere once you start looking."
         projects={[
@@ -240,7 +240,7 @@ export default async function NatGeoMegaBugHabitatPage() {
 
       {/* white */}
       <WhatsIncluded
-        title="What&apos;s in the Box"
+        title="What's in the Box"
         image="/images/products/national-geographic-mega-bug-habitat/whats-in-the-box.jpg"
         imageAlt="National Geographic Mega Bug Habitat contents laid out"
         items={[
