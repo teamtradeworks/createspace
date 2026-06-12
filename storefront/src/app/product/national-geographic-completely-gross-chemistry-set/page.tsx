@@ -240,8 +240,7 @@ export async function generateMetadata() {
     description:
       "20 gross chemistry experiments for ages 8–12 — make eyeballs, glowing worms, slime and more with real chemical compounds. Everything included.",
     alternates: {
-      canonical:
-        "/product/national-geographic-completely-gross-chemistry-set",
+      canonical: "/product/national-geographic-completely-gross-chemistry-set",
     },
     openGraph: {
       images: product.images.edges[0]?.node.url

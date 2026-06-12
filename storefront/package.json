@@ -19,6 +19,8 @@
     "newsletter:publish": "tsx scripts/publish-broadcast.tsx"
   },
   "dependencies": {
+    "@emnapi/core": "^1.11.0",
+    "@emnapi/runtime": "^1.11.0",
     "@react-email/components": "^1.0.12",
     "@sentry/nextjs": "^10.47.0",
     "@vercel/analytics": "^1.6.1",

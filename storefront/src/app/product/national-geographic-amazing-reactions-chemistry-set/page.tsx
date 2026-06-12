@@ -15,8 +15,7 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-const PRODUCT_HANDLE =
-  "national-geographic-amazing-reactions-chemistry-set";
+const PRODUCT_HANDLE = "national-geographic-amazing-reactions-chemistry-set";
 
 export default async function NatGeoAmazingReactionsPage() {
   const product = await getProductByHandle(PRODUCT_HANDLE);
@@ -69,7 +68,7 @@ export default async function NatGeoAmazingReactionsPage() {
             icon: "star",
             title: "NAPPA Award Winner 2025",
             description:
-              "Independently evaluated and recommended by the National Parenting Product Awards. Parents described it as \"extremely fun\" with \"well written\" instructions that children could complete on their own.",
+              'Independently evaluated and recommended by the National Parenting Product Awards. Parents described it as "extremely fun" with "well written" instructions that children could complete on their own.',
           },
           {
             icon: "book",
@@ -253,8 +252,7 @@ export async function generateMetadata() {
     description:
       "10 guided chemical reaction experiments using real lab equipment — glow worms, fizzing reactions, crystal tree, bouncy ball, and more. Ages 8+, no batteries needed.",
     alternates: {
-      canonical:
-        "/product/national-geographic-amazing-reactions-chemistry-set",
+      canonical: "/product/national-geographic-amazing-reactions-chemistry-set",
     },
     openGraph: {
       images: product.images.edges[0]?.node.url

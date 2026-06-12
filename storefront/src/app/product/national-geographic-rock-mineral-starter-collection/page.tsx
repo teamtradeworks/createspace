@@ -144,8 +144,7 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
             src: "/images/products/national-geographic-rock-mineral-starter-collection/close-up-of-box.jpeg",
             alt: "Close-up of the National Geographic Rock and Mineral Starter Collection box",
             label: "The Box",
-            description:
-              "The complete Rock and Mineral Starter Collection, ready to open",
+            description: "The complete Rock and Mineral Starter Collection, ready to open",
           },
         ]}
       />

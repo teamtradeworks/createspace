@@ -279,8 +279,12 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
       {slide.type === "sale" && slide.lifestyleImages && (
         <div className="relative h-full overflow-hidden">
           {/* Background colour blobs */}
-          <div className={`absolute -top-10 -left-10 w-64 h-64 ${isLight ? "bg-cs-purple" : "bg-white"} opacity-20 rounded-full`} />
-          <div className={`absolute bottom-0 right-1/2 w-48 h-48 ${isLight ? "bg-cs-blue" : "bg-white"} opacity-10 rounded-full`} />
+          <div
+            className={`absolute -top-10 -left-10 w-64 h-64 ${isLight ? "bg-cs-purple" : "bg-white"} opacity-20 rounded-full`}
+          />
+          <div
+            className={`absolute bottom-0 right-1/2 w-48 h-48 ${isLight ? "bg-cs-blue" : "bg-white"} opacity-10 rounded-full`}
+          />
           {/* Bold red top strip — z-20 sits above everything */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-cs-red z-20" />
 
@@ -288,7 +292,9 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
           <div className="lg:hidden relative z-10 flex flex-col px-4 pt-8 pb-20 gap-5 min-h-[500px]">
             {/* Tag */}
             {slide.tag && (
-              <span className={`inline-flex items-center gap-2 mt-3 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em]`}>
+              <span
+                className={`inline-flex items-center gap-2 mt-3 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em]`}
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
                 {slide.tag}
               </span>
@@ -299,12 +305,21 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               {slide.brandLogoSrc ? (
                 <div className="bg-white px-4 py-2">
                   <div className="relative w-full h-[84px]">
-                    <Image src={slide.brandLogoSrc} alt={slide.headline} fill className="object-contain object-center" sizes="300px" loading="lazy" />
+                    <Image
+                      src={slide.brandLogoSrc}
+                      alt={slide.headline}
+                      fill
+                      className="object-contain object-center"
+                      sizes="300px"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               ) : (
                 <div className="bg-white px-4 py-3">
-                  <p className="text-[1.25rem] font-semibold text-navy uppercase tracking-wide leading-none">{slide.headline}</p>
+                  <p className="text-[1.25rem] font-semibold text-navy uppercase tracking-wide leading-none">
+                    {slide.headline}
+                  </p>
                 </div>
               )}
               <div className="bg-cs-yellow px-5 py-2 flex justify-center">
@@ -340,10 +355,18 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
 
             {/* Description */}
             {slide.description && (
-              <p className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} leading-relaxed`}>{slide.description}</p>
+              <p
+                className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} leading-relaxed`}
+              >
+                {slide.description}
+              </p>
             )}
             {slide.note && (
-              <p className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} leading-relaxed -mt-2`}>{slide.note}</p>
+              <p
+                className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} leading-relaxed -mt-2`}
+              >
+                {slide.note}
+              </p>
             )}
 
             {/* CTA */}
@@ -369,7 +392,9 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               <div className="z-10">
                 {/* Tag */}
                 {slide.tag && (
-                  <span className={`inline-flex items-center gap-2 mt-4 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em] mb-8`}>
+                  <span
+                    className={`inline-flex items-center gap-2 mt-4 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em] mb-8`}
+                  >
                     <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
                     {slide.tag}
                   </span>
@@ -381,14 +406,24 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                     {slide.brandLogoSrc ? (
                       <div className="bg-white px-5 py-2">
                         <div className="relative w-full h-[84px]">
-                          <Image src={slide.brandLogoSrc} alt={slide.headline} fill className="object-contain object-center" sizes="400px" loading="lazy" />
+                          <Image
+                            src={slide.brandLogoSrc}
+                            alt={slide.headline}
+                            fill
+                            className="object-contain object-center"
+                            sizes="400px"
+                            loading="lazy"
+                          />
                         </div>
                       </div>
                     ) : (
                       <div className="bg-white px-5 py-3.5">
                         <p
                           className="font-semibold text-navy uppercase leading-none"
-                          style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}
+                          style={{
+                            fontSize: "clamp(1.25rem, 3.5vw, 2rem)",
+                            letterSpacing: "0.08em",
+                          }}
                         >
                           {slide.headline}
                         </p>
@@ -424,11 +459,15 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                   )}
                 </div>
 
-                <p className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} max-w-xs leading-relaxed`}>
+                <p
+                  className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} max-w-xs leading-relaxed`}
+                >
                   {slide.description}
                 </p>
                 {slide.note && (
-                  <p className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} mt-1 mb-6 max-w-xs leading-relaxed`}>
+                  <p
+                    className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} mt-1 mb-6 max-w-xs leading-relaxed`}
+                  >
                     {slide.note}
                   </p>
                 )}

@@ -107,36 +107,31 @@ export default async function NatGeoHumanBodyPage() {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/child-playing.jpg",
             alt: "Child exploring the anatomy model components",
             label: "Exploring",
-            description:
-              "Getting familiar with every piece before assembly begins",
+            description: "Getting familiar with every piece before assembly begins",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/childs-hands-putting-body-together.jpg",
             alt: "Child's hands carefully assembling the human body model",
             label: "Assembly",
-            description:
-              "Using the forceps to position each organ and bone precisely",
+            description: "Using the forceps to position each organ and bone precisely",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/body-lying-on-chart.jpg",
             alt: "Human body model lying on the identification chart",
             label: "Step by Step",
-            description:
-              "The identification chart makes it clear where each piece belongs",
+            description: "The identification chart makes it clear where each piece belongs",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/organising-parts-on-guide.jpg",
             alt: "Anatomy parts organised on the learning guide",
             label: "Organising",
-            description:
-              "Matching each piece to the guide before placing it in the body",
+            description: "Matching each piece to the guide before placing it in the body",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/body-with-body-parts-around-it.jpg",
             alt: "Human body shell surrounded by organs and bones ready for assembly",
             label: "All the Parts",
-            description:
-              "The body shell with every organ, bone, and muscle ready to place",
+            description: "The body shell with every organ, bone, and muscle ready to place",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/body-on-stand-built.jpg",
@@ -148,15 +143,13 @@ export default async function NatGeoHumanBodyPage() {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/close-up-of-body.jpg",
             alt: "Close-up of the anatomically detailed human body model",
             label: "Close Up",
-            description:
-              "Anatomically accurate detail — organs and bones that look the part",
+            description: "Anatomically accurate detail — organs and bones that look the part",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/glowing-in-the-dark.jpg",
             alt: "Human body skeleton glowing in the dark",
             label: "Glowing",
-            description:
-              "The glow-in-the-dark reveal — the moment every build works toward",
+            description: "The glow-in-the-dark reveal — the moment every build works toward",
           },
         ]}
       />
@@ -202,7 +195,7 @@ export default async function NatGeoHumanBodyPage() {
           {
             question: "What will my child get out of it?",
             answer:
-              "A real familiarity with the human body — the names of major organs and bones, where they live, and roughly what they do. Having physically held and placed each piece makes the information stick in a way that reading about it never quite does. Kids who&rsquo;ve built this model tend to use words like \"diaphragm\" and \"trachea\" in ordinary conversation shortly afterwards, and approach biology topics at school with noticeably more confidence.",
+              'A real familiarity with the human body — the names of major organs and bones, where they live, and roughly what they do. Having physically held and placed each piece makes the information stick in a way that reading about it never quite does. Kids who&rsquo;ve built this model tend to use words like "diaphragm" and "trachea" in ordinary conversation shortly afterwards, and approach biology topics at school with noticeably more confidence.',
           },
         ]}
       />
@@ -214,7 +207,7 @@ export default async function NatGeoHumanBodyPage() {
         imageAlt="National Geographic Glow-in-the-Dark Human Body kit contents laid out"
         background="white"
         items={[
-          "Human body shell (9\" / 25cm tall)",
+          'Human body shell (9" / 25cm tall)',
           "Display stand",
           "9 squishy removable organs: heart, lungs, liver, stomach, diaphragm, kidneys & bladder, trachea, brain, large & small intestines",
           "Arm muscles piece",
