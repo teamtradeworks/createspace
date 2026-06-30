@@ -29,25 +29,24 @@ export default async function MicrobitEssentialStemLabBundlePage() {
       <ProductJsonLd product={product} />
       <HeroSection
         product={product}
-        tagline="Four CAPS-aligned specialist courses that take you from curriculum understanding to delivering sensor-driven Coding and Robotics lessons with confidence."
+        tagline="Five SACE-accredited courses covering Scratch coding, micro:bit programming, and sensor-driven STEAM lab projects for Intermediate and Senior Phase"
         highlights={[
-          "4 Inspire Africa courses included",
+          "5 self-paced educator onboarding courses",
           "SACE-accredited professional development",
-          "Covers Grade R through Grade 9",
+          "For educators teaching ages 9–18",
           "No prior STEAM experience required",
         ]}
         addons={addons}
         addonUpsellModal
-        insertVideosAfterImage={0}
         vendorOverride="InspireAfrica"
       />
       <QuickInfoBadges
         badges={[
-          { icon: "time", label: "Duration", value: "8-12 Hours" },
-          { icon: "age", label: "Audience", value: "Educators" },
+          { icon: "time", label: "Duration", value: "Self-Paced" },
+          { icon: "age", label: "Learner Ages", value: "9–18" },
           { icon: "tag", label: "SACE Accredited", value: "CPD Points" },
-          { icon: "scratch", label: "Coding Platform", value: "MakeCode" },
-          { icon: "guide", label: "Phases", value: "Grade R – Grade 9" },
+          { icon: "scratch", label: "Coding Platforms", value: "Scratch & MakeCode" },
+          { icon: "guide", label: "Phases", value: "Intermediate & Senior" },
           { icon: "award", label: "Certificate", value: "On Completion" },
           {
             icon: "app",
@@ -73,14 +72,14 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         tabs={[
           {
             label: "Course 1",
-            title: "How to Get Started with Coding and Robotics",
+            title: "Coding & Robotics: How to Get Started",
             subtitle:
-              "A SACE-accredited micro course with 7 video modules. Practical, jargon-free guidance to confidently launch a Coding and Robotics programme at your school.",
+              "A SACE-accredited micro course with practical, jargon-free guidance to confidently launch a Coding and Robotics programme at your school.",
             steps: [
               {
                 title: "Understand the Curriculum",
                 description:
-                  "Decode how Coding and Robotics fits into the CAPS curriculum from Grade R to Grade 9, and align your programme with 4IR requirements.",
+                  "Explore how Coding and Robotics fits into the CAPS curriculum and align your programme with 4IR requirements.",
               },
               {
                 title: "Set Up Your Classroom",
@@ -90,10 +89,10 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Choose the Right Tools",
                 description:
-                  "Navigate coding platforms like Scratch, Python, MakeCode, and DroneBlocks, and identify which hardware is worth the investment.",
+                  "Navigate coding platforms like Scratch, MakeCode, and DroneBlocks, and identify which hardware is worth the investment.",
               },
               {
-                title: "Start Teaching Immediately",
+                title: "Build Confidence to Begin",
                 description:
                   "Walk away with clear, actionable takeaways you can use in your very next lesson — designed for educators at any experience level.",
               },
@@ -101,9 +100,9 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           },
           {
             label: "Course 2",
-            title: "Introduction to STEAM, Coding & Robotics",
+            title: "Introduction to STEAM Education",
             subtitle:
-              "A two-hour foundational course that demystifies STEAM and shows you how Coding and Robotics fits into the bigger picture. No hardware or software required — just a clear path from theory to structured classroom practice.",
+              "Understand how STEAM, Coding and Robotics integrates with the curriculum. Apply simple, real-world STEAM activities in your classroom — no hardware or software required.",
             steps: [
               {
                 title: "Understand STEAM & Coding Foundations",
@@ -121,7 +120,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
                   "Understand the requirements for establishing an effective STEAM learning environment — and how CAPS curriculum strands translate into practical classroom implementation.",
               },
               {
-                title: "Guide Hands-On, Real-World Learning",
+                title: "Apply Real-World STEAM Activities",
                 description:
                   "Move from theory to practice — confidently facilitate learner-led, hands-on problem solving as part of your everyday teaching.",
               },
@@ -129,9 +128,37 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           },
           {
             label: "Course 3",
+            title: "Scratch Coding and Animation",
+            subtitle:
+              "Teach creative block-based coding using Scratch projects. Build engaging problem-solving classroom activities through sequencing, logic, and animation.",
+            steps: [
+              {
+                title: "Get Started with Scratch",
+                description:
+                  "Explore the Scratch coding environment and understand how block-based coding makes programming accessible and engaging for your learners.",
+              },
+              {
+                title: "Sequencing & Logic",
+                description:
+                  "Build foundational coding skills through guided exercises in sequencing, loops, conditionals, and logical thinking.",
+              },
+              {
+                title: "Creative Animation Projects",
+                description:
+                  "Guide learners through interactive animation and storytelling projects that reinforce computational thinking through creative expression.",
+              },
+              {
+                title: "Classroom Problem-Solving Activities",
+                description:
+                  "Develop engaging, hands-on Scratch activities that turn your classroom into a space for creative problem solving and collaboration.",
+              },
+            ],
+          },
+          {
+            label: "Course 4",
             title: "Micro:bit Level 1",
             subtitle:
-              "A self-paced online course that takes you from initial setup to coding intermediate exercises in MakeCode — in under two hours. Includes a lesson plan and worksheet materials.",
+              "Hands-on micro:bit implementation. From unboxing and setup to coding classroom projects and delivering robotics lessons in MakeCode.",
             steps: [
               {
                 title: "Setup & Getting Started",
@@ -144,22 +171,22 @@ export default async function MicrobitEssentialStemLabBundlePage() {
                   "Work through foundational and intermediate coding exercises with clear, step-by-step instructions — building your skills progressively.",
               },
               {
-                title: "Lesson Plan & Worksheets",
+                title: "Classroom Projects & Robotics",
                 description:
-                  "Receive a comprehensive lesson plan and worksheet materials so you can take what you've learnt and deliver it directly to your learners.",
+                  "Apply what you've learnt through practical classroom projects that bring micro:bit coding to life for your learners.",
               },
               {
-                title: "Certificate on Completion",
+                title: "Lesson Plan & Worksheets",
                 description:
-                  "Earn a professional development certificate when you complete the course — proof of your new micro:bit skills for your school and portfolio.",
+                  "Receive comprehensive lesson plans and worksheet materials so you can deliver micro:bit lessons with confidence.",
               },
             ],
           },
           {
-            label: "Course 4",
-            title: "Essential STEAM Lab Kit Training",
+            label: "Course 5",
+            title: "Essential STEAM Lab Kit",
             subtitle:
-              "An advanced course for educators who have completed Micro:bit Level 1. Learn to create interactive, sensor-driven robotics lessons using the ELECFREAKS Tinker Kit — aligned to CAPS and focused on creativity, innovation, and real-world problem solving.",
+              "Explore the ELECFREAKS Tinker Kit with sensor projects, hardware applications, and real-world STEAM tasks. Take your micro:bit skills further with interactive, sensor-driven classroom projects.",
             steps: [
               {
                 title: "Integrate External Sensors",
@@ -188,27 +215,27 @@ export default async function MicrobitEssentialStemLabBundlePage() {
 
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-semibold text-navy mb-4">Who Is This Bundle For?</h2>
+          <h2 className="text-3xl font-semibold text-navy mb-4">Who Is This Pathway For?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
-            Whether you&apos;re just getting started or ready to run a full STEAM lab, this bundle
+            Whether you&apos;re just getting started or ready to run a full STEAM lab, this pathway
             takes you from beginner to confident — with the training to match.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: "Educators Ready to Go Further",
+                title: "Intermediate & Senior Phase Teachers",
                 description:
-                  "You've completed the basics and want the training to deliver hands-on, sensor-driven Coding and Robotics lessons.",
+                  "Five courses that take you from curriculum understanding to delivering hands-on, sensor-driven Coding and Robotics lessons.",
               },
               {
                 title: "Schools Setting Up a STEAM Lab",
                 description:
-                  "Get the courses to equip your first STEAM lab — all in one purchase. Add the hardware as an optional extra.",
+                  "Get the training to equip your first STEAM lab — from Scratch coding through to micro:bit sensors. Add the hardware as an optional extra.",
               },
               {
                 title: "HODs Rolling Out Coding & Robotics",
                 description:
-                  "Four courses covering curriculum, unplugged learning, micro:bit coding, and advanced sensors — everything your department needs.",
+                  "Five courses covering curriculum, STEAM foundations, Scratch, micro:bit, and advanced sensors — everything your department needs.",
               },
               {
                 title: "Homeschool Educators",
@@ -228,35 +255,35 @@ export default async function MicrobitEssentialStemLabBundlePage() {
         </div>
       </section>
       <CallToAction
-        title="Get the Complete Bundle"
-        subtitle="Four courses and zero guesswork. Everything you need to teach Coding and Robotics with confidence."
+        title="Get the Complete Pathway"
+        subtitle="Five courses and zero guesswork. Everything you need to teach Coding and Robotics from Scratch coding to sensor-driven STEAM projects."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         background="navy"
       />
       <StepPath
         title="How the Inspire Campus Works"
-        subtitle="All four courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEAM education in South Africa."
+        subtitle="All five courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEAM education in South Africa."
         steps={[
           {
-            title: "Purchase & Get Your QR Code",
+            title: "Purchase & Get Your Coupon Code",
             description:
-              "Complete your purchase and receive a QR code via email for instant access to all four courses.",
+              "Complete your purchase through CREATESPACE and receive a coupon code via email.",
+          },
+          {
+            title: "Redeem on Inspire Africa",
+            description:
+              "Head to the Inspire Africa educator platform and redeem your coupon code to unlock access to all five courses.",
           },
           {
             title: "Work Through the Courses",
             description:
-              "Video lessons, downloadable notes, and quizzes — all self-paced. Start with the curriculum overview and progress to hands-on coding.",
-          },
-          {
-            title: "Practise What You Learn",
-            description:
-              "Follow along with the Micro:bit Level 1 and Essential STEAM Lab Kit Training courses. Add the hardware as an optional extra when you're ready to go hands-on.",
+              "Video lessons, downloadable notes, and quizzes — all self-paced. Start with the curriculum overview and progress through Scratch, micro:bit, and sensor-driven projects.",
           },
           {
             title: "Earn Your Certificates",
             description:
-              "Complete courses and quizzes for professional development certificates — including SACE-accredited CPD points.",
+              "Complete courses and quizzes for SACE-accredited professional development certificates.",
           },
         ]}
         background="white"
@@ -268,58 +295,68 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get four Inspire Africa courses — How to Get Started with Coding and Robotics, Introduction to STEAM, Coding & Robotics, Micro:bit Level 1, and Essential STEAM Lab Kit Training. You can also add a BBC micro:bit Go and ELECFREAKS Tinker Kit as optional extras.",
+              "You get five Inspire Africa courses — Coding & Robotics: How to Get Started, Introduction to STEAM Education, Scratch Coding and Animation, Micro:bit Level 1, and Essential STEAM Lab Kit. You can also add a BBC micro:bit Go and ELECFREAKS Tinker Kit as optional extras.",
           },
           {
             question: "How do I access the courses?",
             answer:
-              "After purchase, you'll receive a QR code via email that gives you instant access to all four courses on the Inspire Africa learning platform.",
+              "After purchase, you'll receive a coupon code via email. Redeem it on the Inspire Africa educator platform to unlock access to all five courses.",
           },
           {
             question: "Do I need any prior STEAM or coding knowledge?",
             answer:
-              "Not at all. The courses are designed to take you from zero experience to delivering hands-on, sensor-driven lessons. Course 1 covers the curriculum, Course 2 introduces unplugged STEAM, Course 3 teaches micro:bit coding from scratch, and Course 4 builds on that with the Tinker Kit sensors.",
+              "Not at all. The courses take you from zero experience to delivering sensor-driven lessons. You'll start with curriculum foundations, progress through Scratch block-based coding, and build up to micro:bit programming and STEAM lab sensor projects.",
           },
           {
-            question: "Is this bundle SACE-accredited?",
+            question: "Is this SACE-accredited?",
             answer:
-              "The How to Get Started with Coding and Robotics course is SACE-accredited for professional development points. All four courses provide a certificate on completion.",
+              "Yes — this pathway is SACE-accredited for professional development points. All five courses provide a certificate on completion.",
           },
           {
-            question: "What's the difference between this and the Coding and Robotics bundle?",
+            question: "What's the difference between this and the Early Years pathway?",
             answer:
-              "The Coding and Robotics bundle includes 3 courses. This bundle adds a fourth course (Essential STEAM Lab Kit Training) — giving you the training to deliver advanced, sensor-driven robotics lessons.",
+              "The Early Years pathway includes 3 courses designed for Foundation Phase educators (ages 5–9), focusing on unplugged STEAM and ScratchJr. This Advanced pathway includes 5 courses for Intermediate and Senior Phase educators (ages 9–18), covering Scratch coding, micro:bit programming, and sensor-driven STEAM lab projects.",
           },
           {
-            question: "Which grades and phases does this cover?",
+            question: "Which ages and grades does this cover?",
             answer:
-              "Between the four courses, you're covered from pre-school and Foundation Phase (with the unplugged STEAM course) through to Intermediate and Senior Phase (with the starter course, micro:bit training, and advanced sensor-based projects). That's Grade R through Grade 9.",
+              "This pathway is designed for educators teaching learners aged 9 to 18, covering the Intermediate Phase (Grade 4–6) and Senior Phase (Grade 7–9 and beyond).",
           },
           {
             question: "How long do the courses take to complete?",
             answer:
-              "All four courses are self-paced. The Micro:bit Level 1 course takes under two hours, and the others are similarly compact. Most educators complete everything within two to three weeks alongside their regular schedule.",
+              "All five courses are self-paced and compact. Most educators complete everything within two to three weeks alongside their regular schedule.",
           },
           {
-            question: "What is the Essential STEAM Lab Kit Training course?",
+            question: "What is the Scratch Coding and Animation course?",
             answer:
-              "It's an advanced course designed for educators who have completed Micro:bit Level 1. It teaches you how to integrate the Tinker Kit's external sensors into interactive, CAPS-aligned classroom projects — moving from basic coding into creative, sensor-driven robotics.",
+              "It teaches creative block-based coding using Scratch projects. You'll learn to build engaging problem-solving classroom activities through sequencing, logic, and animation — perfect for introducing coding to Intermediate Phase learners.",
+          },
+          {
+            question: "What is the Essential STEAM Lab Kit course?",
+            answer:
+              "It's an advanced course that teaches you how to integrate the ELECFREAKS Tinker Kit's external sensors into interactive, CAPS-aligned classroom projects — moving from basic coding into creative, sensor-driven robotics.",
           },
           {
             question: "Do I need hardware to complete the courses?",
             answer:
-              "The Micro:bit Level 1 and Essential STEAM Lab Kit Training courses are designed to be used with a BBC micro:bit and ELECFREAKS Tinker Kit. You can add these as optional extras when purchasing.",
+              "The first three courses (Getting Started, STEAM Education, and Scratch Coding) don't require hardware. The Micro:bit Level 1 and Essential STEAM Lab Kit courses are designed to be used with a BBC micro:bit and ELECFREAKS Tinker Kit, which you can add as optional extras.",
           },
           {
             question: "Is this suitable for a whole school or department?",
             answer:
               "Absolutely. Contact us for group bookings if you'd like to enrol multiple educators. This bundle is ideal for upskilling an entire department or staff team.",
           },
+          {
+            question: "What are the terms of access?",
+            answer:
+              "Access to the Inspire Africa learning platform is provided as an annual educator license. Your license gives you full access to all five courses for 12 months from the date of purchase.",
+          },
         ]}
       />
       <CallToAction
         title="Ready to Run a Full STEAM Lab?"
-        subtitle="Four courses and zero guesswork. Get everything you need to teach Coding and Robotics — from curriculum understanding to sensor-driven lessons."
+        subtitle="Five courses and zero guesswork. Everything you need to teach Coding and Robotics — from Scratch coding to sensor-driven STEAM projects."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         secondaryLabel="Browse All Courses"
@@ -340,7 +377,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Four CAPS-aligned specialist courses that take you from curriculum understanding to delivering sensor-driven Coding and Robotics lessons with confidence.",
+      "Advanced Coding & Robotics training: 5 SACE-accredited courses for Intermediate & Senior Phase educators (ages 9–18). Scratch, micro:bit, and STEAM lab projects.",
     alternates: {
       canonical: "/product/bbc-micro-bit-essential-stem-lab-tinker-kit-bundle",
     },

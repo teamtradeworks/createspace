@@ -7,7 +7,7 @@ import PageViewTracker from "@/components/PageViewTracker";
 export const metadata: Metadata = {
   title: "Short Courses | Education | CREATESPACE",
   description:
-    "Online STEAM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a QR code for instant access to hands-on digital learning.",
+    "Online STEAM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a coupon code to redeem on the Inspire Africa educator platform.",
   alternates: {
     canonical: "/education/courses",
   },
@@ -62,7 +62,7 @@ const benefits = [
   {
     title: "Instant Access",
     description:
-      "Start learning as soon as you receive your QR code. No waiting for delivery — it's all digital.",
+      "Redeem your coupon code on the Inspire Africa platform and start learning straight away. No waiting for delivery — it's all digital.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -77,19 +77,19 @@ const benefits = [
 ];
 
 export default async function CoursesPage() {
-  const [foundationProduct, inventionProduct] = await Promise.all([
+  const [earlyYearsProduct, advancedProduct] = await Promise.all([
     getProductByHandle("how-to-get-started-with-coding-and-robotics"),
     getProductByHandle("bbc-micro-bit-essential-stem-lab-tinker-kit-bundle"),
   ]);
 
-  const foundationPrice = foundationProduct?.variants.edges[0]?.node.price.amount ?? null;
-  const inventionPrice = inventionProduct?.variants.edges[0]?.node.price.amount ?? null;
+  const earlyYearsPrice = earlyYearsProduct?.variants.edges[0]?.node.price.amount ?? null;
+  const advancedPrice = advancedProduct?.variants.edges[0]?.node.price.amount ?? null;
 
   return (
     <>
       <PageViewTracker event="collection_viewed" properties={{ collection: "courses" }} />
       {/* Bundle Comparison */}
-      <BundleComparison foundationPrice={foundationPrice} inventionPrice={inventionPrice} />
+      <BundleComparison earlyYearsPrice={earlyYearsPrice} advancedPrice={advancedPrice} />
 
       {/* Benefits */}
       <section className="py-20 bg-gray-50">

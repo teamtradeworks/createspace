@@ -2,13 +2,13 @@ import Link from "next/link";
 import { formatPrice } from "@/lib/shopify";
 
 interface BundleComparisonProps {
-  foundationPrice: string | null;
-  inventionPrice: string | null;
+  earlyYearsPrice: string | null;
+  advancedPrice: string | null;
 }
 
-const foundationCourses = [
+const earlyYearsCourses = [
   {
-    title: "How to Get Started with Coding & Robotics",
+    title: "Coding & Robotics: How to Get Started",
     shortTitle: "Getting Started",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -22,8 +22,8 @@ const foundationCourses = [
     ),
   },
   {
-    title: "Intro to STEAM, Coding & Robotics",
-    shortTitle: "Intro to STEAM",
+    title: "Early STEAM, Coding and Robotics Foundations",
+    shortTitle: "Early STEAM",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -36,7 +36,7 @@ const foundationCourses = [
     ),
   },
   {
-    title: "ScratchJr Training",
+    title: "Foundation Phase: ScratchJr Coding",
     shortTitle: "ScratchJr",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -51,9 +51,9 @@ const foundationCourses = [
   },
 ];
 
-const inventionCourses = [
+const advancedCourses = [
   {
-    title: "How to Get Started with Coding & Robotics",
+    title: "Coding & Robotics: How to Get Started",
     shortTitle: "Getting Started",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -67,8 +67,8 @@ const inventionCourses = [
     ),
   },
   {
-    title: "Intro to STEAM, Coding & Robotics",
-    shortTitle: "Intro to STEAM",
+    title: "Introduction to STEAM Education",
+    shortTitle: "STEAM Education",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -76,6 +76,20 @@ const inventionCourses = [
           strokeLinejoin="round"
           strokeWidth={1.5}
           d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"
+        />
+      </svg>
+    ),
+  },
+  {
+    title: "Scratch Coding and Animation",
+    shortTitle: "Scratch Coding",
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
         />
       </svg>
     ),
@@ -95,7 +109,7 @@ const inventionCourses = [
     ),
   },
   {
-    title: "Essential STEAM Lab Kit Training",
+    title: "Essential STEAM Lab Kit",
     shortTitle: "STEAM Lab",
     icon: (
       <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -137,8 +151,8 @@ function CourseThumbnail({
 }
 
 export default function BundleComparison({
-  foundationPrice,
-  inventionPrice,
+  earlyYearsPrice,
+  advancedPrice,
 }: BundleComparisonProps) {
   return (
     <section className="py-20 bg-navy relative overflow-hidden">
@@ -171,33 +185,39 @@ export default function BundleComparison({
         {/* Section header */}
         <div className="text-center mb-16">
           <span className="text-cs-green font-medium text-sm uppercase tracking-wider">
-            Education Bundles
+            Training Pathways
           </span>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white mt-2 mb-4">
-            Choose Your Starting Point
+            Choose Your Training Pathway
           </h1>
           <p className="text-white/60 max-w-2xl mx-auto">
-            Two course bundles designed for educators. Start with the Foundation Phase to build your
-            confidence, or go all-in with the Invention Phase for hands-on specialist training.
+            Two SACE-accredited training pathways designed for educators. Start with the Early Years
+            pathway for Foundation Phase, or choose the Advanced pathway for Intermediate and Senior
+            Phase.
           </p>
         </div>
 
         {/* Bundle cards */}
         <div className="grid lg:grid-cols-2 gap-8 items-stretch max-w-5xl mx-auto">
-          {/* Foundation Phase Card */}
+          {/* Early Years Card */}
           <div className="relative rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-sm overflow-hidden flex flex-col">
             <div className="p-8 flex flex-col flex-1">
               {/* Badge */}
               <div className="flex items-center gap-3 mb-6">
                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-cs-blue/20 text-cs-blue text-xs font-semibold uppercase tracking-wider">
-                  Foundation
+                  Early Years
                 </span>
               </div>
 
-              <h3 className="text-2xl font-semibold text-white mb-2">Foundation Phase</h3>
+              <h3 className="text-2xl font-semibold text-white mb-1">
+                Early Years Coding &amp; Robotics
+              </h3>
+              <p className="text-white/40 text-xs font-medium mb-4">
+                Foundation Phase &middot; Ages 5&ndash;9
+              </p>
               <p className="text-white/50 text-sm mb-6">
-                The essentials to start teaching Coding and Robotics with confidence. Covers
-                curriculum foundations, unplugged STEAM, and beginner coding.
+                Introductory Coding and Robotics educator onboarding. Covers unplugged STEAM
+                foundations, screen-free learning, and beginner ScratchJr coding.
               </p>
 
               {/* Courses */}
@@ -207,7 +227,7 @@ export default function BundleComparison({
                 </p>
                 <div className="rounded-xl bg-cs-blue/10 border border-cs-blue/25 p-3">
                   <div className="grid grid-cols-3 gap-2">
-                    {foundationCourses.map((course) => (
+                    {earlyYearsCourses.map((course) => (
                       <CourseThumbnail
                         key={course.shortTitle}
                         title={course.title}
@@ -222,9 +242,10 @@ export default function BundleComparison({
 
               {/* Price & CTA */}
               <div className="border-t border-white/10 pt-6">
-                {foundationPrice && (
+                <p className="text-sm text-white/40 line-through mb-1">R&nbsp;1,999</p>
+                {earlyYearsPrice && (
                   <p className="text-3xl font-semibold text-white mb-1">
-                    {formatPrice(foundationPrice, "ZAR")}
+                    {formatPrice(earlyYearsPrice, "ZAR")}
                   </p>
                 )}
                 <p className="text-white/40 text-xs mb-5">VAT included</p>
@@ -238,30 +259,35 @@ export default function BundleComparison({
             </div>
           </div>
 
-          {/* Invention Phase Card */}
+          {/* Advanced Card */}
           <div className="relative rounded-2xl border border-white/15 bg-white/[0.03] backdrop-blur-sm overflow-hidden flex flex-col">
             <div className="p-8 flex flex-col flex-1">
               {/* Badge */}
               <div className="flex items-center gap-3 mb-6">
                 <span className="inline-flex items-center px-3 py-1 rounded-full bg-cs-purple/20 text-cs-purple text-xs font-semibold uppercase tracking-wider">
-                  Invention
+                  Advanced
                 </span>
               </div>
 
-              <h3 className="text-2xl font-semibold text-white mb-2">Invention Phase</h3>
+              <h3 className="text-2xl font-semibold text-white mb-1">
+                Advanced Coding &amp; Robotics
+              </h3>
+              <p className="text-white/40 text-xs font-medium mb-4">
+                Intermediate &amp; Senior Phase &middot; Ages 9&ndash;18
+              </p>
               <p className="text-white/50 text-sm mb-6">
-                Go further with micro:bit coding and sensor-driven robotics. Includes STEAM
-                foundations plus specialist hands-on training.
+                Advanced Coding and Robotics educator onboarding. Covers Scratch coding, micro:bit
+                programming, and sensor-driven STEAM lab projects.
               </p>
 
               {/* Courses */}
               <div className="mb-8 flex-1">
                 <p className="text-xs text-cs-purple uppercase tracking-wider font-semibold mb-3">
-                  4 Courses Included
+                  5 Courses Included
                 </p>
                 <div className="rounded-xl bg-cs-purple/10 border border-cs-purple/25 p-3">
-                  <div className="grid grid-cols-2 gap-2">
-                    {inventionCourses.map((course) => (
+                  <div className="grid grid-cols-3 gap-2">
+                    {advancedCourses.map((course) => (
                       <CourseThumbnail
                         key={course.shortTitle}
                         title={course.title}
@@ -276,9 +302,10 @@ export default function BundleComparison({
 
               {/* Price & CTA */}
               <div className="border-t border-white/10 pt-6">
-                {inventionPrice && (
+                <p className="text-sm text-white/40 line-through mb-1">R&nbsp;3,595</p>
+                {advancedPrice && (
                   <p className="text-3xl font-semibold text-white mb-1">
-                    {formatPrice(inventionPrice, "ZAR")}
+                    {formatPrice(advancedPrice, "ZAR")}
                   </p>
                 )}
                 <p className="text-white/40 text-xs mb-5">VAT included</p>
@@ -295,8 +322,9 @@ export default function BundleComparison({
 
         {/* Bottom note */}
         <p className="text-center text-white/30 text-xs mt-10 max-w-lg mx-auto">
-          Both bundles include access to the Inspire Africa learning platform. Courses are
-          self-paced with certificates on completion.
+          Both pathways include access to the Inspire Africa learning platform. Courses are
+          self-paced and SACE-accredited with certificates on completion. Access is provided as an
+          annual educator license.
         </p>
       </div>
     </section>

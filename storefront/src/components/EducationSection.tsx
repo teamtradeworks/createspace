@@ -33,7 +33,7 @@ const educationOptions = [
     id: "courses",
     title: "Short Courses",
     description:
-      "Online STEM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a QR code for instant access.",
+      "Online STEM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a coupon code to redeem for instant access.",
     image: "/images/education/stem-tutors/child-coding-on-tablet.jpg",
     link: "/education/courses",
     linkText: "View Courses",
