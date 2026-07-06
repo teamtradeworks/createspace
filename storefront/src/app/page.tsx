@@ -135,13 +135,8 @@ export default function Home() {
                       alt={brand.name}
                       width={160}
                       height={160}
-                      className={`object-contain w-full h-full max-w-[140px] max-h-[140px] ${brand.comingSoon ? "opacity-40" : ""}`}
+                      className="object-contain w-full h-full max-w-[140px] max-h-[140px]"
                     />
-                    {brand.comingSoon && (
-                      <span className="absolute bottom-3 text-[11px] font-semibold text-navy/50 uppercase tracking-wider">
-                        Coming Soon
-                      </span>
-                    )}
                   </div>
                 );
 
