@@ -123,10 +123,9 @@ export default function Home() {
                 {
                   name: "National Geographic",
                   logo: "/images/brands/national-geographic.png",
-                  comingSoon: true,
                 },
-                { name: "Blockaroo", logo: "/images/brands/blockaroo.png", comingSoon: true },
-                { name: "NASA", logo: "/images/brands/nasa.png", comingSoon: true },
+                { name: "Blockaroo", logo: "/images/brands/blockaroo.png" },
+                { name: "NASA", logo: "/images/brands/nasa.png" },
                 { name: "Robotico", logo: "/images/brands/robotico.png", vendor: "Robotico" },
               ].map((brand) => {
                 const card = (
