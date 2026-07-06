@@ -3,7 +3,7 @@ import Link from "next/link";
 import HeroCarouselClient from "./HeroCarouselClient";
 import SubscribeButton from "./SubscribeButton";
 
-type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon" | "sale";
+type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon" | "brands-launched" | "sale";
 
 interface BrandLogo {
   src: string;
@@ -23,6 +23,7 @@ interface Slide {
   lifestyleImages?: string[];
   largeImages?: boolean;
   brandLogos?: BrandLogo[];
+  brandCardLabel?: string;
   salePercent?: string;
   brandLogoSrc?: string;
   descriptionSub?: string;
@@ -44,18 +45,19 @@ const slides: Slide[] = [
     textColor: "light",
   },
   {
-    id: "brands-coming-soon",
-    type: "brands-coming-soon",
-    tag: "Coming Soon",
-    headline: "Exciting New Brands on the Way",
+    id: "brands-launched",
+    type: "brands-launched",
+    tag: "New Arrivals",
+    headline: "New Brands Have Just Landed",
     description:
-      "We're adding some amazing new STEM and educational brands to CREATESPACE. Watch this space!",
-    cta: { label: "Notify Me", href: "#" },
+      "National Geographic, NASA, and Blockaroo are now at CREATESPACE — explore science kits, space sets, and magnetic building toys.",
+    cta: { label: "Shop Now", href: "/shop" },
     brandLogos: [
       { src: "/images/brands/national-geographic.png", name: "National Geographic" },
       { src: "/images/brands/nasa.png", name: "NASA" },
       { src: "/images/brands/blockaroo.png", name: "Blockaroo" },
     ],
+    brandCardLabel: "Now In-Store",
     bgColor: "bg-navy",
     textColor: "light",
   },
@@ -224,14 +226,30 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
         </div>
       )}
 
-      {/* Brands Coming Soon type */}
-      {slide.type === "brands-coming-soon" && slide.brandLogos && (
+      {/* Brands Coming Soon / Launched type */}
+      {(slide.type === "brands-coming-soon" || slide.type === "brands-launched") && slide.brandLogos && (
+        <>
+        {slide.type === "brands-launched" && (
+          <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
+            {/* Left side */}
+            <img src="/images/illustrations/planet-1.svg" className="absolute w-20 h-20 opacity-10 top-[5%] left-[2%] -rotate-12" alt="" />
+            <img src="/images/illustrations/atom-1.svg" className="absolute w-14 h-14 opacity-10 top-[55%] left-[4%] rotate-6" alt="" />
+            <img src="/images/illustrations/robot-2.svg" className="absolute w-16 h-16 opacity-10 bottom-[8%] left-[14%] -rotate-6" alt="" />
+            {/* Centre */}
+            <img src="/images/illustrations/chip-1.svg" className="absolute w-12 h-12 opacity-10 top-[10%] left-[40%] rotate-12" alt="" />
+            <img src="/images/illustrations/planet-2.svg" className="absolute w-16 h-16 opacity-10 bottom-[5%] left-[35%] rotate-3" alt="" />
+            {/* Right side */}
+            <img src="/images/illustrations/atom-1.svg" className="absolute w-16 h-16 opacity-10 top-[8%] right-[5%] rotate-12" alt="" />
+            <img src="/images/illustrations/planet-1.svg" className="absolute w-12 h-12 opacity-10 top-[50%] right-[2%] -rotate-6" alt="" />
+            <img src="/images/illustrations/chip-1.svg" className="absolute w-14 h-14 opacity-10 bottom-[10%] right-[12%] rotate-6" alt="" />
+          </div>
+        )}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
           <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] py-12 lg:py-0">
             <div className="z-10">
               {slide.tag && (
-                <span className="inline-flex items-center gap-2 text-cs-yellow font-semibold text-sm uppercase tracking-wider mb-3">
-                  <span className="w-2 h-2 rounded-full bg-cs-yellow animate-pulse" />
+                <span className={`inline-flex items-center gap-2 font-semibold text-sm uppercase tracking-wider mb-3 ${slide.type === "brands-launched" ? "text-cs-green" : "text-cs-yellow"}`}>
+                  <span className={`w-2 h-2 rounded-full ${slide.type === "brands-launched" ? "bg-cs-green" : "bg-cs-yellow animate-pulse"}`} />
                   {slide.tag}
                 </span>
               )}
@@ -242,37 +260,52 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
             </div>
             <div className="flex flex-col items-center justify-center gap-4 lg:gap-6">
               <p className="hidden lg:block text-white/70 text-xs uppercase tracking-widest font-medium">
-                Brands arriving soon
+                {slide.type === "brands-launched" ? "Now available at CREATESPACE" : "Brands arriving soon"}
               </p>
               <div className="flex flex-row flex-wrap gap-3 lg:gap-4 justify-center">
                 {slide.brandLogos.map((brand) => (
                   <div
                     key={brand.name}
-                    className="relative bg-white rounded-2xl p-3 lg:p-5 flex flex-col items-center justify-center gap-2 w-24 h-24 lg:w-36 lg:h-36 shadow-lg"
+                    className="relative bg-white rounded-2xl p-3 lg:p-5 flex flex-col items-center justify-center gap-2 w-32 h-32 lg:w-44 lg:h-44 shadow-lg"
                   >
-                    <div className="relative w-14 h-10 lg:w-20 lg:h-16">
+                    <div className="relative w-24 h-16 lg:w-32 lg:h-24">
                       <Image
                         src={brand.src}
                         alt={brand.name}
                         fill
                         className="object-contain"
-                        sizes="(max-width: 1024px) 56px, 80px"
+                        sizes="(max-width: 1024px) 96px, 128px"
                         loading="lazy"
                       />
                     </div>
-                    <span className="text-[9px] lg:text-[10px] font-semibold text-navy/70 uppercase tracking-widest">
-                      Coming Soon
-                    </span>
+                    {slide.type !== "brands-launched" && (
+                      <span className="text-[9px] lg:text-[10px] font-semibold uppercase tracking-widest text-navy/70">
+                        {slide.brandCardLabel ?? "Coming Soon"}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
-              <SubscribeButton
-                label="Notify Me"
-                className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
-              />
+              {slide.type === "brands-launched" ? (
+                <Link
+                  href={slide.cta.href}
+                  className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+                >
+                  {slide.cta.label}
+                  <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </Link>
+              ) : (
+                <SubscribeButton
+                  label="Notify Me"
+                  className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+                />
+              )}
             </div>
           </div>
         </div>
+        </>
       )}
 
       {/* Sale type */}
