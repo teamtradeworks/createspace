@@ -22,6 +22,26 @@ export const metadata: Metadata = {
   },
 };
 
+// Interleave products round-robin by vendor so the same brand never clusters together
+function interleaveByVendor(products: Product[]): Product[] {
+  const byVendor = new Map<string, Product[]>();
+  for (const product of products) {
+    const key = product.vendor || "unknown";
+    if (!byVendor.has(key)) byVendor.set(key, []);
+    byVendor.get(key)!.push(product);
+  }
+  const groups = Array.from(byVendor.values());
+  const result: Product[] = [];
+  let i = 0;
+  while (result.length < products.length) {
+    for (const group of groups) {
+      if (i < group.length) result.push(group[i]);
+    }
+    i++;
+  }
+  return result;
+}
+
 // Async component that fetches and renders featured products
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
@@ -43,19 +63,23 @@ async function FeaturedProductsLoader() {
   const productsByAge: Record<string, Product[]> = {};
 
   // "All ages" tab shows every product that has an age metafield
-  productsByAge["all"] = allProducts.filter((product) => {
-    const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
-    return minAge !== null;
-  });
+  productsByAge["all"] = interleaveByVendor(
+    allProducts.filter((product) => {
+      const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
+      return minAge !== null;
+    })
+  );
 
   for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
-    productsByAge[groupId] = allProducts.filter((product) => {
-      const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
-      if (minAge === null) return false;
-      const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
-      const productMax = maxAge ?? Infinity;
-      return minAge <= maxRange && productMax >= minRange;
-    });
+    productsByAge[groupId] = interleaveByVendor(
+      allProducts.filter((product) => {
+        const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
+        if (minAge === null) return false;
+        const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
+        const productMax = maxAge ?? Infinity;
+        return minAge <= maxRange && productMax >= minRange;
+      })
+    );
   }
 
   return <FeaturedProducts productsByAge={productsByAge} />;
