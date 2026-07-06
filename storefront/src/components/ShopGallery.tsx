@@ -534,7 +534,7 @@ function MultiSelect({
                   key={opt.value}
                   type="button"
                   onClick={() => onToggle(opt.value)}
-                  className="w-full flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-navy transition-colors hover:bg-gray-50 active:bg-gray-100"
+                  className="w-full text-left flex items-center gap-2.5 px-3 py-3 text-sm font-semibold text-navy transition-colors hover:bg-gray-50 active:bg-gray-100"
                 >
                   <span
                     className="shrink-0 flex items-center justify-center rounded border-2 transition-all"
