@@ -123,10 +123,9 @@ export default function Home() {
                 {
                   name: "National Geographic",
                   logo: "/images/brands/national-geographic.png",
-                  comingSoon: true,
                 },
-                { name: "Blockaroo", logo: "/images/brands/blockaroo.png", comingSoon: true },
-                { name: "NASA", logo: "/images/brands/nasa.png", comingSoon: true },
+                { name: "Blockaroo", logo: "/images/brands/blockaroo.png" },
+                { name: "NASA", logo: "/images/brands/nasa.png" },
                 { name: "Robotico", logo: "/images/brands/robotico.png", vendor: "Robotico" },
               ].map((brand) => {
                 const card = (
@@ -136,13 +135,8 @@ export default function Home() {
                       alt={brand.name}
                       width={160}
                       height={160}
-                      className={`object-contain w-full h-full max-w-[140px] max-h-[140px] ${brand.comingSoon ? "opacity-40" : ""}`}
+                      className="object-contain w-full h-full max-w-[140px] max-h-[140px]"
                     />
-                    {brand.comingSoon && (
-                      <span className="absolute bottom-3 text-[11px] font-semibold text-navy/50 uppercase tracking-wider">
-                        Coming Soon
-                      </span>
-                    )}
                   </div>
                 );
 
