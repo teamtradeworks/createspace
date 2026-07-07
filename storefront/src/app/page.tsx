@@ -62,9 +62,11 @@ async function FeaturedProductsLoader() {
 
   const productsByAge: Record<string, Product[]> = {};
 
+  const inStockProducts = allProducts.filter((product) => product.availableForSale);
+
   // "All ages" tab shows every product that has an age metafield
   productsByAge["all"] = interleaveByVendor(
-    allProducts.filter((product) => {
+    inStockProducts.filter((product) => {
       const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
       return minAge !== null;
     })
@@ -72,7 +74,7 @@ async function FeaturedProductsLoader() {
 
   for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
     productsByAge[groupId] = interleaveByVendor(
-      allProducts.filter((product) => {
+      inStockProducts.filter((product) => {
         const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
         if (minAge === null) return false;
         const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
