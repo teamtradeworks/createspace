@@ -34,6 +34,23 @@ interface Slide {
 
 const slides: Slide[] = [
   {
+    id: "brands-launched",
+    type: "brands-launched",
+    tag: "New Arrivals",
+    headline: "New Brands Have Just Landed",
+    description:
+      "National Geographic, NASA, and Blockaroo are now at CREATESPACE — explore science kits, space sets, and magnetic building toys.",
+    cta: { label: "Shop Now", href: "/shop?brand=Blockaroo%2CNASA%2CNational+Geographic" },
+    brandLogos: [
+      { src: "/images/brands/national-geographic.png", name: "National Geographic" },
+      { src: "/images/brands/nasa.png", name: "NASA" },
+      { src: "/images/brands/blockaroo.png", name: "Blockaroo" },
+    ],
+    brandCardLabel: "Now In-Store",
+    bgColor: "bg-navy",
+    textColor: "light",
+  },
+  {
     id: "main",
     type: "hero",
     headline: "Build. Play. Learn.",
@@ -41,23 +58,6 @@ const slides: Slide[] = [
     cta: { label: "Shop Now", href: "/shop" },
     ctaSecondary: { label: "For Educators", href: "/education" },
     heroImage: "/images/home/hero-stem-education.jpg",
-    bgColor: "bg-navy",
-    textColor: "light",
-  },
-  {
-    id: "brands-launched",
-    type: "brands-launched",
-    tag: "New Arrivals",
-    headline: "New Brands Have Just Landed",
-    description:
-      "National Geographic, NASA, and Blockaroo are now at CREATESPACE — explore science kits, space sets, and magnetic building toys.",
-    cta: { label: "Shop Now", href: "/shop" },
-    brandLogos: [
-      { src: "/images/brands/national-geographic.png", name: "National Geographic" },
-      { src: "/images/brands/nasa.png", name: "NASA" },
-      { src: "/images/brands/blockaroo.png", name: "Blockaroo" },
-    ],
-    brandCardLabel: "Now In-Store",
     bgColor: "bg-navy",
     textColor: "light",
   },
