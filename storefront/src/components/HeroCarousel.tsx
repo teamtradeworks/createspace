@@ -230,6 +230,14 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
       {(slide.type === "brands-coming-soon" || slide.type === "brands-launched") && slide.brandLogos && (
         <>
         {slide.type === "brands-launched" && (
+          <Link
+            href={slide.cta.href}
+            className="absolute inset-0 z-20 block cursor-pointer"
+            tabIndex={-1}
+            aria-hidden="true"
+          />
+        )}
+        {slide.type === "brands-launched" && (
           <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
             {/* Left side */}
             <img src="/images/illustrations/planet-1.svg" className="absolute w-20 h-20 opacity-10 top-[5%] left-[2%] -rotate-12" alt="" />
@@ -289,7 +297,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               {slide.type === "brands-launched" ? (
                 <Link
                   href={slide.cta.href}
-                  className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+                  className="relative z-30 inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
                 >
                   {slide.cta.label}
                   <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
