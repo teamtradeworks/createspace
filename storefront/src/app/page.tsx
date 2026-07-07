@@ -147,9 +147,10 @@ export default function Home() {
                 {
                   name: "National Geographic",
                   logo: "/images/brands/national-geographic.png",
+                  vendor: "National Geographic",
                 },
-                { name: "Blockaroo", logo: "/images/brands/blockaroo.png" },
-                { name: "NASA", logo: "/images/brands/nasa.png" },
+                { name: "Blockaroo", logo: "/images/brands/blockaroo.png", vendor: "Blockaroo" },
+                { name: "NASA", logo: "/images/brands/nasa.png", vendor: "NASA" },
                 { name: "Robotico", logo: "/images/brands/robotico.png", vendor: "Robotico" },
               ].map((brand) => {
                 const card = (
