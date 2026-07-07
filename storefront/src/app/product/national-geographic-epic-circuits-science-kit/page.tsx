@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -50,51 +49,28 @@ export default async function NatGeoEpicCircuitsPage() {
       {/* gray (fixed) */}
       <QuickInfoBadges product={product} />
 
-      {/* navy-card */}
-      <NumberedSteps
-        title="What sets this kit apart"
-        steps={[
-          {
-            title: "Real, visible results",
-            description:
-              "The kit is built around proper wow moments: a foam ball hovering on a column of air, a copter that launches when your child flips a toggle switch. Every effect is powered by a circuit they assembled themselves.",
-          },
-          {
-            title: "A clear path forward",
-            description:
-              "The 43 projects are ordered by complexity across five stages, starting with a simple closed circuit and ending with multi-logic-gate builds. Each one introduces something new and uses everything that came before.",
-          },
-          {
-            title: "Instructions that explain why",
-            description:
-              "The guide doesn't just tell your child what to plug in. Between projects, 'Did You Know?' facts and Circuit Science explainers connect each circuit to technology they already know, from how a doorbell works to why a combination lock needs two conditions to open.",
-          },
-        ]}
-        background="navy-card"
-      />
-
-      {/* gray */}
+      {/* white */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=cMRLyEDo39Y"
         title="See it in action"
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
+      {/* gray */}
       <ImageTextBlock
         image="/images/products/national-geographic-epic-circuits-science-kit/diagram-from-manual.png"
         imageAlt="Circuit diagram from the National Geographic Epic Circuits illustrated guide"
         title="Every project, step by step"
         body="The full-colour guide covers every project with circuit diagrams and clear connection instructions. Scan the QR code on any page to watch a video tutorial if reading isn't clicking. Between projects, 'Did You Know?' facts explain the real-world technology behind what was just built: a doorbell, a TV remote, the combination lock on a school locker."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
-      {/* gray */}
+      {/* white */}
       <FeatureGrid
         title="What makes it work"
         columns={2}
-        background="gray"
+        background="white"
         features={[
           {
             icon: "zap",
@@ -123,13 +99,13 @@ export default async function NatGeoEpicCircuitsPage() {
         ]}
       />
 
-      {/* white */}
+      {/* gray */}
       <ProjectShowcase
         title="40+ hands-on circuit projects"
         highlight="36 guided circuit builds and 7 activities in a full-colour illustrated guide"
         subtitle="Projects are ordered by complexity across five stages. Here are a few from different points in the sequence."
         columns={3}
-        background="white"
+        background="gray"
         projects={[
           {
             name: "Float a ball",
@@ -171,11 +147,11 @@ export default async function NatGeoEpicCircuitsPage() {
         moreText="Plus 30 more projects including a traffic light, a two-switch copter launch, a vacuum cleaner with adjustable power, fan art, and circuit puzzles"
       />
 
-      {/* gray */}
+      {/* white */}
       <CustomerShowcase
         title="Young engineers at work"
         subtitle="Real kids, real circuits"
-        background="gray"
+        background="white"
         images={[
           {
             src: "/images/products/national-geographic-epic-circuits-science-kit/end-user-child-playing.jpg",
@@ -220,13 +196,13 @@ export default async function NatGeoEpicCircuitsPage() {
         ]}
       />
 
-      {/* white */}
-      <ProductReviews productId={product.id} background="white" />
-
       {/* gray */}
+      <ProductReviews productId={product.id} background="gray" />
+
+      {/* white */}
       <ProductFAQ
         title="Common questions"
-        background="gray"
+        background="white"
         faqs={[
           {
             question: "What age is this best for?",
@@ -266,12 +242,12 @@ export default async function NatGeoEpicCircuitsPage() {
         ]}
       />
 
-      {/* white */}
+      {/* gray */}
       <WhatsIncluded
         title="What's in the box"
         image="/images/products/national-geographic-epic-circuits-science-kit/whats-in-the-box.jpg"
         imageAlt="National Geographic Epic Circuits kit contents laid out"
-        background="white"
+        background="gray"
         items={[
           "Power block (battery-powered electrical power source)",
           "RGB light (multi-colour LED module with red, green, and blue channels)",
