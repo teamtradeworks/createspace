@@ -340,6 +340,8 @@ For full brand voice, tone, and messaging guidance, see [brand-strategy.md](./br
 - "Build a robot that actually moves" not "This kit utilises servo motor technology"
 - "Perfect for curious kids aged 8-12" not "Suitable for children aged 8-12"
 
+**Final pass:** Run drafted copy through the humanizer to strip AI tells (em dashes, rule-of-three, promotional filler) before publishing. See [voice-and-tone.md](./voice-and-tone.md#sounding-human-not-ai-generated).
+
 ---
 
 ## Examples

@@ -349,6 +349,15 @@ Select fewer images than standard pages — 1-3 is typically enough.
 Create/update the page file at:
 `storefront/src/app/product/{slug}/page.tsx`
 
+### 8. Humanize the Copy
+
+Before finishing, refine the prose you wrote using the **humanizer** skill (`.agents/skills/humanizer/SKILL.md`). Apply it to every piece of customer-facing copy on the page — the tagline, ExtensionBanner text, highlights, section body text, FAQ answers, and CTA copy.
+
+The humanizer removes the tells that make copy read as AI-generated: em dashes, forced rule-of-three lists, promotional filler ("vibrant", "testament", "boasts"), superficial "-ing" clauses, and negative parallelisms. The goal is copy that sounds like a real person at CREATESPACE wrote it.
+
+- Only touch the prose you authored — never code, imports, prop names, or dynamic Shopify data.
+- Preserve the brand voice, the concise extension tone, and every specific fact from the research. Humanizing refines how the copy reads; it does not change what it claims.
+
 ## Content Transformation Guidelines
 
 ### Hero Section
@@ -421,6 +430,7 @@ Before completing, verify:
 - [ ] HeroSection receives `product` prop (no hardcoded prices)
 - [ ] Page is concise (7-9 sections, not 10-14)
 - [ ] No content duplicated from parent product page
+- [ ] Copy passed through the humanizer skill to remove AI writing tells
 - [ ] Images optimized if any were copied
 - [ ] `generateMetadata` function included
 - [ ] File created at correct path: `storefront/src/app/product/{slug}/page.tsx`
