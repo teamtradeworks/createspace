@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -49,30 +48,6 @@ export default async function ArduinoIoTBundlePage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why IoT Section */}
-      <NumberedSteps
-        title="Why Start with IoT?"
-        subtitle="The Internet of Things is one of the fastest-growing fields in tech. This bundle makes it accessible from day one."
-        steps={[
-          {
-            title: "Build Real Connected Devices",
-            description:
-              "These aren't toy circuits. Your teenager builds projects that connect to the internet, respond to real-world inputs, and do something meaningful — all from scratch.",
-          },
-          {
-            title: "Industry-Ready Skills",
-            description:
-              "IoT engineering jobs grew 32% in a single year. The Arduino Nano RP2040 Connect is a professional board used by engineers worldwide — skills earned here are the real deal.",
-          },
-          {
-            title: "Five Genuinely Fun Projects",
-            description:
-              "From training a cat with sound to building a living digital pet, each tutorial is creative, surprising, and deeply satisfying to complete.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* From Consumer to Creator */}
       <ImageTextBlock

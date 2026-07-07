@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -51,30 +50,6 @@ export default async function RingBitBricksPackPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Ring:bit Section */}
-      <NumberedSteps
-        title="Why the Ring:bit Bricks Pack?"
-        subtitle="Most coding kits teach coding. Most building kits teach building. This one does both at the same time — so your child learns how the two connect."
-        steps={[
-          {
-            title: "Build. Then Code.",
-            description:
-              "Each project starts with hands-on brick construction, then brings the creation to life with code. Your child learns that what they build and what they program are the same thing.",
-          },
-          {
-            title: "Real Things. Real Concepts.",
-            description:
-              "Traffic lights, a motorised car, a fan that responds to temperature — these aren't toy projects. They're the same principles that engineers use to build smart home devices and robots.",
-          },
-          {
-            title: "Grows With Your Child",
-            description:
-              "Start with block-based MakeCode. Graduate to Python. Add a Joystick:bit for remote control. The Ring:bit ecosystem expands as your child's confidence grows.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Video Section */}
       <VideoEmbed

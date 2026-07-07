@@ -311,6 +311,8 @@ Split section with image and text content side-by-side. Alternate `layout` for v
 
 ## NumberedSteps
 
+> **Globally excluded.** Do not use NumberedSteps on product pages. Use FeatureGrid or ImageTextBlock instead.
+
 Sequential steps with numbered circles. Good for "why choose this?" benefits.
 
 **Props:**

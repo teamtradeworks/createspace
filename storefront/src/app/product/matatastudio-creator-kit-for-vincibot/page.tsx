@@ -6,7 +6,6 @@ import {
   HeroSection,
   ExtensionBanner,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   VideoEmbed,
@@ -61,30 +60,6 @@ export default async function VinciBotCreatorKitPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* What This Adds */}
-      <NumberedSteps
-        title="What the Creator Kit Adds"
-        subtitle="Your child already codes with VinciBot. Now they can build real, motorised machines that their code actually controls."
-        steps={[
-          {
-            title: "A Whole New Dimension: Physical Engineering",
-            description:
-              "VinciBot teaches coding. The Creator Kit adds the physical side — 434+ building blocks and a DC motor so your child can construct spinning, sliding, and moving structures. Code that once made the robot beep now makes a helicopter blade spin or a claw grab objects.",
-          },
-          {
-            title: "20 Guided Cases from Fairground Rides to Robots",
-            description:
-              "The building manual walks through 20 structured builds across real-world themes: fairground rides (Flying Chair, Big Pendulum, Wheel of Fortune), vehicles (Helicopter, Guide Vehicle), and interactive machines (Mechanical Claw, Paper Airplane Launcher, Automatic Sensor Door). Each case teaches a new mechanical principle.",
-          },
-          {
-            title: "Real Mechanical Concepts Kids Can Feel",
-            description:
-              "Each build teaches genuine engineering: crankshafts that convert rotation into up-and-down motion, cam structures that create rhythmic repeating movement, and linkage systems that transmit force across multiple parts. These are the same principles that power real engines, robots, and machines.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Storytelling image */}
       <ImageTextBlock
         image="/images/products/matatastudio-creator-kit-for-vincibot/creator-kit-build-with-coding-on-the-side.png"
@@ -99,7 +74,7 @@ export default async function VinciBotCreatorKitPage() {
       <VideoEmbed
         url="https://www.youtube.com/watch?v=_p1H77Oyp_s"
         title="VinciBot Creator Kit in Action"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid — key build themes */}
@@ -145,7 +120,7 @@ export default async function VinciBotCreatorKitPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Variety of builds image */}
@@ -155,7 +130,7 @@ export default async function VinciBotCreatorKitPage() {
         title="From the Manual to Their Imagination"
         body="The 20 guided cases are the starting point. With 434+ building blocks — compatible with LEGO Technic connections — your child can go further and design their own mechanisms once they've mastered the basics. Many kids are back inventing new machines before they've finished all 20 cases. The kit is designed to grow with them: simpler builds (Smart Fan, Rocking Car) take 15–20 minutes; more complex structures like the Helicopter or Aerial Working Platform can take an hour or more. Every session builds something new."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* FAQ */}
@@ -187,7 +162,7 @@ export default async function VinciBotCreatorKitPage() {
               "No batteries and no tools needed. The Creator Kit's DC motor is powered directly through VinciBot's onboard battery — no separate power source required. All connections click together without screwdrivers, soldering, or glue. Everything needed to start building is in the box.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* What's Included */}
@@ -204,7 +179,7 @@ export default async function VinciBotCreatorKitPage() {
           "Storage tray",
           "Note: VinciBot robot not included — required separately",
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Call to Action */}

@@ -38,15 +38,17 @@ Quick-reference badges immediately after the hero. Displays as an "At a Glance" 
 
 ### Convince
 
-#### 3. NumberedSteps (Recommended)
+#### ~~3. NumberedSteps (Excluded)~~
 
-"Why choose this?" positioning with numbered benefits. Place early to establish value before diving into details. 3 steps is the sweet spot.
+> **Globally excluded.** Do not use NumberedSteps on any product page. Use FeatureGrid or ImageTextBlock instead.
 
-**Component:** `NumberedSteps` — use `background="navy-card"` for visual emphasis.
+~~"Why choose this?" positioning with numbered benefits. Place early to establish value before diving into details. 3 steps is the sweet spot.~~
+
+~~**Component:** `NumberedSteps` — use `background="navy-card"` for visual emphasis.~~
 
 #### 4. VideoEmbed (Recommended)
 
-Show the product in action. A 15-60 second video is worth a thousand photos. Place after the value proposition (NumberedSteps) to provide visual proof.
+Show the product in action. A 15-60 second video is worth a thousand photos. Place after QuickInfoBadges or alongside a FeatureGrid to provide visual proof.
 
 **Component:** `VideoEmbed`
 
@@ -121,7 +123,7 @@ Image + text side-by-side for storytelling. **Not a fixed position** — scatter
 
 **Good placement spots:**
 - Between VideoEmbed and FeatureGrid
-- Between NumberedSteps and FeatureGrid
+- Between QuickInfoBadges and FeatureGrid
 - Between FeatureGrid and ProjectShowcase
 
 ---
@@ -134,12 +136,11 @@ Never use the same background colour on two consecutive sections. Follow this ge
 
 - **HeroSection** → (no background prop — built-in)
 - **QuickInfoBadges** → gray (fixed)
-- **SkillTags / NumberedSteps** → `navy-card` (the go-to for early emphasis)
 - **VideoEmbed** → `gray`
 - **Content sections** → alternate `white` and `gray`, using ImageTextBlocks between dense sections
 - **CallToAction** → `navy` (always)
 
-Use `navy` backgrounds sparingly — typically only for CallToAction and NumberedSteps (`navy-card`).
+Use `navy` backgrounds sparingly — typically only for CallToAction.
 
 ### ImageTextBlock alternation
 
@@ -167,6 +168,7 @@ Not every product needs every section.
 These components exist in the codebase but must not be used on any product page:
 
 - **SkillTags** — removed; use FeatureGrid or copy to communicate skills instead
+- **NumberedSteps** — removed; use FeatureGrid or ImageTextBlock to convey the "why choose this?" positioning instead
 
 ### Minimal page (simple products)
 
@@ -174,11 +176,10 @@ Use when the product is straightforward with fewer features to highlight:
 
 1. HeroSection
 2. QuickInfoBadges
-3. NumberedSteps
-4. FeatureGrid
-5. ProductFAQ
-6. WhatsIncluded
-7. CallToAction
+3. FeatureGrid
+4. ProductFAQ
+5. WhatsIncluded
+6. CallToAction
 
 ### Full page (flagship products)
 
@@ -282,7 +283,7 @@ All components are in `storefront/src/components/product-sections/`. For full pr
 | ------------------- | ----------- | ----------------- | ---------------------------- |
 | HeroSection         | Yes         | 1. Hook           | — (built-in)                 |
 | QuickInfoBadges     | Yes         | 2. Hook           | gray (fixed)                 |
-| NumberedSteps       | Recommended | 3. Convince       | white, gray, navy, navy-card |
+| ~~NumberedSteps~~   | ~~Excluded~~ | —                | —                            |
 | VideoEmbed          | Recommended | 4. Convince       | white, gray, navy            |
 | FeatureGrid         | Optional    | 5. Educate        | white, gray, navy            |
 | ProjectShowcase     | Optional    | 6. Educate        | white, gray, navy            |

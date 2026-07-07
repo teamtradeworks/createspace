@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -49,30 +48,6 @@ export default async function ElecfreaksTinkerKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why micro:bit Tinker Kit */}
-      <NumberedSteps
-        title="Why the Tinker Kit?"
-        subtitle="The BBC micro:bit is one of the most used coding tools in classrooms worldwide. The Tinker Kit gives your child the sensors and components to go further — without the frustration of tangled wires."
-        steps={[
-          {
-            title: "Real Hardware, Real Results",
-            description:
-              "Write code and watch something physical happen — a light turns on, a servo moves, a buzzer sounds. The feedback loop is instant and deeply satisfying.",
-          },
-          {
-            title: "Designed to Be Accessible",
-            description:
-              "Colour-coded 3-pin connectors replace messy breadboards. Custom MakeCode blocks mean your child codes sensors by name, not by memory. It just works.",
-          },
-          {
-            title: "A Full Coding Pathway",
-            description:
-              "Start with drag-and-drop blocks in MakeCode. When your child is ready, the same kit runs in JavaScript or Python — no new hardware needed.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* What the Tinker Kit adds */}
       <ImageTextBlock

@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -49,30 +48,6 @@ export default async function SnapCircuitsClassic300Page() {
 
       {/* At a Glance */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Snap Circuits */}
-      <NumberedSteps
-        title="Why Snap Circuits?"
-        subtitle="Most electronics kits are either too simple to be interesting or too complex to start. Snap Circuits hits the sweet spot."
-        steps={[
-          {
-            title: "Snap to Life",
-            description:
-              "The unique snap-together system means your child is building real circuits within minutes of opening the box. No tools, no glue, no frustration — just click the numbered modules into place on the grid.",
-          },
-          {
-            title: "Real Electronics",
-            description:
-              "This isn't pretend play. Build a working AM radio, a lie detector, a burglar alarm. Every component is a real electronic part — the same ones inside the devices we use every day.",
-          },
-          {
-            title: "Grows With Them",
-            description:
-              "From project 1 (a simple light switch) to project 305 (complex multi-component circuits), there are hundreds of hours of challenges. When they're ready, upgrade to Snap Circuits SC-500 for even more.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Lifestyle: Child with kit */}
       <ImageTextBlock

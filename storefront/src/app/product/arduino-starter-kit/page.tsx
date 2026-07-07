@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -51,35 +50,11 @@ export default async function ArduinoStarterKitPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Arduino Section */}
-      <NumberedSteps
-        title="Why Start with Arduino?"
-        subtitle="Arduino is the world's most popular platform for learning electronics and coding. Used by millions of makers, educators, and professionals worldwide."
-        steps={[
-          {
-            title: "Build Real Things",
-            description:
-              "Move beyond screen-based coding. Create physical projects that light up, move, and respond to the real world.",
-          },
-          {
-            title: "Industry Standard",
-            description:
-              "Arduino skills transfer directly to careers in engineering, robotics, IoT, and product development.",
-          },
-          {
-            title: "Massive Community",
-            description:
-              "Join millions of makers. Find tutorials, get help, and share your creations with a supportive global community.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=_2O_IhdJNJ4"
         title="See the Arduino Starter Kit in Action"
-        background="gray"
+        background="white"
       />
 
       {/* What Is Arduino Section */}
@@ -89,7 +64,7 @@ export default async function ArduinoStarterKitPage() {
         title="Your First Electronics Lab"
         body="The official Arduino Starter Kit is built around the Arduino UNO — the world's most popular learning board for electronics and coding. Inside you'll find over 100 components including LEDs, sensors, motors, a breadboard, and jumper wires, along with a 170-page printed guidebook that walks you through 15 real projects. Each project teaches actual C/C++ programming and hands-on circuit building, starting from absolute basics and gradually introducing more advanced concepts. No prior experience with electronics or coding is needed — the book explains everything from what a resistor does to how to write your first loop."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Features Grid */}
@@ -131,7 +106,7 @@ export default async function ArduinoStarterKitPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Life Skills Section */}
@@ -259,11 +234,11 @@ export default async function ArduinoStarterKitPage() {
               "Yes! The Arduino UNO is compatible with hundreds of shields, sensors, and modules. Once you've mastered the basics, you can expand with additional components.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* What's in the Box */}
       <WhatsIncluded
@@ -290,7 +265,7 @@ export default async function ArduinoStarterKitPage() {
           "Piezo buzzer",
           "And many more components...",
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Specifications */}
@@ -308,7 +283,7 @@ export default async function ArduinoStarterKitPage() {
           { label: "Dimensions", value: "68.6 x 53.4 mm" },
           { label: "Book Languages", value: "English (multi-language available)" },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Final CTA */}

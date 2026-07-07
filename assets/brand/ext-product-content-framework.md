@@ -130,7 +130,7 @@ Keep FAQs focused on extension-specific concerns (4-5 questions):
 - Still derived from Shopify metafields
 - Same as standard product pages
 
-### NumberedSteps or FeatureGrid
+### FeatureGrid
 - Focus on new capabilities: "What This Adds"
 - 3-4 items highlighting what's new
 - Don't repeat features of the parent product

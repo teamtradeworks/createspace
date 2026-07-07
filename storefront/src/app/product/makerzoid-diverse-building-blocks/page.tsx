@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -51,35 +50,11 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Diverse Building Blocks */}
-      <NumberedSteps
-        title="Why Diverse Building Blocks?"
-        subtitle="Most STEM toys teach one thing. This set teaches spatial reasoning, physics, and engineering — all through the joy of building."
-        steps={[
-          {
-            title: "100+ Models in One Box",
-            description:
-              "Cars, aircraft, Star Wars favourites, and the new Dancing Man series — your child can build something new every single time they open the box.",
-          },
-          {
-            title: "No Batteries, No Screens",
-            description:
-              "Purely physical, mechanical construction. When models move, it's because gravity and gears made them — a powerful lesson in real physics.",
-          },
-          {
-            title: "Built to Share",
-            description:
-              "With 370+ pieces, there's enough for siblings or friends to build together. Older children naturally guide younger ones — everyone learns.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=sCKREXeJqg8"
         title="See the Makerzoid Diverse Building Blocks in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Lifestyle: close-up build */}
@@ -89,7 +64,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
         title="Proper Gears. Real Axles. Moving Joints."
         body="The Diverse Building Blocks set is designed with real mechanical detail — proper gears, axles, and moving joints — so finished models look and move like the real thing. Build a helicopter with rotating blades, a walking robot, a dancing figure. Plenty of builds to work on — each one a new challenge."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}

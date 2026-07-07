@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -49,30 +48,6 @@ export default async function ArduinoSensorKitBasePage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why This Kit */}
-      <NumberedSteps
-        title="Why the Arduino Sensor Kit?"
-        subtitle="Arduino is the world's most popular platform for learning electronics and coding. This kit makes it easier than ever to start — no breadboard, no wiring diagrams, no confusion."
-        steps={[
-          {
-            title: "Real Code, Real Results",
-            description:
-              "Your child doesn't click blocks — they write actual C++ code in the same IDE used by engineers worldwide. Every line translates directly into something physical: a light blinks, a buzzer sounds, a screen shows temperature.",
-          },
-          {
-            title: "10 Sensors, 10 Lessons",
-            description:
-              "Each of the 10 modules has its own dedicated lesson on the official Arduino Sensor Kit platform. One sensor, one new concept — clear, satisfying, and progressive from the very first plug-in.",
-          },
-          {
-            title: "No Dead Ends",
-            description:
-              "After the 10 lessons, the learning doesn't stop. Mix and match modules to dream up custom projects, and tap into one of the world's largest maker communities. This kit grows with your child.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Setup Image + Text */}
       <ImageTextBlock

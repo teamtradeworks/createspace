@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   CustomerShowcase,
@@ -51,35 +50,11 @@ export default async function ArduinoStudentKitPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why the Arduino Student Kit */}
-      <NumberedSteps
-        title="Why the Arduino Student Kit?"
-        subtitle="Arduino has been the world's most trusted platform for learning electronics since 2005. The Student Kit brings that foundation home."
-        steps={[
-          {
-            title: "Structured Learning That Builds",
-            description:
-              "Not just a bag of components — 9 progressive lessons guide your child from electricity basics to functional real-world projects. Each lesson builds on the last.",
-          },
-          {
-            title: "Real Skills, Real Tools",
-            description:
-              "Your child codes in the same environment used by engineers worldwide. The included multimeter measures actual voltage and current — not a toy, a genuine instrument.",
-          },
-          {
-            title: "Learning That Outlasts the Kit",
-            description:
-              "After the curriculum, the components are theirs to keep. The Arduino community offers thousands of free projects for whatever they want to create next.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=t-PZsb9ci9E&t=7s"
         title="See the Arduino Student Kit in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Online Platform Section */}
@@ -89,7 +64,7 @@ export default async function ArduinoStudentKitPage() {
         title="A Platform Built for Home Learning"
         body="The Arduino Student Kit isn't just a box of components — it's built around an exclusive online learning platform. Your child logs in, activates their kit, and follows nine step-by-step lessons with clear instructions, diagrams, and pre-written code when they need a hand. A digital logbook tracks progress and encourages reflection, while the educator dashboard gives parents full visibility into what their child is learning."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Features Grid */}
@@ -135,7 +110,7 @@ export default async function ArduinoStudentKitPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* What They'll Build */}
@@ -188,7 +163,7 @@ export default async function ArduinoStudentKitPage() {
           },
         ]}
         moreText="Plus 3 more lessons and 2 open-ended projects — after the curriculum, all components are theirs to keep."
-        background="white"
+        background="gray"
         columns={3}
       />
 
@@ -199,7 +174,7 @@ export default async function ArduinoStudentKitPage() {
         title="Skills That Last Long After the Final Lesson"
         body="When your child debugs a circuit that won't light up or rewrites code to make the servo move just right, they're practising something far bigger than electronics. They're learning to stay calm when things don't go to plan, to think through problems step by step, and to feel the genuine pride that comes from fixing something with their own hands. Resilience, critical thinking, and confidence — skills that follow them into every classroom and career."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase */}

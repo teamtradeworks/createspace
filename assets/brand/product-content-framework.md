@@ -89,10 +89,10 @@ Every product page must answer three parent questions. If a parent can't answer 
 | Element               | Purpose                   | Where it appears                                    |
 | --------------------- | ------------------------- | --------------------------------------------------- |
 | **End result**        | Show the finished product | Hero image + tagline                                |
-| **Learning outcomes** | Justify educational value | Woven into page content (ImageTextBlocks, NumberedSteps, FeatureGrid) + SkillTags |
+| **Learning outcomes** | Justify educational value | Woven into page content (ImageTextBlocks, FeatureGrid) |
 | **What's included**   | Set expectations          | WhatsIncluded component                             |
 | **What's required**   | Remove purchase barriers  | FAQ or hero highlights (batteries, tools, software) |
-| **Longevity**         | Justify investment        | Body copy, NumberedSteps, or FeatureGrid            |
+| **Longevity**         | Justify investment        | Body copy or FeatureGrid                            |
 
 **Note on learning outcomes:** Use accessible language. Not "introduces computational thinking" but "teaches problem-solving and logical sequencing."
 
@@ -201,14 +201,6 @@ This maps content types to page sections. For component props and usage, see the
 - **Tagline:** One sentence, benefit-led, answers "what is this?"
 - **Highlights:** 3-4 strings, each addressing a different concern (projects included, experience needed, guide included, learning outcomes)
 
-### NumberedSteps content
-
-Best for "Why choose this?" positioning. 3 steps is ideal.
-- Each step should be a *benefit*, not a feature
-- Title: 2-4 words, punchy. Description: 1-2 sentences expanding the point
-- Good: "Build Real Things" / "Industry Standard" / "Massive Community"
-- Bad: "Step 1: Open Box" / "Step 2: Follow Instructions" / "Step 3: Complete Project"
-
 ### FeatureGrid content
 
 Best for feature breakdowns with icons. 3-6 features.
@@ -244,7 +236,6 @@ Show off the projects, challenges, and activities included with the product. Thi
 The total project/challenge/activity count should also be highlighted in:
 - **Hero highlights** (e.g. "39 hands-on projects with online tutorials")
 - **FeatureGrid** (e.g. a feature card about the number of projects)
-- **NumberedSteps** (if project variety is a key differentiator)
 
 ### WhatsIncluded content
 

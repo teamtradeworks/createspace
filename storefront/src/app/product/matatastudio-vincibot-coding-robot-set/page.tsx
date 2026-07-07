@@ -6,7 +6,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -52,35 +51,11 @@ export default async function VinciBotPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why VinciBot Section */}
-      <NumberedSteps
-        title="Why VinciBot?"
-        subtitle="VinciBot is one of the most comprehensive coding robots for children aged 8-12. From simple block-based coding to Python programming and AI, it grows with your child for years."
-        steps={[
-          {
-            title: "93+ Activities Mean Years of Learning",
-            description:
-              "Most coding robots include 5-10 projects. VinciBot includes 93+ structured activities plus unlimited creative projects. That's months of learning before your child even explores on their own.",
-          },
-          {
-            title: "From Scratch to Python to AI",
-            description:
-              "VinciBot is the only robot in this price range that seamlessly progresses from visual block-based coding (like Scratch) to real Python programming. Then it goes further with on-device AI and IoT projects.",
-          },
-          {
-            title: "Built by Education Specialists",
-            description:
-              "Created by MatataStudio, specialists in educational robotics since 2017. VinciBot aligns with international STEM standards (CSTA, NGSS, ISTE) and is designed for curriculum use.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=OfsxgAjj2Do&t=5s"
         title="See VinciBot in Action"
-        background="gray"
+        background="white"
       />
 
       {/* AI & Machine Learning */}
@@ -90,13 +65,14 @@ export default async function VinciBotPage() {
         title="Real AI Your Child Can Touch"
         body="VinciBot includes Tiny Machine Learning — artificial intelligence that runs directly on the robot without needing the internet. Your child will train the robot to recognise hand gestures, identify handwritten letters, and respond to real-world conditions. This isn't simulated AI or a simplified demo — it's the same machine learning technology used in smartphones and self-driving cars, just made accessible for kids. When they program VinciBot to wave when it sees a thumbs-up gesture, they're learning the foundations of computer vision and neural networks. That's a genuine foundation for careers in AI, data science, and robotics."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Features Grid */}
       <FeatureGrid
         title="8 Sensors Power Real-World Robotics"
         subtitle="VinciBot isn't just programmable — it's aware. Eight built-in sensors let it see, hear, and respond to its environment like a real robot."
+        background="white"
         features={[
           {
             icon: "eye",
@@ -131,7 +107,6 @@ export default async function VinciBotPage() {
             description: "Precisely tracks lines for maze challenges and drawing projects",
           },
         ]}
-        background="gray"
       />
 
       {/* Block-Based to Python */}
@@ -141,7 +116,7 @@ export default async function VinciBotPage() {
         title="Starts Simple, Goes Deep"
         body="VinciBot uses MatataCode — a free programming app for Windows, Mac, iPad, and Android tablets. Beginners start with colourful drag-and-drop blocks (just like Scratch) to make the robot move, light up, and play sounds. As your child gains confidence, they transition to Python — a professional programming language used at Google, NASA, and universities worldwide. The same robot, the same app, but now they're writing real code. By age 12, they could be programming AI models, building IoT weather stations, or creating games — skills that put them years ahead of their peers."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -149,6 +124,7 @@ export default async function VinciBotPage() {
         title="93+ Projects from Beginner to Expert"
         subtitle="VinciBot includes 75 online lessons organised into 5 progressive levels (A through E) plus an 18-challenge activity booklet in the box. Here are some favourites:"
         moreText="After completing the 93 core activities, your child can create unlimited projects: AI gesture recognition, IoT smart home systems, algorithmic art, autonomous vehicles, and more."
+        background="white"
         projects={[
           {
             name: "AI & Machine Learning",
@@ -187,7 +163,6 @@ export default async function VinciBotPage() {
             image: "/images/products/matatastudio-vincibot-coding-robot-set/lego-compatible.jpeg",
           },
         ]}
-        background="gray"
       />
 
       {/* Customer Showcase */}
@@ -228,11 +203,11 @@ export default async function VinciBotPage() {
             alt: "VinciBot box unpacked showing all components",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* Expansion Kits */}
       <ImageTextBlock

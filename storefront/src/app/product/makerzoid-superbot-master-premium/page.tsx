@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -58,30 +57,6 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
         ]}
       />
 
-      {/* Why Superbot Master Premium */}
-      <NumberedSteps
-        title="Why the Superbot Master Premium?"
-        subtitle="This isn't just another building kit. It's a complete robotics platform designed to grow with your child."
-        steps={[
-          {
-            title: "Built to Last for Years",
-            description:
-              "With 72+ models across beginner, intermediate, and advanced levels, there's always a new challenge. Simple vehicles take 20 minutes. Advanced autonomous robots take 3+ hours. The challenge grows as your child does.",
-          },
-          {
-            title: "Real Programming Skills",
-            description:
-              "Scratch 3.0 is used in schools across 150+ countries. Your child builds genuine computational thinking — sequences, loops, conditionals, and event-driven logic — while watching their code make a real robot move.",
-          },
-          {
-            title: "Competition-Ready",
-            description:
-              "Designed as a competition-grade kit, it includes Sumo Robot and Football Robot challenge modes. Your child can test their builds against others — or just challenge themselves to go faster, smarter, further.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Smart Sensors */}
       <FeatureGrid
         title="Smart Sensors, Smarter Robots"
@@ -125,7 +100,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Coding section */}
@@ -135,7 +110,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
         image="/images/products/makerzoid-superbot-master-premium/scratch-3-0-and-coding-on-makerzoid-lab.jpg"
         imageAlt="Scratch 3.0 coding interface on the Makerzoid Lab app"
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -187,7 +162,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           },
         ]}
         moreText="Plus 66+ more builds including the Batmobile, Sumo Robot, Dragon Tiger Chariot, colour sorters, LED displays, and fully custom designs"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase */}

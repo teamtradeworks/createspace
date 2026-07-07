@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -51,35 +50,11 @@ export default async function BbcMicroBitClubPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why micro:bit for Your Classroom */}
-      <NumberedSteps
-        title="Why Choose micro:bit for Your Classroom?"
-        subtitle="The world's most widely adopted physical computing platform — used in 60+ countries by over 20 million learners."
-        steps={[
-          {
-            title: "Built for Group Work",
-            description:
-              "10 independent boards mean every learner codes simultaneously — no rotation, no waiting. Multiplayer radio activities and collaborative experiments are only possible when the whole group has boards at once.",
-          },
-          {
-            title: "Zero Barriers to Entry",
-            description:
-              "No software installation. No STEM background required. Learners code from any web browser using MakeCode's intuitive drag-and-drop editor — your group can be up and running in under five minutes.",
-          },
-          {
-            title: "A Platform, Not Just a Product",
-            description:
-              "The Micro:bit Educational Foundation provides continuously-updated free lesson plans, curriculum resources, assessment tools, and teacher training. The value of this kit grows over time — at no additional cost.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=Wuza5WXiMkc"
         title="See the BBC micro:bit Club in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Activities Section */}
@@ -89,7 +64,7 @@ export default async function BbcMicroBitClubPage() {
         title="60+ Activities Across Every Learning Area"
         body="The micro:bit's free online project library spans computing, mathematics, science, music, and design. From first LED animations to data-logging science experiments and multiplayer wireless challenges, there is a structured activity for every ability level. The Micro:bit Educational Foundation's Make it: Code it series provides ready-to-teach lessons with defined learning objectives — no lesson planning from scratch required."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}
@@ -135,7 +110,7 @@ export default async function BbcMicroBitClubPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Research-Backed Section */}
@@ -145,7 +120,7 @@ export default async function BbcMicroBitClubPage() {
         title="Research-Backed Learning Outcomes"
         body="Research from the Micro:bit Educational Foundation shows that 80% of learners taught with micro:bit agree computing is easier to understand than other subjects, versus just 52% of those who hadn't used it. After lessons with micro:bit, 80% of girls agreed coding is a useful skill to learn. And 84% of educators reported increased confidence in teaching computing after using micro:bit resources. These are measurable outcomes documented across thousands of classrooms worldwide."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -193,7 +168,7 @@ export default async function BbcMicroBitClubPage() {
           },
         ]}
         moreText="Plus 40+ more activities at microbit.org — beginner tutorials, science experiments, music projects, wearables, and advanced AI/machine learning with CreateAI"
-        background="gray"
+        background="white"
       />
 
       {/* Learners in Action */}

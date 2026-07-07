@@ -7,7 +7,6 @@ import {
   HeroSection,
   ExtensionBanner,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -75,30 +74,6 @@ export default async function VinciBotInventorKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* What This Adds */}
-      <NumberedSteps
-        title="What the Inventor Kit Adds"
-        subtitle="Your child already codes with VinciBot. Now they can connect real electronic sensors and see their code control the physical world."
-        steps={[
-          {
-            title: "Real Sensors — Not Toy Approximations",
-            description:
-              "The DHT11 measures actual temperature and humidity. The joystick is the same analog input used in game controllers. The 360° servo opens a bin lid or spins a fan with precision. These are genuine electronic components used in professional prototyping, not simplified toy versions. Your child learns electronics on the real thing.",
-          },
-          {
-            title: "7 Guided Projects that Bridge Code and the Physical World",
-            description:
-              "The building manual walks through 7 structured electronics projects: an Intelligent Fan that responds to conditions, a Waste Bin that opens on command, a joystick-powered Rock Paper Scissors game, an Ambient Light display, a Game Designer challenge, a Fun Activities collection, and more. Each project teaches a different aspect of physical computing.",
-          },
-          {
-            title: "A Gateway to Limitless Electronics Experimentation",
-            description:
-              "The Module Link Unit connects VinciBot to third-party sensors — including the entire Arduino and Micro:bit ecosystems. Once your child has finished the 7 guided projects, they can explore thousands of additional sensors and design their own electronics experiments from scratch. This kit never runs out of possibilities.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Video */}
       <VideoEmbed

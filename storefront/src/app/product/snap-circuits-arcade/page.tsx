@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   ImageTextBlock,
   FeatureGrid,
   ProjectShowcase,
@@ -50,30 +49,6 @@ export default async function SnapCircuitsArcadePage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Snap Circuits Arcade */}
-      <NumberedSteps
-        title="Why Snap Circuits Arcade?"
-        subtitle="Electronics kits often feel like homework. The Arcade is different — it gives your child a reason to finish every circuit."
-        steps={[
-          {
-            title: "Build Real Electronics",
-            description:
-              "Your child isn't pressing buttons on a screen — they're assembling genuine circuits with resistors, capacitors, transistors, and a programmable microcontroller. When the LED lights up, it's because the circuit they built is working.",
-          },
-          {
-            title: "Play Games They Built",
-            description:
-              "The Arcade's superpower is a pre-programmed microcontroller with 21 mini games — electronic dice, timing challenges, Baseball, Memory, and Blackjack. Build the circuit, then play the game. That 'I made this' moment is irreplaceable.",
-          },
-          {
-            title: "Confidence That Compounds",
-            description:
-              "When a circuit fails, your child learns to troubleshoot — a genuine engineering skill. When it works, they feel it. That cycle of challenge and success builds resilience and a growth mindset that shows up in everything they tackle.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* The Motivation Loop */}
       <ImageTextBlock
         image="/images/products/snap-circuits-arcade/boy-playing-with-circuit.jpg"
@@ -81,7 +56,7 @@ export default async function SnapCircuitsArcadePage() {
         title="The Motivation Loop Other Kits Miss"
         body="Most electronics kits ask your child to build something and then put it away. The Arcade is built differently. Every circuit is also a game — dice games, a baseball challenge, memory sequences, even Blackjack. Build the circuit, then play what you made. It's a loop that's genuinely hard to get bored of, and it's the reason the Arcade keeps children coming back to the board long after other kits have been shelved."
         layout="image-left"
-        background="gray"
+        background="white"
       />
 
       {/* Key Features */}
@@ -127,7 +102,7 @@ export default async function SnapCircuitsArcadePage() {
           },
         ]}
         columns={3}
-        background="white"
+        background="gray"
       />
 
       {/* Real Electronics. Real Skills. */}
@@ -137,7 +112,7 @@ export default async function SnapCircuitsArcadePage() {
         title="Real Electronics. Real Skills."
         body="Each snap-together component teaches something genuine — not a simulation of electronics, but actual resistors, capacitors, transistors, and a programmable microcontroller. The board is designed to mirror a real printed circuit board. Every component shows its own schematic symbol. When your child finishes a project, they're not just proud — they understand why it worked. That understanding is the foundation for coding, engineering, and any career requiring logical thinking."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
       {/* Project Showcase */}
@@ -186,7 +161,7 @@ export default async function SnapCircuitsArcadePage() {
           },
         ]}
         moreText="Plus 194+ more — including 21 fully playable arcade games, timing challenges, and alarm circuits"
-        background="white"
+        background="gray"
       />
 
       {/* Customer Showcase */}
@@ -227,16 +202,16 @@ export default async function SnapCircuitsArcadePage() {
             alt: "Close-up of the Snap Circuits Arcade box showing age 8+ recommendation",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQs */}
       <ProductFAQ
         title="Common Questions"
-        background="gray"
+        background="white"
         faqs={[
           {
             question: "Does my child need any prior experience?",
@@ -281,7 +256,7 @@ export default async function SnapCircuitsArcadePage() {
         title="What's in the Box"
         image="/images/products/snap-circuits-arcade/whats-in-the-box.jpeg"
         imageAlt="Snap Circuits Arcade components laid out showing all included parts"
-        background="white"
+        background="gray"
         items={[
           "Battery pack snap module",
           "Slide switch",
@@ -309,7 +284,7 @@ export default async function SnapCircuitsArcadePage() {
       {/* Specifications */}
       <Specifications
         title="Technical Details"
-        background="gray"
+        background="white"
         specs={[
           { label: "Brand", value: "Snap Circuits by Elenco Electronics" },
           { label: "Model", value: "SCA-200" },

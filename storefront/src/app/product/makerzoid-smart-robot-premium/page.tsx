@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -50,30 +49,6 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Choose This Kit */}
-      <NumberedSteps
-        title="Why Choose Makerzoid?"
-        subtitle="Designed by robotics professors and engineers, Makerzoid kits teach real mechanical engineering through building and play."
-        steps={[
-          {
-            title: "Limitless Creativity",
-            description:
-              "With 200+ models from musical robots to sports trainers to vehicles, your child will never run out of new challenges to tackle.",
-          },
-          {
-            title: "Grows With Them",
-            description:
-              "Start with simple button-controlled builds, progress to sensor interactions, then unlock full programming with Bluetooth - perfect for ages 6 to 12+.",
-          },
-          {
-            title: "Real Skills, Real Fun",
-            description:
-              "Hands-on robotics builds genuine problem-solving abilities, logical thinking, and confidence that carries into school and beyond.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Learning Through Building */}
       <ImageTextBlock
         image="/images/products/makerzoid-smart-robot-premium/child-building-while-coding-on-tablet.jpg"
@@ -81,7 +56,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         title="What They'll Build"
         body="Watch your child's confidence grow as they bring their creations to life. The Makerzoid Smart Robot Premium combines hands-on building with intuitive coding on a tablet or phone. Using the free Makerzoid app with 2D and 3D animated instructions, your child can construct robots step-by-step, then program them to move, respond, and interact. This seamless blend of physical and digital learning makes abstract concepts tangible and immediately rewarding."
         layout="image-left"
-        background="gray"
+        background="white"
       />
 
       {/* Features Grid */}
@@ -125,7 +100,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           },
         ]}
         columns={3}
-        background="white"
+        background="gray"
       />
 
       {/* Programming Section */}
@@ -135,7 +110,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         title="From Idea to Working Robot"
         body="There's nothing quite like the pride on a child's face when they complete their first working robot. With 200+ different models to explore, your child will experience that sense of accomplishment again and again. From simple button-controlled builds to advanced programmable creations, each completed project builds confidence, problem-solving skills, and genuine excitement about learning. The robots they build aren't just toys—they're proof of what they can achieve."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
       {/* Project Showcase */}
@@ -182,7 +157,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           },
         ]}
         moreText="Plus 194+ more models including drummers, farmers, gymnasts, dinosaurs, vehicles, and advanced programmable robots organised by difficulty level in the Makerzoid app"
-        background="white"
+        background="gray"
       />
 
       {/* Customer Showcase */}
@@ -215,11 +190,11 @@ export default async function MakerzoidSmartRobotPremiumPage() {
             alt: "Close-up of building blocks connected together",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
       <ProductFAQ

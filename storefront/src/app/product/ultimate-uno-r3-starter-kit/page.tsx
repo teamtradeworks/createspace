@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -48,30 +47,6 @@ export default async function UltimateUnoR3StarterKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Choose This Kit */}
-      <NumberedSteps
-        title="Why the Ultimate Kit?"
-        subtitle="There are plenty of Arduino starter kits out there. Here's what makes this one worth it."
-        steps={[
-          {
-            title: "Build Real Projects",
-            description:
-              "From motion-triggered alarms to RFID access systems, each of the 33 lessons produces something that actually does something. No throwaway demos.",
-          },
-          {
-            title: "Every Major Sensor Included",
-            description:
-              "Gyroscope, real-time clock, RFID, ultrasonic, PIR motion, water level, sound — the sensors that make the best projects are already in the box.",
-          },
-          {
-            title: "Skills That Transfer",
-            description:
-              "Electronics and programming are foundational skills. What your child learns here connects directly to robotics, IoT, engineering, and software careers.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* What's Inside */}
       <ImageTextBlock

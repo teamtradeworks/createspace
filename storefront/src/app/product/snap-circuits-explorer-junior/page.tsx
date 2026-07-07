@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -50,30 +49,6 @@ export default async function SnapCircuitJuniorPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Snap Circuits Section */}
-      <NumberedSteps
-        title="Why Snap Circuits?"
-        subtitle="Snap Circuits is trusted by millions of families, schools, and educators worldwide. Here's why it's the perfect introduction to electronics for curious kids."
-        steps={[
-          {
-            title: "Safe & Simple",
-            description:
-              "Large colour-coded pieces snap together like LEGO—no soldering, small wires, or tools. The patented Circuit Safe® technology prevents incorrect connections from causing damage.",
-          },
-          {
-            title: "Real Circuits, Real Learning",
-            description:
-              "Not a toy simulation. Your child builds actual working circuits with real electronic components—resistors, LEDs, motors, and integrated circuits—just like those inside radios and computers.",
-          },
-          {
-            title: "Builds Confidence & Skills",
-            description:
-              "101 projects arranged from simple to complex. As your child completes each one, they build technical skills alongside resilience, problem-solving, and pride in creating something real.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* What Is Snap Circuits */}
       <ImageTextBlock

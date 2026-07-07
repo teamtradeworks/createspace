@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ProjectShowcase,
@@ -51,35 +50,11 @@ export default async function MatataStudioMicroscopePage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why the MX2-AS */}
-      <NumberedSteps
-        title="Why the MX2-AS?"
-        subtitle="Most children never get to see what's invisible to the naked eye. The MX2-AS changes that — giving your child the tools real scientists use, in a form they can pick up and explore with right away."
-        steps={[
-          {
-            title: "Built for Real Exploration",
-            description:
-              "The handheld mode means your child isn't stuck at a desk. Take it outside to observe insects and garden plants, then bring it inside to study the included prepared slides. Science happens everywhere.",
-          },
-          {
-            title: "See What Others Miss",
-            description:
-              "With up to 1600× digital magnification, a grain of salt becomes a geometric crystal, a leaf reveals its cell walls, and an orange peel looks like another planet. These are genuine 'wow' moments children remember.",
-          },
-          {
-            title: "Skills That Last a Lifetime",
-            description:
-              "Scientific observation, critical thinking, and patience are skills that carry into every subject and career. Your child builds them naturally through the simple act of curious exploration.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=8UDRSWKKbNY"
         title="See the MatataStudio Digital Microscope MX2-AS in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Indoors & Outdoors */}
@@ -89,7 +64,7 @@ export default async function MatataStudioMicroscopePage() {
         title="From the Garden to the Desk"
         body="One minute your child is crouched over a flower in the garden — handheld microscope in hand, petals filling the screen. The next they're at the desk, microscope clipped onto its stand, carefully placing a specimen in the observation chamber. The MX2-AS is one of very few children's microscopes genuinely designed for both. No swapping accessories, no fiddling with attachments — just pick it up or put it down."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}
@@ -135,7 +110,7 @@ export default async function MatataStudioMicroscopePage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Document & Share */}
@@ -145,7 +120,7 @@ export default async function MatataStudioMicroscopePage() {
         title="Document Every Discovery"
         body="The MX2-AS isn't just for looking — it's for capturing and sharing. Your child taps the built-in touch buttons to photograph or record what they're observing, saving it directly to the 8GB microSD card. Connect to the free MatataXplore app on a tablet or laptop to view observations on a bigger screen, annotate images, and build a digital science journal. That's exactly how real researchers document their work — and now your child can too."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Observation Activities */}
@@ -202,7 +177,7 @@ export default async function MatataStudioMicroscopePage() {
           },
         ]}
         moreText="Plus any specimen your child can find — pond water, flower pollen, hair, skin, and more"
-        background="gray"
+        background="white"
       />
 
       {/* CustomerShowcase — ALL end-user images */}
@@ -251,15 +226,16 @@ export default async function MatataStudioMicroscopePage() {
             label: "microSD Slot",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
       <ProductFAQ
         title="Common Questions"
+        background="gray"
         faqs={[
           {
             question: "What age is the MX2-AS suitable for?",
@@ -292,7 +268,6 @@ export default async function MatataStudioMicroscopePage() {
               "Almost anything! The 5 included prepared slides get them started with biological specimens. From there, the natural world is the limit — insects, leaves, flower petals, soil, rocks, fabric, coins, sugar crystals, and more. The dual LED lighting system handles both transparent slides and solid, opaque objects.",
           },
         ]}
-        background="white"
       />
 
       {/* What's in the Box */}
@@ -312,7 +287,7 @@ export default async function MatataStudioMicroscopePage() {
           "Storage bag",
           "Calibration ruler",
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Specifications */}
@@ -333,7 +308,7 @@ export default async function MatataStudioMicroscopePage() {
           { label: "Screen Rotation", value: "135°" },
           { label: "App Compatibility", value: "Android, iOS, Windows, macOS, Chrome OS" },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Final CTA */}

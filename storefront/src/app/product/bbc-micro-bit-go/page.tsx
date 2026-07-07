@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -51,35 +50,11 @@ export default async function MicrobitGoPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why micro:bit Section */}
-      <NumberedSteps
-        title="Why micro:bit?"
-        subtitle="The BBC micro:bit is designed to make coding fun and accessible. Used in classrooms across 60+ countries, it's one of the world's most popular educational microcontrollers."
-        steps={[
-          {
-            title: "Code in Minutes",
-            description:
-              "Open your browser, drag some blocks, and flash your code. No downloads, no setup, no complicated configurations.",
-          },
-          {
-            title: "Real Hardware, Real Results",
-            description:
-              "See your code come to life instantly. Light up LEDs, play sounds, detect motion - it's coding you can touch.",
-          },
-          {
-            title: "Grow at Your Own Pace",
-            description:
-              "Start with visual blocks, progress to JavaScript or Python. The micro:bit grows with you from first project to advanced maker.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=u2u7UJSRuko"
         title="Meet the micro:bit"
-        background="gray"
+        background="white"
       />
 
       {/* What Is micro:bit Section */}
@@ -89,7 +64,7 @@ export default async function MicrobitGoPage() {
         title="A Pocket-Sized Programmable Computer"
         body="The BBC micro:bit V2 is a tiny computer — about the size of a credit card — designed from the ground up to teach coding. Despite its size, the board packs a 25-LED display, built-in speaker, microphone, accelerometer, compass, temperature sensor, and wireless connectivity. You program it directly in your web browser using Microsoft MakeCode's drag-and-drop blocks — no software to install. The Go bundle includes the micro:bit V2 board, a USB cable, battery holder, and batteries, so everything you need to start coding is right in the box."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Features Grid */}
@@ -132,7 +107,7 @@ export default async function MicrobitGoPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Learn Together Section */}
@@ -142,7 +117,7 @@ export default async function MicrobitGoPage() {
         title="Built for Group Learning"
         body="The micro:bit's built-in radio lets devices talk to each other wirelessly. Create multiplayer games, send secret messages, or build collaborative projects. Learning is always more fun with friends."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -268,7 +243,7 @@ export default async function MicrobitGoPage() {
               "Yes! The micro:bit V2 works with the vast ecosystem of micro:bit accessories including robot kits, expansion boards, and sensor packs. Just check that accessories are V2 compatible for full feature support.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* What's in the Box */}
@@ -283,7 +258,7 @@ export default async function MicrobitGoPage() {
           "2x AAA Batteries",
           "Quick Start Guide",
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Specifications */}
@@ -301,7 +276,7 @@ export default async function MicrobitGoPage() {
           { label: "Dimensions", value: "4cm x 5cm" },
           { label: "Programming", value: "MakeCode, Python, Scratch" },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Reviews */}
