@@ -229,7 +229,16 @@ Include:
 - Single `<h1>` (provided by `HeroSection` — do not add another)
 - `RelatedProducts` at the bottom
 
-### 8. Remind the User of Pre-Push Checks
+### 8. Humanize the Copy
+
+Before finishing, refine the prose you wrote using the **humanizer** skill (`.agents/skills/humanizer/SKILL.md`). Apply it to every piece of customer-facing copy on the page — the tagline, highlights, section body text, FAQ answers, and CTA copy.
+
+The humanizer removes the tells that make copy read as AI-generated: em dashes, forced rule-of-three lists, promotional filler ("vibrant", "testament", "boasts"), superficial "-ing" clauses, and negative parallelisms. The goal is copy that sounds like a real person at CREATESPACE wrote it.
+
+- Only touch the prose you authored — never code, imports, prop names, or dynamic Shopify data.
+- Preserve the experience-led simple-product voice and every specific fact from the research. Humanizing refines how the copy reads; it does not change what it claims.
+
+### 9. Remind the User of Pre-Push Checks
 
 After writing the page, remind the user to run from `storefront/`:
 ```bash
@@ -264,6 +273,7 @@ Before completing, verify:
 - [ ] `generateMetadata` exports `title`, `description`, `alternates.canonical`, `openGraph.images`
 - [ ] HeroSection receives `product` prop (no hardcoded prices)
 - [ ] Images optimised if any were copied
+- [ ] Copy passed through the humanizer skill to remove AI writing tells
 - [ ] Backgrounds alternate — no two consecutive sections share the same colour
 - [ ] File created at correct path: `storefront/src/app/product/{slug}/page.tsx`
 - [ ] User reminded of pre-push checks (`npm run lint`, `npm run build`, `npm test`) and sitemap update

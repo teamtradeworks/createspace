@@ -85,6 +85,8 @@ Extension pages use fewer sections and shorter copy than standard product pages.
 - Use vague language: "enhances your experience" — say what it actually adds
 - Forget to mention the parent product requirement
 
+**Final pass:** Run drafted copy through the humanizer to strip AI tells (em dashes, rule-of-three, promotional filler) before publishing. See [voice-and-tone.md](./voice-and-tone.md#sounding-human-not-ai-generated).
+
 ### Hero tagline and highlights
 
 The hero must immediately communicate the extension nature:

@@ -98,6 +98,25 @@ These patterns consistently push our content away from our brand voice. Flag and
 
 ---
 
+## Sounding Human (Not AI-Generated)
+
+Most of our copy is drafted with AI help. AI writing has specific tells that make it read as generic and untrustworthy, which is the opposite of our voice. As a final pass on any drafted copy, run it through the **humanizer** skill (`.agents/skills/humanizer/SKILL.md`), or check it against these patterns by hand.
+
+Watch for and rewrite:
+
+- **Em dashes and en dashes.** Cut them. Use a period, comma, colon, or parentheses instead. This is the single most reliable AI tell.
+- **Rule of three.** AI forces ideas into groups of three ("innovation, inspiration, and insight"). Break the pattern; say the one or two things that actually matter.
+- **Promotional filler.** "vibrant", "testament", "boasts", "nestled", "rich", "seamless", "stands as". This overlaps with the grandiose-language table above.
+- **Superficial "-ing" clauses.** Sentences padded with "...highlighting its importance", "...ensuring a great experience", "...fostering creativity". Delete or replace with a concrete claim.
+- **Negative parallelisms.** "It's not just a kit, it's an adventure." Say the real thing plainly.
+- **Fake profundity.** "At its core...", "The real question is...", aphorisms like "X is the language of Y". Replace with the ordinary point underneath.
+- **Signposting.** "Let's dive in", "Here's what you need to know." Just say the thing.
+- **Title Case Headings and stray emojis.** Use sentence case; keep emojis out unless there is a real reason.
+
+Humanizing refines *how* copy reads. It must never change a factual claim, and it must preserve everything in the rules above (specificity, honesty, no invented social proof).
+
+---
+
 ## Claims & Social Proof Rules
 
 1. **Only claim what we can verify.** We're a small South African business. We don't have thousands of customers — and we don't need to pretend we do.

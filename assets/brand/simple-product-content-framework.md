@@ -46,6 +46,7 @@ The "learning outcomes" framing is replaced with experience and activity framing
 - **Learning is incidental, not the headline.** Skill tags still appear when used, but copy doesn't sell skill acquisition as the primary benefit.
 - **No coding or electronics framing.** No mention of platforms, programming, soldering, circuits, microcontrollers — unless genuinely a product feature.
 - **Lean on the research content's existing language** for section titles, counts, and framing. Amazon listings and brand websites often surface what the product actually calls its activities, experiments, or contents — borrow that vocabulary. Don't invent generic copy ("Activities Inside") when specific copy exists ("7 Mind-Blowing Experiments"). This applies to *naming* and *framing* — descriptions and body copy still get rewritten in CREATESPACE voice per the parent framework's "no copying and pasting" rule.
+- **Final pass:** Run drafted copy through the humanizer to strip AI tells (em dashes, rule-of-three, promotional filler) before publishing. See [voice-and-tone.md](./voice-and-tone.md#sounding-human-not-ai-generated).
 
 ---
 

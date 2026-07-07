@@ -339,6 +339,15 @@ npx sharp-cli --input storefront/public/images/products/{slug}/image.jpg --outpu
 Create/update the page file at:
 `storefront/src/app/product/{slug}/page.tsx`
 
+### 8. Humanize the Copy
+
+Before finishing, refine the prose you wrote using the **humanizer** skill (`.agents/skills/humanizer/SKILL.md`). Apply it to every piece of customer-facing copy on the page — the tagline, highlights, learning outcomes, module descriptions, FAQ answers, and CTA copy.
+
+The humanizer removes the tells that make copy read as AI-generated: em dashes, forced rule-of-three lists, promotional filler ("vibrant", "testament", "boasts"), superficial "-ing" clauses, and negative parallelisms. The goal is copy that sounds like a real person at CREATESPACE wrote it.
+
+- Only touch the prose you authored — never code, imports, prop names, or dynamic Shopify data.
+- Preserve the course-focused brand voice and every specific fact from the research. Humanizing refines how the copy reads; it does not change what it claims.
+
 ## Content Transformation Guidelines
 
 ### Hero Section
@@ -426,6 +435,7 @@ Before completing, verify:
 - [ ] CTA secondary link goes to `/education/courses`
 - [ ] FAQ addresses course-specific concerns (access, duration, prerequisites)
 - [ ] No physical product language (batteries, unboxing, soldering, etc.)
+- [ ] Copy passed through the humanizer skill to remove AI writing tells
 - [ ] Images optimized if any were copied
 - [ ] generateMetadata function included
 - [ ] File created at correct path: `storefront/src/app/product/{slug}/page.tsx`
