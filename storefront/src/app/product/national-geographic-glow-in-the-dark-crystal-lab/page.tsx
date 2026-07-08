@@ -32,7 +32,7 @@ export default async function NatGeoGlowCrystalLabPage() {
 
       <HeroSection
         product={product}
-        tagline="Grow an awesome glowing crystal — ready to display in just a few days"
+        tagline="Grow an awesome glowing crystal, ready to display in just a few days"
         highlights={[
           "Crystal grows in as little as 3 days",
           "Real fluorite specimen included",
@@ -65,7 +65,7 @@ export default async function NatGeoGlowCrystalLabPage() {
             icon: "eye",
             title: "Inspect Every Detail",
             description:
-              "The included magnifying glass lets your child observe crystal structure up close as it develops — tiny formations visible day by day.",
+              "The included magnifying glass lets your child observe crystal structure up close as it develops, tiny formations visible day by day.",
           },
           {
             icon: "star",
@@ -105,17 +105,17 @@ export default async function NatGeoGlowCrystalLabPage() {
           {
             question: "What age is this kit best for?",
             answer:
-              "The kit is recommended for ages 8 and up. Younger children can enjoy it too, but should have an adult closely involved throughout — particularly for the boiling water step.",
+              "The kit is recommended for ages 8 and up. Younger children can enjoy it too, but should have an adult closely involved throughout, particularly for the boiling water step.",
           },
           {
             question: "Does my child need adult help to set it up?",
             answer:
-              "An adult is needed for the initial mixing step, which requires boiling water. You'll also need a standard glass or jar (not included). After mixing, your child places the crystal solution in a safe spot and observes it daily — it's very much a kid-led activity once it's set up.",
+              "An adult is needed for the initial mixing step, which requires boiling water. You'll also need a standard glass or jar (not included). After mixing, your child places the crystal solution in a safe spot and observes it daily, it's very much a kid-led activity once it's set up.",
           },
           {
             question: "Is it messy? Will the powder stain?",
             answer:
-              "The setup is fairly tidy — the crystal powder mixes into water and is unlikely to stain if handled carefully. We recommend doing the initial mixing over a sink. Once the crystals have grown, they're solid and sit cleanly on the display stand.",
+              "The setup is fairly tidy, the crystal powder mixes into water and is unlikely to stain if handled carefully. We recommend doing the initial mixing over a sink. Once the crystals have grown, they're solid and sit cleanly on the display stand.",
           },
           {
             question: "What exactly glows in the dark?",
@@ -125,17 +125,17 @@ export default async function NatGeoGlowCrystalLabPage() {
           {
             question: "How long does the experiment take?",
             answer:
-              "The initial setup takes around 10–15 minutes. After that, crystals form gradually over 3–4 days while your child checks in daily. Once grown, the crystals are a permanent display piece — the waiting and watching is all part of the experience.",
+              "The initial setup takes around 10–15 minutes. After that, crystals form gradually over 3–4 days while your child checks in daily. Once grown, the crystals are a permanent display piece, the waiting and watching is all part of the experience.",
           },
           {
             question: "Can the experiment be done again?",
             answer:
-              "The crystal-growing powder is used in one batch, so the main growing experiment is single-use. The seed rock, magnifying glass, display stand, and fluorite specimen are permanent keepsakes. If your child wants to grow more, National Geographic makes larger crystal kits — including a Jumbo Crystal Growing Kit for much bigger results.",
+              "The crystal-growing powder is used in one batch, so the main growing experiment is single-use. The seed rock, magnifying glass, display stand, and fluorite specimen are permanent keepsakes. If your child wants to grow more, National Geographic makes larger crystal kits, including a Jumbo Crystal Growing Kit for much bigger results.",
           },
           {
             question: "Is it safe?",
             answer:
-              "Yes — the crystal powder is safe when used as directed and the fluorite specimen is a genuine natural mineral. Small parts mean the kit is not suitable for children under 3. Adult supervision is required for the boiling water step.",
+              "Yes, the crystal powder is safe when used as directed and the fluorite specimen is a genuine natural mineral. Small parts mean the kit is not suitable for children under 3. Adult supervision is required for the boiling water step.",
           },
         ]}
       />

@@ -38,11 +38,11 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="100+ models, endless builds — no batteries, no coding, just imagination"
+        tagline="100+ models, endless builds, no batteries, no coding, just imagination"
         highlights={[
           "100+ official models to build and rebuild",
           "370+ pieces in a single versatile set",
-          "No coding or batteries needed — pure hands-on building",
+          "No coding or batteries needed, pure hands-on building",
           "Free 3D guidance app for independent building",
         ]}
         addons={addons}
@@ -54,22 +54,22 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       {/* Why Diverse Building Blocks */}
       <NumberedSteps
         title="Why Diverse Building Blocks?"
-        subtitle="Most STEM toys teach one thing. This set teaches spatial reasoning, physics, and engineering — all through the joy of building."
+        subtitle="Most STEM toys teach one thing. This set teaches spatial reasoning, physics, and engineering, all through the joy of building."
         steps={[
           {
             title: "100+ Models in One Box",
             description:
-              "Cars, aircraft, Star Wars favourites, and the new Dancing Man series — your child can build something new every single time they open the box.",
+              "Cars, aircraft, Star Wars favourites, and the new Dancing Man series, your child can build something new every single time they open the box.",
           },
           {
             title: "No Batteries, No Screens",
             description:
-              "Purely physical, mechanical construction. When models move, it's because gravity and gears made them — a powerful lesson in real physics.",
+              "Purely physical, mechanical construction. When models move, it's because gravity and gears made them, a powerful lesson in real physics.",
           },
           {
             title: "Built to Share",
             description:
-              "With 370+ pieces, there's enough for siblings or friends to build together. Older children naturally guide younger ones — everyone learns.",
+              "With 370+ pieces, there's enough for siblings or friends to build together. Older children naturally guide younger ones, everyone learns.",
           },
         ]}
         background="navy-card"
@@ -87,7 +87,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
         image="/images/products/makerzoid-diverse-building-blocks/close-up-of-robot-build-with-girl-in-background.jpeg"
         imageAlt="Close-up of a completed Makerzoid build with a girl in the background"
         title="Proper Gears. Real Axles. Moving Joints."
-        body="The Diverse Building Blocks set is designed with real mechanical detail — proper gears, axles, and moving joints — so finished models look and move like the real thing. Build a helicopter with rotating blades, a walking robot, a dancing figure. Plenty of builds to work on — each one a new challenge."
+        body="The Diverse Building Blocks set is designed with real mechanical detail, proper gears, axles, and moving joints, so finished models look and move like the real thing. Build a helicopter with rotating blades, a walking robot, a dancing figure. Plenty of builds to work on, each one a new challenge."
         layout="image-left"
         background="white"
       />
@@ -95,13 +95,13 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       {/* Feature Grid */}
       <FeatureGrid
         title="What Makes It Special"
-        subtitle="Everything your child needs to start building — and keep building — for months."
+        subtitle="Everything your child needs to start building, and keep building, for months."
         features={[
           {
             icon: "puzzle",
             title: "100+ Official Models",
             description:
-              "From beginner-friendly vehicles to complex moving figures — the variety keeps building exciting as skills grow.",
+              "From beginner-friendly vehicles to complex moving figures, the variety keeps building exciting as skills grow.",
           },
           {
             icon: "tools",
@@ -113,7 +113,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
             icon: "octagon-xmark",
             title: "No Coding or Batteries",
             description:
-              "Accessible from the start. Your child builds, assembles, and watches mechanics come alive — no tech knowledge needed.",
+              "Accessible from the start. Your child builds, assembles, and watches mechanics come alive, no tech knowledge needed.",
           },
           {
             icon: "app",
@@ -125,7 +125,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
             icon: "compatible",
             title: "LEGO Compatible",
             description:
-              "Works with LEGO-compatible sets your family may already own — extending play possibilities beyond the 100+ official models.",
+              "Works with LEGO-compatible sets your family may already own, extending play possibilities beyond the 100+ official models.",
           },
           {
             icon: "brain",
@@ -143,7 +143,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
         image="/images/products/makerzoid-diverse-building-blocks/girl-with-blocks-looking-at-tablet-screen.jpg"
         imageAlt="Girl at a desk following 3D building instructions on a tablet screen with Makerzoid blocks in front of her"
         title="Build Independently with the Free App"
-        body="The free Makerzoid app (iOS & Android) turns building into a guided adventure. Step-by-step 3D instructions walk your child through each model at their own pace — no parent required. Children who prefer paper can use the included instruction guide instead. Either way, they're building confidently from the very first model."
+        body="The free Makerzoid app (iOS & Android) turns building into a guided adventure. Step-by-step 3D instructions walk your child through each model at their own pace, no parent required. Children who prefer paper can use the included instruction guide instead. Either way, they're building confidently from the very first model."
         layout="image-right"
         background="gray"
       />
@@ -152,7 +152,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       <ProjectShowcase
         title="What They'll Build"
         highlight="100+ official mechanical models across 4 themed series"
-        subtitle="Start with simpler builds and work up to complex moving models — there's always a next challenge."
+        subtitle="Start with simpler builds and work up to complex moving models, there's always a next challenge."
         projects={[
           {
             name: "Helicopter",
@@ -171,7 +171,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
           {
             name: "Carousel",
             description:
-              "A spinning merry-go-round structure with hanging elements — satisfying to build and watch move.",
+              "A spinning merry-go-round structure with hanging elements, satisfying to build and watch move.",
             concepts: "Rotational mechanics, load distribution",
             image: "/images/products/makerzoid-diverse-building-blocks/projects/project-3.png",
           },
@@ -192,12 +192,12 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
           {
             name: "Kicking Dancer",
             description:
-              "A dynamic dancing figure mid-kick — a more complex moving build for advanced builders.",
+              "A dynamic dancing figure mid-kick, a more complex moving build for advanced builders.",
             concepts: "Balance, mechanical articulation, gravity",
             image: "/images/products/makerzoid-diverse-building-blocks/projects/project-6.png",
           },
         ]}
-        moreText="Plus 90+ more models — vehicles, aircraft, Star Wars designs, and more"
+        moreText="Plus 90+ more models, vehicles, aircraft, Star Wars designs, and more"
         background="white"
       />
 
@@ -265,32 +265,32 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
           {
             question: "Does my child need any prior experience?",
             answer:
-              "Not at all. The Diverse Building Blocks set is designed for complete beginners. Instructions start with simple models and progress to more complex builds at your child's own pace — no building experience needed.",
+              "Not at all. The Diverse Building Blocks set is designed for complete beginners. Instructions start with simple models and progress to more complex builds at your child's own pace, no building experience needed.",
           },
           {
             question: "Do we need a phone or tablet to use it?",
             answer:
-              "No — the set includes paper instructions so your child can build straight out of the box without any device. The free Makerzoid app (iOS & Android) adds 3D step-by-step guidance and is a great option for children who prefer visual instructions.",
+              "No, the set includes paper instructions so your child can build straight out of the box without any device. The free Makerzoid app (iOS & Android) adds 3D step-by-step guidance and is a great option for children who prefer visual instructions.",
           },
           {
             question: "Are batteries required?",
             answer:
-              "No batteries are required at any point. This is a purely mechanical construction set — models move through gravity, gears, and physical mechanics. It's screen-free and battery-free building.",
+              "No batteries are required at any point. This is a purely mechanical construction set, models move through gravity, gears, and physical mechanics. It's screen-free and battery-free building.",
           },
           {
             question: "Is it compatible with LEGO?",
             answer:
-              "Yes — the pieces are LEGO-compatible, meaning they connect with most standard LEGO bricks your family may already own. This opens up even more building possibilities beyond the 100+ official models.",
+              "Yes, the pieces are LEGO-compatible, meaning they connect with most standard LEGO bricks your family may already own. This opens up even more building possibilities beyond the 100+ official models.",
           },
           {
             question: "What happens once they've built all 100+ models?",
             answer:
-              "The real fun often starts here. After completing the official models, children are naturally inspired to invent their own creations using all 370+ pieces. The set can be rebuilt endlessly — models are taken apart and reassembled, keeping it fresh for months.",
+              "The real fun often starts here. After completing the official models, children are naturally inspired to invent their own creations using all 370+ pieces. The set can be rebuilt endlessly, models are taken apart and reassembled, keeping it fresh for months.",
           },
           {
             question: "Is it safe for young children?",
             answer:
-              "Yes. Pieces are made from high-quality, non-toxic ABS plastic with smooth edges — the same material standard used in premium building block sets. The set carries a 12-month manufacturer warranty.",
+              "Yes. Pieces are made from high-quality, non-toxic ABS plastic with smooth edges, the same material standard used in premium building block sets. The set carries a 12-month manufacturer warranty.",
           },
         ]}
         background="gray"
@@ -305,7 +305,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
           "370+ ABS plastic building pieces (cubes, gears, axles, connectors)",
           "Spacious storage box (organises all pieces neatly)",
           "Paper instruction guide with official models",
-          "Free Makerzoid app access — iOS & Android (3D step-by-step instructions)",
+          "Free Makerzoid app access, iOS & Android (3D step-by-step instructions)",
         ]}
         background="white"
       />
@@ -321,7 +321,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
           { label: "Batteries Required", value: "No" },
           { label: "Coding Required", value: "No" },
           { label: "LEGO Compatible", value: "Yes" },
-          { label: "App", value: "Free Makerzoid app — iOS & Android" },
+          { label: "App", value: "Free Makerzoid app, iOS & Android" },
           { label: "Box Dimensions", value: "32 × 22 × 6 cm" },
           { label: "Weight", value: "1 kg" },
           { label: "SKU", value: "MKZ-BK-DB" },
@@ -333,7 +333,7 @@ export default async function MakerzoidDiverseBuildingBlocksPage() {
       {/* Final CTA */}
       <CallToAction
         title="Start Building"
-        subtitle="100+ models, 370+ pieces, and limitless free-build possibilities — all in one box."
+        subtitle="100+ models, 370+ pieces, and limitless free-build possibilities, all in one box."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -354,7 +354,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 100+ mechanical models with 370+ pieces. No batteries, no coding — pure hands-on STEM fun for ages 4–8. Free 3D guidance app included.",
+      "Build 100+ mechanical models with 370+ pieces. No batteries, no coding, pure hands-on STEM fun for ages 4–8. Free 3D guidance app included.",
     alternates: {
       canonical: "/product/makerzoid-diverse-building-blocks",
     },

@@ -106,7 +106,7 @@ export default function EducationPage() {
                 For Schools
               </p>
               <h2 className="text-xl font-semibold text-navy mb-3 leading-snug">
-                We run the programme — you open the doors
+                We run the programme, you open the doors
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed flex-1">
                 Expert facilitators visit your school with all equipment. Ideal for after-school
@@ -206,7 +206,7 @@ export default function EducationPage() {
               </h2>
               <p className="text-gray-500 text-sm leading-relaxed flex-1">
                 Classroom-grade STEM kits and online courses designed to work at home. No classroom
-                required — just curiosity.
+                required, just curiosity.
               </p>
               <span className="mt-5 inline-flex items-center text-cs-purple font-semibold text-sm group-hover:gap-2 transition-all">
                 Explore options
@@ -245,20 +245,20 @@ export default function EducationPage() {
             <div>
               <span className="inline-flex items-center gap-2 text-xs font-semibold text-cs-orange uppercase tracking-widest mb-4">
                 <span className="w-6 h-0.5 bg-cs-orange" />
-                For Schools — Tutors &amp; Extramural
+                For Schools: Tutors &amp; Extramural
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-5 leading-tight">
                 World-class robotics &amp; coding, delivered straight to your school
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Our partner <strong className="text-navy">Robotixkids</strong> provides trained,
-                passionate facilitators who arrive at your school fully equipped — all kits,
+                passionate facilitators who arrive at your school fully equipped, all kits,
                 tablets, and materials included. Your learners get hands-on STEM without any prep
                 burden on your teachers.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
-                  "Trained facilitators — all equipment provided",
+                  "Trained facilitators, all equipment provided",
                   "After-school programmes and holiday camps",
                   "Foundation Phase through High School",
                   "Robotics, coding, and engineering activities",
@@ -357,22 +357,22 @@ export default function EducationPage() {
             <div className="order-2 lg:order-1">
               <span className="inline-flex items-center gap-2 text-xs font-semibold text-cs-blue uppercase tracking-widest mb-4">
                 <span className="w-6 h-0.5 bg-cs-blue" />
-                For Schools — Full Curriculum
+                For Schools: Full Curriculum
               </span>
               <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-5 leading-tight">
-                Give your teachers the tools to own STEM — not outsource it
+                Give your teachers the tools to own STEM, not outsource it
               </h2>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Our partner <strong className="text-navy">Inspire Africa</strong> provides
                 comprehensive online teacher training and CAPS-aligned curriculum resources. Once
-                trained, your educators can deliver engaging STEM lessons independently — building
+                trained, your educators can deliver engaging STEM lessons independently, building
                 lasting capability in your school.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
                   "CAPS-aligned lesson plans and resources",
                   "Online teacher training platform",
-                  "Ready-to-use activities — no planning required",
+                  "Ready-to-use activities, no planning required",
                   "Ongoing curriculum support and updates",
                   "Trusted by schools across South Africa",
                 ].map((item) => (
@@ -487,11 +487,11 @@ export default function EducationPage() {
                 You don&apos;t need a classroom to deliver exceptional STEM education. Our
                 self-paced online courses on the{" "}
                 <strong className="text-navy">Inspire Africa</strong> platform let your child learn
-                coding, robotics, and engineering at their own pace — from anywhere.
+                coding, robotics, and engineering at their own pace, from anywhere.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
-                  "Self-paced — learn at your own speed",
+                  "Self-paced, learn at your own speed",
                   "Practical, project-based content",
                   "Instant digital access on purchase",
                   "No classroom or teacher needed",

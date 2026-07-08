@@ -62,7 +62,7 @@ export default function ContactForm({
         ? {
             ...formData,
             subject: educationSource
-              ? `Education Enquiry — ${educationSource}`
+              ? `Education Enquiry: ${educationSource}`
               : "Education Enquiry",
           }
         : formData;

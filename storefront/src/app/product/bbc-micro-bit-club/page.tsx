@@ -40,8 +40,8 @@ export default async function BbcMicroBitClubPage() {
         product={product}
         tagline="Get your entire group coding from the very first lesson"
         highlights={[
-          "10 complete kits in one box — one board per learner, no sharing",
-          "No software installs — works from any web browser on any device",
+          "10 complete kits in one box, one board per learner, no sharing",
+          "No software installs, works from any web browser on any device",
           "Free lesson plans and teacher resources from microbit.org",
           "Reusable hardware across multiple groups, terms, and years",
         ]}
@@ -54,22 +54,22 @@ export default async function BbcMicroBitClubPage() {
       {/* Why micro:bit for Your Classroom */}
       <NumberedSteps
         title="Why Choose micro:bit for Your Classroom?"
-        subtitle="The world's most widely adopted physical computing platform — used in 60+ countries by over 20 million learners."
+        subtitle="The world's most widely adopted physical computing platform, used in 60+ countries by over 20 million learners."
         steps={[
           {
             title: "Built for Group Work",
             description:
-              "10 independent boards mean every learner codes simultaneously — no rotation, no waiting. Multiplayer radio activities and collaborative experiments are only possible when the whole group has boards at once.",
+              "10 independent boards mean every learner codes simultaneously, no rotation, no waiting. Multiplayer radio activities and collaborative experiments are only possible when the whole group has boards at once.",
           },
           {
             title: "Zero Barriers to Entry",
             description:
-              "No software installation. No STEM background required. Learners code from any web browser using MakeCode's intuitive drag-and-drop editor — your group can be up and running in under five minutes.",
+              "No software installation. No STEM background required. Learners code from any web browser using MakeCode's intuitive drag-and-drop editor, your group can be up and running in under five minutes.",
           },
           {
             title: "A Platform, Not Just a Product",
             description:
-              "The Micro:bit Educational Foundation provides continuously-updated free lesson plans, curriculum resources, assessment tools, and teacher training. The value of this kit grows over time — at no additional cost.",
+              "The Micro:bit Educational Foundation provides continuously-updated free lesson plans, curriculum resources, assessment tools, and teacher training. The value of this kit grows over time, at no additional cost.",
           },
         ]}
         background="navy-card"
@@ -87,7 +87,7 @@ export default async function BbcMicroBitClubPage() {
         image="/images/products/bbc-micro-bit-club/child-holding-up-microbit-to-camera.jpg"
         imageAlt="Child holding up a micro:bit board to the camera, enthusiastically showing their project"
         title="60+ Activities Across Every Learning Area"
-        body="The micro:bit's free online project library spans computing, mathematics, science, music, and design. From first LED animations to data-logging science experiments and multiplayer wireless challenges, there is a structured activity for every ability level. The Micro:bit Educational Foundation's Make it: Code it series provides ready-to-teach lessons with defined learning objectives — no lesson planning from scratch required."
+        body="The micro:bit's free online project library spans computing, mathematics, science, music, and design. From first LED animations to data-logging science experiments and multiplayer wireless challenges, there is a structured activity for every ability level. The Micro:bit Educational Foundation's Make it: Code it series provides ready-to-teach lessons with defined learning objectives, no lesson planning from scratch required."
         layout="image-left"
         background="white"
       />
@@ -95,19 +95,19 @@ export default async function BbcMicroBitClubPage() {
       {/* Feature Grid */}
       <FeatureGrid
         title="Classroom-Ready from Day One"
-        subtitle="Everything an educator needs to run a successful coding session — no specialist equipment, no prior experience required."
+        subtitle="Everything an educator needs to run a successful coding session, no specialist equipment, no prior experience required."
         features={[
           {
             icon: "brain",
             title: "10 Simultaneous Learners",
             description:
-              "Every board is fully self-contained with cable and batteries. All 10 learners code at the same time — no rotation, no sharing.",
+              "Every board is fully self-contained with cable and batteries. All 10 learners code at the same time, no rotation, no sharing.",
           },
           {
             icon: "cross-device",
             title: "Works from Any Browser",
             description:
-              "MakeCode and MicroPython run entirely online. No app installs, no software licences — just open a browser on Windows, Mac, Chromebook, or tablet.",
+              "MakeCode and MicroPython run entirely online. No app installs, no software licences, just open a browser on Windows, Mac, Chromebook, or tablet.",
           },
           {
             icon: "book",
@@ -119,13 +119,13 @@ export default async function BbcMicroBitClubPage() {
             icon: "shield",
             title: "No Soldering Required",
             description:
-              "Crocodile clips connect accessories safely to the edge connector. No tools, no sharp components — completely safe for any school environment.",
+              "Crocodile clips connect accessories safely to the edge connector. No tools, no sharp components, completely safe for any school environment.",
           },
           {
             icon: "tools",
             title: "Reusable Term After Term",
             description:
-              "Robust hardware with no moving parts. One Club pack serves multiple cohorts across multiple years — low total cost of ownership per learner.",
+              "Robust hardware with no moving parts. One Club pack serves multiple cohorts across multiple years, low total cost of ownership per learner.",
           },
           {
             icon: "wifi",
@@ -151,7 +151,7 @@ export default async function BbcMicroBitClubPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="Activities Your Learners Will Complete"
-        highlight="60+ free activities spanning computing, science, music, and design — with defined learning objectives for every lesson"
+        highlight="60+ free activities spanning computing, science, music, and design, with defined learning objectives for every lesson"
         subtitle="Activities progress from first-time coding tutorials to advanced wireless and data-science projects, making the Club pack suitable for mixed-ability groups across Grades 4–12."
         projects={[
           {
@@ -192,7 +192,7 @@ export default async function BbcMicroBitClubPage() {
             image: "/images/products/bbc-micro-bit-club/projects/thermometer.png",
           },
         ]}
-        moreText="Plus 40+ more activities at microbit.org — beginner tutorials, science experiments, music projects, wearables, and advanced AI/machine learning with CreateAI"
+        moreText="Plus 40+ more activities at microbit.org, beginner tutorials, science experiments, music projects, wearables, and advanced AI/machine learning with CreateAI"
         background="gray"
       />
 
@@ -247,22 +247,22 @@ export default async function BbcMicroBitClubPage() {
           {
             question: "Does this cover skills from the national curriculum?",
             answer:
-              "The micro:bit covers coding, algorithms, physical computing, and data handling — skills that feature prominently in South African curricula across Technology, Natural Sciences, and Mathematics for Grades 4–12. The free lesson plans on microbit.org include structured activities with defined learning outcomes. However, we don't provide a formal CAPS mapping document for this product.",
+              "The micro:bit covers coding, algorithms, physical computing, and data handling, skills that feature prominently in South African curricula across Technology, Natural Sciences, and Mathematics for Grades 4–12. The free lesson plans on microbit.org include structured activities with defined learning outcomes. However, we don't provide a formal CAPS mapping document for this product.",
           },
           {
             question: "How many learners can use the kit at the same time?",
             answer:
-              "All 10 boards can be used simultaneously — every learner has their own board, cable, and batteries. This eliminates rotation and allows the entire group to progress together at the same pace.",
+              "All 10 boards can be used simultaneously, every learner has their own board, cable, and batteries. This eliminates rotation and allows the entire group to progress together at the same pace.",
           },
           {
             question: "Do I need a coding or STEM background to teach with this?",
             answer:
-              "No. The Micro:bit Educational Foundation provides free, structured lesson plans with step-by-step guidance for educators at all experience levels. MakeCode's drag-and-drop editor is intuitive for first-time coders — many educators find they learn alongside their learners.",
+              "No. The Micro:bit Educational Foundation provides free, structured lesson plans with step-by-step guidance for educators at all experience levels. MakeCode's drag-and-drop editor is intuitive for first-time coders, many educators find they learn alongside their learners.",
           },
           {
             question: "What equipment does the school need to provide?",
             answer:
-              "Each learner needs a device with a modern web browser — a computer, tablet, or Chromebook. No additional tools, software installations, or specialist equipment are needed. The kit includes boards, cables, and batteries — everything else is provided.",
+              "Each learner needs a device with a modern web browser, a computer, tablet, or Chromebook. No additional tools, software installations, or specialist equipment are needed. The kit includes boards, cables, and batteries, everything else is provided.",
           },
           {
             question: "How durable are the boards for repeated classroom use?",
@@ -272,7 +272,7 @@ export default async function BbcMicroBitClubPage() {
           {
             question: "How much preparation time does a lesson require?",
             answer:
-              "Very little. Learners can complete their first interactive project in a single 45-minute period. Lesson plans on microbit.org are ready to use, with defined objectives and activity sheets — no lesson planning from scratch required.",
+              "Very little. Learners can complete their first interactive project in a single 45-minute period. Lesson plans on microbit.org are ready to use, with defined objectives and activity sheets, no lesson planning from scratch required.",
           },
           {
             question: "Is school or bulk pricing available?",

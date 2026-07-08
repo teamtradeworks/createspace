@@ -39,10 +39,10 @@ export default async function SnapCircuitsArcadePage() {
         product={product}
         tagline="Build real circuits. Play games you made."
         highlights={[
-          "200+ projects — from a single blinking LED to 21 fully playable arcade games",
-          "No soldering, no tools — components snap together like building blocks",
-          "Circuit Safe® design — Elenco's patented protection for worry-free building",
-          "Ages 8 and up — step-by-step instructions for independent builders",
+          "200+ projects, from a single blinking LED to 21 fully playable arcade games",
+          "No soldering, no tools, components snap together like building blocks",
+          "Circuit Safe® design, Elenco's patented protection for worry-free building",
+          "Ages 8 and up, step-by-step instructions for independent builders",
         ]}
         addons={addons}
       />
@@ -53,22 +53,22 @@ export default async function SnapCircuitsArcadePage() {
       {/* Why Snap Circuits Arcade */}
       <NumberedSteps
         title="Why Snap Circuits Arcade?"
-        subtitle="Electronics kits often feel like homework. The Arcade is different — it gives your child a reason to finish every circuit."
+        subtitle="Electronics kits often feel like homework. The Arcade is different, it gives your child a reason to finish every circuit."
         steps={[
           {
             title: "Build Real Electronics",
             description:
-              "Your child isn't pressing buttons on a screen — they're assembling genuine circuits with resistors, capacitors, transistors, and a programmable microcontroller. When the LED lights up, it's because the circuit they built is working.",
+              "Your child isn't pressing buttons on a screen, they're assembling genuine circuits with resistors, capacitors, transistors, and a programmable microcontroller. When the LED lights up, it's because the circuit they built is working.",
           },
           {
             title: "Play Games They Built",
             description:
-              "The Arcade's superpower is a pre-programmed microcontroller with 21 mini games — electronic dice, timing challenges, Baseball, Memory, and Blackjack. Build the circuit, then play the game. That 'I made this' moment is irreplaceable.",
+              "The Arcade's superpower is a pre-programmed microcontroller with 21 mini games, electronic dice, timing challenges, Baseball, Memory, and Blackjack. Build the circuit, then play the game. That 'I made this' moment is irreplaceable.",
           },
           {
             title: "Confidence That Compounds",
             description:
-              "When a circuit fails, your child learns to troubleshoot — a genuine engineering skill. When it works, they feel it. That cycle of challenge and success builds resilience and a growth mindset that shows up in everything they tackle.",
+              "When a circuit fails, your child learns to troubleshoot, a genuine engineering skill. When it works, they feel it. That cycle of challenge and success builds resilience and a growth mindset that shows up in everything they tackle.",
           },
         ]}
         background="navy-card"
@@ -79,7 +79,7 @@ export default async function SnapCircuitsArcadePage() {
         image="/images/products/snap-circuits-arcade/boy-playing-with-circuit.jpg"
         imageAlt="Boy engaged with the Snap Circuits Arcade, assembling components on the grid"
         title="The Motivation Loop Other Kits Miss"
-        body="Most electronics kits ask your child to build something and then put it away. The Arcade is built differently. Every circuit is also a game — dice games, a baseball challenge, memory sequences, even Blackjack. Build the circuit, then play what you made. It's a loop that's genuinely hard to get bored of, and it's the reason the Arcade keeps children coming back to the board long after other kits have been shelved."
+        body="Most electronics kits ask your child to build something and then put it away. The Arcade is built differently. Every circuit is also a game, dice games, a baseball challenge, memory sequences, even Blackjack. Build the circuit, then play what you made. It's a loop that's genuinely hard to get bored of, and it's the reason the Arcade keeps children coming back to the board long after other kits have been shelved."
         layout="image-left"
         background="gray"
       />
@@ -93,7 +93,7 @@ export default async function SnapCircuitsArcadePage() {
             icon: "puzzle",
             title: "21 Built-In Arcade Games",
             description:
-              "Baseball, dice games, memory sequences, timing challenges, and Blackjack — all pre-programmed on the included microcontroller module.",
+              "Baseball, dice games, memory sequences, timing challenges, and Blackjack, all pre-programmed on the included microcontroller module.",
           },
           {
             icon: "book",
@@ -105,13 +105,13 @@ export default async function SnapCircuitsArcadePage() {
             icon: "star",
             title: "Programmable Word Fan",
             description:
-              "A spinning LED fan that displays messages using persistence of vision. Your child programs it with custom phrases — powered by circuits they built.",
+              "A spinning LED fan that displays messages using persistence of vision. Your child programs it with custom phrases, powered by circuits they built.",
           },
           {
             icon: "shield",
             title: "Circuit Safe® Protected",
             description:
-              "Elenco's patented safety device prevents dangerous configurations. Built specifically for children — no sharp edges, no soldering, no risk.",
+              "Elenco's patented safety device prevents dangerous configurations. Built specifically for children, no sharp edges, no soldering, no risk.",
           },
           {
             icon: "lightbulb",
@@ -123,7 +123,7 @@ export default async function SnapCircuitsArcadePage() {
             icon: "layers",
             title: "Expandable System",
             description:
-              "Components work across all Snap Circuits kits. This kit is an entry point into an entire product family — add kits as confidence grows.",
+              "Components work across all Snap Circuits kits. This kit is an entry point into an entire product family, add kits as confidence grows.",
           },
         ]}
         columns={3}
@@ -135,7 +135,7 @@ export default async function SnapCircuitsArcadePage() {
         image="/images/products/snap-circuits-arcade/top-view-board-in-dark-with-lights-with-kids-hands.jpg"
         imageAlt="Top-down view of an illuminated Snap Circuits Arcade board with a child's hands at work"
         title="Real Electronics. Real Skills."
-        body="Each snap-together component teaches something genuine — not a simulation of electronics, but actual resistors, capacitors, transistors, and a programmable microcontroller. The board is designed to mirror a real printed circuit board. Every component shows its own schematic symbol. When your child finishes a project, they're not just proud — they understand why it worked. That understanding is the foundation for coding, engineering, and any career requiring logical thinking."
+        body="Each snap-together component teaches something genuine, not a simulation of electronics, but actual resistors, capacitors, transistors, and a programmable microcontroller. The board is designed to mirror a real printed circuit board. Every component shows its own schematic symbol. When your child finishes a project, they're not just proud, they understand why it worked. That understanding is the foundation for coding, engineering, and any career requiring logical thinking."
         layout="image-right"
         background="gray"
       />
@@ -143,7 +143,7 @@ export default async function SnapCircuitsArcadePage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="Projects You'll Build"
-        highlight="200+ projects — from basic circuits to fully playable arcade games"
+        highlight="200+ projects, from basic circuits to fully playable arcade games"
         subtitle="Projects progress from a single LED in the first session to multi-component game circuits. Here are a few from the kit."
         projects={[
           {
@@ -180,19 +180,19 @@ export default async function SnapCircuitsArcadePage() {
           {
             name: "Lucky Doubles",
             description:
-              "Build the circuit that powers the electronic dice — then try to roll matching doubles",
+              "Build the circuit that powers the electronic dice, then try to roll matching doubles",
             concepts: "Microcontrollers, pre-programmed logic, game interaction",
             image: "/images/products/snap-circuits-arcade/projects/lucky-doubles.jpg",
           },
         ]}
-        moreText="Plus 194+ more — including 21 fully playable arcade games, timing challenges, and alarm circuits"
+        moreText="Plus 194+ more, including 21 fully playable arcade games, timing challenges, and alarm circuits"
         background="white"
       />
 
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="A closer look at the Snap Circuits Arcade — the kit, the components, and the builds."
+        subtitle="A closer look at the Snap Circuits Arcade, the kit, the components, and the builds."
         images={[
           {
             src: "/images/products/snap-circuits-arcade/child-playing-with-arcade.jpeg",
@@ -241,37 +241,37 @@ export default async function SnapCircuitsArcadePage() {
           {
             question: "Does my child need any prior experience?",
             answer:
-              "Not at all. The very first project is just lighting up a single LED — it takes two minutes. From there, each project adds one new idea at a time. The instructions are illustrated and written for complete beginners. Most children age 8 and up can work through the early projects entirely on their own.",
+              "Not at all. The very first project is just lighting up a single LED, it takes two minutes. From there, each project adds one new idea at a time. The instructions are illustrated and written for complete beginners. Most children age 8 and up can work through the early projects entirely on their own.",
           },
           {
             question: "What do we need to buy separately?",
             answer:
-              "Just 3 × AA batteries — that's it. No computer, no software, no tools, no additional parts. Everything else is in the box, including the printed instruction manual and access to the online supplemental guide.",
+              "Just 3 × AA batteries, that's it. No computer, no software, no tools, no additional parts. Everything else is in the box, including the printed instruction manual and access to the online supplemental guide.",
           },
           {
             question: "Is this safe for children?",
             answer:
-              "Yes. Snap Circuits products feature the patented Circuit Safe® protection device — a unique safety mechanism that prevents dangerous circuit configurations. Components have rounded plastic housings with no sharp edges, and no soldering is involved at any stage. Elenco has designed this system specifically for children learning electronics.",
+              "Yes. Snap Circuits products feature the patented Circuit Safe® protection device, a unique safety mechanism that prevents dangerous circuit configurations. Components have rounded plastic housings with no sharp edges, and no soldering is involved at any stage. Elenco has designed this system specifically for children learning electronics.",
           },
           {
             question: "How does the programmable word fan work?",
             answer:
-              "The fan spins at high speed while LED lights flash in a pattern. Because of how the eye perceives fast movement, this creates the illusion of floating text — a phenomenon called persistence of vision. Your child connects the fan in a circuit and programs which message it displays using the selector module. It can be reprogrammed with new messages as many times as they like.",
+              "The fan spins at high speed while LED lights flash in a pattern. Because of how the eye perceives fast movement, this creates the illusion of floating text, a phenomenon called persistence of vision. Your child connects the fan in a circuit and programs which message it displays using the selector module. It can be reprogrammed with new messages as many times as they like.",
           },
           {
             question: "What age is this best suited for?",
             answer:
-              "The kit is designed for ages 8 and up, which is Grade 3 and above. Younger children (6–7) may enjoy it with a parent alongside. There's no upper age limit — the electronics concepts are genuinely educational at any age, and the 200+ project count keeps older children engaged for longer.",
+              "The kit is designed for ages 8 and up, which is Grade 3 and above. Younger children (6–7) may enjoy it with a parent alongside. There's no upper age limit, the electronics concepts are genuinely educational at any age, and the 200+ project count keeps older children engaged for longer.",
           },
           {
             question: "What happens when they finish all the projects?",
             answer:
-              "First — that takes a while! Most children spend months working through the 200+ projects. Once they have, the 21 arcade games remain endlessly replayable, the word fan can be reprogrammed with new messages, and the kit integrates with other Snap Circuits sets to unlock more advanced projects. The system grows with your child.",
+              "First, that takes a while! Most children spend months working through the 200+ projects. Once they have, the 21 arcade games remain endlessly replayable, the word fan can be reprogrammed with new messages, and the kit integrates with other Snap Circuits sets to unlock more advanced projects. The system grows with your child.",
           },
           {
             question: "Is the Arcade different from other Snap Circuits kits?",
             answer:
-              "Yes — the Arcade is the only Snap Circuits kit with a built-in pre-programmed microcontroller and dual LED display. Every other Snap Circuits kit teaches circuits. The Arcade adds a powerful twist: the circuits you build become game controllers. It's a significantly more motivating learning loop.",
+              "Yes, the Arcade is the only Snap Circuits kit with a built-in pre-programmed microcontroller and dual LED display. Every other Snap Circuits kit teaches circuits. The Arcade adds a powerful twist: the circuits you build become game controllers. It's a significantly more motivating learning loop.",
           },
         ]}
       />
@@ -302,7 +302,7 @@ export default async function SnapCircuitsArcadePage() {
           "Base grid (assembly board)",
           "Full-colour 80-page printed manual (Projects 1–61)",
           "Online access: Projects 62–203",
-          "3 × AA batteries — NOT included",
+          "3 × AA batteries, NOT included",
         ]}
       />
 
@@ -330,7 +330,7 @@ export default async function SnapCircuitsArcadePage() {
       {/* Final CTA */}
       <CallToAction
         title="Build Your First Circuit"
-        subtitle="Real electronics. Real games. Real satisfaction. Everything your child needs is in the box — minus the 3 AA batteries."
+        subtitle="Real electronics. Real games. Real satisfaction. Everything your child needs is in the box, minus the 3 AA batteries."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

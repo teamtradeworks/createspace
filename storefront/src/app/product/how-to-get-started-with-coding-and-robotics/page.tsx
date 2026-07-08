@@ -25,7 +25,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
       <ProductJsonLd product={product} />
       <HeroSection
         product={product}
-        tagline="Introductory Coding and Robotics educator onboarding — three self-paced courses to confidently teach Foundation Phase learners"
+        tagline="Introductory Coding and Robotics educator onboarding, three self-paced courses to confidently teach Foundation Phase learners"
         highlights={[
           "3 self-paced educator onboarding courses",
           "SACE-accredited professional development",
@@ -79,12 +79,12 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               {
                 title: "Choose the Right Tools",
                 description:
-                  "Navigate coding platforms and identify which hardware is worth the investment — from ScratchJr to micro:bit and beyond.",
+                  "Navigate coding platforms and identify which hardware is worth the investment, from ScratchJr to micro:bit and beyond.",
               },
               {
                 title: "Build Confidence to Begin",
                 description:
-                  "Walk away with clear, actionable takeaways you can use in your very next lesson — designed for educators at any experience level.",
+                  "Walk away with clear, actionable takeaways you can use in your very next lesson, designed for educators at any experience level.",
               },
             ],
           },
@@ -97,17 +97,17 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               {
                 title: "CAPS Foundation Phase Alignment",
                 description:
-                  "Understand how Coding and Robotics integrates with the CAPS Foundation Phase curriculum — and where unplugged activities fit naturally into your teaching.",
+                  "Understand how Coding and Robotics integrates with the CAPS Foundation Phase curriculum, and where unplugged activities fit naturally into your teaching.",
               },
               {
                 title: "Screen-Free Learning Activities",
                 description:
-                  "Teach sequencing, patterns, and algorithms through hands-on play using simple, reusable classroom materials — no devices or expensive kits required.",
+                  "Teach sequencing, patterns, and algorithms through hands-on play using simple, reusable classroom materials, no devices or expensive kits required.",
               },
               {
                 title: "Build Computational Thinking",
                 description:
-                  "Introduce the building blocks of computational thinking — pattern recognition, decomposition, and logical reasoning — through age-appropriate activities.",
+                  "Introduce the building blocks of computational thinking, pattern recognition, decomposition, and logical reasoning, through age-appropriate activities.",
               },
               {
                 title: "Practical Unplugged STEAM",
@@ -130,7 +130,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               {
                 title: "Master the Visual Coding Interface",
                 description:
-                  "Learn each block type — Trigger, Motion, Looks, Sound, Control, and End blocks — through creative sequencing exercises.",
+                  "Learn each block type, Trigger, Motion, Looks, Sound, Control, and End blocks, through creative sequencing exercises.",
               },
               {
                 title: "Create Stories & Animations",
@@ -140,7 +140,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               {
                 title: "Complete Implementation",
                 description:
-                  "Everything you need to deliver ScratchJr coding in your classroom — designed to be implemented in a single session.",
+                  "Everything you need to deliver ScratchJr coding in your classroom, designed to be implemented in a single session.",
               },
             ],
           },
@@ -164,7 +164,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               {
                 title: "Pre-School Educators",
                 description:
-                  "Screen-free activities designed for the youngest learners — teach computational thinking through play.",
+                  "Screen-free activities designed for the youngest learners, teach computational thinking through play.",
               },
               {
                 title: "HODs Rolling Out Coding & Robotics",
@@ -174,7 +174,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
               {
                 title: "Homeschool Educators",
                 description:
-                  "A structured, self-paced programme you can deliver at home — no expensive hardware required.",
+                  "A structured, self-paced programme you can deliver at home, no expensive hardware required.",
               },
             ].map((persona, index) => (
               <div
@@ -197,7 +197,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
       />
       <StepPath
         title="How the Inspire Campus Works"
-        subtitle="All three courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEM education in South Africa."
+        subtitle="All three courses are hosted on the Inspire Africa learning platform, a dedicated LMS built for STEM education in South Africa."
         steps={[
           {
             title: "Purchase & Get Your Coupon Code",
@@ -212,7 +212,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             title: "Work Through the Courses",
             description:
-              "Video lessons, downloadable notes, and quizzes — all self-paced. Download the free ScratchJr app to follow along with the coding course.",
+              "Video lessons, downloadable notes, and quizzes, all self-paced. Download the free ScratchJr app to follow along with the coding course.",
           },
           {
             title: "Earn Your Certificates",
@@ -229,7 +229,7 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get three Inspire Africa micro courses — Coding & Robotics: How to Get Started, Early STEAM, Coding and Robotics Foundations, and Foundation Phase: ScratchJr Coding.",
+              "You get three Inspire Africa micro courses, Coding & Robotics: How to Get Started, Early STEAM, Coding and Robotics Foundations, and Foundation Phase: ScratchJr Coding.",
           },
           {
             question: "How do I access the courses?",
@@ -239,12 +239,12 @@ export default async function HowToGetStartedWithCodingAndRoboticsPage() {
           {
             question: "Do I need any prior STEM or coding knowledge?",
             answer:
-              "Not at all. The courses are designed specifically for educators who are new to Coding and Robotics. Everything is explained in plain, jargon-free language — from curriculum understanding to visual block-based coding with ScratchJr.",
+              "Not at all. The courses are designed specifically for educators who are new to Coding and Robotics. Everything is explained in plain, jargon-free language, from curriculum understanding to visual block-based coding with ScratchJr.",
           },
           {
             question: "Is this SACE-accredited?",
             answer:
-              "Yes — this pathway is SACE-accredited for professional development points. All three courses provide a certificate on completion.",
+              "Yes, this pathway is SACE-accredited for professional development points. All three courses provide a certificate on completion.",
           },
           {
             question: "Which ages and grades does this cover?",

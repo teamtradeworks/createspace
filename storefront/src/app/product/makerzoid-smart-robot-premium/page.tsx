@@ -133,7 +133,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         image="/images/products/makerzoid-smart-robot-premium/childs-hands-holding-a-built-robot.jpg"
         imageAlt="Child's hands proudly holding a completed robot build"
         title="From Idea to Working Robot"
-        body="There's nothing quite like the pride on a child's face when they complete their first working robot. With 200+ different models to explore, your child will experience that sense of accomplishment again and again. From simple button-controlled builds to advanced programmable creations, each completed project builds confidence, problem-solving skills, and genuine excitement about learning. The robots they build aren't just toys—they're proof of what they can achieve."
+        body="There's nothing quite like the pride on a child's face when they complete their first working robot. With 200+ different models to explore, your child will experience that sense of accomplishment again and again. From simple button-controlled builds to advanced programmable creations, each completed project builds confidence, problem-solving skills, and genuine excitement about learning. The robots they build aren't just toys, they're proof of what they can achieve."
         layout="image-right"
         background="gray"
       />

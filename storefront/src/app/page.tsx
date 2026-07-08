@@ -119,7 +119,7 @@ export default function Home() {
                 Trusted Names in STEM
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                We are official, registered suppliers of trusted STEM brands — bringing you
+                We are official, registered suppliers of trusted STEM brands, bringing you
                 authentic, quality products backed by full manufacturer support.
               </p>
             </div>

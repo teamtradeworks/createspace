@@ -36,9 +36,9 @@ export default async function NatGeoMetalDetectorPage() {
         product={product}
         tagline="Sweep, beep, dig. Real treasure is hiding underground."
         highlights={[
-          "18.8 cm waterproof coil — detects metal up to 10 cm underground",
-          "Lightweight at 545 g — built for all-day exploring",
-          "Adjustable arm fits kids aged 8 and up — folds to 33 cm for travel",
+          "18.8 cm waterproof coil, detects metal up to 10 cm underground",
+          "Lightweight at 545 g, built for all-day exploring",
+          "Adjustable arm fits kids aged 8 and up, folds to 33 cm for travel",
           "Full-colour Learning Guide: the science and history of metal detecting",
         ]}
         addons={addons}
@@ -64,31 +64,31 @@ export default async function NatGeoMetalDetectorPage() {
             icon: "target",
             title: "It Actually Works",
             description:
-              "This isn&rsquo;t a toy that beeps randomly — the 18.8 cm dual coil detects real metal objects up to 10 cm underground. Kids find actual coins, jewellery, relics, and buried curiosities. The thrill of a genuine find changes everything.",
+              "This isn&rsquo;t a toy that beeps randomly, the 18.8 cm dual coil detects real metal objects up to 10 cm underground. Kids find actual coins, jewellery, relics, and buried curiosities. The thrill of a genuine find changes everything.",
           },
           {
             icon: "eye",
             title: "Instant Alert, Every Time",
             description:
-              "When the coil passes over something metallic, a bright LED flashes and an audible beep fires. No second-guessing — kids know immediately when they&rsquo;ve found something and can pinpoint exactly where to dig.",
+              "When the coil passes over something metallic, a bright LED flashes and an audible beep fires. No second-guessing, kids know immediately when they&rsquo;ve found something and can pinpoint exactly where to dig.",
           },
           {
             icon: "compass",
             title: "Go Anywhere",
             description:
-              "The waterproof coil works in wet grass, dry sand, and shallow water — making it just as useful at the beach as in the backyard. It collapses to just 33 cm for tossing in a bag, and the ergonomic arm keeps it comfortable for hours.",
+              "The waterproof coil works in wet grass, dry sand, and shallow water, making it just as useful at the beach as in the backyard. It collapses to just 33 cm for tossing in a bag, and the ergonomic arm keeps it comfortable for hours.",
           },
           {
             icon: "book",
             title: "Full-Colour Learning Guide",
             description:
-              "Comes with a detailed guide covering the history of metal detecting (first portable patent: 1925), how electromagnetic induction works, and responsible detecting ethics — the kind of depth that makes kids want to know more.",
+              "Comes with a detailed guide covering the history of metal detecting (first portable patent: 1925), how electromagnetic induction works, and responsible detecting ethics, the kind of depth that makes kids want to know more.",
           },
           {
             icon: "tools",
             title: "Heavy-Duty Trowel Included",
             description:
-              "A sturdy digging trowel is in the box — purpose-built for excavating finds without damaging them. No hunting for a spade or improvising with sticks. Everything needed to detect, dig, and recover is in the kit.",
+              "A sturdy digging trowel is in the box, purpose-built for excavating finds without damaging them. No hunting for a spade or improvising with sticks. Everything needed to detect, dig, and recover is in the kit.",
           },
           {
             icon: "age",
@@ -104,7 +104,7 @@ export default async function NatGeoMetalDetectorPage() {
         image="/images/products/national-geographic-metal-detector-starter-kit/kids-searching-with-metal-detector.jpg"
         imageAlt="Children using a National Geographic metal detector to search for buried treasure outdoors"
         title="The Garden Has Secrets. So Does Every Beach."
-        body="Every outing with this detector is a fresh hunt — a coin that&rsquo;s been underground for decades, a piece of jewellery from who-knows-when, or just a satisfying collection of found relics. Kids who detect regularly start looking at outdoor spaces differently: every park becomes a site worth investigating, every beach a question waiting to be answered. It&rsquo;s the kind of curiosity that doesn&rsquo;t switch off when the detector goes back in the bag."
+        body="Every outing with this detector is a fresh hunt, a coin that&rsquo;s been underground for decades, a piece of jewellery from who-knows-when, or just a satisfying collection of found relics. Kids who detect regularly start looking at outdoor spaces differently: every park becomes a site worth investigating, every beach a question waiting to be answered. It&rsquo;s the kind of curiosity that doesn&rsquo;t switch off when the detector goes back in the bag."
         layout="image-left"
         background="gray"
       />
@@ -120,12 +120,12 @@ export default async function NatGeoMetalDetectorPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "Recommended for ages 8 and up. The controls are simple — power on, adjust sensitivity, sweep — and setup takes under 10 minutes. Most 8-year-olds can get the hang of it immediately and use it independently from the first outing.",
+              "Recommended for ages 8 and up. The controls are simple, power on, adjust sensitivity, sweep, and setup takes under 10 minutes. Most 8-year-olds can get the hang of it immediately and use it independently from the first outing.",
           },
           {
             question: "Does the battery come included?",
             answer:
-              "No — the detector requires one 9V alkaline battery which is not included in the box. It&rsquo;s a standard battery available at any supermarket or hardware store. Stock one up before gifting.",
+              "No, the detector requires one 9V alkaline battery which is not included in the box. It&rsquo;s a standard battery available at any supermarket or hardware store. Stock one up before gifting.",
           },
           {
             question: "How deep can it detect?",
@@ -135,7 +135,7 @@ export default async function NatGeoMetalDetectorPage() {
           {
             question: "Can it be used at the beach?",
             answer:
-              "Yes — the coil is waterproof, making it suitable for wet sand, shallow water edges, and rain. The handle and control box are not waterproof, so keep those dry. Beach detecting near tide lines is one of the most productive environments for beginners.",
+              "Yes, the coil is waterproof, making it suitable for wet sand, shallow water edges, and rain. The handle and control box are not waterproof, so keep those dry. Beach detecting near tide lines is one of the most productive environments for beginners.",
           },
           {
             question: "Is it easy to set up?",
@@ -145,12 +145,12 @@ export default async function NatGeoMetalDetectorPage() {
           {
             question: "What might they actually find?",
             answer:
-              "It varies by location — but coins (including older ones), lost jewellery, metal buttons, buckles, keys, and small relics are common finds. Parks, old school grounds, and beaches near activity areas tend to be most rewarding. Part of the excitement is that every outing is different.",
+              "It varies by location, but coins (including older ones), lost jewellery, metal buttons, buckles, keys, and small relics are common finds. Parks, old school grounds, and beaches near activity areas tend to be most rewarding. Part of the excitement is that every outing is different.",
           },
           {
             question: "Are there any restrictions on where to detect?",
             answer:
-              "Yes — some public parks, heritage sites, and national monuments prohibit metal detecting. Always check local rules before heading out. Private land requires the landowner&rsquo;s permission. The included Learning Guide covers responsible detecting ethics, including respecting property and filling all holes after digging.",
+              "Yes, some public parks, heritage sites, and national monuments prohibit metal detecting. Always check local rules before heading out. Private land requires the landowner&rsquo;s permission. The included Learning Guide covers responsible detecting ethics, including respecting property and filling all holes after digging.",
           },
         ]}
       />

@@ -62,7 +62,7 @@ const benefits = [
   {
     title: "Instant Access",
     description:
-      "Redeem your coupon code on the Inspire Africa platform and start learning straight away. No waiting for delivery — it's all digital.",
+      "Redeem your coupon code on the Inspire Africa platform and start learning straight away. No waiting for delivery, it's all digital.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path

@@ -87,7 +87,7 @@ export default async function ArduinoStarterKitPage() {
         image="/images/products/arduino-starter-kit/arduino_parts_branded_image.jpg"
         imageAlt="Arduino Starter Kit components laid out including board, breadboard, LEDs and sensors"
         title="Your First Electronics Lab"
-        body="The official Arduino Starter Kit is built around the Arduino UNO — the world's most popular learning board for electronics and coding. Inside you'll find over 100 components including LEDs, sensors, motors, a breadboard, and jumper wires, along with a 170-page printed guidebook that walks you through 15 real projects. Each project teaches actual C/C++ programming and hands-on circuit building, starting from absolute basics and gradually introducing more advanced concepts. No prior experience with electronics or coding is needed — the book explains everything from what a resistor does to how to write your first loop."
+        body="The official Arduino Starter Kit is built around the Arduino UNO, the world's most popular learning board for electronics and coding. Inside you'll find over 100 components including LEDs, sensors, motors, a breadboard, and jumper wires, along with a 170-page printed guidebook that walks you through 15 real projects. Each project teaches actual C/C++ programming and hands-on circuit building, starting from absolute basics and gradually introducing more advanced concepts. No prior experience with electronics or coding is needed, the book explains everything from what a resistor does to how to write your first loop."
         layout="image-left"
         background="white"
       />

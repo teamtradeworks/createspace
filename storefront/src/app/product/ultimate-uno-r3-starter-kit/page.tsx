@@ -39,8 +39,8 @@ export default async function UltimateUnoR3StarterKitPage() {
         tagline="The complete kit for learning electronics, coding, and building things that actually work"
         highlights={[
           "33 lessons covering circuits, sensors, motors, and more",
-          "50+ components — RFID, gyroscope, motors, LCD, and beyond",
-          "No soldering, no tools needed — start building immediately",
+          "50+ components, RFID, gyroscope, motors, LCD, and beyond",
+          "No soldering, no tools needed, start building immediately",
           "Compatible with the entire Arduino ecosystem",
         ]}
         addons={addons}
@@ -62,7 +62,7 @@ export default async function UltimateUnoR3StarterKitPage() {
           {
             title: "Every Major Sensor Included",
             description:
-              "Gyroscope, real-time clock, RFID, ultrasonic, PIR motion, water level, sound — the sensors that make the best projects are already in the box.",
+              "Gyroscope, real-time clock, RFID, ultrasonic, PIR motion, water level, sound, the sensors that make the best projects are already in the box.",
           },
           {
             title: "Skills That Transfer",
@@ -78,7 +78,7 @@ export default async function UltimateUnoR3StarterKitPage() {
         image="/images/products/ultimate-uno-r3-starter-kit/collage-of-components.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit components spread out showing sensors, modules and the board"
         title="Everything in One Box"
-        body="Most starter kits give you a board and a handful of LEDs. The Ultimate UNO R3 Kit goes further — much further. Inside you'll find over 50 individual components including sensors that detect motion, sound, temperature, humidity, water level, and acceleration; motors that spin, step, and sweep to precise angles; a real-time clock, an LCD display, RFID tags, a dot matrix display, and a gyroscope. All pre-soldered, all ready to wire up in minutes."
+        body="Most starter kits give you a board and a handful of LEDs. The Ultimate UNO R3 Kit goes further, much further. Inside you'll find over 50 individual components including sensors that detect motion, sound, temperature, humidity, water level, and acceleration; motors that spin, step, and sweep to precise angles; a real-time clock, an LCD display, RFID tags, a dot matrix display, and a gyroscope. All pre-soldered, all ready to wire up in minutes."
         layout="image-left"
         background="white"
       />
@@ -104,19 +104,19 @@ export default async function UltimateUnoR3StarterKitPage() {
             icon: "code",
             title: "Learn Real Code",
             description:
-              "Write C++ in the free Arduino IDE — the same language used in professional electronics and product development",
+              "Write C++ in the free Arduino IDE, the same language used in professional electronics and product development",
           },
           {
             icon: "lightbulb",
             title: "Advanced Sensors Included",
             description:
-              "RFID, gyroscope, PIR motion, ultrasonic, real-time clock — components that unlock genuinely impressive projects",
+              "RFID, gyroscope, PIR motion, ultrasonic, real-time clock, components that unlock genuinely impressive projects",
           },
           {
             icon: "community",
             title: "Massive Community",
             description:
-              "Once the guide is done, millions of free projects, tutorials, and forums open up — the learning never has to stop",
+              "Once the guide is done, millions of free projects, tutorials, and forums open up, the learning never has to stop",
           },
           {
             icon: "badget-check",
@@ -134,7 +134,7 @@ export default async function UltimateUnoR3StarterKitPage() {
         image="/images/products/ultimate-uno-r3-starter-kit/guide-lessons-and-code-sample.jpg"
         imageAlt="Robotico Ultimate UNO R3 Starter Kit guide showing lesson pages and code samples"
         title="Where Electronics Meets Code"
-        body="Circuits and code aren't two separate things — each lesson in the guide teaches them together. Your child wires up a component, writes the code to control it, and sees the result immediately. That feedback loop is powerful: it makes abstract concepts like loops, variables, and conditionals click in a way that screen-based coding alone never can. Studies show that hands-on electronics learning improves STEM test scores by up to 36% — and the engagement speaks for itself."
+        body="Circuits and code aren't two separate things, each lesson in the guide teaches them together. Your child wires up a component, writes the code to control it, and sees the result immediately. That feedback loop is powerful: it makes abstract concepts like loops, variables, and conditionals click in a way that screen-based coding alone never can. Studies show that hands-on electronics learning improves STEM test scores by up to 36%, and the engagement speaks for itself."
         layout="image-right"
         background="white"
       />
@@ -142,7 +142,7 @@ export default async function UltimateUnoR3StarterKitPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="Lessons You'll Build"
-        highlight="33 guided lessons — from a blinking LED to a fully working RFID access system"
+        highlight="33 guided lessons, from a blinking LED to a fully working RFID access system"
         subtitle="Each lesson builds on the last, introducing new components and concepts in a logical progression."
         projects={[
           {
@@ -198,17 +198,17 @@ export default async function UltimateUnoR3StarterKitPage() {
           {
             question: "Do I need any prior experience with electronics or coding?",
             answer:
-              "Not at all. The guide starts from absolute zero — Lesson 0 is literally installing the software. Every lesson explains the concepts and the code, so your child can work through it independently without any background knowledge.",
+              "Not at all. The guide starts from absolute zero, Lesson 0 is literally installing the software. Every lesson explains the concepts and the code, so your child can work through it independently without any background knowledge.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend the Ultimate kit for ages 12 and up for independent use. Curious 10–11 year olds can also tackle it well with some parental involvement, especially in the early lessons. The components and guide are all clearly labelled — this isn't a fiddly kit.",
+              "We recommend the Ultimate kit for ages 12 and up for independent use. Curious 10–11 year olds can also tackle it well with some parental involvement, especially in the early lessons. The components and guide are all clearly labelled, this isn't a fiddly kit.",
           },
           {
             question: "Do I need a computer?",
             answer:
-              "Yes — a computer running Windows, macOS, or Linux is needed to write and upload code using the free Arduino IDE. The board connects via the included USB cable. Most family laptops or desktops will work perfectly.",
+              "Yes, a computer running Windows, macOS, or Linux is needed to write and upload code using the free Arduino IDE. The board connects via the included USB cable. Most family laptops or desktops will work perfectly.",
           },
           {
             question: "Is soldering required?",
@@ -218,17 +218,17 @@ export default async function UltimateUnoR3StarterKitPage() {
           {
             question: "Do I need batteries?",
             answer:
-              "A 9V power adapter (EU plug) is included in the kit for standalone use. When connected to a computer for programming, the board is powered via USB — no battery needed. A 9V battery connector is also included if you want to run the kit away from a power point.",
+              "A 9V power adapter (EU plug) is included in the kit for standalone use. When connected to a computer for programming, the board is powered via USB, no battery needed. A 9V battery connector is also included if you want to run the kit away from a power point.",
           },
           {
             question: "What can they build once they've finished the 33 lessons?",
             answer:
-              "That's where it gets exciting. Once the guide is done, every component is still there — reusable, reconfigurable, and waiting to be combined. Your child can build their own projects from scratch, explore millions of free Arduino community projects, or expand the kit with additional sensors and modules from any electronics supplier.",
+              "That's where it gets exciting. Once the guide is done, every component is still there, reusable, reconfigurable, and waiting to be combined. Your child can build their own projects from scratch, explore millions of free Arduino community projects, or expand the kit with additional sensors and modules from any electronics supplier.",
           },
           {
             question: "How is this different from the Basic UNO R3 Starter Kit?",
             answer:
-              "The Basic kit is a stripped-down introduction with LEDs, resistors, and a handful of components. The Ultimate kit adds a full suite of advanced sensors — RFID, gyroscope, ultrasonic, PIR motion, real-time clock, water level — plus motors, a dot matrix display, and an LCD screen. It's significantly more capable and supports far more ambitious projects.",
+              "The Basic kit is a stripped-down introduction with LEDs, resistors, and a handful of components. The Ultimate kit adds a full suite of advanced sensors, RFID, gyroscope, ultrasonic, PIR motion, real-time clock, water level, plus motors, a dot matrix display, and an LCD screen. It's significantly more capable and supports far more ambitious projects.",
           },
         ]}
         background="gray"
@@ -290,9 +290,9 @@ export default async function UltimateUnoR3StarterKitPage() {
           { label: "Analog Input Pins", value: "6" },
           { label: "Communication Protocols", value: "I2C, SPI, UART, PWM, IR" },
           { label: "Programming Language", value: "C/C++ via Arduino IDE" },
-          { label: "Software", value: "Arduino IDE (free — Windows, macOS, Linux)" },
-          { label: "Guide Format", value: "Downloadable PDF — 33 lessons" },
-          { label: "Soldering Required", value: "No — all modules pre-soldered" },
+          { label: "Software", value: "Arduino IDE (free, Windows, macOS, Linux)" },
+          { label: "Guide Format", value: "Downloadable PDF, 33 lessons" },
+          { label: "Soldering Required", value: "No, all modules pre-soldered" },
         ]}
         background="gray"
       />

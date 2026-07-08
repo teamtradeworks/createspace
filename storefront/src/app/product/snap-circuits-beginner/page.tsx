@@ -36,12 +36,12 @@ export default async function SnapCircuitsBeginnerPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Your child's first electronics adventure — real circuits, real lights, real fun"
+        tagline="Your child's first electronics adventure, real circuits, real lights, real fun"
         highlights={[
           "21 step-by-step projects with a picture-based manual",
-          "Snap together in seconds — no tools, no wires, no soldering",
+          "Snap together in seconds, no tools, no wires, no soldering",
           "Designed for ages 5–9 with no reading required",
-          "Award-winning Circuit Safe® design — safe for young hands",
+          "Award-winning Circuit Safe® design, safe for young hands",
         ]}
         addons={addons}
       />
@@ -52,12 +52,12 @@ export default async function SnapCircuitsBeginnerPage() {
       {/* Why Snap Circuits */}
       <NumberedSteps
         title="Why Start with Snap Circuits?"
-        subtitle="No experience needed — for you or your child. Just snap the pieces together and watch the magic happen."
+        subtitle="No experience needed, for you or your child. Just snap the pieces together and watch the magic happen."
         steps={[
           {
             title: "Real Electronics, No Mess",
             description:
-              "Your child builds actual working circuits — not simulations. Lights turn on, fans spin, horns sound. Every project delivers a genuine 'I made this!' moment.",
+              "Your child builds actual working circuits, not simulations. Lights turn on, fans spin, horns sound. Every project delivers a genuine 'I made this!' moment.",
           },
           {
             title: "Made for Young Builders",
@@ -67,7 +67,7 @@ export default async function SnapCircuitsBeginnerPage() {
           {
             title: "Safety Built In",
             description:
-              "Elenco's Circuit Safe® technology means circuits cannot be connected in a way that creates a hazard. Just 4.5V from AA batteries — completely child-safe.",
+              "Elenco's Circuit Safe® technology means circuits cannot be connected in a way that creates a hazard. Just 4.5V from AA batteries, completely child-safe.",
           },
         ]}
         background="navy-card"
@@ -78,7 +78,7 @@ export default async function SnapCircuitsBeginnerPage() {
         image="/images/products/snap-circuits-beginner/girl-playing-with-kit-in-front-of-her.jpg"
         imageAlt="Girl playing with Snap Circuits Beginner kit"
         title="Snap Together. Light Up. Learn."
-        body="With Snap Circuits, there are no tiny wires to wrestle with and no frustrating connections that never quite work. Every component snaps firmly onto the base grid in seconds. Your child follows the pictures in the manual, places the parts step by step, and then — flip the switch — something lights up, spins, or makes a sound. That moment of real, self-made success is what builds a love of learning that lasts long after the kit is packed away."
+        body="With Snap Circuits, there are no tiny wires to wrestle with and no frustrating connections that never quite work. Every component snaps firmly onto the base grid in seconds. Your child follows the pictures in the manual, places the parts step by step, and then, flip the switch, something lights up, spins, or makes a sound. That moment of real, self-made success is what builds a love of learning that lasts long after the kit is packed away."
         layout="image-left"
         background="white"
       />
@@ -98,7 +98,7 @@ export default async function SnapCircuitsBeginnerPage() {
             icon: "book",
             title: "No Reading Required",
             description:
-              "The picture-only manual guides children through each project with diagrams alone — perfect for pre-readers and early readers.",
+              "The picture-only manual guides children through each project with diagrams alone, perfect for pre-readers and early readers.",
           },
           {
             icon: "lightbulb",
@@ -133,8 +133,8 @@ export default async function SnapCircuitsBeginnerPage() {
       <ImageTextBlock
         image="/images/products/snap-circuits-beginner/finger-pressing-switch-on-board-fan-spinning.jpg"
         imageAlt="Finger pressing a switch on Snap Circuits board with the colour-changing fan spinning"
-        title="From Simple to Satisfying — 21 Projects"
-        body="The manual takes your child on a journey — starting with a single lamp in project 1 and building all the way to multi-switch circuits with colour-changing lights, sound, and motion together. Each project uses the same snap-together parts in fresh combinations, so the challenge grows without ever feeling overwhelming. Once all 21 are done, the real creativity begins: children can combine parts freely to invent circuits of their own."
+        title="From Simple to Satisfying, 21 Projects"
+        body="The manual takes your child on a journey, starting with a single lamp in project 1 and building all the way to multi-switch circuits with colour-changing lights, sound, and motion together. Each project uses the same snap-together parts in fresh combinations, so the challenge grows without ever feeling overwhelming. Once all 21 are done, the real creativity begins: children can combine parts freely to invent circuits of their own."
         layout="image-right"
         background="white"
       />
@@ -143,7 +143,7 @@ export default async function SnapCircuitsBeginnerPage() {
       <ProjectShowcase
         title="Projects You'll Build"
         highlight="21 guided circuit projects in a picture-based manual"
-        subtitle="Each project introduces a new concept — starting with a single component and building to multi-switch combinations."
+        subtitle="Each project introduces a new concept, starting with a single component and building to multi-switch combinations."
         projects={[
           {
             name: "Light Motor",
@@ -174,7 +174,7 @@ export default async function SnapCircuitsBeginnerPage() {
           },
           {
             name: "Sound or Motion",
-            description: "Build a circuit that produces either a sound or movement — your choice.",
+            description: "Build a circuit that produces either a sound or movement, your choice.",
             concepts: "Switch choice, circuit branching",
             image: "/images/products/snap-circuits-beginner/projects-sound-or-motion.jpg",
           },
@@ -186,14 +186,14 @@ export default async function SnapCircuitsBeginnerPage() {
             image: "/images/products/snap-circuits-beginner/projects-lots-of-lights.jpg",
           },
         ]}
-        moreText="Plus 15 more projects — Horn, Dim Lights, 2-Switch Everything, Egg Horn, and more"
+        moreText="Plus 15 more projects, Horn, Dim Lights, 2-Switch Everything, Egg Horn, and more"
         background="gray"
       />
 
       {/* Customer Showcase — ALL end-user photos, immediately after ProjectShowcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="Snap Circuits in action — first circuits, favourite toys, and plenty of proud moments."
+        subtitle="Snap Circuits in action, first circuits, favourite toys, and plenty of proud moments."
         images={[
           {
             src: "/images/products/snap-circuits-beginner/fingers-pressing-switches-in-dark-with-lights.jpg",
@@ -246,27 +246,27 @@ export default async function SnapCircuitsBeginnerPage() {
           {
             question: "Do I need electronics experience to help my child?",
             answer:
-              "Not at all. No electronics background is required — for you or your child. The picture manual guides anyone through each project without any prior knowledge. If the fan spins, the circuit is correct — it really is that straightforward.",
+              "Not at all. No electronics background is required, for you or your child. The picture manual guides anyone through each project without any prior knowledge. If the fan spins, the circuit is correct, it really is that straightforward.",
           },
           {
             question: "What batteries does it need, and are they included?",
             answer:
-              "The kit requires 3 × AA batteries, which are NOT included. You can add a pack of batteries to your order above — that's the only thing you'll need before your child can get started.",
+              "The kit requires 3 × AA batteries, which are NOT included. You can add a pack of batteries to your order above, that's the only thing you'll need before your child can get started.",
           },
           {
             question: "Is it safe for young children?",
             answer:
-              "Absolutely. Snap Circuits uses Elenco's Circuit Safe® patented technology, which means the circuit can never be connected in a way that creates a hazard. All components have smooth, rounded edges and the kit runs on just 4.5V — completely safe for children aged 5 and up.",
+              "Absolutely. Snap Circuits uses Elenco's Circuit Safe® patented technology, which means the circuit can never be connected in a way that creates a hazard. All components have smooth, rounded edges and the kit runs on just 4.5V, completely safe for children aged 5 and up.",
           },
           {
             question: "Does my child need to be able to read?",
             answer:
-              "No. The manual uses pictures and step-by-step diagrams instead of written instructions — one of this kit's standout features. Pre-readers and early readers can follow along completely independently.",
+              "No. The manual uses pictures and step-by-step diagrams instead of written instructions, one of this kit's standout features. Pre-readers and early readers can follow along completely independently.",
           },
           {
             question: "What can my child do after completing the 21 projects?",
             answer:
-              "Once they've finished the guided projects, they can combine components freely to invent their own circuits — the experimentation is half the fun. When they're ready for more, the Snap Circuits Jr. (SC-100) uses the same snap system and unlocks 100+ additional projects, with even larger kits beyond that.",
+              "Once they've finished the guided projects, they can combine components freely to invent their own circuits, the experimentation is half the fun. When they're ready for more, the Snap Circuits Jr. (SC-100) uses the same snap system and unlocks 100+ additional projects, with even larger kits beyond that.",
           },
         ]}
         background="white"
@@ -279,7 +279,7 @@ export default async function SnapCircuitsBeginnerPage() {
         imageAlt="Snap Circuits Beginner kit laid out showing all components"
         items={[
           "Mini base grid",
-          "Battery holder (3 × AA — batteries not included)",
+          "Battery holder (3 × AA, batteries not included)",
           "Slide switch",
           "Press switch",
           "Lamp",
@@ -317,7 +317,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Real electronics for ages 5–9. Build 21 snap-together circuit projects — lights, sounds, and motion. No tools, no soldering, no reading required.",
+      "Real electronics for ages 5–9. Build 21 snap-together circuit projects, lights, sounds, and motion. No tools, no soldering, no reading required.",
     alternates: {
       canonical: "/product/snap-circuits-beginner",
     },

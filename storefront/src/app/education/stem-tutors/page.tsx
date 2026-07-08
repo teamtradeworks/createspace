@@ -17,7 +17,7 @@ const phases = [
     title: "Foundation Phase",
     grades: "Grade RRR – 3",
     description:
-      "Young learners are introduced to STEM concepts through creative, play-based activities. They build collaboration skills while exploring how things work — no screens required at this stage.",
+      "Young learners are introduced to STEM concepts through creative, play-based activities. They build collaboration skills while exploring how things work, no screens required at this stage.",
     color: "bg-cs-orange",
     image: "/images/education/stem-tutors/toddlers-exploring-robotics-kit.jpg",
     imageAlt: "Young children exploring a robotics kit on the floor",
@@ -35,7 +35,7 @@ const phases = [
     title: "Secondary Phase",
     grades: "Grade 8 – 12",
     description:
-      "Older learners tackle pattern recognition, algorithmic thinking, robotics, and electronic communication — building real 21st-century skills for the world ahead.",
+      "Older learners tackle pattern recognition, algorithmic thinking, robotics, and electronic communication, building real 21st-century skills for the world ahead.",
     color: "bg-cs-purple",
     image: "/images/education/stem-tutors/boy-coding-robot-at-event.jpg",
     imageAlt: "Boy in school uniform coding a robot with a tablet at an event",
@@ -72,7 +72,7 @@ export default function StemTutorsPage() {
               </h1>
               <p className="text-xl text-white/80 max-w-xl mb-8">
                 Robotixkids brings trained facilitators, all the equipment, and a proven curriculum
-                directly to your classroom — from Grade R all the way to Matric.
+                directly to your classroom, from Grade R all the way to Matric.
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
@@ -117,8 +117,8 @@ export default function StemTutorsPage() {
               </h2>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Robotixkids runs as an extramural or curriculum programme at your school. Their
-                trained facilitators arrive with everything they need — kits, tablets, lesson plans
-                — so your school doesn&apos;t have to invest in equipment or train existing staff.
+                trained facilitators arrive with everything they need, kits, tablets, lesson plans,
+                so your school doesn&apos;t have to invest in equipment or train existing staff.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
                 Learners explore robotics, coding, and creative problem-solving through hands-on
@@ -127,7 +127,7 @@ export default function StemTutorsPage() {
               </p>
               <p className="text-gray-600 mb-8 leading-relaxed">
                 Through our partnership with Robotixkids, CREATESPACE makes it easy to bring quality
-                STEM education to your school — just get in touch and we&apos;ll handle the rest.
+                STEM education to your school, just get in touch and we&apos;ll handle the rest.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
@@ -352,7 +352,7 @@ export default function StemTutorsPage() {
               {
                 title: "Schools Without STEM Staff",
                 description:
-                  "No need to hire or train — Robotixkids provides the facilitators and all the equipment. Your school just provides the space.",
+                  "No need to hire or train, Robotixkids provides the facilitators and all the equipment. Your school just provides the space.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path
@@ -367,7 +367,7 @@ export default function StemTutorsPage() {
               {
                 title: "Parents Looking for After-School Activities",
                 description:
-                  "A productive extramural that builds real skills. Learners explore robotics and coding right at school — no extra transport needed.",
+                  "A productive extramural that builds real skills. Learners explore robotics and coding right at school, no extra transport needed.",
                 icon: (
                   <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path

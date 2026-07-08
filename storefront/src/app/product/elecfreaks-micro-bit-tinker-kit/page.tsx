@@ -37,12 +37,12 @@ export default async function ElecfreaksTinkerKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Turn your micro:bit into a real electronics lab — no breadboard, no mess, no experience needed"
+        tagline="Turn your micro:bit into a real electronics lab, no breadboard, no mess, no experience needed"
         highlights={[
           "39 hands-on projects from simple alarms to games and robots",
-          "Plug-and-play sensors — colour-coded, no breadboard required",
+          "Plug-and-play sensors, colour-coded, no breadboard required",
           "Starts with drag-and-drop blocks, grows to Python",
-          "No soldering — safe for home and classroom use",
+          "No soldering, safe for home and classroom use",
         ]}
         addons={addons}
       />
@@ -53,12 +53,12 @@ export default async function ElecfreaksTinkerKitPage() {
       {/* Why micro:bit Tinker Kit */}
       <NumberedSteps
         title="Why the Tinker Kit?"
-        subtitle="The BBC micro:bit is one of the most used coding tools in classrooms worldwide. The Tinker Kit gives your child the sensors and components to go further — without the frustration of tangled wires."
+        subtitle="The BBC micro:bit is one of the most used coding tools in classrooms worldwide. The Tinker Kit gives your child the sensors and components to go further, without the frustration of tangled wires."
         steps={[
           {
             title: "Real Hardware, Real Results",
             description:
-              "Write code and watch something physical happen — a light turns on, a servo moves, a buzzer sounds. The feedback loop is instant and deeply satisfying.",
+              "Write code and watch something physical happen, a light turns on, a servo moves, a buzzer sounds. The feedback loop is instant and deeply satisfying.",
           },
           {
             title: "Designed to Be Accessible",
@@ -68,7 +68,7 @@ export default async function ElecfreaksTinkerKitPage() {
           {
             title: "A Full Coding Pathway",
             description:
-              "Start with drag-and-drop blocks in MakeCode. When your child is ready, the same kit runs in JavaScript or Python — no new hardware needed.",
+              "Start with drag-and-drop blocks in MakeCode. When your child is ready, the same kit runs in JavaScript or Python, no new hardware needed.",
           },
         ]}
         background="navy-card"
@@ -79,7 +79,7 @@ export default async function ElecfreaksTinkerKitPage() {
         image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_buttons_in_both_hands.jpg"
         imageAlt="Hands interacting with a micro:bit Tinker Kit expansion project showing the Octopus:bit board and sensors"
         title="What the Tinker Kit Adds to Your micro:bit"
-        body="The micro:bit on its own is a powerful little computer — but the Tinker Kit is what turns it into a proper electronics lab. The included Octopus:bit expansion board breaks out all of the micro:bit's ports into colour-coded connectors, so your child simply plugs in a sensor and starts coding. No breadboard. No jumper wire diagrams. No confusion. The 13 included modules — from a PIR motion sensor and soil moisture probe to a servo motor, buzzer, and OLED display — connect the same way every time, leaving your child free to focus on what they're building, not how to hook it up."
+        body="The micro:bit on its own is a powerful little computer, but the Tinker Kit is what turns it into a proper electronics lab. The included Octopus:bit expansion board breaks out all of the micro:bit's ports into colour-coded connectors, so your child simply plugs in a sensor and starts coding. No breadboard. No jumper wire diagrams. No confusion. The 13 included modules, from a PIR motion sensor and soil moisture probe to a servo motor, buzzer, and OLED display, connect the same way every time, leaving your child free to focus on what they're building, not how to hook it up."
         layout="image-left"
         background="white"
       />
@@ -105,7 +105,7 @@ export default async function ElecfreaksTinkerKitPage() {
             icon: "book",
             title: "39 Online Tutorials",
             description:
-              "Free step-by-step guides for all 39 projects at the ELECFREAKS Wiki — no printed book to lose.",
+              "Free step-by-step guides for all 39 projects at the ELECFREAKS Wiki, no printed book to lose.",
           },
           {
             icon: "lightbulb",
@@ -135,7 +135,7 @@ export default async function ElecfreaksTinkerKitPage() {
         image="/images/products/elecfreaks-micro-bit-tinker-kit/microbit_expansion_project_with_interacting_hand.jpg"
         imageAlt="Hand interacting with a completed micro:bit Tinker Kit project showing sensors and outputs responding to touch"
         title="From Code to Working Project"
-        body="There's a moment every maker remembers — the first time their code made something in the real world happen. A light turned on. A buzzer sounded. A servo moved exactly as intended. The Tinker Kit is full of those moments. Your child writes a few blocks of code, presses download, and watches their plant monitor check moisture levels, or their intruder alarm trigger when someone enters the room. The projects are designed to be useful, not just instructional — which is exactly why children keep coming back."
+        body="There's a moment every maker remembers, the first time their code made something in the real world happen. A light turned on. A buzzer sounded. A servo moved exactly as intended. The Tinker Kit is full of those moments. Your child writes a few blocks of code, presses download, and watches their plant monitor check moisture levels, or their intruder alarm trigger when someone enters the room. The projects are designed to be useful, not just instructional, which is exactly why children keep coming back."
         layout="image-right"
         background="white"
       />
@@ -144,19 +144,19 @@ export default async function ElecfreaksTinkerKitPage() {
       <ProjectShowcase
         title="Projects You'll Build"
         highlight="39 hands-on projects with step-by-step online tutorials"
-        subtitle="Projects progress from beginner automations to games to advanced engineering builds. Start wherever your child is — there's no set order."
+        subtitle="Projects progress from beginner automations to games to advanced engineering builds. Start wherever your child is, there's no set order."
         projects={[
           {
             name: "Smart Light",
             description:
-              "Build a motion-activated light using the PIR sensor — turns on automatically when someone enters a room.",
+              "Build a motion-activated light using the PIR sensor, turns on automatically when someone enters a room.",
             concepts: "Motion sensing, conditionals",
             image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/smart-light.jpg",
           },
           {
             name: "Plant Monitor",
             description:
-              "Read soil moisture levels and display alerts when your plant needs water — a real IoT device.",
+              "Read soil moisture levels and display alerts when your plant needs water, a real IoT device.",
             concepts: "Analog sensors, OLED display, thresholds",
             image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/plant-monitoring.jpg",
           },
@@ -171,14 +171,14 @@ export default async function ElecfreaksTinkerKitPage() {
           {
             name: "Lie Detector",
             description:
-              "Repurpose the moisture sensor as a galvanic skin response detector — the micro:bit measures nervousness.",
+              "Repurpose the moisture sensor as a galvanic skin response detector, the micro:bit measures nervousness.",
             concepts: "Data comparison, statistics, biology meets electronics",
             image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/lie-detector.jpg",
           },
           {
             name: "Automated Fish Feeder",
             description:
-              "Program the servo to rotate at timed intervals — a genuinely useful automated feeder.",
+              "Program the servo to rotate at timed intervals, a genuinely useful automated feeder.",
             concepts: "Servo control, time-based programming, automation",
             image: "/images/products/elecfreaks-micro-bit-tinker-kit/projects/fish-feeder.jpg",
           },
@@ -198,7 +198,7 @@ export default async function ElecfreaksTinkerKitPage() {
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="Real projects built with the Tinker Kit — from classroom first builds to DIY home sensors."
+        subtitle="Real projects built with the Tinker Kit, from classroom first builds to DIY home sensors."
         images={[
           {
             src: "/images/products/elecfreaks-micro-bit-tinker-kit/micro-bit-connected-to-board.jpg",
@@ -254,12 +254,12 @@ export default async function ElecfreaksTinkerKitPage() {
           {
             question: "Is a micro:bit board included?",
             answer:
-              "No — the Tinker Kit is an expansion pack that works with a BBC micro:bit board, which is sold separately. You can add a micro:bit Go Bundle as an add-on when purchasing this kit. Both V1 and V2 micro:bit boards are fully compatible.",
+              "No, the Tinker Kit is an expansion pack that works with a BBC micro:bit board, which is sold separately. You can add a micro:bit Go Bundle as an add-on when purchasing this kit. Both V1 and V2 micro:bit boards are fully compatible.",
           },
           {
             question: "Do I need any coding experience?",
             answer:
-              "Not at all! The kit is designed for beginners. You program everything with Microsoft MakeCode, which uses drag-and-drop blocks — no typing required. Custom blocks for every Tinker Kit sensor are built in, so your child just clicks and connects. When they're ready, they can switch to JavaScript or Python — same kit, more power.",
+              "Not at all! The kit is designed for beginners. You program everything with Microsoft MakeCode, which uses drag-and-drop blocks, no typing required. Custom blocks for every Tinker Kit sensor are built in, so your child just clicks and connects. When they're ready, they can switch to JavaScript or Python, same kit, more power.",
           },
           {
             question: "What age is this suitable for?",
@@ -274,7 +274,7 @@ export default async function ElecfreaksTinkerKitPage() {
           {
             question: "Do I need a computer?",
             answer:
-              "Yes — you'll need a computer, tablet, or iPad to write code. Microsoft MakeCode is entirely browser-based (no installation needed) and works on Windows, Mac, iOS, Android, and ChromeOS. Any modern device with a browser and a USB or Bluetooth connection will work.",
+              "Yes, you'll need a computer, tablet, or iPad to write code. Microsoft MakeCode is entirely browser-based (no installation needed) and works on Windows, Mac, iOS, Android, and ChromeOS. Any modern device with a browser and a USB or Bluetooth connection will work.",
           },
           {
             question: "Are batteries included?",
@@ -284,7 +284,7 @@ export default async function ElecfreaksTinkerKitPage() {
           {
             question: "What can my child do after finishing the 39 projects?",
             answer:
-              "Plenty! Each project is a starting point, not an endpoint — your child can modify the code, combine sensors from different projects, or invent something entirely new. The Octopus platform has hundreds of compatible sensors to expand with, and the ELECFREAKS Wiki is regularly updated with new guides. MakeCode also connects to a large global community of maker projects.",
+              "Plenty! Each project is a starting point, not an endpoint, your child can modify the code, combine sensors from different projects, or invent something entirely new. The Octopus platform has hundreds of compatible sensors to expand with, and the ELECFREAKS Wiki is regularly updated with new guides. MakeCode also connects to a large global community of maker projects.",
           },
         ]}
         background="gray"
@@ -297,7 +297,7 @@ export default async function ElecfreaksTinkerKitPage() {
         imageAlt="ELECFREAKS micro:bit Tinker Kit components laid out showing all 13 modules and accessories"
         items={[
           "Octopus:bit Breakout Board (connects micro:bit to sensors)",
-          "Crystal Battery Box (2 × AAA — batteries not included)",
+          "Crystal Battery Box (2 × AAA, batteries not included)",
           "Micro-B USB Cable",
           "OLED Display Module",
           "Mini Servo Motor (1.6kg torque)",

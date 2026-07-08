@@ -129,7 +129,7 @@ export async function POST(request: NextRequest) {
         process.env.RESEND_FROM_EMAIL || `CREATESPACE Contact Form <no-reply@thecreatespace.co.za>`,
       to: [CONTACT_EMAIL],
       replyTo: email,
-      subject: `[Contact Form] ${subject} — ${name}${schoolName ? ` (${schoolName})` : ""}`,
+      subject: `[Contact Form] ${subject} | ${name}${schoolName ? ` (${schoolName})` : ""}`,
       html,
       text: plainText,
     });

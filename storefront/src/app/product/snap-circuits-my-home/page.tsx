@@ -40,9 +40,9 @@ export default async function SnapCircuitsMyHomePage() {
         product={product}
         tagline="Turn your home's circuits from mystery to mastery"
         highlights={[
-          "30+ home-themed circuit projects — no experience needed",
+          "30+ home-themed circuit projects, no experience needed",
           "Build real doorbells, alarms, fans, and more",
-          "No tools, no soldering — everything snaps together",
+          "No tools, no soldering, everything snaps together",
           "2022 Toy of the Year Finalist",
         ]}
         addons={addons}
@@ -59,17 +59,17 @@ export default async function SnapCircuitsMyHomePage() {
           {
             title: "Make It Personal",
             description:
-              "Every project is based on your child's actual home — the doorbell, the fan, the alarm. When electricity makes personal sense, it sticks.",
+              "Every project is based on your child's actual home, the doorbell, the fan, the alarm. When electricity makes personal sense, it sticks.",
           },
           {
             title: "Safe by Design",
             description:
-              "Elenco's patented Circuit Safe® technology means no live electricity — ever. All power comes from AA batteries, and incorrect connections cannot cause harm.",
+              "Elenco's patented Circuit Safe® technology means no live electricity, ever. All power comes from AA batteries, and incorrect connections cannot cause harm.",
           },
           {
             title: "Depth, Not Just Fun",
             description:
-              "Projects start simply and build in complexity. By the final builds, children are combining circuits to create multi-system homes — the same way real homes are actually wired.",
+              "Projects start simply and build in complexity. By the final builds, children are combining circuits to create multi-system homes, the same way real homes are actually wired.",
           },
         ]}
         background="navy-card"
@@ -86,8 +86,8 @@ export default async function SnapCircuitsMyHomePage() {
       <ImageTextBlock
         image="/images/products/snap-circuits-my-home/boy-playing-with-my-home.jpg"
         imageAlt="Boy playing with Snap Circuits My Home kit"
-        title="Your Home, Your Power — Know How It Works"
-        body="Through 30+ guided projects, your child builds each household system from scratch — learning exactly how electricity gets from a battery to the light bulb, the fan motor, or the doorbell chime. The result isn't just electronics knowledge. It's genuine mastery of the built environment they call home. Most children finish a project and immediately go find the equivalent in their house to show you what they've learned."
+        title="Your Home, Your Power, Know How It Works"
+        body="Through 30+ guided projects, your child builds each household system from scratch, learning exactly how electricity gets from a battery to the light bulb, the fan motor, or the doorbell chime. The result isn't just electronics knowledge. It's genuine mastery of the built environment they call home. Most children finish a project and immediately go find the equivalent in their house to show you what they've learned."
         layout="image-left"
         background="white"
       />
@@ -113,7 +113,7 @@ export default async function SnapCircuitsMyHomePage() {
             icon: "shield",
             title: "Circuit Safe® Technology",
             description:
-              "Elenco's patented safety system is built in. No live electricity — just battery-powered, worry-free exploration for ages 8+.",
+              "Elenco's patented safety system is built in. No live electricity, just battery-powered, worry-free exploration for ages 8+.",
           },
           {
             icon: "tools",
@@ -125,13 +125,13 @@ export default async function SnapCircuitsMyHomePage() {
             icon: "lightbulb",
             title: "Full-Colour Project Manual",
             description:
-              "The illustrated guide explains not just how to build each circuit — but why electricity behaves that way in real homes.",
+              "The illustrated guide explains not just how to build each circuit, but why electricity behaves that way in real homes.",
           },
           {
             icon: "star",
             title: "Reusable Components",
             description:
-              "Nothing is consumed. Your child rebuilds projects, invents new circuits, and keeps exploring — long after the last guided project.",
+              "Nothing is consumed. Your child rebuilds projects, invents new circuits, and keeps exploring, long after the last guided project.",
           },
         ]}
         columns={3}
@@ -143,7 +143,7 @@ export default async function SnapCircuitsMyHomePage() {
         image="/images/products/snap-circuits-my-home/girl-playing-with-home.jpg"
         imageAlt="Girl focused on building with Snap Circuits My Home"
         title="Skills That Transfer Far Beyond the Toy Box"
-        body="Every time a circuit doesn't work, your child faces a choice: give up or figure it out. Most choose to figure it out. That debugging mindset — asking what could be wrong and systematically trying different answers — is one of the most valuable habits a child can develop. It's the foundation of engineering, smart home technology, and renewable energy careers. Parents regularly report children becoming noticeably more patient and persistent in other areas of life after spending time with Snap Circuits."
+        body="Every time a circuit doesn't work, your child faces a choice: give up or figure it out. Most choose to figure it out. That debugging mindset, asking what could be wrong and systematically trying different answers, is one of the most valuable habits a child can develop. It's the foundation of engineering, smart home technology, and renewable energy careers. Parents regularly report children becoming noticeably more patient and persistent in other areas of life after spending time with Snap Circuits."
         layout="image-right"
         background="white"
       />
@@ -152,40 +152,40 @@ export default async function SnapCircuitsMyHomePage() {
       <ProjectShowcase
         title="30+ Real-World Circuit Projects"
         highlight="30+ home-themed projects in a full-colour illustrated project manual"
-        subtitle="Projects are ordered from simplest to most complex — building confidence with every build."
+        subtitle="Projects are ordered from simplest to most complex, building confidence with every build."
         projects={[
           {
             name: "Light Switch",
             description:
-              "Build a basic on/off circuit that controls a light — the same principle behind every switch in your house.",
+              "Build a basic on/off circuit that controls a light, the same principle behind every switch in your house.",
             concepts: "Switches, current flow, basic circuits",
             image: "/images/products/snap-circuits-my-home/project-building-house.jpg",
           },
           {
             name: "Doorbell",
             description:
-              "Wire a working doorbell with a button and buzzer — press it and hear it ring.",
+              "Wire a working doorbell with a button and buzzer, press it and hear it ring.",
             concepts: "Momentary switches, series circuits, sound",
             image: "/images/products/snap-circuits-my-home/project-doorbell-v2.jpg",
           },
           {
             name: "Dimmer Switch",
             description:
-              "Control light brightness using a variable resistor — just like the dimmers in your lounge.",
+              "Control light brightness using a variable resistor, just like the dimmers in your lounge.",
             concepts: "Potentiometers, resistance, light control",
             image: "/images/products/snap-circuits-my-home/project-dimmer-switch.jpg",
           },
           {
             name: "Security Alarm",
             description:
-              "Build an alarm that triggers when a circuit is broken — the same logic real burglar alarms use.",
+              "Build an alarm that triggers when a circuit is broken, the same logic real burglar alarms use.",
             concepts: "Alarm circuits, security logic, series circuits",
             image: "/images/products/snap-circuits-my-home/project-assembling-roof.jpg",
           },
           {
             name: "Motion Detector Light",
             description:
-              "Build a light that activates automatically when motion is detected — like outdoor security lights.",
+              "Build a light that activates automatically when motion is detected, like outdoor security lights.",
             concepts: "Motion sensors, automation, relay circuits",
             image: "/images/products/snap-circuits-my-home/project-fan-collage.jpg",
           },
@@ -260,7 +260,7 @@ export default async function SnapCircuitsMyHomePage() {
           {
             question: "Does my child need any prior experience with electronics?",
             answer:
-              "Not at all. The kit is designed for complete beginners aged 8 and up. The project manual starts from the simplest possible circuit and builds step by step — no technical background required from your child or from you.",
+              "Not at all. The kit is designed for complete beginners aged 8 and up. The project manual starts from the simplest possible circuit and builds step by step, no technical background required from your child or from you.",
           },
           {
             question: "What age is this suitable for?",
@@ -275,7 +275,7 @@ export default async function SnapCircuitsMyHomePage() {
           {
             question: "Is it safe for children to use on their own?",
             answer:
-              "Yes. The kit uses Elenco's patented Circuit Safe® technology — all power comes from AA batteries and the system is designed so that incorrect connections cannot cause harm. There is no live mains electricity involved at any point.",
+              "Yes. The kit uses Elenco's patented Circuit Safe® technology, all power comes from AA batteries and the system is designed so that incorrect connections cannot cause harm. There is no live mains electricity involved at any point.",
           },
           {
             question: "Is soldering required? Do I need any tools?",
@@ -285,12 +285,12 @@ export default async function SnapCircuitsMyHomePage() {
           {
             question: "What happens once they've completed all 30+ projects?",
             answer:
-              "The components are fully reusable — your child can rebuild any project, combine circuits in new ways, or invent their own builds. The Snap Circuits ecosystem is also expandable: the parts are compatible with many other Snap Circuits kits (SC-100, SC-300, SC-750) for hundreds more projects.",
+              "The components are fully reusable, your child can rebuild any project, combine circuits in new ways, or invent their own builds. The Snap Circuits ecosystem is also expandable: the parts are compatible with many other Snap Circuits kits (SC-100, SC-300, SC-750) for hundreds more projects.",
           },
           {
             question: "Does this need a computer, phone, or app?",
             answer:
-              "Fully standalone — no computer, phone, app, or internet connection required. Everything works straight from the box with just the included manual and AA batteries.",
+              "Fully standalone, no computer, phone, app, or internet connection required. Everything works straight from the box with just the included manual and AA batteries.",
           },
         ]}
         background="white"

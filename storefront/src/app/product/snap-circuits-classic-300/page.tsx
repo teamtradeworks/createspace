@@ -37,12 +37,12 @@ export default async function SnapCircuitsClassic300Page() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="305 guided electronics projects — no tools, no soldering, no experience needed"
+        tagline="305 guided electronics projects, no tools, no soldering, no experience needed"
         highlights={[
           "305 guided projects from a simple light switch to a working AM radio",
-          "No tools and no soldering — just snap the pieces together",
+          "No tools and no soldering, just snap the pieces together",
           "Two full-colour project manuals included",
-          "Expandable — compatible with all Snap Circuits sets",
+          "Expandable, compatible with all Snap Circuits sets",
         ]}
         addons={addons}
       />
@@ -58,12 +58,12 @@ export default async function SnapCircuitsClassic300Page() {
           {
             title: "Snap to Life",
             description:
-              "The unique snap-together system means your child is building real circuits within minutes of opening the box. No tools, no glue, no frustration — just click the numbered modules into place on the grid.",
+              "The unique snap-together system means your child is building real circuits within minutes of opening the box. No tools, no glue, no frustration, just click the numbered modules into place on the grid.",
           },
           {
             title: "Real Electronics",
             description:
-              "This isn't pretend play. Build a working AM radio, a lie detector, a burglar alarm. Every component is a real electronic part — the same ones inside the devices we use every day.",
+              "This isn't pretend play. Build a working AM radio, a lie detector, a burglar alarm. Every component is a real electronic part, the same ones inside the devices we use every day.",
           },
           {
             title: "Grows With Them",
@@ -79,7 +79,7 @@ export default async function SnapCircuitsClassic300Page() {
         image="/images/products/snap-circuits-classic-300/girl-smiling-with-kit.jpg"
         imageAlt="Girl smiling with completed Snap Circuits kit"
         title="Built to Be Rebuilt, Again and Again"
-        body="Snap Circuits was designed for hands-on exploration, not one-time use. The 60+ colour-coded modules snap on and off hundreds of times without wearing out — so your child can build a project, take it apart, and start something new in minutes. No sticky fingers, no lost screws, no broken pieces. Each component is numbered to match the circuit diagrams in the manual, so even a first-time builder can follow along independently."
+        body="Snap Circuits was designed for hands-on exploration, not one-time use. The 60+ colour-coded modules snap on and off hundreds of times without wearing out, so your child can build a project, take it apart, and start something new in minutes. No sticky fingers, no lost screws, no broken pieces. Each component is numbered to match the circuit diagrams in the manual, so even a first-time builder can follow along independently."
         layout="image-left"
         background="white"
       />
@@ -99,7 +99,7 @@ export default async function SnapCircuitsClassic300Page() {
             icon: "tools",
             title: "No Tools Needed",
             description:
-              "Components snap together on a grid board — no soldering, no glue, no special tools of any kind.",
+              "Components snap together on a grid board, no soldering, no glue, no special tools of any kind.",
           },
           {
             icon: "octagon-check",
@@ -117,7 +117,7 @@ export default async function SnapCircuitsClassic300Page() {
             icon: "star",
             title: "Award-Winning Quality",
             description:
-              "Toy of the Year, Good Housekeeping's Best Toy, and NAPPA Gold — among more than a dozen industry awards.",
+              "Toy of the Year, Good Housekeeping's Best Toy, and NAPPA Gold, among more than a dozen industry awards.",
           },
           {
             icon: "layers",
@@ -135,7 +135,7 @@ export default async function SnapCircuitsClassic300Page() {
         image="/images/products/snap-circuits-classic-300/close-up-of-pieces-together.jpg"
         imageAlt="Close-up of Snap Circuits modules snapped together on the grid board"
         title="How Electronics Actually Work"
-        body="Every component in Snap Circuits is a real electronic part — resistors, capacitors, transistors, relays, and integrated circuits that work exactly the way they do in everyday devices. Your child builds each circuit by connecting these parts in the pattern shown in the manual, and when it works — when the alarm beeps, the fan spins, or the radio tunes in to a real station — they're seeing real physics in action. Questions like 'how does a radio work?' stop being abstract and start having tangible answers."
+        body="Every component in Snap Circuits is a real electronic part, resistors, capacitors, transistors, relays, and integrated circuits that work exactly the way they do in everyday devices. Your child builds each circuit by connecting these parts in the pattern shown in the manual, and when it works, when the alarm beeps, the fan spins, or the radio tunes in to a real station, they're seeing real physics in action. Questions like 'how does a radio work?' stop being abstract and start having tangible answers."
         layout="image-right"
         background="white"
       />
@@ -144,7 +144,7 @@ export default async function SnapCircuitsClassic300Page() {
       <ProjectShowcase
         title="305 Projects to Build"
         highlight="305 guided electronics projects in two full-colour manuals"
-        subtitle="Projects are arranged in order of difficulty — your child builds knowledge step by step, starting from a simple light switch and working up to a fully functioning AM radio."
+        subtitle="Projects are arranged in order of difficulty, your child builds knowledge step by step, starting from a simple light switch and working up to a fully functioning AM radio."
         projects={[
           {
             name: "Musical Doorbell",
@@ -166,7 +166,7 @@ export default async function SnapCircuitsClassic300Page() {
           },
           {
             name: "Lie Detector",
-            description: "Detect skin conductance changes — it actually works",
+            description: "Detect skin conductance changes, it actually works",
             concepts: "Sensors, signal processing",
             image: "/images/products/snap-circuits-classic-300/project-lie-detector.jpeg",
           },
@@ -183,14 +183,14 @@ export default async function SnapCircuitsClassic300Page() {
             image: "/images/products/snap-circuits-classic-300/project-photosensitive-organ.png",
           },
         ]}
-        moreText="Plus 299 more projects — alarms, motor controllers, light displays, logic gates, and complex multi-component systems"
+        moreText="Plus 299 more projects, alarms, motor controllers, light displays, logic gates, and complex multi-component systems"
         background="gray"
       />
 
       {/* Customer Showcase — all end-user images */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="From the first project to the full 305 — real circuits built by real kids"
+        subtitle="From the first project to the full 305, real circuits built by real kids"
         images={[
           {
             src: "/images/products/snap-circuits-classic-300/child-building-circuit.jpg",
@@ -208,7 +208,7 @@ export default async function SnapCircuitsClassic300Page() {
             src: "/images/products/snap-circuits-classic-300/circuits-built-on-the-floor.jpg",
             alt: "Completed Snap Circuits AM radio project built on the floor",
             label: "AM Radio",
-            description: "One of the most impressive builds — a real working radio",
+            description: "One of the most impressive builds, a real working radio",
           },
           {
             src: "/images/products/snap-circuits-classic-300/hand-holding-piece-above-circuit-board.jpg",
@@ -238,7 +238,7 @@ export default async function SnapCircuitsClassic300Page() {
             src: "/images/products/snap-circuits-classic-300/open-box-with-pieces.jpg",
             alt: "Snap Circuits Classic 300 components spread out on a surface",
             label: "The Components",
-            description: "Colour-coded and numbered — every piece has its place",
+            description: "Colour-coded and numbered, every piece has its place",
           },
         ]}
         background="white"
@@ -254,7 +254,7 @@ export default async function SnapCircuitsClassic300Page() {
           {
             question: "Do I need any prior electronics knowledge to start?",
             answer:
-              "Not at all. The project manual begins with the most basic circuit — a light and a switch — and explains every concept from scratch. The numbered, colour-coded components match the diagrams exactly, so most children can work through the early projects completely independently.",
+              "Not at all. The project manual begins with the most basic circuit, a light and a switch, and explains every concept from scratch. The numbered, colour-coded components match the diagrams exactly, so most children can work through the early projects completely independently.",
           },
           {
             question: "What age is this suitable for?",
@@ -264,7 +264,7 @@ export default async function SnapCircuitsClassic300Page() {
           {
             question: "Are batteries included?",
             answer:
-              "No — the kit requires 4 × AA batteries, which are sold separately. Batteries aren't included because they may drain during storage. Once you pop in four AAs, your child is ready to start project 1.",
+              "No, the kit requires 4 × AA batteries, which are sold separately. Batteries aren't included because they may drain during storage. Once you pop in four AAs, your child is ready to start project 1.",
           },
           {
             question: "Is this safe? Does my child need adult supervision?",
@@ -274,7 +274,7 @@ export default async function SnapCircuitsClassic300Page() {
           {
             question: "What does my child do after finishing all 305 projects?",
             answer:
-              "There's plenty of life left in the kit. They can revisit favourite projects, experiment with their own circuit combinations, or upgrade to Snap Circuits SC-500 — which uses the same components and adds another 200+ projects. Individual replacement parts are also available from Elenco directly.",
+              "There's plenty of life left in the kit. They can revisit favourite projects, experiment with their own circuit combinations, or upgrade to Snap Circuits SC-500, which uses the same components and adds another 200+ projects. Individual replacement parts are also available from Elenco directly.",
           },
           {
             question: "Does this require a computer or any app?",

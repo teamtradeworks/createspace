@@ -40,10 +40,10 @@ export default async function VinciBotClassroomSetPage() {
         product={product}
         tagline="Complete coding, robotics, and AI classroom solution for Grades 3–7"
         highlights={[
-          "Supports up to 24 learners simultaneously — 6 robots, groups of 4",
+          "Supports up to 24 learners simultaneously, 6 robots, groups of 4",
           "75 structured activities covering key computational thinking concepts for Grades 3–7",
-          "Scratch and Python on one robot — no equipment change needed",
-          "On-device AI and TinyML — works without internet connectivity",
+          "Scratch and Python on one robot, no equipment change needed",
+          "On-device AI and TinyML, works without internet connectivity",
         ]}
         addons={addons}
       />
@@ -54,17 +54,17 @@ export default async function VinciBotClassroomSetPage() {
       {/* Why Choose VinciBot Section */}
       <NumberedSteps
         title="Why Choose VinciBot for Your Classroom?"
-        subtitle="VinciBot is built for real classroom conditions — mixed abilities, limited prep time, and the need to demonstrate curriculum value."
+        subtitle="VinciBot is built for real classroom conditions, mixed abilities, limited prep time, and the need to demonstrate curriculum value."
         steps={[
           {
             title: "Curriculum-Ready from Day One",
             description:
-              "VinciBot's 75-activity curriculum covers sequencing, loops, conditionals, functions, and variables — core computational thinking concepts for Grades 3–7. Activities are structured and progressive, ready to integrate into your existing teaching programme.",
+              "VinciBot's 75-activity curriculum covers sequencing, loops, conditionals, functions, and variables, core computational thinking concepts for Grades 3–7. Activities are structured and progressive, ready to integrate into your existing teaching programme.",
           },
           {
             title: "Designed for Group Learning",
             description:
-              "Each robot supports 2–4 learners working collaboratively. Six robots in the classroom set means your full class engages simultaneously — no rotation, no waiting, no disruption.",
+              "Each robot supports 2–4 learners working collaboratively. Six robots in the classroom set means your full class engages simultaneously, no rotation, no waiting, no disruption.",
           },
           {
             title: "Works for Any Educator",
@@ -87,7 +87,7 @@ export default async function VinciBotClassroomSetPage() {
         image="/images/products/matatastudio-vincibot-classroom-set/teacher-with-kids-playing-with-vincibot-new.jpg"
         imageAlt="Teacher with learners playing with VinciBot coding robots"
         title="A Full Class, Learning Together"
-        body="Six robots. Up to 24 learners. No rotation, no waiting. Groups of 2–4 learners share a robot — deciding together who codes, who observes, and who records results. Collaboration is built into every activity, not bolted on. Stronger coders naturally support peers, and educators report spontaneous peer teaching emerging within the first few sessions."
+        body="Six robots. Up to 24 learners. No rotation, no waiting. Groups of 2–4 learners share a robot, deciding together who codes, who observes, and who records results. Collaboration is built into every activity, not bolted on. Stronger coders naturally support peers, and educators report spontaneous peer teaching emerging within the first few sessions."
         layout="image-left"
         background="white"
       />
@@ -101,11 +101,11 @@ export default async function VinciBotClassroomSetPage() {
             icon: "code",
             title: "Scratch to Python Progression",
             description:
-              "Learners begin with block-based Scratch and advance to text-based Python — on the same robot, in the same term, with no equipment change.",
+              "Learners begin with block-based Scratch and advance to text-based Python, on the same robot, in the same term, with no equipment change.",
           },
           {
             icon: "wifi",
-            title: "On-Device AI — No Internet Needed",
+            title: "On-Device AI, No Internet Needed",
             description:
               "TinyML features (gesture recognition, voice commands, handwriting recognition) run entirely on the robot. Works reliably in schools with limited connectivity.",
           },
@@ -113,7 +113,7 @@ export default async function VinciBotClassroomSetPage() {
             icon: "sensor",
             title: "8+ Built-In Sensors",
             description:
-              "Distance, light, sound, colour, and line-following sensors give learners real data to work with — turning abstract coding concepts into tangible, physical outcomes.",
+              "Distance, light, sound, colour, and line-following sensors give learners real data to work with, turning abstract coding concepts into tangible, physical outcomes.",
           },
           {
             icon: "robot",
@@ -131,7 +131,7 @@ export default async function VinciBotClassroomSetPage() {
             icon: "puzzle",
             title: "Storage and Organisation Included",
             description:
-              "A purpose-built plastic storage bin keeps all six sets organised. Setup and pack-away are fast — reducing lesson prep overhead for busy educators.",
+              "A purpose-built plastic storage bin keeps all six sets organised. Setup and pack-away are fast, reducing lesson prep overhead for busy educators.",
           },
         ]}
         columns={3}
@@ -142,8 +142,8 @@ export default async function VinciBotClassroomSetPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-vincibot-classroom-set/kids-with-teacher-looking-at-tablet.jpg"
         imageAlt="Kids and teacher working with VinciBot through a tablet interface"
-        title="From Scratch to Python — No Equipment Change"
-        body="VinciBot bridges visual and text-based coding on a single robot. Learners begin with Scratch's block-based interface and progress to Python — with no new hardware, no new setup, and no interruption to the lesson. This progression happens on the same device your class already uses, making it practical for schools managing multiple grade levels with one set of equipment."
+        title="From Scratch to Python, No Equipment Change"
+        body="VinciBot bridges visual and text-based coding on a single robot. Learners begin with Scratch's block-based interface and progress to Python, with no new hardware, no new setup, and no interruption to the lesson. This progression happens on the same device your class already uses, making it practical for schools managing multiple grade levels with one set of equipment."
         layout="image-right"
         background="white"
       />
@@ -152,7 +152,7 @@ export default async function VinciBotClassroomSetPage() {
       <ProjectShowcase
         title="Classroom Activities"
         highlight="75 structured activities across 5 progressive modules"
-        subtitle="Activities progress from foundational sequences to multi-robot communication and AI — suitable for mixed-ability classrooms at Grades 3–7. Each fits a standard 45-minute lesson period."
+        subtitle="Activities progress from foundational sequences to multi-robot communication and AI, suitable for mixed-ability classrooms at Grades 3–7. Each fits a standard 45-minute lesson period."
         projects={[
           {
             name: "Hello, I am VinciBot!",
@@ -165,7 +165,7 @@ export default async function VinciBotClassroomSetPage() {
           {
             name: "The Rainbow Light",
             description:
-              "Programme the 16×8 LED matrix to display a colour sequence — learners discover the power of loops.",
+              "Programme the 16×8 LED matrix to display a colour sequence, learners discover the power of loops.",
             concepts: "Loops, LED programming",
             image:
               "/images/products/matatastudio-vincibot-classroom-set/projects/led-matrix-display.jpg",
@@ -173,7 +173,7 @@ export default async function VinciBotClassroomSetPage() {
           {
             name: "Invisible Ruler",
             description:
-              "Use the ToF distance sensor to measure objects accurately — combines maths and coding in one activity.",
+              "Use the ToF distance sensor to measure objects accurately, combines maths and coding in one activity.",
             concepts: "Loops, sensor data, measurement",
             image:
               "/images/products/matatastudio-vincibot-classroom-set/projects/eight-built-in-sensors.jpg",
@@ -181,7 +181,7 @@ export default async function VinciBotClassroomSetPage() {
           {
             name: "Eye Guard",
             description:
-              "VinciBot uses obstacle detection to respond to objects — learners write their first if/then logic.",
+              "VinciBot uses obstacle detection to respond to objects, learners write their first if/then logic.",
             concepts: "Conditionals, sensor response",
             image:
               "/images/products/matatastudio-vincibot-classroom-set/projects/avoid-obstacles.jpg",
@@ -189,7 +189,7 @@ export default async function VinciBotClassroomSetPage() {
           {
             name: "Dance for Two",
             description:
-              "Two robots communicate via infrared and perform synchronised movement — a multi-robot collaboration challenge.",
+              "Two robots communicate via infrared and perform synchronised movement, a multi-robot collaboration challenge.",
             concepts: "IR communication, multi-robot coordination",
             image:
               "/images/products/matatastudio-vincibot-classroom-set/projects/vincitbot-with-lights-dancing-music.jpg",
@@ -197,20 +197,20 @@ export default async function VinciBotClassroomSetPage() {
           {
             name: "Gesture Control",
             description:
-              "Train VinciBot to recognise hand gestures using on-device TinyML — no internet required. Learners experience real AI running on the robot itself.",
+              "Train VinciBot to recognise hand gestures using on-device TinyML, no internet required. Learners experience real AI running on the robot itself.",
             concepts: "TinyML, gesture recognition, on-device AI",
             image:
               "/images/products/matatastudio-vincibot-classroom-set/projects/artificial-intelligence.jpg",
           },
         ]}
-        moreText="Plus 69 more activities covering functions, variables, line following, TinyML, IoT, and creative drawing — and 3 extended PBL engineering projects"
+        moreText="Plus 69 more activities covering functions, variables, line following, TinyML, IoT, and creative drawing, and 3 extended PBL engineering projects"
         background="gray"
       />
 
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="From home learning to coding clubs and classrooms — VinciBot engages learners wherever they are."
+        subtitle="From home learning to coding clubs and classrooms, VinciBot engages learners wherever they are."
         images={[
           {
             src: "/images/products/matatastudio-vincibot-classroom-set/kids-watching-vincibot-draw.jpeg",
@@ -263,12 +263,12 @@ export default async function VinciBotClassroomSetPage() {
           {
             question: "Does VinciBot cover skills from the national curriculum?",
             answer:
-              "VinciBot's 75-activity curriculum covers core computational thinking concepts — sequencing, loops, events, conditionals, functions, and variables — that feature prominently in South African curricula for Grades 3–7. The curriculum holds ISTE certification. However, we don't provide a formal CAPS mapping document for this product.",
+              "VinciBot's 75-activity curriculum covers core computational thinking concepts, sequencing, loops, events, conditionals, functions, and variables, that feature prominently in South African curricula for Grades 3–7. The curriculum holds ISTE certification. However, we don't provide a formal CAPS mapping document for this product.",
           },
           {
             question: "How many learners can use the classroom set simultaneously?",
             answer:
-              "The classroom set includes 6 VinciBot robots. With groups of 2–4 learners per robot, the set supports 12–24 learners working simultaneously — typically a full class with no rotation required. Groups of 3 work particularly well, with clear roles for each learner.",
+              "The classroom set includes 6 VinciBot robots. With groups of 2–4 learners per robot, the set supports 12–24 learners working simultaneously, typically a full class with no rotation required. Groups of 3 work particularly well, with clear roles for each learner.",
           },
           {
             question: "Do I need a STEM background to teach with VinciBot?",
@@ -278,17 +278,17 @@ export default async function VinciBotClassroomSetPage() {
           {
             question: "How much preparation time is needed per lesson?",
             answer:
-              "Very little. Robots charge overnight via the included 10-port USB station. The activity cards and challenge booklet are self-contained — each activity includes the objective, instructions, and expected outcomes. Most educators report being ready in under 10 minutes. Storage in the included bin keeps all components organised between lessons.",
+              "Very little. Robots charge overnight via the included 10-port USB station. The activity cards and challenge booklet are self-contained, each activity includes the objective, instructions, and expected outcomes. Most educators report being ready in under 10 minutes. Storage in the included bin keeps all components organised between lessons.",
           },
           {
             question: "How durable are the robots for repeated classroom use?",
             answer:
-              "VinciBot is built from ABS plastic and passes 20+ professional quality and safety tests in manufacture. The rechargeable 1500mAh battery lasts 4+ hours per charge. Washable markers are used for drawing activities — no permanent marks. The high-precision motors are designed for extended service life compared to the previous generation.",
+              "VinciBot is built from ABS plastic and passes 20+ professional quality and safety tests in manufacture. The rechargeable 1500mAh battery lasts 4+ hours per charge. Washable markers are used for drawing activities, no permanent marks. The high-precision motors are designed for extended service life compared to the previous generation.",
           },
           {
             question: "Does VinciBot require internet connectivity?",
             answer:
-              "A web browser or the MatataCode app is needed for coding (Windows, Mac, iOS, Android are all supported). However, VinciBot's AI and TinyML features — including gesture recognition, voice recognition, and handwriting recognition — run entirely on-device with no internet required. This makes it reliable in schools with inconsistent connectivity.",
+              "A web browser or the MatataCode app is needed for coding (Windows, Mac, iOS, Android are all supported). However, VinciBot's AI and TinyML features, including gesture recognition, voice recognition, and handwriting recognition, run entirely on-device with no internet required. This makes it reliable in schools with inconsistent connectivity.",
           },
           {
             question: "What happens after learners complete the 75 activities?",
@@ -306,7 +306,7 @@ export default async function VinciBotClassroomSetPage() {
       <WhatsIncluded
         title="What's in the Kit"
         image="/images/products/matatastudio-vincibot-classroom-set/whats-in-the-box-new.jpg"
-        imageAlt="VinciBot Classroom Set contents laid out — 6 robots, activity cards, maps, markers, and storage bin"
+        imageAlt="VinciBot Classroom Set contents laid out, 6 robots, activity cards, maps, markers, and storage bin"
         items={[
           "VinciBot coding robot × 6",
           "IR remote control × 6",

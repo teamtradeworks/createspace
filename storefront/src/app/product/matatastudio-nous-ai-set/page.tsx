@@ -54,12 +54,12 @@ export default async function NousAISetPage() {
       {/* Why Nous AI Section */}
       <NumberedSteps
         title="Why Nous AI?"
-        subtitle="Most coding robots teach programming. Nous AI teaches your child how artificial intelligence actually works — from training models to deploying them in real applications."
+        subtitle="Most coding robots teach programming. Nous AI teaches your child how artificial intelligence actually works, from training models to deploying them in real applications."
         steps={[
           {
             title: "Learn Real AI",
             description:
-              "Not just coding — your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
+              "Not just coding, your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
           },
           {
             title: "Skills That Matter Now",
@@ -69,7 +69,7 @@ export default async function NousAISetPage() {
           {
             title: "Works Offline",
             description:
-              "Unlike cloud-dependent kits, Nous AI uses TinyML to run AI models directly on the robot — no internet required once models are trained. Your child learns real edge computing concepts.",
+              "Unlike cloud-dependent kits, Nous AI uses TinyML to run AI models directly on the robot, no internet required once models are trained. Your child learns real edge computing concepts.",
           },
         ]}
         background="navy-card"
@@ -87,7 +87,7 @@ export default async function NousAISetPage() {
         image="/images/products/matatastudio-nous-ai-set/child-with-nous.jpg"
         imageAlt="Child interacting with Nous AI robot"
         title="AI That Feels Like Magic"
-        body="Your child can have actual conversations with Nous AI using MatataChat, powered by ChatGPT-4o. They can ask the robot to draw pictures, train it to recognise their face, or program it to respond to voice commands. It's not just following instructions — they're experiencing how AI systems learn, adapt, and interact with the real world. Every project builds understanding of concepts like machine learning, computer vision, and natural language processing."
+        body="Your child can have actual conversations with Nous AI using MatataChat, powered by ChatGPT-4o. They can ask the robot to draw pictures, train it to recognise their face, or program it to respond to voice commands. It's not just following instructions, they're experiencing how AI systems learn, adapt, and interact with the real world. Every project builds understanding of concepts like machine learning, computer vision, and natural language processing."
         layout="image-left"
         background="white"
       />
@@ -95,13 +95,13 @@ export default async function NousAISetPage() {
       {/* Key Features Grid */}
       <FeatureGrid
         title="What Makes Nous AI Different"
-        subtitle="This isn't a toy robot — it's a complete AI education platform built around professional-grade concepts, made accessible for children aged 12+."
+        subtitle="This isn't a toy robot, it's a complete AI education platform built around professional-grade concepts, made accessible for children aged 12+."
         features={[
           {
             icon: "sparkles",
             title: "ChatGPT-4o Powered",
             description:
-              "Natural conversations with AI using MatataChat — ask questions, get responses, explore language understanding",
+              "Natural conversations with AI using MatataChat, ask questions, get responses, explore language understanding",
           },
           {
             icon: "code",
@@ -125,7 +125,7 @@ export default async function NousAISetPage() {
             icon: "robot",
             title: "TinyML Edge AI",
             description:
-              "Run AI models directly on the robot without cloud connectivity — learn edge computing concepts",
+              "Run AI models directly on the robot without cloud connectivity, learn edge computing concepts",
           },
           {
             icon: "building-blocks",
@@ -143,7 +143,7 @@ export default async function NousAISetPage() {
         image="/images/products/matatastudio-nous-ai-set/collage-of-nous-activities.jpg"
         imageAlt="Collage showing various Nous AI activities"
         title="More Than Technical Skills"
-        body="When your child trains an AI model and watches it work — or doesn't work — they're building resilience. They're learning that debugging isn't failure; it's part of the process. They're developing patience as they collect data, confidence as they solve problems independently, and curiosity as they ask &quot;what if I try this?&quot; These are the skills that transfer far beyond robotics: persistence, logical thinking, and the confidence to tackle unfamiliar challenges."
+        body="When your child trains an AI model and watches it work, or doesn't work, they're building resilience. They're learning that debugging isn't failure; it's part of the process. They're developing patience as they collect data, confidence as they solve problems independently, and curiosity as they ask &quot;what if I try this?&quot; These are the skills that transfer far beyond robotics: persistence, logical thinking, and the confidence to tackle unfamiliar challenges."
         layout="image-right"
         background="white"
       />
@@ -238,17 +238,17 @@ export default async function NousAISetPage() {
           {
             question: "Is this suitable for beginners?",
             answer:
-              "Yes! While Nous AI is recommended for ages 12+, the curriculum starts with basic concepts and gradually builds to advanced AI topics. No prior coding or robotics experience is needed — the online platform includes step-by-step tutorials from beginner to advanced.",
+              "Yes! While Nous AI is recommended for ages 12+, the curriculum starts with basic concepts and gradually builds to advanced AI topics. No prior coding or robotics experience is needed, the online platform includes step-by-step tutorials from beginner to advanced.",
           },
           {
             question: "What makes this different from other coding robots?",
             answer:
-              "Nous AI teaches the complete AI lifecycle — data collection, model training, and deployment. Your child doesn't just code; they train machine learning models, build speech recognition, and program computer vision. It's one of the few educational robots that teaches TinyML (edge AI) concepts.",
+              "Nous AI teaches the complete AI lifecycle, data collection, model training, and deployment. Your child doesn't just code; they train machine learning models, build speech recognition, and program computer vision. It's one of the few educational robots that teaches TinyML (edge AI) concepts.",
           },
           {
             question: "Do I need a computer or internet connection?",
             answer:
-              "You'll need a computer or tablet with internet to access the MatataCode programming platform and initially train AI models. However, once models are trained using TinyML, they run directly on the robot without needing internet — teaching important edge computing concepts.",
+              "You'll need a computer or tablet with internet to access the MatataCode programming platform and initially train AI models. However, once models are trained using TinyML, they run directly on the robot without needing internet, teaching important edge computing concepts.",
           },
           {
             question: "Can my child work independently?",

@@ -36,10 +36,10 @@ export default async function UpgradedUnoR3StarterKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="27 hands-on projects to master electronics and coding — step by step"
+        tagline="27 hands-on projects to master electronics and coding, step by step"
         highlights={[
           "27 lessons covering sensors, motors, RFID, displays, and more",
-          "No soldering, no tools — pre-soldered modules, just plug and build",
+          "No soldering, no tools, pre-soldered modules, just plug and build",
           "Supports both Arduino IDE (C/C++) and Scratch block coding",
           "Downloadable guide with wiring diagrams and ready-to-run code",
         ]}
@@ -52,12 +52,12 @@ export default async function UpgradedUnoR3StarterKitPage() {
       {/* Why This Kit */}
       <NumberedSteps
         title="Why the Upgraded UNO R3?"
-        subtitle="Not all starter kits are created equal. This one goes further — with more sensors, more modules, and more of the components that turn basic circuits into real-world projects."
+        subtitle="Not all starter kits are created equal. This one goes further, with more sensors, more modules, and more of the components that turn basic circuits into real-world projects."
         steps={[
           {
             title: "Real Electronics, Real Code",
             description:
-              "Your child won't just follow recipes — they'll understand how components work and write code that controls them. From LEDs to RFID modules, every lesson explains the why behind the what.",
+              "Your child won't just follow recipes, they'll understand how components work and write code that controls them. From LEDs to RFID modules, every lesson explains the why behind the what.",
           },
           {
             title: "27 Lessons That Build On Each Other",
@@ -67,7 +67,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
           {
             title: "Two Ways to Code",
             description:
-              "Beginners can start with Scratch-style block coding (via ACECode) before transitioning to text-based Arduino C/C++ — so your child grows into the kit rather than outgrowing it.",
+              "Beginners can start with Scratch-style block coding (via ACECode) before transitioning to text-based Arduino C/C++, so your child grows into the kit rather than outgrowing it.",
           },
         ]}
         background="navy-card"
@@ -78,7 +78,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
         image="/images/products/upgraded-uno-r3-starter-kit/uno-rfid-board.jpg"
         imageAlt="Arduino-compatible UNO R3 board alongside an RFID module and component diagram"
         title="Meet the Board Behind the Build"
-        body="At the heart of every lesson is an Arduino-compatible UNO R3 — the most widely used learning board in electronics education. Alongside it sits an RFID module, one of the components that sets this kit apart. Your child won't just learn to blink an LED — they'll build systems that read key cards, measure distances, control motors, and display real-time data. Real components. Real code. Real results."
+        body="At the heart of every lesson is an Arduino-compatible UNO R3, the most widely used learning board in electronics education. Alongside it sits an RFID module, one of the components that sets this kit apart. Your child won't just learn to blink an LED, they'll build systems that read key cards, measure distances, control motors, and display real-time data. Real components. Real code. Real results."
         layout="image-left"
         background="white"
       />
@@ -86,19 +86,19 @@ export default async function UpgradedUnoR3StarterKitPage() {
       {/* Feature Grid */}
       <FeatureGrid
         title="What Makes This Kit Stand Out"
-        subtitle="The Upgraded UNO R3 includes components you won't find in entry-level kits — giving your child room to build more ambitious projects."
+        subtitle="The Upgraded UNO R3 includes components you won't find in entry-level kits, giving your child room to build more ambitious projects."
         features={[
           {
             icon: "book",
             title: "27 Guided Lessons",
             description:
-              "Every lesson includes a wiring diagram, sample code, and a clear explanation — no prior experience needed.",
+              "Every lesson includes a wiring diagram, sample code, and a clear explanation, no prior experience needed.",
           },
           {
             icon: "sensor",
             title: "9+ Sensors",
             description:
-              "Motion, light, sound, flame, ultrasonic, gyroscope, temperature, humidity — a full toolkit for interactive projects.",
+              "Motion, light, sound, flame, ultrasonic, gyroscope, temperature, humidity, a full toolkit for interactive projects.",
           },
           {
             icon: "touch",
@@ -110,13 +110,13 @@ export default async function UpgradedUnoR3StarterKitPage() {
             icon: "wifi",
             title: "RFID Technology",
             description:
-              "Build real contactless identification systems — the same technology behind access cards and tap-to-pay.",
+              "Build real contactless identification systems, the same technology behind access cards and tap-to-pay.",
           },
           {
             icon: "robot",
             title: "Three Motor Types",
             description:
-              "Servo, DC, and stepper motors in one kit — covering movement, precision, and automation projects.",
+              "Servo, DC, and stepper motors in one kit, covering movement, precision, and automation projects.",
           },
           {
             icon: "puzzle",
@@ -134,7 +134,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
         image="/images/products/upgraded-uno-r3-starter-kit/sensor-modules.jpg"
         imageAlt="Close-up of sensor modules including sound sensor, LCD display, and water level sensor organised in the kit case"
         title="Nine Sensors, Endless Possibilities"
-        body="Most basic kits give you a light sensor and call it a day. The Upgraded UNO R3 includes nine: motion (PIR), ultrasonic distance, sound, flame, light (LDR), temperature, humidity, water level, and gyroscope/accelerometer. Each one opens a different category of project — from weather stations and intruder alarms to tilt-sensitive games and fire detectors. Your child picks up a new sensor, learns how it works, and builds something with it. That's what makes the difference between a kit they finish in a weekend and one that keeps them building for months."
+        body="Most basic kits give you a light sensor and call it a day. The Upgraded UNO R3 includes nine: motion (PIR), ultrasonic distance, sound, flame, light (LDR), temperature, humidity, water level, and gyroscope/accelerometer. Each one opens a different category of project, from weather stations and intruder alarms to tilt-sensitive games and fire detectors. Your child picks up a new sensor, learns how it works, and builds something with it. That's what makes the difference between a kit they finish in a weekend and one that keeps them building for months."
         layout="image-right"
         background="white"
       />
@@ -142,13 +142,13 @@ export default async function UpgradedUnoR3StarterKitPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="A Sample of What They'll Build"
-        highlight="27 lessons — from blinking LEDs to RFID access systems"
+        highlight="27 lessons, from blinking LEDs to RFID access systems"
         subtitle="Lessons progress from electronics fundamentals all the way to multi-component builds. Here are six to give you a taste."
         projects={[
           {
             name: "Blink & LED Patterns",
             description:
-              "Control LEDs with timing loops — the classic first project that proves they can program hardware.",
+              "Control LEDs with timing loops, the classic first project that proves they can program hardware.",
             concepts: "Digital output, loops, timing",
             image:
               "/images/products/upgraded-uno-r3-starter-kit/projects/button-switches-display.jpg",
@@ -163,7 +163,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
           {
             name: "LCD Message Board",
             description:
-              "Display live sensor data — temperatures, distances, custom messages — on a 16x2 LCD screen.",
+              "Display live sensor data, temperatures, distances, custom messages, on a 16x2 LCD screen.",
             concepts: "I2C communication, strings, display control",
             image: "/images/products/upgraded-uno-r3-starter-kit/projects/lcd-keypad-servo.jpg",
           },
@@ -177,14 +177,14 @@ export default async function UpgradedUnoR3StarterKitPage() {
           {
             name: "RFID Access Control",
             description:
-              "Build a contactless door lock that reads key cards and fobs — approve or deny access with code.",
+              "Build a contactless door lock that reads key cards and fobs, approve or deny access with code.",
             concepts: "RFID, conditional logic, access control",
             image: "/images/products/upgraded-uno-r3-starter-kit/projects/uno-rfid-board.jpg",
           },
           {
             name: "Servo Motor Control",
             description:
-              "Precisely control a servo motor's angle with a potentiometer — the foundation of robotic arms and locks.",
+              "Precisely control a servo motor's angle with a potentiometer, the foundation of robotic arms and locks.",
             concepts: "Servo motors, PWM, analog input",
             image: "/images/products/upgraded-uno-r3-starter-kit/projects/servo-jumper-wires.jpg",
           },
@@ -200,7 +200,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
           {
             question: "Does my child need any prior experience?",
             answer:
-              "Not at all. The downloadable guide starts from absolute basics — installing the software, understanding components, and writing a first line of code. No electronics or programming background is needed.",
+              "Not at all. The downloadable guide starts from absolute basics, installing the software, understanding components, and writing a first line of code. No electronics or programming background is needed.",
           },
           {
             question: "What age is this suitable for?",
@@ -210,22 +210,22 @@ export default async function UpgradedUnoR3StarterKitPage() {
           {
             question: "Do I need a computer?",
             answer:
-              "Yes — your child will need a computer (Windows, macOS, or Linux) to write and upload code to the board. The Arduino IDE is free to download. No internet connection is needed once everything is set up.",
+              "Yes, your child will need a computer (Windows, macOS, or Linux) to write and upload code to the board. The Arduino IDE is free to download. No internet connection is needed once everything is set up.",
           },
           {
             question: "Is a 9V battery included?",
             answer:
-              "A 9V battery is not included, but one isn't needed for most projects. The kit includes a USB cable and a 9V battery connector — USB power from a computer is sufficient for all 27 lessons. A battery is only needed for standalone, portable projects.",
+              "A 9V battery is not included, but one isn't needed for most projects. The kit includes a USB cable and a 9V battery connector, USB power from a computer is sufficient for all 27 lessons. A battery is only needed for standalone, portable projects.",
           },
           {
             question: "Is the guide a printed book or a digital download?",
             answer:
-              "The guide is a downloadable PDF — there's no printed book in the box. You'll find the download link on the CREATESPACE guides page after purchase. The guide includes wiring diagrams, circuit photos, step-by-step code, and explanations for all 27 lessons.",
+              "The guide is a downloadable PDF, there's no printed book in the box. You'll find the download link on the CREATESPACE guides page after purchase. The guide includes wiring diagrams, circuit photos, step-by-step code, and explanations for all 27 lessons.",
           },
           {
             question: "What can my child build after completing all 27 lessons?",
             answer:
-              "The sky's the limit. All components are reusable and fully Arduino-compatible, so your child can combine what they've learned to build their own inventions — weather stations, smart alarms, automated systems, and more. The Arduino community has thousands of free project tutorials to explore next.",
+              "The sky's the limit. All components are reusable and fully Arduino-compatible, so your child can combine what they've learned to build their own inventions, weather stations, smart alarms, automated systems, and more. The Arduino community has thousands of free project tutorials to explore next.",
           },
         ]}
         background="gray"
@@ -296,9 +296,9 @@ export default async function UpgradedUnoR3StarterKitPage() {
           { label: "OS Compatibility", value: "Windows, macOS, Linux" },
           {
             label: "Guide",
-            value: "Downloadable PDF — all 27 lessons with wiring diagrams and code",
+            value: "Downloadable PDF, all 27 lessons with wiring diagrams and code",
           },
-          { label: "Soldering Required", value: "No — all modules pre-soldered" },
+          { label: "Soldering Required", value: "No, all modules pre-soldered" },
           { label: "Dimensions", value: "230 × 163 × 60 mm" },
           { label: "Weight", value: "0.6 kg" },
           { label: "Warranty", value: "6 months" },

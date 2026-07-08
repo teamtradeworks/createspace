@@ -33,11 +33,11 @@ export default async function NatGeoCompletelyGrossChemistrySetPage() {
 
       <HeroSection
         product={product}
-        tagline="10 totally gross experiments — real chemistry, real reactions, real disgusting fun"
+        tagline="10 totally gross experiments, real chemistry, real reactions, real disgusting fun"
         highlights={[
           "20 experiments total: 10 gross-themed + 10 bonus using household items",
           "Ages 8–12 · everything included · no extra shopping needed",
-          "Real chemical compounds — make eyeballs, glowing worms, slime and more",
+          "Real chemical compounds, make eyeballs, glowing worms, slime and more",
           "Illustrated guide explains the science behind every reaction",
         ]}
         addons={addons}
@@ -56,25 +56,25 @@ export default async function NatGeoCompletelyGrossChemistrySetPage() {
             icon: "sparkles",
             title: "Actually Gross. Actually Science.",
             description:
-              "Every experiment has a genuine chemical explanation — polymer cross-linking, phosphorescence, acid-base reactions, non-Newtonian fluids. Kids think they're being disgusting. They're doing real chemistry.",
+              "Every experiment has a genuine chemical explanation, polymer cross-linking, phosphorescence, acid-base reactions, non-Newtonian fluids. Kids think they're being disgusting. They're doing real chemistry.",
           },
           {
             icon: "lightbulb",
             title: "Reactions Kids Actually Remember",
             description:
-              "The gross factor isn't a gimmick — it works. The emotional response to something disgusting makes the science far more memorable than a textbook exercise. First they laugh. Then they ask why it happened.",
+              "The gross factor isn't a gimmick, it works. The emotional response to something disgusting makes the science far more memorable than a textbook exercise. First they laugh. Then they ask why it happened.",
           },
           {
             icon: "book",
             title: "The Science Behind the Slime",
             description:
-              "The full-colour illustrated guide doesn't just tell you what to do — it explains why it works. After dissecting a brain-shaped gel, kids learn what agar agar is and why heat causes it to set.",
+              "The full-colour illustrated guide doesn't just tell you what to do, it explains why it works. After dissecting a brain-shaped gel, kids learn what agar agar is and why heat causes it to set.",
           },
           {
             icon: "refresh-cw",
             title: "20 Experiments in Total",
             description:
-              "The 10 core experiments use the kit's included chemical compounds. A separate bonus guide adds 10 more using everyday household items — extending the fun well after the kit chemicals run out.",
+              "The 10 core experiments use the kit's included chemical compounds. A separate bonus guide adds 10 more using everyday household items, extending the fun well after the kit chemicals run out.",
           },
         ]}
       />
@@ -84,7 +84,7 @@ export default async function NatGeoCompletelyGrossChemistrySetPage() {
         image="/images/products/national-geographic-completely-gross-chemistry-set/four-different-experiments.jpg"
         imageAlt="Four different gross chemistry experiments in progress"
         title="Real Chemicals. Real Reactions."
-        body="This kit uses actual chemical compounds — sodium alginate, calcium chloride, agar agar, zinc sulfide, phenol red. When your child drops sodium alginate into calcium chloride and watches it form a wobbly eyeball, that's spherification: the same technique used by Michelin-starred chefs in molecular gastronomy. The guide teaches the name, explains the reaction, and connects it to the real world. Gross is just the gateway."
+        body="This kit uses actual chemical compounds, sodium alginate, calcium chloride, agar agar, zinc sulfide, phenol red. When your child drops sodium alginate into calcium chloride and watches it form a wobbly eyeball, that's spherification: the same technique used by Michelin-starred chefs in molecular gastronomy. The guide teaches the name, explains the reaction, and connects it to the real world. Gross is just the gateway."
         layout="image-left"
         background="gray"
       />
@@ -92,8 +92,8 @@ export default async function NatGeoCompletelyGrossChemistrySetPage() {
       {/* white */}
       <ProjectShowcase
         title="10 Gross Experiments"
-        highlight="10 completely gross chemistry experiments — all materials included"
-        subtitle="Mix, measure, pour, and observe. Each experiment uses the included chemicals and equipment — no extra shopping required."
+        highlight="10 completely gross chemistry experiments, all materials included"
+        subtitle="Mix, measure, pour, and observe. Each experiment uses the included chemicals and equipment, no extra shopping required."
         columns={3}
         background="white"
         projects={[
@@ -130,11 +130,11 @@ export default async function NatGeoCompletelyGrossChemistrySetPage() {
           {
             name: "Bursting Blood Cells",
             description:
-              "Use chemical reactions to simulate cell rupture in a liquid medium — complete with satisfying colour change.",
+              "Use chemical reactions to simulate cell rupture in a liquid medium, complete with satisfying colour change.",
             concepts: "Cell biology, osmosis, polymer reactions",
           },
         ]}
-        moreText="Plus Glorious Guts, Boiled Boogers, Goo Defying Gravity, and Bubble Goop Swamp — all 10 inside the kit!"
+        moreText="Plus Glorious Guts, Boiled Boogers, Goo Defying Gravity, and Bubble Goop Swamp, all 10 inside the kit!"
       />
 
       {/* gray */}
@@ -153,27 +153,27 @@ export default async function NatGeoCompletelyGrossChemistrySetPage() {
           {
             question: "Is it messy? Does anything stain?",
             answer:
-              "Yes, some experiments produce slime and coloured liquids that can stain surfaces — work on a protected or covered table. The safety goggles are included for a reason: wear them. Cleanup is straightforward with soap and water for most experiments.",
+              "Yes, some experiments produce slime and coloured liquids that can stain surfaces, work on a protected or covered table. The safety goggles are included for a reason: wear them. Cleanup is straightforward with soap and water for most experiments.",
           },
           {
             question: "Are the chemicals safe?",
             answer:
-              "Yes — the amounts and concentrations in this kit are selected for safe home use by children ages 8+. Adult supervision is recommended throughout. All chemical components are consumer-safe; a California Prop 65 warning appears on the packaging as is standard for chemistry sets.",
+              "Yes, the amounts and concentrations in this kit are selected for safe home use by children ages 8+. Adult supervision is recommended throughout. All chemical components are consumer-safe; a California Prop 65 warning appears on the packaging as is standard for chemistry sets.",
           },
           {
             question: "How long does each experiment take?",
             answer:
-              "Each experiment takes approximately 20–40 minutes from setup to completion. The 10 core experiments can be spread across multiple sessions — there's no need to do them all at once.",
+              "Each experiment takes approximately 20–40 minutes from setup to completion. The 10 core experiments can be spread across multiple sessions, there's no need to do them all at once.",
           },
           {
             question: "Can the experiments be repeated?",
             answer:
-              "The 10 core experiments use the included chemical compounds, which are limited in quantity — once used, they're used. The 10 bonus experiments in the separate guide use common household items and can be repeated as many times as your child likes. The equipment (test tubes, beaker, moulds, goggles) is reusable.",
+              "The 10 core experiments use the included chemical compounds, which are limited in quantity, once used, they're used. The 10 bonus experiments in the separate guide use common household items and can be repeated as many times as your child likes. The equipment (test tubes, beaker, moulds, goggles) is reusable.",
           },
           {
             question: "What will my child actually get out of this?",
             answer:
-              "Beyond an afternoon of disgusting fun, children absorb real chemistry and biology concepts — polymers, phosphorescence, pH indicators, non-Newtonian fluids — without it feeling like a lesson. Most parents notice their child asking 'why did that happen?' after each experiment. That curiosity is the real outcome.",
+              "Beyond an afternoon of disgusting fun, children absorb real chemistry and biology concepts, polymers, phosphorescence, pH indicators, non-Newtonian fluids, without it feeling like a lesson. Most parents notice their child asking 'why did that happen?' after each experiment. That curiosity is the real outcome.",
           },
         ]}
       />
@@ -217,7 +217,7 @@ export default async function NatGeoCompletelyGrossChemistrySetPage() {
       {/* navy */}
       <CallToAction
         title="Ready for Some Disgusting Fun?"
-        subtitle="20 experiments, real chemical compounds, and the science behind every reaction — the grossest chemistry set your child will ever love."
+        subtitle="20 experiments, real chemical compounds, and the science behind every reaction, the grossest chemistry set your child will ever love."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -238,7 +238,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "20 gross chemistry experiments for ages 8–12 — make eyeballs, glowing worms, slime and more with real chemical compounds. Everything included.",
+      "20 gross chemistry experiments for ages 8–12, make eyeballs, glowing worms, slime and more with real chemical compounds. Everything included.",
     alternates: {
       canonical: "/product/national-geographic-completely-gross-chemistry-set",
     },

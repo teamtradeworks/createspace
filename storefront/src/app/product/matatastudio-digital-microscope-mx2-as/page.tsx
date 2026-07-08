@@ -42,7 +42,7 @@ export default async function MatataStudioMicroscopePage() {
         highlights={[
           "2-in-1 design: handheld for outdoor adventures, stand-mounted for slides",
           "100× to 1600× digital magnification on a built-in 1080P screen",
-          "5 prepared slides and exploration manual — ready straight out of the box",
+          "5 prepared slides and exploration manual, ready straight out of the box",
           "Connects wirelessly to tablets and computers via the free MatataXplore app",
         ]}
         addons={addons}
@@ -54,7 +54,7 @@ export default async function MatataStudioMicroscopePage() {
       {/* Why the MX2-AS */}
       <NumberedSteps
         title="Why the MX2-AS?"
-        subtitle="Most children never get to see what's invisible to the naked eye. The MX2-AS changes that — giving your child the tools real scientists use, in a form they can pick up and explore with right away."
+        subtitle="Most children never get to see what's invisible to the naked eye. The MX2-AS changes that, giving your child the tools real scientists use, in a form they can pick up and explore with right away."
         steps={[
           {
             title: "Built for Real Exploration",
@@ -87,7 +87,7 @@ export default async function MatataStudioMicroscopePage() {
         image="/images/products/matatastudio-digital-microscope-mx2-as/handheld-garden-vs-stand-petri-dish.jpg"
         imageAlt="Split image: child using the MX2-AS handheld in the garden looking at a flower on the left; boy using the stand-mounted microscope with a petri dish on the right"
         title="From the Garden to the Desk"
-        body="One minute your child is crouched over a flower in the garden — handheld microscope in hand, petals filling the screen. The next they're at the desk, microscope clipped onto its stand, carefully placing a specimen in the observation chamber. The MX2-AS is one of very few children's microscopes genuinely designed for both. No swapping accessories, no fiddling with attachments — just pick it up or put it down."
+        body="One minute your child is crouched over a flower in the garden, handheld microscope in hand, petals filling the screen. The next they're at the desk, microscope clipped onto its stand, carefully placing a specimen in the observation chamber. The MX2-AS is one of very few children's microscopes genuinely designed for both. No swapping accessories, no fiddling with attachments, just pick it up or put it down."
         layout="image-left"
         background="white"
       />
@@ -95,7 +95,7 @@ export default async function MatataStudioMicroscopePage() {
       {/* Feature Grid */}
       <FeatureGrid
         title="Key Features"
-        subtitle="Professional microscopy capability in an age-appropriate, portable design — no prior experience required."
+        subtitle="Professional microscopy capability in an age-appropriate, portable design, no prior experience required."
         features={[
           {
             icon: "compass",
@@ -107,7 +107,7 @@ export default async function MatataStudioMicroscopePage() {
             icon: "star",
             title: "1080P Built-in Screen",
             description:
-              "4.3-inch LCD with continuous zoom from 100× to 1600× — no phone or computer needed to get started",
+              "4.3-inch LCD with continuous zoom from 100× to 1600×, no phone or computer needed to get started",
           },
           {
             icon: "lightbulb",
@@ -125,7 +125,7 @@ export default async function MatataStudioMicroscopePage() {
             icon: "battery",
             title: "Rechargeable Battery",
             description:
-              "Built-in 2600mAh lithium battery provides up to 3 hours of exploration — no loose batteries to manage",
+              "Built-in 2600mAh lithium battery provides up to 3 hours of exploration, no loose batteries to manage",
           },
           {
             icon: "touch",
@@ -143,7 +143,7 @@ export default async function MatataStudioMicroscopePage() {
         image="/images/products/matatastudio-digital-microscope-mx2-as/girl-pointing-to-screen.jpg"
         imageAlt="Young girl pointing excitedly at the MatataStudio microscope screen showing a magnified specimen"
         title="Document Every Discovery"
-        body="The MX2-AS isn't just for looking — it's for capturing and sharing. Your child taps the built-in touch buttons to photograph or record what they're observing, saving it directly to the 8GB microSD card. Connect to the free MatataXplore app on a tablet or laptop to view observations on a bigger screen, annotate images, and build a digital science journal. That's exactly how real researchers document their work — and now your child can too."
+        body="The MX2-AS isn't just for looking, it's for capturing and sharing. Your child taps the built-in touch buttons to photograph or record what they're observing, saving it directly to the 8GB microSD card. Connect to the free MatataXplore app on a tablet or laptop to view observations on a bigger screen, annotate images, and build a digital science journal. That's exactly how real researchers document their work, and now your child can too."
         layout="image-right"
         background="white"
       />
@@ -151,7 +151,7 @@ export default async function MatataStudioMicroscopePage() {
       {/* Observation Activities */}
       <ProjectShowcase
         title="What Will They Observe?"
-        highlight="An open-ended exploration tool — the whole world is a specimen"
+        highlight="An open-ended exploration tool, the whole world is a specimen"
         subtitle="The included exploration manual guides beginners through each type of observation. These are just a few places to start."
         projects={[
           {
@@ -201,7 +201,7 @@ export default async function MatataStudioMicroscopePage() {
               "/images/products/matatastudio-digital-microscope-mx2-as/projects/science-journal.png",
           },
         ]}
-        moreText="Plus any specimen your child can find — pond water, flower pollen, hair, skin, and more"
+        moreText="Plus any specimen your child can find, pond water, flower pollen, hair, skin, and more"
         background="gray"
       />
 
@@ -269,12 +269,12 @@ export default async function MatataStudioMicroscopePage() {
           {
             question: "Does my child need any prior experience with microscopes?",
             answer:
-              "Not at all. The included exploration manual walks children through a range of observation activities from the very beginning — no experience required. The ready-to-use prepared slides and observation chambers mean they can start exploring immediately after unboxing.",
+              "Not at all. The included exploration manual walks children through a range of observation activities from the very beginning, no experience required. The ready-to-use prepared slides and observation chambers mean they can start exploring immediately after unboxing.",
           },
           {
             question: "Do I need a phone or computer to use it?",
             answer:
-              "No. The MX2-AS has a built-in 4.3-inch screen, so your child can observe, zoom, and capture photos or videos directly on the device. The free MatataXplore app (iOS, Android, Windows, macOS) is optional — it extends the experience with a larger view, image analysis, and measurement tools.",
+              "No. The MX2-AS has a built-in 4.3-inch screen, so your child can observe, zoom, and capture photos or videos directly on the device. The free MatataXplore app (iOS, Android, Windows, macOS) is optional, it extends the experience with a larger view, image analysis, and measurement tools.",
           },
           {
             question: "Does it need batteries?",
@@ -284,12 +284,12 @@ export default async function MatataStudioMicroscopePage() {
           {
             question: "Can it be used outdoors?",
             answer:
-              "Yes — and that's one of its best features. The handheld mode lets your child carry it into the garden, on a hike, or around the house to observe insects, plants, rocks, and anything else that catches their eye. Just note it isn't waterproof, so keep it away from rain or wet surfaces.",
+              "Yes, and that's one of its best features. The handheld mode lets your child carry it into the garden, on a hike, or around the house to observe insects, plants, rocks, and anything else that catches their eye. Just note it isn't waterproof, so keep it away from rain or wet surfaces.",
           },
           {
             question: "What can they observe with it?",
             answer:
-              "Almost anything! The 5 included prepared slides get them started with biological specimens. From there, the natural world is the limit — insects, leaves, flower petals, soil, rocks, fabric, coins, sugar crystals, and more. The dual LED lighting system handles both transparent slides and solid, opaque objects.",
+              "Almost anything! The 5 included prepared slides get them started with biological specimens. From there, the natural world is the limit, insects, leaves, flower petals, soil, rocks, fabric, coins, sugar crystals, and more. The dual LED lighting system handles both transparent slides and solid, opaque objects.",
           },
         ]}
         background="white"

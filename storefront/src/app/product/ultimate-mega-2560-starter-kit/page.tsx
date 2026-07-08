@@ -36,12 +36,12 @@ export default async function UltimateMega2560StarterKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Your complete electronics and coding lab — 33 lessons, no experience needed"
+        tagline="Your complete electronics and coding lab, 33 lessons, no experience needed"
         highlights={[
           "33 step-by-step lessons with a 223-page downloadable guide",
-          "No soldering, no experience needed — plug in and start building",
+          "No soldering, no experience needed, plug in and start building",
           "18 sensor and actuator modules including RFID, gyroscope, and motors",
-          "More powerful than a standard Arduino board — bigger projects, more possibilities",
+          "More powerful than a standard Arduino board, bigger projects, more possibilities",
         ]}
         addons={addons}
       />
@@ -57,7 +57,7 @@ export default async function UltimateMega2560StarterKitPage() {
           {
             title: "More Power, More Projects",
             description:
-              "The Mega 2560 packs 54 programmable pins and 256KB of memory — far more than a standard Arduino Uno. That extra headroom means your child can tackle more complex, creative projects without hitting a ceiling.",
+              "The Mega 2560 packs 54 programmable pins and 256KB of memory, far more than a standard Arduino Uno. That extra headroom means your child can tackle more complex, creative projects without hitting a ceiling.",
           },
           {
             title: "Real-World Technology",
@@ -78,7 +78,7 @@ export default async function UltimateMega2560StarterKitPage() {
         image="/images/products/ultimate-mega-2560-starter-kit/mega-2560-components-collage.jpg"
         imageAlt="Assorted components from the Mega 2560 kit including colourful LEDs, resistors, capacitors, and transistors organised in a storage box"
         title="200+ Components, Endless Possibilities"
-        body="Everything your child needs to experiment with electronics is packed into one kit. From 120 resistors and 25 LEDs to servo motors, stepper motors, and a real-time clock module — the variety means no two lessons feel the same. Once the 33 guided lessons are complete, those same components become building blocks for their own inventions."
+        body="Everything your child needs to experiment with electronics is packed into one kit. From 120 resistors and 25 LEDs to servo motors, stepper motors, and a real-time clock module, the variety means no two lessons feel the same. Once the 33 guided lessons are complete, those same components become building blocks for their own inventions."
         layout="image-left"
         background="white"
       />
@@ -86,37 +86,37 @@ export default async function UltimateMega2560StarterKitPage() {
       {/* Feature Grid */}
       <FeatureGrid
         title="What Makes This Kit Different"
-        subtitle="Designed for serious learners who want to build real things — not just blink a few LEDs."
+        subtitle="Designed for serious learners who want to build real things, not just blink a few LEDs."
         features={[
           {
             icon: "book",
             title: "223-Page Guide",
             description:
-              "Step-by-step instructions with circuit diagrams and complete code for every one of the 33 lessons — all available as a free PDF download.",
+              "Step-by-step instructions with circuit diagrams and complete code for every one of the 33 lessons, all available as a free PDF download.",
           },
           {
             icon: "puzzle",
             title: "33 Guided Lessons",
             description:
-              "Progress naturally from a single blinking LED to controlling stepper motors with a remote — every lesson building on the last.",
+              "Progress naturally from a single blinking LED to controlling stepper motors with a remote, every lesson building on the last.",
           },
           {
             icon: "lightbulb",
             title: "18 Sensor Modules",
             description:
-              "Motion, temperature, sound, water, RFID, gyroscope, and more — your child interacts with the real world through code.",
+              "Motion, temperature, sound, water, RFID, gyroscope, and more, your child interacts with the real world through code.",
           },
           {
             icon: "code",
             title: "Real C/C++ Programming",
             description:
-              "No block-based shortcuts. Your child writes actual code using the Arduino IDE — the same language used by professional embedded systems engineers.",
+              "No block-based shortcuts. Your child writes actual code using the Arduino IDE, the same language used by professional embedded systems engineers.",
           },
           {
             icon: "shield",
             title: "No Soldering Required",
             description:
-              "All modules are pre-soldered. Just connect with jumper wires and start building — no extra tools, no safety concerns.",
+              "All modules are pre-soldered. Just connect with jumper wires and start building, no extra tools, no safety concerns.",
           },
           {
             icon: "open-source",
@@ -134,7 +134,7 @@ export default async function UltimateMega2560StarterKitPage() {
         image="/images/products/ultimate-mega-2560-starter-kit/mega-2560-lessons-guide.jpg"
         imageAlt="Mega 2560 starter kit guide and code samples alongside kit components"
         title="A Lesson for Every Level"
-        body="The 223-page guide takes complete beginners from installing the Arduino IDE all the way to controlling stepper motors with a rotary encoder — at their own pace. Each lesson builds naturally on the last, with clear circuit diagrams and working code included. Whether your child completes one lesson a day or spends an entire weekend on a run, the guide keeps them moving forward independently."
+        body="The 223-page guide takes complete beginners from installing the Arduino IDE all the way to controlling stepper motors with a rotary encoder, at their own pace. Each lesson builds naturally on the last, with clear circuit diagrams and working code included. Whether your child completes one lesson a day or spends an entire weekend on a run, the guide keeps them moving forward independently."
         layout="image-right"
         background="white"
       />
@@ -143,7 +143,7 @@ export default async function UltimateMega2560StarterKitPage() {
       <ProjectShowcase
         title="Lessons You'll Build"
         highlight="33 hands-on lessons across a 223-page downloadable guide"
-        subtitle="Lessons are ordered from simplest to most complex — each one building on what came before."
+        subtitle="Lessons are ordered from simplest to most complex, each one building on what came before."
         projects={[
           {
             name: "Colour-Mixing LED",
@@ -178,7 +178,7 @@ export default async function UltimateMega2560StarterKitPage() {
           },
           {
             name: "RFID Access System",
-            description: "Build a contactless key card reader — tap to unlock",
+            description: "Build a contactless key card reader, tap to unlock",
             concepts: "SPI protocol, RFID module, access control",
             image: "/images/products/ultimate-mega-2560-starter-kit/project-rfid-keypad.jpg",
           },
@@ -197,7 +197,7 @@ export default async function UltimateMega2560StarterKitPage() {
           {
             question: "Does my child need any experience with electronics or coding?",
             answer:
-              "Not at all. The guide starts from scratch — Lesson 0 walks through installing the free Arduino IDE step by step. By Lesson 2, they'll have their first LED blinking. No prior knowledge is required.",
+              "Not at all. The guide starts from scratch, Lesson 0 walks through installing the free Arduino IDE step by step. By Lesson 2, they'll have their first LED blinking. No prior knowledge is required.",
           },
           {
             question: "What age is this kit suitable for?",
@@ -207,12 +207,12 @@ export default async function UltimateMega2560StarterKitPage() {
           {
             question: "Does my child need a computer?",
             answer:
-              "Yes — they'll need a computer (Windows, Mac, or Linux) with the free Arduino IDE installed to write and upload code. Lesson 0 in the guide covers the full setup process, so there's nothing to figure out on your own.",
+              "Yes, they'll need a computer (Windows, Mac, or Linux) with the free Arduino IDE installed to write and upload code. Lesson 0 in the guide covers the full setup process, so there's nothing to figure out on your own.",
           },
           {
             question: "Is soldering required?",
             answer:
-              "No. Every module in this kit comes pre-soldered. Your child simply connects components using jumper wires on the breadboard — no heat, no soldering iron, no fuss.",
+              "No. Every module in this kit comes pre-soldered. Your child simply connects components using jumper wires on the breadboard, no heat, no soldering iron, no fuss.",
           },
           {
             question: "What can they do after finishing all 33 lessons?",
@@ -222,7 +222,7 @@ export default async function UltimateMega2560StarterKitPage() {
           {
             question: "Do I need to buy batteries?",
             answer:
-              "The kit includes a 9V 1A mains power adapter, so your child can use the kit plugged in. A 9V battery connector is also included for portable use — but the battery itself is not included.",
+              "The kit includes a 9V 1A mains power adapter, so your child can use the kit plugged in. A 9V battery connector is also included for portable use, but the battery itself is not included.",
           },
         ]}
         background="gray"

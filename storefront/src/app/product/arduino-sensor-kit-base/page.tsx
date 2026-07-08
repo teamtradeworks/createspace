@@ -39,10 +39,10 @@ export default async function ArduinoSensorKitBasePage() {
         product={product}
         tagline="Plug in a sensor. Write your first real code. Watch it come alive."
         highlights={[
-          "10 plug-and-play sensor modules — no soldering, no wiring chaos",
+          "10 plug-and-play sensor modules, no soldering, no wiring chaos",
           "10 guided online lessons with step-by-step instructions",
           "Learn real C++ programming with the free Arduino IDE",
-          "No prior experience needed — just curiosity and a computer",
+          "No prior experience needed, just curiosity and a computer",
         ]}
         addons={addons}
       />
@@ -53,17 +53,17 @@ export default async function ArduinoSensorKitBasePage() {
       {/* Why This Kit */}
       <NumberedSteps
         title="Why the Arduino Sensor Kit?"
-        subtitle="Arduino is the world's most popular platform for learning electronics and coding. This kit makes it easier than ever to start — no breadboard, no wiring diagrams, no confusion."
+        subtitle="Arduino is the world's most popular platform for learning electronics and coding. This kit makes it easier than ever to start, no breadboard, no wiring diagrams, no confusion."
         steps={[
           {
             title: "Real Code, Real Results",
             description:
-              "Your child doesn't click blocks — they write actual C++ code in the same IDE used by engineers worldwide. Every line translates directly into something physical: a light blinks, a buzzer sounds, a screen shows temperature.",
+              "Your child doesn't click blocks, they write actual C++ code in the same IDE used by engineers worldwide. Every line translates directly into something physical: a light blinks, a buzzer sounds, a screen shows temperature.",
           },
           {
             title: "10 Sensors, 10 Lessons",
             description:
-              "Each of the 10 modules has its own dedicated lesson on the official Arduino Sensor Kit platform. One sensor, one new concept — clear, satisfying, and progressive from the very first plug-in.",
+              "Each of the 10 modules has its own dedicated lesson on the official Arduino Sensor Kit platform. One sensor, one new concept, clear, satisfying, and progressive from the very first plug-in.",
           },
           {
             title: "No Dead Ends",
@@ -79,7 +79,7 @@ export default async function ArduinoSensorKitBasePage() {
         image="/images/products/arduino-sensor-kit-base/setup-connect-modules-plug-in-the-modules.png"
         imageAlt="Grove modules being connected to the Arduino Base Shield"
         title="Plug In, Sketch Up, Watch It Happen"
-        body="The Grove system makes electronics feel like LEGO. Each of the 10 modules has a universal 4-pin connector that clicks into the Base Shield in seconds — no wiring diagrams, no loose jumper wires, no breadboard. Your child picks a module, follows the online lesson, writes a short sketch in the Arduino IDE, and uploads it to the board. Within minutes, something in the real world reacts to their code. That immediate feedback is what makes this kit so powerful for learners."
+        body="The Grove system makes electronics feel like LEGO. Each of the 10 modules has a universal 4-pin connector that clicks into the Base Shield in seconds, no wiring diagrams, no loose jumper wires, no breadboard. Your child picks a module, follows the online lesson, writes a short sketch in the Arduino IDE, and uploads it to the board. Within minutes, something in the real world reacts to their code. That immediate feedback is what makes this kit so powerful for learners."
         layout="image-left"
         background="white"
       />
@@ -99,13 +99,13 @@ export default async function ArduinoSensorKitBasePage() {
             icon: "book",
             title: "10 Guided Online Lessons",
             description:
-              "Each module has its own lesson on the official Arduino platform — with introduction, plug, sketch, play, and understand steps.",
+              "Each module has its own lesson on the official Arduino platform, with introduction, plug, sketch, play, and understand steps.",
           },
           {
             icon: "code",
             title: "Real C++ Programming",
             description:
-              "Write actual code in the free Arduino IDE — the same tool used by engineers and makers worldwide.",
+              "Write actual code in the free Arduino IDE, the same tool used by engineers and makers worldwide.",
           },
           {
             icon: "badget-check",
@@ -117,13 +117,13 @@ export default async function ArduinoSensorKitBasePage() {
             icon: "lightbulb",
             title: "10 Genuinely Different Sensors",
             description:
-              "Each module introduces a completely different concept — from analog input to I2C communication to display output.",
+              "Each module introduces a completely different concept, from analog input to I2C communication to display output.",
           },
           {
             icon: "layers",
             title: "Unlimited Expansion",
             description:
-              "Combine modules for custom projects. Compatible with the entire Grove ecosystem — hundreds of additional sensors available.",
+              "Combine modules for custom projects. Compatible with the entire Grove ecosystem, hundreds of additional sensors available.",
           },
         ]}
         columns={3}
@@ -134,7 +134,7 @@ export default async function ArduinoSensorKitBasePage() {
       <ImageTextBlock
         image="/images/products/arduino-sensor-kit-base/the-modules-new.png"
         imageAlt="The 10 Grove sensor modules included in the Arduino Sensor Kit Base"
-        title="Not Just 10 Sensors — 10 Concepts"
+        title="Not Just 10 Sensors, 10 Concepts"
         body="Most beginner kits give you a handful of LEDs and a button. This one gives your child a complete tour of how electronics actually work. They'll read light levels with a photoresistor, detect sound with a microphone, measure atmospheric pressure with an I2C sensor, and display live data on an OLED screen. Each module is a different world. And because they're learning on the same platform used by professionals, every skill has a real-world counterpart."
         layout="image-right"
         background="white"
@@ -143,8 +143,8 @@ export default async function ArduinoSensorKitBasePage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="Modules & Lessons"
-        highlight="10 plug-and-play modules, 10 guided lessons — plus unlimited ways to combine them"
-        subtitle="Each module introduces a completely different concept. Here are six of the ten included — from beginner output to advanced sensing."
+        highlight="10 plug-and-play modules, 10 guided lessons, plus unlimited ways to combine them"
+        subtitle="Each module introduces a completely different concept. Here are six of the ten included, from beginner output to advanced sensing."
         projects={[
           {
             name: "The LED",
@@ -183,7 +183,7 @@ export default async function ArduinoSensorKitBasePage() {
             image: "/images/products/arduino-sensor-kit-base/projects/the-oled-screen.png",
           },
         ]}
-        moreText="Plus 4 more: Button, Potentiometer, Light Sensor, and Air Pressure Sensor — each with its own guided lesson and project ideas"
+        moreText="Plus 4 more: Button, Potentiometer, Light Sensor, and Air Pressure Sensor, each with its own guided lesson and project ideas"
         background="gray"
       />
 
@@ -238,32 +238,32 @@ export default async function ArduinoSensorKitBasePage() {
           {
             question: "Do I need any prior experience with electronics or coding?",
             answer:
-              "Not at all. The kit is designed for complete beginners. The lessons on the official Arduino platform start from the very basics — explaining what each component does before asking your child to write a single line of code. Most learners have their first module working within 30 minutes.",
+              "Not at all. The kit is designed for complete beginners. The lessons on the official Arduino platform start from the very basics, explaining what each component does before asking your child to write a single line of code. Most learners have their first module working within 30 minutes.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "We recommend this kit for ages 12 and up, as it uses real text-based C++ programming in the Arduino IDE. Motivated learners aged 10–11 can absolutely work through it — especially with a parent nearby for the initial setup. It's also excellent for teenagers and adults who want to move beyond beginner block coding.",
+              "We recommend this kit for ages 12 and up, as it uses real text-based C++ programming in the Arduino IDE. Motivated learners aged 10–11 can absolutely work through it, especially with a parent nearby for the initial setup. It's also excellent for teenagers and adults who want to move beyond beginner block coding.",
           },
           {
             question: "Do we need to buy an Arduino UNO board separately?",
             answer:
-              "Yes — the Arduino UNO board is not included in the Sensor Kit Base. The Base Shield plugs on top of an Arduino UNO to connect the Grove modules. If you don't already own one, the Arduino Sensor Kit Bundle includes both the base kit and the UNO board together, which is usually the best value.",
+              "Yes, the Arduino UNO board is not included in the Sensor Kit Base. The Base Shield plugs on top of an Arduino UNO to connect the Grove modules. If you don't already own one, the Arduino Sensor Kit Bundle includes both the base kit and the UNO board together, which is usually the best value.",
           },
           {
             question: "What software does my child need?",
             answer:
-              "The Arduino IDE is a free download for Windows, Mac, and Linux. It's straightforward to install and Arduino's website has clear setup guides. The lesson platform at sensorkit.arduino.cc is browser-based — no additional software needed for the tutorials.",
+              "The Arduino IDE is a free download for Windows, Mac, and Linux. It's straightforward to install and Arduino's website has clear setup guides. The lesson platform at sensorkit.arduino.cc is browser-based, no additional software needed for the tutorials.",
           },
           {
             question: "Is soldering required?",
             answer:
-              "No. Every connection is made using the Grove plug-and-play system — just click the cable in. There are no loose wires, no breadboard, and no soldering iron needed. This is one of the things that makes the Sensor Kit genuinely beginner-friendly.",
+              "No. Every connection is made using the Grove plug-and-play system, just click the cable in. There are no loose wires, no breadboard, and no soldering iron needed. This is one of the things that makes the Sensor Kit genuinely beginner-friendly.",
           },
           {
             question: "What can my child do once they've completed all 10 lessons?",
             answer:
-              "That's where it gets exciting. The 10 lessons are just the foundation. Once your child understands each module, they can combine them in any configuration to build custom projects — a smart light alarm, a weather station, a motion detector. The Arduino community also has thousands of free tutorials and project ideas to explore, and the Grove system is compatible with hundreds of additional sensors to expand the kit further.",
+              "That's where it gets exciting. The 10 lessons are just the foundation. Once your child understands each module, they can combine them in any configuration to build custom projects, a smart light alarm, a weather station, a motion detector. The Arduino community also has thousands of free tutorials and project ideas to explore, and the Grove system is compatible with hundreds of additional sensors to expand the kit further.",
           },
         ]}
         background="white"
@@ -306,7 +306,7 @@ export default async function ArduinoSensorKitBasePage() {
           },
           { label: "Soldering Required", value: "No" },
           { label: "Coding Language", value: "C++ (Arduino IDE)" },
-          { label: "Arduino IDE", value: "Free download — Windows, Mac, Linux" },
+          { label: "Arduino IDE", value: "Free download, Windows, Mac, Linux" },
           { label: "Online Lessons", value: "10 (sensorkit.arduino.cc)" },
           { label: "Collaboration", value: "Developed with Seeed Studio" },
         ]}
@@ -316,7 +316,7 @@ export default async function ArduinoSensorKitBasePage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="Your child's first steps into real electronics and coding — 10 sensors, 10 lessons, and a world of projects to explore."
+        subtitle="Your child's first steps into real electronics and coding, 10 sensors, 10 lessons, and a world of projects to explore."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

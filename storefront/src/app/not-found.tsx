@@ -15,7 +15,7 @@ export default function NotFound() {
       </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
         <span className="text-cs-blue font-medium text-sm uppercase tracking-wider">
-          404 — Page Not Found
+          404: Page Not Found
         </span>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mt-4 mb-6 leading-tight">
           We couldn&apos;t find that page

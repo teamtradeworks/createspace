@@ -279,7 +279,7 @@ export default function CartPage() {
                             {isUnavailable ? (
                               <span className="inline-flex items-center gap-1 text-xs text-cs-red mt-1">
                                 <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
-                                Out of Stock — excluded from order
+                                Out of Stock, excluded from order
                               </span>
                             ) : item.digital ? (
                               <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">

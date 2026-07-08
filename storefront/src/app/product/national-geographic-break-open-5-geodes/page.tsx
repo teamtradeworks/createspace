@@ -35,7 +35,7 @@ export default async function NatGeoBreakOpen5GeodesPage() {
         product={product}
         tagline="Crack open a real rock and discover the crystals that have been waiting inside for millions of years."
         highlights={[
-          "5 real geodes to break open — every reveal a genuine surprise",
+          "5 real geodes to break open, every reveal a genuine surprise",
           "Safety goggles, magnifying glass, display stand and learning guide included",
           "Ages 8+",
           "All you need to add is a hammer",
@@ -63,7 +63,7 @@ export default async function NatGeoBreakOpen5GeodesPage() {
             icon: "sparkles",
             title: "Every Geode Is a Surprise",
             description:
-              "The crystals inside vary from rock to rock — same kit, five completely different reveals. You won't know what you've got until the moment it cracks open.",
+              "The crystals inside vary from rock to rock, same kit, five completely different reveals. You won't know what you've got until the moment it cracks open.",
           },
           {
             icon: "star",
@@ -75,7 +75,7 @@ export default async function NatGeoBreakOpen5GeodesPage() {
             icon: "time",
             title: "Millions of Years in the Making",
             description:
-              "The crystals inside started growing long before there were dinosaurs. That context — cracking open something truly ancient — makes a simple activity feel extraordinary.",
+              "The crystals inside started growing long before there were dinosaurs. That context, cracking open something truly ancient, makes a simple activity feel extraordinary.",
           },
           {
             icon: "book",
@@ -91,7 +91,7 @@ export default async function NatGeoBreakOpen5GeodesPage() {
         image="/images/products/national-geographic-break-open-5-geodes/kids-breaking-open-geodes-with-hammer.jpg"
         imageAlt="Child using a hammer to crack open a geode wearing safety goggles"
         title="The Moment the Rock Cracks Open"
-        body="Put on the goggles, set the geode on a hard surface, and strike. The rock splits into two halves — and inside is a hollow cavity lined with crystals that have been growing there for thousands of years. Use the magnifying glass to examine the crystal shapes up close, then check the learning guide to figure out what mineral you're looking at. Each of the five geodes is a separate reveal — and because they're real geological specimens, no two are the same."
+        body="Put on the goggles, set the geode on a hard surface, and strike. The rock splits into two halves, and inside is a hollow cavity lined with crystals that have been growing there for thousands of years. Use the magnifying glass to examine the crystal shapes up close, then check the learning guide to figure out what mineral you're looking at. Each of the five geodes is a separate reveal, and because they're real geological specimens, no two are the same."
         layout="image-right"
         background="white"
         imageObjectPosition="50% 80%"
@@ -110,7 +110,7 @@ export default async function NatGeoBreakOpen5GeodesPage() {
           {
             question: "Is a hammer included?",
             answer:
-              "No — a hammer or similar striking tool is not included and will need to be sourced separately. A regular household hammer works well. The learning guide includes tips on the best techniques for cracking geodes cleanly.",
+              "No, a hammer or similar striking tool is not included and will need to be sourced separately. A regular household hammer works well. The learning guide includes tips on the best techniques for cracking geodes cleanly.",
           },
           {
             question: "Does my child need adult help?",
@@ -120,22 +120,22 @@ export default async function NatGeoBreakOpen5GeodesPage() {
           {
             question: "What crystals might be inside?",
             answer:
-              "Geodes can contain a variety of minerals — quartz and calcite are the most common in starter kits like this. Crystal formations vary in shape, size, and colour from rock to rock. Some reveal a hollow cavity lined with sparkling white druzy quartz; others have more compact calcite deposits. Every geode is genuinely different.",
+              "Geodes can contain a variety of minerals, quartz and calcite are the most common in starter kits like this. Crystal formations vary in shape, size, and colour from rock to rock. Some reveal a hollow cavity lined with sparkling white druzy quartz; others have more compact calcite deposits. Every geode is genuinely different.",
           },
           {
             question: "What if a geode turns out to be mostly solid?",
             answer:
-              "It does happen — not every geode has a large crystal-filled hollow. This is a natural property of geological specimens, not a manufacturing defect. The variability is part of what makes each break genuine rather than guaranteed. The learning guide addresses this and helps children understand why it occurs.",
+              "It does happen, not every geode has a large crystal-filled hollow. This is a natural property of geological specimens, not a manufacturing defect. The variability is part of what makes each break genuine rather than guaranteed. The learning guide addresses this and helps children understand why it occurs.",
           },
           {
             question: "Can we display the crystals once opened?",
             answer:
-              "Yes — the kit includes a display stand so children can show off their best crystal halves. Many children are inspired to start a rock and mineral collection after this kit. The crystals are permanent keepsakes that last indefinitely.",
+              "Yes, the kit includes a display stand so children can show off their best crystal halves. Many children are inspired to start a rock and mineral collection after this kit. The crystals are permanent keepsakes that last indefinitely.",
           },
           {
             question: "What will my child get out of this?",
             answer:
-              "Beyond the sheer excitement of the break, children come away understanding how rocks and crystals form in the Earth — and why each one is unique. They'll practise careful observation using the magnifying glass, and the experience of not knowing what's inside before they break it open is a genuine lesson in scientific uncertainty. The crystals they keep are a reminder of that discovery long after the kit is finished.",
+              "Beyond the sheer excitement of the break, children come away understanding how rocks and crystals form in the Earth, and why each one is unique. They'll practise careful observation using the magnifying glass, and the experience of not knowing what's inside before they break it open is a genuine lesson in scientific uncertainty. The crystals they keep are a reminder of that discovery long after the kit is finished.",
           },
         ]}
       />

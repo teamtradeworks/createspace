@@ -7,7 +7,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "STEAM Coding & Robotics Curriculum for Schools | Education | CREATESPACE",
   description:
-    "A complete coding and robotics programme for schools — Grade R–12 lesson plans that enrich CAPS, SACE-accredited teacher training, and micro:bit robotics. Powered by Inspire Africa.",
+    "A complete coding and robotics programme for schools, Grade R–12 lesson plans that enrich CAPS, SACE-accredited teacher training, and micro:bit robotics. Powered by Inspire Africa.",
   alternates: {
     canonical: "/education/curriculum",
   },
@@ -19,7 +19,7 @@ const curriculumPhases = [
     grades: "Grade R–3",
     color: "bg-cs-green",
     description:
-      "Introduce young learners to computational thinking through unplugged coding activities — no devices needed. Curriculum-aligned workbooks cover algorithms, sequencing, patterns, and early robotics concepts through hands-on play.",
+      "Introduce young learners to computational thinking through unplugged coding activities, no devices needed. Curriculum-aligned workbooks cover algorithms, sequencing, patterns, and early robotics concepts through hands-on play.",
     highlights: [
       "Unplugged coding workbooks",
       "Algorithmic and sequential thinking",
@@ -45,7 +45,7 @@ const curriculumPhases = [
     grades: "Grade 7–9",
     color: "bg-cs-purple",
     description:
-      "Learners progress from block-based to text-based programming and tackle more complex robotics projects with micro:bit — exploring real-world applications of computational thinking, sensor-based learning, and automation.",
+      "Learners progress from block-based to text-based programming and tackle more complex robotics projects with micro:bit, exploring real-world applications of computational thinking, sensor-based learning, and automation.",
     highlights: [
       "Transition to text-based programming",
       "Sensor-based robotics projects",
@@ -72,7 +72,7 @@ const platformFeatures = [
   {
     title: "Self-Paced Video Training",
     description:
-      "Teachers train through short, focused video tutorials they can pause, rewatch, and practise alongside — fitting around their existing teaching schedule.",
+      "Teachers train through short, focused video tutorials they can pause, rewatch, and practise alongside, fitting around their existing teaching schedule.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -93,7 +93,7 @@ const platformFeatures = [
   {
     title: "Ready-to-Use Lesson Plans",
     description:
-      "Complete, structured lesson plans with activities, worksheets, and assessments. Teachers walk into the classroom ready to deliver — no preparation from scratch.",
+      "Complete, structured lesson plans with activities, worksheets, and assessments. Teachers walk into the classroom ready to deliver, no preparation from scratch.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -108,7 +108,7 @@ const platformFeatures = [
   {
     title: "Enriches CAPS Curriculum",
     description:
-      "Our STEAM programme meets CAPS baseline requirements while going further — enriching the curriculum with hands-on coding, robotics, and creative problem-solving that slots into your existing timetable.",
+      "Our STEAM programme meets CAPS baseline requirements while going further, enriching the curriculum with hands-on coding, robotics, and creative problem-solving that slots into your existing timetable.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -123,7 +123,7 @@ const platformFeatures = [
   {
     title: "SACE-Accredited Certification",
     description:
-      "Your teachers earn SACE-accredited professional development points upon completion — recognised certification that counts towards their CPD requirements.",
+      "Your teachers earn SACE-accredited professional development points upon completion, recognised certification that counts towards their CPD requirements.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -138,7 +138,7 @@ const platformFeatures = [
   {
     title: "Interactive LMS Platform",
     description:
-      "Your school accesses everything through the Inspire Campus — a dedicated learning management system with progress tracking, certificates, and a community of educators.",
+      "Your school accesses everything through the Inspire Campus, a dedicated learning management system with progress tracking, certificates, and a community of educators.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -153,7 +153,7 @@ const platformFeatures = [
   {
     title: "No Experience Needed",
     description:
-      "Designed for all skill levels — whether your teachers have never touched a micro:bit or are already teaching coding. The training meets them where they are.",
+      "Designed for all skill levels, whether your teachers have never touched a micro:bit or are already teaching coding. The training meets them where they are.",
     icon: (
       <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path
@@ -186,7 +186,7 @@ const testimonials = [
   },
   {
     quote:
-      "Easy to follow. I like that the videos are short — you can then practise what was shown and continue.",
+      "Easy to follow. I like that the videos are short, you can then practise what was shown and continue.",
     name: "Ninette Alberts",
     school: "Thomas More College",
     logo: `${LOGO_PATH}/thomas-more-college.png`,
@@ -250,7 +250,7 @@ const steps = [
     number: "2",
     title: "Teachers Train Online",
     description:
-      "Educators complete self-paced video micro-courses on the Inspire Campus platform — earning SACE-accredited certification.",
+      "Educators complete self-paced video micro-courses on the Inspire Campus platform, earning SACE-accredited certification.",
   },
   {
     number: "3",
@@ -296,7 +296,7 @@ export default function CurriculumPage() {
               </h1>
               <p className="text-xl text-white/80 mb-4">
                 Unlike hiring external facilitators, this programme gives your own teachers the
-                skills to deliver coding and robotics — from Grade R to 12. Once trained, your
+                skills to deliver coding and robotics, from Grade R to 12. Once trained, your
                 educators have the skills, lesson plans, and confidence to teach STEAM year after
                 year.
               </p>
@@ -399,7 +399,7 @@ export default function CurriculumPage() {
                 A Complete Programme, Not Just Resources
               </h2>
               <p className="text-gray-600">
-                Your school gets access to the Inspire Campus — an online platform where teachers
+                Your school gets access to the Inspire Campus, an online platform where teachers
                 train at their own pace, download lesson plans, and earn accredited certification.
                 Everything is managed from one dashboard.
               </p>
@@ -434,7 +434,7 @@ export default function CurriculumPage() {
               A Clear Progression from Unplugged to Advanced Robotics
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              The curriculum builds skills progressively — starting with unplugged activities in
+              The curriculum builds skills progressively, starting with unplugged activities in
               Foundation Phase, introducing block-based coding and micro:bit robotics in
               Intermediate, and advancing to IoT, innovation, and sensor-based learning in the
               senior grades.

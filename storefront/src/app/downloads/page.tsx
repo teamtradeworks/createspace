@@ -98,7 +98,7 @@ const acebott = [
     url: "https://drive.google.com/drive/folders/1vuStdvMELxTjP40JNMZi5UHCQnn--zOy",
   },
   {
-    name: "ACEBOTT Education Solution Series — Smart Home Education Kit Level 1",
+    name: "ACEBOTT Education Solution Series: Smart Home Education Kit Level 1",
     url: "https://drive.google.com/drive/folders/1WNGRzVZk5faubaJkFGhFgBexuKMkmjZc",
   },
   {

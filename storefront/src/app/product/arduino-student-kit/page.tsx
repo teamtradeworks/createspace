@@ -38,11 +38,11 @@ export default async function ArduinoStudentKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Real electronics, real code — a complete semester of structured learning for ages 11 and up"
+        tagline="Real electronics, real code, a complete semester of structured learning for ages 11 and up"
         highlights={[
-          "9 guided lessons plus 2 open-ended projects — up to 25 hours of learning",
+          "9 guided lessons plus 2 open-ended projects, up to 25 hours of learning",
           "Build a traffic light, sports robot, musical keyboard, and more",
-          "Professional digital multimeter included — a real engineering tool",
+          "Professional digital multimeter included, a real engineering tool",
           "No prior experience needed for students or parents",
         ]}
         addons={addons}
@@ -59,12 +59,12 @@ export default async function ArduinoStudentKitPage() {
           {
             title: "Structured Learning That Builds",
             description:
-              "Not just a bag of components — 9 progressive lessons guide your child from electricity basics to functional real-world projects. Each lesson builds on the last.",
+              "Not just a bag of components, 9 progressive lessons guide your child from electricity basics to functional real-world projects. Each lesson builds on the last.",
           },
           {
             title: "Real Skills, Real Tools",
             description:
-              "Your child codes in the same environment used by engineers worldwide. The included multimeter measures actual voltage and current — not a toy, a genuine instrument.",
+              "Your child codes in the same environment used by engineers worldwide. The included multimeter measures actual voltage and current, not a toy, a genuine instrument.",
           },
           {
             title: "Learning That Outlasts the Kit",
@@ -87,7 +87,7 @@ export default async function ArduinoStudentKitPage() {
         image="/images/products/arduino-student-kit/student-kit-connecting-up-with-laptop-infront.jpg"
         imageAlt="Student connecting up the Arduino Student Kit with a laptop in front"
         title="A Platform Built for Home Learning"
-        body="The Arduino Student Kit isn't just a box of components — it's built around an exclusive online learning platform. Your child logs in, activates their kit, and follows nine step-by-step lessons with clear instructions, diagrams, and pre-written code when they need a hand. A digital logbook tracks progress and encourages reflection, while the educator dashboard gives parents full visibility into what their child is learning."
+        body="The Arduino Student Kit isn't just a box of components, it's built around an exclusive online learning platform. Your child logs in, activates their kit, and follows nine step-by-step lessons with clear instructions, diagrams, and pre-written code when they need a hand. A digital logbook tracks progress and encourages reflection, while the educator dashboard gives parents full visibility into what their child is learning."
         layout="image-left"
         background="white"
       />
@@ -101,7 +101,7 @@ export default async function ArduinoStudentKitPage() {
             icon: "cross-device",
             title: "Online Learning Platform",
             description:
-              "Nine lessons and two projects on a dedicated platform — no worksheets, no guesswork, just guided learning.",
+              "Nine lessons and two projects on a dedicated platform, no worksheets, no guesswork, just guided learning.",
           },
           {
             icon: "book",
@@ -113,13 +113,13 @@ export default async function ArduinoStudentKitPage() {
             icon: "lightbulb",
             title: "Professional Multimeter",
             description:
-              "Measure real voltage, current, and resistance — the same tool electronics engineers use every day.",
+              "Measure real voltage, current, and resistance, the same tool electronics engineers use every day.",
           },
           {
             icon: "shield",
             title: "No Soldering Needed",
             description:
-              "All circuits are built on a breadboard — safe, easy to reconfigure, and completely beginner-friendly.",
+              "All circuits are built on a breadboard, safe, easy to reconfigure, and completely beginner-friendly.",
           },
           {
             icon: "code",
@@ -131,7 +131,7 @@ export default async function ArduinoStudentKitPage() {
             icon: "puzzle",
             title: "Reusable Components",
             description:
-              "Circuits are never permanently soldered — every component can be repurposed for any future project your child imagines.",
+              "Circuits are never permanently soldered, every component can be repurposed for any future project your child imagines.",
           },
         ]}
         columns={3}
@@ -142,19 +142,19 @@ export default async function ArduinoStudentKitPage() {
       <ProjectShowcase
         title="9 Lessons. 2 Projects. One Complete Curriculum."
         highlight="Up to 25 hours of guided learning"
-        subtitle="Each lesson builds on the last — from reading a circuit diagram to programming a climate control system from scratch."
+        subtitle="Each lesson builds on the last, from reading a circuit diagram to programming a climate control system from scratch."
         projects={[
           {
             name: "Electricity Basics",
             description:
-              "Meet the multimeter and learn the language of electronics — current, voltage, and resistance.",
+              "Meet the multimeter and learn the language of electronics, current, voltage, and resistance.",
             concepts: "Ohm's Law, multimeter, electrical vocabulary",
             image: "/images/products/arduino-student-kit/projects/electricty-basics.png",
           },
           {
             name: "Schematics",
             description:
-              "Learn to read and draw circuit diagrams — the universal language that connects all electronics.",
+              "Learn to read and draw circuit diagrams, the universal language that connects all electronics.",
             concepts: "Circuit symbols, schematic reading",
             image: "/images/products/arduino-student-kit/projects/schematics.png",
           },
@@ -168,7 +168,7 @@ export default async function ArduinoStudentKitPage() {
           {
             name: "Traffic Light",
             description:
-              "Build a working traffic light with LEDs and write the code to run it — the first real project.",
+              "Build a working traffic light with LEDs and write the code to run it, the first real project.",
             concepts: "Digital output, LEDs, timing, conditionals",
             image: "/images/products/arduino-student-kit/projects/traffic-light.png",
           },
@@ -187,7 +187,7 @@ export default async function ArduinoStudentKitPage() {
             image: "/images/products/arduino-student-kit/projects/light-wave-radar.png",
           },
         ]}
-        moreText="Plus 3 more lessons and 2 open-ended projects — after the curriculum, all components are theirs to keep."
+        moreText="Plus 3 more lessons and 2 open-ended projects, after the curriculum, all components are theirs to keep."
         background="white"
         columns={3}
       />
@@ -197,7 +197,7 @@ export default async function ArduinoStudentKitPage() {
         image="/images/products/arduino-student-kit/opened-box-with-all-parts-displayed-and-laptop.jpg"
         imageAlt="Arduino Student Kit opened box showing all components with a laptop"
         title="Skills That Last Long After the Final Lesson"
-        body="When your child debugs a circuit that won't light up or rewrites code to make the servo move just right, they're practising something far bigger than electronics. They're learning to stay calm when things don't go to plan, to think through problems step by step, and to feel the genuine pride that comes from fixing something with their own hands. Resilience, critical thinking, and confidence — skills that follow them into every classroom and career."
+        body="When your child debugs a circuit that won't light up or rewrites code to make the servo move just right, they're practising something far bigger than electronics. They're learning to stay calm when things don't go to plan, to think through problems step by step, and to feel the genuine pride that comes from fixing something with their own hands. Resilience, critical thinking, and confidence, skills that follow them into every classroom and career."
         layout="image-right"
         background="gray"
       />
@@ -258,12 +258,12 @@ export default async function ArduinoStudentKitPage() {
           {
             question: "Does my child need any prior experience with electronics or coding?",
             answer:
-              "Not at all. The first lessons start with the basics of electricity — no assumptions made. The online platform guides students step by step, and pre-written code is available if they get stuck. Parents don't need technical knowledge either.",
+              "Not at all. The first lessons start with the basics of electricity, no assumptions made. The online platform guides students step by step, and pre-written code is available if they get stuck. Parents don't need technical knowledge either.",
           },
           {
             question: "How much does a parent need to be involved?",
             answer:
-              "The platform is designed for independent learning, so your child can work through lessons on their own. That said, many families enjoy doing it together — the educator dashboard lets parents follow along and the lessons are easy to understand even without a STEM background.",
+              "The platform is designed for independent learning, so your child can work through lessons on their own. That said, many families enjoy doing it together, the educator dashboard lets parents follow along and the lessons are easy to understand even without a STEM background.",
           },
           {
             question: "What does my child need besides the kit?",
@@ -273,17 +273,17 @@ export default async function ArduinoStudentKitPage() {
           {
             question: "How long will the kit keep them busy?",
             answer:
-              "Each of the 9 guided lessons is designed to take about 90 minutes, and the two open-ended projects add more time on top. That's up to 25 hours of structured content — enough for a full semester. After that, the components are theirs to explore thousands of free Arduino community projects.",
+              "Each of the 9 guided lessons is designed to take about 90 minutes, and the two open-ended projects add more time on top. That's up to 25 hours of structured content, enough for a full semester. After that, the components are theirs to explore thousands of free Arduino community projects.",
           },
           {
             question: "Is soldering required?",
             answer:
-              "No soldering at all. Every circuit is built on a breadboard using push-in connections — safe, easy, and completely reversible. Your child can disassemble and rebuild any circuit as many times as they like.",
+              "No soldering at all. Every circuit is built on a breadboard using push-in connections, safe, easy, and completely reversible. Your child can disassemble and rebuild any circuit as many times as they like.",
           },
           {
             question: "Can this kit be used for homeschooling?",
             answer:
-              "Yes — it's specifically designed for home and independent learning. The online platform includes an educator dashboard with guidance notes, answer keys, and extension ideas. The curriculum covers electronics and computer science concepts that align with school-level STEM subjects.",
+              "Yes, it's specifically designed for home and independent learning. The online platform includes an educator dashboard with guidance notes, answer keys, and extension ideas. The curriculum covers electronics and computer science concepts that align with school-level STEM subjects.",
           },
         ]}
         background="gray"
@@ -341,7 +341,7 @@ export default async function ArduinoStudentKitPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with Arduino"
-        subtitle="The official kit trusted by educators worldwide — everything needed for a full semester of electronics and coding."
+        subtitle="The official kit trusted by educators worldwide, everything needed for a full semester of electronics and coding."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

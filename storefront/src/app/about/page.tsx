@@ -6,7 +6,7 @@ import PageViewTracker from "@/components/PageViewTracker";
 export const metadata: Metadata = {
   title: "About Us | CREATESPACE",
   description:
-    "CREATESPACE is South Africa's specialist STEM store — curated robotics kits, coding toys, and science sets for kids and schools.",
+    "CREATESPACE is South Africa's specialist STEM store, curated robotics kits, coding toys, and science sets for kids and schools.",
   alternates: {
     canonical: "/about",
   },
@@ -163,7 +163,7 @@ export default function AboutPage() {
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
               We&apos;re not a general toy store. We specialise in STEM education and carefully
-              curate products that offer a hands-on, guided experience — fun first, genuinely
+              curate products that offer a hands-on, guided experience, fun first, genuinely
               educational by design. We take the time to understand each product&apos;s age range,
               skill level, and learning value before adding it to our range.
             </p>
@@ -200,7 +200,7 @@ export default function AboutPage() {
             </span>
             <h2 className="text-3xl md:text-4xl font-semibold mt-2 mb-4">Our Values</h2>
             <p className="text-white/70 max-w-2xl mx-auto">
-              These principles guide everything we do—from the products we select to the way we
+              These principles guide everything we do, from the products we select to the way we
               serve our community.
             </p>
           </div>
@@ -235,7 +235,7 @@ export default function AboutPage() {
                 ),
                 title: "Excellence",
                 description:
-                  "We test and curate our range carefully — if a product doesn't deliver a great learning experience, it doesn't make the cut. We stand behind the quality of everything we sell.",
+                  "We test and curate our range carefully, if a product doesn't deliver a great learning experience, it doesn't make the cut. We stand behind the quality of everything we sell.",
               },
               {
                 icon: (
@@ -297,7 +297,7 @@ export default function AboutPage() {
               "Play is a powerful tool for learning and discovery.",
               "Early STEM engagement can spark a lifelong curiosity and appreciation for the sciences.",
               "It's important to challenge the misconception that the sciences are boring; STEM is exciting and engaging.",
-              "STEM is for everyone—regardless of background, gender, or ability.",
+              "STEM is for everyone, regardless of background, gender, or ability.",
               "Both parents and educators play a key role in helping kids develop STEM skills.",
             ].map((belief, index) => (
               <div key={index} className="flex items-start gap-4 p-6 bg-gray-50 rounded-xl">

@@ -87,7 +87,7 @@ export default async function MicrobitGoPage() {
         image="/images/products/bbc-micro-bit-go/blocks-coding-example-in-makecode.png"
         imageAlt="MakeCode block-based coding interface showing a micro:bit program"
         title="A Pocket-Sized Programmable Computer"
-        body="The BBC micro:bit V2 is a tiny computer — about the size of a credit card — designed from the ground up to teach coding. Despite its size, the board packs a 25-LED display, built-in speaker, microphone, accelerometer, compass, temperature sensor, and wireless connectivity. You program it directly in your web browser using Microsoft MakeCode's drag-and-drop blocks — no software to install. The Go bundle includes the micro:bit V2 board, a USB cable, battery holder, and batteries, so everything you need to start coding is right in the box."
+        body="The BBC micro:bit V2 is a tiny computer, about the size of a credit card, designed from the ground up to teach coding. Despite its size, the board packs a 25-LED display, built-in speaker, microphone, accelerometer, compass, temperature sensor, and wireless connectivity. You program it directly in your web browser using Microsoft MakeCode's drag-and-drop blocks, no software to install. The Go bundle includes the micro:bit V2 board, a USB cable, battery holder, and batteries, so everything you need to start coding is right in the box."
         layout="image-left"
         background="white"
       />
@@ -195,7 +195,7 @@ export default async function MicrobitGoPage() {
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="Real kids, real projects, real fun — from first-timers to confident coders."
+        subtitle="Real kids, real projects, real fun, from first-timers to confident coders."
         background="gray"
         images={[
           {
@@ -310,7 +310,7 @@ export default async function MicrobitGoPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with micro:bit"
-        subtitle="Board, USB cable, batteries, and battery holder — everything in the box to start coding right away."
+        subtitle="Board, USB cable, batteries, and battery holder, everything in the box to start coding right away."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

@@ -40,7 +40,7 @@ export default async function SnapCircuitJuniorPage() {
         tagline="Build 101 real electronic circuits without any soldering or tools"
         highlights={[
           "101 hands-on projects from simple lights to logic gates",
-          "No experience needed—snap-together design is safe and easy",
+          "No experience needed, snap-together design is safe and easy",
           "46-page full-colour manual with step-by-step instructions",
           "Award-winning kit used by educators worldwide",
         ]}
@@ -59,12 +59,12 @@ export default async function SnapCircuitJuniorPage() {
           {
             title: "Safe & Simple",
             description:
-              "Large colour-coded pieces snap together like LEGO—no soldering, small wires, or tools. The patented Circuit Safe® technology prevents incorrect connections from causing damage.",
+              "Large colour-coded pieces snap together like LEGO, no soldering, small wires, or tools. The patented Circuit Safe® technology prevents incorrect connections from causing damage.",
           },
           {
             title: "Real Circuits, Real Learning",
             description:
-              "Not a toy simulation. Your child builds actual working circuits with real electronic components—resistors, LEDs, motors, and integrated circuits—just like those inside radios and computers.",
+              "Not a toy simulation. Your child builds actual working circuits with real electronic components, resistors, LEDs, motors, and integrated circuits, just like those inside radios and computers.",
           },
           {
             title: "Builds Confidence & Skills",
@@ -80,7 +80,7 @@ export default async function SnapCircuitJuniorPage() {
         image="/images/products/snap-circuit-junior/child-sitting-at-table-playing-with-circuits.jpg"
         imageAlt="Child building circuits with Snap Circuits Explorer Junior"
         title="Electronics Made Easy for Young Builders"
-        body="Snap Circuits Explorer Junior takes the intimidation out of electronics. Instead of tangled wires and soldering irons, your child gets large, colour-coded plastic modules that snap together securely on a clear grid base. Each piece is numbered and labelled—battery holders, switches, LEDs, motors, and more—making it easy to follow along with the illustrated manual. Within minutes of opening the box, they'll have built their first working circuit. No technical knowledge required from you or them."
+        body="Snap Circuits Explorer Junior takes the intimidation out of electronics. Instead of tangled wires and soldering irons, your child gets large, colour-coded plastic modules that snap together securely on a clear grid base. Each piece is numbered and labelled, battery holders, switches, LEDs, motors, and more, making it easy to follow along with the illustrated manual. Within minutes of opening the box, they'll have built their first working circuit. No technical knowledge required from you or them."
         layout="image-left"
         background="white"
       />
@@ -94,7 +94,7 @@ export default async function SnapCircuitJuniorPage() {
             icon: "puzzle",
             title: "101 Exciting Projects",
             description:
-              "From blinking lights to working doorbells, flying saucers to water alarms—each project teaches new concepts",
+              "From blinking lights to working doorbells, flying saucers to water alarms, each project teaches new concepts",
           },
           {
             icon: "shield",
@@ -106,13 +106,13 @@ export default async function SnapCircuitJuniorPage() {
             icon: "book",
             title: "Full-Colour Manual",
             description:
-              "46-page guidebook with large illustrations and clear instructions—no confusing jargon",
+              "46-page guidebook with large illustrations and clear instructions, no confusing jargon",
           },
           {
             icon: "lightbulb",
             title: "30+ Real Components",
             description:
-              "LEDs, motors, speakers, switches, sensors—all the building blocks of real electronics",
+              "LEDs, motors, speakers, switches, sensors, all the building blocks of real electronics",
           },
           {
             icon: "award",
@@ -124,7 +124,7 @@ export default async function SnapCircuitJuniorPage() {
             icon: "rocket",
             title: "Expandable System",
             description:
-              "Upgrade to more advanced Snap Circuits kits as skills grow—all components are compatible",
+              "Upgrade to more advanced Snap Circuits kits as skills grow, all components are compatible",
           },
         ]}
         columns={3}
@@ -135,14 +135,14 @@ export default async function SnapCircuitJuniorPage() {
       <ProjectShowcase
         title="101 Projects to Explore"
         highlight="From blinking lights to logic gates"
-        subtitle="Projects are arranged from simple to complex—your child builds confidence with every circuit they complete."
+        subtitle="Projects are arranged from simple to complex, your child builds confidence with every circuit they complete."
         columns={3}
         background="white"
         projects={[
           {
             name: "Electric Light & Switch",
             description:
-              "Build your very first working circuit—flip a switch and watch a light come on. The perfect starting point.",
+              "Build your very first working circuit, flip a switch and watch a light come on. The perfect starting point.",
             concepts: "Basic circuits, electricity flow, switches",
             image: "/images/products/snap-circuit-junior/projects/electric-light-and-switch.jpg",
           },
@@ -156,7 +156,7 @@ export default async function SnapCircuitJuniorPage() {
           {
             name: "Musical Doorbell",
             description:
-              "Wire up a push-button doorbell that plays music when pressed—a project kids love to show off at home.",
+              "Wire up a push-button doorbell that plays music when pressed, a project kids love to show off at home.",
             concepts: "Push-button switches, music ICs",
             image: "/images/products/snap-circuit-junior/projects/musical-doorbell-play.jpeg",
           },
@@ -170,19 +170,19 @@ export default async function SnapCircuitJuniorPage() {
           {
             name: "Logic Gates (AND, OR, NOR, NAND)",
             description:
-              "Hands-on introduction to digital logic—the building blocks of every computer and microcontroller.",
+              "Hands-on introduction to digital logic, the building blocks of every computer and microcontroller.",
             concepts: "Boolean logic, digital circuits",
             image: "/images/products/snap-circuit-junior/projects/logic-gates.jpeg",
           },
           {
             name: "Water Space War",
             description:
-              "Dip two contacts in water and trigger space-battle sound effects. Water conducts electricity—now they know why.",
+              "Dip two contacts in water and trigger space-battle sound effects. Water conducts electricity, now they know why.",
             concepts: "Water detection, conductivity, sensors",
             image: "/images/products/snap-circuit-junior/projects/water-space-war.jpg",
           },
         ]}
-        moreText="Plus 95 more projects—doorbells, alarms, strobe lights, pencil resistors, touch sensors, and much more."
+        moreText="Plus 95 more projects, doorbells, alarms, strobe lights, pencil resistors, touch sensors, and much more."
       />
 
       {/* Learning Outcomes Section */}
@@ -261,7 +261,7 @@ export default async function SnapCircuitJuniorPage() {
           {
             question: "Do I need to buy anything else to get started?",
             answer:
-              "You'll need 2 AA batteries (not included). Everything else—the components, manual, and base board—comes in the box. No computer, app, or additional tools are required.",
+              "You'll need 2 AA batteries (not included). Everything else, the components, manual, and base board, comes in the box. No computer, app, or additional tools are required.",
           },
           {
             question: "What happens after they finish all 101 projects?",
@@ -271,7 +271,7 @@ export default async function SnapCircuitJuniorPage() {
           {
             question: "Does this teach coding or programming?",
             answer:
-              "No, this kit focuses on electronics and circuits—how electricity works, what different components do, and how to build working devices. It doesn't involve computer programming. If you're looking for coding, consider kits like Arduino or micro:bit.",
+              "No, this kit focuses on electronics and circuits, how electricity works, what different components do, and how to build working devices. It doesn't involve computer programming. If you're looking for coding, consider kits like Arduino or micro:bit.",
           },
           {
             question: "How long does it take to complete a project?",
@@ -359,7 +359,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 101 real electronic circuits with Snap Circuits Explorer Junior. No soldering or tools needed—perfect for kids aged 8+ to learn electronics hands-on.",
+      "Build 101 real electronic circuits with Snap Circuits Explorer Junior. No soldering or tools needed, perfect for kids aged 8+ to learn electronics hands-on.",
     alternates: {
       canonical: "/product/snap-circuits-explorer-junior",
     },

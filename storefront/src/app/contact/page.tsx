@@ -47,7 +47,7 @@ const contactInfo = [
     ),
     title: "Location",
     description: "Cape Town, South Africa",
-    value: "Online only — no physical shop",
+    value: "Online only (no physical shop)",
     href: null,
   },
   {
@@ -134,7 +134,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-white/70 text-lg">
               Whether you have a question about our products, need help choosing the right kit, or
-              want to discuss a school partnership—we&apos;re here to help.
+              want to discuss a school partnership, we&apos;re here to help.
             </p>
           </div>
         </div>

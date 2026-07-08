@@ -360,7 +360,7 @@ export default function ProductActions({
             />
           </svg>
           <span>
-            Only {stockQuantity} in stock — ordering more will be on a{" "}
+            Only {stockQuantity} in stock, ordering more will be on a{" "}
             <strong>{siteConfig.leadTime.estimatedDays}</strong> lead time.
           </span>
         </div>

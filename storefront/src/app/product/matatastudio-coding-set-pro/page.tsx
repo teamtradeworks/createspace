@@ -41,7 +41,7 @@ export default async function MatataStudioCodingSetProPage() {
         tagline="Screen-free coding that puts real programming in little hands"
         highlights={[
           "100+ hands-on coding challenges with zero screen time",
-          "No reading required — visual symbols make coding accessible from age 4",
+          "No reading required, visual symbols make coding accessible from age 4",
           "Teaches real programming concepts: loops, functions, debugging",
           "3 challenge booklets progress from beginner to advanced",
         ]}
@@ -64,12 +64,12 @@ export default async function MatataStudioCodingSetProPage() {
           {
             title: "No Reading Needed",
             description:
-              "Directional symbols on coding blocks eliminate the reading barrier. Children as young as 4 can start coding independently — no reading skills or screen literacy required.",
+              "Directional symbols on coding blocks eliminate the reading barrier. Children as young as 4 can start coding independently, no reading skills or screen literacy required.",
           },
           {
             title: "Hands Build Brains",
             description:
-              "Young children learn best through tactile play. Physical coding blocks engage fine motor skills and spatial reasoning while teaching computational thinking — screen-free and developmentally appropriate.",
+              "Young children learn best through tactile play. Physical coding blocks engage fine motor skills and spatial reasoning while teaching computational thinking, screen-free and developmentally appropriate.",
           },
         ]}
         background="navy-card"
@@ -87,7 +87,7 @@ export default async function MatataStudioCodingSetProPage() {
         image="/images/products/matatastudio-coding-set-pro/child-playing-with-kit.png"
         imageAlt="Child independently placing coding blocks on the control board"
         title="Learning Through Play, Not Screens"
-        body="MatataStudio Coding Set Pro makes coding tangible. Your child arranges physical coding blocks on the Control Board, and the Command Tower's camera reads the sequence. MatataBot executes the program instantly — moving, turning, and responding to the code they've written. This immediate feedback loop makes abstract programming concepts concrete and memorable, while keeping screen time at zero."
+        body="MatataStudio Coding Set Pro makes coding tangible. Your child arranges physical coding blocks on the Control Board, and the Command Tower's camera reads the sequence. MatataBot executes the program instantly, moving, turning, and responding to the code they've written. This immediate feedback loop makes abstract programming concepts concrete and memorable, while keeping screen time at zero."
         layout="image-left"
         background="white"
       />
@@ -101,7 +101,7 @@ export default async function MatataStudioCodingSetProPage() {
             icon: "brain",
             title: "Real Programming Concepts",
             description:
-              "Teaches authentic coding fundamentals — sequencing, loops, functions, parameters, and debugging. Not simplified toy versions, but real computational thinking.",
+              "Teaches authentic coding fundamentals, sequencing, loops, functions, parameters, and debugging. Not simplified toy versions, but real computational thinking.",
           },
           {
             icon: "blocks",
@@ -119,7 +119,7 @@ export default async function MatataStudioCodingSetProPage() {
             icon: "battery",
             title: "Rechargeable Design",
             description:
-              "5-hour battery life for MatataBot and Command Tower. USB-C charging included — no disposable batteries to buy or replace.",
+              "5-hour battery life for MatataBot and Command Tower. USB-C charging included, no disposable batteries to buy or replace.",
           },
           {
             icon: "compatible",
@@ -142,7 +142,7 @@ export default async function MatataStudioCodingSetProPage() {
         image="/images/products/matatastudio-coding-set-pro/group-of-children-with-parents-playing-together.jpg"
         imageAlt="Family working together on coding challenges with MatataStudio"
         title="Five Years of Learning in One Kit"
-        body="MatataStudio Coding Set Pro grows with your child from ages 4 to 9. The three progressive challenge booklets start with simple forward movement and build to advanced functions, loops, and creative music programming. Younger children grasp cause-and-effect and sequencing, while older children tackle computational efficiency and abstraction. It's not a toy they'll outgrow in months — it's a learning companion that evolves with their abilities."
+        body="MatataStudio Coding Set Pro grows with your child from ages 4 to 9. The three progressive challenge booklets start with simple forward movement and build to advanced functions, loops, and creative music programming. Younger children grasp cause-and-effect and sequencing, while older children tackle computational efficiency and abstraction. It's not a toy they'll outgrow in months, it's a learning companion that evolves with their abilities."
         layout="image-right"
         background="gray"
       />
@@ -150,7 +150,7 @@ export default async function MatataStudioCodingSetProPage() {
       {/* 100+ Challenges Breakdown */}
       <ProjectShowcase
         title="100+ Coding Challenges That Grow with Your Child"
-        highlight="Navigate mazes, create music, draw patterns, and solve puzzles — all screen-free"
+        highlight="Navigate mazes, create music, draw patterns, and solve puzzles, all screen-free"
         subtitle="Three progressive challenge booklets guide learners from basic movement to advanced functions. Each challenge builds on the last, developing computational thinking step by step."
         projects={[
           {
@@ -264,7 +264,7 @@ export default async function MatataStudioCodingSetProPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "Ages 4-9. The set is designed for complete beginners and grows with your child through three challenge booklets. Younger children (4-5) start with basic movement and sequencing, while older children (8-9) tackle advanced loops, functions, and creative coding. No reading skills required — visual symbols on blocks make coding accessible from age 4.",
+              "Ages 4-9. The set is designed for complete beginners and grows with your child through three challenge booklets. Younger children (4-5) start with basic movement and sequencing, while older children (8-9) tackle advanced loops, functions, and creative coding. No reading skills required, visual symbols on blocks make coding accessible from age 4.",
           },
           {
             question: "Does my child need any coding or reading experience?",
@@ -294,7 +294,7 @@ export default async function MatataStudioCodingSetProPage() {
           {
             question: "Are batteries included?",
             answer:
-              "Yes — rechargeable batteries are built into both MatataBot and the Command Tower. A USB-C charging cable is included. MatataBot charges in 1.5 hours and runs for 5 hours. Command Tower charges in 3.5 hours and runs for 5 hours. No disposable batteries to buy or replace.",
+              "Yes, rechargeable batteries are built into both MatataBot and the Command Tower. A USB-C charging cable is included. MatataBot charges in 1.5 hours and runs for 5 hours. Command Tower charges in 3.5 hours and runs for 5 hours. No disposable batteries to buy or replace.",
           },
           {
             question: "What happens after they complete all the challenges?",
@@ -309,7 +309,7 @@ export default async function MatataStudioCodingSetProPage() {
           {
             question: "What's the difference between the Pro Set and standard Coding Set?",
             answer:
-              "The Pro Set includes music blocks (for programming melodies) and angle blocks (for drawing geometric patterns) — exclusive features not available in the standard Coding Set. The Pro Set is designed for advanced learning and classroom use, while the standard set is ideal for homeschool beginners without prior coding experience.",
+              "The Pro Set includes music blocks (for programming melodies) and angle blocks (for drawing geometric patterns), exclusive features not available in the standard Coding Set. The Pro Set is designed for advanced learning and classroom use, while the standard set is ideal for homeschool beginners without prior coding experience.",
           },
         ]}
         background="gray"

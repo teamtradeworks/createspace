@@ -43,10 +43,10 @@ export default async function AIVisionKitPage() {
         product={product}
         tagline="Teach your VinciBot to see, recognise, and respond to the real world"
         highlights={[
-          "7 built-in AI vision functions — ready to use instantly",
+          "7 built-in AI vision functions, ready to use instantly",
           "Train your own custom AI model with one click",
           "40 activity cards plus 75+ online challenges",
-          "Snaps onto VinciBot — no tools needed",
+          "Snaps onto VinciBot, no tools needed",
         ]}
         addons={addons}
       />
@@ -68,17 +68,17 @@ export default async function AIVisionKitPage() {
           {
             title: "7 Pre-Trained AI Functions, Ready Instantly",
             description:
-              "From face recognition to handwriting detection, VinciBot can see and respond to the world using built-in AI models — no setup, no training required. Snap on the module and start coding AI projects straight away.",
+              "From face recognition to handwriting detection, VinciBot can see and respond to the world using built-in AI models, no setup, no training required. Snap on the module and start coding AI projects straight away.",
           },
           {
             title: "Train Your Own AI from Scratch",
             description:
-              "Go further than pre-built models. Your child collects their own image data, trains a custom recognition model, and deploys it live on VinciBot — experiencing the complete machine learning pipeline that real AI engineers use, with just a few clicks.",
+              "Go further than pre-built models. Your child collects their own image data, trains a custom recognition model, and deploys it live on VinciBot, experiencing the complete machine learning pipeline that real AI engineers use, with just a few clicks.",
           },
           {
             title: "A Programmable Eye and Screen",
             description:
-              "A 180° flip camera and 1.5-inch full-colour LCD screen transform VinciBot from a robot that moves to one that sees, interprets, and displays what it's detecting — making AI visible, tangible, and genuinely exciting.",
+              "A 180° flip camera and 1.5-inch full-colour LCD screen transform VinciBot from a robot that moves to one that sees, interprets, and displays what it's detecting, making AI visible, tangible, and genuinely exciting.",
           },
         ]}
         background="navy-card"
@@ -96,7 +96,7 @@ export default async function AIVisionKitPage() {
         image="/images/products/matatastudio-ai-vision-kit-for-vincibot/seven-visual-functions.png"
         imageAlt="MatataStudio AI Vision Kit showing all seven visual functions including face recognition and colour tracking"
         title="Seven Ways to See the World"
-        body="The AI Vision Kit comes pre-loaded with seven computer vision capabilities your child can use immediately: face recognition and tracking, image classification, visual line following, colour recognition and tracking, colour block detection, AprilTag marker recognition, and handwriting recognition (0–9). Each function is a hands-on window into how real AI systems work — from the face unlock on your phone to the object detection in self-driving cars. Combine multiple functions in a single programme and something exciting happens: your child isn't just using AI anymore — they're thinking like an AI engineer."
+        body="The AI Vision Kit comes pre-loaded with seven computer vision capabilities your child can use immediately: face recognition and tracking, image classification, visual line following, colour recognition and tracking, colour block detection, AprilTag marker recognition, and handwriting recognition (0–9). Each function is a hands-on window into how real AI systems work, from the face unlock on your phone to the object detection in self-driving cars. Combine multiple functions in a single programme and something exciting happens: your child isn't just using AI anymore, they're thinking like an AI engineer."
         layout="image-left"
         background="white"
       />
@@ -105,8 +105,8 @@ export default async function AIVisionKitPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-ai-vision-kit-for-vincibot/graphical-programming.png"
         imageAlt="Graphical block-based programming interface for the MatataStudio AI Vision Kit"
-        title="Build Your Own AI — Not Just Use One"
-        body="Most AI kits give children pre-built models to experiment with. The AI Vision Kit goes further: your child can collect their own image data, train a model from scratch, and deploy it onto VinciBot with a single click. They decide what the robot learns to recognise — their face, a favourite toy, a hand signal, a drawn shape. Every attempt teaches them something real about how AI thinks, fails, and improves. It's the difference between pressing a button and understanding the button — and it's the kind of hands-on AI literacy that will matter for decades."
+        title="Build Your Own AI, Not Just Use One"
+        body="Most AI kits give children pre-built models to experiment with. The AI Vision Kit goes further: your child can collect their own image data, train a model from scratch, and deploy it onto VinciBot with a single click. They decide what the robot learns to recognise, their face, a favourite toy, a hand signal, a drawn shape. Every attempt teaches them something real about how AI thinks, fails, and improves. It's the difference between pressing a button and understanding the button, and it's the kind of hands-on AI literacy that will matter for decades."
         layout="image-right"
         background="gray"
       />
@@ -118,12 +118,12 @@ export default async function AIVisionKitPage() {
           {
             question: `Do I need the ${parentProductName} to use this kit?`,
             answer:
-              "Yes — the AI Vision Kit is an expansion that attaches to the VinciBot robot. It requires a VinciBot to function and is not a standalone product. If you don't yet have a VinciBot, you'll need to get one first.",
+              "Yes, the AI Vision Kit is an expansion that attaches to the VinciBot robot. It requires a VinciBot to function and is not a standalone product. If you don't yet have a VinciBot, you'll need to get one first.",
           },
           {
             question: "What's different from what VinciBot can already do?",
             answer:
-              "VinciBot's built-in AI uses TinyML for gesture and letter recognition via its existing sensors. The AI Vision Kit adds a dedicated flip camera module, a programmable LCD screen, and seven new computer vision functions — face recognition, image classification, line following, colour tracking, colour block detection, AprilTag recognition, and handwriting recognition. It's a significant upgrade in what VinciBot can perceive and respond to.",
+              "VinciBot's built-in AI uses TinyML for gesture and letter recognition via its existing sensors. The AI Vision Kit adds a dedicated flip camera module, a programmable LCD screen, and seven new computer vision functions, face recognition, image classification, line following, colour tracking, colour block detection, AprilTag recognition, and handwriting recognition. It's a significant upgrade in what VinciBot can perceive and respond to.",
           },
           {
             question: "What new projects will my child be able to build?",
@@ -133,12 +133,12 @@ export default async function AIVisionKitPage() {
           {
             question: "Can my child still use the same Matatalab coding app?",
             answer:
-              "Yes — the AI Vision Kit works with the same free Matatalab coding app your child already knows (Windows, Mac, iPad, Android). AI vision functions appear as new blocks in the graphical coding interface, so there's no new software to learn. As they progress, they can also incorporate Python.",
+              "Yes, the AI Vision Kit works with the same free Matatalab coding app your child already knows (Windows, Mac, iPad, Android). AI vision functions appear as new blocks in the graphical coding interface, so there's no new software to learn. As they progress, they can also incorporate Python.",
           },
           {
             question: "Is this suitable for the same age group as VinciBot?",
             answer:
-              "Yes — the AI Vision Kit is designed for the same age range of 8–12. Children who have spent some time with VinciBot will be well-positioned to explore the AI functions confidently, though the beginner activity cards make it accessible even for newer users.",
+              "Yes, the AI Vision Kit is designed for the same age range of 8–12. Children who have spent some time with VinciBot will be well-positioned to explore the AI functions confidently, though the beginner activity cards make it accessible even for newer users.",
           },
         ]}
         background="white"
@@ -165,7 +165,7 @@ export default async function AIVisionKitPage() {
       {/* Call to Action */}
       <CallToAction
         title="Add AI Vision to Your VinciBot"
-        subtitle="The next step in your child's STEM journey — from coding a robot to building their own AI."
+        subtitle="The next step in your child's STEM journey, from coding a robot to building their own AI."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel={`View the ${parentProductName}`}

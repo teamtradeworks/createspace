@@ -94,7 +94,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Build Confidence to Begin",
                 description:
-                  "Walk away with clear, actionable takeaways you can use in your very next lesson — designed for educators at any experience level.",
+                  "Walk away with clear, actionable takeaways you can use in your very next lesson, designed for educators at any experience level.",
               },
             ],
           },
@@ -102,7 +102,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
             label: "Course 2",
             title: "Introduction to STEAM Education",
             subtitle:
-              "Understand how STEAM, Coding and Robotics integrates with the curriculum. Apply simple, real-world STEAM activities in your classroom — no hardware or software required.",
+              "Understand how STEAM, Coding and Robotics integrates with the curriculum. Apply simple, real-world STEAM activities in your classroom, no hardware or software required.",
             steps: [
               {
                 title: "Understand STEAM & Coding Foundations",
@@ -117,12 +117,12 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Set Up Your STEAM Learning Space",
                 description:
-                  "Understand the requirements for establishing an effective STEAM learning environment — and how CAPS curriculum strands translate into practical classroom implementation.",
+                  "Understand the requirements for establishing an effective STEAM learning environment, and how CAPS curriculum strands translate into practical classroom implementation.",
               },
               {
                 title: "Apply Real-World STEAM Activities",
                 description:
-                  "Move from theory to practice — confidently facilitate learner-led, hands-on problem solving as part of your everyday teaching.",
+                  "Move from theory to practice, confidently facilitate learner-led, hands-on problem solving as part of your everyday teaching.",
               },
             ],
           },
@@ -168,7 +168,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Guided Coding Exercises",
                 description:
-                  "Work through foundational and intermediate coding exercises with clear, step-by-step instructions — building your skills progressively.",
+                  "Work through foundational and intermediate coding exercises with clear, step-by-step instructions, building your skills progressively.",
               },
               {
                 title: "Classroom Projects & Robotics",
@@ -191,12 +191,12 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Integrate External Sensors",
                 description:
-                  "Learn how to connect and programme the Tinker Kit's sensors — PIR motion, soil moisture, light, temperature, and more — through the Octopus:bit breakout board.",
+                  "Learn how to connect and programme the Tinker Kit's sensors, PIR motion, soil moisture, light, temperature, and more, through the Octopus:bit breakout board.",
               },
               {
                 title: "Build Interactive Projects",
                 description:
-                  "Create hands-on STEAM projects that respond to the real world — from plant monitors and intruder alarms to automated devices your learners will love.",
+                  "Create hands-on STEAM projects that respond to the real world, from plant monitors and intruder alarms to automated devices your learners will love.",
               },
               {
                 title: "Deliver CAPS-Aligned Lessons",
@@ -218,7 +218,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           <h2 className="text-3xl font-semibold text-navy mb-4">Who Is This Pathway For?</h2>
           <p className="text-gray-600 max-w-2xl mx-auto mb-10">
             Whether you&apos;re just getting started or ready to run a full STEAM lab, this pathway
-            takes you from beginner to confident — with the training to match.
+            takes you from beginner to confident, with the training to match.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -230,12 +230,12 @@ export default async function MicrobitEssentialStemLabBundlePage() {
               {
                 title: "Schools Setting Up a STEAM Lab",
                 description:
-                  "Get the training to equip your first STEAM lab — from Scratch coding through to micro:bit sensors. Add the hardware as an optional extra.",
+                  "Get the training to equip your first STEAM lab, from Scratch coding through to micro:bit sensors. Add the hardware as an optional extra.",
               },
               {
                 title: "HODs Rolling Out Coding & Robotics",
                 description:
-                  "Five courses covering curriculum, STEAM foundations, Scratch, micro:bit, and advanced sensors — everything your department needs.",
+                  "Five courses covering curriculum, STEAM foundations, Scratch, micro:bit, and advanced sensors, everything your department needs.",
               },
               {
                 title: "Homeschool Educators",
@@ -263,7 +263,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
       />
       <StepPath
         title="How the Inspire Campus Works"
-        subtitle="All five courses are hosted on the Inspire Africa learning platform — a dedicated LMS built for STEAM education in South Africa."
+        subtitle="All five courses are hosted on the Inspire Africa learning platform, a dedicated LMS built for STEAM education in South Africa."
         steps={[
           {
             title: "Purchase & Get Your Coupon Code",
@@ -278,7 +278,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             title: "Work Through the Courses",
             description:
-              "Video lessons, downloadable notes, and quizzes — all self-paced. Start with the curriculum overview and progress through Scratch, micro:bit, and sensor-driven projects.",
+              "Video lessons, downloadable notes, and quizzes, all self-paced. Start with the curriculum overview and progress through Scratch, micro:bit, and sensor-driven projects.",
           },
           {
             title: "Earn Your Certificates",
@@ -295,7 +295,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "What exactly is included in this bundle?",
             answer:
-              "You get five Inspire Africa courses — Coding & Robotics: How to Get Started, Introduction to STEAM Education, Scratch Coding and Animation, Micro:bit Level 1, and Essential STEAM Lab Kit. You can also add a BBC micro:bit Go and ELECFREAKS Tinker Kit as optional extras.",
+              "You get five Inspire Africa courses, Coding & Robotics: How to Get Started, Introduction to STEAM Education, Scratch Coding and Animation, Micro:bit Level 1, and Essential STEAM Lab Kit. You can also add a BBC micro:bit Go and ELECFREAKS Tinker Kit as optional extras.",
           },
           {
             question: "How do I access the courses?",
@@ -310,7 +310,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "Is this SACE-accredited?",
             answer:
-              "Yes — this pathway is SACE-accredited for professional development points. All five courses provide a certificate on completion.",
+              "Yes, this pathway is SACE-accredited for professional development points. All five courses provide a certificate on completion.",
           },
           {
             question: "What's the difference between this and the Early Years pathway?",
@@ -330,12 +330,12 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           {
             question: "What is the Scratch Coding and Animation course?",
             answer:
-              "It teaches creative block-based coding using Scratch projects. You'll learn to build engaging problem-solving classroom activities through sequencing, logic, and animation — perfect for introducing coding to Intermediate Phase learners.",
+              "It teaches creative block-based coding using Scratch projects. You'll learn to build engaging problem-solving classroom activities through sequencing, logic, and animation, perfect for introducing coding to Intermediate Phase learners.",
           },
           {
             question: "What is the Essential STEAM Lab Kit course?",
             answer:
-              "It's an advanced course that teaches you how to integrate the ELECFREAKS Tinker Kit's external sensors into interactive, CAPS-aligned classroom projects — moving from basic coding into creative, sensor-driven robotics.",
+              "It's an advanced course that teaches you how to integrate the ELECFREAKS Tinker Kit's external sensors into interactive, CAPS-aligned classroom projects, moving from basic coding into creative, sensor-driven robotics.",
           },
           {
             question: "Do I need hardware to complete the courses?",
@@ -356,7 +356,7 @@ export default async function MicrobitEssentialStemLabBundlePage() {
       />
       <CallToAction
         title="Ready to Run a Full STEAM Lab?"
-        subtitle="Five courses and zero guesswork. Everything you need to teach Coding and Robotics — from Scratch coding to sensor-driven STEAM projects."
+        subtitle="Five courses and zero guesswork. Everything you need to teach Coding and Robotics, from Scratch coding to sensor-driven STEAM projects."
         primaryLabel="Get the Bundle"
         primaryHref="#product-actions"
         secondaryLabel="Browse All Courses"

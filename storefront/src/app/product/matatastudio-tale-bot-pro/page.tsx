@@ -40,10 +40,10 @@ export default async function TaleBotProPage() {
         product={product}
         tagline="Screen-free coding robot that sparks creativity and storytelling in preschoolers"
         highlights={[
-          "100% screen-free — no tablets or apps required for basic coding",
+          "100% screen-free, no tablets or apps required for basic coding",
           "14 challenge missions plus 5 interactive themed maps",
           "Voice recording for storytelling and creative expression",
-          "Grows with your child — supports Scratch programming for advanced learners",
+          "Grows with your child, supports Scratch programming for advanced learners",
         ]}
         addons={addons}
       />
@@ -87,7 +87,7 @@ export default async function TaleBotProPage() {
         image="/images/products/matatastudio-tale-bot-pro/finger-pressing-button-on-tale-bot-pro.png"
         imageAlt="Child's finger pressing command button on Tale-Bot Pro robot"
         title="How Tale-Bot Pro Works"
-        body="Research shows that screen-free programmable robots are more effective than screen-based coding for developing computational thinking in preschoolers. Children benefit from connecting programming concepts to concrete, physical objects — pressing a button to make the robot move forward reinforces cause-and-effect learning in a way that touching a screen cannot. Tale-Bot Pro is designed for children as young as 3, with colour-coded command buttons and LED indicators that make debugging intuitive and visual, no reading required."
+        body="Research shows that screen-free programmable robots are more effective than screen-based coding for developing computational thinking in preschoolers. Children benefit from connecting programming concepts to concrete, physical objects, pressing a button to make the robot move forward reinforces cause-and-effect learning in a way that touching a screen cannot. Tale-Bot Pro is designed for children as young as 3, with colour-coded command buttons and LED indicators that make debugging intuitive and visual, no reading required."
         layout="image-left"
         background="white"
       />
@@ -101,37 +101,37 @@ export default async function TaleBotProPage() {
             icon: "microphone",
             title: "Voice Recording",
             description:
-              "Record up to 30 seconds of storytelling per file — develop language skills and creative expression",
+              "Record up to 30 seconds of storytelling per file, develop language skills and creative expression",
           },
           {
             icon: "language",
             title: "11 Languages Supported",
             description:
-              "Speaks English, French, German, Spanish, Mandarin, and more — perfect for multilingual learning",
+              "Speaks English, French, German, Spanish, Mandarin, and more, perfect for multilingual learning",
           },
           {
             icon: "pencil",
             title: "Draws & Creates",
             description:
-              "Includes washable markers — code the robot to draw shapes, patterns, and artwork",
+              "Includes washable markers, code the robot to draw shapes, patterns, and artwork",
           },
           {
             icon: "puzzle",
             title: "LEGO Compatible",
             description:
-              "Build and customise with LEGO/DUPLO blocks — extend creative play beyond coding",
+              "Build and customise with LEGO/DUPLO blocks, extend creative play beyond coding",
           },
           {
             icon: "map",
             title: "Interactive Maps",
             description:
-              "5 double-sided themed maps with real educational content — life cycles, plant growth, and more",
+              "5 double-sided themed maps with real educational content, life cycles, plant growth, and more",
           },
           {
             icon: "battery",
             title: "Rechargeable Battery",
             description:
-              "Built-in 1500mAh battery lasts up to 4 hours — USB-C charging, no disposable batteries needed",
+              "Built-in 1500mAh battery lasts up to 4 hours, USB-C charging, no disposable batteries needed",
           },
         ]}
         columns={3}
@@ -143,7 +143,7 @@ export default async function TaleBotProPage() {
         image="/images/products/matatastudio-tale-bot-pro/robot-holding-pens-and-drawing.jpeg"
         imageAlt="Tale-Bot Pro robot holding markers and drawing on paper"
         title="Storytelling Through Code"
-        body="Tale-Bot Pro isn't just a coding robot — it's a storytelling companion. Your child can transform the robot with replaceable sides, attach wings and arms, and use the built-in microphone to record imaginative narratives. Pair the robot with double-sided interactive maps featuring themes like frog life cycles and growing plants, or use the blank maps for open-ended exploration. The drawing feature lets children code the robot to create artwork, combining STEM learning with creative expression. Research shows that this kind of cross-curricular play strengthens both computational thinking and communication skills."
+        body="Tale-Bot Pro isn't just a coding robot, it's a storytelling companion. Your child can transform the robot with replaceable sides, attach wings and arms, and use the built-in microphone to record imaginative narratives. Pair the robot with double-sided interactive maps featuring themes like frog life cycles and growing plants, or use the blank maps for open-ended exploration. The drawing feature lets children code the robot to create artwork, combining STEM learning with creative expression. Research shows that this kind of cross-curricular play strengthens both computational thinking and communication skills."
         layout="image-right"
         background="white"
       />
@@ -242,12 +242,12 @@ export default async function TaleBotProPage() {
           {
             question: "Do we need a tablet or computer?",
             answer:
-              "No! Basic coding requires zero screens — children use physical command buttons on the robot itself. The Scratch programming feature is optional and requires a tablet or computer, but it's designed for older or more advanced learners who are ready for that next step.",
+              "No! Basic coding requires zero screens, children use physical command buttons on the robot itself. The Scratch programming feature is optional and requires a tablet or computer, but it's designed for older or more advanced learners who are ready for that next step.",
           },
           {
             question: "Does it require batteries?",
             answer:
-              "Tale-Bot Pro has a built-in 1500mAh rechargeable lithium battery that lasts up to 4 hours between charges. Simply charge via the included USB-C cable — no disposable batteries needed.",
+              "Tale-Bot Pro has a built-in 1500mAh rechargeable lithium battery that lasts up to 4 hours between charges. Simply charge via the included USB-C cable, no disposable batteries needed.",
           },
           {
             question: "Do I need prior experience to help my child?",
@@ -257,7 +257,7 @@ export default async function TaleBotProPage() {
           {
             question: "Is it safe for young children?",
             answer:
-              "Yes. Tale-Bot Pro is made from eco-friendly, food-grade materials and is lead-free. It features a sturdy, fall-resistant design. Important: Contains small parts — not suitable for children under 3 years due to choking hazard.",
+              "Yes. Tale-Bot Pro is made from eco-friendly, food-grade materials and is lead-free. It features a sturdy, fall-resistant design. Important: Contains small parts, not suitable for children under 3 years due to choking hazard.",
           },
           {
             question: "What can they do after finishing the challenges?",
@@ -312,7 +312,7 @@ export default async function TaleBotProPage() {
           { label: "Material", value: "Eco-friendly, food-grade material" },
           { label: "Safety", value: "Lead-free, sturdy and fall-resistant design" },
           { label: "Technology", value: "Smart OID interactive technology" },
-          { label: "Scratch Support", value: "Yes — compatible with Scratch programming" },
+          { label: "Scratch Support", value: "Yes, compatible with Scratch programming" },
         ]}
         background="gray"
       />
