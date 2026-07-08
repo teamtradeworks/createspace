@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import { Product, getStockStatus } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import TrustBadges from "@/components/TrustBadges";
@@ -51,7 +50,6 @@ export default function ShopGallery({
   initialBrand,
   initialSort,
 }: ShopGalleryProps) {
-  const router = useRouter();
   const [selectedAges, setSelectedAges] = useState<string[]>(
     initialAge && initialAge !== "all" ? initialAge.split(",").filter(Boolean) : [],
   );
@@ -149,7 +147,7 @@ export default function ShopGallery({
     return result;
   }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
 
-  // Sync filter state to URL query parameters (no page reload)
+  // Sync filter state to URL query parameters without triggering Next.js navigation
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
 
@@ -164,8 +162,8 @@ export default function ShopGallery({
 
     const query = params.toString();
     const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
-    router.replace(newUrl, { scroll: false });
-  }, [router, selectedAges, selectedCategories, selectedBrands, sortBy]);
+    window.history.replaceState(null, "", newUrl);
+  }, [selectedAges, selectedCategories, selectedBrands, sortBy]);
 
   const hasActiveFilters =
     selectedAges.length > 0 || selectedCategories.length > 0 || selectedBrands.length > 0;
@@ -525,6 +523,7 @@ function MultiSelect({
         <div
           className="absolute z-40 left-0 min-w-[200px] mt-1 bg-white rounded-xl border-2 shadow-lg overflow-hidden"
           style={{ borderColor: `${color}30` }}
+          onMouseDown={(e) => e.stopPropagation()}
         >
           <div className="max-h-60 overflow-y-auto py-1">
             {options.map((opt) => {
