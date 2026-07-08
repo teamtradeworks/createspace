@@ -38,7 +38,7 @@ export default async function BlockarooCastlePage() {
           "35 soft magnetic foam pieces — towers, turrets, arches, and more",
           "Magnets always attract, never repel — connects first try, every time",
           "Bath-safe, dishwasher-safe, and mold-free — plays everywhere, cleans easily",
-          "Ages 3–6",
+          "Ages 3 - 6 years",
         ]}
         addons={addons}
       />
@@ -63,7 +63,7 @@ export default async function BlockarooCastlePage() {
             icon: "sparkles",
             title: "Always Attract, Never Repel",
             description:
-              "The Blockaroo's patented magnet design means every block connects to every other block, every time — no flipping, no fiddling, no frustration. For children from 18 months onwards, that reliability changes everything. The build works on the first try, and so does the next one, and the one after that.",
+              "The Blockaroo's patented magnet design means every block connects to every other block, every time — no flipping, no fiddling, no frustration. For children aged 3 to 6, that reliability changes everything. The build works on the first try, and so does the next one, and the one after that.",
           },
           {
             icon: "building-blocks",
@@ -117,7 +117,7 @@ export default async function BlockarooCastlePage() {
           {
             question: "What age is the Castle set best for?",
             answer:
-              "The Castle set is suitable from 18 months and up, though the experience changes a lot as children grow. Toddlers enjoy connecting, stacking, and feeling the foam. Children from around 3 years start building intentionally — towers, enclosures, imagined castles. Older children create more complex structures and weave narrative play around their builds. The open-ended format means the set stays interesting long after other toys have been outgrown.",
+              "The Castle set is designed for children aged 3 to 6. From age 3, children build intentionally — towers, enclosures, imagined castles. By age 5 and 6, builds become more complex and narrative play takes over: characters, kingdoms, stories. The open-ended format means the set stays interesting all the way through the age range and beyond.",
           },
           {
             question: "What can you build besides a castle?",
@@ -188,7 +188,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "35 soft magnetic foam blocks that always connect, never repel. Build a castle — then build anything. Bath-safe and dishwasher-safe. Ages 3–6.",
+      "35 soft magnetic foam blocks that always connect, never repel. Build a castle — then build anything. Bath-safe and dishwasher-safe. Ages 3 - 6 years.",
     alternates: {
       canonical: "/product/blockaroo-magnetic-foam-builders-castle",
     },

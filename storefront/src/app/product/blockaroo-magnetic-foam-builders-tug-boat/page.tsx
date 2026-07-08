@@ -38,7 +38,7 @@ export default async function BlockarooTugBoatPage() {
           "10 soft magnetic foam blocks — build the tug boat, take it apart, start something new",
           "Magnets always attract, never repel — connects first try, every time",
           "Bath-safe, dishwasher-safe, and mold-free — built for water play",
-          "Ages 3–6",
+          "Ages 3 - 6 years",
         ]}
         addons={addons}
       />
@@ -178,7 +178,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "10 soft magnetic foam blocks that always connect, never repel. Build a tug boat, then build anything. Bath-safe and dishwasher-safe. Ages 3–6.",
+      "10 soft magnetic foam blocks that always connect, never repel. Build a tug boat, then build anything. Bath-safe and dishwasher-safe. Ages 3 - 6 years.",
     alternates: {
       canonical: "/product/blockaroo-magnetic-foam-builders-tug-boat",
     },
