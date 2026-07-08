@@ -38,7 +38,7 @@ export default async function BlockarooRobotPage() {
           "10 soft magnetic foam blocks — build the robot, take it apart, start again",
           "Magnets always attract, never repel — connects first try, every time",
           "Bath-safe, dishwasher-safe, and mold-free — plays everywhere, cleans easily",
-          "Ages 18 months+",
+          "Ages 3 - 6 years",
         ]}
         addons={addons}
       />
@@ -81,7 +81,7 @@ export default async function BlockarooRobotPage() {
             icon: "layers",
             title: "Grows With Your Child — and Expands",
             description:
-              "The same blocks engage an 18-month-old (stacking, connecting) and a 6-year-old (complex builds and imaginary worlds). Every Blockaroo set is fully compatible, so the Robot set can be combined with the Critter, Airplane, Castle, or any larger set for bigger creations.",
+              "The same blocks keep a 3-year-old busy with simple builds and a 6-year-old absorbed in imagined scenes and characters. Every Blockaroo set is fully compatible, so the Robot set can be combined with the Critter, Airplane, Castle, or any larger set for bigger creations.",
           },
         ]}
       />
@@ -91,7 +91,7 @@ export default async function BlockarooRobotPage() {
         image="/images/products/blockaroo-magnetic-foam-builders-robot/kids-laughing-and-playing.jpg"
         imageAlt="Children laughing and playing together with Blockaroo magnetic foam blocks"
         title="There's Something About That Click"
-        body="Building with the Blockaroo Robot set gives toddlers and young children something immediate — the audible, tactile click as two foam pieces lock together. The soft foam is safe in small hands from 18 months, the magnetic system works first time every time, and the 360-degree rotation invites children to explore every angle of their build. It's the kind of toy that quietly holds attention for far longer than expected."
+        body="Building with the Blockaroo Robot set gives young children something immediate — the audible, tactile click as two foam pieces lock together. The soft foam is safe and easy to handle, the magnetic system works first time every time, and the 360-degree rotation invites children aged 3 to 6 to explore every angle of their build. It's the kind of toy that quietly holds attention for far longer than expected."
         layout="image-left"
         background="white"
       />
@@ -117,7 +117,7 @@ export default async function BlockarooRobotPage() {
           {
             question: "What age is this best for?",
             answer:
-              "The Blockaroo Robot set is designed for children from 18 months and up. At 18 months to 2 years, the appeal is mostly sensory — connecting, clicking, stacking, and feeling the foam. From age 3 onwards, children start building deliberately and creating imagined characters and scenes. The open-ended format keeps it interesting well into the primary school years.",
+              "The Blockaroo Robot set is designed for children aged 3 to 6. At 3 to 4 years, children love connecting and clicking the blocks together, building simple structures and exploring what they can make. From age 5, builds become more deliberate — imagined characters, scenes, and stories emerge. The open-ended format keeps it engaging all the way to age 6 and beyond.",
           },
           {
             question: "Is it safe for young children?",
@@ -127,7 +127,7 @@ export default async function BlockarooRobotPage() {
           {
             question: "Does my child need help to get started?",
             answer:
-              "No. The magnetic system is specifically designed for independent play from 18 months. The blocks connect on the first try without needing to find a correct orientation, so young children can build on their own without adult help. Many parents report their child playing independently for extended periods — it's that self-contained.",
+              "No. The magnetic system is specifically designed for independent play — blocks connect on the first try without needing to find a correct orientation, so children aged 3 and up can build on their own without adult help. Many parents report their child playing independently for extended periods — it's that self-contained.",
           },
           {
             question: "Can the blocks be used in the bath?",
@@ -188,7 +188,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "10 soft magnetic foam blocks that always connect, never repel. Build a robot, then build anything. Bath-safe and dishwasher-safe. Ages 18 months+.",
+      "10 soft magnetic foam blocks that always connect, never repel. Build a robot, then build anything. Bath-safe and dishwasher-safe. Ages 3 - 6 years.",
     alternates: {
       canonical: "/product/blockaroo-magnetic-foam-builders-robot",
     },

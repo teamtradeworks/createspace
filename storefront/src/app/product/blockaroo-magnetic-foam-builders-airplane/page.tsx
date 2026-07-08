@@ -38,7 +38,7 @@ export default async function BlockarooAirplanePage() {
           "10 soft magnetic foam blocks — build the airplane, take it apart, start again",
           "Magnets always attract, never repel — connects first try, every time",
           "Bath-safe, dishwasher-safe, and mold-free — cleans easily",
-          "Ages 3+",
+          "Ages 3 - 6 years",
         ]}
         addons={addons}
       />
@@ -81,7 +81,7 @@ export default async function BlockarooAirplanePage() {
             icon: "layers",
             title: "Grows With Your Child — and Expands",
             description:
-              "The same blocks engage an 18-month-old (stacking, connecting) and a 6-year-old (complex builds and imaginary worlds). Every Blockaroo set is fully compatible, so the Airplane set can be combined with the Robot, Critter, Castle, or any larger set for bigger creations.",
+              "The same blocks keep a 3-year-old busy with simple builds and a 6-year-old absorbed in imagined scenes and characters. Every Blockaroo set is fully compatible, so the Airplane set can be combined with the Robot, Critter, Castle, or any larger set for bigger creations.",
           },
         ]}
       />
@@ -178,7 +178,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "10 soft magnetic foam blocks that always connect, never repel. Build an airplane, then build anything. Bath-safe and dishwasher-safe. Ages 3+.",
+      "10 soft magnetic foam blocks that always connect, never repel. Build an airplane, then build anything. Bath-safe and dishwasher-safe. Ages 3 - 6 years.",
     alternates: {
       canonical: "/product/blockaroo-magnetic-foam-builders-airplane",
     },

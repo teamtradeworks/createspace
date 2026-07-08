@@ -38,7 +38,7 @@ export default async function BlockarooTrunkSetPage() {
           "50 blocks in a variety of 3D shapes and colours",
           "Magnets always attract, never repel — connects every time, first try",
           "Storage trunk included — all 50 pieces organised and ready to go",
-          "Bath-safe, dishwasher-safe, and mold-free — ages 3+",
+          "Bath-safe, dishwasher-safe, and mold-free — ages 3 - 6 years",
         ]}
         addons={addons}
       />
@@ -184,7 +184,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "50 soft magnetic foam blocks that always connect, never repel. Comes with a storage trunk and idea book. Bath-safe and dishwasher-safe. Ages 3+.",
+      "50 soft magnetic foam blocks that always connect, never repel. Comes with a storage trunk and idea book. Bath-safe and dishwasher-safe. Ages 3 - 6 years.",
     alternates: {
       canonical: "/product/blockaroo-magnetic-foam-builders-trunk-set",
     },

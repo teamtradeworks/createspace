@@ -36,7 +36,7 @@ export default async function BlockarooRoadsterPage() {
         tagline="Soft magnetic foam blocks that click, rotate, and build anything — even in the bath."
         highlights={[
           "13 chunky foam blocks — build the roadster or invent something entirely your own",
-          "Ages 18 months+, sized for young hands with no fiddly pieces",
+          "Ages 3 - 6 years, sized for young hands with no fiddly pieces",
           "Magnets always attract, never push apart — frustration-free from block one",
           "Floats in the bath and sticks to the tub — a toy for everywhere",
         ]}
@@ -107,7 +107,7 @@ export default async function BlockarooRoadsterPage() {
           {
             question: "What age is this best for?",
             answer:
-              "Blockaroo recommends this set from 18 months and up. The large, soft foam pieces are easy for toddler hands to grip, and the magnet system is intuitive enough for very young children to discover independently. The open-ended nature means the set grows with the child — a toddler stacks and presses, a 3-year-old builds vehicles, a 5-year-old invents. Adult supervision is always a good idea for the youngest end of the range.",
+              "The Roadster set is designed for children aged 3 to 6. At 3 and 4, children love connecting the pieces and discovering what they can build — vehicles, towers, anything. From age 5, builds get more deliberate and imaginative. The open-ended nature means the same set keeps feeling fresh as they grow.",
           },
           {
             question: "Can we really use these in the bath?",
@@ -152,7 +152,7 @@ export default async function BlockarooRoadsterPage() {
       {/* navy */}
       <CallToAction
         title="Ready to Build?"
-        subtitle="13 pieces. Endless possibilities. For ages 18 months and up."
+        subtitle="13 pieces. Endless possibilities. For ages 3 - 6 years."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Toys"
@@ -173,7 +173,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "13 soft magnetic foam blocks for ages 18 months+. Waterproof, dishwasher-safe, and mould-free. Magnets always attract, never repel — frustration-free building.",
+      "13 soft magnetic foam blocks for ages 3 - 6 years. Waterproof, dishwasher-safe, and mould-free. Magnets always attract, never repel — frustration-free building.",
     alternates: {
       canonical: "/product/blockaroo-magnetic-foam-builders-roadster",
     },
