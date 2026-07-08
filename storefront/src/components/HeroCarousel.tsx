@@ -39,7 +39,7 @@ const slides: Slide[] = [
     tag: "New Arrivals",
     headline: "New Brands Have Just Landed",
     description:
-      "National Geographic, NASA, and Blockaroo are now at CREATESPACE — explore science kits, space sets, and magnetic building toys.",
+      "National Geographic, NASA, and Blockaroo are now at CREATESPACE: explore science kits, space sets, and magnetic building toys.",
     cta: { label: "Shop Now", href: "/shop?brand=Blockaroo%2CNASA%2CNational+Geographic" },
     brandLogos: [
       { src: "/images/brands/national-geographic.png", name: "National Geographic" },
@@ -54,7 +54,7 @@ const slides: Slide[] = [
     id: "main",
     type: "hero",
     headline: "Build. Play. Learn.",
-    description: "Curated STEM kits for curious kids — from first circuits to advanced coding.",
+    description: "Curated STEM kits for curious kids, from first circuits to advanced coding.",
     cta: { label: "Shop Now", href: "/shop" },
     ctaSecondary: { label: "For Educators", href: "/education" },
     heroImage: "/images/home/hero-stem-education.jpg",
@@ -67,7 +67,7 @@ const slides: Slide[] = [
     tag: "CREATESPACE for Schools",
     headline: "STEM Education Solutions for Every School",
     description:
-      "From trained tutors and classroom kits to teacher training and online courses — bring STEM to life at your school.",
+      "From trained tutors and classroom kits to teacher training and online courses: bring STEM to life at your school.",
     cta: { label: "Explore Education", href: "/education" },
     lifestyleImages: [
       "/images/home/stem-tutoring-workshop-1.png",
