@@ -269,7 +269,6 @@ export default async function SnapCircuitsMyHomePage() {
               "Fully standalone — no computer, phone, app, or internet connection required. Everything works straight from the box with just the included manual and AA batteries.",
           },
         ]}
-        background="white"
       />
 
       {/* What's in the Box */}
@@ -293,7 +292,6 @@ export default async function SnapCircuitsMyHomePage() {
           "Wires and conductors",
           "Circuit Safe® safety device (built into the system)",
         ]}
-        background="gray"
       />
 
       {/* Specifications */}
@@ -313,7 +311,6 @@ export default async function SnapCircuitsMyHomePage() {
           { label: "Safety Certification", value: "ASTM F963, CE" },
           { label: "Award", value: "2022 Toy of the Year Finalist" },
         ]}
-        background="white"
       />
 
       {/* Final CTA */}

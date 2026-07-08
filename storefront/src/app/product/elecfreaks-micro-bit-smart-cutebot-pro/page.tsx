@@ -262,7 +262,6 @@ export default async function CutebotProPage() {
               "Plenty. Your child can modify and combine the projects, add hardware expansions (a claw, forklift, AI camera, OLED display), work up to Python programming, or join robotics competitions. The Cutebot Pro has active MakeCode library support and a large community wiki — there's always a next challenge.",
           },
         ]}
-        background="white"
       />
 
       {/* What's in the Box */}
@@ -278,7 +277,6 @@ export default async function CutebotProPage() {
           "1x USB charging cable",
           "1x English user guide",
         ]}
-        background="gray"
       />
 
       {/* Specifications */}
@@ -304,7 +302,6 @@ export default async function CutebotProPage() {
             value: "Minimal — sensor and battery only, no tools needed",
           },
         ]}
-        background="white"
       />
 
       {/* Call to Action */}
