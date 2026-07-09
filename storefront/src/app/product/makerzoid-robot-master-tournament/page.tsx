@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -49,30 +48,6 @@ export default async function MakerzoidRobotMasterTournamentPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Makerzoid Tournament */}
-      <NumberedSteps
-        title="Why the Tournament Edition?"
-        subtitle="This isn't just a robotics kit — it's a training system designed to take your child from complete beginner to competition-ready."
-        steps={[
-          {
-            title: "Built for Competitions",
-            description:
-              "The Tournament edition is purpose-built for robotics tournament training. Your child learns the specific challenges — line following, obstacle avoidance, colour detection — that real competitions test.",
-          },
-          {
-            title: "A Progressive Learning Journey",
-            description:
-              "Start with basic mechanics and construction, build toward powered models with motors and electronics, and progress to full Scratch 3.0 autonomous programming. Video lessons and 16 guided PDF lessons help your child advance at their own pace.",
-          },
-          {
-            title: "Real Engineering Inside",
-            description:
-              "Closed-loop servo motors with encoder feedback are the same technology used in professional robotics. Your child isn't just playing — they're learning how real robots work.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Coding on Phone ImageTextBlock */}
       <ImageTextBlock

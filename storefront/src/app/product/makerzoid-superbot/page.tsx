@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   ImageTextBlock,
   FeatureGrid,
@@ -51,35 +50,11 @@ export default async function MakerzoidSuperbotPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Superbot Section */}
-      <NumberedSteps
-        title="Why Start with Superbot?"
-        subtitle="Designed for curious kids aged 6 and up, the Superbot builds coding and engineering confidence one model at a time — no screen-staring, no passive watching. Just building, programming, and playing."
-        steps={[
-          {
-            title: "Build Something Real",
-            description:
-              "Follow graphical step-by-step instructions in the free Makerzoid app to assemble one of 26+ motorised models — from muscle cars and trucks to a robot that draws pictures.",
-          },
-          {
-            title: "Make It Come Alive",
-            description:
-              "Connect via Bluetooth and take control. Drive it with a joystick, program it to follow a path, set it to dodge obstacles, or write a full drag-and-drop coding sequence.",
-          },
-          {
-            title: "Grow as They Go",
-            description:
-              "Start simple, get more adventurous. The Superbot grows with your child — and when they're ready for the next challenge, the Makerzoid Superbot Master Premium is waiting.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=uL_Tg9VPyS0"
         title="See the Makerzoid Superbot in Action"
-        background="gray"
+        background="white"
       />
 
       {/* 26 Models section */}
@@ -89,7 +64,7 @@ export default async function MakerzoidSuperbotPage() {
         title="26 Models, One Kit"
         body="Every single model comes apart and rebuilds into something new. Today it's a racing muscle car — tomorrow it's a drawing machine that scribbles patterns as it drives. With 26+ distinct model configurations in one box, your child won't run out of builds anytime soon. And with Lego-compatible bricks, they can mix in pieces from their existing collection to invent models that aren't even in the app."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Key Features Grid */}
@@ -135,7 +110,7 @@ export default async function MakerzoidSuperbotPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* App control section */}
@@ -145,7 +120,7 @@ export default async function MakerzoidSuperbotPage() {
         title="Four Ways to Take Control"
         body="Once your child's model is built, the Makerzoid app unlocks four distinct ways to play. Start with the joystick for instant drive-it-right-now fun. Then try path mode — draw a route on screen and watch the robot follow it. Progress to IR sensor mode where the robot reacts to the world around it. Finally, the full drag-and-drop coding mode lets your child write their own motion sequences. It's a natural coding progression that never feels like homework."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -198,7 +173,7 @@ export default async function MakerzoidSuperbotPage() {
           },
         ]}
         moreText="Plus 20+ more model builds in the app — trucks, elastic robots, sumo bots, and more."
-        background="gray"
+        background="white"
       />
 
       {/* Customer Photos */}
@@ -231,11 +206,11 @@ export default async function MakerzoidSuperbotPage() {
             alt: "Person flipping through the Makerzoid Superbot booklet build instructions",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
       <ProductFAQ
@@ -277,7 +252,7 @@ export default async function MakerzoidSuperbotPage() {
               "Yes! The Superbot uses Lego-compatible bricks, so your child can combine it with any existing Lego collection to build something completely unique.",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* What's in the Box */}
@@ -292,7 +267,7 @@ export default async function MakerzoidSuperbotPage() {
           "Storage box (all pieces fit back inside neatly)",
           "Free Makerzoid app — iOS & Android (download from App Store or Google Play)",
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Specifications */}
@@ -311,7 +286,7 @@ export default async function MakerzoidSuperbotPage() {
           { label: "Weight", value: "0.9 kg" },
           { label: "Recommended Age", value: "6–14 years" },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Final CTA */}

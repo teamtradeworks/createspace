@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -51,35 +50,11 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Makerzoid Section */}
-      <NumberedSteps
-        title="Why Robot Master?"
-        subtitle="Designed by robotics experts, this kit combines building and coding in one comprehensive learning experience."
-        steps={[
-          {
-            title: "Build Real Robots",
-            description:
-              "Over 600 blocks let your child build more than 200 different robots - from dinosaurs and helicopters to cars and walking machines. Each build teaches engineering fundamentals like gears, structures, and transmission.",
-          },
-          {
-            title: "Learn to Code with Scratch",
-            description:
-              "Scratch 3.0 makes programming accessible for children. Simply drag and drop code blocks to program robot movements, sensor responses, and LED controls. No typing required.",
-          },
-          {
-            title: "Progress at Their Own Pace",
-            description:
-              "47 video lessons span three skill levels: Structural, Dynamics, and Programmable. Your child builds confidence as they master each level before advancing to the next.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=dSGwumD4w5A"
         title="See It in Action"
-        background="gray"
+        background="white"
       />
 
       {/* What Is Makerzoid Section */}
@@ -89,7 +64,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         title="Meet the Robot Master Premium"
         body="The Makerzoid Robot Master Premium is a programmable robotics kit with over 600 building blocks that lets your child build and code more than 200 different robot designs. From simple mechanical structures to Bluetooth-controlled robots with sensors, the kit spans three skill levels — Structural, Dynamics, and Programmable — each with dedicated video lessons. Children program their robots using Scratch 3.0, a visual drag-and-drop language designed for young learners, and see their code come to life instantly as their robot responds. The blocks are fully compatible with LEGO and LEGO Technic, so your child can combine them with pieces they already own."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Features Grid */}
@@ -132,7 +107,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Building with Guide Section */}
@@ -204,7 +179,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       <CustomerShowcase
         title="See What Others Are Creating"
         subtitle="Real families, real robots — see what your child could create"
-        background="white"
+        background="gray"
         images={[
           {
             src: "/images/products/makerzoid-robot-master-premium/two-kids-playing-together-building-and-with-app-on-phone.png",
@@ -258,7 +233,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
       <ProductFAQ
@@ -295,7 +270,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
               "The Premium version includes 600+ blocks (vs 370 in Standard), supports 200+ robot models (vs 100+), has 47 video lessons (vs 23), and includes dual motors and sensors for more complex builds and programming.",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* What's Included */}
@@ -314,7 +289,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         ]}
         image="/images/products/makerzoid-robot-master-premium/whats-in-the-box.png"
         imageAlt="Makerzoid Robot Master Premium box contents laid out"
-        background="gray"
+        background="white"
       />
 
       {/* Specifications */}
@@ -333,7 +308,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           { label: "App Compatibility", value: "iOS 9+, Android 5+" },
           { label: "Web Platform", value: "lab.makerzoid.com" },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Final CTA */}

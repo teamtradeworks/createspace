@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -51,35 +50,11 @@ export default async function TaleBotProClassroomSetPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Choose for Your Classroom */}
-      <NumberedSteps
-        title="Why Tale-Bot Pro for Your Classroom?"
-        subtitle="The leading screen-free coding robot for Foundation Phase. Purpose-built for group learning, with everything educators need to teach coding confidently from day one."
-        steps={[
-          {
-            title: "Curriculum Aligned",
-            description:
-              "Activities develop computational thinking, sequencing, and algorithmic reasoning — foundational skills that feature prominently in South African curricula for Grades R–3, including the Technology and Natural Sciences learning areas.",
-          },
-          {
-            title: "Teacher-Ready",
-            description:
-              "No STEM background needed. The 42 Activity Cards provide a complete, structured curriculum — from basic command activities to open-ended cross-curricular challenges. Educators can pick it up and deliver a quality lesson with minimal preparation.",
-          },
-          {
-            title: "Built for Group Learning",
-            description:
-              "Six robots means your full class can engage simultaneously in small groups. Learners collaborate, take turns programming, and peer-teach — developing communication and teamwork alongside coding skills.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=2N-eTbOcWVI"
         title="See Tale-Bot Pro in Action"
-        background="gray"
+        background="white"
       />
 
       {/* How It Works in the Classroom */}
@@ -89,7 +64,7 @@ export default async function TaleBotProClassroomSetPage() {
         title="Screen-Free Coding That Works for Every Learner"
         body="Research consistently shows that screen-free, tangible coding robots are more effective than screen-based tools for developing computational thinking in Foundation Phase learners. Tale-Bot Pro uses physical command buttons directly on the robot — learners press, plan, and observe results in real time. No reading skills are required, making this accessible to Grades R, 1, 2, and 3 regardless of literacy level. Colour-coded LED indicators help learners debug their code independently, reducing the burden on the educator to troubleshoot every group."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}
@@ -135,7 +110,7 @@ export default async function TaleBotProClassroomSetPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Storytelling Integration */}
@@ -145,7 +120,7 @@ export default async function TaleBotProClassroomSetPage() {
         title="Cross-Curricular Learning in Every Lesson"
         body="Tale-Bot Pro connects coding to the rest of your curriculum. Learners navigate the frog life cycle map to reinforce Natural Sciences concepts. They code the robot through plant growth stages, connecting programming to Life and Living. The voice recording feature develops oral language skills in Home Language, while the drawing capability links to Arts and Crafts. One tool — multiple learning areas. Educators consistently report that learners engage more deeply with subject content when they're coding it rather than reading it."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -195,7 +170,7 @@ export default async function TaleBotProClassroomSetPage() {
           },
         ]}
         moreText="Plus blank maps for open-ended investigation, voice recording storytelling activities, and optional Scratch programming extension tasks for advanced learners"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase */}
@@ -236,11 +211,11 @@ export default async function TaleBotProClassroomSetPage() {
             alt: "All components of the Tale-Bot Pro Classroom Set displayed together",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
       <ProductFAQ

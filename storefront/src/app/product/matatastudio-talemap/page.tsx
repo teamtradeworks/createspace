@@ -6,7 +6,6 @@ import {
   HeroSection,
   ExtensionBanner,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   WhatsIncluded,
@@ -61,30 +60,6 @@ export default async function TaleMatPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why TaleMap */}
-      <NumberedSteps
-        title="Why TaleMap Changes Everything"
-        subtitle="TaleMap transforms the Tale-Bot Pro from a guided coding robot into an open-ended storytelling platform — no fixed activities, no limits."
-        steps={[
-          {
-            title: "Stories, Not Scripts",
-            description:
-              "Your child isn't following a preset path — they're designing the world. Insert clip cards, choose the story, and let their imagination drive the coding.",
-          },
-          {
-            title: "Every Subject, One Robot",
-            description:
-              "106 themed clip cards span mathematics, language, geography, science, and more. Wherever your child's curiosity leads, TaleMap has a scene to match.",
-          },
-          {
-            title: "Grows With Your Child",
-            description:
-              "Start simple with short navigation routes at age 3. Build complex multi-step sequences by age 8. One kit, years of open-ended challenges.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Collaboration */}
       <ImageTextBlock

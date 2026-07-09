@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   ImageTextBlock,
   FeatureGrid,
   ProjectShowcase,
@@ -49,30 +48,6 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Choose This For Your Classroom */}
-      <NumberedSteps
-        title="Why Choose This for Your Classroom?"
-        subtitle="The MatataStudio Coding Set Pro Classroom Set gives Foundation Phase educators everything needed to run structured, evidence-based coding lessons — from day one."
-        steps={[
-          {
-            title: "Curriculum Aligned",
-            description:
-              "Structured 12-lesson curriculum with 4 progressive units covers sequencing, loops, functions, and creative integration. Cross-curricular tie-ins to Mathematics (spatial reasoning, geometry), Life Skills (collaboration, problem-solving), and Arts & Culture (music and drawing) support key Foundation Phase learning outcomes for Grades R–3.",
-          },
-          {
-            title: "Teacher-Ready",
-            description:
-              "Three printed teacher manuals — Coding, Artist, and Musician — include lesson plans, learning objectives, and step-by-step guidance. No prior STEM experience needed. Lessons are structured with time references and adaptable goals, so you spend less time preparing and more time teaching.",
-          },
-          {
-            title: "Built for Groups",
-            description:
-              "Each kit supports a group of 4 learners working collaboratively. Six kits run simultaneously, reaching a full class of 24. Research confirms that collaborative learning in groups is the most effective approach for developing computational thinking in young learners — this set is designed around that evidence.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Teacher-led learning image */}
       <ImageTextBlock

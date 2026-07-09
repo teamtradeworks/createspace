@@ -6,7 +6,6 @@ import {
   HeroSection,
   FeatureGrid,
   QuickInfoBadges,
-  NumberedSteps,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -48,30 +47,6 @@ export default async function SnapCircuitsBeginnerPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Snap Circuits */}
-      <NumberedSteps
-        title="Why Start with Snap Circuits?"
-        subtitle="No experience needed — for you or your child. Just snap the pieces together and watch the magic happen."
-        steps={[
-          {
-            title: "Real Electronics, No Mess",
-            description:
-              "Your child builds actual working circuits — not simulations. Lights turn on, fans spin, horns sound. Every project delivers a genuine 'I made this!' moment.",
-          },
-          {
-            title: "Made for Young Builders",
-            description:
-              "Designed specifically for ages 5–9, with large snap connectors and a picture-only manual. Most children aged 6+ work through projects completely on their own.",
-          },
-          {
-            title: "Safety Built In",
-            description:
-              "Elenco's Circuit Safe® technology means circuits cannot be connected in a way that creates a hazard. Just 4.5V from AA batteries — completely child-safe.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Snap Together, Light Up — lifestyle image */}
       <ImageTextBlock

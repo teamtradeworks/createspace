@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -51,35 +50,11 @@ export default async function NousAISetPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Nous AI Section */}
-      <NumberedSteps
-        title="Why Nous AI?"
-        subtitle="Most coding robots teach programming. Nous AI teaches your child how artificial intelligence actually works — from training models to deploying them in real applications."
-        steps={[
-          {
-            title: "Learn Real AI",
-            description:
-              "Not just coding — your child will train machine learning models, build speech recognition systems, and program computer vision applications. They'll understand how AI works, not just how to use it.",
-          },
-          {
-            title: "Skills That Matter Now",
-            description:
-              "AI and robotics engineers are among the highest-paid careers today. Give your child hands-on experience with the technologies behind voice assistants, self-driving cars, and smart devices.",
-          },
-          {
-            title: "Works Offline",
-            description:
-              "Unlike cloud-dependent kits, Nous AI uses TinyML to run AI models directly on the robot — no internet required once models are trained. Your child learns real edge computing concepts.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=2JSvgJYo6L8&list=PLCtoqhowu_HKX-cdy_b6KWBZgDDmOw3eD&index=1"
         title="See Nous AI in Action"
-        background="gray"
+        background="white"
       />
 
       {/* What Makes It Special */}
@@ -89,7 +64,7 @@ export default async function NousAISetPage() {
         title="AI That Feels Like Magic"
         body="Your child can have actual conversations with Nous AI using MatataChat, powered by ChatGPT-4o. They can ask the robot to draw pictures, train it to recognise their face, or program it to respond to voice commands. It's not just following instructions — they're experiencing how AI systems learn, adapt, and interact with the real world. Every project builds understanding of concepts like machine learning, computer vision, and natural language processing."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Key Features Grid */}
@@ -135,7 +110,7 @@ export default async function NousAISetPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Skills Development Section */}
@@ -145,7 +120,7 @@ export default async function NousAISetPage() {
         title="More Than Technical Skills"
         body="When your child trains an AI model and watches it work — or doesn't work — they're building resilience. They're learning that debugging isn't failure; it's part of the process. They're developing patience as they collect data, confidence as they solve problems independently, and curiosity as they ask &quot;what if I try this?&quot; These are the skills that transfer far beyond robotics: persistence, logical thinking, and the confidence to tackle unfamiliar challenges."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -192,7 +167,7 @@ export default async function NousAISetPage() {
           },
         ]}
         moreText="Plus 12 more projects including line-following robot, AIGC drawing, smart temperature monitor, recyclable material sorter, autonomous driving, and more"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase */}
@@ -225,11 +200,11 @@ export default async function NousAISetPage() {
             alt: "Nous AI Set unboxed showing all components",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
       <ProductFAQ
@@ -271,7 +246,7 @@ export default async function NousAISetPage() {
               "The learning never stops! Your child can create custom AI projects, train new models for unique applications, and explore the continuously updated MatataCode platform with new tutorials and activities. The robot's expandable design allows for limitless creative projects.",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* What's in the Box */}
@@ -292,7 +267,7 @@ export default async function NousAISetPage() {
           "Free lifetime access to MatataCode online platform",
           "Comprehensive curriculum with tutorials and lessons",
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Specifications */}
@@ -317,7 +292,7 @@ export default async function NousAISetPage() {
             value: "ISTE certified curriculum, EdTech Digest Cool Tool Winner 2025",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Final CTA */}

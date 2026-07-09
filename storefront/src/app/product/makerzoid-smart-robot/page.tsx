@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -50,30 +49,6 @@ export default async function MakerzoidSmartRobotPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why This Kit */}
-      <NumberedSteps
-        title="Why the Smart Robot is Different"
-        subtitle="Most building kits just sit still. The Makerzoid Smart Robot is designed to move, react, and surprise — without needing any programming."
-        steps={[
-          {
-            title: "Robots That Actually React",
-            description:
-              "The Intelligent Motor has logic built directly into it. Your child builds the robot, switches it to Intelligent Mode, and watches it respond to light and movement — no screen, no coding, no setup.",
-          },
-          {
-            title: "72+ Builds to Explore",
-            description:
-              "From a drumming robot to a cycling athlete to a rice-hulling farmer, there are 72+ different models to discover. Each one teaches something new about gears, levers, and mechanical movement.",
-          },
-          {
-            title: "The Perfect First Step",
-            description:
-              "Designed as a logic training kit, the Smart Robot introduces cause-and-effect thinking before coding. It's the ideal preparation for more advanced STEM kits — and a rewarding standalone toy in its own right.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Building for Real */}
       <ImageTextBlock
         image="/images/products/makerzoid-smart-robot/boy-in-background-with-four-robot-builds-in-front-of-him.jpg"
@@ -81,7 +56,7 @@ export default async function MakerzoidSmartRobotPage() {
         title="A New Build Every Time"
         body="The 300+ building blocks are used and reused across every single model. Your child disassembles one robot, and those exact same pieces become the next one. With 72+ different designs waiting in the instruction guides, there's always another challenge to try — from a drumming musician to a rowing athlete to an agricultural machine. It's the kind of toy that stays interesting for months."
         layout="image-left"
-        background="gray"
+        background="white"
       />
 
       {/* Feature Grid */}
@@ -127,7 +102,7 @@ export default async function MakerzoidSmartRobotPage() {
           },
         ]}
         columns={3}
-        background="white"
+        background="gray"
       />
 
       {/* Categories */}
@@ -137,7 +112,7 @@ export default async function MakerzoidSmartRobotPage() {
         title="Three Worlds to Explore"
         body="The 72+ robots span three themed categories, each teaching different mechanical concepts. The Music collection — pianists, guitarists, bassists, drummers, violinists — teaches rhythmic motion and arm articulation. Sports robots like the boxer, cyclist, and high-bar gymnast explore balance and propulsion. And the Agriculture series (harvester, rice huller, sawing machine) introduces repetitive mechanical work. Each category connects to something real, sparking curiosity about how things in the world actually move."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
       {/* Project Showcase */}
@@ -184,7 +159,7 @@ export default async function MakerzoidSmartRobotPage() {
           },
         ]}
         moreText="Plus 66+ more robots including farmers, harvesters, cyclists, violinists, drummers, and many more across multiple themed series"
-        background="white"
+        background="gray"
       />
 
       {/* Customer Showcase */}
@@ -223,11 +198,11 @@ export default async function MakerzoidSmartRobotPage() {
             label: "The Box",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* FAQ Section */}
       <ProductFAQ

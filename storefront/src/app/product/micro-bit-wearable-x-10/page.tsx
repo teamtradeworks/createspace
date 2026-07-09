@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   CustomerShowcase,
@@ -47,30 +46,6 @@ export default async function MicroBitWearableX10Page() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why Add Wearables */}
-      <NumberedSteps
-        title="Why Add Wearables to Your Classroom?"
-        subtitle="The micro:bit is already a powerful learning tool. Strap it to the wrist and suddenly every lesson becomes active, visible, and personally relevant to your learners."
-        steps={[
-          {
-            title: "Code Meets the Real World",
-            description:
-              "When learners wear what they code, abstract concepts become tangible. A step counter on the wrist means the accelerometer is no longer theory — it's a lived experience.",
-          },
-          {
-            title: "Built for Group Use",
-            description:
-              "Ten units in one pack means your whole group works simultaneously, with identical setups and no waiting for shared equipment. Cost-effective at classroom scale.",
-          },
-          {
-            title: "Extends What You Already Have",
-            description:
-              "This accessory unlocks wearable projects without replacing your existing micro:bits. No new platform to learn — just more of what your learners can do with their boards.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Classroom Use ImageTextBlock */}
       <ImageTextBlock

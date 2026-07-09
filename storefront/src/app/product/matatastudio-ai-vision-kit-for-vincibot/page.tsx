@@ -6,7 +6,6 @@ import {
   HeroSection,
   ExtensionBanner,
   QuickInfoBadges,
-  NumberedSteps,
   ImageTextBlock,
   VideoEmbed,
   ProductFAQ,
@@ -60,35 +59,11 @@ export default async function AIVisionKitPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* What the AI Vision Kit Adds */}
-      <NumberedSteps
-        title="What the AI Vision Kit Adds"
-        subtitle="VinciBot already codes, draws, and dances. Now it can see."
-        steps={[
-          {
-            title: "7 Pre-Trained AI Functions, Ready Instantly",
-            description:
-              "From face recognition to handwriting detection, VinciBot can see and respond to the world using built-in AI models — no setup, no training required. Snap on the module and start coding AI projects straight away.",
-          },
-          {
-            title: "Train Your Own AI from Scratch",
-            description:
-              "Go further than pre-built models. Your child collects their own image data, trains a custom recognition model, and deploys it live on VinciBot — experiencing the complete machine learning pipeline that real AI engineers use, with just a few clicks.",
-          },
-          {
-            title: "A Programmable Eye and Screen",
-            description:
-              "A 180° flip camera and 1.5-inch full-colour LCD screen transform VinciBot from a robot that moves to one that sees, interprets, and displays what it's detecting — making AI visible, tangible, and genuinely exciting.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=Ou2r0Q6cvks"
         title="See the AI Vision Kit in Action"
-        background="gray"
+        background="white"
       />
 
       {/* The 7 AI Functions */}
@@ -98,7 +73,7 @@ export default async function AIVisionKitPage() {
         title="Seven Ways to See the World"
         body="The AI Vision Kit comes pre-loaded with seven computer vision capabilities your child can use immediately: face recognition and tracking, image classification, visual line following, colour recognition and tracking, colour block detection, AprilTag marker recognition, and handwriting recognition (0–9). Each function is a hands-on window into how real AI systems work — from the face unlock on your phone to the object detection in self-driving cars. Combine multiple functions in a single programme and something exciting happens: your child isn't just using AI anymore — they're thinking like an AI engineer."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Custom AI Training */}
@@ -108,7 +83,7 @@ export default async function AIVisionKitPage() {
         title="Build Your Own AI — Not Just Use One"
         body="Most AI kits give children pre-built models to experiment with. The AI Vision Kit goes further: your child can collect their own image data, train a model from scratch, and deploy it onto VinciBot with a single click. They decide what the robot learns to recognise — their face, a favourite toy, a hand signal, a drawn shape. Every attempt teaches them something real about how AI thinks, fails, and improves. It's the difference between pressing a button and understanding the button — and it's the kind of hands-on AI literacy that will matter for decades."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
       {/* FAQ Section */}
@@ -141,7 +116,7 @@ export default async function AIVisionKitPage() {
               "Yes — the AI Vision Kit is designed for the same age range of 8–12. Children who have spent some time with VinciBot will be well-positioned to explore the AI functions confidently, though the beginner activity cards make it accessible even for newer users.",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* What's Included */}
@@ -159,7 +134,7 @@ export default async function AIVisionKitPage() {
           "USB-C cable",
           "Access to 75+ online tutorials at coding.matatalab.com",
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Call to Action */}

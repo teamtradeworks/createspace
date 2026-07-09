@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   ImageTextBlock,
   FeatureGrid,
@@ -51,35 +50,11 @@ export default async function MatataStudioCodingSetProPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Screen-Free Coding */}
-      <NumberedSteps
-        title="Why Screen-Free Coding Works Better"
-        subtitle="Research shows children using tangible coding robots perform 27% better on computational thinking than those using screen-based tools. Here's why physical coding blocks make all the difference."
-        steps={[
-          {
-            title: "See It Move",
-            description:
-              "When your child places coding blocks and watches the robot instantly respond, abstract concepts become concrete. MatataBot executes commands in real time, making cause-and-effect vivid and memorable.",
-          },
-          {
-            title: "No Reading Needed",
-            description:
-              "Directional symbols on coding blocks eliminate the reading barrier. Children as young as 4 can start coding independently — no reading skills or screen literacy required.",
-          },
-          {
-            title: "Hands Build Brains",
-            description:
-              "Young children learn best through tactile play. Physical coding blocks engage fine motor skills and spatial reasoning while teaching computational thinking — screen-free and developmentally appropriate.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=zdRpcJHmKZw&t=1s"
         title="See MatataStudio Coding Set Pro in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Hands-On Learning */}
@@ -89,7 +64,7 @@ export default async function MatataStudioCodingSetProPage() {
         title="Learning Through Play, Not Screens"
         body="MatataStudio Coding Set Pro makes coding tangible. Your child arranges physical coding blocks on the Control Board, and the Command Tower's camera reads the sequence. MatataBot executes the program instantly — moving, turning, and responding to the code they've written. This immediate feedback loop makes abstract programming concepts concrete and memorable, while keeping screen time at zero."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Key Features */}
@@ -193,7 +168,7 @@ export default async function MatataStudioCodingSetProPage() {
           },
         ]}
         moreText="Plus story-based missions, art projects, and open-ended creative challenges. Activities span 5 age groups (4-5, 6-7, 8-9) with appropriate difficulty for each stage."
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase */}
@@ -233,11 +208,11 @@ export default async function MatataStudioCodingSetProPage() {
             alt: "Child engaged in hands-on coding with MatataStudio",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* What's in the Box */}
       <WhatsIncluded
@@ -254,7 +229,7 @@ export default async function MatataStudioCodingSetProPage() {
           "Obstacles and Flags",
           "1 × USB-C Charging Cable",
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* FAQs */}
@@ -312,7 +287,7 @@ export default async function MatataStudioCodingSetProPage() {
               "The Pro Set includes music blocks (for programming melodies) and angle blocks (for drawing geometric patterns) — exclusive features not available in the standard Coding Set. The Pro Set is designed for advanced learning and classroom use, while the standard set is ideal for homeschool beginners without prior coding experience.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Technical Specifications */}
@@ -350,7 +325,7 @@ export default async function MatataStudioCodingSetProPage() {
             value: "No (works completely offline)",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Call to Action */}

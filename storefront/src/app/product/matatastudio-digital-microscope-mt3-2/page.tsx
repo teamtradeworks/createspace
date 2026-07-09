@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -51,35 +50,11 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why the MT3-2 */}
-      <NumberedSteps
-        title="Why the MT3-2 is Different"
-        subtitle="Most microscopes are toys in disguise. The MT3-2 bridges the gap between a child's curiosity and real scientific exploration."
-        steps={[
-          {
-            title: "See It Together",
-            description:
-              "The 7-inch rotatable screen replaces the tiny eyepiece — so your child, you, and the whole family can watch the same magnified view in real time. Discovery becomes a shared experience.",
-          },
-          {
-            title: "Built Like a Real Lab",
-            description:
-              "A professional 3D metal stage with precision coaxial knobs mirrors genuine laboratory microscopes. Your child isn't just playing at science — they're practising it.",
-          },
-          {
-            title: "Unlimited Specimens",
-            description:
-              "Start with the 10 included slides, then explore anything: salt crystals, fabric fibres, pond water, insects, plant cells, cheek cells. The whole world becomes a specimen collection.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=0VpxSVow7pE"
         title="See the MatataStudio Digital Microscope MT3-2 in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Family Discovery Section */}
@@ -89,7 +64,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
         title="A Discovery They'll Want to Share"
         body="The 7-inch screen changes everything about how microscopy feels. Instead of one child squinting through a tiny eyepiece, observations play out on a display everyone can see. Stream live to a phone or tablet over WiFi, or plug into your TV via HDMI for a whole-room viewing experience. Discoveries become conversations — and 'What's that?' becomes the most exciting question in the house."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}
@@ -135,7 +110,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Life Skills Section */}
@@ -145,7 +120,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
         title="More Than a Science Toy"
         body="Getting a clear image under a microscope takes patience, precision, and a willingness to try different approaches — all without anyone telling you the answer. Your child learns to observe carefully, form hypotheses, test them, and adjust. Research shows that students who learn this way retain 50% more information than those taught through textbooks alone. The microscope doesn't just teach biology — it teaches how to think like a scientist."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Exploration Activities */}
@@ -204,7 +179,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           },
         ]}
         moreText="Plus feather structures, hair cross-sections, insect anatomy, chemical reactions, and anything else your child is curious about"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase */}
@@ -261,11 +236,11 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
             description: "A complete scientific exploration kit in one well-packaged box",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ Section */}
       <ProductFAQ
@@ -302,7 +277,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
               "Unlikely. Unlike project kits with a fixed number of activities, a microscope is an open-ended instrument — there's always a new specimen to investigate. As your child's scientific knowledge grows, so does the depth of their observations. It also compatible with standard prepared slide sets, which can extend the experience further.",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* What's in the Box */}
@@ -323,7 +298,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           "Protective storage case",
           "User manual",
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Specifications */}
@@ -345,7 +320,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           { label: "Weight", value: "1.5 kg" },
           { label: "Languages supported", value: "10 (EN, FR, ES, DE, IT, CN, JP, RU, TH, KR)" },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Final CTA */}

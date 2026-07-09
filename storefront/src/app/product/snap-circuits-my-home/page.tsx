@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -51,35 +50,11 @@ export default async function SnapCircuitsMyHomePage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Choose This */}
-      <NumberedSteps
-        title="Why Snap Circuits My Home?"
-        subtitle="Most children live surrounded by electrical systems they don't understand. This kit changes that."
-        steps={[
-          {
-            title: "Make It Personal",
-            description:
-              "Every project is based on your child's actual home — the doorbell, the fan, the alarm. When electricity makes personal sense, it sticks.",
-          },
-          {
-            title: "Safe by Design",
-            description:
-              "Elenco's patented Circuit Safe® technology means no live electricity — ever. All power comes from AA batteries, and incorrect connections cannot cause harm.",
-          },
-          {
-            title: "Depth, Not Just Fun",
-            description:
-              "Projects start simply and build in complexity. By the final builds, children are combining circuits to create multi-system homes — the same way real homes are actually wired.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=6LwVQaEjQUM"
         title="See Snap Circuits My Home in Action"
-        background="gray"
+        background="white"
       />
 
       {/* Your Home in Their Hands */}
@@ -89,7 +64,7 @@ export default async function SnapCircuitsMyHomePage() {
         title="Your Home, Your Power — Know How It Works"
         body="Through 30+ guided projects, your child builds each household system from scratch — learning exactly how electricity gets from a battery to the light bulb, the fan motor, or the doorbell chime. The result isn't just electronics knowledge. It's genuine mastery of the built environment they call home. Most children finish a project and immediately go find the equivalent in their house to show you what they've learned."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}
@@ -135,7 +110,7 @@ export default async function SnapCircuitsMyHomePage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Skills That Transfer */}
@@ -145,7 +120,7 @@ export default async function SnapCircuitsMyHomePage() {
         title="Skills That Transfer Far Beyond the Toy Box"
         body="Every time a circuit doesn't work, your child faces a choice: give up or figure it out. Most choose to figure it out. That debugging mindset — asking what could be wrong and systematically trying different answers — is one of the most valuable habits a child can develop. It's the foundation of engineering, smart home technology, and renewable energy careers. Parents regularly report children becoming noticeably more patient and persistent in other areas of life after spending time with Snap Circuits."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -198,7 +173,7 @@ export default async function SnapCircuitsMyHomePage() {
           },
         ]}
         moreText="Plus doorbells with custom melodies, automatic night lights, generators, smoke alarms, power distribution systems, combined multi-circuit builds, and more"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase — all end-user photos */}
@@ -247,15 +222,16 @@ export default async function SnapCircuitsMyHomePage() {
             label: "Stacked Up",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
       <ProductFAQ
         title="Common Questions"
+        background="gray"
         faqs={[
           {
             question: "Does my child need any prior experience with electronics?",
@@ -293,7 +269,6 @@ export default async function SnapCircuitsMyHomePage() {
               "Fully standalone — no computer, phone, app, or internet connection required. Everything works straight from the box with just the included manual and AA batteries.",
           },
         ]}
-        background="white"
       />
 
       {/* What's in the Box */}
@@ -301,6 +276,7 @@ export default async function SnapCircuitsMyHomePage() {
         title="What's in the Box"
         image="/images/products/snap-circuits-my-home/whats-in-the-box.jpg"
         imageAlt="Snap Circuits My Home box contents showing all components and coloured base grids"
+        background="white"
         items={[
           "60+ colour-coded snap-together electronic parts",
           "7 coloured base grid tiles (for building the house or tower)",
@@ -316,12 +292,12 @@ export default async function SnapCircuitsMyHomePage() {
           "Wires and conductors",
           "Circuit Safe® safety device (built into the system)",
         ]}
-        background="gray"
       />
 
       {/* Specifications */}
       <Specifications
         title="Technical Details"
+        background="gray"
         specs={[
           { label: "Brand", value: "Elenco Electronics" },
           { label: "Model Number", value: "SCMYH7" },
@@ -335,7 +311,6 @@ export default async function SnapCircuitsMyHomePage() {
           { label: "Safety Certification", value: "ASTM F963, CE" },
           { label: "Award", value: "2022 Toy of the Year Finalist" },
         ]}
-        background="white"
       />
 
       {/* Final CTA */}

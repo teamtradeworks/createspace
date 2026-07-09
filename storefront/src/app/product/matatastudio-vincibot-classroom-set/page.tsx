@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -51,35 +50,11 @@ export default async function VinciBotClassroomSetPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why Choose VinciBot Section */}
-      <NumberedSteps
-        title="Why Choose VinciBot for Your Classroom?"
-        subtitle="VinciBot is built for real classroom conditions — mixed abilities, limited prep time, and the need to demonstrate curriculum value."
-        steps={[
-          {
-            title: "Curriculum-Ready from Day One",
-            description:
-              "VinciBot's 75-activity curriculum covers sequencing, loops, conditionals, functions, and variables — core computational thinking concepts for Grades 3–7. Activities are structured and progressive, ready to integrate into your existing teaching programme.",
-          },
-          {
-            title: "Designed for Group Learning",
-            description:
-              "Each robot supports 2–4 learners working collaboratively. Six robots in the classroom set means your full class engages simultaneously — no rotation, no waiting, no disruption.",
-          },
-          {
-            title: "Works for Any Educator",
-            description:
-              "No STEM background required. The included teacher guide, challenge booklet, and free online professional development course give you everything needed to deliver confident, effective lessons from your first session.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=DRPoDKsBkyM"
         title="See the VinciBot Classroom Set in Action"
-        background="gray"
+        background="white"
       />
 
       {/* A Full Class, Learning Together */}
@@ -89,7 +64,7 @@ export default async function VinciBotClassroomSetPage() {
         title="A Full Class, Learning Together"
         body="Six robots. Up to 24 learners. No rotation, no waiting. Groups of 2–4 learners share a robot — deciding together who codes, who observes, and who records results. Collaboration is built into every activity, not bolted on. Stronger coders naturally support peers, and educators report spontaneous peer teaching emerging within the first few sessions."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}
@@ -135,7 +110,7 @@ export default async function VinciBotClassroomSetPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Scratch to Python on One Robot */}
@@ -145,7 +120,7 @@ export default async function VinciBotClassroomSetPage() {
         title="From Scratch to Python — No Equipment Change"
         body="VinciBot bridges visual and text-based coding on a single robot. Learners begin with Scratch's block-based interface and progress to Python — with no new hardware, no new setup, and no interruption to the lesson. This progression happens on the same device your class already uses, making it practical for schools managing multiple grade levels with one set of equipment."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Activity Showcase */}
@@ -204,7 +179,7 @@ export default async function VinciBotClassroomSetPage() {
           },
         ]}
         moreText="Plus 69 more activities covering functions, variables, line following, TinyML, IoT, and creative drawing — and 3 extended PBL engineering projects"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase */}
@@ -253,7 +228,7 @@ export default async function VinciBotClassroomSetPage() {
             label: "Educator Community",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* FAQ Section */}

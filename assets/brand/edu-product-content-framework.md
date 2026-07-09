@@ -79,7 +79,7 @@ Every education product page must answer three educator questions. If an educato
 | Element                  | Purpose                          | Where it appears                               |
 | ------------------------ | -------------------------------- | ---------------------------------------------- |
 | **Grade/age range**      | Immediate filtering              | QuickInfoBadges (auto from Shopify metafields) |
-| **Curriculum alignment** | CAPS fit, learning area coverage | Hero highlights, NumberedSteps, body copy       |
+| **Curriculum alignment** | CAPS fit, learning area coverage | Hero highlights, FeatureGrid, body copy          |
 | **Learning outcomes**    | Justify educational value        | FeatureGrid, ImageTextBlock, SkillTags          |
 
 **Note on curriculum:** South African schools follow the CAPS curriculum. Where applicable, reference specific learning areas (Technology, Natural Sciences, Mathematics) and grades. Be specific: "Aligned with CAPS Technology curriculum for Grades 7-9" not just "curriculum-aligned."
@@ -91,7 +91,7 @@ Every education product page must answer three educator questions. If an educato
 | **Learner capacity**    | How many learners per kit      | Hero highlights, body copy                          |
 | **Kit contents**        | Set expectations               | WhatsIncluded component                             |
 | **Teacher resources**   | Reduce preparation burden      | Hero highlights, FeatureGrid, body copy             |
-| **Durability**          | Justify long-term investment   | FAQ, NumberedSteps, or FeatureGrid                  |
+| **Durability**          | Justify long-term investment   | FAQ or FeatureGrid                                  |
 | **Additional needs**    | Remove purchase barriers       | FAQ or hero highlights (batteries, tools, software) |
 
 **Note on value:** Educators think in terms of cost-per-learner and reusability. Frame value as "Serves groups of 4-6 learners, reusable across multiple terms" rather than listing component counts alone.
@@ -206,14 +206,6 @@ This maps content types to page sections. For component props and usage, see the
 - **Tagline:** One sentence, benefit-led, answers "what does this bring to my classroom?"
 - **Highlights:** 3-4 strings, each addressing a different educator concern (learner capacity, curriculum alignment, teacher guide included, reusability)
 
-### NumberedSteps content
-
-Best for "Why choose this for your classroom?" positioning. 3 steps is ideal.
-- Each step should be a *benefit to the school/educator*, not a product feature
-- Title: 2-4 words, punchy. Description: 1-2 sentences expanding the point
-- Good: "Curriculum Aligned" / "Teacher-Friendly" / "Built for Groups"
-- Bad: "Step 1: Unbox Kit" / "Step 2: Follow Guide" / "Step 3: Complete Activity"
-
 ### FeatureGrid content
 
 Best for feature breakdowns with icons. 3-6 features.
@@ -250,7 +242,6 @@ Show off the activities and projects included. Educators want to see the breadth
 The total activity count should also be highlighted in:
 - **Hero highlights** (e.g. "15 CAPS-aligned activities with lesson plans")
 - **FeatureGrid** (e.g. a feature card about the number of activities)
-- **NumberedSteps** (if activity variety is a key differentiator)
 
 ### WhatsIncluded content
 

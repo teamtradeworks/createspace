@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   ImageTextBlock,
   FeatureGrid,
   ProjectShowcase,
@@ -48,30 +47,6 @@ export default async function UpgradedUnoR3StarterKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why This Kit */}
-      <NumberedSteps
-        title="Why the Upgraded UNO R3?"
-        subtitle="Not all starter kits are created equal. This one goes further — with more sensors, more modules, and more of the components that turn basic circuits into real-world projects."
-        steps={[
-          {
-            title: "Real Electronics, Real Code",
-            description:
-              "Your child won't just follow recipes — they'll understand how components work and write code that controls them. From LEDs to RFID modules, every lesson explains the why behind the what.",
-          },
-          {
-            title: "27 Lessons That Build On Each Other",
-            description:
-              "Projects progress from blinking a single LED to building motion-activated alarms and contactless RFID systems. Each lesson adds new concepts so skills compound over time.",
-          },
-          {
-            title: "Two Ways to Code",
-            description:
-              "Beginners can start with Scratch-style block coding (via ACECode) before transitioning to text-based Arduino C/C++ — so your child grows into the kit rather than outgrowing it.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* UNO Board + RFID ImageTextBlock */}
       <ImageTextBlock
@@ -228,11 +203,11 @@ export default async function UpgradedUnoR3StarterKitPage() {
               "The sky's the limit. All components are reusable and fully Arduino-compatible, so your child can combine what they've learned to build their own inventions — weather stations, smart alarms, automated systems, and more. The Arduino community has thousands of free project tutorials to explore next.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="white" />
+      <ProductReviews productId={product.id} background="gray" />
 
       {/* What's in the Box */}
       <WhatsIncluded
@@ -274,7 +249,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
           "Prototype expansion board",
           "Sturdy dual-level compartmentalised storage case",
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* Specifications */}
@@ -303,7 +278,7 @@ export default async function UpgradedUnoR3StarterKitPage() {
           { label: "Weight", value: "0.6 kg" },
           { label: "Warranty", value: "6 months" },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Final CTA */}

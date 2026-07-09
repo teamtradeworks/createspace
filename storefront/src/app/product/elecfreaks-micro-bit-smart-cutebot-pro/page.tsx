@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -51,35 +50,11 @@ export default async function CutebotProPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
-      {/* Why the Cutebot Pro */}
-      <NumberedSteps
-        title="Why the Cutebot Pro?"
-        subtitle="Most robot cars for kids stop at basics. The Cutebot Pro is built to go further."
-        steps={[
-          {
-            title: "Code That Does Something Real",
-            description:
-              "Your child writes code that physically moves, senses, and responds in the real world — not just on a screen. There's nothing quite like watching a robot you programmed dodge an obstacle.",
-          },
-          {
-            title: "Precision Most Kits Can't Match",
-            description:
-              "Encoder motors measure exactly how far and how many degrees the robot has turned. Your child can programme it to drive a perfect square, navigate a grid, or follow a line using the same algorithm that guides real autonomous vehicles.",
-          },
-          {
-            title: "A Platform That Keeps Challenging",
-            description:
-              "Start with block coding in MakeCode and progress to Python text code. Add a claw, build a forklift, or connect an AI camera module. The Cutebot Pro is a platform that grows with your child for years.",
-          },
-        ]}
-        background="navy-card"
-      />
-
       {/* Video Section */}
       <VideoEmbed
         url="https://www.youtube.com/watch?v=imFVpJpXn3k"
         title="See the Cutebot Pro in Action"
-        background="gray"
+        background="white"
       />
 
       {/* From Beginner to Autonomous - lifestyle image */}
@@ -89,7 +64,7 @@ export default async function CutebotProPage() {
         title="Step-by-Step from First Drive to Obstacle Avoidance"
         body="The 19 official tutorial cases are designed to build on each other. Your child starts by programming the robot to drive forward, then gradually takes on more complex challenges — controlling exact distances, responding to sound, following lines, and finally implementing a real PID control algorithm. Every step has sample code and clear explanations on the free ELECFREAKS wiki, so they can learn independently without needing you to be a coding expert."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
       {/* Feature Grid */}
@@ -135,7 +110,7 @@ export default async function CutebotProPage() {
           },
         ]}
         columns={3}
-        background="gray"
+        background="white"
       />
 
       {/* Built to Grow - cutebot-pro-black-background */}
@@ -145,7 +120,7 @@ export default async function CutebotProPage() {
         title="A Platform, Not Just a Product"
         body="Four servo ports, four GPIO outputs, an I2C connector, and mounting holes for building blocks make the Cutebot Pro a proper platform. Your child can attach a mechanical claw to pick up objects, build a forklift with Lego-compatible blocks, connect an AI camera to recognise road signs, or create a ball-launching vehicle. These aren't hypothetical — ELECFREAKS provides complete tutorials for every one of these builds. When your child runs out of challenges, there's always a next level."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
       {/* Project Showcase */}
@@ -204,7 +179,7 @@ export default async function CutebotProPage() {
           },
         ]}
         moreText="Plus 13 more projects including Automatic Headlights, Follow the Car at a Fixed Distance, Walk the Grid, and extended builds like a Mechanical Claw, Forklift, and AI Road Signs Cart"
-        background="gray"
+        background="white"
       />
 
       {/* Customer Showcase — ALL end-user images */}
@@ -245,15 +220,16 @@ export default async function CutebotProPage() {
             alt: "Underneath view of the Cutebot Pro showing the four line-following sensors and wider tires",
           },
         ]}
-        background="white"
+        background="gray"
       />
 
       {/* Reviews */}
-      <ProductReviews productId={product.id} background="gray" />
+      <ProductReviews productId={product.id} background="white" />
 
       {/* FAQ */}
       <ProductFAQ
         title="Common Questions"
+        background="gray"
         faqs={[
           {
             question: "Does my child need a BBC micro:bit to use this?",
@@ -286,7 +262,6 @@ export default async function CutebotProPage() {
               "Plenty. Your child can modify and combine the projects, add hardware expansions (a claw, forklift, AI camera, OLED display), work up to Python programming, or join robotics competitions. The Cutebot Pro has active MakeCode library support and a large community wiki — there's always a next challenge.",
           },
         ]}
-        background="white"
       />
 
       {/* What's in the Box */}
@@ -294,6 +269,7 @@ export default async function CutebotProPage() {
         title="What's in the Box"
         image="/images/products/elecfreaks-micro-bit-smart-cutebot-pro/whats-in-the-box.jpg"
         imageAlt="ELECFREAKS Smart Cutebot Pro unboxed showing the robot, ultrasonic sensor, track card, and guide"
+        background="white"
         items={[
           "1x Smart Cutebot Pro robot car (fully assembled)",
           "1x Ultrasonic distance sensor (HC-SR04+)",
@@ -301,12 +277,12 @@ export default async function CutebotProPage() {
           "1x USB charging cable",
           "1x English user guide",
         ]}
-        background="gray"
       />
 
       {/* Specifications */}
       <Specifications
         title="Technical Details"
+        background="gray"
         specs={[
           { label: "Dimensions", value: "132 × 114 × 50 mm" },
           { label: "Weight", value: "138 g" },
@@ -326,7 +302,6 @@ export default async function CutebotProPage() {
             value: "Minimal — sensor and battery only, no tools needed",
           },
         ]}
-        background="white"
       />
 
       {/* Call to Action */}

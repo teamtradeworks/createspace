@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
-  NumberedSteps,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -48,30 +47,6 @@ export default async function UltimateMega2560StarterKitPage() {
 
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
-
-      {/* Why the Mega 2560 */}
-      <NumberedSteps
-        title="Why the Mega 2560?"
-        subtitle="Not all electronics kits are created equal. The Mega 2560 board gives your child the power to build projects that smaller boards simply can't run."
-        steps={[
-          {
-            title: "More Power, More Projects",
-            description:
-              "The Mega 2560 packs 54 programmable pins and 256KB of memory — far more than a standard Arduino Uno. That extra headroom means your child can tackle more complex, creative projects without hitting a ceiling.",
-          },
-          {
-            title: "Real-World Technology",
-            description:
-              "With 18 modules including a gyroscope, RFID reader, real-time clock, and motion sensor, your child learns to work with the same technology found inside smartphones, security systems, and smart home devices.",
-          },
-          {
-            title: "Skills That Last a Lifetime",
-            description:
-              "Arduino is the world's most popular electronics learning platform. The programming and circuit skills learned here translate directly to university-level coursework and careers in engineering, robotics, and IoT development.",
-          },
-        ]}
-        background="navy-card"
-      />
 
       {/* Components Overview */}
       <ImageTextBlock
