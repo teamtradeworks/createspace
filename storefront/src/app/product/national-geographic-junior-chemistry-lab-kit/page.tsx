@@ -35,8 +35,8 @@ export default async function NatGeoJuniorChemistryPage() {
         product={product}
         tagline="Goggles on, beaker ready — hands-on chemistry experiments your child can run right now"
         highlights={[
-          "Make underwater fireworks, trigger volcanic reactions, change the colour of celery",
-          "20+ real lab tools: beakers, flasks, test tubes, measuring spoons, droppers, and more",
+          "25 awesome experiments: make underwater fireworks, trigger volcanic reactions, change the colour of celery",
+          "20+ piece set: beakers, flasks, test tubes, measuring spoons, droppers, and more",
           "Safety goggles included — every experiment, scientist-style",
           "Ages 4 and up · National Parenting Product Awards winner 2025",
         ]}
