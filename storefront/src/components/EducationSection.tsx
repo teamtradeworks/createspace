@@ -6,7 +6,7 @@ const educationOptions = [
     id: "stem-tutors",
     title: "STEM Tutors",
     description:
-      "Expert facilitators from our partner Robotixkids bring robotics and coding programmes directly to your school. After-school clubs, workshops, and holiday camps available.",
+      "Our partner Robotixkids sends trained facilitators to your school to run robotics and coding programmes. They offer after-school clubs, workshops, and holiday camps.",
     image: "/images/education/stem-tutors/facilitator-helping-child-kit.jpg",
     link: "/education/stem-tutors",
     linkText: "Explore STEM Tutors",
@@ -15,7 +15,7 @@ const educationOptions = [
     id: "curriculum",
     title: "Curriculum for Schools",
     description:
-      "Give your teachers ready-to-use, CAPS-aligned lesson plans through our partner Inspire Africa's training platform. Ongoing support included.",
+      "Inspire Africa's platform gives your teachers CAPS-aligned lesson plans and the training to deliver them. Ongoing support is included.",
     image: "/images/education/teacher-curriculum-classroom.jpg",
     link: "/education/curriculum",
     linkText: "Explore Teacher Training",
@@ -24,7 +24,7 @@ const educationOptions = [
     id: "classroom-kits",
     title: "Classroom Kits",
     description:
-      "Equip your classroom with multi-learner STEM kits designed for group work. Teacher guides included with bulk pricing for schools.",
+      "Group-based STEM kits with enough materials for a full class. Teacher guides are included, and we offer bulk pricing for schools.",
     image: "/images/education/classroom-kits/microbit-kids-collaborating.jpg",
     link: "/education/classroom-kits",
     linkText: "Shop Kits",
@@ -33,7 +33,7 @@ const educationOptions = [
     id: "courses",
     title: "Short Courses",
     description:
-      "Online STEM short courses hosted on Inspire Africa's learning platform. Purchase a course and receive a coupon code to redeem for instant access.",
+      "These online STEM courses run on Inspire Africa's learning platform. Buy a course and we send you a coupon code for immediate access.",
     image: "/images/education/stem-tutors/child-coding-on-tablet.jpg",
     link: "/education/courses",
     linkText: "View Courses",
@@ -53,8 +53,8 @@ export default function EducationSection() {
             STEM Programmes for Schools
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Whether you need equipment, expertise, or training, we&apos;re here to support STEM
-            education in your school.
+            We support STEM in schools across South Africa. There is a programme for every need
+            and budget.
           </p>
         </div>
 
