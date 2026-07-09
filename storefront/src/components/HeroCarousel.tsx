@@ -230,6 +230,13 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
       {(slide.type === "brands-coming-soon" || slide.type === "brands-launched") && slide.brandLogos && (
         <>
         {slide.type === "brands-launched" && (
+          <>
+          <Link
+            href={slide.cta.href}
+            className="absolute inset-0 z-[11] cursor-pointer"
+            aria-label={`${slide.headline} — ${slide.cta.label}`}
+            tabIndex={-1}
+          />
           <div className="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
             {/* Left side */}
             <img src="/images/illustrations/planet-1.svg" className="absolute w-20 h-20 opacity-10 top-[5%] left-[2%] -rotate-12" alt="" />
@@ -243,6 +250,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
             <img src="/images/illustrations/planet-1.svg" className="absolute w-12 h-12 opacity-10 top-[50%] right-[2%] -rotate-6" alt="" />
             <img src="/images/illustrations/chip-1.svg" className="absolute w-14 h-14 opacity-10 bottom-[10%] right-[12%] rotate-6" alt="" />
           </div>
+          </>
         )}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
           <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] py-12 lg:py-0">
@@ -289,7 +297,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               {slide.type === "brands-launched" ? (
                 <Link
                   href={slide.cta.href}
-                  className="inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+                  className="relative z-[12] inline-flex items-center px-8 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
                 >
                   {slide.cta.label}
                   <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
