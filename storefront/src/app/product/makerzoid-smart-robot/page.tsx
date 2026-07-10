@@ -39,9 +39,9 @@ export default async function MakerzoidSmartRobotPage() {
         tagline="72+ moving robots your child builds without writing a single line of code"
         highlights={[
           "72+ robots to build across music, sports, agriculture, and more",
-          "Robots move and react on their own — no coding or app required",
+          "Robots move and react on their own with no coding or app required",
           "Two control modes: button control and sensor-driven reactions",
-          "2D and 3D building instructions — most builds done in under an hour",
+          "2D and 3D building instructions, with most builds done in under an hour",
         ]}
         addons={addons}
       />
@@ -54,7 +54,7 @@ export default async function MakerzoidSmartRobotPage() {
         image="/images/products/makerzoid-smart-robot/boy-in-background-with-four-robot-builds-in-front-of-him.jpg"
         imageAlt="Boy surrounded by four completed robot builds he assembled himself"
         title="A New Build Every Time"
-        body="The 300+ building blocks are used and reused across every single model. Your child disassembles one robot, and those exact same pieces become the next one. With 72+ different designs waiting in the instruction guides, there's always another challenge to try — from a drumming musician to a rowing athlete to an agricultural machine. It's the kind of toy that stays interesting for months."
+        body="The 300+ building blocks are used and reused across every single model. Your child disassembles one robot, and those exact same pieces become the next one. With 72+ different designs waiting in the instruction guides, there's always another challenge to try, from a drumming musician to a rowing athlete to an agricultural machine. It's the kind of toy that stays interesting for months."
         layout="image-left"
         background="white"
       />
@@ -68,7 +68,7 @@ export default async function MakerzoidSmartRobotPage() {
             icon: "robot",
             title: "Intelligent Motor",
             description:
-              "Logic adjustments built into the motor allow robots to react to their environment — no external controller or programming required",
+              "Logic adjustments built into the motor allow robots to react to their environment with no external controller or programming required",
           },
           {
             icon: "sensor",
@@ -92,13 +92,13 @@ export default async function MakerzoidSmartRobotPage() {
             icon: "lightbulb",
             title: "Two Control Modes",
             description:
-              "Electric Mode for hands-on button control; Intelligent Mode for sensor-driven autonomy — two different play experiences from every build",
+              "Electric Mode for hands-on button control; Intelligent Mode for sensor-driven autonomy. Two different play experiences from every build.",
           },
           {
             icon: "shield",
             title: "Safe by Design",
             description:
-              "Smooth rounded edges on every brick, low-voltage battery operation, and all electronics safely enclosed — designed for ages 6 and up",
+              "Smooth rounded edges on every brick, low-voltage battery operation, and all electronics safely enclosed. Designed for ages 6 and up.",
           },
         ]}
         columns={3}
@@ -110,7 +110,7 @@ export default async function MakerzoidSmartRobotPage() {
         image="/images/products/makerzoid-smart-robot/band-of-robots.jpg"
         imageAlt="A band of music robots — pianist, guitarist, bassist, drummer, and violinist"
         title="Three Worlds to Explore"
-        body="The 72+ robots span three themed categories, each teaching different mechanical concepts. The Music collection — pianists, guitarists, bassists, drummers, violinists — teaches rhythmic motion and arm articulation. Sports robots like the boxer, cyclist, and high-bar gymnast explore balance and propulsion. And the Agriculture series (harvester, rice huller, sawing machine) introduces repetitive mechanical work. Each category connects to something real, sparking curiosity about how things in the world actually move."
+        body="The 72+ robots span three themed categories, each teaching different mechanical concepts. The Music collection (pianists, guitarists, bassists, drummers, violinists) teaches rhythmic motion and arm articulation. Sports robots like the boxer, cyclist, and high-bar gymnast explore balance and propulsion. And the Agriculture series (harvester, rice huller, sawing machine) introduces repetitive mechanical work. Each category connects to something real, which tends to spark curiosity about how things in the world actually move."
         layout="image-right"
         background="white"
       />
@@ -118,7 +118,7 @@ export default async function MakerzoidSmartRobotPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="72+ Robots to Build"
-        highlight="Three themed collections — music, sports, and agriculture — plus more models beyond"
+        highlight="Three themed collections: music, sports, and agriculture, plus more models beyond"
         subtitle="Each robot is a new engineering puzzle. Here's a taste of what your child will build:"
         projects={[
           {
@@ -212,7 +212,7 @@ export default async function MakerzoidSmartRobotPage() {
           {
             question: "Does my child need any experience with robotics or coding?",
             answer:
-              "Not at all. The Smart Robot is designed for complete beginners aged 6 and up. No coding, no app, no prior knowledge needed — just follow the 3D instructions and start building. It's one of the most accessible robotics kits available.",
+              "None. The Smart Robot is designed for complete beginners aged 6 and up. No coding, no app, no prior knowledge needed: just follow the 3D instructions and start building. It's one of the most accessible robotics kits available.",
           },
           {
             question: "What age is this suitable for?",
@@ -222,7 +222,7 @@ export default async function MakerzoidSmartRobotPage() {
           {
             question: "Do I need a phone or computer?",
             answer:
-              "No. The Smart Robot is entirely screen-free. Robots move and react through the Intelligent Motor's built-in logic — no app download, no Bluetooth setup, no computer required. Everything you need is in the box.",
+              "No. The Smart Robot is entirely screen-free. Robots move and react through the Intelligent Motor's built-in logic with no app download, no Bluetooth setup, and no computer required. Everything you need is in the box.",
           },
           {
             question: "What batteries do I need?",
@@ -237,12 +237,12 @@ export default async function MakerzoidSmartRobotPage() {
           {
             question: "What's the difference between this and the Smart Robot Premium?",
             answer:
-              "The Smart Robot is a no-code logic training kit — robots react through built-in sensor logic, with no programming required. It's the ideal starting point for younger children or beginners. The Smart Robot Premium adds Bluetooth programming with Scratch Junior coding and 200+ models, making it the natural next step for children ready to explore coding.",
+              "The Smart Robot is a no-code logic training kit. Robots react through built-in sensor logic with no programming required. It's the ideal starting point for younger children or beginners. The Smart Robot Premium adds Bluetooth programming with Scratch Junior coding and 200+ models, making it the natural next step for children ready to explore coding.",
           },
           {
             question: "Can they build all 72+ robots with the same pieces?",
             answer:
-              "Yes. The 300+ building blocks are used and reused across all 72+ models. Your child disassembles one robot and the pieces become the next build. The kit grows with them — there's always another model to try.",
+              "Yes. The 300+ building blocks are used and reused across all 72+ models. Your child disassembles one robot and the pieces become the next build. The kit grows with them. There's always another model to try.",
           },
           {
             question: "Is this safe for young children?",
@@ -278,7 +278,7 @@ export default async function MakerzoidSmartRobotPage() {
           { label: "Control Modes", value: "Electric (button), Intelligent (sensor-driven)" },
           { label: "Sensors", value: "Infrared (IR) sensor, Light sensor" },
           { label: "Battery Requirements", value: "2 x AAA (not included)" },
-          { label: "Coding Required", value: "None — no-code kit" },
+          { label: "Coding Required", value: "None (no-code kit)" },
           { label: "App Required", value: "No" },
           { label: "Instructions", value: "2D and 3D graphical step-by-step guides" },
           { label: "Build Time", value: "Most builds under 1 hour" },
@@ -292,7 +292,7 @@ export default async function MakerzoidSmartRobotPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="A building kit with robots that actually move — no coding, no apps, no fuss. Just 72+ models waiting to be built."
+        subtitle="A building kit with robots that actually move. No coding, no apps. Just 72+ models waiting to be built."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
