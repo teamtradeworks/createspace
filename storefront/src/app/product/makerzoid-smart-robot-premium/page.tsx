@@ -36,7 +36,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Build, code, and play with 200+ robot designs"
+        tagline="200+ robot designs to build and program, starting from age 6"
         highlights={[
           "200+ unique robot models to build and program",
           "3 control modes: manual, sensor-driven, and Bluetooth programming",
@@ -54,7 +54,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         image="/images/products/makerzoid-smart-robot-premium/child-building-while-coding-on-tablet.jpg"
         imageAlt="Child building a robot while coding on tablet"
         title="What They'll Build"
-        body="Watch your child's confidence grow as they bring their creations to life. The Makerzoid Smart Robot Premium combines hands-on building with intuitive coding on a tablet or phone. Using the free Makerzoid app with 2D and 3D animated instructions, your child can construct robots step-by-step, then program them to move, respond, and interact. This seamless blend of physical and digital learning makes abstract concepts tangible and immediately rewarding."
+        body="The Makerzoid Smart Robot Premium pairs building blocks with Bluetooth programming on a tablet or phone. The free Makerzoid app has 2D and 3D animated instructions for every model, so your child constructs the robot step by step, then programs it to move and react. Watching something they built actually respond to code tends to click with kids in a way that worksheets don't."
         layout="image-left"
         background="white"
       />
@@ -62,7 +62,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Features Grid */}
       <FeatureGrid
         title="What's Included"
-        subtitle="This complete kit includes 400+ building blocks, a Bluetooth motor, sensors, and comprehensive instructions - no additional tools required."
+        subtitle="400+ building blocks, a Bluetooth motor, sensors, and full instructions. No tools required."
         features={[
           {
             icon: "puzzle",
@@ -108,7 +108,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
         image="/images/products/makerzoid-smart-robot-premium/childs-hands-holding-a-built-robot.jpg"
         imageAlt="Child's hands proudly holding a completed robot build"
         title="From Idea to Working Robot"
-        body="There's nothing quite like the pride on a child's face when they complete their first working robot. With 200+ different models to explore, your child will experience that sense of accomplishment again and again. From simple button-controlled builds to advanced programmable creations, each completed project builds confidence, problem-solving skills, and genuine excitement about learning. The robots they build aren't just toys—they're proof of what they can achieve."
+        body="With 200+ models to work through, from simple button-controlled builds to fully programmable robots, there's always a next challenge. Each finished robot is a real thing that moves and reacts to code. That tends to feel different to kids than completing a worksheet, and it keeps them coming back."
         layout="image-right"
         background="white"
       />
@@ -163,7 +163,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="See what other children have created with their Makerzoid Smart Robot Premium kits"
+        subtitle="Real builds from the Makerzoid Smart Robot Premium community"
         images={[
           {
             src: "/images/products/makerzoid-smart-robot-premium/end-user-1.jpg",
@@ -203,7 +203,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
           {
             question: "Do I or my child need any prior experience with robotics or coding?",
             answer:
-              "Not at all! The Makerzoid Smart Robot Premium is designed for complete beginners. Start with simple button-controlled models, then progress to sensor interactions and Bluetooth programming at your own pace. The visual Scratch Junior coding is specifically designed for young learners.",
+              "No prior experience needed. The Makerzoid Smart Robot Premium is designed for complete beginners. Start with simple button-controlled models, then progress to sensor interactions and Bluetooth programming at your own pace. The visual Scratch Junior coding is designed for young learners.",
           },
           {
             question: "What age is this suitable for?",
@@ -280,7 +280,7 @@ export default async function MakerzoidSmartRobotPremiumPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="200+ robot designs, three control modes, and Scratch Junior coding. Everything in the box for ages 6+."
+        subtitle="200+ robot designs and three control modes. Everything in the box for ages 6+."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

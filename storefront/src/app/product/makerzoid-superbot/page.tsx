@@ -37,12 +37,12 @@ export default async function MakerzoidSuperbotPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Your child's first programmable robot — build it, code it, race it"
+        tagline="Your child's first programmable robot: build it, code it, race it"
         highlights={[
           "26+ motorised models with 400+ bricks",
-          "Drag-and-drop coding from age 6 — no experience needed",
+          "Drag-and-drop coding from age 6 with no experience needed",
           "Lego-compatible bricks for endless building",
-          "Bluetooth racing battle mode — race a friend's Superbot",
+          "Bluetooth racing battle mode to race a friend's Superbot",
         ]}
         addons={addons}
       />
@@ -62,7 +62,7 @@ export default async function MakerzoidSuperbotPage() {
         image="/images/products/makerzoid-superbot/rows-of-superbot-robot-builds.jpg"
         imageAlt="Multiple Makerzoid Superbot model builds lined up showing the variety of vehicles and robots"
         title="26 Models, One Kit"
-        body="Every single model comes apart and rebuilds into something new. Today it's a racing muscle car — tomorrow it's a drawing machine that scribbles patterns as it drives. With 26+ distinct model configurations in one box, your child won't run out of builds anytime soon. And with Lego-compatible bricks, they can mix in pieces from their existing collection to invent models that aren't even in the app."
+        body="Every single model comes apart and rebuilds into something new. Today it's a racing muscle car, tomorrow it's a drawing machine that scribbles patterns as it drives. With 26+ distinct model configurations in one box, your child won't run out of builds anytime soon. And with Lego-compatible bricks, they can mix in pieces from their existing collection to invent models that aren't even in the app."
         layout="image-left"
         background="gray"
       />
@@ -70,37 +70,37 @@ export default async function MakerzoidSuperbotPage() {
       {/* Key Features Grid */}
       <FeatureGrid
         title="Key Features"
-        subtitle="Everything your child needs to start building, programming, and playing — right out of the box."
+        subtitle="Everything your child needs to start building and programming, right out of the box."
         features={[
           {
             icon: "lightbulb",
             title: "400+ Bricks, 26+ Models",
             description:
-              "Enough pieces to build over 26 distinct motorised creations — from racing cars to trucks to a robot that actually draws patterns.",
+              "Enough pieces to build over 26 distinct motorised creations, from racing cars to trucks to a robot that actually draws patterns.",
           },
           {
             icon: "code",
             title: "Drag-and-Drop Coding",
             description:
-              "No typing, no syntax. Kids snap code blocks together in the Makerzoid app to create motion sequences — the same intuitive approach used by millions of young learners.",
+              "No typing, no syntax. Kids snap code blocks together in the Makerzoid app to create motion sequences, the same intuitive approach used by millions of young learners.",
           },
           {
             icon: "puzzle",
             title: "Four Control Modes",
             description:
-              "Remote control, path programming, sensor-reactive mode, and full drag-and-drop coding. Each mode teaches something new — from basic directions to real algorithmic thinking.",
+              "Remote control, path programming, sensor-reactive mode, and full drag-and-drop coding. Each mode teaches something new, from basic directions to real algorithmic thinking.",
           },
           {
             icon: "book",
             title: "App-Guided Building",
             description:
-              "The free Makerzoid app (iOS & Android) includes illustrated build instructions for every model — no paper manual to lose, always up to date.",
+              "The free Makerzoid app (iOS & Android) includes illustrated build instructions for every model, always up to date.",
           },
           {
             icon: "chess",
             title: "Race Your Friends",
             description:
-              "Two Superbots can go head-to-head in battle racing mode — making this the perfect toy for playdates and holidays. Build yours, race theirs.",
+              "Two Superbots can go head-to-head in battle racing mode, making this the perfect toy for playdates and holidays. Build yours, race theirs.",
           },
           {
             icon: "shield",
@@ -118,7 +118,7 @@ export default async function MakerzoidSuperbotPage() {
         image="/images/products/makerzoid-superbot/car-tablet-phone.jpg"
         imageAlt="Makerzoid Superbot racing car model alongside a tablet and phone showing the app control interface"
         title="Four Ways to Take Control"
-        body="Once your child's model is built, the Makerzoid app unlocks four distinct ways to play. Start with the joystick for instant drive-it-right-now fun. Then try path mode — draw a route on screen and watch the robot follow it. Progress to IR sensor mode where the robot reacts to the world around it. Finally, the full drag-and-drop coding mode lets your child write their own motion sequences. It's a natural coding progression that never feels like homework."
+        body="Once your child's model is built, the Makerzoid app unlocks four distinct ways to play. Start with the joystick for instant drive-it-right-now fun. Then try path mode: draw a route on screen and watch the robot follow it. Progress to IR sensor mode where the robot reacts to the world around it. Finally, the full drag-and-drop coding mode lets your child write their own motion sequences. It's a natural coding progression that never feels like homework."
         layout="image-right"
         background="gray"
       />
@@ -126,53 +126,53 @@ export default async function MakerzoidSuperbotPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="What They'll Build"
-        highlight="26+ guided model builds — with new coding possibilities every time"
+        highlight="26+ guided model builds, with new coding possibilities every time"
         subtitle="Models range from simple vehicles for first-time builders to complex creations that challenge older kids. Each one can be coded in completely different ways."
         projects={[
           {
             name: "Batmobile",
             description:
-              "Build a sleek, low-slung racing car and drive it using the app's joystick — your child's first taste of building something that actually moves.",
+              "Build a sleek, low-slung racing car and drive it using the app's joystick. Your child's first taste of building something that actually moves.",
             concepts: "Motor control, directions, basic app control",
             image: "/images/products/makerzoid-superbot/projects/batmobile.jpg",
           },
           {
             name: "Tiger",
             description:
-              "Construct an animal-shaped robot with a fun mechanical form — a favourite for kids who want something a little different from the vehicle builds.",
+              "Construct an animal-shaped robot with a fun mechanical form. A favourite for kids who want something a little different from the vehicle builds.",
             concepts: "Construction, structural design, creative building",
             image: "/images/products/makerzoid-superbot/projects/tiger.jpg",
           },
           {
             name: "Drawing Machine",
             description:
-              "Build a robot that holds a pen and draws geometric patterns as it moves — where coding meets art in a genuinely surprising way.",
+              "Build a robot that holds a pen and draws geometric patterns as it moves. Coding meets art in a genuinely surprising way.",
             concepts: "Motion programming, sequencing, STEAM crossover",
             image: "/images/products/makerzoid-superbot/projects/drawing-machine.jpg",
           },
           {
             name: "Forklift",
             description:
-              "Build a working forklift with a lifting mechanism — introduces more complex construction and real-world engineering concepts.",
+              "Build a working forklift with a lifting mechanism, introducing more complex construction and real-world engineering concepts.",
             concepts: "Mechanical engineering, gear systems, load-bearing",
             image: "/images/products/makerzoid-superbot/projects/forklift.jpg",
           },
           {
             name: "Intelligent Gate",
             description:
-              "Build an automated barrier that opens and closes — a great introduction to sensor-triggered behaviour and conditional logic.",
+              "Build an automated barrier that opens and closes: a great introduction to sensor-triggered behaviour and conditional logic.",
             concepts: "Conditionals, sensor-based logic, automation",
             image: "/images/products/makerzoid-superbot/projects/intelligent-gate.jpg",
           },
           {
             name: "Racing Car",
             description:
-              "A streamlined speed build for head-to-head racing against a friend's Superbot — the competitive element that makes playdates unforgettable.",
+              "A streamlined speed build for head-to-head racing against a friend's Superbot, the competitive element that makes playdates unforgettable.",
             concepts: "Construction, Bluetooth control, multiplayer play",
             image: "/images/products/makerzoid-superbot/projects/2.jpg",
           },
         ]}
-        moreText="Plus 20+ more model builds in the app — trucks, elastic robots, sumo bots, and more."
+        moreText="Plus 20+ more model builds in the app: trucks, elastic robots, sumo bots, and more."
         background="white"
       />
 
@@ -219,7 +219,7 @@ export default async function MakerzoidSuperbotPage() {
           {
             question: "Does my child need any coding experience?",
             answer:
-              "Not at all. The Superbot is designed for complete beginners. Start in remote control mode — no coding required — and graduate to drag-and-drop programming at whatever pace feels right. The app guides everything.",
+              "No experience needed. The Superbot is designed for complete beginners. Start in remote control mode with no coding required, then graduate to drag-and-drop programming at whatever pace feels right. The app guides everything.",
           },
           {
             question: "What age is the Superbot suitable for?",
@@ -229,22 +229,22 @@ export default async function MakerzoidSuperbotPage() {
           {
             question: "Do we need to buy anything else?",
             answer:
-              "Just 3 × AA batteries — they're not included but are easy to find. The Makerzoid app is free to download on iOS and Android. Everything else comes in the box.",
+              "Just 3 × AA batteries, not included but easy to find. The Makerzoid app is free to download on iOS and Android. Everything else comes in the box.",
           },
           {
             question: "Does my child need a phone or tablet?",
             answer:
-              "Yes — the free Makerzoid app is needed for both building instructions and to control the robot. It works on any Bluetooth-enabled iOS or Android smartphone or tablet.",
+              "Yes. The free Makerzoid app is needed for both building instructions and to control the robot. It works on any Bluetooth-enabled iOS or Android smartphone or tablet.",
           },
           {
             question: "Can my child use it independently?",
             answer:
-              "Mostly, yes. The app's graphical building instructions are clear enough for most kids aged 7+ to follow on their own. A bit of parental involvement for the first build is helpful — after that, they'll fly.",
+              "Mostly, yes. The app's graphical building instructions are clear enough for most kids aged 7+ to follow on their own. A bit of parental involvement for the first build is helpful. After that, they'll fly.",
           },
           {
             question: "What happens after they've built all 26 models?",
             answer:
-              "The fun doesn't stop — each model can be coded in completely different ways, so there's no single 'finished' outcome. The Superbot's Lego-compatible bricks also let your child invent entirely new creations. When they're ready for more, the Makerzoid Superbot Master Premium adds Scratch 3.0 programming and smart sensors.",
+              "The fun doesn't stop: each model can be coded in completely different ways, so there's no single 'finished' outcome. The Superbot's Lego-compatible bricks also let your child invent entirely new creations. When they're ready for more, the Makerzoid Superbot Master Premium adds Scratch 3.0 programming and smart sensors.",
           },
           {
             question: "Does it work with our Lego bricks?",
@@ -265,7 +265,7 @@ export default async function MakerzoidSuperbotPage() {
           "Motor control hub with 4 LED indicator lights",
           "2 IR/distance sensors",
           "Storage box (all pieces fit back inside neatly)",
-          "Free Makerzoid app — iOS & Android (download from App Store or Google Play)",
+          "Free Makerzoid app (iOS & Android, download from App Store or Google Play)",
         ]}
         background="white"
       />
@@ -292,7 +292,7 @@ export default async function MakerzoidSuperbotPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with Superbot"
-        subtitle="26+ models. 4 coding modes. Endless builds. The Superbot is the kit that grows with your child — from their first build to their first real programme."
+        subtitle="26+ models. 4 coding modes. Endless builds. The Superbot is the kit that grows with your child, from their first build to their first real programme."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

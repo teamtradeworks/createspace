@@ -5,6 +5,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
+  VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -36,11 +37,11 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="From first build to competition-ready — a robotics kit that grows with your child"
+        tagline="From first build to competition-ready: a robotics kit that grows with your child"
         highlights={[
           "640+ building blocks to build and programme",
           "4 video lessons to get you started",
-          "Learn Scratch 3.0 coding — no experience needed",
+          "Learn Scratch 3.0 coding with no experience needed",
           "LEGO-compatible blocks expand any existing collection",
         ]}
         addons={addons}
@@ -49,12 +50,19 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Quick Info Badges */}
       <QuickInfoBadges product={product} />
 
+      {/* Video */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=29y4Mfmpnjw"
+        title="See the Makerzoid Robot Master Tournament in Action"
+        background="white"
+      />
+
       {/* Coding on Phone ImageTextBlock */}
       <ImageTextBlock
         image="/images/products/makerzoid-robot-master-tournament/servo-motors-coding-on-phone.png"
         imageAlt="Makerzoid app showing servo motor programming on a smartphone"
         title="Code from Your Phone or Laptop"
-        body="The free Makerzoid App (iOS and Android) puts programming in your child's hands from day one. Beginners start with visual Blockly drag-and-drop blocks, then advance to Scratch 3.0 for full control over their robot's behaviour. No complicated setup — download the app, connect via Bluetooth, and start building and coding straight away."
+        body="The free Makerzoid App (iOS and Android) puts programming in your child's hands from day one. Beginners start with visual Blockly drag-and-drop blocks, then advance to Scratch 3.0 for full control over their robot's behaviour. No complicated setup: download the app, connect via Bluetooth, and start building and coding straight away."
         layout="image-left"
         background="white"
       />
@@ -62,7 +70,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Feature Grid */}
       <FeatureGrid
         title="What Makes This Kit Different"
-        subtitle="Competition-grade hardware and a structured curriculum — not just a box of bricks."
+        subtitle="Competition-grade hardware and a structured curriculum. Not just a box of bricks."
         features={[
           {
             icon: "cpu",
@@ -74,13 +82,13 @@ export default async function MakerzoidRobotMasterTournamentPage() {
             icon: "zap",
             title: "Three Smart Sensors",
             description:
-              "Colour sensor, grayscale sensor for line tracking, and a built-in gyroscope — the exact sensors used in competition challenges.",
+              "Colour sensor, grayscale sensor for line tracking, and a built-in gyroscope. These are the exact sensors used in competition challenges.",
           },
           {
             icon: "puzzle",
             title: "640+ Building Blocks",
             description:
-              "Build anything from simple mechanical models to complex autonomous robots — LEGO-compatible for endless combinations.",
+              "Build anything from simple mechanical models to complex autonomous robots. LEGO-compatible for endless combinations.",
           },
           {
             icon: "book",
@@ -92,7 +100,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
             icon: "layers",
             title: "LEGO-Compatible",
             description:
-              "All 640+ blocks are LEGO-compatible — they click straight into any LEGO collection for unlimited building possibilities.",
+              "All 640+ blocks are LEGO-compatible and click straight into any LEGO collection for unlimited building possibilities.",
           },
           {
             icon: "code",
@@ -110,7 +118,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
         image="/images/products/makerzoid-robot-master-tournament/colour-sensor-feature.png"
         imageAlt="Makerzoid colour sensor component for robotics programming"
         title="Sensors That Teach Real Concepts"
-        body="The colour sensor, grayscale sensor, and built-in gyroscope aren't just accessories — each one teaches your child a real engineering principle. Colour detection, infrared distance measurement, and orientation data are the building blocks of how self-driving cars, warehouse robots, and industrial machines work. Your child won't just read about these ideas in school — they'll programme them."
+        body="The colour sensor, grayscale sensor, and built-in gyroscope aren't just accessories; each one teaches your child a real engineering principle. Colour detection, infrared distance measurement, and orientation data are the building blocks of how self-driving cars, warehouse robots, and industrial machines work. Your child won't just read about these ideas in school. They'll programme them."
         layout="image-right"
         background="white"
       />
@@ -143,7 +151,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           },
           {
             name: "Line Following",
-            description: "Master the core competition skill — programming a robot to follow a line",
+            description: "Master the core competition skill: programming a robot to follow a line",
             concepts: "Grayscale sensor, algorithm tuning",
             image:
               "/images/products/makerzoid-robot-master-tournament/projects/greyscale-sensor.png",
@@ -163,7 +171,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
               "/images/products/makerzoid-robot-master-tournament/projects/graphical-programming.png",
           },
         ]}
-        moreText="Plus 640+ LEGO-compatible blocks to build freely — from simple mechanical structures to fully autonomous competition machines"
+        moreText="Plus 640+ LEGO-compatible blocks to build freely, from simple mechanical structures to fully autonomous competition machines"
         background="gray"
       />
 
@@ -198,7 +206,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           {
             question: "Does my child need any coding or robotics experience?",
             answer:
-              "Not at all. The kit starts from zero — early builds focus on basic mechanics with no electronics involved. Your child builds up knowledge gradually through the 16 guided lessons, video lessons, and the Makerzoid App, progressing naturally toward Scratch 3.0 programming.",
+              "None required. The kit starts from zero: early builds focus on basic mechanics with no electronics involved. Your child builds up knowledge gradually through the 16 guided lessons, video lessons, and the Makerzoid App, progressing naturally toward Scratch 3.0 programming.",
           },
           {
             question: "What age is this suitable for?",
@@ -213,17 +221,17 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           {
             question: "What do we need to get started?",
             answer:
-              "A Bluetooth-enabled smartphone or tablet (iOS or Android) for the free Makerzoid App, and AA batteries (not included — Duracell recommended). No tools required and no soldering. For Scratch 3.0 programming, a computer with internet access is needed to use lab.makerzoid.com.",
+              "A Bluetooth-enabled smartphone or tablet (iOS or Android) for the free Makerzoid App, and AA batteries (not included, Duracell recommended). No tools required and no soldering. For Scratch 3.0 programming, a computer with internet access is needed to use lab.makerzoid.com.",
           },
           {
-            question: "We already have LEGO — does this work with it?",
+            question: "We already have LEGO. Does this work with it?",
             answer:
               "Yes! All 640+ building blocks are LEGO-compatible, so your child can combine them with any LEGO collection they already have. This dramatically expands the variety of robots they can build.",
           },
           {
             question: "Can my child actually compete in robotics tournaments with this?",
             answer:
-              "Yes — that's exactly what the Tournament edition is designed for. It trains the specific skills tested in competitions: line following, obstacle avoidance, colour detection, and precision movement. The challenges align with formats like the World Robot Olympiad (WRO) and similar youth robotics competitions.",
+              "Yes. That's exactly what the Tournament edition is designed for. It trains the specific skills tested in competitions: line following, obstacle avoidance, colour detection, and precision movement. The challenges align with formats like the World Robot Olympiad (WRO) and similar youth robotics competitions.",
           },
           {
             question: "What happens once my child finishes the video lessons?",
@@ -244,9 +252,9 @@ export default async function MakerzoidRobotMasterTournamentPage() {
           "Colour sensor",
           "Grayscale sensor",
           "Paper instruction manual",
-          "Makerzoid App access (free — iOS and Android)",
+          "Makerzoid App access (free, iOS and Android)",
           "4 video lessons + 16 guided PDF lessons (via app or lab.makerzoid.com)",
-          "AA batteries NOT included — Duracell recommended",
+          "AA batteries NOT included (Duracell recommended)",
         ]}
         background="gray"
       />
@@ -281,7 +289,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Final CTA */}
       <CallToAction
         title="Start the Journey"
-        subtitle="From first build to competition training — everything your child needs to explore, create, and compete."
+        subtitle="From first build to competition training, this kit has everything your child needs to build, code, and compete."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

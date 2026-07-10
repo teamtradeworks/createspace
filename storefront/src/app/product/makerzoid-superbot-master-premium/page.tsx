@@ -36,12 +36,12 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Build, program, and compete with 72+ robot models"
+        tagline="72+ guided robot builds with real Scratch 3.0 programming"
         highlights={[
           "72+ guided robot builds across three difficulty levels",
-          "Program with Scratch 3.0 — no prior coding experience needed",
+          "Program with Scratch 3.0 with no prior coding experience needed",
           "All-in-one smart controller: motors, sensors, and LED display built in",
-          "LEGO compatible — mix with your child's existing collection",
+          "LEGO compatible: mix with your child's existing collection",
         ]}
         addons={addons}
       />
@@ -66,7 +66,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
             icon: "robot",
             title: "All-in-One Smart Controller",
             description:
-              "Built-in motors, gyroscope, 25-LED matrix, microphone, and speaker in one hub — no wiring tangles, just build and code.",
+              "Built-in motors, gyroscope, 25-LED matrix, microphone, and speaker in one hub. No wiring tangles, just build and code.",
           },
           {
             icon: "palette",
@@ -84,13 +84,13 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
             icon: "wave",
             title: "Infrared Sensors (×2)",
             description:
-              "Detect obstacles and proximity. Program a robot that navigates a room on its own — no joystick required.",
+              "Detect obstacles and proximity. Program a robot that navigates a room on its own, with no joystick required.",
           },
           {
             icon: "lightbulb",
             title: "25-LED Matrix Display",
             description:
-              "Give your robot a face. Program expressions, patterns, and messages — it makes the coding feel personal and rewarding.",
+              "Give your robot a face. Program expressions, patterns, and messages. It makes the coding feel personal and rewarding.",
           },
           {
             icon: "bluetooth",
@@ -106,7 +106,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* Coding section */}
       <ImageTextBlock
         title="Real Code. Real Results."
-        body="Scratch 3.0 is the same platform used in schools across 150+ countries — not a toy language, but a genuine entry point into programming. Your child drags and drops blocks to control motors, read sensors, and trigger sounds. When they're ready, they can switch to the text-based version and start learning Python-style syntax. Every build teaches real computational thinking: sequences, loops, conditionals, and events."
+        body="Scratch 3.0 is the same platform used in schools across 150+ countries, and it's a genuine entry point into programming, not a simplified toy version. Your child drags and drops blocks to control motors, read sensors, and trigger sounds. When they're ready, they can switch to the text-based version and start learning Python-style syntax. Every build teaches real computational thinking: sequences, loops, conditionals, and events."
         image="/images/products/makerzoid-superbot-master-premium/scratch-3-0-and-coding-on-makerzoid-lab.jpg"
         imageAlt="Scratch 3.0 coding interface on the Makerzoid Lab app"
         layout="image-right"
@@ -134,7 +134,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           },
           {
             name: "Racing Competition",
-            description: "Build for speed — tune your robot to win a head-to-head race",
+            description: "Build for speed and tune your robot to win a head-to-head race",
             concepts: "Motor tuning, speed optimisation, competitive strategy",
             image:
               "/images/products/makerzoid-superbot-master-premium/projects/racing-competition.png",
@@ -155,7 +155,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           },
           {
             name: "Sumo Competition",
-            description: "Battle-test your build — last robot in the ring wins",
+            description: "Battle-test your build. Last robot in the ring wins.",
             concepts: "Strategy, push mechanics, sensor-driven reactions",
             image:
               "/images/products/makerzoid-superbot-master-premium/projects/sumo-competition.png",
@@ -200,7 +200,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           {
             question: "Does my child need any prior experience with coding or robotics?",
             answer:
-              "Not at all. The Superbot Master Premium is designed for beginners. The free Makerzoid app provides step-by-step graphical assembly guides, and Scratch 3.0 is a drag-and-drop language — no typing required. Most children aged 6+ can get started independently.",
+              "No experience needed. The Superbot Master Premium is designed for beginners. The free Makerzoid app provides step-by-step graphical assembly guides, and Scratch 3.0 is a drag-and-drop language with no typing required. Most children aged 6+ can get started independently.",
           },
           {
             question: "What age is this suitable for?",
@@ -210,12 +210,12 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           {
             question: "Does my child need a phone, tablet, or computer?",
             answer:
-              "A phone or tablet (iOS or Android) is needed to access the build guides in the free Makerzoid app, and to use app-based Bluetooth control. Scratch 3.0 programming works in any web browser on a phone, tablet, or computer — it's free and requires no installation.",
+              "A phone or tablet (iOS or Android) is needed to access the build guides in the free Makerzoid app, and to use app-based Bluetooth control. Scratch 3.0 programming works in any web browser on a phone, tablet, or computer. It's free and requires no installation.",
           },
           {
             question: "Does the kit include a battery?",
             answer:
-              "Yes — a 3.7V rechargeable lithium battery is included in the box. No need to source one separately.",
+              "Yes. A 3.7V rechargeable lithium battery is included in the box. No need to source one separately.",
           },
           {
             question: "Is this compatible with LEGO?",
@@ -230,7 +230,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
           {
             question: "Is adult supervision required?",
             answer:
-              "No soldering and no tools are required — construction is fully tool-free. The small parts mean supervision is sensible for children under 6. For children 6 and up, the step-by-step app instructions are clear enough that most kids can work independently.",
+              "No soldering and no tools are required. Construction is fully tool-free. The small parts mean supervision is sensible for children under 6. For children 6 and up, the step-by-step app instructions are clear enough that most kids can work independently.",
           },
         ]}
         background="gray"
@@ -239,6 +239,8 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* What's in the Box */}
       <WhatsIncluded
         title="What's in the Box"
+        image="/images/products/makerzoid-superbot-master-premium/whats-in-the-box.png"
+        imageAlt="Makerzoid Superbot Master Premium box contents laid out"
         items={[
           "All-in-One Smart Controller (with built-in motors, gyroscope, 25-LED matrix, microphone, speaker)",
           "Smart Gyroscope module",
@@ -279,7 +281,7 @@ export default async function MakerzoidSuperbotMasterPremiumPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with the Superbot"
-        subtitle="72+ builds. Real programming. A kit your child won't outgrow in a hurry."
+        subtitle="72+ guided builds and real Scratch 3.0 programming. A kit your child can grow into over months."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
