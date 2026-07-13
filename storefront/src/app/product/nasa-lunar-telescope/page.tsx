@@ -37,7 +37,7 @@ export default async function NasaLunarTelescopePage() {
         product={product}
         tagline="Discover craters, mountains, and volcanic plains."
         highlights={[
-          "90x magnification — lunar craters and ridges in remarkable detail",
+          "90x magnification: lunar craters and ridges in remarkable detail",
           "Complete kit: telescope, two eyepieces, tripod, and full-colour learning guide",
           "Ages 8+ · No batteries, no apps, sets up in minutes",
           "Official NASA-licensed telescope by Blue Marble",
@@ -65,25 +65,25 @@ export default async function NasaLunarTelescopePage() {
             icon: "eye",
             title: "A Front-Row Seat to the Moon",
             description:
-              "First you use the finder scope to locate the moon. Then you switch to the high-power eyepiece and zoom in. The craters, ridges, dark maria, and mountain shadows waiting there are nothing like what you see with the naked eye — and completely impossible to unsee.",
+              "First you use the finder scope to locate the moon. Then you switch to the high-power eyepiece and zoom in. The craters, ridges, dark maria, and mountain shadows waiting there are nothing like what you see with the naked eye, and most children ask to go back the next night.",
           },
           {
             icon: "time",
             title: "Up and Running in Minutes",
             description:
-              "The tabletop tripod clicks into place, the eyepiece drops in, and you're ready to point it at the sky. No tools, no complicated assembly — just open the box, follow the quick-start, and go. Even kids who've never used a telescope before are up and running on their own within minutes.",
+              "The tabletop tripod clicks into place, the eyepiece drops in, and you're ready to point it at the sky. No tools needed. Just open the box, follow the quick-start, and go. Kids who've never used a telescope before figure it out within minutes.",
           },
           {
             icon: "book",
             title: "The Moon, Decoded",
             description:
-              "The included full-colour learning guide names and explains what you're actually looking at through the eyepiece — craters, maria, mountain ranges, volcanic plains. It turns a beautiful view into something you can identify, compare across nights, and talk about.",
+              "The included full-colour learning guide names what you're actually looking at through the eyepiece: craters, maria, mountain ranges, volcanic plains. It turns a beautiful view into something you can identify, compare across nights, and talk about.",
           },
           {
             icon: "rocket",
             title: "NASA-Licensed, Award-Winning",
             description:
-              "Made by Blue Marble — winner of the Toy Association's Toy of the Year Award — and officially licensed by NASA. Not a toy that looks like a telescope. A telescope that's designed to be used by children.",
+              "Blue Marble makes this, officially licensed by NASA and winner of the Toy Association's Toy of the Year Award. It's a real telescope designed for children, not a toy with a lens.",
           },
         ]}
       />
@@ -93,7 +93,7 @@ export default async function NasaLunarTelescopePage() {
         image="/images/products/nasa-lunar-telescope/lifestyle-child-looking-through-telescope.jpg"
         imageAlt="Child looking through the NASA Lunar Telescope"
         title="The Moon Up Close"
-        body="Through the low-power eyepiece, the full moon fills the view — bright, round, familiar. Switch to high-power and zoom in on the terminator line where sunlight meets shadow, and suddenly you're looking at something else entirely: crater walls casting sharp shadows, ridges cutting across volcanic plains, mountain ranges rising from an ancient surface. Kids who see this tend to come back for another look. And another."
+        body="Through the low-power eyepiece, the full moon fills the view, bright and familiar. Switch to high-power and zoom in on the terminator line where sunlight meets shadow, and suddenly you're looking at something else: crater walls casting sharp shadows, ridges cutting across volcanic plains, mountain ranges rising from an ancient surface. Most children who see this want another look the next night."
         layout="image-right"
         background="white"
       />
@@ -133,7 +133,7 @@ export default async function NasaLunarTelescopePage() {
             src: "/images/products/nasa-lunar-telescope/end-user-small-boy-looking-through.jpg",
             alt: "Small boy looking through the NASA Lunar Telescope",
             label: "Stargazing",
-            description: "A clear night and a young astronomer — all that's needed",
+            description: "A clear night and a young astronomer: all that's needed",
           },
           {
             src: "/images/products/nasa-lunar-telescope/end-user-moon-view.jpg",
@@ -151,7 +151,7 @@ export default async function NasaLunarTelescopePage() {
             src: "/images/products/nasa-lunar-telescope/end-user-moon-view-further-away.jpg",
             alt: "Full moon viewed at lower magnification through the telescope",
             label: "Full Moon",
-            description: "The moon at lower magnification — wide and bright",
+            description: "The moon at lower magnification, wide and bright",
           },
         ]}
       />
@@ -177,12 +177,12 @@ export default async function NasaLunarTelescopePage() {
           {
             question: "What will my child actually be able to see?",
             answer:
-              "The moon is the main event — and the views are genuinely impressive. At 90x magnification, children can identify individual craters, ridges, mountain ranges, and the dark flat plains called maria (the Sea of Tranquility, where Apollo 11 landed, is clearly visible). They may also be able to see bright planets like Venus, Jupiter, and Mars on a clear night, though this telescope is primarily built for lunar observation.",
+              "The moon is the main event, and the views are genuinely impressive. At 90x magnification, children can identify individual craters, ridges, mountain ranges, and the dark flat plains called maria (the Sea of Tranquility, where Apollo 11 landed, is clearly visible). They may also be able to see bright planets like Venus, Jupiter, and Mars on a clear night, though this telescope is primarily built for lunar observation.",
           },
           {
             question: "Does it need batteries, an app, or a computer?",
             answer:
-              "Nothing else at all. This is a purely optical instrument — no power source, no Bluetooth, no downloads. Just light through a glass lens. That's also what makes it so immediate and satisfying to use: point it at the sky, adjust the focus, and see.",
+              "Nothing else is needed. It's a purely optical instrument: no power source, no Bluetooth, no downloads. Just light through a glass lens. Point it at the sky, adjust the focus, and you're looking.",
           },
           {
             question: "Can it be used indoors through a window?",
@@ -197,7 +197,7 @@ export default async function NasaLunarTelescopePage() {
           {
             question: "Is this only useful for the moon?",
             answer:
-              "The NASA Lunar Telescope is designed primarily for lunar observation, and the moon is what it does best. With a 25mm objective lens and 90x magnification, it's well-suited for bright, nearby targets. On a clear night, children can also observe bright planets — Venus shows phases, Jupiter shows cloud bands, Mars shows its reddish colour — though faint deep-sky objects like nebulae or distant galaxies are beyond its reach. For a beginner's first telescope, the moon is more than enough to spark a lasting interest.",
+              "This telescope is designed primarily for the moon, and that's where it does best. With a 25mm objective lens and 90x magnification, it's well-suited for bright, nearby targets. On a clear night, children can also observe bright planets (Venus shows phases, Jupiter shows cloud bands, Mars shows its reddish colour), though faint deep-sky objects like nebulae or distant galaxies are beyond its reach. For most first-time observers, the moon keeps them busy for months.",
           },
         ]}
       />
@@ -238,7 +238,7 @@ export default async function NasaLunarTelescopePage() {
 
       {/* navy */}
       <CallToAction
-        title="The Moon Is Waiting."
+        title="The Moon Is Waiting"
         subtitle="All you need is a clear night and somewhere to point it."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
