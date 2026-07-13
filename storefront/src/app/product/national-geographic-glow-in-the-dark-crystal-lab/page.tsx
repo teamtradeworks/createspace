@@ -32,7 +32,7 @@ export default async function NatGeoGlowCrystalLabPage() {
 
       <HeroSection
         product={product}
-        tagline="Grow an awesome glowing crystal — ready to display in just a few days"
+        tagline="Grow a glow-in-the-dark crystal and have it ready to display in just a few days."
         highlights={[
           "Crystal grows in as little as 3 days",
           "Real fluorite specimen included",
@@ -53,19 +53,19 @@ export default async function NatGeoGlowCrystalLabPage() {
             icon: "sparkles",
             title: "Glow-in-the-Dark Seed Rock",
             description:
-              "Seed rock is glow-in-the-dark element. You'll get about 1 minute of bright glow with a good charge from the sun or a strong lamp.",
+              "The seed rock contains phosphorescent pigment. Charge it under sunlight or a lamp for a couple of minutes and it glows in the dark.",
           },
           {
             icon: "clock",
             title: "Crystal Grows in as Little as 3 Days",
             description:
-              "Mix the crystal growing powder into water, add your seed rock, and watch your glow-in-the-dark crystal grow before your eyes!",
+              "Mix the crystal powder into water, set the seed rock inside, and check back throughout the day as crystals build up on the surface.",
           },
           {
             icon: "eye",
             title: "Inspect Every Detail",
             description:
-              "The included magnifying glass lets your child observe crystal structure up close as it develops — tiny formations visible day by day.",
+              "The included magnifying glass lets your child observe crystal structure up close as it develops: tiny formations visible day by day.",
           },
           {
             icon: "star",
@@ -77,7 +77,7 @@ export default async function NatGeoGlowCrystalLabPage() {
             icon: "book",
             title: "Full-Colour Learning Guide",
             description:
-              "The full-color learning guide has fascinating insight into the science of crystal growth.",
+              "The full-colour learning guide explains how crystals form in nature and what makes each mineral grow in a different shape.",
           },
           {
             icon: "puzzle",
@@ -92,7 +92,7 @@ export default async function NatGeoGlowCrystalLabPage() {
         image="/images/products/national-geographic-glow-in-the-dark-crystal-lab/boy-looking-at-glowing-crystal-in-the-dark.jpg"
         imageAlt="Boy looking at a glowing crystal in the dark"
         title="The Moment the Lights Go Out"
-        body="Grow an awesome glowing crystal with the National Geographic Glow-in-the-Dark Crystal Lab! Easy-to-follow instructions lead you through the crystal growing process, and in as little as 3 days your crystal will be ready for display. Show off your crystal on the included display stand and learn more about crystals in the full-color learning guide. You'll even receive a genuine fluorite crystal specimen. There's no better way to inspire a lifelong love of science and geology!"
+        body="Mix the solution, place the seed rock inside, and check back throughout the day. Crystals start appearing within a few hours and keep growing for two or three days. By the end, the rock is covered in a sparkling crust that glows in the dark. The fluorite specimen gives children something real to compare it against: a crystal nature built over thousands of years, next to one they grew in a few days."
         layout="image-left"
         background="white"
         imageObjectPosition="50% 100%"
@@ -105,37 +105,37 @@ export default async function NatGeoGlowCrystalLabPage() {
           {
             question: "What age is this kit best for?",
             answer:
-              "The kit is recommended for ages 8 and up. Younger children can enjoy it too, but should have an adult closely involved throughout — particularly for the boiling water step.",
+              "The kit is recommended for ages 8 and up. Younger children can enjoy it too, but should have an adult closely involved throughout, particularly for the boiling water step.",
           },
           {
             question: "Does my child need adult help to set it up?",
             answer:
-              "An adult is needed for the initial mixing step, which requires boiling water. You'll also need a standard glass or jar (not included). After mixing, your child places the crystal solution in a safe spot and observes it daily — it's very much a kid-led activity once it's set up.",
+              "An adult is needed for the initial mixing step, which requires boiling water. You'll also need a standard glass or jar (not included). After mixing, your child places the crystal solution in a safe spot and observes it daily. It's very much a kid-led activity once it's set up.",
           },
           {
             question: "Is it messy? Will the powder stain?",
             answer:
-              "The setup is fairly tidy — the crystal powder mixes into water and is unlikely to stain if handled carefully. We recommend doing the initial mixing over a sink. Once the crystals have grown, they're solid and sit cleanly on the display stand.",
+              "The setup is fairly tidy. The crystal powder mixes into water and is unlikely to stain if handled carefully. We recommend doing the initial mixing over a sink. Once the crystals have grown, they're solid and sit cleanly on the display stand.",
           },
           {
             question: "What exactly glows in the dark?",
             answer:
-              "Seed rock is glow-in-the-dark element. You'll get about 1 minute of bright glow with a good charge from the sun or a strong lamp.",
+              "The seed rock contains phosphorescent pigment. Charge it under sunlight or a lamp for a couple of minutes and it glows for about a minute in the dark.",
           },
           {
             question: "How long does the experiment take?",
             answer:
-              "The initial setup takes around 10–15 minutes. After that, crystals form gradually over 3–4 days while your child checks in daily. Once grown, the crystals are a permanent display piece — the waiting and watching is all part of the experience.",
+              "The initial setup takes around 10–15 minutes. After that, crystals form gradually over 3–4 days while your child checks in daily. Once grown, the crystals are a permanent display piece. The waiting and watching is all part of the experience.",
           },
           {
             question: "Can the experiment be done again?",
             answer:
-              "The crystal-growing powder is used in one batch, so the main growing experiment is single-use. The seed rock, magnifying glass, display stand, and fluorite specimen are permanent keepsakes. If your child wants to grow more, National Geographic makes larger crystal kits — including a Jumbo Crystal Growing Kit for much bigger results.",
+              "The crystal-growing powder is used in one batch, so the main growing experiment is single-use. The seed rock, magnifying glass, display stand, and fluorite specimen are permanent keepsakes. If your child wants to grow more, National Geographic makes larger crystal kits, including a Jumbo Crystal Growing Kit for much bigger results.",
           },
           {
             question: "Is it safe?",
             answer:
-              "Yes — the crystal powder is safe when used as directed and the fluorite specimen is a genuine natural mineral. Small parts mean the kit is not suitable for children under 3. Adult supervision is required for the boiling water step.",
+              "Yes, the crystal powder is safe when used as directed and the fluorite specimen is a genuine natural mineral. Small parts mean the kit is not suitable for children under 3. Adult supervision is required for the boiling water step.",
           },
         ]}
       />
@@ -160,8 +160,8 @@ export default async function NatGeoGlowCrystalLabPage() {
       <ProductReviews productId={product.id} background="gray" />
 
       <CallToAction
-        title="Ready to Watch Crystals Come to Life?"
-        subtitle="There's no better way to inspire a lifelong love of science and geology!"
+        title="Grow Your First Crystal"
+        subtitle="Everything included. Crystals form in a few days. Real fluorite specimen to keep."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

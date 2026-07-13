@@ -36,9 +36,9 @@ export default async function NatGeoVolcanoPage() {
         tagline="Cast it, paint it, then make it erupt"
         highlights={[
           "A three-stage project: cast it, paint it, erupt it",
-          "Real chemical reaction — actual fizzing, bubbling lava",
+          "Real chemical reaction: actual fizzing, bubbling lava",
           "Includes 2 genuine volcanic rock specimens to keep",
-          "Ages 8 and up — no batteries, no screen time",
+          "Ages 8 and up, no batteries, no screen time",
         ]}
         addons={addons}
       />
@@ -54,19 +54,19 @@ export default async function NatGeoVolcanoPage() {
             icon: "sparkles",
             title: "A Real Eruption",
             description:
-              "The included eruption powders create a bubbling, flowing eruption — enough powder is included for multiple goes.",
+              "The included eruption powders create a bubbling, flowing eruption, with enough powder for multiple goes.",
           },
           {
             icon: "refresh",
             title: "Erupt It Again and Again",
             description:
-              "The volcano model is reusable. Once the kit powders run out, keep going with household vinegar and baking soda — there's no limit to the eruptions.",
+              "The volcano model is reusable. Once the kit powders run out, keep going with household vinegar and baking soda. There's no limit to the eruptions.",
           },
           {
             icon: "star",
             title: "Two Real Volcanic Specimens",
             description:
-              "A genuine piece of pumice and a geode fragment come in the box — not replicas. Examine them, compare them against the guide, and start a rock collection.",
+              "A genuine piece of pumice and a geode fragment come in the box, not replicas. Examine them, compare them against the guide, and start a rock collection.",
           },
           {
             icon: "book",
@@ -78,7 +78,7 @@ export default async function NatGeoVolcanoPage() {
             icon: "palette",
             title: "Paint It Your Way",
             description:
-              "Paints and a paintbrush are included to decorate the dried volcano however your child imagines it — realistic, wild, or somewhere in between.",
+              "Paints and a paintbrush are included to decorate the dried volcano however your child imagines it: realistic, wild, or somewhere in between.",
           },
           {
             icon: "time",
@@ -93,7 +93,7 @@ export default async function NatGeoVolcanoPage() {
         image="/images/products/national-geographic-build-your-own-volcano/3-kids-boy-puring-liquid-into-bubbling-volcano.jpg"
         imageAlt="Three children watching their volcano erupt with fizzing lava"
         title="The Payoff Is Worth the Wait"
-        body="This is not a one-afternoon kit. Your child mixes plaster, fills the mould, and waits for the volcano to set — a day of anticipation before they even pick up a paintbrush. Then comes decorating: their volcano, their colours. And then, finally, the moment they've been building toward: mix the powders, add the water, and watch real chemistry happen right in front of them. That sequence — the patience, the creativity, the payoff — is what makes this more than just a science experiment."
+        body="This is not a one-afternoon kit. Your child mixes plaster, fills the mould, and waits for the volcano to set: a day of anticipation before they even pick up a paintbrush. Then comes decorating: their volcano, their colours. And then, finally, the moment they've been building toward: mix the powders, add the water, and watch real chemistry happen right in front of them. That sequence (the patience, the creativity, the payoff) is what makes this more than just a science experiment."
         layout="image-left"
         background="gray"
         imageObjectPosition="50% 75%"
@@ -108,7 +108,7 @@ export default async function NatGeoVolcanoPage() {
             src: "/images/products/national-geographic-build-your-own-volcano/boy-stirring-volcano-mix.jpg",
             alt: "Boy stirring volcano plaster mix",
             label: "Mixing Day",
-            description: "Mixing the plaster — the first step of the build.",
+            description: "Mixing the plaster: the first step of the build.",
           },
           {
             src: "/images/products/national-geographic-build-your-own-volcano/child-painting-volcano-with-box-in-front.jpg",
@@ -120,7 +120,7 @@ export default async function NatGeoVolcanoPage() {
             src: "/images/products/national-geographic-build-your-own-volcano/girl-painting-volcano.jpg",
             alt: "Girl carefully painting her volcano",
             label: "Their Volcano",
-            description: "Every volcano looks a little different — painted their own way.",
+            description: "Every volcano looks a little different, painted their own way.",
           },
         ]}
       />
@@ -134,7 +134,7 @@ export default async function NatGeoVolcanoPage() {
           {
             question: "What age is this kit best for?",
             answer:
-              "The kit is recommended for ages 8 and up. The plaster mixing and chemical powders mean younger children should have a grown-up closely involved throughout. Kids around 8–11 will find it most rewarding with a bit of help — older children can tackle most of it independently.",
+              "The kit is recommended for ages 8 and up. The plaster mixing and chemical powders mean younger children should have a grown-up closely involved throughout. Kids around 8–11 will find it most rewarding with a bit of help; older children can tackle most of it independently.",
           },
           {
             question: "How long does the whole project take?",
@@ -144,7 +144,7 @@ export default async function NatGeoVolcanoPage() {
           {
             question: "Is it messy? Will it stain?",
             answer:
-              "Plaster can be messy during the casting step — cover your work surface before you start. The eruption powders are unlikely to stain if handled carefully. We recommend doing the eruption somewhere easy to wipe down.",
+              "Plaster can be messy during the casting step, so cover your work surface before you start. The eruption powders are unlikely to stain if handled carefully. We recommend doing the eruption somewhere easy to wipe down.",
           },
           {
             question: "Does my child need adult help?",
@@ -154,7 +154,7 @@ export default async function NatGeoVolcanoPage() {
           {
             question: "Can they erupt it more than once?",
             answer:
-              "Yes — the volcano model is built to last and can be erupted repeatedly. The included powders are good for multiple eruptions. Once they're used up, household baking soda and vinegar work just as well, so the fun doesn't stop when the kit runs out.",
+              "Yes, the volcano model is built to last and can be erupted repeatedly. The included powders are good for multiple eruptions. Once they're used up, household baking soda and vinegar work just as well, so the fun doesn't stop when the kit runs out.",
           },
           {
             question: "Is it safe?",
@@ -175,7 +175,7 @@ export default async function NatGeoVolcanoPage() {
         imageAlt="National Geographic Build Your Own Volcano Kit contents laid out"
         background="gray"
         items={[
-          "Plaster — for casting the volcano",
+          "Plaster for casting the volcano",
           "Volcano mould",
           "Eruption powder (enough for multiple eruptions)",
           "Paint set and paintbrush",
@@ -188,7 +188,7 @@ export default async function NatGeoVolcanoPage() {
 
       <CallToAction
         title="Ready for the Big Eruption?"
-        subtitle="Everything you need to build, decorate, and erupt — right in the box."
+        subtitle="Everything you need to build, decorate, and erupt. Right in the box."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -209,7 +209,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Make your own erupting volcano — cast it from plaster, paint it your way, and trigger a bubbling eruption. Includes 2 genuine volcanic specimens and a full-colour guide. Ages 8+.",
+      "Cast a volcano from plaster, paint it your way, and trigger a real bubbling eruption. Includes 2 genuine volcanic specimens and a full-colour guide. Ages 8+.",
     alternates: {
       canonical: "/product/national-geographic-build-your-own-volcano",
     },

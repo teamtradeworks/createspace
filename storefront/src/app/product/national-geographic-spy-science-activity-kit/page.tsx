@@ -32,12 +32,12 @@ export default async function NatGeoSpyScienceKitPage() {
 
       <HeroSection
         product={product}
-        tagline="Crack codes, write invisible messages, and spy around corners — 10 secret missions await"
+        tagline="Crack codes, write invisible messages, and spy around corners. 10 secret missions await."
         highlights={[
-          "10 guided spy missions — sealed in a real mission envelope",
+          "10 guided spy missions, sealed in a real mission envelope",
           "Real gadgets: UV light, invisible ink pen, periscope & decoder wheels",
           "Ages 8–12 · screen-free · no coding or tools needed",
-          "National Geographic quality — real science behind every gadget",
+          "Real science behind every gadget",
         ]}
         addons={addons}
       />
@@ -60,25 +60,25 @@ export default async function NatGeoSpyScienceKitPage() {
             icon: "eye",
             title: "Real Gadgets That Actually Work",
             description:
-              "The periscope sees around corners. The UV light reveals hidden ink. The decoder wheels crack actual ciphers. These aren't toy imitations — they're functional tools modelled on real spycraft equipment.",
+              "The periscope sees around corners. The UV light reveals hidden ink. The decoder wheels crack actual ciphers. These aren't toy imitations: they're functional tools modelled on real spycraft equipment.",
           },
           {
             icon: "lightbulb",
             title: "The Science Behind the Secrets",
             description:
-              "UV fluorescence, mirror optics, substitution ciphers — every gadget is grounded in real science. The guidebook explains the how and the why, including the history of spying from ancient times to today.",
+              "UV fluorescence, mirror optics, substitution ciphers: every gadget is grounded in real science. The guidebook explains the how and the why, including the history of spying from ancient times to today.",
           },
           {
             icon: "book",
-            title: "National Geographic Quality",
+            title: "Real Science Behind the Gadgets",
             description:
-              "NatGeo's curiosity-first approach runs through everything — from the quality of the gadgets to the depth of the guidebook. It's the trusted exploration brand, applied to your child's backyard.",
+              "The guidebook covers the science and history behind each gadget: mirror optics, UV fluorescence, and cipher history from ancient codes to WWII. That depth is what separates NatGeo kits from cheaper alternatives.",
           },
           {
             icon: "puzzle",
             title: "10 Missions, Hours of Play",
             description:
-              "Each mission takes 10–30 minutes of screen-free, independent fun. Once the last mission is done, the blank decoder wheel and spy notebook keep the adventure going — children invent new codes and recruit friends.",
+              "Each mission takes 10–30 minutes of screen-free, independent fun. Once the last mission is done, the blank decoder wheel and spy notebook keep the adventure going: children invent new codes and recruit friends.",
           },
         ]}
         columns={2}
@@ -88,25 +88,25 @@ export default async function NatGeoSpyScienceKitPage() {
       {/* white */}
       <ProjectShowcase
         title="10 Secret Missions"
-        highlight="10 guided spy missions — sealed inside a real mission envelope"
-        subtitle="Open the envelope and begin. Each mission puts a different gadget to work — cracking codes, gathering intel, writing messages only a UV light can reveal."
+        highlight="10 guided spy missions, sealed inside a real mission envelope"
+        subtitle="Open the envelope and begin. Each mission puts a different gadget to work: cracking codes, gathering intel, writing messages only a UV light can reveal."
         projects={[
           {
             name: "Gather and Analyse Intel",
             description:
-              "Use your spy notebook to observe and document surroundings — nature, animals, and everyday objects become your first surveillance targets.",
+              "Use your spy notebook to observe and document surroundings. Nature, animals, and everyday objects become your first surveillance targets.",
             concepts: "Observation, data collection, note-taking",
           },
           {
             name: "Create Your Secret Identity",
             description:
-              "Design your spy persona using stickers and the official badge — invent a name, a cover story, and a disguise worthy of an elite agent.",
+              "Design your spy persona using stickers and the official badge. Invent a name, a cover story, and a disguise worthy of an elite agent.",
             concepts: "Creative thinking, narrative development",
           },
           {
             name: "Decode a Secret Message",
             description:
-              "The mission envelope contains an encrypted message. Use the pre-filled decoder wheel to translate it — and discover your first assignment.",
+              "The mission envelope contains an encrypted message. Use the pre-filled decoder wheel to translate it and discover your first assignment.",
             concepts: "Substitution ciphers, logical reasoning",
           },
           {
@@ -118,11 +118,11 @@ export default async function NatGeoSpyScienceKitPage() {
           {
             name: "Write and Reveal an Invisible Message",
             description:
-              "Write a hidden message with the invisible ink pen — invisible to the naked eye — then watch it reappear under UV light.",
+              "Write a hidden message with the invisible ink pen (invisible to the naked eye), then watch it reappear under UV light.",
             concepts: "UV light, fluorescence, light science",
           },
         ]}
-        moreText="Plus 5 more missions inside the envelope — including periscope surveillance, rearview observation, and spycraft history challenges"
+        moreText="Plus 5 more missions inside the envelope, including periscope surveillance, rearview observation, and spycraft history challenges"
         columns={3}
         background="white"
       />
@@ -139,7 +139,7 @@ export default async function NatGeoSpyScienceKitPage() {
           {
             question: "Can my child do this on their own?",
             answer:
-              "Yes — the missions are designed for independent play. The mission envelope and guidebook provide clear, step-by-step instructions for each mission. There's no setup required from a parent beyond handing over the kit.",
+              "Yes, the missions are designed for independent play. The mission envelope and guidebook provide clear, step-by-step instructions for each mission. There's no setup required from a parent beyond handing over the kit.",
           },
           {
             question: "How long does each mission take?",
@@ -149,7 +149,7 @@ export default async function NatGeoSpyScienceKitPage() {
           {
             question: "Is the invisible ink safe?",
             answer:
-              "Yes. The pen uses UV-reactive ink — non-toxic and safe for children. The UV light is a small, low-power torch — safe for normal use, but avoid shining it directly into eyes.",
+              "Yes. The pen uses UV-reactive ink, non-toxic and safe for children. The UV light is a small, low-power torch, safe for normal use. Avoid shining it directly into eyes.",
           },
           {
             question: "Can the missions be repeated or replayed?",
@@ -159,7 +159,7 @@ export default async function NatGeoSpyScienceKitPage() {
           {
             question: "What will my child actually get out of this?",
             answer:
-              "Beyond the fun, the missions naturally build observation skills, logical thinking, and patience. Code-breaking requires systematic reasoning. Intel-gathering trains attention to detail. Most parents notice their children becoming more curious about how things work — and more confident tackling problems independently.",
+              "Beyond the fun, the missions naturally build observation skills, logical thinking, and patience. Code-breaking requires systematic reasoning. Intel-gathering trains attention to detail. Most parents notice their children becoming more curious about how things work, and more confident tackling problems independently.",
           },
         ]}
         background="gray"
@@ -188,7 +188,7 @@ export default async function NatGeoSpyScienceKitPage() {
       {/* navy */}
       <CallToAction
         title="Accept the Mission"
-        subtitle="10 guided spy missions, real working gadgets, and the science behind the secrets — no screens, no coding, just adventure."
+        subtitle="10 guided spy missions, real working gadgets, and the science behind the secrets. No screens, no coding, just adventure."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -209,7 +209,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Complete 10 guided spy missions with real gadgets — UV light, invisible ink, periscope & decoder wheels. National Geographic quality for ages 8–12. No screens needed.",
+      "Complete 10 guided spy missions with real gadgets: UV light, invisible ink, periscope and decoder wheels. Ages 8–12. No screens needed.",
     alternates: {
       canonical: "/product/national-geographic-spy-science-activity-kit",
     },
