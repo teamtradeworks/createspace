@@ -36,7 +36,7 @@ export default async function NatGeoHumanBodyPage() {
         product={product}
         tagline="Piece together a skeleton. Examine every organ. Watch it glow in the dark."
         highlights={[
-          "32-piece interactive anatomy model — organs, bones, and muscles",
+          "32-piece interactive anatomy model: organs, bones, and muscles",
           "Glow-in-the-dark skeleton that comes to life when the lights go off",
           "Ages 8–12 · No apps, everything included",
           "2025 NAPPA Award Winner · National Geographic",
@@ -64,7 +64,7 @@ export default async function NatGeoHumanBodyPage() {
             icon: "touch",
             title: "Squishy Organs You Can Actually Hold",
             description:
-              "Nine anatomically correct organs — each one removable from the body shell by hand or with the included forceps. The heart. The brain. The lungs. Picking them up one at a time is what makes them real.",
+              "Nine anatomically correct organs, each one removable from the body shell by hand or with the included forceps. The heart. The brain. The lungs. Picking them up one at a time is what makes them real.",
           },
           {
             icon: "sparkles",
@@ -82,7 +82,7 @@ export default async function NatGeoHumanBodyPage() {
             icon: "star",
             title: "A Finished Model Worth Displaying",
             description:
-              "Once built, the body stands on its own display stand. Building it is the activity — displaying it is the reward. A 2025 NAPPA Award Winner, independently evaluated for educational quality.",
+              "Once built, the body stands on its own display stand. Building it is the activity; displaying it is the reward. A 2025 NAPPA Award Winner, independently evaluated for educational quality.",
           },
         ]}
       />
@@ -92,7 +92,7 @@ export default async function NatGeoHumanBodyPage() {
         image="/images/products/national-geographic-glow-in-the-dark-human-body/body-on-stand-with-forceps.jpg"
         imageAlt="Human body anatomy model on display stand with forceps"
         title="Not Just a Diagram"
-        body="This is different from reading about the human body — it&rsquo;s picking up each organ, turning it over, and fitting it back into exactly the right spot. The liver is bigger than expected. The intestines take up more room than they should. The trachea is oddly light. These are the kinds of discoveries that stick with kids long after the model is back on the shelf."
+        body="This is different from reading about the human body: it's picking up each organ, turning it over, and fitting it back into exactly the right spot. The liver is bigger than expected. The intestines take up more room than they should. The trachea is oddly light. These are the kinds of discoveries that stick with kids long after the model is back on the shelf."
         layout="image-left"
         background="white"
       />
@@ -137,19 +137,19 @@ export default async function NatGeoHumanBodyPage() {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/body-on-stand-built.jpg",
             alt: "Fully assembled human body model on the display stand",
             label: "Built",
-            description: "Fully assembled — every organ and bone in place",
+            description: "Fully assembled, every organ and bone in place",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/close-up-of-body.jpg",
             alt: "Close-up of the anatomically detailed human body model",
             label: "Close Up",
-            description: "Anatomically accurate detail — organs and bones that look the part",
+            description: "Anatomically accurate detail: organs and bones that look the part",
           },
           {
             src: "/images/products/national-geographic-glow-in-the-dark-human-body/glowing-in-the-dark.jpg",
             alt: "Human body skeleton glowing in the dark",
             label: "Glowing",
-            description: "The glow-in-the-dark reveal — the moment every build works toward",
+            description: "The glow-in-the-dark reveal: the moment every build works toward",
           },
         ]}
       />
@@ -165,44 +165,44 @@ export default async function NatGeoHumanBodyPage() {
           {
             question: "What age is this best for?",
             answer:
-              "The kit is designed for ages 8–12. Confident 8-year-olds can work through most of the assembly independently using the identification chart — the guide is clear and child-friendly. Children aged 10 and up will typically manage the whole thing on their own. Note that the kit contains small parts, so younger siblings (under 3) should not have unsupervised access to the pieces.",
+              "The kit is designed for ages 8–12. Confident 8-year-olds can work through most of the assembly independently using the identification chart. The guide is clear and child-friendly. Children aged 10 and up will typically manage the whole thing on their own. Note that the kit contains small parts, so younger siblings (under 3) should not have unsupervised access to the pieces.",
           },
           {
             question: "Does it need batteries or an app?",
             answer:
-              "No — nothing extra is needed. The glow-in-the-dark bones charge passively under any light source: a lamp, a window, sunlight, or even a bright classroom. No cables, no downloads, no screens. Switch off the lights and the skeleton glows.",
+              "Nothing extra is needed. The glow-in-the-dark bones charge passively under any light source: a lamp, a window, sunlight, or even a bright classroom. No cables, no downloads, no screens. Switch off the lights and the skeleton glows.",
           },
           {
             question: "How long does it take to build?",
             answer:
-              "The first assembly with the identification chart takes around 20–30 minutes. Subsequent assemblies are quicker — 10–15 minutes once children know where everything goes. Reading through the illustrated learning guide adds another 20–30 minutes if they want to go deeper. Most kids end up rebuilding it multiple times.",
+              "The first assembly with the identification chart takes around 20–30 minutes. Subsequent assemblies are quicker, around 10–15 minutes once children know where everything goes. Reading through the illustrated learning guide adds another 20–30 minutes if they want to go deeper. Most kids end up rebuilding it multiple times.",
           },
           {
             question: "Can it be taken apart and rebuilt?",
             answer:
-              "Yes, as many times as they like. There are no consumables, no glue, and no fragile parts that wear out. The glow-in-the-dark bones recharge every time they&rsquo;re left in the light. Many kids move from guided assembly (using the chart) to building entirely from memory — which is a natural sign of how much they&rsquo;ve absorbed.",
+              "Yes, as many times as they like. There are no consumables, no glue, and no fragile parts that wear out. The glow-in-the-dark bones recharge every time they're left in the light. Many kids move from guided assembly (using the chart) to building entirely from memory, which is a natural sign of how much they've absorbed.",
           },
           {
             question: "Does the glow-in-the-dark actually work well?",
             answer:
-              "Yes — the glow is clearly visible in a dark room. The brighter the light source beforehand, the stronger the glow. A few minutes under a good lamp is enough; direct sunlight works especially well. The effect is dramatic enough to genuinely surprise kids who haven&rsquo;t seen it before.",
+              "Yes, the glow is clearly visible in a dark room. The brighter the light source beforehand, the stronger the glow. A few minutes under a good lamp is enough; direct sunlight works especially well. The effect is dramatic enough to genuinely surprise kids who haven't seen it before.",
           },
           {
             question: "Is it messy or difficult to set up?",
             answer:
-              "No preparation needed at all — everything comes in the box ready to use. No paint, no glue, no water. Just open it, read the chart, and start assembling. The forceps make it easy to handle smaller pieces without fumbling.",
+              "No preparation needed at all. Everything comes in the box ready to use. No paint, no glue, no water. Just open it, read the chart, and start assembling. The forceps make it easy to handle smaller pieces without fumbling.",
           },
           {
             question: "What will my child get out of it?",
             answer:
-              'A real familiarity with the human body — the names of major organs and bones, where they live, and roughly what they do. Having physically held and placed each piece makes the information stick in a way that reading about it never quite does. Kids who&rsquo;ve built this model tend to use words like "diaphragm" and "trachea" in ordinary conversation shortly afterwards, and approach biology topics at school with noticeably more confidence.',
+              'A real familiarity with the human body: the names of major organs and bones, where they live, and roughly what they do. Having physically held and placed each piece makes the information stick in a way that reading about it never quite does. Kids who\'ve built this model tend to use words like "diaphragm" and "trachea" in ordinary conversation shortly afterwards, and approach biology topics at school with noticeably more confidence.',
           },
         ]}
       />
 
       {/* white */}
       <WhatsIncluded
-        title="What&rsquo;s in the Box"
+        title="What's in the Box"
         image="/images/products/national-geographic-glow-in-the-dark-human-body/whats-in-the-box.jpg"
         imageAlt="National Geographic Glow-in-the-Dark Human Body kit contents laid out"
         background="white"

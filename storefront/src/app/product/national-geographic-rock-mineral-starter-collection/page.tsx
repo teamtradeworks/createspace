@@ -33,9 +33,9 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
 
       <HeroSection
         product={product}
-        tagline="Ten real specimens from around the world — hold Earth's history in your hands."
+        tagline="Ten real specimens from around the world: pyrite, tiger's eye, rose quartz, and seven more."
         highlights={[
-          "10 authentic rocks, gemstones, and crystals — including pyrite (fool's gold), tiger's eye, and rose quartz",
+          "10 authentic rocks, gemstones, and crystals, including pyrite (fool's gold), tiger's eye, and rose quartz",
           "Ages 8+",
           "Acrylic display case with a separate compartment for every specimen",
           "Full-colour learning guide and magnifying glass included",
@@ -56,7 +56,7 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
             icon: "globe",
             title: "Real Specimens, Not Replicas",
             description:
-              "Every piece in this collection is a genuine rock, gemstone, or crystal — not a model or a cast. Children are holding the actual thing: volcanic glass formed from cooling lava, iron minerals that ancient civilisations used as pigment, crystals that took thousands of years to grow.",
+              "Every piece in this collection is a genuine rock, gemstone, or crystal, not a model or a cast. Children are holding the actual thing: volcanic glass formed from cooling lava, iron minerals that ancient civilisations used as pigment, crystals that took thousands of years to grow.",
           },
           {
             icon: "sparkles",
@@ -68,13 +68,13 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
             icon: "refresh",
             title: "A Collection That Lasts Forever",
             description:
-              "No consumables, no batteries, nothing to replace. Once these specimens are in the display case, they stay — growing in interest as children learn more about each one. Many children add outdoor finds alongside them and keep the collection for years.",
+              "No consumables, no batteries, nothing to replace. Once these specimens are in the display case, they stay, growing in interest as children learn more about each one. Many children add outdoor finds alongside them and keep the collection for years.",
           },
           {
             icon: "eye",
             title: "Organised, Displayed, and Shown Off",
             description:
-              "The sealed acrylic case keeps every specimen in its own compartment and lets you see all 10 at once. It sits on a shelf, on a desk, or on a windowsill — part display, part conversation starter, and something a child can genuinely call their own.",
+              "The sealed acrylic case keeps every specimen in its own compartment and lets you see all 10 at once. It sits on a shelf, on a desk, or on a windowsill: part display, part conversation starter, and something a child can genuinely call their own.",
           },
         ]}
       />
@@ -88,7 +88,7 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
         background="gray"
         projects={[
           {
-            name: "Pyrite — Fool's Gold",
+            name: "Pyrite (Fool's Gold)",
             description:
               "Cubic crystals with a metallic gold shine that has fooled people for centuries. Compare it to descriptions of real gold and see if you can spot the difference.",
             concepts: "Mineral identification, crystal systems",
@@ -96,31 +96,31 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
           {
             name: "Tiger's Eye",
             description:
-              "Slowly rotate this gemstone under a light and watch a silky golden shimmer move across the surface — an optical effect caused by fibrous mineral inclusions inside the stone.",
+              "Slowly rotate this gemstone under a light and watch a silky golden shimmer move across the surface: an optical effect caused by fibrous mineral inclusions inside the stone.",
             concepts: "Optical mineralogy, light reflection",
           },
           {
             name: "Rose Quartz",
             description:
-              "One of the most recognisable crystals in the world — a soft pink variety of quartz coloured by trace minerals. Hold it up to a light to see its gentle translucency.",
+              "One of the most recognisable crystals in the world: a soft pink variety of quartz coloured by trace minerals. Hold it up to a light to see its gentle translucency.",
             concepts: "Quartz varieties, crystal formation",
           },
           {
             name: "Geode",
             description:
-              "A hollow rock lined with crystals on the inside — what looks plain on the outside hides a sparkling interior. A perfect introduction to how crystals grow in nature.",
+              "A hollow rock lined with crystals on the inside. What looks plain on the outside hides a sparkling interior. A perfect introduction to how crystals grow in nature.",
             concepts: "Crystal growth, geological cavities",
           },
           {
             name: "Pumice",
             description:
-              "Drop it in water and watch it float — it's the only rock that does. Formed from lava packed with trapped gas bubbles, it's so porous it's lighter than water even after it solidifies.",
+              "Drop it in water and watch it float. It's the only rock that does. Formed from lava packed with trapped gas bubbles, it's so porous it's lighter than water even after it solidifies.",
             concepts: "Volcanic rocks, density, porosity",
           },
           {
             name: "Green Fluorite",
             description:
-              "Often banded with multiple shades of green in a single piece. One of the most visually striking specimens in the collection — and a classic for studying crystal structure and cleavage.",
+              "Often banded with multiple shades of green in a single piece. One of the most visually striking specimens in the collection, and a classic for studying crystal structure and cleavage.",
             concepts: "Crystal structure, cleavage, colour in minerals",
           },
         ]}
@@ -130,7 +130,7 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
       {/* white */}
       <CustomerShowcase
         title="The Collection Up Close"
-        subtitle="Real specimens, real colours — straight out of the box."
+        subtitle="Real specimens, real colours. Straight out of the box."
         background="white"
         images={[
           {
@@ -138,7 +138,7 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
             alt: "National Geographic Rock and Mineral Starter Collection box opened, showing the identification sheet and acrylic display case",
             label: "Unboxed",
             description:
-              "The collection laid out — identification sheet, display case, and all 10 specimens",
+              "The collection laid out: identification sheet, display case, and all 10 specimens",
           },
           {
             src: "/images/products/national-geographic-rock-mineral-starter-collection/close-up-of-box.jpeg",
@@ -160,22 +160,22 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
           {
             question: "What age is this best for?",
             answer:
-              "The collection is designed for ages 8 and up. An 8-year-old can use the learning guide and magnifying glass independently. Younger children can enjoy it with a parent alongside them — the specimens are safe to handle but do have small parts, so they're not for children under 3.",
+              "The collection is designed for ages 8 and up. An 8-year-old can use the learning guide and magnifying glass independently. Younger children can enjoy it with a parent alongside them, though the specimens do have small parts, so they're not for children under 3.",
           },
           {
             question: "Are the rocks real, or are they models?",
             answer:
-              "They are real. Every one of the 10 specimens is an authentic geological sample — not a cast, replica, or painted rock. The pyrite genuinely has a metallic gold shine. The tiger's eye genuinely shimmers. The geode genuinely hides crystals inside. That is what makes this collection engaging in a way that pictures simply cannot replicate.",
+              "They are real. Every one of the 10 specimens is an authentic geological sample: not a cast, replica, or painted rock. The pyrite genuinely has a metallic gold shine. The tiger's eye genuinely shimmers. The geode genuinely hides crystals inside. That is what makes this collection engaging in a way that pictures simply cannot replicate.",
           },
           {
             question: "Will the specimens last? Are they fragile?",
             answer:
-              "Natural rock and mineral specimens are very durable under normal handling. The display case keeps each one in its own compartment to prevent knocking and scratching. Treat them with reasonable care and they will last indefinitely — many collectors keep their first sets for decades.",
+              "Natural rock and mineral specimens are very durable under normal handling. The display case keeps each one in its own compartment to prevent knocking and scratching. Treat them with reasonable care and they will last indefinitely. Many collectors keep their first sets for decades.",
           },
           {
             question: "Is there any setup, mess, or safety concern?",
             answer:
-              "No setup, no mess, no chemicals. The specimens come ready to place in the case. The only thing to be mindful of is the small size of some pieces — not suitable for children under 3. Otherwise, it is as straightforward as it gets: open the box, place the specimens, start exploring.",
+              "No setup, no mess, no chemicals. The specimens come ready to place in the case. The only thing to be mindful of is the small size of some pieces, which means not suitable for children under 3. Otherwise: open the box, place the specimens, start exploring.",
           },
           {
             question: "Does my child need any help getting started?",
@@ -185,12 +185,12 @@ export default async function NatGeoRockMineralStarterCollectionPage() {
           {
             question: "Can the collection be expanded?",
             answer:
-              "Yes — in two ways. The display case can accommodate informal additions as children find interesting rocks outdoors. And National Geographic produces a wide range of geology and earth science products (larger rock collections, geode kits, fossil sets, rock tumblers) that pair naturally with this starter collection as a next step.",
+              "Yes, in two ways. The display case can accommodate informal additions as children find interesting rocks outdoors. And National Geographic produces a wide range of geology and earth science products (larger rock collections, geode kits, fossil sets, rock tumblers) that pair naturally with this starter collection as a next step.",
           },
           {
             question: "What will my child actually get out of this?",
             answer:
-              "Mostly, a genuine fascination with the natural world. Children who spend time with a rock collection start noticing stones on hikes, asking questions about mountains and volcanoes, and using vocabulary — crystal, obsidian, volcanic, lustre — that comes from direct experience rather than a classroom. The satisfaction of identifying a real specimen from its properties is a different kind of confidence-building than any screen-based activity.",
+              "Mostly, a genuine fascination with the natural world. Children who spend time with a rock collection start noticing stones on hikes, asking questions about mountains and volcanoes, and picking up vocabulary (crystal, obsidian, volcanic, lustre) from direct experience rather than a classroom. The satisfaction of identifying a real specimen from its properties is a different kind of confidence-building than any screen-based activity.",
           },
         ]}
       />
@@ -233,7 +233,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "10 real rocks, gemstones, and crystals from around the world — including pyrite, tiger's eye, rose quartz, and green fluorite. Includes display case, magnifying glass, and learning guide. Ages 8+.",
+      "10 real rocks, gemstones, and crystals from around the world, including pyrite, tiger's eye, rose quartz, and green fluorite. Includes display case, magnifying glass, and learning guide. Ages 8+.",
     alternates: {
       canonical: "/product/national-geographic-rock-mineral-starter-collection",
     },

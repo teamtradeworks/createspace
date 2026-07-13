@@ -36,10 +36,10 @@ export default async function NatGeoMegaBugHabitatPage() {
         product={product}
         tagline="Catch real bugs. See them up close. Return them to the wild."
         highlights={[
-          "Real tools for real bug-catching — net, catcher, and tweezers included",
+          "Real tools for real bug-catching: net, catcher, and tweezers included",
           "Dual magnifiers let you see bugs in incredible detail, even while they move",
-          "Ages 4+ — ready to use the moment you step outside",
-          "Field guide with achievement stickers — a new sticker for every bug you find",
+          "Ages 4+, ready to use the moment you step outside",
+          "Field guide with achievement stickers: a new sticker for every bug you find",
         ]}
         addons={addons}
       />
@@ -62,25 +62,25 @@ export default async function NatGeoMegaBugHabitatPage() {
             icon: "eye",
             title: "Dual Magnification System",
             description:
-              "Two magnifiers built right into the lid — a large stationary viewer for close-up detail, and a 360° rotating telescoping magnifier that follows your bug as it moves. Kids can watch legs, antennae, and wings in action.",
+              "Two magnifiers built right into the lid: a large stationary viewer for close-up detail, and a 360° rotating telescoping magnifier that follows your bug as it moves. Kids can watch legs, antennae, and wings in action.",
           },
           {
             icon: "compass",
             title: "See Everything, Miss Nothing",
             description:
-              "The fully clear cylindrical habitat gives a 360° view of every angle. The removable base makes it easy to get bugs in and out. No fumbling, no dark corners — just an unobstructed window into a tiny world.",
+              "The fully clear cylindrical habitat gives a 360° view of every angle. The removable base makes it easy to get bugs in and out. No fumbling, no dark corners: just an unobstructed window into a tiny world.",
           },
           {
             icon: "star",
             title: "Collect, Identify, Earn Stickers",
             description:
-              "The full-colour field guide is packed with bug facts and comes loaded with achievement stickers — one for every type of bug caught and logged. It turns the backyard into a collection challenge that kids want to come back to.",
+              "The full-colour field guide is packed with bug facts and comes loaded with achievement stickers: one for every type of bug caught and logged. It turns the backyard into a collection challenge that kids want to come back to.",
           },
           {
             icon: "handshake",
             title: "Catch-and-Release by Design",
             description:
-              "The scissor-style bug catcher, net, and tweezers are built for gentle handling. The learning guide teaches kids from the start that bugs are living creatures that need to go back home — observation with respect baked in.",
+              "The scissor-style bug catcher, net, and tweezers are built for gentle handling. The learning guide teaches kids from the start that bugs are living creatures that need to go back home. Observation with respect baked in.",
           },
         ]}
         columns={2}
@@ -90,8 +90,8 @@ export default async function NatGeoMegaBugHabitatPage() {
       {/* white */}
       <ProjectShowcase
         title="What You'll Do"
-        highlight="10 open-ended bug adventures — no two sessions are ever the same"
-        subtitle="From the garden to under rocks to the flower bed — bugs are everywhere once you start looking."
+        highlight="10 open-ended bug adventures: no two sessions are ever the same"
+        subtitle="From the garden to under rocks to the flower bed, bugs are everywhere once you start looking."
         projects={[
           {
             name: "Bug Hunt",
@@ -108,13 +108,13 @@ export default async function NatGeoMegaBugHabitatPage() {
           {
             name: "Close-Up Study",
             description:
-              "Peer through the stationary magnifier to examine your bug in extraordinary detail — legs, eyes, wings, and body segments revealed.",
+              "Peer through the stationary magnifier to examine your bug in extraordinary detail: legs, eyes, wings, and body segments revealed.",
             concepts: "Scientific observation, vocabulary",
           },
           {
             name: "Motion Tracking",
             description:
-              "Use the rotating telescoping magnifier to follow your bug as it moves — zooming in and out, swivelling to stay on target.",
+              "Use the rotating telescoping magnifier to follow your bug as it moves, zooming in and out, swivelling to stay on target.",
             concepts: "Visual processing, focus, coordination",
           },
           {
@@ -126,11 +126,11 @@ export default async function NatGeoMegaBugHabitatPage() {
           {
             name: "Habitat Study",
             description:
-              "Think about where you found your bug and why. The learning guide explains what different bugs need to survive — and why your garden is full of them.",
+              "Think about where you found your bug and why. The learning guide explains what different bugs need to survive, and why your garden is full of them.",
             concepts: "Ecology, environmental science, cause and effect",
           },
         ]}
-        moreText="Plus glow-in-the-dark play with the 3 collectible figures, bug logging with achievement stickers, and the most important step of all — returning your bugs safely to where they came from"
+        moreText="Plus glow-in-the-dark play with the 3 collectible figures, bug logging with achievement stickers, and the most important step of all: returning your bugs safely to where they came from"
         columns={3}
         background="white"
       />
@@ -138,7 +138,7 @@ export default async function NatGeoMegaBugHabitatPage() {
       {/* gray */}
       <CustomerShowcase
         title="Bug Scientists in the Wild"
-        subtitle="Real kids, real backyards, real bugs — the discovery starts the moment the kit is opened"
+        subtitle="Real kids, real backyards, real bugs: the discovery starts the moment the kit is opened"
         images={[
           {
             src: "/images/products/national-geographic-mega-bug-habitat/girl-in-garden-looking-through-magnifying-glass.png",
@@ -156,7 +156,7 @@ export default async function NatGeoMegaBugHabitatPage() {
             src: "/images/products/national-geographic-mega-bug-habitat/bugs-caught-in-bug-habitat.png",
             alt: "Bugs caught and observed inside the clear habitat",
             label: "Caught!",
-            description: "A successful catch — ready for close-up study",
+            description: "A successful catch, ready for close-up study",
           },
           {
             src: "/images/products/national-geographic-mega-bug-habitat/moth-captured.png",
@@ -202,22 +202,22 @@ export default async function NatGeoMegaBugHabitatPage() {
           {
             question: "What age is this best for?",
             answer:
-              "The kit is designed for ages 4 and up. Younger children (4–6) will love the hands-on tools and the thrill of the catch, and may need a little help from a parent at first. Children 7 and older can typically run a full bug-catching session independently — from hunting to identifying to logging their find. The field guide and achievement stickers keep older kids engaged and coming back for more.",
+              "The kit is designed for ages 4 and up. Younger children (4–6) will love the hands-on tools and the thrill of the catch, and may need a little help from a parent at first. Children 7 and older can typically run a full bug-catching session independently, from hunting to identifying to logging their find. The field guide and achievement stickers keep older kids engaged and coming back for more.",
           },
           {
-            question: "Do we need to find real bugs — what if we can't catch anything?",
+            question: "Do we need to find real bugs? What if we can't catch anything?",
             answer:
-              "Bugs are everywhere once you start looking — under rocks, in grass, near plant pots, in soil, and around lights at night. Most children catch something on their first try. The kit also includes 3 glow-in-the-dark bug figures for play on the days when the bugs aren't cooperating, so the habitat is always in use.",
+              "Bugs are everywhere once you start looking: under rocks, in grass, near plant pots, in soil, and around lights at night. Most children catch something on their first try. The kit also includes 3 glow-in-the-dark bug figures for play on the days when the bugs aren't cooperating, so the habitat is always in use.",
           },
           {
             question: "Can bugs be kept in the habitat overnight?",
             answer:
-              "The kit is designed for same-day observation and release. Bugs can survive for a few hours in the habitat but need their natural environment for food, water, and shelter. The learning guide encourages children to return bugs to where they were found after observation — which is also part of the lesson about treating living creatures with care.",
+              "The kit is designed for same-day observation and release. Bugs can survive for a few hours in the habitat but need their natural environment for food, water, and shelter. The learning guide encourages children to return bugs to where they were found after observation, which is also part of the lesson about treating living creatures with care.",
           },
           {
             question: "Can my child do this independently?",
             answer:
-              "Yes — the tools are designed for child-safe, independent use. The bug catcher has a clear plastic bulb tip for safe handling, the net is lightweight, and the habitat lid latches securely. The field guide provides clear guidance on catching, observing, and identifying bugs. Younger children may enjoy having company for the adventure, but the kit is fully self-contained.",
+              "Yes, the tools are designed for child-safe, independent use. The bug catcher has a clear plastic bulb tip for safe handling, the net is lightweight, and the habitat lid latches securely. The field guide provides clear guidance on catching, observing, and identifying bugs. Younger children may enjoy having company for the adventure, but the kit is fully self-contained.",
           },
           {
             question: "Is it safe? Are there small parts to worry about?",
@@ -227,12 +227,12 @@ export default async function NatGeoMegaBugHabitatPage() {
           {
             question: "How long does a typical session last?",
             answer:
-              "A bug-catching session typically runs between 20 minutes and an hour, though many children spend much longer once they get going. The field guide and achievement sticker system extend engagement back indoors — children identify their catches, log them, and plan what to find next. Because the backyard changes with the seasons, the kit keeps producing new discoveries all year round.",
+              "A bug-catching session typically runs between 20 minutes and an hour, though many children spend much longer once they get going. The field guide and achievement sticker system extend engagement back indoors: children identify their catches, log them, and plan what to find next. Because the backyard changes with the seasons, the kit keeps producing new discoveries all year round.",
           },
           {
             question: "What do children actually get out of this?",
             answer:
-              "Beyond the fun, children develop genuine observation skills, patience, and curiosity — the same mindset real field scientists use. Using the tools builds fine motor skills and hand-eye coordination. Matching bugs to the field guide introduces classification and non-fiction reading. And the catch-and-release ethos builds empathy for small living things. Most parents notice their child spending more time outside, asking more questions, and looking at the world a little differently.",
+              "Beyond the fun, children develop genuine observation skills, patience, and curiosity: the same mindset real field scientists use. Using the tools builds fine motor skills and hand-eye coordination. Matching bugs to the field guide introduces classification and non-fiction reading. And the catch-and-release ethos builds empathy for small living things. Most parents notice their child spending more time outside, asking more questions, and looking at the world a little differently.",
           },
         ]}
         background="gray"
@@ -244,7 +244,7 @@ export default async function NatGeoMegaBugHabitatPage() {
         image="/images/products/national-geographic-mega-bug-habitat/whats-in-the-box.jpg"
         imageAlt="National Geographic Mega Bug Habitat contents laid out"
         items={[
-          "Bug habitat — cylindrical clear housing with 360° view and removable base",
+          "Bug habitat: cylindrical clear housing with 360° view and removable base",
           "Easy-open lid with latches and two built-in magnifying glasses",
           "Scissor-style bug catcher with clear plastic bulb tip",
           "Net (for catching flying or fast-moving insects)",
@@ -260,7 +260,7 @@ export default async function NatGeoMegaBugHabitatPage() {
       {/* navy */}
       <CallToAction
         title="The Backyard Is Bigger Than You Think"
-        subtitle="Real tools, real bugs, real discovery — all in one kit designed to get kids outside and curious."
+        subtitle="Real tools, real bugs, real discovery. All in one kit designed to get kids outside and curious."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
