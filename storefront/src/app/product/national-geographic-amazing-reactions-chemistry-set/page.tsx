@@ -33,7 +33,7 @@ export default async function NatGeoAmazingReactionsPage() {
 
       <HeroSection
         product={product}
-        tagline="Make glow-in-the-dark worms, fizzing reactions, a crystal tree, and more — using real lab equipment."
+        tagline="Make glow-in-the-dark worms, fizzing reactions, a crystal tree, and more, using real lab equipment."
         highlights={[
           "10 guided experiments all focused on chemical reactions",
           "Real lab equipment: test tubes, beaker, pipette, and measuring scoops",
@@ -56,13 +56,13 @@ export default async function NatGeoAmazingReactionsPage() {
             icon: "temperature",
             title: "10 Different Reactions",
             description:
-              "Every experiment covers a different type of chemical reaction — polymers, acid-base, crystallisation, and fluorescence. The variety is what makes this kit so memorable: there's always another kind of chemistry to discover.",
+              "Every experiment covers a different type of chemical reaction: polymers, acid-base, crystallisation, and fluorescence. The variety is what makes this kit so memorable: there's always another kind of chemistry to discover.",
           },
           {
             icon: "tool",
             title: "Real Lab Equipment",
             description:
-              "You get genuine test tubes, a beaker, a pipette, and measuring scoops — sized for small hands but built to work properly. Your child won't just play at science; they'll actually do it.",
+              "You get genuine test tubes, a beaker, a pipette, and measuring scoops, sized for small hands but built to work properly. Your child won't just play at science; they'll actually do it.",
           },
           {
             icon: "star",
@@ -74,7 +74,7 @@ export default async function NatGeoAmazingReactionsPage() {
             icon: "book",
             title: "20 Experiments Total",
             description:
-              "10 guided experiments using the included materials, plus a bonus guide with 10 more experiments using common household items — so the chemistry keeps going long after the kit supplies run out.",
+              "10 guided experiments using the included materials, plus a bonus guide with 10 more experiments using common household items, so the chemistry keeps going long after the kit supplies run out.",
           },
         ]}
       />
@@ -84,7 +84,7 @@ export default async function NatGeoAmazingReactionsPage() {
         image="/images/products/national-geographic-amazing-reactions-chemistry-set/hand-holding-glowing-worms.jpg"
         imageAlt="Hand holding glowing polymer worms made in a chemistry experiment"
         title="The Experiment Everyone Talks About"
-        body="Drip a solution into a chemical bath and watch it solidify into spaghetti-like worms that glow in the dark. It's the experiment that sends kids running to show the whole house — and the one they'll want to repeat. What makes it stick isn't just the spectacle; it's that the guide explains exactly what's happening, turning a wow moment into a genuine understanding of how polymers work."
+        body="Drip a solution into a chemical bath and watch it solidify into spaghetti-like worms that glow in the dark. It's the experiment that sends kids running to show the whole house, and the one they'll want to repeat. What makes it stick isn't just the spectacle; it's that the guide explains exactly what's happening, turning a wow moment into a genuine understanding of how polymers work."
         layout="image-left"
         background="gray"
       />
@@ -93,7 +93,7 @@ export default async function NatGeoAmazingReactionsPage() {
       <ProjectShowcase
         title="10 Amazing Reactions"
         highlight="10 guided experiments using real lab equipment"
-        subtitle="All focused on chemical reactions — work through them all, or pick whichever one looks most exciting first."
+        subtitle="All focused on chemical reactions. Work through them all, or pick whichever one looks most exciting first."
         background="white"
         projects={[
           {
@@ -105,7 +105,7 @@ export default async function NatGeoAmazingReactionsPage() {
           {
             name: "Fizzing Reactions",
             description:
-              "Mix chemicals to create a dramatic fizz — CO₂ gas bubbles out visibly before your eyes.",
+              "Mix chemicals to create a dramatic fizz: CO₂ gas bubbles out visibly before your eyes.",
             concepts: "Acid-base reactions, gas production",
           },
           {
@@ -123,7 +123,7 @@ export default async function NatGeoAmazingReactionsPage() {
           {
             name: "Glowing Test Tube",
             description:
-              "Make a test tube light up — a glowing liquid reaction that looks straight out of a science film.",
+              "Make a test tube light up: a glowing liquid reaction that looks straight out of a science film.",
             concepts: "Fluorescence, UV-reactive chemistry",
           },
           {
@@ -153,7 +153,7 @@ export default async function NatGeoAmazingReactionsPage() {
           {
             name: "Bubbling Reaction",
             description:
-              "Create a vigorous foaming reaction — bubbles form fast, spill over the edge, and keep going.",
+              "Create a vigorous foaming reaction. Bubbles form fast, spill over the edge, and keep going.",
             concepts: "Acid-base reactions, CO₂ gas formation",
           },
         ]}
@@ -176,32 +176,32 @@ export default async function NatGeoAmazingReactionsPage() {
           {
             question: "Is it messy? Will anything stain?",
             answer:
-              "Some experiments produce coloured liquids, so it's worth setting up on a tray or over a sink — especially for the colour-change and fizzing experiments. The easy-clean experiment tray is included for exactly this purpose. The glow-in-the-dark worms experiment involves dripping a solution, so a clear workspace helps. Cleanup is generally straightforward with a damp cloth.",
+              "Some experiments produce coloured liquids, so it's worth setting up on a tray or over a sink, especially for the colour-change and fizzing experiments. The easy-clean experiment tray is included for exactly this purpose. The glow-in-the-dark worms experiment involves dripping a solution, so a clear workspace helps. Cleanup is generally straightforward with a damp cloth.",
           },
           {
             question: "How long does each experiment take?",
             answer:
-              "Most experiments take around 15 to 30 minutes from setup to result. The crystal tree is the exception — crystals start forming quickly but continue growing over 1 to 2 days, so it's a slow-burn experiment worth checking in on. The bouncy ball and glow worms can be repeated quickly and many children do them more than once.",
+              "Most experiments take around 15 to 30 minutes from setup to result. The crystal tree is the exception: crystals start forming quickly but continue growing over 1 to 2 days, so it's a slow-burn experiment worth checking in on. The bouncy ball and glow worms can be repeated quickly and many children do them more than once.",
           },
           {
             question: "Does my child need adult help?",
             answer:
-              "Adult supervision is recommended — some mild chemicals are involved and a light presence is sensible. That said, the NAPPA evaluators noted children could complete the experiments independently, so for children aged 10 and up, most steps are fully self-directed. The guide is clear, well-illustrated, and written for kids.",
+              "Adult supervision is recommended, as some mild chemicals are involved and a light presence is sensible. That said, the NAPPA evaluators noted children could complete the experiments independently, so for children aged 10 and up, most steps are fully self-directed. The guide is clear, well-illustrated, and written for kids.",
           },
           {
             question: "Can the experiments be repeated?",
             answer:
-              "Yes — many of the experiments can be repeated using the included materials. Some consumables run out over time, but the bonus guide includes 10 more experiments using household items, so the chemistry keeps going well beyond the included supplies.",
+              "Yes, many of the experiments can be repeated using the included materials. Some consumables run out over time, but the bonus guide includes 10 more experiments using household items, so the chemistry keeps going well beyond the included supplies.",
           },
           {
             question: "Are the chemicals safe?",
             answer:
-              "The chemicals are mild and designed for safe use by children. Safety glasses and gloves are included — wearing them is part of the experience. As with any chemistry kit, keep chemicals away from eyes and wash hands after handling. Not suitable for children under 3 due to small parts.",
+              "The chemicals are mild and designed for safe use by children. Safety glasses and gloves are included, and wearing them is part of the experience. As with any chemistry kit, keep chemicals away from eyes and wash hands after handling. Not suitable for children under 3 due to small parts.",
           },
           {
             question: "What will my child get out of this?",
             answer:
-              "Beyond the obvious fun, children come away having actually done chemistry — not just watched it. They'll have handled real lab equipment, made real reactions happen, and read the explanations for why. The guide connects each wow moment to the science behind it, so kids leave with genuine curiosity about how everyday materials are made.",
+              "Beyond the obvious fun, children come away having actually done chemistry, not just watched it. They'll have handled real lab equipment, made real reactions happen, and read the explanations for why. The guide connects each wow moment to the science behind it, so kids leave with genuine curiosity about how everyday materials are made.",
           },
         ]}
       />
@@ -229,7 +229,7 @@ export default async function NatGeoAmazingReactionsPage() {
       {/* navy */}
       <CallToAction
         title="10 Reactions. Real Lab Equipment. One Afternoon."
-        subtitle="From glowing worms to fizzing solutions — chemistry that's as hands-on as it gets."
+        subtitle="From glowing worms to fizzing solutions: chemistry that's as hands-on as it gets."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -250,7 +250,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "10 guided chemical reaction experiments using real lab equipment — glow worms, fizzing reactions, crystal tree, bouncy ball, and more. Ages 8+, no batteries needed.",
+      "10 guided chemical reaction experiments using real lab equipment: glow worms, fizzing reactions, crystal tree, bouncy ball, and more. Ages 8+, no batteries needed.",
     alternates: {
       canonical: "/product/national-geographic-amazing-reactions-chemistry-set",
     },

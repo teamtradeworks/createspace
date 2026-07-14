@@ -121,8 +121,8 @@ export default function Home() {
                 Trusted Names in STEM
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                We are official, registered suppliers of trusted STEM brands — bringing you
-                authentic, quality products backed by full manufacturer support.
+                We are official, registered suppliers of these brands. Every product we stock is
+                authentic and comes with full manufacturer support.
               </p>
             </div>
 
@@ -261,8 +261,8 @@ export default function Home() {
                 Why Early STEM Exposure Matters
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Research shows that early hands-on STEM experience builds the foundation for
-                academic confidence, logical thinking, and future career success.
+                Kids who engage with STEM early are more likely to thrive in school and in their
+                careers. These numbers are worth knowing.
               </p>
             </div>
 

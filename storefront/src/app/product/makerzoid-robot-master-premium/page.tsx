@@ -37,7 +37,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Build, code, and create over 200 robots with drag-and-drop Scratch programming"
+        tagline="200+ robot designs to build and program, from simple structures to Bluetooth-controlled machines"
         highlights={[
           "200+ robot models to build - from simple to complex",
           "47 video lessons across 3 skill levels",
@@ -62,7 +62,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         image="/images/products/makerzoid-robot-master-premium/boy-coding-on-tablet-with-robot-on-floor.jpg"
         imageAlt="Child programming a Makerzoid robot using a tablet"
         title="Meet the Robot Master Premium"
-        body="The Makerzoid Robot Master Premium is a programmable robotics kit with over 600 building blocks that lets your child build and code more than 200 different robot designs. From simple mechanical structures to Bluetooth-controlled robots with sensors, the kit spans three skill levels — Structural, Dynamics, and Programmable — each with dedicated video lessons. Children program their robots using Scratch 3.0, a visual drag-and-drop language designed for young learners, and see their code come to life instantly as their robot responds. The blocks are fully compatible with LEGO and LEGO Technic, so your child can combine them with pieces they already own."
+        body="The Makerzoid Robot Master Premium is a programmable robotics kit with over 600 building blocks that lets your child build and code more than 200 different robot designs. From simple mechanical structures to Bluetooth-controlled robots with sensors, the kit spans three skill levels (Structural, Dynamics, and Programmable), each with dedicated video lessons. Children program their robots using Scratch 3.0, a visual drag-and-drop language designed for young learners, and see their code come to life instantly as their robot responds. The blocks are fully compatible with LEGO and LEGO Technic, so your child can combine them with pieces they already own."
         layout="image-left"
         background="gray"
       />
@@ -115,7 +115,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
         image="/images/products/makerzoid-robot-master-premium/kids-playing-with-pieces-with-tablet-instructions.png"
         imageAlt="Kids building with Makerzoid pieces following tablet instructions"
         title="Learn Together or Independently"
-        body="Choose your learning style. The detailed paper manual guides step-by-step building with clear diagrams. Or use the free Makerzoid app for interactive video instructions. Most children can build independently from age 6 — the instructions are designed for success without adult help. But when you do sit down together, it's genuinely fun for parents too."
+        body="The detailed paper manual walks through each build step by step with clear diagrams. If your child prefers video, the free Makerzoid app has interactive instructions for every model. Most children can work independently from age 6, with instructions clear enough to follow on their own."
         layout="image-right"
         background="gray"
       />
@@ -123,7 +123,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       {/* Projects Section */}
       <ProjectShowcase
         title="47 Lessons. 3 Skill Levels."
-        highlight="200+ robot models to build — from simple structures to fully programmable machines"
+        highlight="200+ robot models to build, from simple structures to fully programmable machines"
         subtitle="The curriculum progresses through three levels, each building on the last."
         columns={3}
         background="white"
@@ -172,13 +172,13 @@ export default async function MakerzoidRobotMasterPremiumPage() {
               "/images/products/makerzoid-robot-master-premium/projects/remote-control-car.png",
           },
         ]}
-        moreText="Plus 41 more lessons — all included in the free Makerzoid app"
+        moreText="Plus 41 more lessons, all included in the free Makerzoid app"
       />
 
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="Real families, real robots — see what your child could create"
+        subtitle="Real families, real robots. See what your child could create."
         background="gray"
         images={[
           {
@@ -191,7 +191,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
             src: "/images/products/makerzoid-robot-master-premium/crane-built-sitting-on-box-with-tablet-behind.png",
             alt: "Makerzoid crane build sitting on box with tablet behind",
             label: "Crane Build",
-            description: "A fully functional crane — one of 200+ models",
+            description: "A fully functional crane, one of 200+ models",
           },
           {
             src: "/images/products/makerzoid-robot-master-premium/close-up-hand-holding-built-car.png",
@@ -242,7 +242,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
           {
             question: "Does my child need prior coding or building experience?",
             answer:
-              "Not at all. The 47 video lessons start from absolute basics and progress gradually. Level 1 focuses on simple structures before moving to motors and then programming. Most 6-year-olds can follow the instructions independently.",
+              "No experience needed. The 47 video lessons start from absolute basics and progress gradually. Level 1 focuses on simple structures before moving to motors and then programming. Most 6-year-olds can follow the instructions independently.",
           },
           {
             question: "What devices work with the Makerzoid app?",
@@ -314,7 +314,7 @@ export default async function MakerzoidRobotMasterPremiumPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started"
-        subtitle="600+ blocks, 200+ designs, and 47 video lessons. The Makerzoid Robot Master Premium has everything your young engineer needs to start building and coding."
+        subtitle="600+ blocks, 200+ robot designs, and 47 guided video lessons. Everything your child needs to start building and coding."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Robotics Kits"

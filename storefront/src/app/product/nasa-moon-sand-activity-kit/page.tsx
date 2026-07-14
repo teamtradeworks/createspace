@@ -34,9 +34,9 @@ export default async function NasaMoonSandActivityKitPage() {
 
       <HeroSection
         product={product}
-        tagline="Soft, moldable, officially NASA — explore the surface of the Moon without leaving the table."
+        tagline="Soft, moldable, officially NASA. Explore the surface of the Moon without leaving the table."
         highlights={[
-          "1.5 lbs (680g) of Moon Sand — non-sticky, holds its shape, never dries out",
+          "1.5 lbs (680g) of Moon Sand: non-sticky, holds its shape, never dries out",
           "Astronaut figure with embossed boots leaves real lunar footprints",
           "3 space molds, activity booklet, and learning guide included",
           "Ages 3+",
@@ -59,7 +59,7 @@ export default async function NasaMoonSandActivityKitPage() {
         image="/images/products/nasa-moon-sand-activity-kit/moon-sand-box-on-the-moon.jpg"
         imageAlt="NASA Moon Sand Activity Kit box against a lunar landscape backdrop"
         title="Sand That Doesn't Behave Like Sand"
-        body="Pick it up and it holds its shape. Squeeze it and it molds to your hand. Press the astronaut figure's feet into it and you get perfect boot prints — just like the ones left on the actual lunar surface. This isn't playground sand or kinetic sand. It sticks only to itself, not to hands or clothes, and because it never dries out the kit is ready for the next mission whenever they are."
+        body="Pick it up and it holds its shape. Press the astronaut figure's feet into it and you get perfect boot prints, just like the ones left on the actual lunar surface. Unlike playground sand or kinetic sand, it sticks only to itself, not to hands or clothes, and because it never dries out the kit is ready whenever they are."
         layout="image-left"
         background="gray"
       />
@@ -74,7 +74,7 @@ export default async function NasaMoonSandActivityKitPage() {
             icon: "touch",
             title: "A Texture Like Nothing Else",
             description:
-              "The Moon Sand holds its shape, sticks only to itself, and never dries out. It doesn't crumble like beach sand or clump like wet clay — it does something altogether different, and children can't stop squeezing it.",
+              "The Moon Sand holds its shape, sticks only to itself, and never dries out. It doesn't crumble like beach sand or clump like wet clay. It does something in between, and most children find it genuinely hard to put down.",
           },
           {
             icon: "sparkles",
@@ -92,7 +92,7 @@ export default async function NasaMoonSandActivityKitPage() {
             icon: "book",
             title: "Activity Booklet and Learning Guide",
             description:
-              "The activity booklet provides structured play prompts; the learning guide covers Moon facts, astronaut history, and space exploration. Together they extend the play into real discovery — enough to keep a curious child asking questions long after the sand is put away.",
+              "The activity booklet provides structured play prompts; the learning guide covers Moon facts, astronaut history, and space exploration. Together they extend the play into real discovery, enough to keep a curious child asking questions long after the sand is put away.",
           },
         ]}
       />
@@ -119,7 +119,7 @@ export default async function NasaMoonSandActivityKitPage() {
             src: "/images/products/nasa-moon-sand-activity-kit/hand-holding-moon-sand-above-sand-box.jpg",
             alt: "Hand holding a ball of moon sand above the play tray",
             label: "Holds Its Shape",
-            description: "It molds and holds — every time",
+            description: "It molds and holds, every time.",
           },
           {
             src: "/images/products/nasa-moon-sand-activity-kit/sand-box-with-moulded-sands.jpg",
@@ -165,27 +165,27 @@ export default async function NasaMoonSandActivityKitPage() {
           {
             question: "What age is this best for?",
             answer:
-              "The kit is rated 3+ and works well across a wide age range. Younger children (3–5) focus on the sensory experience — squeezing, molding, and creating prints. Older children (6–8) tend to engage more with the activity booklet, the astronaut figure's storytelling possibilities, and the lunar science in the learning guide. The Good Play Guide tested it with 6–8 year olds and gave it 4 out of 5 for fun.",
+              "The kit is rated 3+ and works well across a wide age range. Younger children (3-5) tend to focus on the sensory experience: squeezing, molding, and making prints. Older children (6-8) tend to engage more with the activity booklet, the astronaut figure's storytelling possibilities, and the lunar science in the learning guide. The Good Play Guide tested it with 6-8 year olds and gave it 4 out of 5 for fun.",
           },
           {
             question: "Is it messy? Is cleanup easy?",
             answer:
-              "One of the nicest things about Moon Sand is that it sticks only to itself — not to hands, clothes, or surfaces. It brushes off easily and the included play tray contains the sand during use. It's one of the least messy sensory activities you'll find. One child tester summed it up: 'I love the texture and it's not too messy.'",
+              "Moon Sand sticks only to itself, not to hands, clothes, or surfaces. It brushes off easily and the included play tray contains the sand during use. Cleanup is pretty painless. One child tester put it well: 'I love the texture and it's not too messy.'",
           },
           {
             question: "Does the sand dry out?",
             answer:
-              "No — Moon Sand never dries out. You can put it back in the tray, leave it for weeks, and it will be just as moldable when your child comes back to it. The only note: on first use, allow about an hour for the sand to settle and reach its best texture.",
+              "Moon Sand doesn't dry out. You can put it back in the tray, leave it for weeks, and it will be just as moldable when your child comes back to it. On first use, allow about an hour for the sand to settle and reach its best texture.",
           },
           {
             question: "How long does a play session last?",
             answer:
-              "Play sessions typically run 20–60 minutes, though children often return to the sand repeatedly rather than in one long stretch. The open-ended nature means there's no fixed endpoint — new scenes, new missions, and new questions emerge each time. The sand's longevity means the kit stays playable for months.",
+              "Play sessions typically run 20-60 minutes, though children often return to the sand repeatedly rather than in one long stretch. There's no fixed endpoint: new scenes, new missions, and new questions keep coming. The kit stays playable for months.",
           },
           {
             question: "Does my child need adult help?",
             answer:
-              "The kit is designed to be self-directed — children can set it up and play independently once the sand has had its initial settling hour. Adult supervision is recommended for children under 6, and the activity booklet and learning guide give adults an easy way to join in if they want to.",
+              "The kit is designed to be self-directed, so children can set it up and play independently once the sand has had its initial settling hour. Adult supervision is recommended for children under 6, and the activity booklet and learning guide give adults an easy way to join in if they want to.",
           },
           {
             question: "Is it safe?",
@@ -195,7 +195,7 @@ export default async function NasaMoonSandActivityKitPage() {
           {
             question: "What does my child get out of it?",
             answer:
-              "Play sessions with the Moon Sand are genuinely calming — the repetitive, tactile nature of molding and building has a well-documented soothing effect on children. Beyond the sensory experience, children encounter real science: the Moon's geology, the work of astronauts, and the history of space exploration through the learning guide. Most parents find their children asking more questions about the Moon and space after playing — and that curiosity is the real win.",
+              "Play sessions with Moon Sand tend to be genuinely calming. The repetitive, tactile nature of molding and building has a soothing effect that parents notice pretty quickly. Beyond the sensory side, children pick up real science through the learning guide: the Moon's geology, the work of astronauts, and the history of space exploration. Most children come away asking more questions about the Moon and space, which is usually where the best play sessions end up.",
           },
         ]}
       />
@@ -220,8 +220,8 @@ export default async function NasaMoonSandActivityKitPage() {
 
       {/* navy */}
       <CallToAction
-        title="The Moon Is Closer Than You Think"
-        subtitle="Soft, moldable, officially NASA — ready for the next mission whenever they are."
+        title="The Moon, Without Leaving the Table"
+        subtitle="Soft, moldable, officially NASA. Ready for the next mission whenever they are."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

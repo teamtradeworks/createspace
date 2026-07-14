@@ -36,8 +36,8 @@ export default async function NatGeoCrystalGardenPage() {
         product={product}
         tagline="Colour your trees. Pour the solution. Watch crystals bloom in the colours you chose."
         highlights={[
-          "You'll see the first crystals in minutes — trees fully covered in as little as 6 hours",
-          "You choose the colours — crystals grow in whatever you paint on the trees",
+          "You'll see the first crystals in minutes, trees fully covered in as little as 6 hours",
+          "You choose the colours: crystals grow in whatever you paint on the trees",
           "Ages 8–15 · everything included",
           "Comes with a genuine geode specimen to keep",
         ]}
@@ -64,25 +64,25 @@ export default async function NatGeoCrystalGardenPage() {
             icon: "sparkles",
             title: "You Choose the Colours",
             description:
-              "Colour each tree any way you'd like with the 5 watercolour pens — and the crystals grow in exactly those colours. Because the crystals absorb the ink from the markers, every garden is completely unique.",
+              "Colour each tree any way you'd like with the 5 watercolour pens, and the crystals grow in exactly those colours. Because the crystals absorb the ink from the markers, every garden is completely unique.",
           },
           {
             icon: "clock",
             title: "Results in Hours, Not Days",
             description:
-              "You'll see the first crystals in minutes — and the trees will be fully covered in as little as 6 hours. The watching is half the fun.",
+              "You'll see the first crystals in minutes, and the trees will be fully covered in as little as 6 hours. The watching is half the fun.",
           },
           {
             icon: "star",
             title: "A Real Piece of the Earth",
             description:
-              "A genuine geode specimen is included in the kit — not a plastic replica. Children can compare what they grew to what nature built, and keep the geode long after the crystal trees are gone.",
+              "A genuine geode specimen is included in the kit, not a plastic replica. Children can compare what they grew to what nature built, and keep the geode long after the crystal trees are gone.",
           },
           {
             icon: "book",
-            title: "National Geographic Quality",
+            title: "National Geographic Learning Guide",
             description:
-              "The full-colour learning guide is packed with fascinating facts about crystals — what they are, how they form in nature, and how they're used in the real world. National Geographic quality throughout.",
+              "The full-colour learning guide explains what crystals are, how they form in nature, and where they appear in everyday life.",
           },
         ]}
       />
@@ -92,7 +92,7 @@ export default async function NatGeoCrystalGardenPage() {
         image="/images/products/national-geographic-crystal-garden/boys-colouring-in-tree.jpg"
         imageAlt="Boy colouring in a cardboard tree with washable markers"
         title="Art and Earth Science in the Same Kit"
-        body="Before a single crystal appears, your child is already in charge — picking colours, deciding patterns, claiming their trees. That creative ownership is what makes the payoff so satisfying. When the crystals bloom hours later in exactly the shades they chose, science doesn't feel like a lesson. It feels like magic they made themselves."
+        body="Before a single crystal appears, your child is already in charge: picking colours, deciding patterns, claiming their trees. That creative ownership is what makes the payoff so satisfying. When the crystals bloom hours later in exactly the shades they chose, science doesn't feel like a lesson. It feels like magic they made themselves."
         layout="image-left"
         background="white"
         imageObjectPosition="50% 75%"
@@ -101,7 +101,7 @@ export default async function NatGeoCrystalGardenPage() {
       {/* gray */}
       <CustomerShowcase
         title="Growing Crystals in Action"
-        subtitle="From setup to sparkling finish — see what the crystal garden looks like in real hands"
+        subtitle="From setup to sparkling finish: see what the crystal garden looks like in real hands"
         background="gray"
         images={[
           {
@@ -109,13 +109,13 @@ export default async function NatGeoCrystalGardenPage() {
             alt: "Boy holding a marker, about to colour his crystal tree",
             label: "Designing",
             description:
-              "Choosing your colours is half the fun — your crystals will grow in whatever you paint",
+              "Choosing your colours is half the fun: your crystals will grow in whatever you paint",
           },
           {
             src: "/images/products/national-geographic-crystal-garden/box-unpacked.jpg",
             alt: "National Geographic Crystal Garden kit contents laid out",
             label: "Kit Contents",
-            description: "Everything you need to grow your crystal garden — included in one box",
+            description: "Everything you need to grow your crystal garden, included in one box",
           },
           {
             src: "/images/products/national-geographic-crystal-garden/crystal-tree-starting-to-grow.jpg",
@@ -134,14 +134,14 @@ export default async function NatGeoCrystalGardenPage() {
             alt: "Two crystal trees covered in growing crystals in their chosen colours",
             label: "Crystal Trees",
             description:
-              "The trees take on the colours you chose — a completely personal crystal garden",
+              "The trees take on the colours you chose: a completely personal crystal garden",
           },
           {
             src: "/images/products/national-geographic-crystal-garden/two-trees-starting-to-grow.jpg",
             alt: "Two crystal trees in the early stages of crystal growth",
             label: "Growing Together",
             description:
-              "Both trees in the early stages of crystal growth — results visible in minutes",
+              "Both trees in the early stages of crystal growth, results visible in minutes",
           },
         ]}
       />
@@ -157,22 +157,22 @@ export default async function NatGeoCrystalGardenPage() {
           {
             question: "What age is this best for?",
             answer:
-              "The kit is designed for ages 8–15. Children at the younger end can work through it independently once the solution is poured — the colouring and assembly steps are fully self-directed. The included learning guide gives older children plenty to explore beyond the experiment itself.",
+              "The kit is designed for ages 8–15. Children at the younger end can work through it independently once the solution is poured: the colouring and assembly steps are fully self-directed. The included learning guide gives older children plenty to explore beyond the experiment itself.",
           },
           {
             question: "Is it messy? Will anything stain?",
             answer:
-              "The colouring step uses washable watercolour markers, so stray marks are easy to wipe away. The crystal-growing liquid is a clear solution — unlikely to stain if handled carefully. We recommend doing the pouring step over a tray or sink. The crystals themselves are dry and odourless once grown.",
+              "The colouring step uses washable watercolour markers, so stray marks are easy to wipe away. The crystal-growing liquid is a clear solution, unlikely to stain if handled carefully. We recommend doing the pouring step over a tray or sink. The crystals themselves are dry and odourless once grown.",
           },
           {
             question: "How long does the activity take?",
             answer:
-              "Setup takes around 15 minutes — colouring the trees and assembling them on their bases. The first crystals appear in minutes, and children typically check in throughout the day as they grow. Trees will be fully covered in as little as 6 hours. The anticipation is part of the experience.",
+              "Setup takes around 15 minutes: colouring the trees and assembling them on their bases. The first crystals appear in minutes, and children typically check in throughout the day as they grow. Trees will be fully covered in as little as 6 hours. The anticipation is part of the experience.",
           },
           {
             question: "Does my child need adult help?",
             answer:
-              "A light adult presence is recommended when pouring the crystal-growing liquid — it's a simple step, but worth supervising for younger children. The colouring, assembly, and observation stages are entirely self-directed. Most children aged 10 and up can manage the whole process independently.",
+              "A light adult presence is recommended when pouring the crystal-growing liquid. It's a simple step, but worth supervising for younger children. The colouring, assembly, and observation stages are entirely self-directed. Most children aged 10 and up can manage the whole process independently.",
           },
           {
             question: "Can the experiment be repeated?",
@@ -182,12 +182,12 @@ export default async function NatGeoCrystalGardenPage() {
           {
             question: "Is the crystal-growing liquid safe?",
             answer:
-              "Yes. The solution is safe when used as directed — handle with care, keep away from eyes, and wash hands after contact. The kit is not suitable for children under 3 due to small parts. Adult supervision is recommended throughout.",
+              "Yes. The solution is safe when used as directed: handle with care, keep away from eyes, and wash hands after contact. The kit is not suitable for children under 3 due to small parts. Adult supervision is recommended throughout.",
           },
           {
             question: "What will my child get out of this?",
             answer:
-              "Beyond the fun, kids come away with a genuine understanding of how crystals form in nature — the learning guide connects what they grew to how minerals form inside geodes. The process naturally builds patience and careful observation. And there's real pride in creating something beautiful from scratch.",
+              "Beyond the fun, kids come away with a genuine understanding of how crystals form in nature. The learning guide connects what they grew to how minerals form inside geodes. The process naturally builds patience and careful observation. And there's real pride in creating something beautiful from scratch.",
           },
         ]}
       />
@@ -213,7 +213,7 @@ export default async function NatGeoCrystalGardenPage() {
       {/* navy */}
       <CallToAction
         title="Grow Your Own Crystal Garden"
-        subtitle="Colour your trees, pour the solution, and watch crystals bloom in the colours you chose — all in one afternoon."
+        subtitle="Colour your trees, pour the solution, and watch crystals bloom in the colours you chose. All in one afternoon."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -234,7 +234,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Grow sparkling crystal trees at home — crystals bloom in the colours you choose. Includes a genuine geode specimen. Ages 8–15, results in as little as 6 hours.",
+      "Grow sparkling crystal trees at home: crystals bloom in the colours you choose. Includes a genuine geode specimen. Ages 8–15, results in as little as 6 hours.",
     alternates: {
       canonical: "/product/national-geographic-crystal-garden",
     },
