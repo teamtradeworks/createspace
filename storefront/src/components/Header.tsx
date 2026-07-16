@@ -14,14 +14,14 @@ const ageGroups = [
     id: "3-5",
     label: "Age 3-5",
     href: "/shop?age=3-5",
-    handles: ["matatastudio-tale-bot-pro", "matatastudio-coding-set-pro", "snap-circuits-beginner"],
+    handles: ["matatastudio-tale-bot-pro", "blockaroo-magnetic-foam-builders-castle", "snap-circuits-beginner"],
   },
   {
     id: "6-8",
     label: "Age 6-8",
     href: "/shop?age=6-8",
     handles: [
-      "makerzoid-smart-robot-premium",
+      "national-geographic-motorized-marble-run",
       "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
       "makerzoid-robot-master-premium",
     ],
