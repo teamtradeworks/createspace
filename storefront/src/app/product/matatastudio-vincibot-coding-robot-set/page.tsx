@@ -63,7 +63,7 @@ export default async function VinciBotPage() {
         image="/images/products/matatastudio-vincibot-coding-robot-set/vincibot-with-coding-tablet.jpg"
         imageAlt="Child programming VinciBot on tablet with block-based coding"
         title="Real AI Your Child Can Touch"
-        body="VinciBot includes Tiny Machine Learning — artificial intelligence that runs directly on the robot without needing the internet. Your child will train the robot to recognise hand gestures, identify handwritten letters, and respond to real-world conditions. This isn't simulated AI or a simplified demo — it's the same machine learning technology used in smartphones and self-driving cars, just made accessible for kids. When they program VinciBot to wave when it sees a thumbs-up gesture, they're learning the foundations of computer vision and neural networks. That's a genuine foundation for careers in AI, data science, and robotics."
+        body="VinciBot includes Tiny Machine Learning, artificial intelligence that runs directly on the robot without needing internet. Your child will train it to recognise hand gestures, identify handwritten letters, and respond to real-world conditions. This is the same machine learning technology used in smartphones and self-driving cars, made accessible for kids rather than locked in a research lab. When they program VinciBot to wave at a thumbs-up, they're learning real computer vision and how neural networks actually work."
         layout="image-left"
         background="gray"
       />
@@ -71,7 +71,7 @@ export default async function VinciBotPage() {
       {/* Features Grid */}
       <FeatureGrid
         title="8 Sensors Power Real-World Robotics"
-        subtitle="VinciBot isn't just programmable — it's aware. Eight built-in sensors let it see, hear, and respond to its environment like a real robot."
+        subtitle="VinciBot is programmable and sensor-aware. Eight built-in sensors let it see, hear, and respond to its environment like a real robot."
         background="white"
         features={[
           {
@@ -114,7 +114,7 @@ export default async function VinciBotPage() {
         image="/images/products/matatastudio-vincibot-coding-robot-set/coding-interface-tablet.png"
         imageAlt="MatataCode programming interface showing block-based coding on tablet"
         title="Starts Simple, Goes Deep"
-        body="VinciBot uses MatataCode — a free programming app for Windows, Mac, iPad, and Android tablets. Beginners start with colourful drag-and-drop blocks (just like Scratch) to make the robot move, light up, and play sounds. As your child gains confidence, they transition to Python — a professional programming language used at Google, NASA, and universities worldwide. The same robot, the same app, but now they're writing real code. By age 12, they could be programming AI models, building IoT weather stations, or creating games — skills that put them years ahead of their peers."
+        body="VinciBot uses MatataCode, a free programming app for Windows, Mac, iPad, and Android tablets. Beginners start with colourful drag-and-drop blocks (just like Scratch) to make the robot move, light up, and play sounds. As your child gains confidence, they transition to Python, a professional programming language used at Google, NASA, and universities worldwide. The same robot, the same app, but now they're writing real code. By age 12, they could be programming AI models, building IoT weather stations, or creating games."
         layout="image-right"
         background="gray"
       />
@@ -224,7 +224,7 @@ export default async function VinciBotPage() {
               custom robots and motorised machines. The <strong>Inventor Kit</strong> takes
               engineering further with additional building components and challenges for advanced
               builds. All three kits include guided activities and integrate seamlessly with
-              VinciBot&apos;s programming platform — pathways to deeper STEM learning that keep
+              VinciBot&apos;s programming platform, pathways to deeper STEM learning that keep
               VinciBot relevant for years.
             </p>
             <div className="flex flex-row flex-wrap gap-3 mt-6">
@@ -260,17 +260,17 @@ export default async function VinciBotPage() {
           {
             question: "Does my child need prior coding experience?",
             answer:
-              "No! VinciBot is designed for complete beginners aged 8+. The 75 online lessons start with the absolute basics (like 'what is a loop?') and gradually introduce more advanced concepts. The first activities use simple drag-and-drop blocks — no typing required. VinciBot also has 3 preset modes (line following, drawing, and remote control) that work immediately without any programming, so your child can start having fun straight out of the box.",
+              "No! VinciBot is designed for complete beginners aged 8+. The 75 online lessons start with the absolute basics (like 'what is a loop?') and gradually introduce more advanced concepts. The first activities use simple drag-and-drop blocks (no typing required). VinciBot also has 3 preset modes (line following, drawing, and remote control) that work immediately without any programming, so your child can start having fun straight out of the box.",
           },
           {
             question: "What's the difference between this and cheaper coding robots?",
             answer:
-              "VinciBot offers three major advantages: (1) Activity depth — 93+ structured lessons vs. 5-10 projects in most robots, (2) Progression to real Python code and AI/ML, not just block-based coding, and (3) 8 sensors for sophisticated projects instead of basic movement. VinciBot is built for long-term learning, not just a few weekends of fun. It's used by 20,000+ schools globally because it delivers curriculum-grade STEM education.",
+              "VinciBot offers three major advantages: (1) Activity depth: 93+ structured lessons vs. 5-10 projects in most robots, (2) Progression to real Python code and AI/ML, not just block-based coding, and (3) 8 sensors for sophisticated projects instead of basic movement. VinciBot is built for long-term learning, not just a few weekends of fun. It's used by 20,000+ schools globally because it delivers curriculum-grade STEM education.",
           },
           {
             question: "What devices and software does VinciBot need?",
             answer:
-              "VinciBot works with the free MatataCode app, available for Windows (10/11), Mac (macOS 11+), iPad (iOS 13+), and Android tablets (Android 8+). A computer or tablet is required for programming — smartphones have limited support. The robot connects via Bluetooth. System requirements are modest: 8GB RAM and 500MB storage. The 75 online lessons are accessed through coding.matatalab.com. Internet is needed to download the app and access lessons, but VinciBot's AI features work offline.",
+              "VinciBot works with the free MatataCode app, available for Windows (10/11), Mac (macOS 11+), iPad (iOS 13+), and Android tablets (Android 8+). A computer or tablet is required for programming; smartphones have limited support. The robot connects via Bluetooth. System requirements are modest: 8GB RAM and 500MB storage. The 75 online lessons are accessed through coding.matatalab.com. Internet is needed to download the app and access lessons, but VinciBot's AI features work offline.",
           },
           {
             question: "How long does the battery last, and how is it charged?",
@@ -280,7 +280,7 @@ export default async function VinciBotPage() {
           {
             question: "Is this suitable for girls as well as boys?",
             answer:
-              "Absolutely! VinciBot is designed for all children regardless of gender. Research shows that early exposure to coding and robotics is crucial for building confidence in STEM subjects — especially for girls, who are often underrepresented in technology fields. VinciBot's creative activities (music, art, storytelling) and collaborative projects appeal to diverse interests. The robot itself has a friendly, neutral design rather than stereotypically 'boyish' styling.",
+              "Absolutely! VinciBot is designed for all children regardless of gender. Research shows that early exposure to coding and robotics is crucial for building confidence in STEM subjects, especially for girls, who are often underrepresented in technology fields. VinciBot's creative activities (music, art, storytelling) and collaborative projects appeal to diverse interests. The robot itself has a friendly, neutral design rather than stereotypically 'boyish' styling.",
           },
           {
             question: "Can my child use VinciBot for school projects or competitions?",

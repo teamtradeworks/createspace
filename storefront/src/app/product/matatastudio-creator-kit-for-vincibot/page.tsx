@@ -43,10 +43,10 @@ export default async function VinciBotCreatorKitPage() {
         product={product}
         tagline="434+ building blocks and a DC motor to take VinciBot from coding to creating"
         highlights={[
-          "20 guided building cases — from Smart Fan to Mechanical Claw",
+          "20 guided building cases, from Smart Fan to Mechanical Claw",
           "Real mechanical engineering: crankshafts, cams, and linkages",
           "Bring your VinciBot code to life with motorised builds",
-          "No soldering, no extra tools — just build and code",
+          "No soldering, no extra tools. Just build and code",
         ]}
         addons={addons}
       />
@@ -65,7 +65,7 @@ export default async function VinciBotCreatorKitPage() {
         image="/images/products/matatastudio-creator-kit-for-vincibot/creator-kit-build-with-coding-on-the-side.png"
         imageAlt="VinciBot Creator Kit motorised build with coding interface on the side"
         title="Code Makes It Move"
-        body="This is the moment STEM clicks. Your child writes code in Scratch or Python, presses run — and their physical creation moves. The Smart Fan spins faster when they change the speed variable. The Automatic Sensor Door opens when VinciBot's sensor detects movement. The Mechanical Claw grips and releases on command. The Creator Kit transforms abstract coding exercises into tangible, cause-and-effect engineering. That's not just fun — it's the same feedback loop that professional robotics engineers experience every day."
+        body="This is the moment STEM clicks. Your child writes code in Scratch or Python, presses run, and their physical creation moves. The Smart Fan spins faster when they change the speed variable. The Automatic Sensor Door opens when VinciBot's sensor detects movement. The Mechanical Claw grips and releases on command. The Creator Kit turns abstract coding into tangible, cause-and-effect engineering. That feedback loop, write code then watch the physical result, is the same one robotics engineers work through every day."
         layout="image-left"
         background="white"
       />
@@ -98,7 +98,7 @@ export default async function VinciBotCreatorKitPage() {
             icon: "cpu",
             title: "Sensor-Triggered Builds",
             description:
-              "Automatic Sensor Door and Induction Door combine VinciBot's sensors with mechanical responses — real automation",
+              "Automatic Sensor Door and Induction Door combine VinciBot's sensors with mechanical responses for real automation",
           },
           {
             icon: "tool",
@@ -128,7 +128,7 @@ export default async function VinciBotCreatorKitPage() {
         image="/images/products/matatastudio-creator-kit-for-vincibot/variety-of-builds-with-labels.png"
         imageAlt="Variety of Creator Kit builds including helicopter, claw, and fairground rides with labels"
         title="From the Manual to Their Imagination"
-        body="The 20 guided cases are the starting point. With 434+ building blocks — compatible with LEGO Technic connections — your child can go further and design their own mechanisms once they've mastered the basics. Many kids are back inventing new machines before they've finished all 20 cases. The kit is designed to grow with them: simpler builds (Smart Fan, Rocking Car) take 15–20 minutes; more complex structures like the Helicopter or Aerial Working Platform can take an hour or more. Every session builds something new."
+        body="The 20 guided cases are the starting point. With 434+ building blocks (compatible with LEGO Technic connections) your child can go further and design their own mechanisms once they've mastered the basics. Many kids are back inventing new machines before they've finished all 20 cases. The kit is designed to grow with them: simpler builds (Smart Fan, Rocking Car) take 15–20 minutes; more complex structures like the Helicopter or Aerial Working Platform can take an hour or more."
         layout="image-right"
         background="gray"
       />
@@ -139,27 +139,27 @@ export default async function VinciBotCreatorKitPage() {
         faqs={[
           {
             question: `Do I need the ${parentProductName} to use this kit?`,
-            answer: `Yes — the Creator Kit is an expansion that requires VinciBot to function. The DC motor and building blocks are controlled through VinciBot's programming platform. Without VinciBot, the Creator Kit has no power source and no way to programme the motor. If you don't have VinciBot yet, pick it up first and come back to the Creator Kit when your child is ready for the next step.`,
+            answer: `Yes, the Creator Kit is an expansion that requires VinciBot to function. The DC motor and building blocks are controlled through VinciBot's programming platform. Without VinciBot, the Creator Kit has no power source and no way to programme the motor. If you don't have VinciBot yet, pick it up first and come back to the Creator Kit when your child is ready for the next step.`,
           },
           {
             question: "What's different from what VinciBot already includes?",
             answer:
-              "VinciBot comes with 8 sensors, an LED matrix, speaker, and 93+ coding activities focused on programming and robotics. The Creator Kit adds the physical engineering side — 434+ building blocks, a DC motor, and 20 guided construction cases. It's the difference between programming a robot to move and building the machine that moves. Together, they cover both coding and mechanical engineering.",
+              "VinciBot comes with 8 sensors, an LED matrix, speaker, and 93+ coding activities focused on programming and robotics. The Creator Kit adds the physical engineering side: 434+ building blocks, a DC motor, and 20 guided construction cases. One covers coding, the other covers mechanical engineering. Together they make a complete picture.",
           },
           {
             question: "What will my child build with the 20 guided cases?",
             answer:
-              "The 20 cases span fairground rides (Flying Chair Ride, Big Pendulum, Wheel of Fortune), vehicles (Helicopter, Guide Vehicle), everyday machines (Smart Fan, Smartphone Holder), and interactive robotics builds (Automatic Sensor Door, Mechanical Claw, Paper Airplane Launcher). Each one teaches a specific mechanical principle — cam structures, crankshafts, linkage systems — while being coded and controlled through VinciBot.",
+              "The 20 cases span fairground rides (Flying Chair Ride, Big Pendulum, Wheel of Fortune), vehicles (Helicopter, Guide Vehicle), everyday machines (Smart Fan, Smartphone Holder), and interactive robotics builds (Automatic Sensor Door, Mechanical Claw, Paper Airplane Launcher). Each teaches a specific mechanical principle (cam structures, crankshafts, linkage systems) while being coded and controlled through VinciBot.",
           },
           {
             question: "What age is the Creator Kit best suited to?",
             answer:
-              "The Creator Kit is designed for ages 8 and up — the same as VinciBot. Children who've already spent time coding with VinciBot will find the Creator Kit a natural and exciting next step. The builds progress from straightforward (15–30 minutes) to more complex multi-part structures (60–90 minutes), so there's always an appropriate challenge regardless of where your child is in their learning journey.",
+              "The Creator Kit is designed for ages 8 and up, the same as VinciBot. Children who've already spent time coding with VinciBot will find it a natural next step. The builds progress from straightforward (15–30 minutes) to more complex multi-part structures (60–90 minutes), so there's always an appropriate challenge.",
           },
           {
             question: "Does it need batteries or extra tools?",
             answer:
-              "No batteries and no tools needed. The Creator Kit's DC motor is powered directly through VinciBot's onboard battery — no separate power source required. All connections click together without screwdrivers, soldering, or glue. Everything needed to start building is in the box.",
+              "No batteries and no tools needed. The Creator Kit's DC motor is powered directly through VinciBot's onboard battery, so no separate power source is required. All connections click together without screwdrivers, soldering, or glue. Everything needed to start building is in the box.",
           },
         ]}
         background="white"
@@ -173,11 +173,11 @@ export default async function VinciBotCreatorKitPage() {
         items={[
           "434+ building bricks (multiple types, organised by type)",
           "1× DC electric motor (9V, 380 RPM)",
-          "1× power adapter (9V, 1.5A — connects to VinciBot)",
+          "1× power adapter (9V, 1.5A, connects to VinciBot)",
           "Building manual with 20 guided study cases",
           "User guide",
           "Storage tray",
-          "Note: VinciBot robot not included — required separately",
+          "Note: VinciBot robot not included (required separately)",
         ]}
         background="gray"
       />

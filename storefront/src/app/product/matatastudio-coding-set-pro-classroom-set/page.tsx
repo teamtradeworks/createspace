@@ -38,10 +38,10 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         product={product}
         tagline="Bring screen-free coding to every learner in your Foundation Phase classroom"
         highlights={[
-          "Serves up to 24 learners simultaneously — 6 kits, 4 learners per group",
-          "Complete teacher guides included — no STEM background required",
+          "Serves up to 24 learners simultaneously: 6 kits, 4 learners per group",
+          "Complete teacher guides included. No STEM background required",
           "Covers key Foundation Phase skills: Technology, Mathematics & Life Skills",
-          "Fully rechargeable — no disposable batteries, no apps, no screens",
+          "Fully rechargeable. No disposable batteries, no apps, no screens",
         ]}
         addons={addons}
       />
@@ -54,7 +54,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         image="/images/products/matatastudio-coding-set-pro-classroom-set/teacher-explaining-to-kids-in-class.jpg"
         imageAlt="Teacher explaining coding concepts to young learners in a Foundation Phase classroom"
         title="No STEM Background? No Problem."
-        body="The Coding Set Pro Classroom Set is built for educators of all backgrounds. The Command Tower's image recognition camera does the technical work — reading the coding blocks learners place on the Control Board and transmitting instructions wirelessly to the MatataBot. Your role is facilitation: guiding groups through the challenge booklets and teacher manuals that come with the set. The printed Coding, Artist, and Musician teacher manuals give you lesson plans, learning objectives, and assessment guidance for all 12 lessons."
+        body="The Coding Set Pro Classroom Set is built for educators of all backgrounds. The Command Tower's image recognition camera does the technical work: reading the coding blocks learners place on the Control Board and transmitting instructions wirelessly to the MatataBot. Your role is facilitation, guiding groups through the challenge booklets and teacher manuals that come with the set. The printed Coding, Artist, and Musician teacher manuals give you lesson plans, learning objectives, and assessment guidance for all 12 lessons."
         layout="image-left"
         background="white"
       />
@@ -62,13 +62,13 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       {/* Key Features for Educators */}
       <FeatureGrid
         title="Designed Around How Young Learners Learn Best"
-        subtitle="Six Coding Set Pro kits plus complete teacher resources — everything your classroom needs for hands-on coding, right out of the box."
+        subtitle="Six Coding Set Pro kits plus complete teacher resources. Everything your classroom needs for hands-on coding, right out of the box."
         features={[
           {
             icon: "octagon-xmark",
             title: "Fully Screen-Free",
             description:
-              "No tablets, apps, computers, or internet required. Learners programme the MatataBot using physical coding blocks — no reading skills needed from age 4.",
+              "No tablets, apps, computers, or internet required. Learners programme the MatataBot using physical coding blocks. No reading skills needed from age 4.",
           },
           {
             icon: "book",
@@ -92,7 +92,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
             icon: "music",
             title: "Cross-Curricular by Design",
             description:
-              "The Pro upgrade includes music blocks for composing melodies and angle blocks for drawing geometric shapes — extending coding into Arts, Culture, and Mathematics.",
+              "The Pro upgrade includes music blocks for composing melodies and angle blocks for drawing geometric shapes, extending coding into Arts, Culture, and Mathematics.",
           },
           {
             icon: "puzzle",
@@ -108,7 +108,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       {/* Classroom Activities */}
       <ProjectShowcase
         title="Classroom Activities Across 4 Progressive Units"
-        highlight="12 structured lessons with complete teacher guides — from basic sequencing to creative coding"
+        highlight="12 structured lessons with complete teacher guides, from basic sequencing to creative coding"
         subtitle="Activities progress from foundational concepts to advanced challenges, suitable for mixed-ability Foundation Phase classrooms."
         projects={[
           {
@@ -121,7 +121,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
           {
             name: "Obstacle Courses",
             description:
-              "Navigate around flags and barriers — adjust the programme when the first attempt fails.",
+              "Navigate around flags and barriers; adjust the programme when the first attempt fails.",
             concepts: "Debugging, problem decomposition, conditional thinking",
             image:
               "/images/products/matatastudio-coding-set-pro/projects/maps-and-other-things.jpg",
@@ -150,7 +150,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
           {
             name: "Music Composition",
             description:
-              "Sequence music note blocks to compose a melody — then use loops to repeat musical phrases.",
+              "Sequence music note blocks to compose a melody, then use loops to repeat musical phrases.",
             concepts: "Creative coding, rhythm, musical patterns, STEAM",
             image:
               "/images/products/matatastudio-coding-set-pro/projects/bot-singing-and-dancing.png",
@@ -165,7 +165,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         image="/images/products/matatastudio-coding-set-pro-classroom-set/kids-sitting-at-table-with-teacher-playing.jpg"
         imageAlt="Young learners sitting at a table working together on MatataStudio coding challenges with their teacher"
         title="Collaboration Is Built Into Every Challenge"
-        body="Each group of four learners works together to plan routes, arrange coding blocks, debug programmes, and run challenges. Learners negotiate turns, explain their thinking, and coach each other — skills that extend well beyond the coding lesson. Research across 22 studies confirms that collaborative learning is the single most effective approach for developing computational thinking in Foundation Phase learners. The Coding Set Pro Classroom Set puts that evidence into practice every lesson."
+        body="Each group of four learners works together to plan routes, arrange coding blocks, debug programmes, and run challenges. Learners negotiate turns, explain their thinking, and coach each other, building skills that extend well beyond the coding lesson. Research across 22 studies confirms that collaborative learning is the most effective approach for developing computational thinking in Foundation Phase learners."
         layout="image-right"
         background="gray"
       />
@@ -173,7 +173,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="MatataStudio in action — hands-on, screen-free, and genuinely engaging."
+        subtitle="MatataStudio in action: hands-on, screen-free, and genuinely engaging."
         background="white"
         images={[
           {
@@ -221,22 +221,22 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
           {
             question: "Does this cover skills from the national curriculum?",
             answer:
-              "The 12-lesson curriculum covers computational thinking concepts that feature prominently in South African curricula — sequencing, loops, functions, and debugging. Coding activities develop spatial reasoning, number concepts, and geometry relevant to Mathematics. Collaborative group activities build teamwork, problem-solving, and communication skills. The Musician and Artist add-ons connect to Arts & Culture. However, we don't provide a formal CAPS mapping document for this product.",
+              "The 12-lesson curriculum covers computational thinking concepts that feature prominently in South African curricula: sequencing, loops, functions, and debugging. Coding activities develop spatial reasoning, number concepts, and geometry relevant to Mathematics. Collaborative group activities build teamwork, problem-solving, and communication skills. The Musician and Artist add-ons connect to Arts & Culture. However, we don't provide a formal CAPS mapping document for this product.",
           },
           {
             question: "How many learners can use the set simultaneously?",
             answer:
-              "The classroom set supports up to 24 learners at the same time — 6 groups of 4. All six kits run independently of each other, so every group is coding simultaneously without waiting for a turn. This makes it practical for standard Foundation Phase class sizes in a single lesson period.",
+              "The classroom set supports up to 24 learners at the same time: 6 groups of 4. All six kits run independently of each other, so every group is coding simultaneously without waiting for a turn. This makes it practical for standard Foundation Phase class sizes in a single lesson period.",
           },
           {
             question: "Do I need a STEM background to teach with this?",
             answer:
-              "Not at all. Three printed teacher manuals — Coding, Artist, and Musician — provide complete lesson plans with learning objectives, time references, and step-by-step instructions for each activity. The system is designed so that the materials guide both educator and learner. Many teachers report being able to run their first lesson after a single read-through of the Coding Teacher Manual.",
+              "Not at all. Three printed teacher manuals (Coding, Artist, and Musician) provide complete lesson plans with learning objectives, time references, and step-by-step instructions for each activity. The system is designed so that the materials guide both educator and learner. Many teachers report being able to run their first lesson after a single read-through of the Coding Teacher Manual.",
           },
           {
             question: "How durable is this for repeated classroom use?",
             answer:
-              "The Coding Set Pro is built for institutional use from the ground up. ABS plastic construction is durable and safe. Coding blocks have been tested for repeated handling and are safe even if placed in the mouth (food-grade, washable, lead-free materials). MatataBot and the Command Tower recharge via USB-C — no batteries to replace. The set meets EN71 European toy safety standards and has passed drop testing.",
+              "The Coding Set Pro is built for institutional use from the ground up. ABS plastic construction is durable and safe. Coding blocks have been tested for repeated handling and are safe even if placed in the mouth (food-grade, washable, lead-free materials). MatataBot and the Command Tower recharge via USB-C, with no batteries to replace. The set meets EN71 European toy safety standards and has passed drop testing.",
           },
           {
             question: "How much preparation is needed before each lesson?",
@@ -246,12 +246,12 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
           {
             question: "What does the 12-lesson curriculum cover?",
             answer:
-              "The curriculum is divided into 4 progressive units: Unit 1 introduces robot movement and sequencing; Unit 2 covers loops using Loop Begin/End blocks; Unit 3 introduces functions and code reusability; Unit 4 integrates drawing (Artist) and music (Musician) for creative cross-curricular applications. Each unit builds on the previous, progressing from introduction to understanding to application. Two curriculum formats are included — Learning Station (classroom group work) and Extracurricular (after-school or club settings).",
+              "The curriculum is divided into 4 progressive units: Unit 1 introduces robot movement and sequencing; Unit 2 covers loops using Loop Begin/End blocks; Unit 3 introduces functions and code reusability; Unit 4 integrates drawing (Artist) and music (Musician) for creative cross-curricular applications. Each unit builds on the previous, progressing from introduction to understanding to application. Two curriculum formats are included: Learning Station (classroom group work) and Extracurricular (after-school or club settings).",
           },
           {
             question: "Are replacement parts or additional kits available?",
             answer:
-              "Yes. Individual Coding Set Pro units can be purchased separately to expand the classroom set or replace damaged kits. Optional add-ons — Animation and Sensor — are also available to extend the curriculum further. Contact CREATESPACE for bulk and school pricing enquiries.",
+              "Yes. Individual Coding Set Pro units can be purchased separately to expand the classroom set or replace damaged kits. Optional add-ons (Animation and Sensor) are also available to extend the curriculum further. Contact CREATESPACE for bulk and school pricing enquiries.",
           },
         ]}
         background="gray"
@@ -267,7 +267,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
           "6 × Command Tower with image recognition camera",
           "6 × Control Board",
           "6 × Double-Sided Map",
-          "594 × Coding Blocks (99 per kit — directional, loop, number, condition, angle, music note, and function blocks)",
+          "594 × Coding Blocks (99 per kit: directional, loop, number, condition, angle, music note, and function blocks)",
           "18 × Challenge Booklets (3 per kit, beginner to advanced)",
           "18 × Artist Drawing Warm-Up Cards (3 per kit)",
           "18 × Musician Warm-Up Cards (3 per kit)",
@@ -304,7 +304,7 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
             value: "USB-C rechargeable (built-in battery, no disposable batteries)",
           },
           { label: "Connectivity", value: "Bluetooth (Command Tower to MatataBot)" },
-          { label: "Software Required", value: "None — fully screen-free, no apps or devices" },
+          { label: "Software Required", value: "None. Fully screen-free, no apps or devices needed" },
           { label: "LEGO® Compatible", value: "Yes" },
           { label: "Materials", value: "ABS plastic, food-grade washable coding blocks" },
           { label: "Safety", value: "EN71 compliant, drop tested" },
