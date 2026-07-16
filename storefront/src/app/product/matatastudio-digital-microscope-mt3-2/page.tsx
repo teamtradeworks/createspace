@@ -37,12 +37,12 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="The microscopic world is waiting — and now your child can see it"
+        tagline="The microscopic world is waiting, and now your child can see it"
         highlights={[
           "400× optical magnification displayed on a 7-inch live screen",
-          "10 prepared slides included — start exploring in minutes",
+          "10 prepared slides included. Start exploring in minutes",
           "WiFi, USB-C, and HDMI for sharing discoveries with the whole family",
-          "No assembly or setup — plug in, switch on, and observe",
+          "No assembly or setup. Plug in, switch on, and observe",
         ]}
         addons={addons}
       />
@@ -62,7 +62,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
         image="/images/products/matatastudio-digital-microscope-mt3-2/father-and-son-smiling-at-microscope.png"
         imageAlt="Father and son smiling together while using the MatataStudio microscope"
         title="A Discovery They'll Want to Share"
-        body="The 7-inch screen changes everything about how microscopy feels. Instead of one child squinting through a tiny eyepiece, observations play out on a display everyone can see. Stream live to a phone or tablet over WiFi, or plug into your TV via HDMI for a whole-room viewing experience. Discoveries become conversations — and 'What's that?' becomes the most exciting question in the house."
+        body="The 7-inch screen changes everything about how microscopy feels. Instead of one child squinting through a tiny eyepiece, observations play out on a display everyone can see. Stream live to a phone or tablet over WiFi, or plug into your TV via HDMI for a whole-room viewing experience. Discoveries become conversations, and 'What's that?' becomes the most exciting question in the house."
         layout="image-left"
         background="gray"
       />
@@ -88,7 +88,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
             icon: "lightbulb",
             title: "Dual LED Lighting",
             description:
-              "Top light for solid objects like coins and insects; bottom light for transparent specimens like cells and tissue — independently adjustable",
+              "Top light for solid objects like coins and insects; bottom light for transparent specimens like cells and tissue, both independently adjustable",
           },
           {
             icon: "tools",
@@ -106,7 +106,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
             icon: "battery",
             title: "Rechargeable Battery",
             description:
-              "2000mAh built-in battery provides 2.5–3 hours of cord-free exploration — no external batteries needed",
+              "2000mAh built-in battery provides 2.5–3 hours of cord-free exploration. No external power source needed",
           },
         ]}
         columns={3}
@@ -118,7 +118,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
         image="/images/products/matatastudio-digital-microscope-mt3-2/boy-looking-at-camera-smiling-with-microscope.png"
         imageAlt="Boy smiling confidently next to the MatataStudio Digital Microscope"
         title="More Than a Science Toy"
-        body="Getting a clear image under a microscope takes patience, precision, and a willingness to try different approaches — all without anyone telling you the answer. Your child learns to observe carefully, form hypotheses, test them, and adjust. Research shows that students who learn this way retain 50% more information than those taught through textbooks alone. The microscope doesn't just teach biology — it teaches how to think like a scientist."
+        body="Getting a clear image under a microscope takes patience, precision, and a willingness to try different approaches, all without anyone telling you the answer. Your child learns to observe carefully, form hypotheses, test them, and adjust. Research shows that students who learn this way retain 50% more information than those taught through textbooks alone. A microscope teaches biology and scientific thinking in equal measure."
         layout="image-right"
         background="gray"
       />
@@ -148,7 +148,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           {
             name: "Leaf Surface Study",
             description:
-              "Find the stomata — tiny pores on a leaf's surface that allow plants to breathe",
+              "Find the stomata, the tiny pores on a leaf's surface that allow plants to breathe",
             concepts: "Plant biology, photosynthesis, environmental science",
             image:
               "/images/products/matatastudio-digital-microscope-mt3-2/projects/leaf-surface-study.png",
@@ -156,7 +156,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           {
             name: "Fabric Fibre Investigation",
             description:
-              "Compare threads from different fabrics — cotton, denim, wool — and see how they differ up close",
+              "Compare threads from different fabrics (cotton, denim, wool) and see how they differ up close",
             concepts: "Materials science, textile technology",
             image:
               "/images/products/matatastudio-digital-microscope-mt3-2/projects/fabric-fibre-investigation.png",
@@ -215,7 +215,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
             src: "/images/products/matatastudio-digital-microscope-mt3-2/microscope-with-slides-displayed-neatly-withhand-reaching.png",
             alt: "Microscope with prepared slides neatly arranged beside it",
             label: "Prepared Slides",
-            description: "10 prepared slides included — ready to explore straight from the box",
+            description: "10 prepared slides included, ready to explore straight from the box",
           },
           {
             src: "/images/products/matatastudio-digital-microscope-mt3-2/screening-something-with-hand-holding-base.png",
@@ -227,7 +227,7 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
             src: "/images/products/matatastudio-digital-microscope-mt3-2/box-open-with-things-inside.png",
             alt: "Open box showing the microscope and all included accessories",
             label: "Unboxed",
-            description: "Everything included — ready to use from the moment it arrives",
+            description: "Everything included, ready to use from the moment it arrives",
           },
           {
             src: "/images/products/matatastudio-digital-microscope-mt3-2/product-open-displaying-whats-inside.png",
@@ -249,12 +249,12 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The MT3-2 is designed for ages 11 and up. Younger children (9–10) can also enjoy it with a parent present for the first few sessions. Adults find it just as fascinating — it's a genuinely powerful scientific instrument.",
+              "The MT3-2 is designed for ages 11 and up. Younger children (9–10) can also enjoy it with a parent present for the first few sessions. Adults find it just as fascinating; it's a genuinely powerful scientific instrument.",
           },
           {
             question: "Do we need batteries or any extra equipment?",
             answer:
-              "No external batteries needed — the microscope has a built-in 2000mAh rechargeable battery that lasts 2.5–3 hours, charged via the included USB-C cable. No additional equipment is required to get started.",
+              "No external batteries are needed. The microscope has a built-in 2000mAh rechargeable battery that lasts 2.5–3 hours, charged via the included USB-C cable. No additional equipment is required to get started.",
           },
           {
             question: "Does my child need any science experience?",
@@ -269,12 +269,12 @@ export default async function MatastaStudioDigitalMicroscopeMT32Page() {
           {
             question: "What can they look at with it?",
             answer:
-              "Almost anything! The 10 included slides cover plant tissue and biological specimens to get started. The included slide preparation kit then lets your child make their own slides from everyday materials — onion skin, salt crystals, fabric fibres, pond water, feathers, insects, and even their own cheek cells. The possibilities are genuinely open-ended.",
+              "Almost anything! The 10 included slides cover plant tissue and biological specimens to get started. The included slide preparation kit then lets your child make their own slides from everyday materials: onion skin, salt crystals, fabric fibres, pond water, feathers, insects, and even their own cheek cells. The possibilities are genuinely open-ended.",
           },
           {
             question: "Will they outgrow it quickly?",
             answer:
-              "Unlikely. Unlike project kits with a fixed number of activities, a microscope is an open-ended instrument — there's always a new specimen to investigate. As your child's scientific knowledge grows, so does the depth of their observations. It also compatible with standard prepared slide sets, which can extend the experience further.",
+              "Unlikely. Unlike project kits with a fixed number of activities, a microscope is an open-ended instrument: there's always a new specimen to investigate. As your child's scientific knowledge grows, so does the depth of their observations. It also compatible with standard prepared slide sets, which can extend the experience further.",
           },
         ]}
         background="gray"

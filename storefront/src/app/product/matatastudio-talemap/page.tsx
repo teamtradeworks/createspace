@@ -44,9 +44,9 @@ export default async function TaleMatPage() {
         product={product}
         tagline="Give your Tale-Bot Pro a whole new world to explore"
         highlights={[
-          "106 themed clip cards — maths, language, geography, animals, and more",
-          "Build unlimited story maps — no two sessions need to be the same",
-          "100% screen-free once loaded — set up once, play again and again",
+          "106 themed clip cards: maths, language, geography, animals, and more",
+          "Build unlimited story maps. No two sessions need to be the same",
+          "100% screen-free once loaded. Set up once, play again and again",
           "Free design software with a ready-made map library included",
         ]}
         addons={addons}
@@ -66,7 +66,7 @@ export default async function TaleMatPage() {
         image="/images/products/matatastudio-talemap/kids-playing-together.jpg"
         imageAlt="Children playing together with TaleMap and Tale-Bot Pro"
         title="Built for Playing Together"
-        body="When children build a story map side by side, the learning doubles. One decides which cards go where; another codes the route. TaleMap is designed for this kind of collaborative play — a tool for conversation, negotiation, and shared celebration when the robot does exactly what they planned."
+        body="When children build a story map side by side, the learning doubles. One decides which cards go where; another codes the route. TaleMap is designed for this kind of collaborative play: a tool for conversation, negotiation, and shared celebration when the robot does exactly what they planned."
         layout="image-left"
         background="white"
       />
@@ -80,7 +80,7 @@ export default async function TaleMatPage() {
             icon: "map",
             title: "6×6 OID Map",
             description:
-              "36 pockets hold clip cards to define your coding world — each position triggers a programmed robot response",
+              "36 pockets hold clip cards to define your coding world, each position triggering a programmed robot response",
           },
           {
             icon: "puzzle",
@@ -98,7 +98,7 @@ export default async function TaleMatPage() {
             icon: "book",
             title: "TaleMap Library",
             description:
-              "Download ready-made map scenarios instantly — no design experience needed to get started",
+              "Download ready-made map scenarios instantly. No design experience needed to get started",
           },
           {
             icon: "star",
@@ -110,7 +110,7 @@ export default async function TaleMatPage() {
             icon: "lightbulb",
             title: "Cross-Curricular",
             description:
-              "Every scenario connects coding to a real subject — reading, maths, geography, and science all in one activity",
+              "Every scenario connects coding to a real subject: reading, maths, geography, and science all in one activity",
           },
         ]}
         columns={3}
@@ -122,7 +122,7 @@ export default async function TaleMatPage() {
         image="/images/products/matatastudio-talemap/different-cards.jpg"
         imageAlt="Selection of TaleMap clip cards showing different subjects and themes"
         title="106 Ways to Change the World"
-        body="Each of TaleMap's 106 double-sided clip cards represents a different scene element — a number, an animal, a place, a letter. Slot them into any of the 36 grid pockets and the map becomes entirely yours. Mix and match across themes, repeat cards to build bigger scenes, or leave pockets empty to create open space. No two sessions need to look the same."
+        body="Each of TaleMap's 106 double-sided clip cards represents a different scene element: a number, an animal, a place, a letter. Slot them into any of the 36 grid pockets and the map becomes entirely yours. Mix and match across themes, repeat cards to build bigger scenes, or leave pockets empty to create open space. No two sessions need to look the same."
         layout="image-right"
         background="white"
       />
@@ -134,7 +134,7 @@ export default async function TaleMatPage() {
           {
             question: `Do I need the ${parentProductName}?`,
             answer:
-              "Yes — TaleMap is an add-on that requires a Tale-Bot Pro robot to use. The robot is what moves, talks, and responds as it navigates the map. TaleMap provides the coding world; the Tale-Bot Pro brings it to life. The robot is sold separately.",
+              "Yes, TaleMap is an add-on that requires a Tale-Bot Pro robot to use. The robot is what moves, talks, and responds as it navigates the map. TaleMap provides the coding world; the Tale-Bot Pro brings it to life. The robot is sold separately.",
           },
           {
             question: "Do I need to be technical to set it up?",
@@ -144,7 +144,7 @@ export default async function TaleMatPage() {
           {
             question: "What devices does MatataCode run on?",
             answer:
-              "MatataCode is available on Windows, macOS, Chrome OS, and as a mobile app on iOS and Android — so you can set up maps from most devices. Once the map is loaded onto the Tale-Bot Pro, no screen is needed during play.",
+              "MatataCode is available on Windows, macOS, Chrome OS, and as a mobile app on iOS and Android, so you can set up maps from most devices. Once the map is loaded onto the Tale-Bot Pro, no screen is needed during play.",
           },
           {
             question: "What age is TaleMap suitable for?",
@@ -159,7 +159,7 @@ export default async function TaleMatPage() {
           {
             question: "What's the difference between TaleMap and the Activity Box?",
             answer:
-              "The Activity Box is a structured add-on with 10 preset themed maps and 42 guided coding challenges — ideal if you want ready-made activities. TaleMap is an open-ended creative platform where you design your own maps from scratch — ideal for children who want to create, not just follow instructions.",
+              "The Activity Box is a structured add-on with 10 preset themed maps and 42 guided coding challenges, ideal if you want ready-made activities. TaleMap is an open-ended creative platform where you design your own maps from scratch, ideal for children who want to create rather than follow instructions.",
           },
         ]}
         background="gray"
@@ -172,7 +172,7 @@ export default async function TaleMatPage() {
       <WhatsIncluded
         title="What's in the Box"
         image="/images/products/matatastudio-talemap/whats-in-the-box.jpg"
-        imageAlt="TaleMap contents — OID interactive map and clip cards"
+        imageAlt="TaleMap contents showing OID interactive map and clip cards"
         items={[
           "1× 6×6 Definable OID Interactive Map",
           "106× Double-sided clip cards (mathematics, language, geography, animals, fruit, and more)",
@@ -194,7 +194,7 @@ export default async function TaleMatPage() {
           { label: "Weight", value: "0.7 kg" },
           {
             label: "Software",
-            value: "MatataCode — Windows, macOS, Chrome OS, iOS & Android (free)",
+            value: "MatataCode (Windows, macOS, Chrome OS, iOS & Android, free)",
           },
           { label: "Compatible With", value: "MatataStudio Tale-Bot Pro" },
           { label: "Connection", value: "USB (for .imap file transfer to robot)" },
@@ -205,7 +205,7 @@ export default async function TaleMatPage() {
       {/* Call to Action */}
       <CallToAction
         title="Unlock Unlimited Story Maps"
-        subtitle="106 themed clip cards, free design software, and a ready-made map library — everything you need to give your Tale-Bot Pro a new adventure."
+        subtitle="106 themed clip cards, free design software, and a ready-made map library. Everything you need to give your Tale-Bot Pro a new adventure."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel={`View the ${parentProductName}`}
@@ -226,7 +226,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Expand your Tale-Bot Pro with TaleMap — 106 themed clip cards, unlimited custom story maps, and free design software. Screen-free coding for ages 3–8.",
+      "Expand your Tale-Bot Pro with TaleMap. 106 themed clip cards, unlimited custom story maps, and free design software. Screen-free coding for ages 3–8.",
     alternates: {
       canonical: "/product/matatastudio-talemap",
     },
