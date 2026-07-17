@@ -37,7 +37,7 @@ export default async function ArduinoStudentKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Real electronics, real code — a complete semester of structured learning for ages 11 and up"
+        tagline="Electronics and code — a complete semester of structured learning for ages 11 and up"
         highlights={[
           "9 guided lessons plus 2 open-ended projects — up to 25 hours of learning",
           "Build a traffic light, sports robot, musical keyboard, and more",

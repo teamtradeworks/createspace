@@ -150,7 +150,7 @@ export default async function NatGeoEpicCircuitsPage() {
       {/* white */}
       <CustomerShowcase
         title="Young engineers at work"
-        subtitle="Real kids, real circuits"
+        subtitle="See what they build"
         background="white"
         images={[
           {

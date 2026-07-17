@@ -35,7 +35,7 @@ export default async function SnapCircuitsBeginnerPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Your child's first electronics adventure — real circuits, real lights, real fun"
+        tagline="Your child's first electronics adventure — working circuits, flashing lights, and hours of fun"
         highlights={[
           "21 step-by-step projects with a picture-based manual",
           "Snap together in seconds — no tools, no wires, no soldering",
