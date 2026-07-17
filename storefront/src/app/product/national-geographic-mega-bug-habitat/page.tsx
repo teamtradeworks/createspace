@@ -138,7 +138,7 @@ export default async function NatGeoMegaBugHabitatPage() {
       {/* gray */}
       <CustomerShowcase
         title="Bug Scientists in the Wild"
-        subtitle="Real kids, real backyards, real bugs: the discovery starts the moment the kit is opened"
+        subtitle="Backyards, bugs, and the kind of discovery that starts the moment the kit is opened"
         images={[
           {
             src: "/images/products/national-geographic-mega-bug-habitat/girl-in-garden-looking-through-magnifying-glass.png",
@@ -260,7 +260,7 @@ export default async function NatGeoMegaBugHabitatPage() {
       {/* navy */}
       <CallToAction
         title="The Backyard Is Bigger Than You Think"
-        subtitle="Real tools, real bugs, real discovery. All in one kit designed to get kids outside and curious."
+        subtitle="Proper tools and live bugs. Everything in one kit to get kids outside and curious."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"

@@ -170,7 +170,7 @@ export default async function MicrobitGoPage() {
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="Real kids, real projects, real fun — from first-timers to confident coders."
+        subtitle="From first-timers to confident coders — projects they're proud to show off."
         background="gray"
         images={[
           {

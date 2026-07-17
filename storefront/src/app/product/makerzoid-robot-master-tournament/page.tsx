@@ -178,7 +178,7 @@ export default async function MakerzoidRobotMasterTournamentPage() {
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="Real robots, real code, real results."
+        subtitle="Built by kids. Powered by code."
         images={[
           {
             src: "/images/products/makerzoid-robot-master-tournament/hands-unboxing.png",

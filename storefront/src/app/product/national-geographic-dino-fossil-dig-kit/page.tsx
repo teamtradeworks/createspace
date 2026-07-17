@@ -216,7 +216,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Excavate 3 fossil specimens, including a real 50-million-year-old coprolite. Real tools, real science, ages 8–12. Everything included.",
+      "Excavate 3 fossil specimens, including a genuine 50-million-year-old coprolite. Proper dig tools, actual science, ages 8–12. Everything included.",
     alternates: {
       canonical: "/product/national-geographic-dino-fossil-dig-kit",
     },
