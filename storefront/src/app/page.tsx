@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import Image from "next/image";
 import { getCollectionProducts, Product } from "@/lib/shopify";
+import Hero from "@/components/Hero";
+import TrustStrip from "@/components/TrustStrip";
+import AgeGroups from "@/components/AgeGroups";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
-import AgeGroups from "@/components/AgeGroups";
-import TrustBadges from "@/components/TrustBadges";
-import EducationSection from "@/components/EducationSection";
-import HeroCarousel from "@/components/HeroCarousel";
+import WhyCreatespace from "@/components/WhyCreatespace";
+import CustomerPhotoWall from "@/components/CustomerPhotoWall";
+import HomeTestimonials from "@/components/HomeTestimonials";
+import BrandStrip from "@/components/BrandStrip";
+import EducationBanner from "@/components/EducationBanner";
+import FinalCta from "@/components/FinalCta";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import TrackedSection from "@/components/TrackedSection";
-import BrandLink from "@/components/BrandLink";
-import HomeTestimonials from "@/components/HomeTestimonials";
 
 export const metadata: Metadata = {
   title: "CREATESPACE | STEM Toys & Educational Kits for Kids in South Africa",
@@ -87,239 +89,80 @@ async function FeaturedProductsLoader() {
   return <FeaturedProducts productsByAge={productsByAge} />;
 }
 
+function AgeGroupsSkeleton() {
+  return (
+    <section className="py-16 md:py-20 bg-gray-50">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-10 max-w-xl">
+          <div className="h-9 w-48 bg-gray-200 rounded-lg animate-pulse mb-3" />
+          <div className="h-5 w-80 max-w-full bg-gray-200 rounded-lg animate-pulse" />
+        </div>
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="aspect-square rounded-2xl bg-gray-200 animate-pulse" />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   return (
     <>
       <ScrollDepthTracker event="home_page_scroll_depth" />
 
-      {/* Hero Carousel - Renders immediately, no data dependency */}
-      <TrackedSection name="HeroCarousel" page="home">
-        <HeroCarousel />
+      {/* Static hero + trust strip - renders immediately, no data dependency */}
+      <TrackedSection name="Hero" page="home">
+        <Hero />
       </TrackedSection>
 
-      {/* Age Groups - Visual Cards */}
+      <TrackedSection name="TrustStrip" page="home">
+        <TrustStrip />
+      </TrackedSection>
+
+      {/* Shop by age - photo cards, streamed once product images resolve */}
       <TrackedSection name="AgeGroups" page="home">
-        <AgeGroups />
+        <Suspense fallback={<AgeGroupsSkeleton />}>
+          <AgeGroups />
+        </Suspense>
       </TrackedSection>
 
-      {/* Featured Products with Age Group Tabs - Streamed after hero */}
-      <TrackedSection name="FeaturedProducts" page="home">
+      {/* Bestsellers with age group tabs */}
+      <TrackedSection name="Bestsellers" page="home">
         <Suspense fallback={<FeaturedProductsSkeleton />}>
           <FeaturedProductsLoader />
         </Suspense>
       </TrackedSection>
 
-      {/* Our Brands Section */}
-      <TrackedSection name="OurBrands" page="home">
-        <section className="py-20 bg-gray-50">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                Our Brands
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                Trusted Names in STEM
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                We are official, registered suppliers of these brands. Every product we stock is
-                authentic and comes with full manufacturer support.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              {[
-                {
-                  name: "MatataStudio",
-                  logo: "/images/brands/matatastudio.png",
-                  vendor: "MatataStudio",
-                },
-                { name: "Makerzoid", logo: "/images/brands/makerzoid.png", vendor: "Makerzoid" },
-                {
-                  name: "BBC micro:bit",
-                  logo: "/images/brands/bbc-microbit.png",
-                  vendor: "micro:bit",
-                },
-                { name: "ELECFREAKS", logo: "/images/brands/elecfreaks.png", vendor: "ELECFREAKS" },
-                {
-                  name: "Snap Circuits",
-                  logo: "/images/brands/snap-circuits.png",
-                  vendor: "Snap Circuits",
-                },
-                { name: "Arduino", logo: "/images/brands/arduino.png", vendor: "Arduino" },
-                {
-                  name: "National Geographic",
-                  logo: "/images/brands/national-geographic.png",
-                  vendor: "National Geographic",
-                },
-                { name: "Blockaroo", logo: "/images/brands/blockaroo.png", vendor: "Blockaroo" },
-                { name: "NASA", logo: "/images/brands/nasa.png", vendor: "NASA" },
-                { name: "Robotico", logo: "/images/brands/robotico.png", vendor: "Robotico" },
-              ].map((brand) => {
-                const card = (
-                  <div className="relative bg-white rounded-xl p-6 flex flex-col items-center justify-center aspect-square shadow-sm">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      width={160}
-                      height={160}
-                      className="object-contain w-full h-full max-w-[140px] max-h-[140px]"
-                    />
-                  </div>
-                );
-
-                if (brand.vendor) {
-                  return (
-                    <BrandLink key={brand.name} brand={brand.name} vendor={brand.vendor}>
-                      {card}
-                    </BrandLink>
-                  );
-                }
-
-                return <div key={brand.name}>{card}</div>;
-              })}
-            </div>
-          </div>
-        </section>
+      {/* Genuine builds with the kits we stock */}
+      <TrackedSection name="CustomerPhotoWall" page="home">
+        <CustomerPhotoWall />
       </TrackedSection>
 
-      {/* Testimonials Section */}
+      {/* Differentiator - the team behind the store */}
+      <TrackedSection name="WhyCreatespace" page="home">
+        <WhyCreatespace />
+      </TrackedSection>
+
+      {/* Testimonials */}
       <TrackedSection name="Testimonials" page="home">
-        <section className="py-20 bg-white relative overflow-hidden">
-          {/* Decorative illustrations */}
-          <div className="hidden lg:block absolute right-12 top-16 w-28 h-28 opacity-15">
-            <Image
-              src="/images/illustrations/robot-blue.png"
-              alt=""
-              width={112}
-              height={112}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="hidden lg:block absolute left-8 bottom-24 w-20 h-20 opacity-15">
-            <Image
-              src="/images/illustrations/lightbulb.png"
-              alt=""
-              width={80}
-              height={80}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div className="text-center mb-12">
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                Testimonials
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                What Parents & Educators Say
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Hear from the families and schools who love what we do.
-              </p>
-            </div>
-
-            {/* Testimonials Row */}
-            <HomeTestimonials />
-          </div>
-        </section>
+        <HomeTestimonials />
       </TrackedSection>
 
-      {/* Why STEM Section */}
-      <TrackedSection name="WhyStem" page="home">
-        <section className="py-16 relative overflow-hidden">
-          {/* Decorative illustrations */}
-          <div className="hidden lg:block absolute -left-16 top-1/4 w-32 h-32 opacity-20">
-            <Image
-              src="/images/illustrations/robot-orange.png"
-              alt=""
-              width={128}
-              height={128}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="hidden lg:block absolute -right-8 bottom-1/4 w-24 h-24 opacity-20">
-            <Image
-              src="/images/illustrations/atom.png"
-              alt=""
-              width={96}
-              height={96}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div className="text-center mb-12">
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                The Numbers Don&apos;t Lie
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                Why Early STEM Exposure Matters
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Kids who engage with STEM early are more likely to thrive in school and in their
-                careers. These numbers are worth knowing.
-              </p>
-            </div>
-
-            {/* Stat Cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {[
-                {
-                  number: "75%",
-                  label:
-                    "of the fastest-growing careers require STEM skills. Hands-on experience now builds confidence for later.",
-                  color: "text-cs-red",
-                  border: "border-cs-red/30",
-                },
-                {
-                  number: "3x",
-                  label: "faster job growth in STEM fields compared to other industries worldwide.",
-                  color: "text-cs-blue",
-                  border: "border-cs-blue/30",
-                },
-                {
-                  number: "2x",
-                  label:
-                    "higher earning potential for STEM graduates compared to non-STEM careers.",
-                  color: "text-cs-green",
-                  border: "border-cs-green/30",
-                },
-                {
-                  number: "80%",
-                  label:
-                    "of jobs in the next decade will require some form of tech or science literacy.",
-                  color: "text-cs-purple",
-                  border: "border-cs-purple/30",
-                },
-              ].map((stat) => (
-                <div
-                  key={stat.number}
-                  className={`bg-gray-50 rounded-xl p-5 md:p-6 text-center border-2 ${stat.border}`}
-                >
-                  <p className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-3 ${stat.color}`}>
-                    {stat.number}
-                  </p>
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* Official supplier strip */}
+      <TrackedSection name="BrandStrip" page="home">
+        <BrandStrip />
       </TrackedSection>
 
-      {/* Trust Badges */}
-      <TrackedSection name="TrustBadges" page="home">
-        <TrustBadges />
-      </TrackedSection>
-
-      {/* Education Section */}
+      {/* Education banner */}
       <TrackedSection name="Education" page="home">
-        <EducationSection />
+        <EducationBanner />
+      </TrackedSection>
+
+      {/* Final CTA */}
+      <TrackedSection name="FinalCta" page="home">
+        <FinalCta />
       </TrackedSection>
     </>
   );

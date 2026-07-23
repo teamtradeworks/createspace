@@ -62,18 +62,16 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
   };
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 md:py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-navy mb-3">Featured Products</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular STEM kits, organised by age group
-          </p>
+        <div className="mb-10 max-w-xl">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Most loved kits</h2>
+          <p className="text-gray-600">Our bestsellers, organised by age group.</p>
         </div>
 
         {/* Age Group Tabs */}
-        <div className="flex justify-center mb-10">
+        <div className="flex mb-10 overflow-x-auto pb-2 scrollbar-none">
           <div className="inline-flex bg-gray-100 rounded-full p-1">
             {ageGroups.map((group) => (
               <button

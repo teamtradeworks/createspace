@@ -204,7 +204,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </svg>
                   <span>
                     <strong>FREE delivery</strong> on orders over R
-                    {DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
+                    {DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString("en-US")}
                   </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm">

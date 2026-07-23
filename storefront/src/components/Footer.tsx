@@ -98,6 +98,13 @@ export default function Footer() {
               <p>Tradeworks Online (Pty) Ltd</p>
               <p>Reg No.: 2021/432299/07</p>
               <p>VAT No.: 4450302973</p>
+              <p>Cape Town, South Africa</p>
+              <a
+                href="mailto:info@thecreatespace.co.za"
+                className="text-white/70 hover:text-cs-orange transition-colors"
+              >
+                info@thecreatespace.co.za
+              </a>
             </div>
           </div>
 

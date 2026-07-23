@@ -29,103 +29,37 @@ body {
   }
 }
 
-/* Hero Carousel - CSS-first approach for LCP optimization */
-.hero-carousel-wrapper {
-  position: relative;
-  min-height: 460px;
-}
-
-@media (min-width: 1024px) {
-  .hero-carousel-wrapper {
-    min-height: 520px;
+/* Load-in transition for above-the-fold content */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-fade-up {
+    animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
-/* Desktop: track fills wrapper and provides positioning context for absolute slides */
-.hero-carousel-track {
-  position: relative;
-  min-height: 460px;
-  width: 100%;
-}
-
-@media (min-width: 1024px) {
-  .hero-carousel-track {
-    min-height: 520px;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
   }
-}
-
-/* Mobile: track becomes a horizontal scroll snap container */
-@media (max-width: 1023px) {
-  .hero-carousel-track {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-  .hero-carousel-track::-webkit-scrollbar {
-    display: none;
-  }
-  /* All slides visible and laid out side-by-side for swipe scrolling */
-  .hero-slide {
-    flex: 0 0 100%;
-    min-height: 460px;
-    position: relative;
-    inset: auto;
-    scroll-snap-align: start;
-    overflow: hidden;
+  to {
+    opacity: 1;
+    transform: none;
   }
 }
 
-/* Desktop-only: opacity-based slide switching */
-@media (min-width: 1024px) {
-  /* All slides hidden by default */
-  .hero-slide {
+/* Scroll reveal: hidden state is applied client-side only (see Reveal.tsx) */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-hidden {
     opacity: 0;
-    pointer-events: none;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--reveal-delay, 0ms);
   }
-
-  /* First slide visible by default (before JS hydrates) */
-  .hero-slide[data-index="0"] {
+  .reveal-hidden.reveal-visible {
     opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* JS-controlled visibility via data attribute */
-  .hero-carousel-wrapper[data-current-slide="0"] .hero-slide {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .hero-carousel-wrapper[data-current-slide="0"] .hero-slide[data-index="0"] {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .hero-carousel-wrapper[data-current-slide="1"] .hero-slide {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .hero-carousel-wrapper[data-current-slide="1"] .hero-slide[data-index="1"] {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .hero-carousel-wrapper[data-current-slide="2"] .hero-slide {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .hero-carousel-wrapper[data-current-slide="2"] .hero-slide[data-index="2"] {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .hero-carousel-wrapper[data-current-slide="3"] .hero-slide {
-    opacity: 0;
-    pointer-events: none;
-  }
-  .hero-carousel-wrapper[data-current-slide="3"] .hero-slide[data-index="3"] {
-    opacity: 1;
-    pointer-events: auto;
+    transform: none;
   }
 }
 

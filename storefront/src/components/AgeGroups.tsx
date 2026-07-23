@@ -1,76 +1,79 @@
-"use client";
-
-import Link from "next/link";
-import { capture } from "@/lib/analytics";
+import { getProductByHandle } from "@/lib/shopify";
+import AgeGroupCard from "@/components/AgeGroupCard";
 
 const ageGroups = [
   {
     range: "3-5",
-    label: "Early Explorers",
+    label: "Early explorers",
     color: "bg-cs-red",
+    darkText: false,
     href: "/shop?age=3-5",
+    handle: "blockaroo-magnetic-foam-builders-castle",
+    event: "home_page_3to5_clicked",
   },
   {
     range: "6-8",
-    label: "Junior Innovators",
+    label: "Junior innovators",
     color: "bg-cs-green",
+    darkText: true,
     href: "/shop?age=6-8",
+    handle: "national-geographic-motorized-marble-run",
+    event: "home_page_6to8_clicked",
   },
   {
     range: "9-12",
-    label: "Budding Engineers",
+    label: "Budding engineers",
     color: "bg-cs-blue",
+    darkText: true,
     href: "/shop?age=9-12",
+    handle: "matatastudio-vincibot-coding-robot-set",
+    event: "home_page_9to12_clicked",
   },
   {
     range: "13+",
-    label: "Advanced Creators",
+    label: "Advanced creators",
     color: "bg-cs-purple",
-    href: "/shop?age=13+",
+    darkText: false,
+    href: "/shop?age=13%2B",
+    handle: "arduino-starter-kit",
+    event: "home_page_13plus_clicked",
   },
 ];
 
-export default function AgeGroups() {
+// Shopify CDN serves resized variants via the width param; the source images
+// can be multi-MB, so cap what the Next.js optimizer has to fetch.
+function shopifyWidth(url: string | null | undefined, width: number): string | null {
+  if (!url) return null;
+  return `${url}${url.includes("?") ? "&" : "?"}width=${width}`;
+}
+
+export default async function AgeGroups() {
+  const products = await Promise.all(
+    ageGroups.map((group) => getProductByHandle(group.handle).catch(() => null)),
+  );
+
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 md:py-20 bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-navy mb-3">Shop by Age Group</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Find the perfect STEM kit matched to your child&apos;s age and skill level
+        <div className="mb-10 max-w-xl">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Shop by age</h2>
+          <p className="text-gray-600">
+            Every kit shows a clear age range, so it&apos;s easy to pick one that fits.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {ageGroups.map((group) => (
-            <Link
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {ageGroups.map((group, index) => (
+            <AgeGroupCard
               key={group.range}
+              range={group.range}
+              label={group.label}
+              color={group.color}
+              darkText={group.darkText}
               href={group.href}
-              onClick={() => {
-                const eventMap: Record<string, string> = {
-                  "3-5": "home_page_3to5_clicked",
-                  "6-8": "home_page_6to8_clicked",
-                  "9-12": "home_page_9to12_clicked",
-                  "13+": "home_page_13plus_clicked",
-                };
-                const event = eventMap[group.range];
-                if (event) capture(event);
-              }}
-              className={`${group.color} rounded-xl p-6 text-white hover:scale-105 transition-transform relative overflow-hidden group`}
-            >
-              {/* Background pattern */}
-              <div className="absolute inset-0 opacity-10">
-                <svg className="w-full h-full" viewBox="0 0 100 100" fill="currentColor">
-                  <circle cx="80" cy="20" r="30" />
-                  <circle cx="20" cy="80" r="20" />
-                </svg>
-              </div>
-
-              <div className="relative">
-                <span className="text-4xl md:text-5xl font-bold block mb-1">{group.range}</span>
-                <span className="text-sm md:text-base font-medium opacity-90">{group.label}</span>
-              </div>
-            </Link>
+              image={shopifyWidth(products[index]?.images?.edges?.[0]?.node?.url, 1000)}
+              event={group.event}
+            />
           ))}
         </div>
       </div>

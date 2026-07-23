@@ -21,7 +21,7 @@ const ALL_BADGES: TrustBadge[] = [
     id: "free-delivery",
     icon: "/images/icons/free-delivery.png",
     title: "Free Delivery",
-    description: `For orders over R${DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}`,
+    description: `For orders over R${DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString("en-US")}`,
     color: "bg-cs-green",
   },
   {

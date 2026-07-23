@@ -14,7 +14,7 @@ export default function HeaderSkeleton() {
             height={12}
             className="rounded-sm"
           />
-          Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
+          Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString("en-US")}
         </span>
       </div>
 

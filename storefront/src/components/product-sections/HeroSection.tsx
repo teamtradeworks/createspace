@@ -351,7 +351,7 @@ export function HeroSection({
                       </svg>
                       <span>
                         <strong>FREE delivery</strong> on orders over R
-                        {DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
+                        {DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString("en-US")}
                       </span>
                     </div>
                   )}

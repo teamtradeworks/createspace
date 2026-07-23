@@ -70,14 +70,6 @@ export default function RootLayout({
             __html: `if(!window.fbq){window.fbq=function(){window.fbq.callMethod?window.fbq.callMethod.apply(window.fbq,arguments):window.fbq.queue.push(arguments)};window._fbq=window.fbq;window.fbq.push=window.fbq;window.fbq.loaded=!0;window.fbq.version='2.0';window.fbq.queue=[]}`,
           }}
         />
-        {/* Preload hero image for faster LCP */}
-        <link
-          rel="preload"
-          href="/images/home/hero-stem-education.jpg"
-          as="image"
-          type="image/jpeg"
-          fetchPriority="high"
-        />
       </head>
       <body className="antialiased">
         {process.env.NEXT_PUBLIC_GTM_ID && (
