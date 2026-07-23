@@ -63,6 +63,34 @@ body {
   }
 }
 
+/* Photo wall flip cards: the front image defines the tile height, the kit
+   card sits on the back face. Reduced-motion users get an instant swap. */
+.wall-flip {
+  perspective: 1200px;
+}
+.wall-flip-inner {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+.wall-flip[data-flipped="true"] .wall-flip-inner {
+  transform: rotateY(180deg);
+}
+.wall-flip-front {
+  backface-visibility: hidden;
+}
+.wall-flip-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .wall-flip-inner {
+    transition: none;
+  }
+}
+
 /* Thin scrollbar for review containers */
 .scrollbar-thin {
   scrollbar-width: thin;

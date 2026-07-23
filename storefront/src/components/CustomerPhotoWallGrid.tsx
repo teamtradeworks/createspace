@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useSyncExternalStore } from "react";
+import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
@@ -19,6 +19,7 @@ export type WallPhoto = {
   minAge: number | null;
   maxAge: number | null;
   productImage: string | null;
+  price: string | null;
 };
 
 const AGE_BANDS = [
@@ -35,26 +36,17 @@ function matchesBand(photo: WallPhoto, band: (typeof AGE_BANDS)[number]): boolea
   return photo.minAge <= bandMax && band.min <= photoMax;
 }
 
-/**
- * The product-image hover layer only exists on hover-capable viewports (sm+).
- * Gating on matchMedia keeps mobile from downloading packshots it can never see.
- */
-function useHoverCapable(): boolean {
-  return useSyncExternalStore(
-    (onStoreChange) => {
-      const mq = window.matchMedia("(min-width: 640px)");
-      mq.addEventListener("change", onStoreChange);
-      return () => mq.removeEventListener("change", onStoreChange);
-    },
-    () => window.matchMedia("(min-width: 640px)").matches,
-    () => false,
-  );
+function handleFromHref(href: string): string {
+  return href.split("/").pop() ?? href;
 }
 
 export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] }) {
-  const [activeBrands, setActiveBrands] = useState<Set<string>>(new Set());
+  const [activeBrand, setActiveBrand] = useState<string | null>(null);
   const [activeBand, setActiveBand] = useState<string>("all");
-  const hoverCapable = useHoverCapable();
+  // Which card is currently showing its kit side, plus every card that has
+  // flipped at least once (their backs stay mounted so unflips animate).
+  const [flippedSrc, setFlippedSrc] = useState<string | null>(null);
+  const [everFlipped, setEverFlipped] = useState<Set<string>>(new Set());
 
   // Only show brand toggles for brands actually present in the wall
   const wallBrands = useMemo(
@@ -62,8 +54,10 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
     [photos],
   );
 
+  const spotlight = activeBrand ? (wallBrands.find((b) => b.key === activeBrand) ?? null) : null;
+
   const filtered = photos.filter((photo) => {
-    if (activeBrands.size > 0 && !activeBrands.has(photo.brand)) return false;
+    if (activeBrand && photo.brand !== activeBrand) return false;
     if (activeBand !== "all") {
       const band = AGE_BANDS.find((b) => b.key === activeBand);
       if (band && !matchesBand(photo, band)) return false;
@@ -71,21 +65,24 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
     return true;
   });
 
-  function toggleBrand(brandKey: string, brandName: string) {
-    setActiveBrands((prev) => {
-      const next = new Set(prev);
-      const selected = !next.has(brandKey);
-      if (selected) {
-        next.add(brandKey);
-      } else {
-        next.delete(brandKey);
+  function selectBrand(brandKey: string, brandName: string) {
+    setFlippedSrc(null);
+    setActiveBrand((prev) => {
+      const next = prev === brandKey ? null : brandKey;
+      capture("home_page_wall_filter_clicked", {
+        filter: "brand",
+        value: brandName,
+        selected: next !== null,
+      });
+      if (next !== null) {
+        capture("home_page_wall_brand_spotlight_opened", { brand: brandName });
       }
-      capture("home_page_wall_filter_clicked", { filter: "brand", value: brandName, selected });
       return next;
     });
   }
 
   function selectBand(bandKey: string) {
+    setFlippedSrc(null);
     setActiveBand(bandKey);
     capture("home_page_wall_filter_clicked", {
       filter: "age",
@@ -94,12 +91,32 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
     });
   }
 
+  function toggleFlip(photo: WallPhoto) {
+    setFlippedSrc((prev) => {
+      const next = prev === photo.src ? null : photo.src;
+      if (next !== null) {
+        capture("home_page_wall_card_flipped", { handle: handleFromHref(photo.href) });
+        setEverFlipped((set) => {
+          if (set.has(photo.src)) return set;
+          const grown = new Set(set);
+          grown.add(photo.src);
+          return grown;
+        });
+      }
+      return next;
+    });
+  }
+
   return (
     <div>
-      {/* Brand logo toggles */}
-      <div className="mb-4 flex flex-wrap items-center gap-2 md:gap-3" role="group" aria-label="Filter by brand">
+      {/* Brand logo toggles (single-select: tapping a brand opens its spotlight) */}
+      <div
+        className="mb-4 flex flex-wrap items-center gap-2 md:gap-3"
+        role="group"
+        aria-label="Filter by brand"
+      >
         {wallBrands.map((brand) => {
-          const active = activeBrands.has(brand.key);
+          const active = activeBrand === brand.key;
           return (
             <button
               key={brand.key}
@@ -107,7 +124,7 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
               aria-pressed={active}
               aria-label={`Filter by ${brand.name}`}
               title={brand.name}
-              onClick={() => toggleBrand(brand.key, brand.name)}
+              onClick={() => selectBrand(brand.key, brand.name)}
               className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
                 active
                   ? "border-cs-orange shadow-sm"
@@ -126,10 +143,58 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
         })}
       </div>
 
+      {/* Brand spotlight: the payoff for tapping a brand chip */}
+      {spotlight && (
+        <div className="mb-6 rounded-2xl bg-white ring-1 ring-gray-200 p-5 md:p-6 flex flex-col sm:flex-row sm:items-center gap-4 md:gap-8">
+          <Image
+            src={spotlight.logo}
+            alt={spotlight.name}
+            width={220}
+            height={88}
+            className="h-10 md:h-12 w-auto max-w-[180px] object-contain flex-shrink-0"
+          />
+          <div className="flex-1">
+            <p className="font-semibold text-navy text-balance">{spotlight.blurb}</p>
+            <p className="mt-1 flex items-center gap-1.5 text-sm text-gray-500">
+              <svg
+                className="w-4 h-4 text-cs-green flex-shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Official South African supplier
+            </p>
+          </div>
+          <Link
+            href={`/shop?brand=${encodeURIComponent(spotlight.vendor)}`}
+            onClick={() => capture("home_page_wall_brand_shop_clicked", { brand: spotlight.name })}
+            className="inline-flex items-center justify-center px-5 py-3 bg-navy hover:bg-navy/90 active:translate-y-px text-white rounded-lg text-sm font-semibold transition-all whitespace-nowrap"
+          >
+            Shop all {spotlight.name}
+            <svg
+              className="ml-1.5 w-4 h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </Link>
+        </div>
+      )}
+
       {/* Age band tabs + result count */}
       <div className="mb-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
         <div className="flex overflow-x-auto pb-1 scrollbar-none">
-          <div className="inline-flex bg-gray-100 rounded-full p-1" role="group" aria-label="Filter by age">
+          <div
+            className="inline-flex bg-gray-100 rounded-full p-1"
+            role="group"
+            aria-label="Filter by age"
+          >
             {[{ key: "all", label: "All ages" }, ...AGE_BANDS.map((b) => ({ key: b.key, label: `${b.key} yrs` }))].map(
               (band) => (
                 <button
@@ -154,47 +219,96 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
         </p>
       </div>
 
-      {/* Photo masonry */}
+      {/* Photo masonry of flip cards */}
       {filtered.length > 0 ? (
         <div className="columns-2 sm:columns-3 lg:columns-4 gap-4">
-          {filtered.map((photo, index) => (
-            <Reveal key={photo.src} className="mb-4 break-inside-avoid" delay={(index % 4) * 60}>
-              <Link
-                href={photo.href}
-                onClick={() =>
-                  capture("home_page_wall_product_clicked", { handle: photo.href.split("/").pop() })
-                }
-                className="group relative block rounded-xl overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  width={photo.width}
-                  height={photo.height}
-                  className="w-full h-auto"
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                />
-                {hoverCapable && photo.productImage && (
-                  <span
-                    aria-hidden="true"
-                    className="absolute inset-0 bg-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
-                  >
-                    <Image
-                      src={photo.productImage}
-                      alt=""
-                      fill
-                      className="object-contain p-4"
-                      sizes="(max-width: 1024px) 33vw, 25vw"
-                    />
-                  </span>
-                )}
-                <span className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-navy/85 via-navy/25 to-transparent p-3 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 group-focus-visible:opacity-100">
-                  <span className="text-sm font-semibold text-white leading-snug">{photo.name}</span>
-                  {photo.age && <span className="text-xs text-white/80 mt-0.5">{photo.age}</span>}
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+          {filtered.map((photo, index) => {
+            const isFlipped = flippedSrc === photo.src;
+            const brand = BRANDS.find((b) => b.key === photo.brand);
+            return (
+              <Reveal key={photo.src} className="mb-4 break-inside-avoid" delay={(index % 4) * 60}>
+                <div className="wall-flip" data-flipped={isFlipped}>
+                  <div className="wall-flip-inner">
+                    {/* Front: the build photo */}
+                    <button
+                      type="button"
+                      onClick={() => toggleFlip(photo)}
+                      aria-expanded={isFlipped}
+                      aria-label={`Show the kit behind this photo: ${photo.name}`}
+                      className="wall-flip-front group relative block w-full rounded-xl overflow-hidden text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                    >
+                      <Image
+                        src={photo.src}
+                        alt={photo.alt}
+                        width={photo.width}
+                        height={photo.height}
+                        className="w-full h-auto"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      />
+                      {brand && (
+                        <span className="absolute top-2 right-2 rounded-md bg-white/95 px-1.5 py-1 shadow-sm">
+                          <Image
+                            src={brand.logo}
+                            alt={brand.name}
+                            width={120}
+                            height={48}
+                            className="h-3.5 w-auto max-w-[64px] object-contain"
+                          />
+                        </span>
+                      )}
+                      <span className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-navy/85 via-navy/25 to-transparent p-3 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 group-focus-visible:opacity-100">
+                        <span className="text-sm font-semibold text-white leading-snug">{photo.name}</span>
+                        {photo.age && <span className="text-xs text-white/80 mt-0.5">{photo.age}</span>}
+                      </span>
+                    </button>
+
+                    {/* Back: the kit card (mounted after first flip so unflips animate) */}
+                    {everFlipped.has(photo.src) && (
+                      <div
+                        className="wall-flip-back rounded-xl bg-white ring-1 ring-gray-200 p-3 flex flex-col cursor-pointer"
+                        onClick={() => toggleFlip(photo)}
+                        aria-hidden={!isFlipped}
+                      >
+                        <div className="relative flex-1 min-h-0">
+                          {photo.productImage && (
+                            <Image
+                              src={photo.productImage}
+                              alt=""
+                              fill
+                              className="object-contain p-1"
+                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                            />
+                          )}
+                        </div>
+                        <div className="mt-2">
+                          <p className="text-sm font-semibold text-navy leading-snug line-clamp-2">
+                            {photo.name}
+                          </p>
+                          <p className="text-xs text-gray-500 mt-0.5">
+                            {photo.age}
+                            {photo.price ? ` · ${photo.price}` : ""}
+                          </p>
+                          <Link
+                            href={photo.href}
+                            onClick={(event) => {
+                              event.stopPropagation();
+                              capture("home_page_wall_product_clicked", {
+                                handle: handleFromHref(photo.href),
+                              });
+                            }}
+                            tabIndex={isFlipped ? 0 : -1}
+                            className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-navy px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy/90"
+                          >
+                            See the kit
+                          </Link>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
       ) : (
         <div className="py-16 text-center">
@@ -202,7 +316,7 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
           <button
             type="button"
             onClick={() => {
-              setActiveBrands(new Set());
+              setActiveBrand(null);
               setActiveBand("all");
             }}
             className="text-cs-orange font-medium hover:underline"

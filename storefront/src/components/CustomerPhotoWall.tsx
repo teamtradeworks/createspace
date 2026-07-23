@@ -1,7 +1,10 @@
-import { getProductByHandle, formatAgeRange } from "@/lib/shopify";
+import { getProductByHandle, formatAgeRange, formatPrice } from "@/lib/shopify";
 import CustomerPhotoWallGrid, { type WallPhoto } from "@/components/CustomerPhotoWallGrid";
 
-type PhotoDef = Omit<WallPhoto, "name" | "age" | "href" | "minAge" | "maxAge" | "productImage"> & {
+type PhotoDef = Omit<
+  WallPhoto,
+  "name" | "age" | "href" | "minAge" | "maxAge" | "productImage" | "price"
+> & {
   handle: string;
   fallbackName: string;
   fallbackMinAge: number;
@@ -190,6 +193,12 @@ export default async function CustomerPhotoWall() {
       minAge: parseAge(product?.minAge?.value, photo.fallbackMinAge),
       maxAge: parseAge(product?.maxAge?.value, photo.fallbackMaxAge),
       productImage: shopifyWidth(product?.images?.edges?.[0]?.node?.url, 800),
+      price: product
+        ? formatPrice(
+            product.priceRange.minVariantPrice.amount,
+            product.priceRange.minVariantPrice.currencyCode,
+          )
+        : null,
     };
   });
 
@@ -201,8 +210,8 @@ export default async function CustomerPhotoWall() {
             Built by kids like yours
           </h2>
           <p className="text-gray-600">
-            Every photo shows a kit we stock, built by kids at home and in class. Tap one to see
-            the kit.
+            Every photo shows a kit we stock, built by kids at home and in class. Tap a photo to
+            see the kit behind it.
           </p>
         </div>
 
