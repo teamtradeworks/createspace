@@ -283,7 +283,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                         fill
                         className="object-contain"
                         sizes="(max-width: 1024px) 96px, 128px"
-                        loading="lazy"
+                        priority={index === 0}
                       />
                     </div>
                     {slide.type !== "brands-launched" && (
