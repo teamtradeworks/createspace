@@ -31,16 +31,20 @@ export default function AgeGroupCard({
       onClick={() => capture(event)}
       className={`group ${color} rounded-2xl p-5 md:p-6 aspect-square flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy`}
     >
-      <div className="relative flex-1 min-h-0">
-        {image && (
-          <Image
-            src={image}
-            alt=""
-            fill
-            className="object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
-            sizes="(max-width: 768px) 50vw, 25vw"
-          />
-        )}
+      {/* Packshots keep their own white backgrounds, so frame them in a uniform
+          white tile rather than letting each image float as a raw rectangle. */}
+      <div className="flex-1 min-h-0 bg-white rounded-xl shadow-sm p-3 md:p-4">
+        <div className="relative w-full h-full">
+          {image && (
+            <Image
+              src={image}
+              alt=""
+              fill
+              className="object-contain transition-transform duration-300 group-hover:scale-105"
+              sizes="(max-width: 768px) 50vw, 25vw"
+            />
+          )}
+        </div>
       </div>
       <div className="mt-4">
         <span className={`block text-3xl md:text-4xl font-bold ${textColor}`}>{range}</span>
