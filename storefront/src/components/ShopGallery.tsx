@@ -41,6 +41,7 @@ const categories = [
   { id: "electricity", label: "Electricity" },
   { id: "building-mechanics", label: "Building & Mechanics" },
   { id: "earth-sciences", label: "Earth Sciences" },
+  { id: "astronomy", label: "Astronomy" },
 ];
 
 export default function ShopGallery({
