@@ -1,65 +1,16 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { capture } from "@/lib/analytics";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 
-type AgeGroup = {
-  id: string;
-  label: string;
-  range: string;
-};
-
-const ageGroups: AgeGroup[] = [
-  { id: "all", label: "All Ages", range: "All" },
-  { id: "3-5", label: "Early Explorers", range: "3-5" },
-  { id: "6-8", label: "Junior Innovators", range: "6-8" },
-  { id: "9-12", label: "Budding Engineers", range: "9-12" },
-  { id: "13+", label: "Advanced Creators", range: "13+" },
-];
-
 type FeaturedProductsProps = {
-  productsByAge: Record<string, Product[]>;
+  products: Product[];
 };
 
-export default function FeaturedProducts({ productsByAge }: FeaturedProductsProps) {
-  const [activeTab, setActiveTab] = useState(ageGroups[0].id);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const products = productsByAge[activeTab] || [];
-  const totalProducts = products.length;
-  const visibleProducts = products.slice(currentIndex, currentIndex + 3);
-
-  // Pad with empty slots if less than 3 products
-  while (visibleProducts.length < 3 && products.length > 0) {
-    visibleProducts.push(products[visibleProducts.length % products.length]);
-  }
-
-  const canGoNext = currentIndex + 3 < totalProducts;
-  const canGoPrev = currentIndex > 0;
-
-  const handleNext = () => {
-    if (canGoNext) {
-      setCurrentIndex((prev) => prev + 1);
-    }
-  };
-
-  const handlePrev = () => {
-    if (canGoPrev) {
-      setCurrentIndex((prev) => prev - 1);
-    }
-  };
-
-  const handleTabChange = (tabId: string) => {
-    const group = ageGroups.find((g) => g.id === tabId);
-    capture("featured_products_filter_clicked", {
-      age_group: tabId,
-      label: group?.label,
-    });
-    setActiveTab(tabId);
-    setCurrentIndex(0);
-  };
+export default function FeaturedProducts({ products }: FeaturedProductsProps) {
+  if (products.length === 0) return null;
 
   return (
     <section className="py-16 md:py-20 bg-white">
@@ -67,133 +18,42 @@ export default function FeaturedProducts({ productsByAge }: FeaturedProductsProp
         {/* Section Header */}
         <div className="mb-10 max-w-xl">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Most loved kits</h2>
-          <p className="text-gray-600">Our bestsellers, organised by age group.</p>
+          <p className="text-gray-600">The kits our customers buy most.</p>
         </div>
 
-        {/* Age Group Tabs */}
-        <div className="flex mb-10 overflow-x-auto pb-2 scrollbar-none">
-          <div className="inline-flex bg-gray-100 rounded-full p-1">
-            {ageGroups.map((group) => (
-              <button
-                key={group.id}
-                onClick={() => handleTabChange(group.id)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  activeTab === group.id
-                    ? "bg-navy text-white shadow-md"
-                    : "text-gray-600 hover:text-navy"
-                }`}
-              >
-                {group.id === "all" ? "All ages" : `${group.range} yrs`}
-              </button>
+        {/* Mobile: horizontal scroll */}
+        <div className="md:hidden -mx-4 sm:-mx-6">
+          <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4 scrollbar-none">
+            {products.map((product) => (
+              <div key={product.id} className="flex-none w-[72vw] snap-start">
+                <ProductCard product={product} />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Products Carousel */}
-        <div className="relative">
-          {/* Desktop-only Navigation Arrows */}
-          {canGoPrev && (
-            <button
-              onClick={handlePrev}
-              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
-              aria-label="Previous products"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-          )}
-
-          {canGoNext && (
-            <button
-              onClick={handleNext}
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
-              aria-label="Next products"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          )}
-
-          {/* Products */}
-          {products.length > 0 ? (
-            <>
-              {/* Mobile: horizontal scroll showing all products */}
-              <div className="md:hidden -mx-4 sm:-mx-6">
-                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4 scrollbar-none">
-                  {products.map((product, index) => (
-                    <div
-                      key={`${product.id}-${index}-mobile`}
-                      className="flex-none w-[72vw] snap-start"
-                    >
-                      <ProductCard product={product} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Desktop: 3-col grid */}
-              <div className="hidden md:grid grid-cols-3 gap-6">
-                {visibleProducts.map((product, index) => (
-                  <ProductCard key={`${product.id}-${index}`} product={product} />
-                ))}
-              </div>
-            </>
-          ) : (
-            <div className="text-center py-16 bg-gray-50 rounded-2xl">
-              <p className="text-gray-500">No products found for this age group yet.</p>
-            </div>
-          )}
-
-          {/* Desktop-only Progress Indicator */}
-          {totalProducts > 3 && (
-            <div className="hidden md:flex justify-center mt-8 gap-2">
-              {Array.from({ length: Math.ceil(totalProducts / 3) }).map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx * 3)}
-                  className="relative flex items-center justify-center w-11 h-11"
-                  aria-label={`Go to page ${idx + 1}`}
-                >
-                  <span
-                    className={`block h-1.5 rounded-full transition-all ${
-                      Math.floor(currentIndex / 3) === idx ? "w-8 bg-navy" : "w-4 bg-gray-300"
-                    }`}
-                  />
-                </button>
-              ))}
-            </div>
-          )}
+        {/* Desktop: single row */}
+        <div className="hidden md:grid grid-cols-3 gap-6">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
 
         {/* View All Link */}
         <div className="text-center mt-10">
           <Link
-            href={activeTab === "all" ? "/shop" : `/shop?age=${activeTab}`}
-            onClick={() => {
-              const group = ageGroups.find((g) => g.id === activeTab);
-              capture("featured_products_view_all_clicked", {
-                age_group: activeTab,
-                label: group?.label,
-              });
-            }}
+            href="/shop"
+            onClick={() => capture("featured_products_view_all_clicked")}
             className="inline-flex items-center text-navy hover:text-cs-orange font-medium transition-colors"
           >
-            {activeTab === "all"
-              ? "View all products"
-              : `View products for ages ${ageGroups.find((g) => g.id === activeTab)?.range}`}
-            <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            View all products
+            <svg
+              className="w-5 h-5 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

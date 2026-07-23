@@ -214,7 +214,7 @@ const PRODUCTS_QUERY = `
 `;
 
 const COLLECTION_PRODUCTS_QUERY = `
-  query CollectionProducts($handle: String!, $first: Int!) {
+  query CollectionProducts($handle: String!, $first: Int!, $sortKey: ProductCollectionSortKeys = COLLECTION_DEFAULT) {
     collection(handle: $handle) {
       id
       title
@@ -224,7 +224,7 @@ const COLLECTION_PRODUCTS_QUERY = `
         url
         altText
       }
-      products(first: $first, sortKey: COLLECTION_DEFAULT) {
+      products(first: $first, sortKey: $sortKey) {
         edges {
           node {
             id
@@ -302,15 +302,18 @@ export async function getProducts(first: number = 8): Promise<Product[]> {
 }
 
 // Get products within a specific collection by handle
+export type CollectionSortKey = "COLLECTION_DEFAULT" | "BEST_SELLING" | "CREATED" | "PRICE" | "TITLE";
+
 export async function getCollectionProducts(
   handle: string,
   first: number = 50,
+  sortKey: CollectionSortKey = "COLLECTION_DEFAULT",
 ): Promise<{ collection: Collection | null; products: Product[] }> {
   const data = await shopifyFetch<{
     collection: (Collection & { products: { edges: { node: Product }[] } }) | null;
   }>({
     query: COLLECTION_PRODUCTS_QUERY,
-    variables: { handle, first },
+    variables: { handle, first, sortKey },
   });
 
   if (!data.collection) {

@@ -1,30 +1,14 @@
 export default function FeaturedProductsSkeleton() {
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 md:py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-navy mb-3">Featured Products</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular STEM kits, organised by age group
-          </p>
+        <div className="mb-10 max-w-xl">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Most loved kits</h2>
+          <p className="text-gray-600">The kits our customers buy most.</p>
         </div>
 
-        {/* Age Group Tabs Skeleton */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex bg-gray-100 rounded-full p-1">
-            {[1, 2, 3, 4].map((i) => (
-              <div
-                key={i}
-                className={`px-6 py-2.5 rounded-full ${i === 1 ? "bg-navy/20" : "bg-transparent"}`}
-              >
-                <div className="w-14 h-4 bg-gray-300 rounded animate-pulse" />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Products Grid Skeleton */}
+        {/* Products Row Skeleton */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[1, 2, 3].map((i) => (
             <div key={i} className="group">

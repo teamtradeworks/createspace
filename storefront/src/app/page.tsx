@@ -24,69 +24,19 @@ export const metadata: Metadata = {
   },
 };
 
-// Interleave products round-robin by vendor so the same brand never clusters together
-function interleaveByVendor(products: Product[]): Product[] {
-  const byVendor = new Map<string, Product[]>();
-  for (const product of products) {
-    const key = product.vendor || "unknown";
-    if (!byVendor.has(key)) byVendor.set(key, []);
-    byVendor.get(key)!.push(product);
-  }
-  const groups = Array.from(byVendor.values());
-  const result: Product[] = [];
-  let i = 0;
-  while (result.length < products.length) {
-    for (const group of groups) {
-      if (i < group.length) result.push(group[i]);
-    }
-    i++;
-  }
-  return result;
-}
-
-// Async component that fetches and renders featured products
+// Async component that fetches the top in-stock bestsellers
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
 
   try {
-    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 100));
+    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 30, "BEST_SELLING"));
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
 
-  // Filter products by age metafields — show if the product's age range overlaps with the group's range
-  const ageRanges: Record<string, [number, number]> = {
-    "3-5": [3, 5],
-    "6-8": [6, 8],
-    "9-12": [9, 12],
-    "13+": [13, 99],
-  };
+  const bestsellers = allProducts.filter((product) => product.availableForSale).slice(0, 3);
 
-  const productsByAge: Record<string, Product[]> = {};
-
-  const inStockProducts = allProducts.filter((product) => product.availableForSale);
-
-  // "All ages" tab shows every product that has an age metafield
-  productsByAge["all"] = interleaveByVendor(
-    inStockProducts.filter((product) => {
-      const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
-      return minAge !== null;
-    })
-  );
-
-  for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
-    productsByAge[groupId] = interleaveByVendor(
-      inStockProducts.filter((product) => {
-        const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
-        if (minAge === null) return false;
-        const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
-        const productMax = maxAge ?? Infinity;
-        return minAge <= maxRange && productMax >= minRange;
-      })
-    );
-  }
-
-  return <FeaturedProducts productsByAge={productsByAge} />;
+  return <FeaturedProducts products={bestsellers} />;
 }
 
 function AgeGroupsSkeleton() {
