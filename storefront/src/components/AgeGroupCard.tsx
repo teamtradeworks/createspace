@@ -10,7 +10,8 @@ type AgeGroupCardProps = {
   color: string;
   darkText?: boolean;
   href: string;
-  image: string | null;
+  image: string;
+  alt: string;
   event: string;
 };
 
@@ -21,6 +22,7 @@ export default function AgeGroupCard({
   darkText = false,
   href,
   image,
+  alt,
   event,
 }: AgeGroupCardProps) {
   const textColor = darkText ? "text-navy" : "text-white";
@@ -29,29 +31,23 @@ export default function AgeGroupCard({
     <Link
       href={href}
       onClick={() => capture(event)}
-      className={`group ${color} rounded-2xl p-5 md:p-6 aspect-square flex flex-col overflow-hidden transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy`}
+      className="group relative rounded-2xl overflow-hidden aspect-square transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
     >
-      {/* Packshots keep their own white backgrounds, so frame them in a uniform
-          white tile rather than letting each image float as a raw rectangle. */}
-      <div className="flex-1 min-h-0 bg-white rounded-xl shadow-sm p-3 md:p-4">
-        <div className="relative w-full h-full">
-          {image && (
-            <Image
-              src={image}
-              alt=""
-              fill
-              className="object-contain transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 768px) 50vw, 25vw"
-            />
-          )}
-        </div>
-      </div>
-      <div className="mt-4">
-        <span className={`block text-3xl md:text-4xl font-bold ${textColor}`}>{range}</span>
-        <span className={`block text-sm md:text-base font-medium ${textColor} opacity-90`}>
+      <Image
+        src={image}
+        alt={alt}
+        fill
+        className="object-cover transition-transform duration-300 group-hover:scale-105"
+        sizes="(max-width: 768px) 50vw, 25vw"
+      />
+      <span className={`absolute bottom-0 inset-x-0 ${color} px-4 py-3 md:px-5 md:py-3.5`}>
+        <span className={`block text-2xl md:text-3xl font-bold leading-tight ${textColor}`}>
+          {range}
+        </span>
+        <span className={`block text-xs md:text-sm font-medium ${textColor} opacity-90`}>
           {label}
         </span>
-      </div>
+      </span>
     </Link>
   );
 }

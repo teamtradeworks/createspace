@@ -4,6 +4,8 @@ import { useState, useMemo, useRef, useEffect, useCallback } from "react";
 import { Product, getStockStatus } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import TrustBadges from "@/components/TrustBadges";
+import { capture } from "@/lib/analytics";
+import { CATEGORIES } from "@/config/categories";
 
 interface ShopGalleryProps {
   products: Product[];
@@ -36,12 +38,9 @@ const ageGroups = [
   { id: "13+", label: "13+", range: [13, 99] as [number, number] },
 ];
 
-const categories = [
-  { id: "robotics", label: "Robotics" },
-  { id: "electricity", label: "Electricity" },
-  { id: "building-mechanics", label: "Building & Mechanics" },
-  { id: "earth-sciences", label: "Earth Sciences" },
-];
+// Category list comes from the shared config so the shop filter, homepage
+// chips, and Shopify tags can't drift apart.
+const categories = CATEGORIES;
 
 export default function ShopGallery({
   products,
@@ -175,19 +174,26 @@ export default function ShopGallery({
   };
 
   const toggleAge = (id: string) => {
-    setSelectedAges((prev) => (prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id]));
+    const selected = !selectedAges.includes(id);
+    capture("shop_filter_applied", { filter: "age", value: id, selected });
+    setSelectedAges((prev) => (selected ? [...prev, id] : prev.filter((v) => v !== id)));
   };
 
   const toggleCategory = (id: string) => {
-    setSelectedCategories((prev) =>
-      prev.includes(id) ? prev.filter((v) => v !== id) : [...prev, id],
-    );
+    const selected = !selectedCategories.includes(id);
+    capture("shop_filter_applied", { filter: "category", value: id, selected });
+    setSelectedCategories((prev) => (selected ? [...prev, id] : prev.filter((v) => v !== id)));
   };
 
   const toggleBrand = (brand: string) => {
-    setSelectedBrands((prev) =>
-      prev.includes(brand) ? prev.filter((v) => v !== brand) : [...prev, brand],
-    );
+    const selected = !selectedBrands.includes(brand);
+    capture("shop_filter_applied", { filter: "brand", value: brand, selected });
+    setSelectedBrands((prev) => (selected ? [...prev, brand] : prev.filter((v) => v !== brand)));
+  };
+
+  const handleSortChange = (value: string) => {
+    capture("shop_filter_applied", { filter: "sort", value, selected: value !== "featured" });
+    setSortBy(value);
   };
 
   return (
@@ -225,7 +231,7 @@ export default function ShopGallery({
             <div className="shrink-0 self-end">
               <SortButton
                 value={sortBy}
-                onChange={setSortBy}
+                onChange={handleSortChange}
                 options={[
                   { value: "featured", label: "Featured" },
                   { value: "price-low", label: "Low → High" },
@@ -308,7 +314,7 @@ export default function ShopGallery({
           <div className="ml-auto">
             <SortButton
               value={sortBy}
-              onChange={setSortBy}
+              onChange={handleSortChange}
               options={[
                 { value: "featured", label: "Featured" },
                 { value: "price-low", label: "Price: Low to High" },

@@ -1,5 +1,5 @@
-import { getProductByHandle } from "@/lib/shopify";
 import AgeGroupCard from "@/components/AgeGroupCard";
+import CategoryChips from "@/components/CategoryChips";
 
 const ageGroups = [
   {
@@ -8,7 +8,8 @@ const ageGroups = [
     color: "bg-cs-red",
     darkText: false,
     href: "/shop?age=3-5",
-    handle: "blockaroo-magnetic-foam-builders-castle",
+    image: "/images/home/age-groups/toddlers-first-robotics-kit.jpg",
+    alt: "Two young children exploring a robotics kit on the classroom floor",
     event: "home_page_3to5_clicked",
   },
   {
@@ -17,7 +18,8 @@ const ageGroups = [
     color: "bg-cs-green",
     darkText: true,
     href: "/shop?age=6-8",
-    handle: "national-geographic-motorized-marble-run",
+    image: "/images/home/age-groups/kids-building-robotics-tablets.jpg",
+    alt: "Two kids building robotics kits with tablet instructions",
     event: "home_page_6to8_clicked",
   },
   {
@@ -26,7 +28,8 @@ const ageGroups = [
     color: "bg-cs-blue",
     darkText: true,
     href: "/shop?age=9-12",
-    handle: "matatastudio-vincibot-coding-robot-set",
+    image: "/images/home/age-groups/kids-testing-robot-cars.jpg",
+    alt: "Two kids testing the robot cars they built at a workshop",
     event: "home_page_9to12_clicked",
   },
   {
@@ -35,35 +38,23 @@ const ageGroups = [
     color: "bg-cs-purple",
     darkText: false,
     href: "/shop?age=13%2B",
-    handle: "arduino-starter-kit",
+    image: "/images/home/age-groups/teen-with-microbit-robot.jpg",
+    alt: "A learner holding the micro:bit robot he built at school",
     event: "home_page_13plus_clicked",
   },
 ];
 
-// Shopify CDN serves resized variants via the width param; the source images
-// can be multi-MB, so cap what the Next.js optimizer has to fetch.
-function shopifyWidth(url: string | null | undefined, width: number): string | null {
-  if (!url) return null;
-  return `${url}${url.includes("?") ? "&" : "?"}width=${width}`;
-}
-
-export default async function AgeGroups() {
-  const products = await Promise.all(
-    ageGroups.map((group) => getProductByHandle(group.handle).catch(() => null)),
-  );
-
+export default function AgeGroups() {
   return (
     <section className="py-16 md:py-20 bg-gray-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-xl">
-          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Shop by age</h2>
-          <p className="text-gray-600">
-            Every kit shows a clear age range, so it&apos;s easy to pick one that fits.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Find the right kit</h2>
+          <p className="text-gray-600">Start with their age, or with what they love.</p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {ageGroups.map((group, index) => (
+          {ageGroups.map((group) => (
             <AgeGroupCard
               key={group.range}
               range={group.range}
@@ -71,11 +62,14 @@ export default async function AgeGroups() {
               color={group.color}
               darkText={group.darkText}
               href={group.href}
-              image={shopifyWidth(products[index]?.images?.edges?.[0]?.node?.url, 1000)}
+              image={group.image}
+              alt={group.alt}
               event={group.event}
             />
           ))}
         </div>
+
+        <CategoryChips />
       </div>
     </section>
   );

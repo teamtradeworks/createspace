@@ -39,24 +39,6 @@ async function FeaturedProductsLoader() {
   return <FeaturedProducts products={bestsellers} />;
 }
 
-function AgeGroupsSkeleton() {
-  return (
-    <section className="py-16 md:py-20 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 max-w-xl">
-          <div className="h-9 w-48 bg-gray-200 rounded-lg animate-pulse mb-3" />
-          <div className="h-5 w-80 max-w-full bg-gray-200 rounded-lg animate-pulse" />
-        </div>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="aspect-square rounded-2xl bg-gray-200 animate-pulse" />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export default function Home() {
   return (
     <>
@@ -71,11 +53,9 @@ export default function Home() {
         <TrustStrip />
       </TrackedSection>
 
-      {/* Shop by age - photo cards, streamed once product images resolve */}
+      {/* Find the right kit: age photo cards + category chips, fully static */}
       <TrackedSection name="AgeGroups" page="home">
-        <Suspense fallback={<AgeGroupsSkeleton />}>
-          <AgeGroups />
-        </Suspense>
+        <AgeGroups />
       </TrackedSection>
 
       {/* Bestsellers with age group tabs */}
