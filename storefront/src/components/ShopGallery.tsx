@@ -542,11 +542,6 @@ function FilterGroup({
                 </span>
               )}
               {opt.label}
-              {isSelected && (
-                <svg className="w-3 h-3 ml-0.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M2 7l3.5 3.5L12 4" />
-                </svg>
-              )}
             </button>
           );
         })}
