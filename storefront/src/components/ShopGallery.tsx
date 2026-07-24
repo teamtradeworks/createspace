@@ -36,6 +36,10 @@ const sortOptions = [
 
 const productPrice = (p: Product) => parseFloat(p.priceRange.minVariantPrice.amount);
 
+// Square, vertically-stacked wordmarks read tiny at the chip's logo height, so
+// scale just those up visually (transform doesn't change the chip's layout).
+const BRAND_LOGO_SCALE: Record<string, number> = { matatastudio: 1.5, makerzoid: 1.45 };
+
 /* Per-axis matchers. An empty selection means "no constraint" (match all). */
 function matchAge(p: Product, ages: string[]): boolean {
   if (ages.length === 0) return true;
@@ -91,6 +95,7 @@ export default function ShopGallery({
       value: b.vendor,
       label: b.name,
       icon: b.logo,
+      logoScale: BRAND_LOGO_SCALE[b.key],
     }));
     // Any vendor not in the canonical list still gets a chip (no logo).
     const extra = [...present]
@@ -459,7 +464,14 @@ export default function ShopGallery({
 
 /* ── Sub-components ─────────────────────────────────────── */
 
-type FacetOption = { value: string; label: string; icon?: string; color?: string; darkText?: boolean };
+type FacetOption = {
+  value: string;
+  label: string;
+  icon?: string;
+  color?: string;
+  darkText?: boolean;
+  logoScale?: number;
+};
 
 const NAVY = "#0C1446";
 
@@ -522,8 +534,15 @@ function FilterGroup({
             >
               {/* Brand wordmark: kept on white so it stays legible on navy. */}
               {opt.icon && iconVariant === "logo" && (
-                <span className={`inline-flex items-center justify-center rounded ${isSelected ? "bg-white px-1 py-0.5" : ""}`}>
-                  <Image src={opt.icon} alt="" width={72} height={20} className="h-4 w-auto max-w-[56px] object-contain" />
+                <span className={`inline-flex items-center justify-center rounded px-1 py-0.5 ${isSelected ? "bg-white" : ""}`}>
+                  <Image
+                    src={opt.icon}
+                    alt=""
+                    width={72}
+                    height={20}
+                    className="h-4 w-auto max-w-[56px] object-contain"
+                    style={opt.logoScale ? { transform: `scale(${opt.logoScale})` } : undefined}
+                  />
                 </span>
               )}
               {/* Category glyph in a colour-tinted swatch (white-tinted on navy). */}
