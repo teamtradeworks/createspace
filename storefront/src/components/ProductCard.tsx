@@ -19,6 +19,9 @@ type ProductCardProps = {
   searchQuery?: string;
   searchPosition?: number;
   priority?: boolean;
+  // When set, the card fades/staggers in on mount (used by the shop grid).
+  // Omitted elsewhere so those grids render statically.
+  index?: number;
 };
 
 export default function ProductCard({
@@ -26,6 +29,7 @@ export default function ProductCard({
   searchQuery,
   searchPosition,
   priority = false,
+  index,
 }: ProductCardProps) {
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
@@ -61,7 +65,10 @@ export default function ProductCard({
           });
         }
       }}
-      className="group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+      style={index !== undefined ? ({ "--card-index": index } as React.CSSProperties) : undefined}
+      className={`group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg hover:shadow-navy/5 transition-shadow flex flex-col active:translate-y-px ${
+        index !== undefined ? "card-in" : ""
+      }`}
     >
       <div className="bg-gray-50 aspect-square relative overflow-hidden">
         {product.images.edges[0] ? (

@@ -382,18 +382,28 @@ export default function ShopGallery({
             {filteredProducts.length > 0 ? (
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
                 {filteredProducts.map((product, index) => (
-                  <ProductCard key={product.id} product={product} priority={index < 6} />
+                  <ProductCard
+                    key={product.id}
+                    product={product}
+                    priority={index < 6}
+                    index={index}
+                  />
                 ))}
               </div>
             ) : (
-              <div className="text-center py-16">
-                <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-12 h-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                  </svg>
+              <div className="text-center py-16 max-w-md mx-auto">
+                <div className="relative w-28 h-28 mx-auto mb-6">
+                  <Image
+                    src="/images/illustrations/robot-orange.png"
+                    alt=""
+                    fill
+                    className="object-contain"
+                  />
                 </div>
-                <h2 className="text-xl font-medium text-gray-900 mb-2">No products match those filters</h2>
-                <p className="text-gray-600 mb-6">Try removing a filter to see more.</p>
+                <h2 className="text-xl font-semibold text-navy mb-2">No kits match those filters</h2>
+                <p className="text-gray-600 mb-6">
+                  Nothing matched this combination. Try removing a filter to widen your search.
+                </p>
                 {hasActiveFilters && (
                   <button
                     onClick={clearFilters}

@@ -63,6 +63,15 @@ body {
   }
 }
 
+/* Shop grid cards fade/stagger in on mount. Stagger is capped so a long grid
+   settles quickly; reduced-motion users get no animation (cards stay visible). */
+@media (prefers-reduced-motion: no-preference) {
+  .card-in {
+    animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: calc(min(var(--card-index, 0), 8) * 45ms);
+  }
+}
+
 /* Mobile filter sheet slide-in */
 @media (prefers-reduced-motion: no-preference) {
   .animate-slide-in-right {
