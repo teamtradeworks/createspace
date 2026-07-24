@@ -14,7 +14,6 @@ interface ShopGalleryProps {
   initialAge?: string;
   initialCategory?: string;
   initialBrand?: string;
-  initialPrice?: string;
   initialSort?: string;
 }
 
@@ -23,14 +22,6 @@ const ageGroups = [
   { id: "6-8", label: "Ages 6-8", range: [6, 8] as [number, number] },
   { id: "9-12", label: "Ages 9-12", range: [9, 12] as [number, number] },
   { id: "13+", label: "Ages 13+", range: [13, 99] as [number, number] },
-];
-
-// Price bands in ZAR. `max` is exclusive; the last band is open-ended.
-const priceBands = [
-  { id: "0-500", label: "Under R500", min: 0, max: 500 },
-  { id: "500-1000", label: "R500 to R1,000", min: 500, max: 1000 },
-  { id: "1000-2000", label: "R1,000 to R2,000", min: 1000, max: 2000 },
-  { id: "2000+", label: "Over R2,000", min: 2000, max: Infinity },
 ];
 
 const sortOptions = [
@@ -65,34 +56,22 @@ function matchBrand(p: Product, brands: string[]): boolean {
   return brands.some((b) => b.toLowerCase() === p.vendor.toLowerCase());
 }
 
-function matchPrice(p: Product, bands: string[]): boolean {
-  if (bands.length === 0) return true;
-  const price = productPrice(p);
-  return bands.some((id) => {
-    const b = priceBands.find((band) => band.id === id);
-    return b ? price >= b.min && price < b.max : false;
-  });
-}
-
-type Axis = "age" | "category" | "brand" | "price";
+type Axis = "age" | "category" | "brand";
 
 export default function ShopGallery({
   products,
   initialAge,
   initialCategory,
   initialBrand,
-  initialPrice,
   initialSort,
 }: ShopGalleryProps) {
-  const parseParam = (v?: string) =>
-    v && v !== "all" ? v.split(",").filter(Boolean) : [];
+  const parseParam = (v?: string) => (v && v !== "all" ? v.split(",").filter(Boolean) : []);
 
   const [selectedAges, setSelectedAges] = useState<string[]>(parseParam(initialAge));
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     parseParam(initialCategory?.toLowerCase()),
   );
   const [selectedBrands, setSelectedBrands] = useState<string[]>(parseParam(initialBrand));
-  const [selectedPrices, setSelectedPrices] = useState<string[]>(parseParam(initialPrice));
   const [sortBy, setSortBy] = useState(initialSort || "featured");
   const [sheetOpen, setSheetOpen] = useState(false);
 
@@ -100,17 +79,18 @@ export default function ShopGallery({
     age: selectedAges,
     category: selectedCategories,
     brand: selectedBrands,
-    price: selectedPrices,
   };
 
-  // Brands present in the catalogue, in canonical order, labelled from config.
+  // Brands present in the catalogue, in canonical order, labelled and badged
+  // from config.
   const brandFacets = useMemo(() => {
     const present = new Set(products.map((p) => p.vendor));
     const known = BRANDS.filter((b) => present.has(b.vendor)).map((b) => ({
       value: b.vendor,
       label: b.name,
+      icon: b.logo,
     }));
-    // Any vendor not in the canonical list still gets a chip.
+    // Any vendor not in the canonical list still gets a chip (no logo).
     const extra = [...present]
       .filter((v) => !BRANDS.some((b) => b.vendor === v))
       .sort()
@@ -123,8 +103,7 @@ export default function ShopGallery({
       (p) =>
         matchAge(p, selectedAges) &&
         matchCategory(p, selectedCategories) &&
-        matchBrand(p, selectedBrands) &&
-        matchPrice(p, selectedPrices),
+        matchBrand(p, selectedBrands),
     );
 
     switch (sortBy) {
@@ -151,24 +130,21 @@ export default function ShopGallery({
       return aOut - bOut;
     });
     return result;
-  }, [products, selectedAges, selectedCategories, selectedBrands, selectedPrices, sortBy]);
+  }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
 
-  // Faceted count: how many products a value would yield given the OTHER active
-  // axes. Counting an axis ignores its own current selection.
+  // How many products a value would yield given the OTHER active axes. Used to
+  // disable options that would lead to an empty grid (the number isn't shown).
   const facetCount = (axis: Axis, value: string): number =>
     products.filter(
       (p) =>
         (axis === "age" || matchAge(p, selectedAges)) &&
         (axis === "category" || matchCategory(p, selectedCategories)) &&
         (axis === "brand" || matchBrand(p, selectedBrands)) &&
-        (axis === "price" || matchPrice(p, selectedPrices)) &&
         (axis === "age"
           ? matchAge(p, [value])
           : axis === "category"
             ? matchCategory(p, [value])
-            : axis === "brand"
-              ? matchBrand(p, [value])
-              : matchPrice(p, [value])),
+            : matchBrand(p, [value])),
     ).length;
 
   // Sync filter state to the URL without triggering a navigation.
@@ -179,12 +155,11 @@ export default function ShopGallery({
     set("age", selectedAges);
     set("category", selectedCategories);
     set("brand", selectedBrands);
-    set("price", selectedPrices);
     if (sortBy !== "featured") params.set("sort", sortBy);
     else params.delete("sort");
     const query = params.toString();
     window.history.replaceState(null, "", query ? `${window.location.pathname}?${query}` : window.location.pathname);
-  }, [selectedAges, selectedCategories, selectedBrands, selectedPrices, sortBy]);
+  }, [selectedAges, selectedCategories, selectedBrands, sortBy]);
 
   // Lock body scroll while the mobile filter sheet is open.
   useEffect(() => {
@@ -200,15 +175,12 @@ export default function ShopGallery({
     age: setSelectedAges,
     category: setSelectedCategories,
     brand: setSelectedBrands,
-    price: setSelectedPrices,
   };
 
   const toggle = (axis: Axis, value: string) => {
     const selected = !selectionByAxis[axis].includes(value);
     capture("shop_filter_applied", { filter: axis, value, selected });
-    setterByAxis[axis]((prev) =>
-      selected ? [...prev, value] : prev.filter((v) => v !== value),
-    );
+    setterByAxis[axis]((prev) => (selected ? [...prev, value] : prev.filter((v) => v !== value)));
   };
 
   const handleSortChange = (value: string) => {
@@ -216,28 +188,24 @@ export default function ShopGallery({
     setSortBy(value);
   };
 
-  const activeCount =
-    selectedAges.length + selectedCategories.length + selectedBrands.length + selectedPrices.length;
+  const activeCount = selectedAges.length + selectedCategories.length + selectedBrands.length;
   const hasActiveFilters = activeCount > 0;
 
   const clearFilters = () => {
     setSelectedAges([]);
     setSelectedCategories([]);
     setSelectedBrands([]);
-    setSelectedPrices([]);
   };
 
   // Flat list of active selections for the removable-chip row.
   const labelFor = (axis: Axis, value: string): string => {
     if (axis === "age") return ageGroups.find((g) => g.id === value)?.label ?? value;
     if (axis === "category") return CATEGORIES.find((c) => c.id === value)?.label ?? value;
-    if (axis === "price") return priceBands.find((b) => b.id === value)?.label ?? value;
     return brandFacets.find((b) => b.value === value)?.label ?? value;
   };
   const activeChips: { axis: Axis; value: string }[] = [
     ...selectedAges.map((v) => ({ axis: "age" as const, value: v })),
     ...selectedCategories.map((v) => ({ axis: "category" as const, value: v })),
-    ...selectedPrices.map((v) => ({ axis: "price" as const, value: v })),
     ...selectedBrands.map((v) => ({ axis: "brand" as const, value: v })),
   ];
 
@@ -260,20 +228,13 @@ export default function ShopGallery({
         onToggle={toggle}
       />
       <FilterGroup
-        title="Price"
-        axis="price"
-        options={priceBands.map((b) => ({ value: b.id, label: b.label }))}
-        selected={selectedPrices}
-        facetCount={facetCount}
-        onToggle={toggle}
-      />
-      <FilterGroup
         title="Brand"
         axis="brand"
         options={brandFacets}
         selected={selectedBrands}
         facetCount={facetCount}
         onToggle={toggle}
+        iconVariant="logo"
       />
     </>
   );
@@ -458,6 +419,7 @@ function FilterGroup({
   selected,
   facetCount,
   onToggle,
+  iconVariant = "line",
 }: {
   title: string;
   axis: Axis;
@@ -465,6 +427,7 @@ function FilterGroup({
   selected: string[];
   facetCount: (axis: Axis, value: string) => number;
   onToggle: (axis: Axis, value: string) => void;
+  iconVariant?: "line" | "logo";
 }) {
   return (
     <div className="mb-7">
@@ -472,8 +435,7 @@ function FilterGroup({
       <div className="flex flex-wrap gap-2">
         {options.map((opt) => {
           const isSelected = selected.includes(opt.value);
-          const count = facetCount(axis, opt.value);
-          const disabled = count === 0 && !isSelected;
+          const disabled = facetCount(axis, opt.value) === 0 && !isSelected;
           return (
             <button
               key={opt.value}
@@ -489,7 +451,20 @@ function FilterGroup({
                     : "border-gray-200 text-navy hover:border-navy/40 active:scale-95"
               }`}
             >
-              {opt.icon && (
+              {/* Brand wordmark: keep it on white so it stays legible on the
+                  navy selected state; category line-icons invert to white. */}
+              {opt.icon && iconVariant === "logo" && (
+                <span className={`inline-flex items-center justify-center rounded ${isSelected ? "bg-white px-1 py-0.5" : ""}`}>
+                  <Image
+                    src={opt.icon}
+                    alt=""
+                    width={72}
+                    height={20}
+                    className="h-4 w-auto max-w-[56px] object-contain"
+                  />
+                </span>
+              )}
+              {opt.icon && iconVariant === "line" && (
                 <Image
                   src={opt.icon}
                   alt=""
@@ -499,7 +474,6 @@ function FilterGroup({
                 />
               )}
               {opt.label}
-              <span className={isSelected ? "text-white/60" : "text-navy/35"}>{count}</span>
             </button>
           );
         })}
