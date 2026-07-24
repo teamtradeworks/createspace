@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Product, getStockStatus } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
@@ -171,6 +171,41 @@ export default function ShopGallery({
     };
   }, [sheetOpen]);
 
+  // Keep the results in view when filters change. Scroll the results column to
+  // just under the sticky chrome (its scroll-margin-top). `force` always scrolls
+  // (mobile "apply"); otherwise only rescue the user when they've scrolled past
+  // the results top, so rapid desktop toggling isn't jumpy.
+  const resultsTopRef = useRef<HTMLDivElement>(null);
+  const didMountRef = useRef(false);
+  const pendingSheetScrollRef = useRef(false);
+
+  const scrollToResults = (force: boolean) => {
+    const el = resultsTopRef.current;
+    if (!el) return;
+    const stickyOffset = window.innerWidth < 1024 ? 160 : 104;
+    if (!force && el.getBoundingClientRect().top >= stickyOffset) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  };
+
+  // Conditional scroll when filters change outside the mobile sheet.
+  useEffect(() => {
+    if (!didMountRef.current) {
+      didMountRef.current = true;
+      return;
+    }
+    if (sheetOpen) return;
+    scrollToResults(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedAges, selectedCategories, selectedBrands]);
+
+  // Always scroll to the results after the mobile sheet is applied.
+  useEffect(() => {
+    if (sheetOpen || !pendingSheetScrollRef.current) return;
+    pendingSheetScrollRef.current = false;
+    scrollToResults(true);
+  }, [sheetOpen]);
+
   const setterByAxis: Record<Axis, React.Dispatch<React.SetStateAction<string[]>>> = {
     age: setSelectedAges,
     category: setSelectedCategories,
@@ -285,6 +320,9 @@ export default function ShopGallery({
 
           {/* Results column */}
           <div>
+            {/* Scroll anchor: sits under the sticky header/control bar */}
+            <div ref={resultsTopRef} className="scroll-mt-[160px] lg:scroll-mt-[104px]" aria-hidden="true" />
+
             {/* Desktop top bar: count + sort */}
             <div className="hidden lg:flex items-center justify-between mb-5">
               <p className="text-sm text-navy/60 font-medium">
@@ -395,7 +433,10 @@ export default function ShopGallery({
               )}
               <button
                 type="button"
-                onClick={() => setSheetOpen(false)}
+                onClick={() => {
+                  pendingSheetScrollRef.current = true;
+                  setSheetOpen(false);
+                }}
                 className="ml-auto flex-1 inline-flex items-center justify-center px-6 py-3 bg-navy hover:bg-navy/90 text-white rounded-xl font-semibold transition-colors"
               >
                 Show {filteredProducts.length} result{filteredProducts.length !== 1 ? "s" : ""}
