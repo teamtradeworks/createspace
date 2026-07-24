@@ -14,12 +14,19 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: Promise<{ age?: string; category?: string; brand?: string; sort?: string }>;
+  searchParams: Promise<{
+    age?: string;
+    category?: string;
+    brand?: string;
+    price?: string;
+    sort?: string;
+  }>;
 };
 
 export default async function ShopPage({ searchParams }: Props) {
-  const { age, category, brand, sort } = await searchParams;
-  const { products } = await getCollectionProducts("shop-all-headless", 100);
+  const { age, category, brand, price, sort } = await searchParams;
+  // Fetch in best-selling order so the default "Most loved" sort is truthful.
+  const { products } = await getCollectionProducts("shop-all-headless", 100, "BEST_SELLING");
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -52,8 +59,9 @@ export default async function ShopPage({ searchParams }: Props) {
         initialAge={age}
         initialCategory={category}
         initialBrand={brand}
+        initialPrice={price}
         initialSort={sort}
-        key={`${age || "all"}-${category || "all"}-${brand || "all"}-${sort || "featured"}`}
+        key={`${age || "all"}-${category || "all"}-${brand || "all"}-${price || "all"}-${sort || "featured"}`}
       />
     </main>
   );

@@ -63,6 +63,21 @@ body {
   }
 }
 
+/* Mobile filter sheet slide-in */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-slide-in-right {
+    animation: slide-in-right 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 /* Photo wall flip cards: the front image defines the tile height, the kit
    card sits on the back face. Reduced-motion users get an instant swap. */
 .wall-flip {
