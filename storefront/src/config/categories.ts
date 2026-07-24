@@ -12,14 +12,15 @@ export type Category = {
   id: string;
   label: string;
   icon: string;
+  color: string; // brand accent, used to tint the category icon
 };
 
 export const CATEGORIES: Category[] = [
-  { id: "robotics", label: "Robotics", icon: "/images/icons/robotic-arm.svg" },
-  { id: "coding", label: "Coding", icon: "/images/icons/laptop-code.svg" },
-  { id: "electricity", label: "Electronics & Circuits", icon: "/images/icons/bolt.svg" },
-  { id: "building-mechanics", label: "Building & Mechanics", icon: "/images/icons/wrench-alt.svg" },
-  { id: "earth-sciences", label: "Earth Sciences", icon: "/images/icons/save-the-planet.svg" },
-  { id: "astronomy", label: "Space & Astronomy", icon: "/images/icons/rocket-lunch.svg" },
-  { id: "chemistry", label: "Chemistry", icon: "/images/icons/eye-dropper.svg" },
+  { id: "robotics", label: "Robotics", icon: "/images/icons/robotic-arm.svg", color: "#3CC7F7" },
+  { id: "coding", label: "Coding", icon: "/images/icons/laptop-code.svg", color: "#AC4DFF" },
+  { id: "electricity", label: "Electronics & Circuits", icon: "/images/icons/bolt.svg", color: "#FFD500" },
+  { id: "building-mechanics", label: "Building & Mechanics", icon: "/images/icons/wrench-alt.svg", color: "#FF8B00" },
+  { id: "earth-sciences", label: "Earth Sciences", icon: "/images/icons/save-the-planet.svg", color: "#93DB21" },
+  { id: "astronomy", label: "Space & Astronomy", icon: "/images/icons/rocket-lunch.svg", color: "#F70B28" },
+  { id: "chemistry", label: "Chemistry", icon: "/images/icons/eye-dropper.svg", color: "#93DB21" },
 ];

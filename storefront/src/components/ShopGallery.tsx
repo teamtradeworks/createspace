@@ -17,11 +17,13 @@ interface ShopGalleryProps {
   initialSort?: string;
 }
 
+// Age bands carry the site-wide age colours (matching the homepage cards and
+// product badges). `darkText` flags the lighter fills that need navy text.
 const ageGroups = [
-  { id: "3-5", label: "Ages 3-5", range: [3, 5] as [number, number] },
-  { id: "6-8", label: "Ages 6-8", range: [6, 8] as [number, number] },
-  { id: "9-12", label: "Ages 9-12", range: [9, 12] as [number, number] },
-  { id: "13+", label: "Ages 13+", range: [13, 99] as [number, number] },
+  { id: "3-5", label: "Ages 3-5", range: [3, 5] as [number, number], color: "#F70B28", darkText: false },
+  { id: "6-8", label: "Ages 6-8", range: [6, 8] as [number, number], color: "#93DB21", darkText: true },
+  { id: "9-12", label: "Ages 9-12", range: [9, 12] as [number, number], color: "#3CC7F7", darkText: true },
+  { id: "13+", label: "Ages 13+", range: [13, 99] as [number, number], color: "#AC4DFF", darkText: false },
 ];
 
 const sortOptions = [
@@ -249,15 +251,21 @@ export default function ShopGallery({
       <FilterGroup
         title="Age"
         axis="age"
-        options={ageGroups.map((g) => ({ value: g.id, label: g.label }))}
+        options={ageGroups.map((g) => ({
+          value: g.id,
+          label: g.label,
+          color: g.color,
+          darkText: g.darkText,
+        }))}
         selected={selectedAges}
         facetCount={facetCount}
         onToggle={toggle}
+        selectStyle="accent"
       />
       <FilterGroup
         title="Category"
         axis="category"
-        options={CATEGORIES.map((c) => ({ value: c.id, label: c.label, icon: c.icon }))}
+        options={CATEGORIES.map((c) => ({ value: c.id, label: c.label, icon: c.icon, color: c.color }))}
         selected={selectedCategories}
         facetCount={facetCount}
         onToggle={toggle}
@@ -302,7 +310,7 @@ export default function ShopGallery({
         <div className="lg:grid lg:grid-cols-[248px_1fr] lg:gap-10 lg:mt-6">
           {/* Desktop filter rail */}
           <aside className="hidden lg:block">
-            <div className="sticky top-[104px] max-h-[calc(100vh-124px)] overflow-y-auto pr-2 pb-6 scrollbar-thin">
+            <div className="sticky top-[104px] max-h-[calc(100vh-124px)] overflow-y-auto bg-white rounded-2xl ring-1 ring-gray-200/70 shadow-sm p-5 scrollbar-thin">
               <div className="flex items-center justify-between mb-5">
                 <h2 className="text-lg font-semibold text-navy">Filters</h2>
                 {hasActiveFilters && (
@@ -451,7 +459,9 @@ export default function ShopGallery({
 
 /* ── Sub-components ─────────────────────────────────────── */
 
-type FacetOption = { value: string; label: string; icon?: string };
+type FacetOption = { value: string; label: string; icon?: string; color?: string; darkText?: boolean };
+
+const NAVY = "#0C1446";
 
 function FilterGroup({
   title,
@@ -461,6 +471,7 @@ function FilterGroup({
   facetCount,
   onToggle,
   iconVariant = "line",
+  selectStyle = "navy",
 }: {
   title: string;
   axis: Axis;
@@ -469,6 +480,7 @@ function FilterGroup({
   facetCount: (axis: Axis, value: string) => number;
   onToggle: (axis: Axis, value: string) => void;
   iconVariant?: "line" | "logo";
+  selectStyle?: "navy" | "accent";
 }) {
   return (
     <div className="mb-7">
@@ -477,6 +489,27 @@ function FilterGroup({
         {options.map((opt) => {
           const isSelected = selected.includes(opt.value);
           const disabled = facetCount(axis, opt.value) === 0 && !isSelected;
+          const accent = selectStyle === "accent" && opt.color;
+
+          // Colour is applied via inline style (runtime hex); Tailwind handles
+          // the rest. Accent chips fill with their own colour when selected and
+          // carry a coloured border when idle.
+          let style: React.CSSProperties | undefined;
+          let stateClass: string;
+          if (disabled) {
+            stateClass = "border-gray-100 text-gray-300 cursor-not-allowed";
+          } else if (isSelected && accent) {
+            style = { backgroundColor: opt.color, borderColor: opt.color, color: opt.darkText ? NAVY : "#fff" };
+            stateClass = "shadow-sm active:scale-95";
+          } else if (isSelected) {
+            stateClass = "border-navy bg-navy text-white shadow-sm active:scale-95";
+          } else if (accent) {
+            style = { borderColor: opt.color, color: NAVY };
+            stateClass = "bg-white hover:shadow-sm active:scale-95";
+          } else {
+            stateClass = "bg-white border-gray-200 text-navy hover:border-navy/40 active:scale-95";
+          }
+
           return (
             <button
               key={opt.value}
@@ -484,37 +517,36 @@ function FilterGroup({
               disabled={disabled}
               aria-pressed={isSelected}
               onClick={() => onToggle(axis, opt.value)}
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-2 text-sm font-medium transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
-                isSelected
-                  ? "border-navy bg-navy text-white"
-                  : disabled
-                    ? "border-gray-100 text-gray-300 cursor-not-allowed"
-                    : "border-gray-200 text-navy hover:border-navy/40 active:scale-95"
-              }`}
+              style={style}
+              className={`inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-2 text-sm font-medium transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${stateClass}`}
             >
-              {/* Brand wordmark: keep it on white so it stays legible on the
-                  navy selected state; category line-icons invert to white. */}
+              {/* Brand wordmark: kept on white so it stays legible on navy. */}
               {opt.icon && iconVariant === "logo" && (
                 <span className={`inline-flex items-center justify-center rounded ${isSelected ? "bg-white px-1 py-0.5" : ""}`}>
-                  <Image
-                    src={opt.icon}
-                    alt=""
-                    width={72}
-                    height={20}
-                    className="h-4 w-auto max-w-[56px] object-contain"
-                  />
+                  <Image src={opt.icon} alt="" width={72} height={20} className="h-4 w-auto max-w-[56px] object-contain" />
                 </span>
               )}
+              {/* Category glyph in a colour-tinted swatch (white-tinted on navy). */}
               {opt.icon && iconVariant === "line" && (
-                <Image
-                  src={opt.icon}
-                  alt=""
-                  width={16}
-                  height={16}
-                  className={isSelected ? "brightness-0 invert" : ""}
-                />
+                <span
+                  className="inline-flex items-center justify-center w-5 h-5 rounded-md"
+                  style={{
+                    backgroundColor: isSelected
+                      ? "rgba(255,255,255,0.22)"
+                      : opt.color
+                        ? `${opt.color}22`
+                        : "transparent",
+                  }}
+                >
+                  <Image src={opt.icon} alt="" width={14} height={14} className={isSelected ? "brightness-0 invert" : ""} />
+                </span>
               )}
               {opt.label}
+              {isSelected && (
+                <svg className="w-3 h-3 ml-0.5" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M2 7l3.5 3.5L12 4" />
+                </svg>
+              )}
             </button>
           );
         })}
