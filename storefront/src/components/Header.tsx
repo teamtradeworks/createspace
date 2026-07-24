@@ -3,45 +3,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useSyncExternalStore } from "react";
-import { Product } from "@/lib/shopify";
 import { useCart } from "@/context/CartContext";
 import { DELIVERY_CONFIG } from "@/config/delivery";
+import { CATEGORIES } from "@/config/categories";
+import { BRANDS } from "@/config/brands";
+import { capture } from "@/lib/analytics";
 import SearchOverlay from "@/components/SearchOverlay";
 
-// Age group configuration with hardcoded product handles
-const ageGroups = [
-  {
-    id: "3-5",
-    label: "Age 3-5",
-    href: "/shop?age=3-5",
-    handles: ["matatastudio-tale-bot-pro", "blockaroo-magnetic-foam-builders-castle", "snap-circuits-beginner"],
-  },
-  {
-    id: "6-8",
-    label: "Age 6-8",
-    href: "/shop?age=6-8",
-    handles: [
-      "national-geographic-motorized-marble-run",
-      "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
-      "makerzoid-robot-master-premium",
-    ],
-  },
-  {
-    id: "9-12",
-    label: "Age 9-12",
-    href: "/shop?age=9-12",
-    handles: [
-      "matatastudio-vincibot-coding-robot-set",
-      "bbc-micro-bit-go",
-      "elecfreaks-micro-bit-smart-cutebot-pro",
-    ],
-  },
-  {
-    id: "13+",
-    label: "Age 13+",
-    href: "/shop?age=13%2B",
-    handles: ["ultimate-mega-2560-starter-kit", "arduino-starter-kit", "matatastudio-nous-ai-set"],
-  },
+// Shop dropdown routes by our three axes: age, category, and brand.
+const ageLinks = [
+  { id: "3-5", label: "Age 3-5", sub: "Early explorers", href: "/shop?age=3-5" },
+  { id: "6-8", label: "Age 6-8", sub: "Junior innovators", href: "/shop?age=6-8" },
+  { id: "9-12", label: "Age 9-12", sub: "Budding engineers", href: "/shop?age=9-12" },
+  { id: "13+", label: "Age 13+", sub: "Advanced creators", href: "/shop?age=13%2B" },
 ];
 
 // Education options configuration
@@ -121,11 +95,7 @@ const navigation = [
   { name: "Contact", href: "/contact", dropdown: null },
 ];
 
-interface HeaderProps {
-  products?: Product[];
-}
-
-export default function Header({ products = [] }: HeaderProps) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileEducationOpen, setMobileEducationOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -139,6 +109,11 @@ export default function Header({ products = [] }: HeaderProps) {
   );
 
   const closeDropdown = () => setActiveDropdown(null);
+
+  const trackShopNav = (axis: "age" | "category" | "brand" | "all", value: string) => {
+    capture("nav_shop_link_clicked", { axis, value });
+    closeDropdown();
+  };
 
   const handleMenuEnter = (dropdown: string) => {
     if (closeTimeoutRef.current) {
@@ -380,107 +355,95 @@ export default function Header({ products = [] }: HeaderProps) {
       >
         <div className="bg-white shadow-xl">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-4 gap-8">
-              {ageGroups.map((group) => {
-                // Look up hardcoded products by handle, preserving order
-                const groupProducts = group.handles
-                  .map((handle) => products.find((p) => p.handle === handle))
-                  .filter(Boolean) as Product[];
-
-                return (
-                  <div key={group.id}>
-                    {/* Column Header */}
-                    <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-                      <span className="font-semibold text-navy">{group.label}</span>
+            <div className="grid grid-cols-3 gap-8">
+              {/* By age */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 pb-2 border-b border-gray-100">
+                  Shop by age
+                </p>
+                <ul className="space-y-3">
+                  {ageLinks.map((age) => (
+                    <li key={age.id}>
                       <Link
-                        href={group.href}
-                        className="text-sm text-gray-500 hover:text-cs-orange transition-colors flex items-center"
-                        onClick={closeDropdown}
+                        href={age.href}
+                        onClick={() => trackShopNav("age", age.id)}
+                        className="group/link flex items-baseline gap-2"
                       >
-                        Shop All
-                        <svg
-                          className="w-3 h-3 ml-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
+                        <span className="font-semibold text-navy group-hover/link:text-cs-orange transition-colors">
+                          {age.label}
+                        </span>
+                        <span className="text-sm text-gray-500">{age.sub}</span>
                       </Link>
-                    </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                    {/* Products List */}
-                    <ul className="space-y-3">
-                      {groupProducts.map((product) => (
-                        <li key={product.id}>
-                          <Link
-                            href={`/product/${product.handle}`}
-                            className="flex items-center gap-3 group/item"
-                            onClick={closeDropdown}
-                          >
-                            {/* Product Thumbnail */}
-                            <div className="w-10 h-10 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
-                              {product.images.edges[0]?.node.url && (
-                                <Image
-                                  src={product.images.edges[0].node.url}
-                                  alt={product.images.edges[0].node.altText || product.title}
-                                  width={40}
-                                  height={40}
-                                  className="w-full h-full object-cover"
-                                />
-                              )}
-                            </div>
-                            <span className="text-sm text-gray-700 group-hover/item:text-cs-orange transition-colors line-clamp-2">
-                              {product.title}
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
+              {/* By category */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 pb-2 border-b border-gray-100">
+                  Shop by category
+                </p>
+                <ul className="space-y-3">
+                  {CATEGORIES.map((category) => (
+                    <li key={category.id}>
+                      <Link
+                        href={`/shop?category=${category.id}`}
+                        onClick={() => trackShopNav("category", category.id)}
+                        className="flex items-center gap-2.5 text-gray-700 hover:text-cs-orange transition-colors"
+                      >
+                        <Image src={category.icon} alt="" width={18} height={18} />
+                        <span className="text-sm">{category.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* By brand */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 pb-2 border-b border-gray-100">
+                  Shop by brand
+                </p>
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
+                  {BRANDS.map((brand) => (
+                    <li key={brand.key}>
+                      <Link
+                        href={`/shop?brand=${encodeURIComponent(brand.vendor)}`}
+                        onClick={() => trackShopNav("brand", brand.key)}
+                        className="text-sm text-gray-700 hover:text-cs-orange transition-colors"
+                      >
+                        {brand.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Bottom Banner */}
+            {/* Browse all */}
             <div className="mt-8 pt-6 border-t border-gray-100">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-cs-orange/10 rounded-full flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-cs-orange"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-medium text-navy">Need help choosing?</p>
-                    <p className="text-sm text-gray-500">
-                      Our team can recommend the perfect kit for any age or skill level.
-                    </p>
-                  </div>
-                </div>
-                <Link
-                  href="/contact"
-                  className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
-                  onClick={closeDropdown}
+              <Link
+                href="/shop"
+                onClick={() => trackShopNav("all", "all")}
+                className="inline-flex items-center font-semibold text-navy hover:text-cs-orange transition-colors"
+              >
+                Browse all products
+                <svg
+                  className="w-4 h-4 ml-1.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
                 >
-                  Get Advice
-                </Link>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>

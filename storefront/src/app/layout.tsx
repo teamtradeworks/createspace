@@ -4,10 +4,8 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
-import HeaderSkeleton from "@/components/HeaderSkeleton";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
-import { getProducts } from "@/lib/shopify";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
@@ -47,15 +45,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Async component that fetches products for the header
-async function HeaderWithProducts() {
-  const menuProducts = await getProducts(250).catch((error) => {
-    console.error("Failed to fetch menu products:", error);
-    return [];
-  });
-  return <Header products={menuProducts} />;
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -77,9 +66,7 @@ export default function RootLayout({
         )}
         <OrganizationJsonLd />
         <CartProvider>
-          <Suspense fallback={<HeaderSkeleton />}>
-            <HeaderWithProducts />
-          </Suspense>
+          <Header />
           <main>{children}</main>
           <Footer />
           <Suspense fallback={null}>
