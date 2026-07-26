@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef, useSyncExternalStore } from "react";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { useCart } from "@/context/CartContext";
-import { DELIVERY_CONFIG } from "@/config/delivery";
+import { PROMISES } from "@/config/promises";
 import { CATEGORIES } from "@/config/categories";
 import { BRANDS } from "@/config/brands";
 import { capture } from "@/lib/analytics";
@@ -108,6 +108,18 @@ export default function Header() {
     () => false,
   );
 
+  // The top bar shows all promises in a row on desktop; on mobile it rotates
+  // through them one at a time (paused for reduced-motion users, who see the
+  // first / free-delivery promise statically).
+  const [promoIndex, setPromoIndex] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = setInterval(() => {
+      setPromoIndex((prev) => (prev + 1) % PROMISES.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
   const closeDropdown = () => setActiveDropdown(null);
 
   const trackShopNav = (axis: "age" | "category" | "brand" | "all", value: string) => {
@@ -131,18 +143,22 @@ export default function Header() {
 
   return (
     <header className="bg-navy sticky top-0 z-50">
-      {/* Promo banner */}
-      <div className="bg-cs-orange text-white text-center py-2 text-sm font-medium">
-        <span className="inline-flex items-center gap-1.5">
-          <Image
-            src="/images/brand/flag-za.svg"
-            alt="South African flag"
-            width={18}
-            height={12}
-            className="rounded-sm"
-          />
-          Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString("en-US")}
-        </span>
+      {/* Promo bar: trust promises. Row on desktop, rotating below lg. */}
+      <div className="bg-cs-orange text-white text-sm font-medium">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2">
+          {/* Desktop: all promises in a row */}
+          <ul className="hidden lg:flex items-center justify-center gap-x-10">
+            {PROMISES.map((promise) => (
+              <li key={promise} className="whitespace-nowrap">
+                {promise}
+              </li>
+            ))}
+          </ul>
+          {/* Mobile / tablet: one rotating promise */}
+          <div className="lg:hidden text-center whitespace-nowrap" aria-live="polite">
+            {PROMISES[promoIndex]}
+          </div>
+        </div>
       </div>
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

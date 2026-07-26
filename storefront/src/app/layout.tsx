@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
-import TrustBar from "@/components/TrustBar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -68,7 +67,6 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <CartProvider>
           <Header />
-          <TrustBar />
           <main>{children}</main>
           <Footer />
           <Suspense fallback={null}>
