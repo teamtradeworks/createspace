@@ -1,158 +1,6 @@
 import { getProductByHandle, formatAgeRange, formatPrice } from "@/lib/shopify";
 import CustomerPhotoWallGrid, { type WallPhoto } from "@/components/CustomerPhotoWallGrid";
-
-type PhotoDef = Omit<WallPhoto, "name" | "age" | "href" | "productImage" | "price"> & {
-  handle: string;
-  fallbackName: string;
-  fallbackMinAge: number;
-  fallbackMaxAge: number | null;
-};
-
-const photos: PhotoDef[] = [
-  {
-    src: "/images/home/customer-wall/marble-run-kids.jpg",
-    width: 1200,
-    height: 1200,
-    alt: "Kids playing with their finished marble run",
-    handle: "national-geographic-motorized-marble-run",
-    fallbackName: "National Geographic Motorized Marble Run",
-    brand: "national-geographic",
-    fallbackMinAge: 8,
-    fallbackMaxAge: 12,
-  },
-  {
-    src: "/images/home/customer-wall/talebot-girls.jpg",
-    width: 1200,
-    height: 902,
-    alt: "Two girls guiding a Tale-Bot across its map",
-    handle: "matatastudio-tale-bot-pro",
-    fallbackName: "MatataStudio Tale-Bot Pro",
-    brand: "matatastudio",
-    fallbackMinAge: 3,
-    fallbackMaxAge: 6,
-  },
-  {
-    src: "/images/home/customer-wall/kids-tablet-build.jpg",
-    width: 541,
-    height: 1200,
-    alt: "Children building a robot guided by a tablet",
-    handle: "makerzoid-smart-robot",
-    fallbackName: "Makerzoid Smart Robot",
-    brand: "makerzoid",
-    fallbackMinAge: 5,
-    fallbackMaxAge: 8,
-  },
-  {
-    src: "/images/home/customer-wall/rockets-park.jpg",
-    width: 1200,
-    height: 1090,
-    alt: "Kids launching stomp rockets in the park",
-    handle: "national-geographic-light-up-sky-rockets",
-    fallbackName: "National Geographic Light Up Sky Rockets",
-    brand: "national-geographic",
-    fallbackMinAge: 6,
-    fallbackMaxAge: 12,
-  },
-  {
-    src: "/images/home/customer-wall/makerzoid-robot-build.jpg",
-    width: 1200,
-    height: 710,
-    alt: "A child assembling a Makerzoid robot",
-    handle: "makerzoid-smart-robot-premium",
-    fallbackName: "Makerzoid Smart Robot Premium",
-    brand: "makerzoid",
-    fallbackMinAge: 6,
-    fallbackMaxAge: 12,
-  },
-  {
-    src: "/images/home/customer-wall/arduino-workbench.jpg",
-    width: 900,
-    height: 1200,
-    alt: "A teen testing their Arduino circuit at a workbench",
-    handle: "arduino-starter-kit",
-    fallbackName: "Arduino Starter Kit",
-    brand: "arduino",
-    fallbackMinAge: 10,
-    fallbackMaxAge: null,
-  },
-  {
-    src: "/images/home/customer-wall/telescope-child.jpg",
-    width: 675,
-    height: 1200,
-    alt: "A child looking through their telescope",
-    handle: "nasa-lunar-telescope",
-    fallbackName: "NASA Lunar Telescope",
-    brand: "nasa",
-    fallbackMinAge: 8,
-    fallbackMaxAge: 12,
-  },
-  {
-    src: "/images/home/customer-wall/snap-circuits-light.jpg",
-    width: 1200,
-    height: 1159,
-    alt: "A child lighting up their Snap Circuits build",
-    handle: "snap-circuits-beginner",
-    fallbackName: "Snap Circuits Beginner",
-    brand: "snap-circuits",
-    fallbackMinAge: 5,
-    fallbackMaxAge: 9,
-  },
-  {
-    src: "/images/home/customer-wall/blockaroo-bath.jpg",
-    width: 900,
-    height: 1200,
-    alt: "Foam building blocks stuck to the side of a bath",
-    handle: "blockaroo-magnetic-foam-builders-trunk-set",
-    fallbackName: "Blockaroo Magnetic Foam Builders Trunk Set",
-    brand: "blockaroo",
-    fallbackMinAge: 3,
-    fallbackMaxAge: 6,
-  },
-  {
-    src: "/images/home/customer-wall/coding-set-kids.jpg",
-    width: 1200,
-    height: 810,
-    alt: "Three kids planning a route with the coding set",
-    handle: "matatastudio-coding-set-pro",
-    fallbackName: "MatataStudio Coding Set Pro",
-    brand: "matatastudio",
-    fallbackMinAge: 4,
-    fallbackMaxAge: 9,
-  },
-  {
-    src: "/images/home/customer-wall/chemistry-pour.jpg",
-    width: 1200,
-    height: 1200,
-    alt: "Hands pouring coloured liquids for a chemistry experiment",
-    handle: "national-geographic-amazing-reactions-chemistry-set",
-    fallbackName: "National Geographic Amazing Reactions Chemistry Set",
-    brand: "national-geographic",
-    fallbackMinAge: 8,
-    fallbackMaxAge: 12,
-  },
-  {
-    src: "/images/home/customer-wall/circuits-child.jpg",
-    width: 1200,
-    height: 1200,
-    alt: "A child playing with the circuits kit they built",
-    handle: "national-geographic-epic-circuits-science-kit",
-    fallbackName: "National Geographic Epic Circuits Science Kit",
-    brand: "national-geographic",
-    fallbackMinAge: 8,
-    fallbackMaxAge: 14,
-  },
-  {
-    src: "/images/home/customer-wall/microbit-dance.jpg",
-    width: 1200,
-    height: 1113,
-    alt: "A child dancing with a micro:bit strapped to their wrist",
-    handle: "micro-bit-wearable-x-10",
-    fallbackName: "micro:bit Wearable",
-    brand: "bbc-microbit",
-    fallbackMinAge: 8,
-    fallbackMaxAge: 14,
-  },
-];
+import { WALL_PHOTOS, type WallPhotoSource } from "@/config/wall-photos";
 
 // Shopify CDN serves resized variants via the width param; the source images
 // can be multi-MB, so cap what the Next.js optimizer has to fetch.
@@ -161,32 +9,63 @@ function shopifyWidth(url: string | null | undefined, width: number): string | n
   return `${url}${url.includes("?") ? "&" : "?"}width=${width}`;
 }
 
-// The wall shows at most this many photos. Order the `photos` array to control
-// which show first (interleave brands there once the pool grows past the cap).
+// Derive a readable name from a handle, used only if a Shopify fetch fails.
+function titleFromHandle(handle: string): string {
+  return handle
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
+
+// Round-robin the pool by brand so the capped wall spans as many brands as
+// possible instead of front-loading whichever brand has the most photos.
+// Deterministic (pure) — no shuffling, so it's safe to run during render.
+function interleaveByBrand(items: WallPhotoSource[]): WallPhotoSource[] {
+  const groups = new Map<string, WallPhotoSource[]>();
+  for (const item of items) {
+    const group = groups.get(item.brand);
+    if (group) group.push(item);
+    else groups.set(item.brand, [item]);
+  }
+  const lists = [...groups.values()];
+  const result: WallPhotoSource[] = [];
+  for (let i = 0; result.length < items.length; i++) {
+    let addedThisRound = false;
+    for (const list of lists) {
+      if (i < list.length) {
+        result.push(list[i]);
+        addedThisRound = true;
+      }
+    }
+    if (!addedThisRound) break;
+  }
+  return result;
+}
+
+// The wall shows at most this many photos, chosen for brand spread.
 const WALL_LIMIT = 20;
 
 export default async function CustomerPhotoWall() {
-  const selected = photos.slice(0, WALL_LIMIT);
+  const selected = interleaveByBrand(WALL_PHOTOS).slice(0, WALL_LIMIT);
 
-  const products = await Promise.all(
-    selected.map((photo) => getProductByHandle(photo.handle).catch(() => null)),
+  // A product can appear more than once (different photos), so fetch each
+  // handle once and share the result across its photos.
+  const handles = [...new Set(selected.map((photo) => photo.handle))];
+  const entries = await Promise.all(
+    handles.map(async (handle) => [handle, await getProductByHandle(handle).catch(() => null)] as const),
   );
+  const productByHandle = new Map(entries);
 
-  const wallPhotos: WallPhoto[] = selected.map((photo, index) => {
-    const product = products[index];
-    const ageLabel = product ? formatAgeRange(product.minAge, product.maxAge) : null;
+  const wallPhotos: WallPhoto[] = selected.map((photo) => {
+    const product = productByHandle.get(photo.handle) ?? null;
     return {
       src: photo.src,
       width: photo.width,
       height: photo.height,
       alt: photo.alt,
       href: `/product/${photo.handle}`,
-      name: product?.title ?? photo.fallbackName,
-      age:
-        ageLabel ??
-        (photo.fallbackMaxAge
-          ? `Ages ${photo.fallbackMinAge}-${photo.fallbackMaxAge}`
-          : `Ages ${photo.fallbackMinAge}+`),
+      name: product?.title ?? titleFromHandle(photo.handle),
+      age: product ? formatAgeRange(product.minAge, product.maxAge) : null,
       brand: photo.brand,
       productImage: shopifyWidth(product?.images?.edges?.[0]?.node?.url, 800),
       price: product
