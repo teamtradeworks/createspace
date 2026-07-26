@@ -13,7 +13,6 @@ import {
   calculateDeliveryCost,
   amountToFreeDelivery,
 } from "@/config/delivery";
-import TrustBadges from "@/components/TrustBadges";
 import siteConfig from "@/config/site.json";
 
 export default function CartPage() {
@@ -634,9 +633,6 @@ export default function CartPage() {
           )}
         </div>
       </section>
-
-      {/* Trust Badges Section */}
-      <TrustBadges />
     </>
   );
 }

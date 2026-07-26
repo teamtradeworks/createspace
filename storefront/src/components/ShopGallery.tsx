@@ -4,7 +4,6 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Product, getStockStatus } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
-import TrustBadges from "@/components/TrustBadges";
 import { capture } from "@/lib/analytics";
 import { CATEGORIES } from "@/config/categories";
 import { BRANDS } from "@/config/brands";
@@ -415,10 +414,6 @@ export default function ShopGallery({
               </div>
             )}
           </div>
-        </div>
-
-        <div className="mt-16">
-          <TrustBadges />
         </div>
       </div>
 

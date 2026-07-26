@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getCollectionProducts, Product } from "@/lib/shopify";
 import Hero from "@/components/Hero";
-import TrustStrip from "@/components/TrustStrip";
 import AgeGroups from "@/components/AgeGroups";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
@@ -44,13 +43,9 @@ export default function Home() {
     <>
       <ScrollDepthTracker event="home_page_scroll_depth" />
 
-      {/* Static hero + trust strip - renders immediately, no data dependency */}
+      {/* Static hero - renders immediately, no data dependency */}
       <TrackedSection name="Hero" page="home">
         <Hero />
-      </TrackedSection>
-
-      <TrackedSection name="TrustStrip" page="home">
-        <TrustStrip />
       </TrackedSection>
 
       {/* Find the right kit: age photo cards + category chips, fully static */}
