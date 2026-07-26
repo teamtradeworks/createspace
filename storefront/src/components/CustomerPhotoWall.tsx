@@ -1,10 +1,7 @@
 import { getProductByHandle, formatAgeRange, formatPrice } from "@/lib/shopify";
 import CustomerPhotoWallGrid, { type WallPhoto } from "@/components/CustomerPhotoWallGrid";
 
-type PhotoDef = Omit<
-  WallPhoto,
-  "name" | "age" | "href" | "minAge" | "maxAge" | "productImage" | "price"
-> & {
+type PhotoDef = Omit<WallPhoto, "name" | "age" | "href" | "productImage" | "price"> & {
   handle: string;
   fallbackName: string;
   fallbackMinAge: number;
@@ -157,11 +154,6 @@ const photos: PhotoDef[] = [
   },
 ];
 
-function parseAge(value: string | undefined, fallback: number | null): number | null {
-  const parsed = value ? parseInt(value, 10) : NaN;
-  return Number.isNaN(parsed) ? fallback : parsed;
-}
-
 // Shopify CDN serves resized variants via the width param; the source images
 // can be multi-MB, so cap what the Next.js optimizer has to fetch.
 function shopifyWidth(url: string | null | undefined, width: number): string | null {
@@ -190,8 +182,6 @@ export default async function CustomerPhotoWall() {
           ? `Ages ${photo.fallbackMinAge}-${photo.fallbackMaxAge}`
           : `Ages ${photo.fallbackMinAge}+`),
       brand: photo.brand,
-      minAge: parseAge(product?.minAge?.value, photo.fallbackMinAge),
-      maxAge: parseAge(product?.maxAge?.value, photo.fallbackMaxAge),
       productImage: shopifyWidth(product?.images?.edges?.[0]?.node?.url, 800),
       price: product
         ? formatPrice(

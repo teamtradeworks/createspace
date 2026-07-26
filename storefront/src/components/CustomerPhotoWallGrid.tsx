@@ -16,25 +16,9 @@ export type WallPhoto = {
   name: string;
   age: string | null;
   brand: string;
-  minAge: number | null;
-  maxAge: number | null;
   productImage: string | null;
   price: string | null;
 };
-
-const AGE_BANDS = [
-  { key: "3-5", min: 3, max: 5 },
-  { key: "6-8", min: 6, max: 8 },
-  { key: "9-12", min: 9, max: 12 },
-  { key: "13+", min: 13, max: null as number | null },
-];
-
-function matchesBand(photo: WallPhoto, band: (typeof AGE_BANDS)[number]): boolean {
-  if (photo.minAge === null) return true;
-  const photoMax = photo.maxAge ?? 99;
-  const bandMax = band.max ?? 99;
-  return photo.minAge <= bandMax && band.min <= photoMax;
-}
 
 function handleFromHref(href: string): string {
   return href.split("/").pop() ?? href;
@@ -42,7 +26,6 @@ function handleFromHref(href: string): string {
 
 export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] }) {
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
-  const [activeBand, setActiveBand] = useState<string>("all");
   // Which card is currently showing its kit side, plus every card that has
   // flipped at least once (their backs stay mounted so unflips animate).
   const [flippedSrc, setFlippedSrc] = useState<string | null>(null);
@@ -56,14 +39,7 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
 
   const spotlight = activeBrand ? (wallBrands.find((b) => b.key === activeBrand) ?? null) : null;
 
-  const filtered = photos.filter((photo) => {
-    if (activeBrand && photo.brand !== activeBrand) return false;
-    if (activeBand !== "all") {
-      const band = AGE_BANDS.find((b) => b.key === activeBand);
-      if (band && !matchesBand(photo, band)) return false;
-    }
-    return true;
-  });
+  const filtered = activeBrand ? photos.filter((photo) => photo.brand === activeBrand) : photos;
 
   function selectBrand(brandKey: string, brandName: string) {
     setFlippedSrc(null);
@@ -78,16 +54,6 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
         capture("home_page_wall_brand_spotlight_opened", { brand: brandName });
       }
       return next;
-    });
-  }
-
-  function selectBand(bandKey: string) {
-    setFlippedSrc(null);
-    setActiveBand(bandKey);
-    capture("home_page_wall_filter_clicked", {
-      filter: "age",
-      value: bandKey,
-      selected: bandKey !== "all",
     });
   }
 
@@ -187,37 +153,12 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
         </div>
       )}
 
-      {/* Age band tabs + result count */}
-      <div className="mb-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-        <div className="flex overflow-x-auto pb-1 scrollbar-none">
-          <div
-            className="inline-flex bg-gray-100 rounded-full p-1"
-            role="group"
-            aria-label="Filter by age"
-          >
-            {[{ key: "all", label: "All ages" }, ...AGE_BANDS.map((b) => ({ key: b.key, label: `${b.key} yrs` }))].map(
-              (band) => (
-                <button
-                  key={band.key}
-                  type="button"
-                  aria-pressed={activeBand === band.key}
-                  onClick={() => selectBand(band.key)}
-                  className={`px-4 md:px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
-                    activeBand === band.key ? "bg-navy text-white shadow-md" : "text-gray-600 hover:text-navy"
-                  }`}
-                >
-                  {band.label}
-                </button>
-              ),
-            )}
-          </div>
-        </div>
-        <p className="text-sm text-gray-500" aria-live="polite">
-          {filtered.length === photos.length
-            ? `${photos.length} kits`
-            : `${filtered.length} of ${photos.length} kits`}
-        </p>
-      </div>
+      {/* Result count */}
+      <p className="mb-8 text-sm text-gray-500" aria-live="polite">
+        {filtered.length === photos.length
+          ? `${photos.length} kits`
+          : `${filtered.length} of ${photos.length} kits`}
+      </p>
 
       {/* Photo masonry of flip cards */}
       {filtered.length > 0 ? (
@@ -312,16 +253,13 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
         </div>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-gray-600 mb-3">No builds match those filters.</p>
+          <p className="text-gray-600 mb-3">No builds for this brand yet.</p>
           <button
             type="button"
-            onClick={() => {
-              setActiveBrand(null);
-              setActiveBand("all");
-            }}
+            onClick={() => setActiveBrand(null)}
             className="text-cs-orange font-medium hover:underline"
           >
-            Clear filters
+            Show all builds
           </button>
         </div>
       )}
