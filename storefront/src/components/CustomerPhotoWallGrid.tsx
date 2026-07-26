@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
@@ -30,6 +30,9 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
   // flipped at least once (their backs stay mounted so unflips animate).
   const [flippedSrc, setFlippedSrc] = useState<string | null>(null);
   const [everFlipped, setEverFlipped] = useState<Set<string>>(new Set());
+  // Mirrors flippedSrc so the auto-reveal interval can read the current card
+  // without re-subscribing on every flip.
+  const flippedRef = useRef<string | null>(null);
 
   // Only show brand toggles for brands actually present in the wall
   const wallBrands = useMemo(
@@ -72,6 +75,31 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
       return next;
     });
   }
+
+  useEffect(() => {
+    flippedRef.current = flippedSrc;
+  }, [flippedSrc]);
+
+  // Ambient auto-reveal: every 4s flip a random card to its product side, which
+  // resets the previously revealed one (flippedSrc holds a single card). Skipped
+  // for reduced-motion users, who reveal by tapping.
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const pool = activeBrand ? photos.filter((p) => p.brand === activeBrand) : photos;
+    if (pool.length < 2) return;
+    const timer = setInterval(() => {
+      const candidates = pool.filter((p) => p.src !== flippedRef.current);
+      const pick = candidates[Math.floor(Math.random() * candidates.length)] ?? pool[0];
+      setFlippedSrc(pick.src);
+      setEverFlipped((set) => {
+        if (set.has(pick.src)) return set;
+        const grown = new Set(set);
+        grown.add(pick.src);
+        return grown;
+      });
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [activeBrand, photos]);
 
   return (
     <div>

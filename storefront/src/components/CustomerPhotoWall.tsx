@@ -161,12 +161,18 @@ function shopifyWidth(url: string | null | undefined, width: number): string | n
   return `${url}${url.includes("?") ? "&" : "?"}width=${width}`;
 }
 
+// The wall shows at most this many photos. Order the `photos` array to control
+// which show first (interleave brands there once the pool grows past the cap).
+const WALL_LIMIT = 20;
+
 export default async function CustomerPhotoWall() {
+  const selected = photos.slice(0, WALL_LIMIT);
+
   const products = await Promise.all(
-    photos.map((photo) => getProductByHandle(photo.handle).catch(() => null)),
+    selected.map((photo) => getProductByHandle(photo.handle).catch(() => null)),
   );
 
-  const wallPhotos: WallPhoto[] = photos.map((photo, index) => {
+  const wallPhotos: WallPhoto[] = selected.map((photo, index) => {
     const product = products[index];
     const ageLabel = product ? formatAgeRange(product.minAge, product.maxAge) : null;
     return {
@@ -200,9 +206,19 @@ export default async function CustomerPhotoWall() {
             Built by kids like yours
           </h2>
           <p className="text-gray-600">
-            Every photo shows a kit we stock, built by kids at home and in class. Tap a photo to
-            see the kit behind it.
+            Every photo shows a kit we stock, built by kids at home and in class.
           </p>
+          <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-gray-200 px-3.5 py-1.5 text-sm font-medium text-navy">
+            <svg
+              className="w-4 h-4 text-cs-orange"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path d="M9 3a1 1 0 0 1 2 0v8.4l1.3-1.3a1 1 0 0 1 1.5 0l3.9 3.9c.4.4.6 1 .5 1.6l-.7 3.6a2 2 0 0 1-2 1.6H11a2 2 0 0 1-1.5-.7l-4.2-4.8a1 1 0 0 1 .1-1.5l.6-.4a1 1 0 0 1 1-.1L9 12V3Z" />
+            </svg>
+            Tap a photo to reveal the product
+          </span>
         </div>
 
         <CustomerPhotoWallGrid photos={wallPhotos} />
