@@ -33,6 +33,9 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
   // Mirrors flippedSrc so the auto-reveal interval can read the current card
   // without re-subscribing on every flip.
   const flippedRef = useRef<string | null>(null);
+  // Auto-reveal only arms once the wall has scrolled into view (plus a beat).
+  const [armed, setArmed] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   // Only show brand toggles for brands actually present in the wall
   const wallBrands = useMemo(
@@ -80,14 +83,39 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
     flippedRef.current = flippedSrc;
   }, [flippedSrc]);
 
-  // Ambient auto-reveal: every 4s flip a random card to its product side, which
-  // resets the previously revealed one (flippedSrc holds a single card). Skipped
-  // for reduced-motion users, who reveal by tapping.
+  // Arm the auto-reveal 1s after the wall first scrolls into view. Skipped for
+  // reduced-motion users, who reveal by tapping.
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const node = rootRef.current;
+    if (!node || !("IntersectionObserver" in window)) {
+      setArmed(true);
+      return;
+    }
+    let delay: ReturnType<typeof setTimeout>;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          io.disconnect();
+          delay = setTimeout(() => setArmed(true), 1000);
+        }
+      },
+      { threshold: 0.15 },
+    );
+    io.observe(node);
+    return () => {
+      io.disconnect();
+      clearTimeout(delay);
+    };
+  }, []);
+
+  // Ambient auto-reveal: reveal a random card now, then every 4s, each reset the
+  // previously revealed one (flippedSrc holds a single card).
+  useEffect(() => {
+    if (!armed) return;
     const pool = activeBrand ? photos.filter((p) => p.brand === activeBrand) : photos;
     if (pool.length < 2) return;
-    const timer = setInterval(() => {
+    const revealRandom = () => {
       const candidates = pool.filter((p) => p.src !== flippedRef.current);
       const pick = candidates[Math.floor(Math.random() * candidates.length)] ?? pool[0];
       setFlippedSrc(pick.src);
@@ -97,12 +125,14 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
         grown.add(pick.src);
         return grown;
       });
-    }, 4000);
+    };
+    revealRandom();
+    const timer = setInterval(revealRandom, 4000);
     return () => clearInterval(timer);
-  }, [activeBrand, photos]);
+  }, [armed, activeBrand, photos]);
 
   return (
-    <div>
+    <div ref={rootRef}>
       {/* Brand logo toggles (single-select: tapping a brand opens its spotlight) */}
       <div
         className="mb-8 flex flex-wrap items-center gap-2 md:gap-3"
