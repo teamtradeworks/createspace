@@ -77,7 +77,7 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
     <div>
       {/* Brand logo toggles (single-select: tapping a brand opens its spotlight) */}
       <div
-        className="mb-4 flex flex-wrap items-center gap-2 md:gap-3"
+        className="mb-8 flex flex-wrap items-center gap-2 md:gap-3"
         role="group"
         aria-label="Filter by brand"
       >
@@ -152,13 +152,6 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
           </Link>
         </div>
       )}
-
-      {/* Result count */}
-      <p className="mb-8 text-sm text-gray-500" aria-live="polite">
-        {filtered.length === photos.length
-          ? `${photos.length} kits`
-          : `${filtered.length} of ${photos.length} kits`}
-      </p>
 
       {/* Photo masonry of flip cards */}
       {filtered.length > 0 ? (

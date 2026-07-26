@@ -7,5 +7,4 @@ export const PROMISES: string[] = [
   `Free delivery over R${DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString("en-US")}`,
   "Fast delivery in 1-3 days",
   "30-day easy returns",
-  "Secure checkout with Stitch",
 ];

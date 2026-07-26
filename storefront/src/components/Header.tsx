@@ -149,13 +149,18 @@ export default function Header() {
           {/* Desktop: all promises in a row */}
           <ul className="hidden lg:flex items-center justify-center gap-x-10">
             {PROMISES.map((promise) => (
-              <li key={promise} className="whitespace-nowrap">
+              <li key={promise} className="inline-flex items-center gap-2 whitespace-nowrap">
+                <CheckBadge />
                 {promise}
               </li>
             ))}
           </ul>
           {/* Mobile / tablet: one rotating promise */}
-          <div className="lg:hidden text-center whitespace-nowrap" aria-live="polite">
+          <div
+            className="lg:hidden flex items-center justify-center gap-2 whitespace-nowrap"
+            aria-live="polite"
+          >
+            <CheckBadge />
             {PROMISES[promoIndex]}
           </div>
         </div>
@@ -523,5 +528,29 @@ export default function Header() {
         </div>
       </div>
     </header>
+  );
+}
+
+// Small white check badge shown before each top-bar promise.
+function CheckBadge() {
+  return (
+    <span
+      className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white flex-shrink-0"
+      aria-hidden="true"
+    >
+      <svg
+        width="9"
+        height="9"
+        viewBox="0 0 12 12"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="text-cs-orange"
+      >
+        <path d="M2.5 6.5 5 9l4.5-5.5" />
+      </svg>
+    </span>
   );
 }
