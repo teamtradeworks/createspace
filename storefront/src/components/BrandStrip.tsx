@@ -17,7 +17,7 @@ export default function BrandStrip() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-x-10 gap-y-6">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-2 md:gap-x-5">
             {BRANDS.map((brand) => {
               const logo = (
                 <Image
@@ -33,7 +33,9 @@ export default function BrandStrip() {
                   {logo}
                 </BrandLink>
               ) : (
-                <div key={brand.name}>{logo}</div>
+                <div key={brand.name} className="px-4 py-3">
+                  {logo}
+                </div>
               );
             })}
           </div>

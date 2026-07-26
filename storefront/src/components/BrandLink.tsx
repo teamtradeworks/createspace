@@ -16,7 +16,7 @@ export default function BrandLink({ brand, vendor, children }: BrandLinkProps) {
       onClick={() => {
         capture("brand_clicked", { brand });
       }}
-      className="hover:shadow-md transition-shadow rounded-xl"
+      className="block rounded-xl px-4 py-3 hover:shadow-md transition-shadow"
     >
       {children}
     </Link>

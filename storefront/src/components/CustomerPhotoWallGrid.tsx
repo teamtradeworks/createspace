@@ -244,7 +244,7 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
                             alt={brand.name}
                             width={120}
                             height={48}
-                            className="h-3.5 w-auto max-w-[64px] object-contain"
+                            className="h-4 w-auto max-w-[80px] object-contain"
                           />
                         </span>
                       )}

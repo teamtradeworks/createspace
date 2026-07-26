@@ -43,7 +43,7 @@ function interleaveByBrand(items: WallPhotoSource[]): WallPhotoSource[] {
 }
 
 // The wall shows at most this many photos, chosen for brand spread.
-const WALL_LIMIT = 20;
+const WALL_LIMIT = 12;
 
 export default async function CustomerPhotoWall() {
   const selected = interleaveByBrand(WALL_PHOTOS).slice(0, WALL_LIMIT);

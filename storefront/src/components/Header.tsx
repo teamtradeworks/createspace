@@ -432,9 +432,16 @@ export default function Header() {
                       <Link
                         href={`/shop?brand=${encodeURIComponent(brand.vendor)}`}
                         onClick={() => trackShopNav("brand", brand.key)}
-                        className="text-sm text-gray-700 hover:text-cs-orange transition-colors"
+                        className="group/brand flex items-center gap-2 text-sm text-gray-700 hover:text-cs-orange transition-colors"
                       >
-                        {brand.name}
+                        <Image
+                          src={brand.logo}
+                          alt=""
+                          width={72}
+                          height={24}
+                          className="h-4 w-auto max-w-[56px] flex-shrink-0 object-contain opacity-80 transition-opacity group-hover/brand:opacity-100"
+                        />
+                        <span className="truncate">{brand.name}</span>
                       </Link>
                     </li>
                   ))}

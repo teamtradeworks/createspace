@@ -529,7 +529,7 @@ function FilterGroup({
               aria-pressed={isSelected}
               onClick={() => onToggle(axis, opt.value)}
               style={style}
-              className={`inline-flex items-center gap-1.5 rounded-full border-2 px-3 py-2 text-sm font-medium transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${stateClass}`}
+              className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border-2 px-3 py-2 text-sm font-medium transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${stateClass}`}
             >
               {/* Brand wordmark: kept on white so it stays legible on navy. */}
               {opt.icon && iconVariant === "logo" && (
@@ -543,16 +543,12 @@ function FilterGroup({
                   />
                 </span>
               )}
-              {/* Category glyph in a colour-tinted swatch (white-tinted on navy). */}
+              {/* Category glyph in a neutral swatch (white-tinted on navy). */}
               {opt.icon && iconVariant === "line" && (
                 <span
                   className="inline-flex items-center justify-center w-5 h-5 rounded-md"
                   style={{
-                    backgroundColor: isSelected
-                      ? "rgba(255,255,255,0.22)"
-                      : opt.color
-                        ? `${opt.color}22`
-                        : "transparent",
+                    backgroundColor: isSelected ? "rgba(255,255,255,0.22)" : "transparent",
                   }}
                 >
                   <Image src={opt.icon} alt="" width={14} height={14} className={isSelected ? "brightness-0 invert" : ""} />
