@@ -3,7 +3,7 @@ import Link from "next/link";
 import HeroCarouselClient from "./HeroCarouselClient";
 import SubscribeButton from "./SubscribeButton";
 
-type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon" | "brands-launched" | "sale";
+type SlideType = "hero" | "product" | "lifestyle" | "brands-coming-soon" | "brands-launched" | "sale" | "partner-promo";
 
 interface BrandLogo {
   src: string;
@@ -28,11 +28,30 @@ interface Slide {
   brandLogoSrc?: string;
   descriptionSub?: string;
   note?: string;
+  partnerLogo?: string;
   bgColor: string;
   textColor?: "light" | "dark";
 }
 
 const slides: Slide[] = [
+  {
+    id: "inspire-africa",
+    type: "partner-promo",
+    tag: "For Teachers & Educators",
+    headline: "Get a FREE Teaching Course",
+    description:
+      "Spend over R1,500 at CREATESPACE, and receive a free Inspire Africa online teaching course.",
+    cta: { label: "Shop Now", href: "/shop" },
+    ctaSecondary: { label: "About the Course", href: "/product/how-to-get-started-with-coding-and-robotics" },
+    brandLogos: [
+      { src: "/images/products/matatastudio-vincibot-classroom-set/kids-with-teacher-looking-at-tablet.jpg", name: "Kids with teacher" },
+      { src: "/images/products/arduino-student-kit/student-kit-connecting-up-with-laptop-infront.jpg", name: "Arduino Student Kit" },
+      { src: "/images/products/matatastudio-ai-vision-kit-for-vincibot/boy-with-vibcibot-with-coding-on-laptop.png", name: "VinciBot" },
+    ],
+    partnerLogo: "/images/education/inspire-africa/inspire-africa-logo.png",
+    bgColor: "bg-navy",
+    textColor: "light",
+  },
   {
     id: "brands-launched",
     type: "brands-launched",
@@ -574,6 +593,121 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
             </div>
           </div>
         </div>
+      )}
+
+      {/* Partner promo type */}
+      {slide.type === "partner-promo" && slide.brandLogos && (
+        <>
+          <Link
+            href={slide.cta.href}
+            className="absolute inset-0 z-[11] cursor-pointer"
+            aria-label={`${slide.headline} — ${slide.cta.label}`}
+            tabIndex={-1}
+          />
+          {/* Decorative background circles */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            <div className="absolute -top-10 -left-10 w-48 h-48 bg-cs-blue rounded-full opacity-[0.07]" />
+            <div className="absolute top-1/3 -left-4 w-28 h-28 bg-cs-purple rounded-full opacity-[0.08]" />
+            <div className="absolute -bottom-8 left-1/4 w-40 h-40 bg-cs-orange rounded-full opacity-[0.06]" />
+            <div className="absolute top-8 left-1/2 w-16 h-16 bg-cs-green rounded-full opacity-[0.07]" />
+            <div className="absolute -top-6 right-1/3 w-32 h-32 bg-cs-blue rounded-full opacity-[0.06]" />
+            <div className="absolute bottom-4 right-8 w-44 h-44 bg-cs-purple rounded-full opacity-[0.06]" />
+            <div className="absolute top-1/2 right-1/4 w-14 h-14 bg-cs-orange rounded-full opacity-[0.08]" />
+          </div>
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
+            <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] pt-6 pb-4 lg:py-8">
+
+              {/* Left: text */}
+              <div className="z-[12]">
+                {slide.tag && (
+                  <span className="inline-flex items-center gap-2 text-cs-blue font-semibold text-sm uppercase tracking-wider mb-3">
+                    <span className="w-2 h-2 rounded-full bg-cs-blue" />
+                    {slide.tag}
+                  </span>
+                )}
+                <Heading className="mb-3 leading-none">
+                  <span className="block text-4xl md:text-4xl lg:text-5xl leading-tight">
+                    <span className="text-white font-semibold">Get a </span>
+                    <span className="text-cs-orange font-extrabold tracking-tight">FREE</span>
+                  </span>
+                  <span className="block text-white text-4xl md:text-4xl lg:text-5xl font-semibold leading-tight">
+                    Teaching Course
+                  </span>
+                </Heading>
+                <p className="text-white/70 text-base mb-4 max-w-md leading-relaxed">
+                  {slide.description}
+                </p>
+
+                {/* Course callout */}
+                <div className="mb-5 rounded-xl border border-white/10 bg-white/5 px-5 py-4 inline-block">
+                  <p className="text-xs font-semibold uppercase tracking-widest text-white/40 mb-2">
+                    Free course included
+                  </p>
+                  <p className="text-cs-blue font-semibold text-xl leading-tight">How to get started:</p>
+                  <p className="text-white font-bold text-xl leading-tight">Coding &amp; Robotics</p>
+                  <p className="text-white/40 text-sm mt-2">Inspire Africa · Online · Worth R490</p>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    href={slide.cta.href}
+                    className="relative z-[13] inline-flex items-center px-6 py-3 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors"
+                  >
+                    {slide.cta.label}
+                    <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </Link>
+                  {slide.ctaSecondary && (
+                    <Link
+                      href={slide.ctaSecondary.href}
+                      className="relative z-[13] inline-flex items-center px-6 py-3 border border-white/25 hover:bg-white/10 text-white rounded-lg font-semibold transition-colors"
+                    >
+                      {slide.ctaSecondary.label}
+                    </Link>
+                  )}
+                </div>
+              </div>
+
+              {/* Right: product image cards */}
+              <div className="flex flex-col items-start lg:items-center justify-center gap-3 lg:gap-4">
+                <div className="grid grid-cols-3 gap-3 w-full lg:flex lg:flex-row lg:gap-4 lg:w-auto">
+                  {slide.brandLogos.map((product) => (
+                    <div
+                      key={product.name}
+                      className="relative bg-white rounded-2xl overflow-hidden aspect-square lg:w-44 lg:h-44 lg:aspect-auto shadow-lg"
+                    >
+                      <Image
+                        src={product.src}
+                        alt={product.name}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 1024px) calc((100vw - 3rem) / 3), 176px"
+                        priority
+                      />
+                    </div>
+                  ))}
+                </div>
+                {slide.partnerLogo && (
+                  <div className="hidden lg:flex items-center gap-4">
+                    <span className="text-white/60 text-base font-medium">In partnership with</span>
+                    <div className="bg-white/20 rounded-xl px-5 py-3">
+                      <Image
+                        src={slide.partnerLogo}
+                        alt="Inspire Africa"
+                        width={200}
+                        height={44}
+                        className="object-contain h-11 w-auto"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+
+            </div>
+          </div>
+        </>
       )}
 
       {/* Lifestyle type */}
