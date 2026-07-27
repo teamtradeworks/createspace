@@ -1,5 +1,6 @@
 import AgeGroupCard from "@/components/AgeGroupCard";
 import CategoryChips from "@/components/CategoryChips";
+import BrandDecor from "@/components/BrandDecor";
 
 const ageGroups = [
   {
@@ -46,8 +47,16 @@ const ageGroups = [
 
 export default function AgeGroups() {
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-16 md:py-20 bg-gray-50">
+      <BrandDecor
+        src="/images/illustrations/atom-1.svg"
+        className="right-8 top-10 w-24 rotate-6 opacity-[0.07] lg:w-32"
+      />
+      <BrandDecor
+        src="/images/illustrations/nut.svg"
+        className="-left-5 bottom-10 w-20 -rotate-12 opacity-[0.06] lg:w-28"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-xl">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Find the right kit</h2>
           <p className="text-gray-600">Start with their age, or with what they love.</p>

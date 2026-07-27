@@ -4,6 +4,7 @@ import Link from "next/link";
 import { capture } from "@/lib/analytics";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
+import BrandDecor from "@/components/BrandDecor";
 
 type FeaturedProductsProps = {
   products: Product[];
@@ -13,8 +14,12 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   if (products.length === 0) return null;
 
   return (
-    <section className="py-16 md:py-20 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-16 md:py-20 bg-white">
+      <BrandDecor
+        src="/images/illustrations/planet-1.svg"
+        className="right-0 top-10 w-32 rotate-3 opacity-[0.06] lg:w-44"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-10 max-w-xl">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Most loved kits</h2>

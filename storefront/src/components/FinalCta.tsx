@@ -1,9 +1,18 @@
 import Link from "next/link";
+import BrandDecor from "@/components/BrandDecor";
 
 export default function FinalCta() {
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative overflow-hidden py-16 md:py-24 bg-white">
+      <BrandDecor
+        src="/images/illustrations/planet-2.svg"
+        className="right-6 top-8 w-28 rotate-6 opacity-[0.08] lg:w-40"
+      />
+      <BrandDecor
+        src="/images/illustrations/robot-1.svg"
+        className="-left-4 bottom-0 w-24 -rotate-6 opacity-[0.07] lg:w-32"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4 text-balance">
           Not sure where to start?
         </h2>

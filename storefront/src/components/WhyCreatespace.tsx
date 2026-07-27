@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BrandDecor from "@/components/BrandDecor";
 
 const points = [
   {
@@ -21,8 +22,12 @@ const points = [
 
 export default function WhyCreatespace() {
   return (
-    <section className="py-16 md:py-20 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden py-16 md:py-20 bg-white">
+      <BrandDecor
+        src="/images/illustrations/code-1.svg"
+        className="-left-6 bottom-6 w-28 -rotate-6 opacity-[0.06] lg:w-36"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-4 text-balance">
