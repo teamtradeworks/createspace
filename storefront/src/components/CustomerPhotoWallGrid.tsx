@@ -24,7 +24,13 @@ function handleFromHref(href: string): string {
   return href.split("/").pop() ?? href;
 }
 
-export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] }) {
+export default function CustomerPhotoWallGrid({
+  photos,
+  limit = 12,
+}: {
+  photos: WallPhoto[];
+  limit?: number;
+}) {
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
   // Which card is currently showing its kit side, plus every card that has
   // flipped at least once (their backs stay mounted so unflips animate).
@@ -45,7 +51,11 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
 
   const spotlight = activeBrand ? (wallBrands.find((b) => b.key === activeBrand) ?? null) : null;
 
-  const filtered = activeBrand ? photos.filter((photo) => photo.brand === activeBrand) : photos;
+  // Show ~`limit` photos: the interleaved default, or up to `limit` of one brand.
+  const shown = (activeBrand ? photos.filter((photo) => photo.brand === activeBrand) : photos).slice(
+    0,
+    limit,
+  );
 
   function selectBrand(brandKey: string, brandName: string) {
     setFlippedSrc(null);
@@ -113,7 +123,7 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
   // previously revealed one (flippedSrc holds a single card).
   useEffect(() => {
     if (!armed) return;
-    const pool = activeBrand ? photos.filter((p) => p.brand === activeBrand) : photos;
+    const pool = (activeBrand ? photos.filter((p) => p.brand === activeBrand) : photos).slice(0, limit);
     if (pool.length < 2) return;
     const revealRandom = () => {
       const candidates = pool.filter((p) => p.src !== flippedRef.current);
@@ -129,7 +139,7 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
     revealRandom();
     const timer = setInterval(revealRandom, 4000);
     return () => clearInterval(timer);
-  }, [armed, activeBrand, photos]);
+  }, [armed, activeBrand, photos, limit]);
 
   return (
     <div ref={rootRef}>
@@ -211,15 +221,15 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
         </div>
       )}
 
-      {/* Photo masonry of flip cards */}
-      {filtered.length > 0 ? (
-        <div className="columns-2 sm:columns-3 lg:columns-4 gap-4">
-          {filtered.map((photo, index) => {
+      {/* Uniform grid of flip cards (even bottoms across columns) */}
+      {shown.length > 0 ? (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {shown.map((photo, index) => {
             const isFlipped = flippedSrc === photo.src;
             const brand = BRANDS.find((b) => b.key === photo.brand);
             return (
-              <Reveal key={photo.src} className="mb-4 break-inside-avoid" delay={(index % 4) * 60}>
-                <div className="wall-flip" data-flipped={isFlipped}>
+              <Reveal key={photo.src} delay={(index % 4) * 60}>
+                <div className="wall-flip aspect-[4/5] w-full" data-flipped={isFlipped}>
                   <div className="wall-flip-inner">
                     {/* Front: the build photo */}
                     <button
@@ -227,14 +237,13 @@ export default function CustomerPhotoWallGrid({ photos }: { photos: WallPhoto[] 
                       onClick={() => toggleFlip(photo)}
                       aria-expanded={isFlipped}
                       aria-label={`Show the kit behind this photo: ${photo.name}`}
-                      className="wall-flip-front group relative block w-full rounded-xl overflow-hidden text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                      className="wall-flip-front group relative block w-full h-full rounded-xl overflow-hidden text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
                     >
                       <Image
                         src={photo.src}
                         alt={photo.alt}
-                        width={photo.width}
-                        height={photo.height}
-                        className="w-full h-auto"
+                        fill
+                        className="object-cover"
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       />
                       {brand && (

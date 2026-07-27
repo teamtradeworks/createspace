@@ -42,21 +42,24 @@ function interleaveByBrand(items: WallPhotoSource[]): WallPhotoSource[] {
   return result;
 }
 
-// The wall shows at most this many photos, chosen for brand spread.
+// Default and per-brand views each show at most this many photos.
 const WALL_LIMIT = 12;
 
 export default async function CustomerPhotoWall() {
-  const selected = interleaveByBrand(WALL_PHOTOS).slice(0, WALL_LIMIT);
+  // Pass the full pool (interleaved by brand) to the grid; it slices to
+  // WALL_LIMIT for the default view and again for each brand-filtered view,
+  // so both land near ~12 rather than the filtered view showing a thin slice.
+  const pool = interleaveByBrand(WALL_PHOTOS);
 
   // A product can appear more than once (different photos), so fetch each
   // handle once and share the result across its photos.
-  const handles = [...new Set(selected.map((photo) => photo.handle))];
+  const handles = [...new Set(pool.map((photo) => photo.handle))];
   const entries = await Promise.all(
     handles.map(async (handle) => [handle, await getProductByHandle(handle).catch(() => null)] as const),
   );
   const productByHandle = new Map(entries);
 
-  const wallPhotos: WallPhoto[] = selected.map((photo) => {
+  const wallPhotos: WallPhoto[] = pool.map((photo) => {
     const product = productByHandle.get(photo.handle) ?? null;
     return {
       src: photo.src,
@@ -100,7 +103,7 @@ export default async function CustomerPhotoWall() {
           </span>
         </div>
 
-        <CustomerPhotoWallGrid photos={wallPhotos} />
+        <CustomerPhotoWallGrid photos={wallPhotos} limit={WALL_LIMIT} />
       </div>
     </section>
   );

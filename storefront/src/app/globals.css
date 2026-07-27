@@ -87,13 +87,16 @@ body {
   }
 }
 
-/* Photo wall flip cards: the front image defines the tile height, the kit
-   card sits on the back face. Reduced-motion users get an instant swap. */
+/* Photo wall flip cards: the tile is a fixed aspect box (uniform grid), the
+   build photo fills the front and the kit card sits on the back face.
+   Reduced-motion users get an instant swap. */
 .wall-flip {
   perspective: 1200px;
 }
 .wall-flip-inner {
   position: relative;
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.3, 1);
 }
