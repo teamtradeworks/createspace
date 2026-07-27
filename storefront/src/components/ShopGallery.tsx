@@ -264,10 +264,11 @@ export default function ShopGallery({
       <FilterGroup
         title="Category"
         axis="category"
-        options={CATEGORIES.map((c) => ({ value: c.id, label: c.label, icon: c.icon, color: c.color }))}
+        options={CATEGORIES.map((c) => ({ value: c.id, label: c.label, icon: c.illustration }))}
         selected={selectedCategories}
         facetCount={facetCount}
         onToggle={toggle}
+        iconVariant="illustration"
       />
       <FilterGroup
         title="Brand"
@@ -481,7 +482,7 @@ function FilterGroup({
   selected,
   facetCount,
   onToggle,
-  iconVariant = "line",
+  iconVariant = "illustration",
   selectStyle = "navy",
 }: {
   title: string;
@@ -490,7 +491,7 @@ function FilterGroup({
   selected: string[];
   facetCount: (axis: Axis, value: string) => number;
   onToggle: (axis: Axis, value: string) => void;
-  iconVariant?: "line" | "logo";
+  iconVariant?: "logo" | "illustration";
   selectStyle?: "navy" | "accent";
 }) {
   return (
@@ -543,15 +544,22 @@ function FilterGroup({
                   />
                 </span>
               )}
-              {/* Category glyph in a neutral swatch (white-tinted on navy). */}
-              {opt.icon && iconVariant === "line" && (
+              {/* Category brand illustration on its own circle so it stays
+                  legible on both the white (idle) and navy (selected) chip. */}
+              {opt.icon && iconVariant === "illustration" && (
                 <span
-                  className="inline-flex items-center justify-center w-5 h-5 rounded-md"
-                  style={{
-                    backgroundColor: isSelected ? "rgba(255,255,255,0.22)" : "transparent",
-                  }}
+                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${
+                    isSelected ? "bg-white" : "bg-gray-50"
+                  }`}
                 >
-                  <Image src={opt.icon} alt="" width={14} height={14} className={isSelected ? "brightness-0 invert" : ""} />
+                  <Image
+                    src={opt.icon}
+                    alt=""
+                    width={18}
+                    height={18}
+                    unoptimized
+                    className="h-4 w-4 object-contain"
+                  />
                 </span>
               )}
               {opt.label}
