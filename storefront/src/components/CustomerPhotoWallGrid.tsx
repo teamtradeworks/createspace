@@ -273,7 +273,7 @@ export default function CustomerPhotoWallGrid({
 
       {/* Balanced masonry: varied tile heights, columns bottom out at a similar level */}
       {shown.length > 0 ? (
-        <div className="flex items-start gap-3 sm:gap-4">
+        <div className="wall-fade-bottom flex items-start gap-3 sm:gap-4">
           {columnBuckets.map((bucket, ci) => (
             <div key={ci} className="flex min-w-0 flex-1 flex-col gap-3 sm:gap-4">
               {bucket.items.map(({ photo, aspect }, index) => {
