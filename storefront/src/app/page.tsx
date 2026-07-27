@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { getCollectionProducts, Product } from "@/lib/shopify";
+import { getCollectionProducts, getProductByHandle, Product } from "@/lib/shopify";
 import Hero from "@/components/Hero";
 import AgeGroups from "@/components/AgeGroups";
-import FeaturedProducts from "@/components/FeaturedProducts";
+import FeaturedCarousel from "@/components/FeaturedCarousel";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
+import { buildFeaturedKit, type FeaturedKit } from "@/lib/featured";
 import WhyCreatespace from "@/components/WhyCreatespace";
 import CustomerPhotoWall from "@/components/CustomerPhotoWall";
 import HomeTestimonials from "@/components/HomeTestimonials";
@@ -23,7 +24,8 @@ export const metadata: Metadata = {
   },
 };
 
-// Async component that fetches the top in-stock bestsellers
+// Async component that fetches the top in-stock bestsellers, then loads full
+// detail for each so the carousel can show real highlights and sale prices.
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
 
@@ -33,9 +35,15 @@ async function FeaturedProductsLoader() {
     console.error("Failed to fetch products:", error);
   }
 
-  const bestsellers = allProducts.filter((product) => product.availableForSale).slice(0, 3);
+  const handles = allProducts
+    .filter((product) => product.availableForSale)
+    .slice(0, 5)
+    .map((product) => product.handle);
 
-  return <FeaturedProducts products={bestsellers} />;
+  const details = await Promise.all(handles.map((handle) => getProductByHandle(handle).catch(() => null)));
+  const kits: FeaturedKit[] = details.flatMap((p) => (p ? [buildFeaturedKit(p)] : []));
+
+  return <FeaturedCarousel kits={kits} />;
 }
 
 export default function Home() {
