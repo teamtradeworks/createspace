@@ -87,22 +87,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Values */}
-      <section className="pb-16 md:pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-10">What we stand for</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value) => (
-              <div key={value.title} className="border-l-4 border-gray-100 pl-5">
-                <div className={`h-2 w-2 rounded-full ${value.accent} mb-4`} />
-                <h3 className="text-lg font-semibold text-navy mb-2">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* What we believe */}
       <section className="py-16 md:py-20 bg-navy text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -150,6 +134,22 @@ export default function AboutPage() {
               sizes="(max-width: 1280px) 100vw, 1280px"
               className="w-full h-auto"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Values (least central to the story, so it sits near the end) */}
+      <section className="py-16 md:py-20 border-t border-gray-100">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-10">What we stand for</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value) => (
+              <div key={value.title} className="border-l-4 border-gray-100 pl-5">
+                <div className={`h-2 w-2 rounded-full ${value.accent} mb-4`} />
+                <h3 className="text-lg font-semibold text-navy mb-2">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{value.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
