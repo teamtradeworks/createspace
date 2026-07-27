@@ -24,7 +24,7 @@ export const CATEGORIES: Category[] = [
     id: "robotics-coding",
     label: "Robotics & Coding",
     icon: "/images/icons/robotic-arm.svg",
-    illustration: "/images/illustrations/robot-2.svg",
+    illustration: "/images/illustrations/robot-head.svg",
     color: "#3CC7F7",
     matchTags: ["robotics", "coding"],
   },
