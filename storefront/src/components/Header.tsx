@@ -435,22 +435,21 @@ export default function Header() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 pb-2 border-b border-gray-100">
                   Shop by brand
                 </p>
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
+                <ul className="grid grid-cols-2 gap-2">
                   {BRANDS.map((brand) => (
                     <li key={brand.key}>
                       <Link
                         href={`/shop?brand=${encodeURIComponent(brand.vendor)}`}
                         onClick={() => trackShopNav("brand", brand.key)}
-                        className="group/brand flex items-center gap-2 text-sm text-gray-700 hover:text-cs-orange transition-colors"
+                        className="flex items-center justify-center rounded-lg py-2.5 opacity-80 hover:bg-gray-50 hover:opacity-100 transition-all"
                       >
                         <Image
                           src={brand.logo}
-                          alt=""
-                          width={72}
-                          height={24}
-                          className="h-4 w-auto max-w-[56px] flex-shrink-0 object-contain opacity-80 transition-opacity group-hover/brand:opacity-100"
+                          alt={brand.name}
+                          width={120}
+                          height={36}
+                          className="h-6 w-auto max-w-[104px] object-contain"
                         />
-                        <span className="truncate">{brand.name}</span>
                       </Link>
                     </li>
                   ))}

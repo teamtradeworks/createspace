@@ -532,15 +532,16 @@ function FilterGroup({
               style={style}
               className={`inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border-2 px-3 py-2 text-sm font-medium transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${stateClass}`}
             >
-              {/* Brand wordmark: kept on white so it stays legible on navy. */}
+              {/* Brand wordmark only (no text label — the logo is the name).
+                  Kept on white so it stays legible on the navy selected chip. */}
               {opt.icon && iconVariant === "logo" && (
-                <span className={`inline-flex items-center justify-center rounded px-1 py-0.5 ${isSelected ? "bg-white" : ""}`}>
+                <span className={`inline-flex items-center justify-center rounded px-1.5 py-1 ${isSelected ? "bg-white" : ""}`}>
                   <Image
                     src={opt.icon}
-                    alt=""
-                    width={72}
-                    height={20}
-                    className="h-4 w-auto max-w-[64px] object-contain"
+                    alt={opt.label}
+                    width={104}
+                    height={28}
+                    className="h-5 w-auto max-w-[92px] object-contain"
                   />
                 </span>
               )}
@@ -562,7 +563,7 @@ function FilterGroup({
                   />
                 </span>
               )}
-              {opt.label}
+              {iconVariant !== "logo" && opt.label}
             </button>
           );
         })}
