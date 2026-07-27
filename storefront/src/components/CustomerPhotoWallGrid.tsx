@@ -24,6 +24,37 @@ function handleFromHref(href: string): string {
   return href.split("/").pop() ?? href;
 }
 
+// Displayed tile aspect ratio (width / height). Photos keep varied heights, but
+// clamped so no tile is extreme, which keeps the balanced columns tidy and
+// leaves room for the flip side. Smaller number = taller tile.
+const ASPECT_MIN = 0.62;
+const ASPECT_MAX = 1.1;
+function cardAspect(width: number, height: number): number {
+  return Math.min(ASPECT_MAX, Math.max(ASPECT_MIN, width / height));
+}
+
+// Greedy balanced masonry: drop each photo (in order) into the currently
+// shortest column, so columns bottom out at a similar level while the tiles
+// keep their varied heights.
+function balanceColumns(items: WallPhoto[], columnCount: number) {
+  const cols = Array.from({ length: columnCount }, () => ({
+    items: [] as { photo: WallPhoto; aspect: number }[],
+    height: 0,
+  }));
+  // Place the tallest tiles first (longest-processing-time heuristic) so the
+  // greedy fill lands the columns at a noticeably more even bottom.
+  const ordered = [...items].sort(
+    (a, b) => cardAspect(a.width, a.height) - cardAspect(b.width, b.height),
+  );
+  for (const photo of ordered) {
+    const aspect = cardAspect(photo.width, photo.height);
+    const target = cols.reduce((min, c) => (c.height < min.height ? c : min), cols[0]);
+    target.items.push({ photo, aspect });
+    target.height += 1 / aspect; // taller tiles add more height at equal width
+  }
+  return cols;
+}
+
 export default function CustomerPhotoWallGrid({
   photos,
   limit = 12,
@@ -52,10 +83,29 @@ export default function CustomerPhotoWallGrid({
   const spotlight = activeBrand ? (wallBrands.find((b) => b.key === activeBrand) ?? null) : null;
 
   // Show ~`limit` photos: the interleaved default, or up to `limit` of one brand.
-  const shown = (activeBrand ? photos.filter((photo) => photo.brand === activeBrand) : photos).slice(
-    0,
-    limit,
+  const shown = useMemo(
+    () =>
+      (activeBrand ? photos.filter((photo) => photo.brand === activeBrand) : photos).slice(0, limit),
+    [activeBrand, photos, limit],
   );
+
+  // Column count follows the breakpoint so the masonry balances per layout.
+  // Defaults to 4 for SSR (matches the desktop-first render, no hydration jump).
+  const [columns, setColumns] = useState(4);
+  useEffect(() => {
+    const lg = window.matchMedia("(min-width: 1024px)");
+    const sm = window.matchMedia("(min-width: 640px)");
+    const update = () => setColumns(lg.matches ? 4 : sm.matches ? 3 : 2);
+    update();
+    lg.addEventListener("change", update);
+    sm.addEventListener("change", update);
+    return () => {
+      lg.removeEventListener("change", update);
+      sm.removeEventListener("change", update);
+    };
+  }, []);
+
+  const columnBuckets = useMemo(() => balanceColumns(shown, columns), [shown, columns]);
 
   function selectBrand(brandKey: string, brandName: string) {
     setFlippedSrc(null);
@@ -221,15 +271,21 @@ export default function CustomerPhotoWallGrid({
         </div>
       )}
 
-      {/* Uniform grid of flip cards (even bottoms across columns) */}
+      {/* Balanced masonry: varied tile heights, columns bottom out at a similar level */}
       {shown.length > 0 ? (
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-          {shown.map((photo, index) => {
-            const isFlipped = flippedSrc === photo.src;
-            const brand = BRANDS.find((b) => b.key === photo.brand);
-            return (
-              <Reveal key={photo.src} delay={(index % 4) * 60}>
-                <div className="wall-flip aspect-[4/5] w-full" data-flipped={isFlipped}>
+        <div className="flex items-start gap-3 sm:gap-4">
+          {columnBuckets.map((bucket, ci) => (
+            <div key={ci} className="flex min-w-0 flex-1 flex-col gap-3 sm:gap-4">
+              {bucket.items.map(({ photo, aspect }, index) => {
+                const isFlipped = flippedSrc === photo.src;
+                const brand = BRANDS.find((b) => b.key === photo.brand);
+                return (
+                  <Reveal key={photo.src} delay={(index % 4) * 60}>
+                    <div
+                      className="wall-flip w-full"
+                      data-flipped={isFlipped}
+                      style={{ aspectRatio: String(aspect) }}
+                    >
                   <div className="wall-flip-inner">
                     {/* Front: the build photo */}
                     <button
@@ -307,9 +363,11 @@ export default function CustomerPhotoWallGrid({
                     )}
                   </div>
                 </div>
-              </Reveal>
-            );
-          })}
+                  </Reveal>
+                );
+              })}
+            </div>
+          ))}
         </div>
       ) : (
         <div className="py-16 text-center">
