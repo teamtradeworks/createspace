@@ -691,7 +691,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                 {slide.partnerLogo && (
                   <div className="hidden lg:flex items-center gap-4">
                     <span className="text-white/60 text-base font-medium">In partnership with</span>
-                    <div className="bg-white/20 rounded-xl px-5 py-3">
+                    <a href="https://inspire.africa/" target="_blank" rel="noopener noreferrer" className="relative z-[13] bg-white/20 hover:bg-white/30 rounded-xl px-5 py-3 transition-colors">
                       <Image
                         src={slide.partnerLogo}
                         alt="Inspire Africa"
@@ -700,7 +700,7 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
                         className="object-contain h-11 w-auto"
                         loading="lazy"
                       />
-                    </div>
+                    </a>
                   </div>
                 )}
               </div>
