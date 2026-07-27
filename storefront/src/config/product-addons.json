@@ -217,6 +217,22 @@
       "viewProductLink": true
     },
     {
+      "parentHandle": "national-geographic-motorized-marble-run",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
+      "parentHandle": "national-geographic-epic-circuits-science-kit",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This kit requires 3 x AAA batteries (not included). Add a pack so you're ready to go.",
+      "viewProductLink": false
+    },
+    {
       "parentHandle": "bbc-micro-bit-club",
       "addonHandle": "micro-bit-wearable-x-10",
       "discountPercent": 0,
