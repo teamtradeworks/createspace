@@ -34,7 +34,7 @@ async function FeaturedProductsLoader() {
     console.error("Failed to fetch products:", error);
   }
 
-  const bestsellers = allProducts.filter((product) => product.availableForSale).slice(0, 3);
+  const bestsellers = allProducts.filter((product) => product.availableForSale).slice(0, 12);
 
   return <FeaturedProducts products={bestsellers} />;
 }
