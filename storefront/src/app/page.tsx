@@ -11,6 +11,7 @@ import HomeTestimonials from "@/components/HomeTestimonials";
 import BrandStrip from "@/components/BrandStrip";
 import EducationBanner from "@/components/EducationBanner";
 import FinalCta from "@/components/FinalCta";
+import NewsletterBand from "@/components/NewsletterBand";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import TrackedSection from "@/components/TrackedSection";
 
@@ -88,6 +89,11 @@ export default function Home() {
       {/* Final CTA */}
       <TrackedSection name="FinalCta" page="home">
         <FinalCta />
+      </TrackedSection>
+
+      {/* Newsletter signup, above the footer */}
+      <TrackedSection name="Newsletter" page="home">
+        <NewsletterBand />
       </TrackedSection>
     </>
   );
