@@ -548,17 +548,17 @@ function FilterGroup({
                   legible on both the white (idle) and navy (selected) chip. */}
               {opt.icon && iconVariant === "illustration" && (
                 <span
-                  className={`inline-flex h-6 w-6 items-center justify-center rounded-full ${
+                  className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${
                     isSelected ? "bg-white" : "bg-gray-50"
                   }`}
                 >
                   <Image
                     src={opt.icon}
                     alt=""
-                    width={18}
-                    height={18}
+                    width={26}
+                    height={26}
                     unoptimized
-                    className="h-4 w-4 object-contain"
+                    className="h-6 w-6 object-contain"
                   />
                 </span>
               )}

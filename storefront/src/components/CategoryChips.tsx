@@ -15,14 +15,14 @@ export default function CategoryChips() {
           onClick={() => capture("home_page_category_clicked", { category: category.id })}
           className="inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white py-1.5 pl-1.5 pr-4 text-sm font-medium text-navy hover:border-cs-orange hover:shadow-sm active:translate-y-px transition-all"
         >
-          <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-50">
+          <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-gray-50">
             <Image
               src={category.illustration}
               alt=""
-              width={24}
-              height={24}
+              width={36}
+              height={36}
               unoptimized
-              className="h-6 w-6 object-contain"
+              className="h-9 w-9 object-contain"
             />
           </span>
           {category.label}

@@ -413,14 +413,14 @@ export default function Header() {
                         onClick={() => trackShopNav("category", category.id)}
                         className="flex items-center gap-2.5 text-gray-700 hover:text-cs-orange transition-colors"
                       >
-                        <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-gray-50">
+                        <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gray-50">
                           <Image
                             src={category.illustration}
                             alt=""
-                            width={20}
-                            height={20}
+                            width={32}
+                            height={32}
                             unoptimized
-                            className="h-5 w-5 object-contain"
+                            className="h-8 w-8 object-contain"
                           />
                         </span>
                         <span className="text-sm">{category.label}</span>
