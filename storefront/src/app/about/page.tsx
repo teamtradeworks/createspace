@@ -6,18 +6,41 @@ import PageViewTracker from "@/components/PageViewTracker";
 export const metadata: Metadata = {
   title: "About Us | CREATESPACE",
   description:
-    "CREATESPACE is South Africa's specialist STEM store. We curate robotics, coding, and science kits for kids and schools, matched to the right age and stage.",
+    "CREATESPACE is South Africa's specialist STEM store. We curate hands-on robotics, coding and science kits and programmes for kids and schools.",
   alternates: {
     canonical: "/about",
   },
 };
 
+const values = [
+  {
+    title: "Curiosity",
+    accent: "bg-cs-orange",
+    text: "We back exploring, asking questions, and working things out by doing.",
+  },
+  {
+    title: "Excellence",
+    accent: "bg-cs-blue",
+    text: "STEM is all we do. We keep our range focused and stand behind everything we sell.",
+  },
+  {
+    title: "Impact",
+    accent: "bg-cs-green",
+    text: "We want our kits to build real skills and confidence, not just fill an afternoon.",
+  },
+  {
+    title: "Trust",
+    accent: "bg-navy",
+    text: "We keep things honest and straightforward, and we're here whenever you need us.",
+  },
+];
+
 const beliefs = [
   "Play is one of the most powerful ways kids learn.",
   "Getting hands-on with STEM early builds curiosity that lasts.",
-  "Science isn't boring. The right kit makes that obvious.",
+  "Science isn't boring, and the right kit proves it.",
   "STEM is for every kid, whatever their background, gender, or ability.",
-  "Parents and teachers are the ones who make it click at home and in class.",
+  "Parents and teachers are our partners in raising the next generation of makers.",
 ];
 
 export default function AboutPage() {
@@ -33,57 +56,49 @@ export default function AboutPage() {
               South Africa&apos;s specialist STEM store
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
-              We find hands-on science, coding, and robotics kits, put them through their paces, and
-              match each one to the right age and stage. If a kit doesn&apos;t earn its place, we
-              don&apos;t stock it.
+              We&apos;re a small Cape Town team on a mission to get more kids excited about science,
+              technology, engineering and maths. We curate a focused range of hands-on kits and
+              school programmes that make STEM something kids look forward to.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Why we do this */}
+      {/* Vision & mission */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy leading-tight">
-              Why we do this
-            </h2>
-            <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-              We want to ignite a passion for science, technology, engineering, and maths in kids
-              across South Africa. Not with a lecture, but with something they can build, break,
-              and figure out for themselves.
-            </p>
-            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              So we curate a range of kits and school programmes that teach by doing. That kind of
-              learning tends to stick, mostly because it doesn&apos;t feel like learning at all.
-            </p>
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16">
+            <div>
+              <div className="h-1 w-12 rounded-full bg-cs-orange mb-5" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-4">Our vision</h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                To ignite a passion for science, technology, engineering and maths.
+              </p>
+            </div>
+            <div>
+              <div className="h-1 w-12 rounded-full bg-cs-blue mb-5" />
+              <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-4">Our mission</h2>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                To bring young minds a curated range of hands-on STEM products and programmes, and to
+                spark a genuine, lasting curiosity about the sciences from an early age.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* The team */}
+      {/* Values */}
       <section className="pb-16 md:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl mb-8">
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy leading-tight">
-              The people behind the kits
-            </h2>
-            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              We&apos;re a small Cape Town team of educators and engineers who think STEM should be
-              hands-on, genuinely fun, and within reach of every kid in the country.
-            </p>
-          </div>
-
-          <div className="relative rounded-2xl overflow-hidden">
-            <Image
-              src="/images/about/team-createspace-larger.jpg"
-              alt="The CREATESPACE team in their Cape Town warehouse"
-              width={1600}
-              height={1131}
-              quality={90}
-              sizes="(max-width: 1280px) 100vw, 1280px"
-              className="w-full h-auto"
-            />
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-10">What we stand for</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {values.map((value) => (
+              <div key={value.title} className="border-l-4 border-gray-100 pl-5">
+                <div className={`h-2 w-2 rounded-full ${value.accent} mb-4`} />
+                <h3 className="text-lg font-semibold text-navy mb-2">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{value.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -113,18 +128,28 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Specialist, not a toy aisle */}
+      {/* The team */}
       <section className="py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+          <div className="max-w-2xl mb-8">
             <h2 className="text-3xl md:text-4xl font-semibold text-navy leading-tight">
-              A specialist store, not a toy aisle
+              The team behind CREATESPACE
             </h2>
-            <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-              We don&apos;t try to stock everything. We know each product&apos;s age range, skill
-              level, and what a child actually gets out of it before it goes on the site. Fun comes
-              first. The learning is built in, not bolted on.
+            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
+              We&apos;re a small Cape Town team. We hold our own stock, pack every order ourselves,
+              and answer your questions in person.
             </p>
+          </div>
+          <div className="relative rounded-2xl overflow-hidden">
+            <Image
+              src="/images/about/team-createspace-larger.jpg"
+              alt="The CREATESPACE team in their Cape Town warehouse"
+              width={1600}
+              height={1131}
+              quality={90}
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="w-full h-auto"
+            />
           </div>
         </div>
       </section>

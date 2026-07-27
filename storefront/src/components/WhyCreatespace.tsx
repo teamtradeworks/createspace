@@ -9,8 +9,8 @@ const points = [
   },
   {
     icon: "/images/icons/ballot.svg",
-    title: "Clear guidance on every kit",
-    text: "We tell you who each kit is right for, what they will build, and how much help they will need.",
+    title: "Learning built into the play",
+    text: "Every kit turns real STEM into something kids build, wire, or experiment with, so the learning comes straight from the doing.",
   },
   {
     icon: "/images/icons/handshake.svg",

@@ -11,8 +11,8 @@ export default function Hero() {
               Hands-on STEM kits, matched to your child
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed">
-              South Africa&apos;s specialist STEM store. Robotics, coding and science kits for ages
-              3 to 13+, tested and age-matched by our team in Cape Town.
+              South Africa&apos;s specialist STEM store. A curated range of robotics, coding and
+              science kits for curious kids, ages 3 to 13+.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link

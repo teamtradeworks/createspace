@@ -39,7 +39,7 @@ export default async function ShopPage({ searchParams }: Props) {
           </nav>
           <h1 className="text-3xl md:text-4xl font-semibold">STEM Kits &amp; Educational Toys</h1>
           <p className="mt-2 text-white/70 max-w-xl">
-            Every kit is hand-picked and age-matched by our team in Cape Town.
+            A curated range of hands-on STEM kits, hand-picked by our team in Cape Town.
           </p>
         </div>
         {/* Decorative brand robot */}
