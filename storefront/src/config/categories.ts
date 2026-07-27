@@ -24,7 +24,7 @@ export const CATEGORIES: Category[] = [
     id: "robotics-coding",
     label: "Robotics & Coding",
     icon: "/images/icons/robotic-arm.svg",
-    illustration: "/images/illustrations/robot-head.svg",
+    illustration: "/images/illustrations/robot-2.svg",
     color: "#3CC7F7",
     matchTags: ["robotics", "coding"],
   },
@@ -46,7 +46,7 @@ export const CATEGORIES: Category[] = [
     id: "earth-sciences",
     label: "Earth Sciences",
     icon: "/images/icons/save-the-planet.svg",
-    illustration: "/images/illustrations/earth.svg",
+    illustration: "/images/illustrations/microscope.svg",
     color: "#93DB21",
   },
   {
