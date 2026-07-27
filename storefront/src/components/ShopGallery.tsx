@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Product, getStockStatus } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import { capture } from "@/lib/analytics";
-import { CATEGORIES } from "@/config/categories";
+import { CATEGORIES, categoryMatchTags } from "@/config/categories";
 import { BRANDS } from "@/config/brands";
 
 interface ShopGalleryProps {
@@ -49,7 +49,7 @@ function matchAge(p: Product, ages: string[]): boolean {
 
 function matchCategory(p: Product, cats: string[]): boolean {
   if (cats.length === 0) return true;
-  return cats.some((c) => p.tags?.includes(`category:${c}`));
+  return cats.some((c) => categoryMatchTags(c).some((t) => p.tags?.includes(`category:${t}`)));
 }
 
 function matchBrand(p: Product, brands: string[]): boolean {
