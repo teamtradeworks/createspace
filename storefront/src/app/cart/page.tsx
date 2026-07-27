@@ -27,7 +27,12 @@ export default function CartPage() {
     return sum;
   }, 0);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [claimCourse, setClaimCourse] = useState(false);
   const viewCartFired = useRef(false);
+
+  const giveaway = siteConfig.giveaway?.inspireAfricaCourse;
+  const showCourseGiveaway =
+    giveaway?.enabled && subtotal >= (giveaway?.threshold ?? Infinity);
 
   // Reset the checkout button if the user returns via the browser's bfcache
   // (e.g. clicking back from Shopify checkout) — otherwise it stays stuck on
@@ -111,6 +116,7 @@ export default function CartPage() {
             quantity: item.quantity,
             handle: item.handle,
           })),
+          claimCourse: showCourseGiveaway && claimCourse,
         }),
       });
       const data = await res.json();
@@ -537,6 +543,30 @@ export default function CartPage() {
                       Next day delivery option available at checkout
                     </p>
                   </div>
+
+                  {/* Inspire Africa Course Giveaway */}
+                  {showCourseGiveaway && (
+                    <div className="mb-4 p-4 bg-purple-50 border border-purple-200 rounded-xl">
+                      <p className="text-xs font-semibold text-purple-700 uppercase tracking-wide mb-1">
+                        Educator Giveaway — Limited Spots
+                      </p>
+                      <p className="text-sm text-gray-700 mb-3">
+                        Are you a teacher or school educator? Claim your free online teaching
+                        course <em>How to get started: Coding &amp; Robotics</em> with your order.
+                      </p>
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={claimCourse}
+                          onChange={(e) => setClaimCourse(e.target.checked)}
+                          className="mt-0.5 h-4 w-4 rounded border-gray-300 text-purple-600 focus:ring-purple-500 cursor-pointer"
+                        />
+                        <span className="text-sm font-medium text-navy leading-snug">
+                          Yes, I am an educator — claim my free Inspire Africa course
+                        </span>
+                      </label>
+                    </div>
+                  )}
 
                   {/* Checkout Button */}
                   <button

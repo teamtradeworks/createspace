@@ -8,5 +8,12 @@
   },
   "leadTime": {
     "estimatedDays": "7 - 14 days"
+  },
+  "giveaway": {
+    "inspireAfricaCourse": {
+      "enabled": true,
+      "threshold": 1500,
+      "spotsTotal": 25
+    }
   }
 }
