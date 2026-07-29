@@ -1,11 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { capture } from "@/lib/analytics";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import BrandDecor from "@/components/BrandDecor";
+import { BRANDS } from "@/config/brands";
 
 type FeaturedProductsProps = {
   products: Product[];
@@ -13,8 +15,38 @@ type FeaturedProductsProps = {
 
 export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeBrand, setActiveBrand] = useState<string | null>(null);
+
+  // Only offer a toggle for brands with enough kits in the set to make
+  // filtering worthwhile — a filter that returns a single product is pointless
+  // and leaves a lonely card in a wide row.
+  const featuredBrands = useMemo(
+    () =>
+      BRANDS.filter(
+        (brand) =>
+          products.filter((p) => p.vendor?.toLowerCase() === brand.vendor.toLowerCase()).length >=
+          2,
+      ),
+    [products],
+  );
 
   if (products.length === 0) return null;
+
+  const activeBrandObj = activeBrand
+    ? (featuredBrands.find((b) => b.key === activeBrand) ?? null)
+    : null;
+  const shown = activeBrandObj
+    ? products.filter((p) => p.vendor?.toLowerCase() === activeBrandObj.vendor.toLowerCase())
+    : products;
+
+  const selectBrand = (brand: (typeof BRANDS)[number]) => {
+    setActiveBrand((prev) => {
+      const next = prev === brand.key ? null : brand.key;
+      capture("home_page_featured_filter_clicked", { brand: brand.name, selected: next !== null });
+      return next;
+    });
+    scrollRef.current?.scrollTo({ left: 0 });
+  };
 
   const scrollByPage = (direction: 1 | -1) => {
     const el = scrollRef.current;
@@ -30,7 +62,7 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
       />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section header + scroll controls */}
-        <div className="mb-10 flex items-end justify-between gap-4">
+        <div className="mb-6 flex items-end justify-between gap-4">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Most loved kits</h2>
             <p className="text-gray-600">The kits our customers buy most.</p>
@@ -59,12 +91,48 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
           </div>
         </div>
 
+        {/* Brand filter (single-select; none selected shows all) */}
+        {featuredBrands.length > 1 && (
+          <div
+            className="mb-8 flex flex-wrap items-center gap-2 md:gap-3"
+            role="group"
+            aria-label="Filter by brand"
+          >
+            {featuredBrands.map((brand) => {
+              const active = activeBrand === brand.key;
+              return (
+                <button
+                  key={brand.key}
+                  type="button"
+                  aria-pressed={active}
+                  aria-label={`Filter by ${brand.name}`}
+                  title={brand.name}
+                  onClick={() => selectBrand(brand)}
+                  className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
+                    active
+                      ? "border-cs-orange shadow-sm"
+                      : "border-gray-200 grayscale opacity-50 hover:opacity-80 hover:grayscale-0"
+                  }`}
+                >
+                  <Image
+                    src={brand.logo}
+                    alt=""
+                    width={120}
+                    height={48}
+                    className="h-6 w-auto max-w-[84px] object-contain md:h-7"
+                  />
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         {/* Scrollable product row (all breakpoints) */}
         <div
           ref={scrollRef}
           className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-4 scrollbar-none sm:-mx-6 sm:gap-6 sm:px-6 lg:-mx-8 lg:px-8"
         >
-          {products.map((product) => (
+          {shown.map((product) => (
             <div
               key={product.id}
               className="w-[72vw] flex-none snap-start sm:w-[46%] md:w-[31%] lg:w-[23%]"
@@ -74,14 +142,20 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
           ))}
         </div>
 
-        {/* View All Link */}
+        {/* View-all: brand-specific when filtered, otherwise the whole shop */}
         <div className="text-center mt-10">
           <Link
-            href="/shop"
-            onClick={() => capture("featured_products_view_all_clicked")}
+            href={
+              activeBrandObj ? `/shop?brand=${encodeURIComponent(activeBrandObj.vendor)}` : "/shop"
+            }
+            onClick={() =>
+              activeBrandObj
+                ? capture("home_page_featured_brand_shop_clicked", { brand: activeBrandObj.name })
+                : capture("featured_products_view_all_clicked")
+            }
             className="inline-flex items-center text-navy hover:text-cs-orange font-medium transition-colors"
           >
-            View all products
+            {activeBrandObj ? `View all ${activeBrandObj.name} products` : "View all products"}
             <svg
               className="w-5 h-5 ml-1"
               fill="none"
