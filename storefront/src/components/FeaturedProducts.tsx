@@ -13,19 +13,20 @@ type FeaturedProductsProps = {
   products: Product[];
 };
 
+// How many kits the row shows before a brand is picked — a "most loved" teaser.
+// Selecting a brand then reveals that brand's full in-stock lineup.
+const DEFAULT_VISIBLE = 18;
+
 export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
 
-  // Only offer a toggle for brands with enough kits in the set to make
-  // filtering worthwhile — a filter that returns a single product is pointless
-  // and leaves a lonely card in a wide row.
+  // Offer a toggle for every brand present in the set, in canonical order, so
+  // the filter lists all the brands we stock — even low-volume ones.
   const featuredBrands = useMemo(
     () =>
-      BRANDS.filter(
-        (brand) =>
-          products.filter((p) => p.vendor?.toLowerCase() === brand.vendor.toLowerCase()).length >=
-          2,
+      BRANDS.filter((brand) =>
+        products.some((p) => p.vendor?.toLowerCase() === brand.vendor.toLowerCase()),
       ),
     [products],
   );
@@ -35,9 +36,11 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   const activeBrandObj = activeBrand
     ? (featuredBrands.find((b) => b.key === activeBrand) ?? null)
     : null;
+  // No brand selected: show a top-N slice (the set arrives best-selling-first).
+  // Brand selected: show that brand's full in-stock lineup.
   const shown = activeBrandObj
     ? products.filter((p) => p.vendor?.toLowerCase() === activeBrandObj.vendor.toLowerCase())
-    : products;
+    : products.slice(0, DEFAULT_VISIBLE);
 
   const selectBrand = (brand: (typeof BRANDS)[number]) => {
     setActiveBrand((prev) => {

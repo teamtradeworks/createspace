@@ -24,19 +24,26 @@ export const metadata: Metadata = {
   },
 };
 
-// Async component that fetches the top in-stock bestsellers
+// Async component that fetches the in-stock catalogue in best-selling order.
+// We pass the whole in-stock set (not just the top N) so the section can offer
+// a filter toggle for every brand we stock — low-volume brands like NASA and
+// Snap Circuits only appear well down the best-selling list. `description` is
+// stripped because the product cards never render it and it is ~half the
+// payload; the component shows a top-N teaser until a brand is selected.
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
 
   try {
-    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 30, "BEST_SELLING"));
+    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 100, "BEST_SELLING"));
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
 
-  const bestsellers = allProducts.filter((product) => product.availableForSale).slice(0, 18);
+  const inStock = allProducts
+    .filter((product) => product.availableForSale)
+    .map((product) => ({ ...product, description: "" }));
 
-  return <FeaturedProducts products={bestsellers} />;
+  return <FeaturedProducts products={inStock} />;
 }
 
 export default function Home() {
