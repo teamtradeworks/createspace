@@ -24,12 +24,15 @@ export const metadata: Metadata = {
   },
 };
 
-// Async component that fetches the in-stock catalogue in best-selling order.
-// We pass the whole in-stock set (not just the top N) so the section can offer
-// a filter toggle for every brand we stock — low-volume brands like NASA and
-// Snap Circuits only appear well down the best-selling list. `description` is
-// stripped because the product cards never render it and it is ~half the
-// payload; the component shows a top-N teaser until a brand is selected.
+// Async component that fetches the whole catalogue in best-selling order.
+// We pass every product (not just the top N) so the section can offer a filter
+// toggle for every brand we stock — low-volume brands like NASA and Snap
+// Circuits only appear well down the best-selling list. Out-of-stock kits are
+// kept (the cards show a "Sold out" state) so a brand's lineup matches the
+// shop's, but they're ordered last so the default teaser leads with kits you
+// can actually buy. `description` is stripped because the cards never render it
+// and it is ~half the payload; the component shows a top-N teaser until a brand
+// is selected.
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
 
@@ -39,11 +42,12 @@ async function FeaturedProductsLoader() {
     console.error("Failed to fetch products:", error);
   }
 
-  const inStock = allProducts
-    .filter((product) => product.availableForSale)
-    .map((product) => ({ ...product, description: "" }));
+  const products = allProducts
+    .map((product) => ({ ...product, description: "" }))
+    // Stable sort keeps best-selling order within each group; in-stock first.
+    .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
 
-  return <FeaturedProducts products={inStock} />;
+  return <FeaturedProducts products={products} />;
 }
 
 export default function Home() {
