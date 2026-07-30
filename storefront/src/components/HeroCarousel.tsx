@@ -35,20 +35,18 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    id: "inspire-africa",
-    type: "partner-promo",
-    tag: "For Teachers & Educators",
-    headline: "Get a FREE Teaching Course",
-    description:
-      "Spend over R1,500 at CREATESPACE, and receive a free Inspire Africa online teaching course.",
-    cta: { label: "Shop Now", href: "/shop" },
-    ctaSecondary: { label: "About the Course", href: "/product/how-to-get-started-with-coding-and-robotics" },
-    brandLogos: [
-      { src: "/images/products/matatastudio-vincibot-classroom-set/kids-with-teacher-looking-at-tablet.jpg", name: "Kids with teacher" },
-      { src: "/images/products/arduino-student-kit/student-kit-connecting-up-with-laptop-infront.jpg", name: "Arduino Student Kit" },
-      { src: "/images/products/matatastudio-ai-vision-kit-for-vincibot/boy-with-vibcibot-with-coding-on-laptop.png", name: "VinciBot" },
+    id: "makerzoid-sale",
+    type: "sale",
+    tag: "Limited Time",
+    headline: "Makerzoid Kits",
+    salePercent: "20%",
+    description: "Build, code, and bring robots to life — now at 20% off. Sale ends 6 August.",
+    cta: { label: "Shop the Sale", href: "/shop?brand=Makerzoid" },
+    lifestyleImages: [
+      "/images/products/makerzoid-robot-master-premium/helicopter-being-built-with-manual.jpg",
+      "/images/products/makerzoid-smart-robot-premium/lifestyle/child-building-while-coding-on-tablet.png",
+      "/images/products/makerzoid-robot-master-premium/lifestyle/kids-playing-with-pieces-with-tablet-instructions.png",
     ],
-    partnerLogo: "/images/education/inspire-africa/inspire-africa-logo.png",
     bgColor: "bg-navy",
     textColor: "light",
   },
@@ -70,6 +68,24 @@ const slides: Slide[] = [
     textColor: "light",
   },
   {
+    id: "inspire-africa",
+    type: "partner-promo",
+    tag: "For Teachers & Educators",
+    headline: "Get a FREE Teaching Course",
+    description:
+      "Spend over R1,500 at CREATESPACE, and receive a free Inspire Africa online teaching course.",
+    cta: { label: "Shop Now", href: "/shop" },
+    ctaSecondary: { label: "About the Course", href: "/product/how-to-get-started-with-coding-and-robotics" },
+    brandLogos: [
+      { src: "/images/products/matatastudio-vincibot-classroom-set/kids-with-teacher-looking-at-tablet.jpg", name: "Kids with teacher" },
+      { src: "/images/products/arduino-student-kit/student-kit-connecting-up-with-laptop-infront.jpg", name: "Arduino Student Kit" },
+      { src: "/images/products/matatastudio-ai-vision-kit-for-vincibot/boy-with-vibcibot-with-coding-on-laptop.png", name: "VinciBot" },
+    ],
+    partnerLogo: "/images/education/inspire-africa/inspire-africa-logo.png",
+    bgColor: "bg-navy",
+    textColor: "light",
+  },
+  {
     id: "main",
     type: "hero",
     headline: "Build. Play. Learn.",
@@ -79,22 +95,6 @@ const slides: Slide[] = [
     heroImage: "/images/home/hero-stem-education.jpg",
     bgColor: "bg-navy",
     textColor: "light",
-  },
-  {
-    id: "education",
-    type: "lifestyle",
-    tag: "CREATESPACE for Schools",
-    headline: "STEM Education Solutions for Every School",
-    description:
-      "Trained tutors, classroom kits, teacher training, and short courses. Find the right fit for your school.",
-    cta: { label: "Explore Education", href: "/education" },
-    lifestyleImages: [
-      "/images/home/stem-tutoring-workshop-1.png",
-      "/images/home/stem-tutoring-workshop-2.png",
-      "/images/home/stem-tutoring-workshop-3.png",
-    ],
-    bgColor: "bg-gradient-to-br from-orange-50 to-yellow-50",
-    textColor: "dark",
   },
 ];
 
@@ -339,109 +339,57 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
       {slide.type === "sale" && slide.lifestyleImages && (
         <div className="relative h-full overflow-hidden">
           {/* Background colour blobs */}
-          <div
-            className={`absolute -top-10 -left-10 w-64 h-64 ${isLight ? "bg-cs-purple" : "bg-white"} opacity-20 rounded-full`}
-          />
-          <div
-            className={`absolute bottom-0 right-1/2 w-48 h-48 ${isLight ? "bg-cs-blue" : "bg-white"} opacity-10 rounded-full`}
-          />
-          {/* Bold red top strip — z-20 sits above everything */}
+          <div className="absolute -top-10 -left-10 w-64 h-64 bg-cs-purple opacity-20 rounded-full" />
+          <div className="absolute bottom-0 right-1/2 w-48 h-48 bg-cs-blue opacity-10 rounded-full" />
+          {/* Bold red top strip */}
           <div className="absolute top-0 left-0 right-0 h-2 bg-cs-red z-20" />
 
           {/* ── Mobile layout ── */}
-          <div className="lg:hidden relative z-10 flex flex-col px-4 pt-8 pb-20 gap-5 min-h-[500px]">
-            {/* Tag */}
+          <div className="lg:hidden relative z-10 flex flex-col px-4 pt-8 pb-6 gap-5 min-h-[500px]">
             {slide.tag && (
-              <span
-                className={`inline-flex items-center gap-2 mt-3 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em]`}
-              >
+              <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em]">
                 <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
                 {slide.tag}
               </span>
             )}
 
-            {/* SALE + brand combined card */}
-            <div className="rounded-2xl overflow-hidden shadow-xl inline-flex flex-col">
-              {slide.brandLogoSrc ? (
-                <div className="bg-white px-4 py-2">
-                  <div className="relative w-full h-[84px]">
-                    <Image
-                      src={slide.brandLogoSrc}
-                      alt={slide.headline}
-                      fill
-                      className="object-contain object-center"
-                      sizes="300px"
-                      loading="lazy"
-                    />
-                  </div>
-                </div>
-              ) : (
-                <div className="bg-white px-4 py-3">
-                  <p className="text-[1.25rem] font-semibold text-navy uppercase tracking-wide leading-none">
-                    {slide.headline}
-                  </p>
-                </div>
-              )}
-              <div className="bg-cs-yellow px-5 py-2 flex justify-center">
-                <Heading className="text-[4.5rem] font-semibold text-navy tracking-tight leading-none">
+            {/* SALE card + badge */}
+            <div className="flex items-end">
+              <div className="bg-cs-yellow rounded-2xl px-5 py-3">
+                <Heading className="text-[5.5rem] font-semibold text-navy tracking-tight leading-none">
                   SALE
                 </Heading>
               </div>
-            </div>
-
-            {/* Single bold image with sticker overlay */}
-            <div className="relative h-44 rounded-2xl overflow-visible ring-4 ring-cs-yellow/30 shadow-2xl">
-              <div className="absolute inset-0 rounded-2xl overflow-hidden">
-                <Image
-                  src={slide.lifestyleImages[0]}
-                  alt="Tale-Bot Pro"
-                  fill
-                  className="object-cover object-center"
-                  sizes="100vw"
-                  loading="lazy"
-                />
-              </div>
               {slide.salePercent && (
-                <div className="absolute -top-4 -right-3 z-10 flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-orange border-4 border-white shadow-lg transform rotate-12 w-32 h-32">
-                  <span className="text-white font-semibold text-[2.2rem] leading-none">
-                    {slide.salePercent}
-                  </span>
-                  <span className="text-white/85 font-semibold text-[0.7rem] uppercase tracking-widest leading-none mt-0.5">
-                    OFF
-                  </span>
+                <div className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 ml-2 mb-[-2.5rem] w-28 h-28">
+                  <span className="text-white font-semibold text-[2rem] leading-none">{slide.salePercent}</span>
+                  <span className="text-white/85 font-semibold text-[0.7rem] uppercase tracking-widest leading-none mt-0.5">OFF</span>
                 </div>
               )}
             </div>
 
-            {/* Description */}
+            <p className="text-[2rem] font-semibold text-cs-orange uppercase tracking-wide leading-none mt-3">
+              {slide.headline}
+            </p>
+
+            {/* Single bold image */}
+            <div className="relative h-36 rounded-2xl overflow-hidden ring-4 ring-cs-yellow/30 shadow-2xl">
+              <Image src={slide.lifestyleImages[2]} alt="Makerzoid robot kit" fill className="object-cover object-center" sizes="100vw" loading="lazy" />
+            </div>
+
             {slide.description && (
-              <p
-                className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} leading-relaxed`}
-              >
+              <p className="text-sm text-white/50 leading-relaxed -mt-1">
                 {slide.description}
               </p>
             )}
-            {slide.note && (
-              <p
-                className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} leading-relaxed -mt-2`}
-              >
-                {slide.note}
-              </p>
-            )}
 
-            {/* CTA */}
             <Link
               href={slide.cta.href}
-              className={`inline-flex items-center justify-center w-full px-7 py-4 ${isLight ? "bg-cs-red hover:bg-cs-red/90" : "bg-cs-orange hover:bg-cs-orange/90"} text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30 text-base`}
+              className="inline-flex items-center justify-center w-full px-7 py-4 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30 text-base"
             >
               {slide.cta.label}
               <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </Link>
           </div>
@@ -450,106 +398,56 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
           <div className="hidden lg:block mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full relative z-10">
             <div className="grid lg:grid-cols-2 gap-8 items-center min-h-[500px] lg:py-0">
               <div className="z-10">
-                {/* Tag */}
                 {slide.tag && (
-                  <span
-                    className={`inline-flex items-center gap-2 mt-4 ${isLight ? "text-white/50" : "text-navy/60"} font-semibold text-[10px] uppercase tracking-[0.25em] mb-8`}
-                  >
+                  <span className="inline-flex items-center gap-2 text-white/50 font-semibold text-[10px] uppercase tracking-[0.25em] mb-8">
                     <span className="w-1.5 h-1.5 rounded-full bg-cs-red animate-pulse" />
                     {slide.tag}
                   </span>
                 )}
 
-                {/* SALE + brand combined card */}
-                <div className="flex items-end mb-8">
-                  <div className="rounded-2xl overflow-hidden shadow-xl inline-flex flex-col">
-                    {slide.brandLogoSrc ? (
-                      <div className="bg-white px-5 py-2">
-                        <div className="relative w-full h-[84px]">
-                          <Image
-                            src={slide.brandLogoSrc}
-                            alt={slide.headline}
-                            fill
-                            className="object-contain object-center"
-                            sizes="400px"
-                            loading="lazy"
-                          />
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="bg-white px-5 py-3.5">
-                        <p
-                          className="font-semibold text-navy uppercase leading-none"
-                          style={{
-                            fontSize: "clamp(1.25rem, 3.5vw, 2rem)",
-                            letterSpacing: "0.08em",
-                          }}
-                        >
-                          {slide.headline}
-                        </p>
-                      </div>
-                    )}
-                    <div className="bg-cs-yellow px-5 py-2">
-                      <Heading
-                        className="font-semibold text-navy tracking-tight leading-none"
-                        style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
-                      >
-                        SALE
-                      </Heading>
-                    </div>
+                {/* Yellow SALE card + badge */}
+                <div className="flex items-end mb-6">
+                  <div className="bg-cs-yellow rounded-2xl px-5 py-3">
+                    <Heading
+                      className="font-semibold text-navy tracking-tight leading-none"
+                      style={{ fontSize: "clamp(4rem, 12vw, 7.5rem)", lineHeight: 1 }}
+                    >
+                      SALE
+                    </Heading>
                   </div>
                   {slide.salePercent && (
                     <div
-                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-orange border-4 border-white shadow-lg transform rotate-12 -ml-5 mb-[-3.5rem]"
+                      className="flex-shrink-0 flex flex-col items-center justify-center rounded-full bg-cs-red border-4 border-navy shadow-[0_0_0_3px_rgba(255,255,255,0.2)] transform rotate-12 -ml-5 mb-[-3.5rem]"
                       style={{ width: "clamp(90px,12vw,140px)", height: "clamp(90px,12vw,140px)" }}
                     >
-                      <span
-                        className="text-white font-semibold leading-none"
-                        style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}
-                      >
+                      <span className="text-white font-semibold leading-none" style={{ fontSize: "clamp(1.8rem,5vw,3rem)" }}>
                         {slide.salePercent}
                       </span>
-                      <span
-                        className="text-white/85 font-semibold uppercase tracking-widest leading-none mt-0.5"
-                        style={{ fontSize: "clamp(0.6rem,1.2vw,0.8rem)" }}
-                      >
+                      <span className="text-white/85 font-semibold uppercase tracking-widest leading-none mt-0.5" style={{ fontSize: "clamp(0.6rem,1.2vw,0.8rem)" }}>
                         OFF
                       </span>
                     </div>
                   )}
                 </div>
 
-                <p
-                  className={`text-lg ${isLight ? "text-white/80" : "text-navy/90"} max-w-xs leading-relaxed`}
-                >
+                <div className="mb-3">
+                  <p className="font-semibold text-cs-orange uppercase leading-none" style={{ fontSize: "clamp(1.25rem, 3.5vw, 2rem)", letterSpacing: "0.08em" }}>
+                    {slide.headline}
+                  </p>
+                </div>
+
+                <p className="text-sm text-white/50 mb-7 max-w-xs leading-relaxed">
                   {slide.description}
                 </p>
-                {slide.note && (
-                  <p
-                    className={`text-sm ${isLight ? "text-white/60" : "text-navy/60"} mt-1 mb-6 max-w-xs leading-relaxed`}
-                  >
-                    {slide.note}
-                  </p>
-                )}
 
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href={slide.cta.href}
-                    className={`inline-flex items-center px-7 py-3.5 ${isLight ? "bg-cs-red hover:bg-cs-red/90" : "bg-cs-orange hover:bg-cs-orange/90"} text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30`}
+                    className="inline-flex items-center px-7 py-3.5 bg-cs-red hover:bg-cs-red/90 text-white rounded-lg font-semibold transition-colors shadow-lg shadow-black/30"
                   >
                     {slide.cta.label}
-                    <svg
-                      className="ml-2 w-4 h-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2.5}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
+                    <svg className="ml-2 w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </Link>
                 </div>
@@ -559,35 +457,17 @@ function HeroSlide({ slide, index }: { slide: Slide; index: number }) {
               <div className="relative h-[500px]">
                 <div className="absolute top-6 right-4 w-40 h-40 bg-cs-orange opacity-20 rounded-3xl transform rotate-12" />
                 <div className="absolute bottom-12 left-2 w-24 h-24 bg-cs-blue opacity-25 rounded-full" />
-                <div className="absolute top-0 right-0 w-80 h-64 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
-                  <Image
-                    src={slide.lifestyleImages[0]}
-                    alt="Tale-Bot Pro drawing robot"
-                    fill
-                    className="object-cover"
-                    sizes="320px"
-                    loading="lazy"
-                  />
+                <div className="absolute top-0 right-0 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 ring-4 ring-cs-yellow/30">
+                  <Image src={slide.lifestyleImages[0]} alt="Kids building Makerzoid together" fill className="object-cover" sizes="290px" loading="lazy" />
                 </div>
-                <div className="absolute top-36 left-0 w-[340px] h-[270px] rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
-                  <Image
-                    src={slide.lifestyleImages[1]}
-                    alt="VinciBot on line-following map"
-                    fill
-                    className="object-cover"
-                    sizes="340px"
-                    loading="lazy"
-                  />
+                <div className="absolute top-28 left-4 w-80 h-60 rounded-2xl overflow-hidden shadow-2xl transform -rotate-2 ring-4 ring-white/10">
+                  <Image src={slide.lifestyleImages[1]} alt="Child building robot" fill className="object-cover" sizes="320px" loading="lazy" />
                 </div>
-                <div className="absolute bottom-0 right-4 w-72 h-56 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
-                  <Image
-                    src={slide.lifestyleImages[2]}
-                    alt="Kids with MatataStudio coding set"
-                    fill
-                    className="object-cover"
-                    sizes="340px"
-                    loading="lazy"
-                  />
+                <div className="absolute bottom-4 right-8 w-64 h-48 rounded-2xl overflow-hidden shadow-2xl transform rotate-1 ring-4 ring-cs-orange/30">
+                  <Image src={slide.lifestyleImages[2]} alt="Kids with robotics kit" fill className="object-cover" sizes="260px" loading="lazy" />
+                </div>
+                <div className="absolute bottom-0 left-16 w-16 h-16 opacity-40">
+                  <Image src="/images/illustrations/robot-orange.png" alt="" fill className="object-contain" sizes="64px" loading="lazy" />
                 </div>
               </div>
             </div>
