@@ -62,7 +62,6 @@ export default function CustomerPhotoWallGrid({
   photos: WallPhoto[];
   limit?: number;
 }) {
-  const [activeBrand, setActiveBrand] = useState<string | null>(null);
   // Which card is currently showing its kit side, plus every card that has
   // flipped at least once (their backs stay mounted so unflips animate).
   const [flippedSrc, setFlippedSrc] = useState<string | null>(null);
@@ -74,20 +73,8 @@ export default function CustomerPhotoWallGrid({
   const [armed, setArmed] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
-  // Only show brand toggles for brands actually present in the wall
-  const wallBrands = useMemo(
-    () => BRANDS.filter((brand) => photos.some((photo) => photo.brand === brand.key)),
-    [photos],
-  );
-
-  const spotlight = activeBrand ? (wallBrands.find((b) => b.key === activeBrand) ?? null) : null;
-
-  // Show ~`limit` photos: the interleaved default, or up to `limit` of one brand.
-  const shown = useMemo(
-    () =>
-      (activeBrand ? photos.filter((photo) => photo.brand === activeBrand) : photos).slice(0, limit),
-    [activeBrand, photos, limit],
-  );
+  // Show ~`limit` photos from the brand-interleaved pool.
+  const shown = useMemo(() => photos.slice(0, limit), [photos, limit]);
 
   // Column count follows the breakpoint so the masonry balances per layout.
   // Defaults to 4 for SSR (matches the desktop-first render, no hydration jump).
@@ -106,22 +93,6 @@ export default function CustomerPhotoWallGrid({
   }, []);
 
   const columnBuckets = useMemo(() => balanceColumns(shown, columns), [shown, columns]);
-
-  function selectBrand(brandKey: string, brandName: string) {
-    setFlippedSrc(null);
-    setActiveBrand((prev) => {
-      const next = prev === brandKey ? null : brandKey;
-      capture("home_page_wall_filter_clicked", {
-        filter: "brand",
-        value: brandName,
-        selected: next !== null,
-      });
-      if (next !== null) {
-        capture("home_page_wall_brand_spotlight_opened", { brand: brandName });
-      }
-      return next;
-    });
-  }
 
   function toggleFlip(photo: WallPhoto) {
     setFlippedSrc((prev) => {
@@ -173,7 +144,7 @@ export default function CustomerPhotoWallGrid({
   // previously revealed one (flippedSrc holds a single card).
   useEffect(() => {
     if (!armed) return;
-    const pool = (activeBrand ? photos.filter((p) => p.brand === activeBrand) : photos).slice(0, limit);
+    const pool = photos.slice(0, limit);
     if (pool.length < 2) return;
     const revealRandom = () => {
       const candidates = pool.filter((p) => p.src !== flippedRef.current);
@@ -189,90 +160,12 @@ export default function CustomerPhotoWallGrid({
     revealRandom();
     const timer = setInterval(revealRandom, 4000);
     return () => clearInterval(timer);
-  }, [armed, activeBrand, photos, limit]);
+  }, [armed, photos, limit]);
 
   return (
     <div ref={rootRef}>
-      {/* Brand logo toggles (single-select: tapping a brand opens its spotlight) */}
-      <div
-        className="mb-8 flex flex-wrap items-center gap-2 md:gap-3"
-        role="group"
-        aria-label="Filter by brand"
-      >
-        {wallBrands.map((brand) => {
-          const active = activeBrand === brand.key;
-          return (
-            <button
-              key={brand.key}
-              type="button"
-              aria-pressed={active}
-              aria-label={`Filter by ${brand.name}`}
-              title={brand.name}
-              onClick={() => selectBrand(brand.key, brand.name)}
-              className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
-                active
-                  ? "border-cs-orange shadow-sm"
-                  : "border-gray-200 grayscale opacity-50 hover:opacity-80 hover:grayscale-0"
-              }`}
-            >
-              <Image
-                src={brand.logo}
-                alt=""
-                width={120}
-                height={48}
-                className="h-6 md:h-7 w-auto max-w-[84px] object-contain"
-              />
-            </button>
-          );
-        })}
-      </div>
-
-      {/* Brand spotlight: the payoff for tapping a brand chip */}
-      {spotlight && (
-        <div className="mb-6 rounded-2xl bg-white ring-1 ring-gray-200 p-5 md:p-6 flex flex-col sm:flex-row sm:items-center gap-4 md:gap-8">
-          <Image
-            src={spotlight.logo}
-            alt={spotlight.name}
-            width={220}
-            height={88}
-            className="h-10 md:h-12 w-auto max-w-[180px] object-contain flex-shrink-0"
-          />
-          <div className="flex-1">
-            <p className="font-semibold text-navy text-balance">{spotlight.blurb}</p>
-            <p className="mt-1 flex items-center gap-1.5 text-sm text-gray-500">
-              <svg
-                className="w-4 h-4 text-cs-green flex-shrink-0"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Official South African supplier
-            </p>
-          </div>
-          <Link
-            href={`/shop?brand=${encodeURIComponent(spotlight.vendor)}`}
-            onClick={() => capture("home_page_wall_brand_shop_clicked", { brand: spotlight.name })}
-            className="inline-flex items-center justify-center px-5 py-3 bg-navy hover:bg-navy/90 active:translate-y-px text-white rounded-lg text-sm font-semibold transition-all whitespace-nowrap"
-          >
-            Shop all {spotlight.name}
-            <svg
-              className="ml-1.5 w-4 h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </svg>
-          </Link>
-        </div>
-      )}
-
       {/* Balanced masonry: varied tile heights, columns bottom out at a similar level */}
-      {shown.length > 0 ? (
+      {shown.length > 0 && (
         <div className="wall-fade-bottom flex items-start gap-3 sm:gap-4">
           {columnBuckets.map((bucket, ci) => (
             <div key={ci} className="flex min-w-0 flex-1 flex-col gap-3 sm:gap-4">
@@ -368,17 +261,6 @@ export default function CustomerPhotoWallGrid({
               })}
             </div>
           ))}
-        </div>
-      ) : (
-        <div className="py-16 text-center">
-          <p className="text-gray-600 mb-3">No builds for this brand yet.</p>
-          <button
-            type="button"
-            onClick={() => setActiveBrand(null)}
-            className="text-cs-orange font-medium hover:underline"
-          >
-            Show all builds
-          </button>
         </div>
       )}
     </div>
