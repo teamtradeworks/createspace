@@ -196,13 +196,13 @@ export default function CustomerPhotoWallGrid({
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                       />
                       {brand && (
-                        <span className="absolute top-2 right-2 rounded-md bg-white/95 px-1.5 py-1 shadow-sm">
+                        <span className="absolute top-2 right-2 md:top-3 md:right-3 rounded-md md:rounded-lg bg-white/95 px-1.5 py-1 md:px-2.5 md:py-1.5 shadow-sm">
                           <Image
                             src={brand.logo}
                             alt={brand.name}
-                            width={120}
-                            height={48}
-                            className="h-4 w-auto max-w-[80px] object-contain"
+                            width={160}
+                            height={64}
+                            className="h-4 w-auto max-w-[80px] object-contain sm:h-5 sm:max-w-[110px] md:h-6 lg:h-7 lg:max-w-[150px]"
                           />
                         </span>
                       )}
