@@ -29,3 +29,6 @@ logs/
 *.temp
 .cache/
 .env.local
+
+# Generated previews (regenerate with the sibling build script)
+assets/company-profile/CREATESPACE-Company-Profile.png
