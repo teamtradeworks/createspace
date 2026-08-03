@@ -31,7 +31,7 @@ export default function AgeGroupCard({
     <Link
       href={href}
       onClick={() => capture(event)}
-      className="group relative rounded-2xl overflow-hidden aspect-square transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+      className="group relative aspect-square overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
     >
       <Image
         src={image}
@@ -40,7 +40,7 @@ export default function AgeGroupCard({
         className="object-cover transition-transform duration-300 group-hover:scale-105"
         sizes="(max-width: 768px) 50vw, 25vw"
       />
-      <span className={`absolute bottom-0 inset-x-0 ${color} px-4 py-3 md:px-5 md:py-3.5`}>
+      <span className={`absolute inset-x-0 bottom-0 ${color} px-4 py-3 md:px-5 md:py-3.5`}>
         <span className={`block text-2xl md:text-3xl font-bold leading-tight ${textColor}`}>
           {range}
         </span>

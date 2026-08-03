@@ -1,6 +1,7 @@
 import AgeGroupCard from "@/components/AgeGroupCard";
 import CategoryChips from "@/components/CategoryChips";
 import BrandDecor from "@/components/BrandDecor";
+import TrackedLink from "@/components/TrackedLink";
 
 const ageGroups = [
   {
@@ -9,8 +10,8 @@ const ageGroups = [
     color: "bg-cs-red",
     darkText: false,
     href: "/shop?age=3-5",
-    image: "/images/home/age-groups/toddlers-first-robotics-kit.jpg",
-    alt: "Two young children exploring a robotics kit on the classroom floor",
+    image: "/images/home/age-groups/kids-playing-with-talebot-robot.jpg",
+    alt: "Two young boys pressing the buttons on a MatataStudio Tale-Bot coding robot",
     event: "home_page_3to5_clicked",
   },
   {
@@ -19,8 +20,8 @@ const ageGroups = [
     color: "bg-cs-green",
     darkText: true,
     href: "/shop?age=6-8",
-    image: "/images/home/age-groups/kids-building-robotics-tablets.jpg",
-    alt: "Two kids building robotics kits with tablet instructions",
+    image: "/images/home/age-groups/child-building-makerzoid-robot.jpg",
+    alt: "A child building a Makerzoid robot from the manual with the app open on a tablet",
     event: "home_page_6to8_clicked",
   },
   {
@@ -29,8 +30,8 @@ const ageGroups = [
     color: "bg-cs-blue",
     darkText: true,
     href: "/shop?age=9-12",
-    image: "/images/home/age-groups/kids-testing-robot-cars.jpg",
-    alt: "Two kids testing the robot cars they built at a workshop",
+    image: "/images/home/age-groups/girls-exploring-microbit.jpg",
+    alt: "Two girls examining their BBC micro:bit boards together in class",
     event: "home_page_9to12_clicked",
   },
   {
@@ -39,8 +40,8 @@ const ageGroups = [
     color: "bg-cs-purple",
     darkText: false,
     href: "/shop?age=13%2B",
-    image: "/images/home/age-groups/teen-with-microbit-robot.jpg",
-    alt: "A learner holding the micro:bit robot he built at school",
+    image: "/images/home/age-groups/teens-building-arduino-project.jpg",
+    alt: "Friends gathered around an Arduino electronics project they built together",
     event: "home_page_13plus_clicked",
   },
 ];
@@ -59,7 +60,18 @@ export default function AgeGroups() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-xl">
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Find the right kit</h2>
-          <p className="text-gray-600">Start with their age, or with what they love.</p>
+          <p className="text-gray-600">
+            Start with their age, or with what they love, or{" "}
+            <TrackedLink
+              href="/shop"
+              event="home_page_shop_link_clicked"
+              eventProps={{ source: "agegroups_subtitle" }}
+              className="font-medium text-navy underline underline-offset-2 transition-colors hover:text-cs-orange"
+            >
+              browse the lot
+            </TrackedLink>
+            .
+          </p>
         </div>
 
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
