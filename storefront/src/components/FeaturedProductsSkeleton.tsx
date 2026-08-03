@@ -3,8 +3,8 @@ export default function FeaturedProductsSkeleton() {
     <section className="py-16 md:py-20 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-10 max-w-xl">
-          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Most loved kits</h2>
-          <p className="text-gray-600">The kits our customers buy most.</p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Shop our kits</h2>
+          <p className="text-gray-600">Filter by brand, or browse the lot.</p>
         </div>
 
         {/* Scroll-row skeleton */}

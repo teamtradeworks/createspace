@@ -64,69 +64,103 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
         className="right-0 top-10 w-32 rotate-3 opacity-[0.06] lg:w-44"
       />
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section header + scroll controls */}
-        <div className="mb-6 flex items-end justify-between gap-4">
-          <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Most loved kits</h2>
-            <p className="text-gray-600">The kits our customers buy most.</p>
-          </div>
-          <div className="hidden flex-shrink-0 gap-2 md:flex">
-            <button
-              type="button"
-              onClick={() => scrollByPage(-1)}
-              aria-label="Scroll left"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
+        {/* Section header */}
+        <div className="mb-6 max-w-xl">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Shop our kits</h2>
+          <p className="text-gray-600">
+            Filter by brand, or{" "}
+            <Link
+              href="/shop"
+              onClick={() => capture("home_page_shop_link_clicked", { source: "featured_subtitle" })}
+              className="font-medium text-navy underline underline-offset-2 transition-colors hover:text-cs-orange"
             >
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              onClick={() => scrollByPage(1)}
-              aria-label="Scroll right"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
-            >
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
+              browse the lot
+            </Link>
+            .
+          </p>
         </div>
 
-        {/* Brand filter (single-select; none selected shows all) */}
+        {/* Brand filter + carousel scroll controls share one row */}
         {featuredBrands.length > 1 && (
-          <div
-            className="mb-8 flex flex-wrap items-center gap-2 md:gap-3"
-            role="group"
-            aria-label="Filter by brand"
-          >
+          <div className="mb-8 flex items-center justify-between gap-4">
+            <div
+              className="flex flex-wrap items-center gap-2 md:gap-3"
+              role="group"
+              aria-label="Filter by brand"
+            >
             {featuredBrands.map((brand) => {
               const active = activeBrand === brand.key;
               return (
-                <button
-                  key={brand.key}
-                  type="button"
-                  aria-pressed={active}
-                  aria-label={`Filter by ${brand.name}`}
-                  title={brand.name}
-                  onClick={() => selectBrand(brand)}
-                  className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
-                    active
-                      ? "border-cs-orange shadow-sm"
-                      : "border-gray-200 grayscale opacity-50 hover:opacity-80 hover:grayscale-0"
-                  }`}
-                >
-                  <Image
-                    src={brand.logo}
-                    alt=""
-                    width={120}
-                    height={48}
-                    className="h-6 w-auto max-w-[84px] object-contain md:h-7"
-                  />
-                </button>
+                <div key={brand.key} className="relative">
+                  {/* Floating cue pinned above the Nat Geo chip — absolute, so it
+                      tracks the chip and takes no layout space (desktop only) */}
+                  {brand.key === "national-geographic" && (
+                    <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-6 hidden -translate-x-1/2 items-end gap-1.5 text-cs-purple lg:flex">
+                      <span className="-rotate-2 whitespace-nowrap text-base font-bold md:text-lg">
+                        Choose a brand!
+                      </span>
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 48 44"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={3.5}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="h-8 w-8 flex-none md:h-9 md:w-9"
+                      >
+                        <path d="M6 6 C 26 4, 40 14, 30 34" />
+                        <path d="M20 28 L 30 37 L 40 27" />
+                      </svg>
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    aria-pressed={active}
+                    aria-label={`Filter by ${brand.name}`}
+                    title={brand.name}
+                    onClick={() => selectBrand(brand)}
+                    className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
+                      active
+                        ? "border-cs-orange shadow-sm"
+                        : "border-gray-200 grayscale opacity-50 hover:opacity-80 hover:grayscale-0"
+                    }`}
+                  >
+                    <Image
+                      src={brand.logo}
+                      alt=""
+                      width={120}
+                      height={48}
+                      className="h-6 w-auto max-w-[84px] object-contain md:h-7"
+                    />
+                  </button>
+                </div>
               );
             })}
+            </div>
+            {/* Scroll controls, same row as the brand toggles */}
+            <div className="hidden flex-shrink-0 gap-2 md:flex">
+              <button
+                type="button"
+                onClick={() => scrollByPage(-1)}
+                aria-label="Scroll left"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollByPage(1)}
+                aria-label="Scroll right"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
           </div>
         )}
 
