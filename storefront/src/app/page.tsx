@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { getCollectionProducts, Product } from "@/lib/shopify";
 import Hero from "@/components/Hero";
 import AgeGroups from "@/components/AgeGroups";
+import PromoBand from "@/components/PromoBand";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
 import WhyCreatespace from "@/components/WhyCreatespace";
@@ -58,6 +59,11 @@ export default function Home() {
       {/* Static hero - renders immediately, no data dependency */}
       <TrackedSection name="Hero" page="home">
         <Hero />
+      </TrackedSection>
+
+      {/* Current promotion — full-width strip directly under the hero (config/promo.ts) */}
+      <TrackedSection name="Promo" page="home">
+        <PromoBand />
       </TrackedSection>
 
       {/* Find the right kit: age photo cards + category chips, fully static */}

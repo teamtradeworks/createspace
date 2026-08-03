@@ -47,6 +47,23 @@ body {
   }
 }
 
+/* Promo strip: subtle horizontal fade as the carousel advances */
+@media (prefers-reduced-motion: no-preference) {
+  .promo-in {
+    animation: promo-in 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+}
+@keyframes promo-in {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Scroll reveal: hidden state is applied client-side only (see Reveal.tsx) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal-hidden {
