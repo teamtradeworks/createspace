@@ -24,11 +24,11 @@ function handleFromHref(href: string): string {
   return href.split("/").pop() ?? href;
 }
 
-// Displayed tile aspect ratio (width / height). Photos keep varied heights, but
-// clamped so no tile is extreme, which keeps the balanced columns tidy and
-// leaves room for the flip side. Smaller number = taller tile.
-const ASPECT_MIN = 0.62;
-const ASPECT_MAX = 1.1;
+// Displayed tile aspect ratio (width / height). Photos keep varied heights,
+// clamped only enough to avoid truly extreme tiles. A wide range gives the wall
+// a lively, varied-size masonry feel. Smaller number = taller tile.
+const ASPECT_MIN = 0.55;
+const ASPECT_MAX = 1.4;
 function cardAspect(width: number, height: number): number {
   return Math.min(ASPECT_MAX, Math.max(ASPECT_MIN, width / height));
 }
@@ -166,7 +166,9 @@ export default function CustomerPhotoWallGrid({
     <div ref={rootRef}>
       {/* Balanced masonry: varied tile heights, columns bottom out at a similar level */}
       {shown.length > 0 && (
-        <div className="wall-fade-bottom flex items-start gap-3 sm:gap-4">
+        <div className="relative">
+          <div className="max-h-[620px] overflow-y-auto scrollbar-none">
+            <div className="flex items-start gap-3 sm:gap-4">
           {columnBuckets.map((bucket, ci) => (
             <div key={ci} className="flex min-w-0 flex-1 flex-col gap-3 sm:gap-4">
               {bucket.items.map(({ photo, aspect }, index) => {
@@ -261,6 +263,10 @@ export default function CustomerPhotoWallGrid({
               })}
             </div>
           ))}
+            </div>
+          </div>
+          {/* Fade hint: more builds below — scroll to reveal */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-gray-50 via-gray-50/85 to-transparent" />
         </div>
       )}
     </div>

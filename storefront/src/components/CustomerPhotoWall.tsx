@@ -42,8 +42,9 @@ function interleaveByBrand(items: WallPhotoSource[]): WallPhotoSource[] {
   return result;
 }
 
-// Default and per-brand views each show at most this many photos.
-const WALL_LIMIT = 12;
+// How many photos the wall renders. The masonry scrolls vertically, so this can
+// be generous — enough to make "scroll to reveal more" worthwhile.
+const WALL_LIMIT = 30;
 
 export default async function CustomerPhotoWall() {
   // Pass the full pool (interleaved by brand) to the grid; it slices to
@@ -87,23 +88,32 @@ export default async function CustomerPhotoWall() {
           <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">
             Built by kids like yours
           </h2>
-          <p className="text-gray-600">
-            Every photo shows a kit we stock, built by kids at home and in class.
-          </p>
-          <span className="mt-4 inline-flex items-center gap-2 rounded-full bg-white ring-1 ring-gray-200 px-3.5 py-1.5 text-sm font-medium text-navy">
-            <svg
-              className="w-4 h-4 text-cs-orange"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path d="M9 3a1 1 0 0 1 2 0v8.4l1.3-1.3a1 1 0 0 1 1.5 0l3.9 3.9c.4.4.6 1 .5 1.6l-.7 3.6a2 2 0 0 1-2 1.6H11a2 2 0 0 1-1.5-.7l-4.2-4.8a1 1 0 0 1 .1-1.5l.6-.4a1 1 0 0 1 1-.1L9 12V3Z" />
-            </svg>
-            Tap a photo to reveal the product
-          </span>
+          <p className="text-gray-600">At home and in the classroom.</p>
         </div>
 
-        <CustomerPhotoWallGrid photos={wallPhotos} limit={WALL_LIMIT} />
+        <div className="relative">
+          {/* "Tap to reveal!" cue floated above the wall, top-right (desktop).
+              Absolute, so it takes no vertical space above the grid. */}
+          <span className="pointer-events-none absolute bottom-full left-[55%] z-10 mb-6 hidden -translate-x-1/2 items-end gap-1.5 text-cs-purple lg:inline-flex">
+            <span className="-rotate-2 whitespace-nowrap text-base font-bold md:text-lg">
+              Tap to reveal!
+            </span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 48 44"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={3.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-8 w-8 flex-none md:h-9 md:w-9"
+            >
+              <path d="M6 6 C 26 4, 40 14, 30 34" />
+              <path d="M20 28 L 30 37 L 40 27" />
+            </svg>
+          </span>
+          <CustomerPhotoWallGrid photos={wallPhotos} limit={WALL_LIMIT} />
+        </div>
       </div>
     </section>
   );
