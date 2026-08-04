@@ -13,6 +13,7 @@ const ageGroups = [
     image: "/images/home/age-groups/child-playing-with-talebot-robot.jpg",
     alt: "A Tale-Bot Pro coding robot sitting on LEGO blocks, showing LEGO compatibility",
     event: "home_page_3to5_clicked",
+    imageTransform: "scale(1.3) translateY(-10%)",
   },
   {
     range: "6-8",
@@ -23,6 +24,7 @@ const ageGroups = [
     image: "/images/home/age-groups/kids-launching-sky-rockets.jpg",
     alt: "Children launching National Geographic light-up sky rockets outdoors",
     event: "home_page_6to8_clicked",
+    imageTransform: "scale(1.12) translateY(-8%)",
   },
   {
     range: "9-12",
@@ -33,6 +35,7 @@ const ageGroups = [
     image: "/images/home/age-groups/kids-building-makerzoid-with-tablet.jpg",
     alt: "Kids assembling a Makerzoid robot with tablet instructions open beside them",
     event: "home_page_9to12_clicked",
+    imageTransform: "scale(1.3) translateY(-10%)",
   },
   {
     range: "13+",
@@ -43,6 +46,7 @@ const ageGroups = [
     image: "/images/home/age-groups/student-connecting-arduino-kit-with-laptop.jpg",
     alt: "A student connecting up an Arduino Student Kit with a laptop open in front",
     event: "home_page_13plus_clicked",
+    imageTransform: "scale(1.3) translateY(-10%)",
   },
 ];
 
@@ -86,6 +90,7 @@ export default function AgeGroups() {
               image={group.image}
               alt={group.alt}
               event={group.event}
+              imageTransform={group.imageTransform}
             />
           ))}
         </div>

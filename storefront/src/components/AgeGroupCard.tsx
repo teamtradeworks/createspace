@@ -13,6 +13,7 @@ type AgeGroupCardProps = {
   image: string;
   alt: string;
   event: string;
+  imageTransform?: string;
 };
 
 export default function AgeGroupCard({
@@ -24,6 +25,7 @@ export default function AgeGroupCard({
   image,
   alt,
   event,
+  imageTransform = "scale(1.12) translateY(-8%)",
 }: AgeGroupCardProps) {
   const textColor = darkText ? "text-navy" : "text-white";
 
@@ -33,13 +35,15 @@ export default function AgeGroupCard({
       onClick={() => capture(event)}
       className="group relative aspect-square overflow-hidden rounded-2xl transition-transform duration-300 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
     >
-      <Image
-        src={image}
-        alt={alt}
-        fill
-        className="object-cover -translate-y-[8%] scale-[1.12] transition-transform duration-300 group-hover:scale-[1.17]"
-        sizes="(max-width: 768px) 50vw, 25vw"
-      />
+      <div className="absolute inset-0" style={{ transform: imageTransform }}>
+        <Image
+          src={image}
+          alt={alt}
+          fill
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          sizes="(max-width: 768px) 50vw, 25vw"
+        />
+      </div>
       <span className={`absolute inset-x-0 bottom-0 ${color} px-4 py-3 md:px-5 md:py-3.5`}>
         <span className={`block text-2xl md:text-3xl font-bold leading-tight ${textColor}`}>
           {range}
