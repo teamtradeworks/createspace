@@ -10,8 +10,8 @@ const ageGroups = [
     color: "bg-cs-red",
     darkText: false,
     href: "/shop?age=3-5",
-    image: "/images/home/age-groups/kids-playing-with-talebot-robot.jpg",
-    alt: "Two young boys pressing the buttons on a MatataStudio Tale-Bot coding robot",
+    image: "/images/home/age-groups/child-playing-with-talebot-robot.jpg",
+    alt: "A Tale-Bot Pro coding robot sitting on LEGO blocks, showing LEGO compatibility",
     event: "home_page_3to5_clicked",
   },
   {
@@ -20,8 +20,8 @@ const ageGroups = [
     color: "bg-cs-green",
     darkText: true,
     href: "/shop?age=6-8",
-    image: "/images/home/age-groups/child-building-makerzoid-robot.jpg",
-    alt: "A child building a Makerzoid robot from the manual with the app open on a tablet",
+    image: "/images/home/age-groups/kids-launching-sky-rockets.jpg",
+    alt: "Children launching National Geographic light-up sky rockets outdoors",
     event: "home_page_6to8_clicked",
   },
   {
@@ -30,8 +30,8 @@ const ageGroups = [
     color: "bg-cs-blue",
     darkText: true,
     href: "/shop?age=9-12",
-    image: "/images/home/age-groups/girls-exploring-microbit.jpg",
-    alt: "Two girls examining their BBC micro:bit boards together in class",
+    image: "/images/home/age-groups/kids-building-makerzoid-with-tablet.jpg",
+    alt: "Kids assembling a Makerzoid robot with tablet instructions open beside them",
     event: "home_page_9to12_clicked",
   },
   {
@@ -40,8 +40,8 @@ const ageGroups = [
     color: "bg-cs-purple",
     darkText: false,
     href: "/shop?age=13%2B",
-    image: "/images/home/age-groups/teens-building-arduino-project.jpg",
-    alt: "Friends gathered around an Arduino electronics project they built together",
+    image: "/images/home/age-groups/student-connecting-arduino-kit-with-laptop.jpg",
+    alt: "A student connecting up an Arduino Student Kit with a laptop open in front",
     event: "home_page_13plus_clicked",
   },
 ];
