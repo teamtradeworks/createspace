@@ -13,7 +13,7 @@ const ageGroups = [
     image: "/images/home/age-groups/child-playing-with-talebot-robot.jpg",
     alt: "A Tale-Bot Pro coding robot sitting on LEGO blocks, showing LEGO compatibility",
     event: "home_page_3to5_clicked",
-    imageTransform: "scale(1.3) translateY(-10%)",
+    imageTransform: "scale(1.1) translateY(-3%)",
   },
   {
     range: "6-8",
