@@ -12,8 +12,8 @@ export default function Hero() {
               Build. <span className="text-cs-orange">Play.</span> Learn.
             </h1>
             <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed">
-              Robotics, coding and science kits that teach real skills through play. Because
-              today&apos;s curious kid could be tomorrow&apos;s engineer, doctor or scientist.
+              Robotics, coding and science kits that teach through play. Inspiring
+              tomorrow&apos;s engineers, doctors and scientists.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <TrackedLink
