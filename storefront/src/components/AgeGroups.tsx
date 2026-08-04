@@ -35,7 +35,7 @@ const ageGroups = [
     image: "/images/home/age-groups/hand-snapping-pieces-together.jpg",
     alt: "A hand snapping Snap Circuits pieces together to build a circuit",
     event: "home_page_9to12_clicked",
-    imageTransform: "scale(1.3) translateY(-10%)",
+    imageTransform: "none",
   },
   {
     range: "13+",
