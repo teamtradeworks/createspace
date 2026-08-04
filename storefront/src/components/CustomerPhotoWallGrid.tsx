@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect, useRef } from "react";
+import { useCallback, useMemo, useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
@@ -73,6 +73,26 @@ export default function CustomerPhotoWallGrid({
   const [armed, setArmed] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
 
+  // Manual scroll: the masonry is clipped to a fixed height and moved with the
+  // up/down buttons rather than the wheel, so it never traps the page scroll.
+  const scrollBoxRef = useRef<HTMLDivElement>(null);
+  const [canScrollUp, setCanScrollUp] = useState(false);
+  const [canScrollDown, setCanScrollDown] = useState(false);
+
+  const syncArrows = useCallback(() => {
+    const el = scrollBoxRef.current;
+    if (!el) return;
+    setCanScrollUp(el.scrollTop > 4);
+    setCanScrollDown(Math.ceil(el.scrollTop + el.clientHeight) < el.scrollHeight - 4);
+  }, []);
+
+  const scrollByPage = (dir: 1 | -1) => {
+    const el = scrollBoxRef.current;
+    if (!el) return;
+    capture("home_page_wall_scrolled", { direction: dir > 0 ? "down" : "up" });
+    el.scrollBy({ top: dir * el.clientHeight * 0.8, behavior: "smooth" });
+  };
+
   // Show ~`limit` photos from the brand-interleaved pool.
   const shown = useMemo(() => photos.slice(0, limit), [photos, limit]);
 
@@ -93,6 +113,17 @@ export default function CustomerPhotoWallGrid({
   }, []);
 
   const columnBuckets = useMemo(() => balanceColumns(shown, columns), [shown, columns]);
+
+  // Keep the up/down arrows in sync with the scroll position and any layout
+  // change (breakpoint → column count → content height).
+  useEffect(() => {
+    const el = scrollBoxRef.current;
+    if (!el) return;
+    syncArrows();
+    const ro = new ResizeObserver(() => syncArrows());
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [syncArrows, columns, shown]);
 
   function toggleFlip(photo: WallPhoto) {
     setFlippedSrc((prev) => {
@@ -167,7 +198,11 @@ export default function CustomerPhotoWallGrid({
       {/* Balanced masonry: varied tile heights, columns bottom out at a similar level */}
       {shown.length > 0 && (
         <div className="relative">
-          <div className="max-h-[620px] overflow-y-auto scrollbar-none">
+          <div
+            ref={scrollBoxRef}
+            onScroll={syncArrows}
+            className="max-h-[620px] overflow-hidden scrollbar-none"
+          >
             <div className="flex items-start gap-3 sm:gap-4">
           {columnBuckets.map((bucket, ci) => (
             <div key={ci} className="flex min-w-0 flex-1 flex-col gap-3 sm:gap-4">
@@ -265,8 +300,39 @@ export default function CustomerPhotoWallGrid({
           ))}
             </div>
           </div>
-          {/* Fade hint: more builds below — scroll to reveal */}
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-gray-50 via-gray-50/85 to-transparent" />
+          {/* Up control + top fade — only once scrolled down */}
+          {canScrollUp && (
+            <>
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-gray-50 via-gray-50/85 to-transparent" />
+              <button
+                type="button"
+                onClick={() => scrollByPage(-1)}
+                aria-label="Scroll photos up"
+                className="absolute left-1/2 top-2 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-navy shadow-md transition-all hover:border-navy/40 active:scale-95"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                </svg>
+              </button>
+            </>
+          )}
+
+          {/* Down control + bottom fade — while more remains below */}
+          {canScrollDown && (
+            <>
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-gray-50 via-gray-50/85 to-transparent" />
+              <button
+                type="button"
+                onClick={() => scrollByPage(1)}
+                aria-label="Scroll photos down to reveal more"
+                className="absolute bottom-3 left-1/2 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-navy shadow-md transition-all hover:border-navy/40 active:scale-95"
+              >
+                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
       )}
     </div>
