@@ -10,8 +10,8 @@ const ageGroups = [
     color: "bg-cs-red",
     darkText: false,
     href: "/shop?age=3-5",
-    image: "/images/home/age-groups/child-playing-with-talebot-robot.jpg",
-    alt: "A Tale-Bot Pro coding robot sitting on LEGO blocks, showing LEGO compatibility",
+    image: "/images/home/age-groups/person-holding-robot-moving-it-on-board.jpg",
+    alt: "A person holding a Tale-Bot Pro robot and moving it on a coding board",
     event: "home_page_3to5_clicked",
     imageTransform: "scale(1.25) translateY(-10%)",
   },
@@ -46,7 +46,7 @@ const ageGroups = [
     image: "/images/home/age-groups/teen-working-on-kit-with-workbook-and-laptop.jpg",
     alt: "A teen working on an Arduino kit with a workbook and laptop open beside them",
     event: "home_page_13plus_clicked",
-    imageTransform: "scale(1.38) translateY(-13%)",
+    imageTransform: "scale(1.5) translateY(-16%)",
   },
 ];
 
