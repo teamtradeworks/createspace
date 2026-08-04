@@ -80,9 +80,6 @@ body {
     transform: translateX(-160%) skewX(-12deg);
     animation: promo-shine 6.5s ease-in-out infinite;
   }
-  .promo-badge-pulse {
-    animation: promo-badge-pulse 1.9s ease-in-out infinite;
-  }
 }
 @keyframes promo-band-pan {
   0% {
@@ -106,23 +103,6 @@ body {
     transform: translateX(430%) skewX(-12deg);
   }
 }
-@keyframes promo-badge-pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(247, 11, 40, 0.55);
-  }
-  50% {
-    transform: scale(1.06);
-  }
-  70% {
-    box-shadow: 0 0 0 8px rgba(247, 11, 40, 0);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(247, 11, 40, 0);
-  }
-}
-
 /* Scroll reveal: hidden state is applied client-side only (see Reveal.tsx) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal-hidden {

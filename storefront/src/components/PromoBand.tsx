@@ -76,7 +76,7 @@ export default function PromoBand() {
             className="promo-in group flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3"
           >
             {promo.badge && (
-              <span className="promo-badge-pulse inline-flex flex-shrink-0 items-center whitespace-nowrap rounded-md bg-cs-red px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide text-white shadow-sm sm:text-sm">
+              <span className="inline-flex flex-shrink-0 items-center whitespace-nowrap rounded-md bg-cs-red px-2.5 py-1 text-xs font-extrabold uppercase tracking-wide text-white shadow-sm sm:text-sm">
                 {promo.badge}
               </span>
             )}
