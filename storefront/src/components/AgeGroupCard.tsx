@@ -37,7 +37,7 @@ export default function AgeGroupCard({
         src={image}
         alt={alt}
         fill
-        className="object-cover transition-transform duration-300 group-hover:scale-105"
+        className="object-cover object-bottom transition-transform duration-300 group-hover:scale-105"
         sizes="(max-width: 768px) 50vw, 25vw"
       />
       <span className={`absolute inset-x-0 bottom-0 ${color} px-4 py-3 md:px-5 md:py-3.5`}>
