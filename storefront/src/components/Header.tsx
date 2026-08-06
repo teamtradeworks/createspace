@@ -366,7 +366,7 @@ export default function Header() {
 
       {/* Shop Mega Menu Dropdown */}
       <div
-        className={`absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "shop"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -490,7 +490,7 @@ export default function Header() {
 
       {/* Education Dropdown */}
       <div
-        className={`absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "education"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
