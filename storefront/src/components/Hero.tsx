@@ -49,13 +49,12 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Astronaut cutout — grounded at the bottom edge of the hero. The
-              glows AND the orbiting brand illustrations all live inside this
-              wrapper, positioned relative to the figure, so the whole group
-              tracks the astronaut at every viewport width — mobile included.
-              `isolate` scopes the negative-z glows to this wrapper (without it,
-              -z-10 escapes to the root context on mobile and hides behind the
-              navy section). The wrapper transform nudges the group on lg. */}
+          {/* Hero cutouts crossfade in place (astronaut, chemist), each with
+              its own orbiting illustrations — see HeroCutout. The glows stay
+              here (shared and theme-neutral) and track the figure. `isolate`
+              scopes the negative-z glows to this wrapper (without it, -z-10
+              escapes to the root context on mobile and hides behind the navy
+              section). The wrapper transform nudges the group on lg. */}
           <div className="flex justify-center self-end lg:justify-end">
             <div className="relative isolate lg:-translate-x-8 lg:translate-y-4">
               <div
@@ -65,29 +64,6 @@ export default function Hero() {
               <div
                 aria-hidden
                 className="pointer-events-none absolute left-1/2 top-[38%] -z-10 h-[75%] w-[95%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cs-purple/20 blur-3xl"
-              />
-              {/* Orbiting illustrations — behind the figure (rendered before it),
-                  peeking out around it. Sized up on larger screens. */}
-              {/* eslint-disable-next-line @next/next/no-img-element -- decorative inline SVG */}
-              <img
-                src="/images/illustrations/planet-1.svg"
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute -left-5 top-4 w-16 sm:w-20 lg:-left-10 lg:top-6 lg:w-24"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element -- decorative inline SVG */}
-              <img
-                src="/images/illustrations/planet-2.svg"
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-3 top-0 w-10 rotate-90 sm:w-12 lg:-right-6 lg:w-16"
-              />
-              {/* eslint-disable-next-line @next/next/no-img-element -- decorative inline SVG */}
-              <img
-                src="/images/illustrations/atom-1.svg"
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute -left-3 bottom-20 w-10 opacity-60 lg:-left-6 lg:bottom-24 lg:w-14"
               />
               <HeroCutout />
             </div>
