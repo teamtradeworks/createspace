@@ -112,6 +112,24 @@ export default async function CustomerPhotoWall() {
               <path d="M20 28 L 30 37 L 40 27" />
             </svg>
           </span>
+          {/* Mobile: inline cue (the floating desktop cue would overlap the
+              wall on small screens). */}
+          <div className="mb-3 flex items-end gap-1.5 text-cs-purple lg:hidden">
+            <span className="-rotate-2 text-base font-bold">Tap to reveal!</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 48 44"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={3.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-7 w-7 flex-none"
+            >
+              <path d="M6 6 C 26 4, 40 14, 30 34" />
+              <path d="M20 28 L 30 37 L 40 27" />
+            </svg>
+          </div>
           <CustomerPhotoWallGrid photos={wallPhotos} limit={WALL_LIMIT} />
         </div>
       </div>

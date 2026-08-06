@@ -13,16 +13,16 @@ export default function CategoryChips() {
           key={category.id}
           href={`/shop?category=${category.id}`}
           onClick={() => capture("home_page_category_clicked", { category: category.id })}
-          className="inline-flex items-center gap-2.5 rounded-full border border-gray-200 bg-white py-1.5 pl-1.5 pr-4 text-sm font-medium text-navy hover:border-cs-orange hover:shadow-sm active:translate-y-px transition-all"
+          className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-white py-1.5 pl-1.5 pr-2.5 text-xs font-medium text-navy transition-all hover:border-cs-orange hover:shadow-sm active:translate-y-px sm:gap-2.5 sm:pr-4 sm:text-sm"
         >
-          <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-gray-50">
+          <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gray-50 sm:h-11 sm:w-11">
             <Image
               src={category.illustration}
               alt=""
               width={36}
               height={36}
               unoptimized
-              className="h-9 w-9 object-contain"
+              className="h-6 w-6 object-contain sm:h-9 sm:w-9"
             />
           </span>
           {category.label}

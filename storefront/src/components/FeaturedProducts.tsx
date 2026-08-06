@@ -80,6 +80,27 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
           </p>
         </div>
 
+        {/* Mobile: inline "Choose a brand!" cue (desktop uses the floating cue
+            above the Nat Geo chip, which would overlap the wrapped rows here) */}
+        {featuredBrands.length > 1 && (
+          <div className="mb-4 flex items-center gap-1.5 text-cs-purple lg:hidden">
+            <span className="-rotate-2 text-base font-bold">Choose a brand!</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 48 44"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={3.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-7 w-7 flex-none"
+            >
+              <path d="M6 6 C 26 4, 40 14, 30 34" />
+              <path d="M20 28 L 30 37 L 40 27" />
+            </svg>
+          </div>
+        )}
+
         {/* Brand filter + carousel scroll controls share one row */}
         {featuredBrands.length > 1 && (
           <div className="mb-8 flex items-center justify-between gap-4">
@@ -131,7 +152,7 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
                       alt=""
                       width={120}
                       height={48}
-                      className="h-6 w-auto max-w-[84px] object-contain md:h-7"
+                      className="h-7 w-auto max-w-[96px] object-contain md:h-8"
                     />
                   </button>
                 </div>
