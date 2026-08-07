@@ -8,6 +8,7 @@ import FeaturedProducts from "@/components/FeaturedProducts";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
 import WhyCreatespace from "@/components/WhyCreatespace";
 import CustomerPhotoWall from "@/components/CustomerPhotoWall";
+import CustomerPhotoWallSkeleton from "@/components/CustomerPhotoWallSkeleton";
 import HomeTestimonials from "@/components/HomeTestimonials";
 import BrandStrip from "@/components/BrandStrip";
 import EducationBanner from "@/components/EducationBanner";
@@ -78,9 +79,14 @@ export default function Home() {
         </Suspense>
       </TrackedSection>
 
-      {/* Genuine builds with the kits we stock */}
+      {/* Genuine builds with the kits we stock. Streamed behind Suspense: the
+          wall resolves a Shopify lookup per unique product handle, and without
+          a boundary those fetches would gate the whole page's first byte
+          (including the hero/LCP) on a cold data cache. */}
       <TrackedSection name="CustomerPhotoWall" page="home">
-        <CustomerPhotoWall />
+        <Suspense fallback={<CustomerPhotoWallSkeleton />}>
+          <CustomerPhotoWall />
+        </Suspense>
       </TrackedSection>
 
       {/* Differentiator - the team behind the store */}
