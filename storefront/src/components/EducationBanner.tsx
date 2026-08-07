@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 
 export default function EducationBanner() {
   return (
@@ -24,8 +24,9 @@ export default function EducationBanner() {
               Trained tutors, classroom kits, teacher training, and short courses for schools across
               South Africa.
             </p>
-            <Link
+            <TrackedLink
               href="/education"
+              event="home_page_education_cta_clicked"
               className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 active:translate-y-px text-white rounded-lg font-semibold transition-all"
             >
               Explore education
@@ -43,7 +44,7 @@ export default function EducationBanner() {
                   d="M13 7l5 5m0 0l-5 5m5-5H6"
                 />
               </svg>
-            </Link>
+            </TrackedLink>
           </div>
         </div>
       </div>

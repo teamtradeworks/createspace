@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 import BrandDecor from "@/components/BrandDecor";
 
 const points = [
@@ -56,8 +56,9 @@ export default function WhyCreatespace() {
               ))}
             </ul>
 
-            <Link
+            <TrackedLink
               href="/about"
+              event="home_page_about_link_clicked"
               className="inline-flex items-center mt-10 text-cs-orange hover:text-cs-orange/80 font-medium transition-colors"
             >
               More about us
@@ -75,7 +76,7 @@ export default function WhyCreatespace() {
                   d="M9 5l7 7-7 7"
                 />
               </svg>
-            </Link>
+            </TrackedLink>
           </div>
 
           <div className="relative">

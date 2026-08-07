@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TrackedLink from "@/components/TrackedLink";
 import BrandDecor from "@/components/BrandDecor";
 
 export default function FinalCta() {
@@ -20,18 +20,22 @@ export default function FinalCta() {
           Tell us your child&apos;s age and what they love. We&apos;ll point you to the right kit.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
-          <Link
+          <TrackedLink
             href="/contact"
+            event="home_page_final_cta_clicked"
+            eventProps={{ cta: "contact" }}
             className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 active:translate-y-px text-white rounded-lg font-semibold transition-all"
           >
             Get in touch
-          </Link>
-          <Link
+          </TrackedLink>
+          <TrackedLink
             href="/shop"
+            event="home_page_final_cta_clicked"
+            eventProps={{ cta: "shop" }}
             className="inline-flex items-center px-8 py-4 rounded-lg font-semibold text-navy border border-navy/20 hover:bg-navy/5 active:translate-y-px transition-all"
           >
             Browse the range
-          </Link>
+          </TrackedLink>
         </div>
       </div>
     </section>
