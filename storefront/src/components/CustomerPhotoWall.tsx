@@ -47,10 +47,11 @@ function interleaveByBrand(items: WallPhotoSource[]): WallPhotoSource[] {
 const WALL_LIMIT = 30;
 
 export default async function CustomerPhotoWall() {
-  // Pass the full pool (interleaved by brand) to the grid; it slices to
-  // WALL_LIMIT for the default view and again for each brand-filtered view,
-  // so both land near ~12 rather than the filtered view showing a thin slice.
-  const pool = interleaveByBrand(WALL_PHOTOS);
+  // Interleave by brand, then keep only the photos the grid will actually
+  // render. Slicing BEFORE the product lookups matters: the full pool spans
+  // ~47 unique handles (one Shopify fetch each) and would all be serialized
+  // into the payload, while everything past WALL_LIMIT can never render.
+  const pool = interleaveByBrand(WALL_PHOTOS).slice(0, WALL_LIMIT);
 
   // A product can appear more than once (different photos), so fetch each
   // handle once and share the result across its photos.
