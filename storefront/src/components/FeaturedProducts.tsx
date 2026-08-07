@@ -11,13 +11,14 @@ import { BRANDS } from "@/config/brands";
 
 type FeaturedProductsProps = {
   products: Product[];
+  featuredProducts: Product[];
 };
 
 // How many kits the row shows before a brand is picked — a "most loved" teaser.
 // Selecting a brand then reveals that brand's full in-stock lineup.
 const DEFAULT_VISIBLE = 18;
 
-export default function FeaturedProducts({ products }: FeaturedProductsProps) {
+export default function FeaturedProducts({ products, featuredProducts }: FeaturedProductsProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeBrand, setActiveBrand] = useState<string | null>(null);
 
@@ -36,11 +37,11 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
   const activeBrandObj = activeBrand
     ? (featuredBrands.find((b) => b.key === activeBrand) ?? null)
     : null;
-  // No brand selected: show a top-N slice (the set arrives best-selling-first).
-  // Brand selected: show that brand's full in-stock lineup.
+  // No brand selected: show the curated featured collection in Shopify order.
+  // Brand selected: show that brand's full lineup from the all-products set.
   const shown = activeBrandObj
     ? products.filter((p) => p.vendor?.toLowerCase() === activeBrandObj.vendor.toLowerCase())
-    : products.slice(0, DEFAULT_VISIBLE);
+    : featuredProducts.slice(0, DEFAULT_VISIBLE);
 
   const selectBrand = (brand: (typeof BRANDS)[number]) => {
     setActiveBrand((prev) => {

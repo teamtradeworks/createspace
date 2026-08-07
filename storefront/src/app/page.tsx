@@ -26,30 +26,40 @@ export const metadata: Metadata = {
   },
 };
 
-// Async component that fetches the whole catalogue in best-selling order.
-// We pass every product (not just the top N) so the section can offer a filter
-// toggle for every brand we stock — low-volume brands like NASA and Snap
-// Circuits only appear well down the best-selling list. Out-of-stock kits are
-// kept (the cards show a "Sold out" state) so a brand's lineup matches the
-// shop's, but they're ordered last so the default teaser leads with kits you
-// can actually buy. `description` is stripped because the cards never render it
-// and it is ~half the payload; the component shows a top-N teaser until a brand
-// is selected.
+// Async component that fetches products for the "Shop our kits" section.
+// Two collections are fetched in parallel:
+//  - "shop-all-headless" (BEST_SELLING): full catalogue used when a brand filter
+//    is active, so the brand's complete lineup appears in best-selling order.
+//  - "featured-products-homepage-headless" (COLLECTION_DEFAULT): manually curated
+//    order set in Shopify admin, used for the default no-brand-selected view.
+// Out-of-stock kits are kept so brand lineups are complete, but sorted last.
+// `description` is stripped — cards never render it and it halves the payload.
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
+  let featuredRaw: Product[] = [];
 
   try {
-    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 100, "BEST_SELLING"));
+    [{ products: allProducts }, { products: featuredRaw }] = await Promise.all([
+      getCollectionProducts("shop-all-headless", 100, "BEST_SELLING"),
+      getCollectionProducts("featured-products-homepage-headless", 50, "COLLECTION_DEFAULT"),
+    ]);
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
 
+  const strip = (p: Product) => ({ ...p, description: "" });
+
+  // All products: best-selling order, in-stock first (for brand filter view).
   const products = allProducts
-    .map((product) => ({ ...product, description: "" }))
-    // Stable sort keeps best-selling order within each group; in-stock first.
+    .map(strip)
     .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
 
-  return <FeaturedProducts products={products} />;
+  // Featured products: preserve Shopify collection order, in-stock first.
+  const featuredProducts = featuredRaw
+    .map(strip)
+    .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
+
+  return <FeaturedProducts products={products} featuredProducts={featuredProducts} />;
 }
 
 export default function Home() {
