@@ -128,6 +128,16 @@ export default function Header() {
     closeDropdown();
   };
 
+  const trackEducationNav = (value: string) => {
+    capture("nav_education_link_clicked", { value });
+    closeDropdown();
+  };
+
+  const trackMobileNav = (value: string) => {
+    capture("nav_mobile_link_clicked", { value });
+    setMobileMenuOpen(false);
+  };
+
   const handleMenuEnter = (dropdown: string) => {
     if (closeTimeoutRef.current) {
       clearTimeout(closeTimeoutRef.current);
@@ -312,7 +322,7 @@ export default function Header() {
                       <Link
                         href={item.href}
                         className="py-2 text-white hover:text-cs-orange transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={() => trackMobileNav(item.name)}
                       >
                         {item.name}
                       </Link>
@@ -343,7 +353,7 @@ export default function Header() {
                             key={option.id}
                             href={option.href}
                             className="block py-1 text-white/80 hover:text-cs-orange transition-colors text-sm"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() => trackMobileNav(option.id)}
                           >
                             {option.title}
                           </Link>
@@ -351,7 +361,7 @@ export default function Header() {
                         <Link
                           href="/education"
                           className="block py-1 text-cs-orange hover:text-cs-orange/80 transition-colors text-sm font-medium"
-                          onClick={() => setMobileMenuOpen(false)}
+                          onClick={() => trackMobileNav("education-all")}
                         >
                           View All
                         </Link>
@@ -362,7 +372,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className="block py-2 text-white hover:text-cs-orange transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => trackMobileNav(item.name)}
                   >
                     {item.name}
                   </Link>
@@ -515,7 +525,7 @@ export default function Header() {
                   key={option.id}
                   href={option.href}
                   className="group flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors"
-                  onClick={closeDropdown}
+                  onClick={() => trackEducationNav(option.id)}
                 >
                   <div className="w-12 h-12 bg-cs-orange/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-cs-orange/20 transition-colors">
                     <div className="text-cs-orange">{option.icon}</div>
@@ -542,7 +552,7 @@ export default function Header() {
                 <Link
                   href="/education"
                   className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
-                  onClick={closeDropdown}
+                  onClick={() => trackEducationNav("all")}
                 >
                   View All Options
                 </Link>
