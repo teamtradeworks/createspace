@@ -174,12 +174,6 @@ body {
   }
 }
 
-/* Soften the bottom edge of the photo wall so it dissolves into the page
-   instead of ending on a hard row. */
-.wall-fade-bottom {
-  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 120px), transparent);
-  mask-image: linear-gradient(to bottom, #000 calc(100% - 120px), transparent);
-}
 
 /* Thin scrollbar for review containers */
 .scrollbar-thin {
