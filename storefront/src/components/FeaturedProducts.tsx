@@ -55,6 +55,9 @@ export default function FeaturedProducts({ products, featuredProducts }: Feature
   const scrollByPage = (direction: 1 | -1) => {
     const el = scrollRef.current;
     if (!el) return;
+    capture("home_page_featured_carousel_scrolled", {
+      direction: direction > 0 ? "next" : "prev",
+    });
     el.scrollBy({ left: direction * el.clientWidth * 0.8, behavior: "smooth" });
   };
 

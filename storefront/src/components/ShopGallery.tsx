@@ -228,6 +228,7 @@ export default function ShopGallery({
   const hasActiveFilters = activeCount > 0;
 
   const clearFilters = () => {
+    capture("shop_filters_cleared", { cleared_count: activeCount });
     setSelectedAges([]);
     setSelectedCategories([]);
     setSelectedBrands([]);
