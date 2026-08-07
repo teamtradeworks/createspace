@@ -9,11 +9,14 @@ export default function Hero() {
           {/* Copy */}
           <div className="max-w-xl py-8 lg:py-14 animate-fade-up">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[1.05] text-balance">
-              Build. <span className="text-cs-orange">Play.</span> Learn.
+              Build. <span className="text-cs-orange">Play.</span>{" "}
+              <span className="text-cs-blue">Learn.</span>
             </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed">
-              Robotics, coding and science kits that teach through play. Inspiring
-              tomorrow&apos;s engineers, doctors and scientists.
+            <p className="mt-6 text-lg md:text-xl text-white leading-relaxed">
+              Robotics, coding and science kits that teach through play.{" "}
+              <span className="text-white/60">
+                Inspiring tomorrow&apos;s engineers, inventors, doctors and scientists.
+              </span>
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <TrackedLink
