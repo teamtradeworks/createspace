@@ -3,7 +3,7 @@
 import { Fragment, useState, useEffect } from "react";
 import Link from "next/link";
 import { capture } from "@/lib/analytics";
-import { PROMOS, type Promo } from "@/config/promo";
+import { activePromos, type Promo } from "@/config/promo";
 
 // Flatten a heading (string or segments) to plain text for analytics/labels.
 function headingToText(heading: Promo["heading"]): string {
@@ -15,7 +15,11 @@ function headingToText(heading: Promo["heading"]): string {
 // of offers. Navigable with the side arrows and a gentle auto-advance (paused
 // on hover and for reduced-motion users). Content lives in config/promo.ts.
 export default function PromoBand() {
-  const count = PROMOS.length;
+  // Expired promos (endsAt in the past) drop out here automatically. Evaluated
+  // per render; the only skew risk is a render straddling midnight on the
+  // expiry day, which self-heals on the next render.
+  const promos = activePromos();
+  const count = promos.length;
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -33,7 +37,9 @@ export default function PromoBand() {
   }, [count, paused, index]);
 
   if (count === 0) return null;
-  const promo = PROMOS[index];
+  // Modulo guards against the list shrinking (a promo expiring) while the
+  // index sits past the new end.
+  const promo = promos[index % count];
   const headingText = headingToText(promo.heading);
   const headingSegments = typeof promo.heading === "string" ? [promo.heading] : promo.heading;
 
