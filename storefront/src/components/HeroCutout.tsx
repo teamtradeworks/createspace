@@ -42,7 +42,11 @@ export default function HeroCutout() {
           width={cut.width}
           height={cut.height}
           priority={i === 0}
-          sizes="(max-width: 1024px) 60vw, 40vw"
+          // The figure's rendered width is height-derived (h-72/h-80/h-[27rem]
+          // at aspect 843:1143 ≈ 212/236/319px CSS width), not a viewport
+          // fraction — declaring vw here over-downloaded the LCP image ~2x on
+          // large screens. The browser scales these for DPR on its own.
+          sizes="(max-width: 640px) 220px, (max-width: 1024px) 240px, 320px"
           className={`h-72 w-auto object-contain object-bottom drop-shadow-2xl transition-opacity duration-1000 ease-in-out sm:h-80 lg:h-[27rem] ${
             i === 0 ? "relative" : "absolute bottom-0 left-1/2 -translate-x-1/2"
           } ${i === index ? "opacity-100" : "opacity-0"}`}
