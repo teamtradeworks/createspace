@@ -31,6 +31,11 @@ export default function ProductCard({
   priority = false,
   index,
 }: ProductCardProps) {
+  // Entry fade for grid cards — but never on priority (above-the-fold) cards:
+  // their image is preloaded for LCP, and starting it at opacity 0 would hold
+  // the largest paint hostage to the animation.
+  const animateIn = index !== undefined && !priority;
+
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
@@ -65,9 +70,9 @@ export default function ProductCard({
           });
         }
       }}
-      style={index !== undefined ? ({ "--card-index": index } as React.CSSProperties) : undefined}
+      style={animateIn ? ({ "--card-index": index } as React.CSSProperties) : undefined}
       className={`group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg hover:shadow-navy/5 transition-shadow flex flex-col active:translate-y-px ${
-        index !== undefined ? "card-in" : ""
+        animateIn ? "card-in" : ""
       }`}
     >
       <div className="bg-gray-50 aspect-square relative overflow-hidden">
