@@ -196,7 +196,7 @@ export default function FeaturedProducts({ products, featuredProducts }: Feature
               key={product.id}
               className="w-[72vw] flex-none snap-start sm:w-[46%] md:w-[31%] lg:w-[23%]"
             >
-              <ProductCard product={product} />
+              <ProductCard product={product} source="home_featured" />
             </div>
           ))}
         </div>

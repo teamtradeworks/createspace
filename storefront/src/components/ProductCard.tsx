@@ -22,6 +22,9 @@ type ProductCardProps = {
   // When set, the card fades/staggers in on mount (used by the shop grid).
   // Omitted elsewhere so those grids render statically.
   index?: number;
+  // Which surface hosts the card (e.g. "home_featured", "shop_grid") — carried
+  // on product_clicked so per-surface click-through is queryable directly.
+  source?: string;
 };
 
 export default function ProductCard({
@@ -30,6 +33,7 @@ export default function ProductCard({
   searchPosition,
   priority = false,
   index,
+  source,
 }: ProductCardProps) {
   // Entry fade for grid cards — but never on priority (above-the-fold) cards:
   // their image is preloaded for LCP, and starting it at opacity 0 would hold
@@ -60,6 +64,7 @@ export default function ProductCard({
           product_title: product.title,
           price: parseFloat(price.amount),
           currency_code: price.currencyCode,
+          ...(source ? { source } : {}),
         });
         if (searchQuery) {
           capture("search_result_clicked", {

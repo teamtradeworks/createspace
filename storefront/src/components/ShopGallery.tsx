@@ -382,6 +382,7 @@ export default function ShopGallery({
                     product={product}
                     priority={index < 6}
                     index={index}
+                    source="shop_grid"
                   />
                 ))}
               </div>

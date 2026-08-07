@@ -130,7 +130,7 @@ export default async function ClassroomKitsPage() {
             </div>
             <div className="grid grid-cols-2 min-[880px]:grid-cols-3 lg:grid-cols-4 gap-3 min-[880px]:gap-6">
               {otherProducts.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} source="education_classroom_kits" />
               ))}
             </div>
           </div>

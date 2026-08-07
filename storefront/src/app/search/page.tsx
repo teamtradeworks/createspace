@@ -43,6 +43,7 @@ export default async function SearchPage({
                     product={product}
                     searchQuery={query}
                     searchPosition={index + 1}
+                    source="search_results"
                   />
                 ))}
               </div>

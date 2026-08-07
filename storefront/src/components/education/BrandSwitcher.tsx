@@ -336,7 +336,7 @@ export default function BrandSwitcher({ matataProducts, microbitProducts }: Bran
             <h3 className="text-2xl font-semibold text-navy mb-6">{brand.productsTitle}</h3>
             <div className="grid grid-cols-2 min-[880px]:grid-cols-3 lg:grid-cols-4 gap-3 min-[880px]:gap-6">
               {products.map((product) => (
-                <ProductCard key={product.id} product={product} />
+                <ProductCard key={product.id} product={product} source="education_brand_switcher" />
               ))}
             </div>
           </div>
