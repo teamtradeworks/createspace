@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { capture } from "@/lib/analytics";
 import { activePromos, type Promo } from "@/config/promo";
@@ -36,10 +36,42 @@ export default function PromoBand() {
     return () => clearInterval(timer);
   }, [count, paused, index]);
 
-  if (count === 0) return null;
+  // Impressions: home_promo_band_viewed fires when a promo is displayed while
+  // the strip is actually on screen, so per-promo CTR (clicks / impressions)
+  // is computable once several promos rotate. Deduped while continuously
+  // visible; scrolling away and back counts as a fresh impression.
   // Modulo guards against the list shrinking (a promo expiring) while the
   // index sits past the new end.
-  const promo = promos[index % count];
+  const shownIndex = count > 0 ? index % count : 0;
+  const shownHeading = count > 0 ? headingToText(promos[shownIndex].heading) : null;
+  const rootRef = useRef<HTMLElement>(null);
+  const [inView, setInView] = useState(false);
+  const lastImpressionRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    const node = rootRef.current;
+    if (!node || !("IntersectionObserver" in window)) return;
+    const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), {
+      threshold: 0.5,
+    });
+    io.observe(node);
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!inView) {
+      lastImpressionRef.current = null;
+      return;
+    }
+    if (shownHeading === null) return;
+    const key = `${shownIndex}:${shownHeading}`;
+    if (lastImpressionRef.current === key) return;
+    lastImpressionRef.current = key;
+    capture("home_promo_band_viewed", { heading: shownHeading, position: shownIndex });
+  }, [inView, shownIndex, shownHeading]);
+
+  if (count === 0) return null;
+  const promo = promos[shownIndex];
   const headingText = headingToText(promo.heading);
   const headingSegments = typeof promo.heading === "string" ? [promo.heading] : promo.heading;
 
@@ -48,6 +80,7 @@ export default function PromoBand() {
 
   return (
     <section
+      ref={rootRef}
       className="promo-band relative overflow-hidden text-navy"
       aria-roledescription="carousel"
       aria-label="Promotions"
@@ -76,7 +109,7 @@ export default function PromoBand() {
             key={index}
             href={promo.cta.href}
             onClick={() =>
-              capture("home_promo_band_clicked", { heading: headingText, position: index })
+              capture("home_promo_band_clicked", { heading: headingText, position: shownIndex })
             }
             aria-label={promo.cta.label}
             className="promo-in group flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3"
