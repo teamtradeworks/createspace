@@ -172,12 +172,17 @@ export default function CustomerPhotoWallGrid({
   }, []);
 
   // Ambient auto-reveal: reveal a random card now, then every 4s, each reset the
-  // previously revealed one (flippedSrc holds a single card).
+  // previously revealed one (flippedSrc holds a single card). Bounded to one
+  // full pass over the wall: every reveal mounts that card's back face, whose
+  // product image then downloads — unbounded, a long-lived tab would quietly
+  // fetch the whole catalogue's worth of kit images. Taps still flip forever.
+  const autoRevealsRef = useRef(0);
   useEffect(() => {
     if (!armed) return;
     const pool = photos.slice(0, limit);
     if (pool.length < 2) return;
     const revealRandom = () => {
+      autoRevealsRef.current += 1;
       const candidates = pool.filter((p) => p.src !== flippedRef.current);
       const pick = candidates[Math.floor(Math.random() * candidates.length)] ?? pool[0];
       setFlippedSrc(pick.src);
@@ -189,7 +194,13 @@ export default function CustomerPhotoWallGrid({
       });
     };
     revealRandom();
-    const timer = setInterval(revealRandom, 4000);
+    const timer = setInterval(() => {
+      if (autoRevealsRef.current >= pool.length) {
+        clearInterval(timer);
+        return;
+      }
+      revealRandom();
+    }, 4000);
     return () => clearInterval(timer);
   }, [armed, photos, limit]);
 
