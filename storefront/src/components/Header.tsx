@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { useCart } from "@/context/CartContext";
 import { PROMISES } from "@/config/promises";
+import BrandDecor from "@/components/BrandDecor";
 import { CATEGORIES } from "@/config/categories";
 import { BRANDS } from "@/config/brands";
 import { capture } from "@/lib/analytics";
@@ -150,7 +151,7 @@ export default function Header() {
           <ul className="hidden lg:flex items-center justify-center gap-x-10">
             {PROMISES.map((promise) => (
               <li key={promise} className="inline-flex items-center gap-2 whitespace-nowrap">
-                <CheckBadge />
+                <PromiseIcon promise={promise} />
                 {promise}
               </li>
             ))}
@@ -160,14 +161,23 @@ export default function Header() {
             className="lg:hidden flex items-center justify-center gap-2 whitespace-nowrap"
             aria-live="polite"
           >
-            <CheckBadge />
+            <PromiseIcon promise={PROMISES[promoIndex]} />
             {PROMISES[promoIndex]}
           </div>
         </div>
       </div>
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-between">
+          {/* Subtle brand marks behind the nav (desktop only, very low opacity) */}
+          <BrandDecor
+            src="/images/illustrations/atom-1.svg"
+            className="left-[38%] top-1/2 w-8 -translate-y-1/2 opacity-[0.07]"
+          />
+          <BrandDecor
+            src="/images/illustrations/nut.svg"
+            className="right-[16%] top-1/2 w-8 -translate-y-1/2 -rotate-12 opacity-[0.07]"
+          />
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -547,25 +557,26 @@ export default function Header() {
 }
 
 // Small white check badge shown before each top-bar promise.
-function CheckBadge() {
+function PromiseIcon({ promise }: { promise: string }) {
+  // Relevant white icon per promise, matched by keyword so it stays correct if
+  // the promises are reordered. Same 16px (w-4 h-4) footprint as before.
+  const d = /return/i.test(promise)
+    ? "M3 10h10a8 8 0 0 1 8 8v2M3 10l6 6m-6-6l6-6"
+    : /fast/i.test(promise)
+      ? "M13 10V3L4 14h7v7l9-11h-7z"
+      : "M13 16V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1m8-1a1 1 0 0 1-1 1H9m4-1V8a1 1 0 0 1 1-1h2.586a1 1 0 0 1 .707.293l3.414 3.414a1 1 0 0 1 .293.707V16a1 1 0 0 1-1 1h-1m-6-1a1 1 0 0 0 1 1h1M5 17a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m6 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0";
   return (
-    <span
-      className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-white flex-shrink-0"
+    <svg
+      className="w-4 h-4 flex-shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
       aria-hidden="true"
     >
-      <svg
-        width="9"
-        height="9"
-        viewBox="0 0 12 12"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="text-cs-orange"
-      >
-        <path d="M2.5 6.5 5 9l4.5-5.5" />
-      </svg>
-    </span>
+      <path d={d} />
+    </svg>
   );
 }
