@@ -156,11 +156,10 @@ export default function Header() {
               </li>
             ))}
           </ul>
-          {/* Mobile / tablet: one rotating promise */}
-          <div
-            className="lg:hidden flex items-center justify-center gap-2 whitespace-nowrap"
-            aria-live="polite"
-          >
+          {/* Mobile / tablet: one rotating promise. Deliberately NOT aria-live:
+              announcing ambient marketing copy every few seconds would spam
+              screen readers for the life of the page. */}
+          <div className="lg:hidden flex items-center justify-center gap-2 whitespace-nowrap">
             <PromiseIcon promise={PROMISES[promoIndex]} />
             {PROMISES[promoIndex]}
           </div>
