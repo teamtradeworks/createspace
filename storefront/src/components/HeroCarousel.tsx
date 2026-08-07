@@ -35,22 +35,6 @@ interface Slide {
 
 const slides: Slide[] = [
   {
-    id: "makerzoid-sale",
-    type: "sale",
-    tag: "Limited Time",
-    headline: "Makerzoid Kits",
-    salePercent: "20%",
-    description: "Build, code, and bring robots to life — now at 20% off. Sale ends 6 August.",
-    cta: { label: "Shop the Sale", href: "/shop?brand=Makerzoid" },
-    lifestyleImages: [
-      "/images/products/makerzoid-robot-master-premium/helicopter-being-built-with-manual.jpg",
-      "/images/products/makerzoid-smart-robot-premium/lifestyle/child-building-while-coding-on-tablet.png",
-      "/images/products/makerzoid-robot-master-premium/lifestyle/kids-playing-with-pieces-with-tablet-instructions.png",
-    ],
-    bgColor: "bg-navy",
-    textColor: "light",
-  },
-  {
     id: "brands-launched",
     type: "brands-launched",
     tag: "New Arrivals",
