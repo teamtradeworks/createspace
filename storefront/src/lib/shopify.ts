@@ -680,6 +680,21 @@ export function getStockStatus(product: StockStatusProduct): StockStatus {
   return "in-stock";
 }
 
+// Trim a product to what the card grids render before handing it to a client
+// component — full products otherwise serialize into the page payload.
+// Drops `description` (the single heaviest field), keeps only the two images
+// the card shows, and (unless kept for filtering) drops `tags`. Variants are
+// left intact: getStockStatus reads ALL of them, so slicing could flip a
+// lead-time badge to in-stock.
+export function slimProductForCard(product: Product, opts?: { keepTags?: boolean }): Product {
+  return {
+    ...product,
+    description: "",
+    tags: opts?.keepTags ? product.tags : [],
+    images: { edges: product.images.edges.slice(0, 2) },
+  };
+}
+
 // Returns true when no variant requires shipping (i.e. digital/non-inventory product)
 export function isDigitalProduct(product: ProductDetail): boolean {
   const { edges } = product.variants;

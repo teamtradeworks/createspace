@@ -1,4 +1,4 @@
-import { getCollectionProducts } from "@/lib/shopify";
+import { getCollectionProducts, slimProductForCard } from "@/lib/shopify";
 import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
@@ -21,7 +21,15 @@ type Props = {
 export default async function ShopPage({ searchParams }: Props) {
   const { age, category, brand, sort } = await searchParams;
   // Fetch in best-selling order so the default "Most loved" sort is truthful.
-  const { products } = await getCollectionProducts("shop-all-headless", 100, "BEST_SELLING");
+  const { products: fullProducts } = await getCollectionProducts(
+    "shop-all-headless",
+    100,
+    "BEST_SELLING",
+  );
+  // Slim to card fields before crossing to the client grid — descriptions
+  // alone are a large chunk of the serialized payload. Tags stay: the
+  // category filter matches on them.
+  const products = fullProducts.map((product) => slimProductForCard(product, { keepTags: true }));
 
   return (
     <main className="min-h-screen bg-gray-50">

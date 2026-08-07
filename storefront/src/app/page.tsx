@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { getCollectionProducts, Product } from "@/lib/shopify";
+import { getCollectionProducts, slimProductForCard, Product } from "@/lib/shopify";
 import Hero from "@/components/Hero";
 import AgeGroups from "@/components/AgeGroups";
 import PromoBand from "@/components/PromoBand";
@@ -33,7 +33,8 @@ export const metadata: Metadata = {
 //  - "featured-products-homepage-headless" (COLLECTION_DEFAULT): manually curated
 //    order set in Shopify admin, used for the default no-brand-selected view.
 // Out-of-stock kits are kept so brand lineups are complete, but sorted last.
-// `description` is stripped — cards never render it and it halves the payload.
+// Products are slimmed to card fields before crossing to the client — the full
+// objects would serialize descriptions and unused images into the page payload.
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
   let featuredRaw: Product[] = [];
@@ -47,16 +48,14 @@ async function FeaturedProductsLoader() {
     console.error("Failed to fetch products:", error);
   }
 
-  const strip = (p: Product) => ({ ...p, description: "" });
-
   // All products: best-selling order, in-stock first (for brand filter view).
   const products = allProducts
-    .map(strip)
+    .map((product) => slimProductForCard(product))
     .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
 
   // Featured products: preserve Shopify collection order, in-stock first.
   const featuredProducts = featuredRaw
-    .map(strip)
+    .map((product) => slimProductForCard(product))
     .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
 
   return <FeaturedProducts products={products} featuredProducts={featuredProducts} />;
