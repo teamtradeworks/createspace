@@ -43,6 +43,10 @@ export default function ProductCardImage({
           src={secondarySrc}
           alt={secondaryAlt || primaryAlt}
           fill
+          // Same sizes as the primary: without it, fill defaults to 100vw and
+          // every card in view lazy-loads a viewport-sized hover image (being
+          // opacity-0 does not stop native lazy loading).
+          sizes={sizes}
           className={`object-cover transition-opacity duration-300 ${showSecondary ? "opacity-100" : "opacity-0"}`}
         />
       )}
