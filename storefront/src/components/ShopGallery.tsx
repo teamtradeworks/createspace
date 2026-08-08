@@ -2,11 +2,18 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Product, getStockStatus } from "@/lib/shopify";
+import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import { capture } from "@/lib/analytics";
-import { CATEGORIES, categoryMatchTags } from "@/config/categories";
+import { CATEGORIES } from "@/config/categories";
 import { BRANDS } from "@/config/brands";
+import {
+  AGE_BANDS,
+  matchAge,
+  matchCategory,
+  matchBrand,
+  filterAndSortProducts,
+} from "@/lib/shop-filters";
 
 interface ShopGalleryProps {
   products: Product[];
@@ -16,14 +23,16 @@ interface ShopGalleryProps {
   initialSort?: string;
 }
 
-// Age bands carry the site-wide age colours (matching the homepage cards and
-// product badges). `darkText` flags the lighter fills that need navy text.
-const ageGroups = [
-  { id: "3-5", label: "Ages 3-5", range: [3, 5] as [number, number], color: "#F70B28", darkText: false },
-  { id: "6-8", label: "Ages 6-8", range: [6, 8] as [number, number], color: "#93DB21", darkText: true },
-  { id: "9-12", label: "Ages 9-12", range: [9, 12] as [number, number], color: "#3CC7F7", darkText: true },
-  { id: "13+", label: "Ages 13+", range: [13, 99] as [number, number], color: "#AC4DFF", darkText: false },
-];
+// Per-band UI presentation (matching the homepage cards and product badges).
+// The ranges themselves live in AGE_BANDS (@/lib/shop-filters), which the
+// filter matchers use; keeping them there keeps filtering unit-testable.
+// `darkText` flags the lighter fills that need navy text.
+const AGE_UI: Record<string, { label: string; color: string; darkText: boolean }> = {
+  "3-5": { label: "Ages 3-5", color: "#F70B28", darkText: false },
+  "6-8": { label: "Ages 6-8", color: "#93DB21", darkText: true },
+  "9-12": { label: "Ages 9-12", color: "#3CC7F7", darkText: true },
+  "13+": { label: "Ages 13+", color: "#AC4DFF", darkText: false },
+};
 
 const sortOptions = [
   { value: "featured", label: "Most loved" },
@@ -32,30 +41,6 @@ const sortOptions = [
   { value: "name-az", label: "Name: A to Z" },
   { value: "name-za", label: "Name: Z to A" },
 ];
-
-const productPrice = (p: Product) => parseFloat(p.priceRange.minVariantPrice.amount);
-
-/* Per-axis matchers. An empty selection means "no constraint" (match all). */
-function matchAge(p: Product, ages: string[]): boolean {
-  if (ages.length === 0) return true;
-  const minAge = p.minAge?.value ? parseInt(p.minAge.value, 10) : null;
-  if (minAge === null) return false;
-  const productMax = p.maxAge?.value ? parseInt(p.maxAge.value, 10) : Infinity;
-  return ages.some((id) => {
-    const g = ageGroups.find((a) => a.id === id);
-    return g ? minAge <= g.range[1] && productMax >= g.range[0] : false;
-  });
-}
-
-function matchCategory(p: Product, cats: string[]): boolean {
-  if (cats.length === 0) return true;
-  return cats.some((c) => categoryMatchTags(c).some((t) => p.tags?.includes(`category:${t}`)));
-}
-
-function matchBrand(p: Product, brands: string[]): boolean {
-  if (brands.length === 0) return true;
-  return brands.some((b) => b.toLowerCase() === p.vendor.toLowerCase());
-}
 
 type Axis = "age" | "category" | "brand";
 
@@ -99,39 +84,15 @@ export default function ShopGallery({
     return [...known, ...extra];
   }, [products]);
 
-  const filteredProducts = useMemo(() => {
-    const result = products.filter(
-      (p) =>
-        matchAge(p, selectedAges) &&
-        matchCategory(p, selectedCategories) &&
-        matchBrand(p, selectedBrands),
-    );
-
-    switch (sortBy) {
-      case "price-low":
-        result.sort((a, b) => productPrice(a) - productPrice(b));
-        break;
-      case "price-high":
-        result.sort((a, b) => productPrice(b) - productPrice(a));
-        break;
-      case "name-az":
-        result.sort((a, b) => a.title.localeCompare(b.title));
-        break;
-      case "name-za":
-        result.sort((a, b) => b.title.localeCompare(a.title));
-        break;
-      default:
-        break; // "featured" keeps the fetched (best-selling) order
-    }
-
-    // Out-of-stock always sinks to the end, whatever the sort.
-    result.sort((a, b) => {
-      const aOut = getStockStatus(a) === "out-of-stock" ? 1 : 0;
-      const bOut = getStockStatus(b) === "out-of-stock" ? 1 : 0;
-      return aOut - bOut;
-    });
-    return result;
-  }, [products, selectedAges, selectedCategories, selectedBrands, sortBy]);
+  const filteredProducts = useMemo(
+    () =>
+      filterAndSortProducts(
+        products,
+        { ages: selectedAges, categories: selectedCategories, brands: selectedBrands },
+        sortBy,
+      ),
+    [products, selectedAges, selectedCategories, selectedBrands, sortBy],
+  );
 
   // How many products a value would yield given the OTHER active axes. Used to
   // disable options that would lead to an empty grid (the number isn't shown).
@@ -236,7 +197,7 @@ export default function ShopGallery({
 
   // Flat list of active selections for the removable-chip row.
   const labelFor = (axis: Axis, value: string): string => {
-    if (axis === "age") return ageGroups.find((g) => g.id === value)?.label ?? value;
+    if (axis === "age") return AGE_UI[value]?.label ?? value;
     if (axis === "category") return CATEGORIES.find((c) => c.id === value)?.label ?? value;
     return brandFacets.find((b) => b.value === value)?.label ?? value;
   };
@@ -251,11 +212,11 @@ export default function ShopGallery({
       <FilterGroup
         title="Age"
         axis="age"
-        options={ageGroups.map((g) => ({
-          value: g.id,
-          label: g.label,
-          color: g.color,
-          darkText: g.darkText,
+        options={AGE_BANDS.map((b) => ({
+          value: b.id,
+          label: AGE_UI[b.id].label,
+          color: AGE_UI[b.id].color,
+          darkText: AGE_UI[b.id].darkText,
         }))}
         selected={selectedAges}
         facetCount={facetCount}
