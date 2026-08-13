@@ -6,6 +6,7 @@ import {
   HeroSection,
   QuickInfoBadges,
   FeatureGrid,
+  VideoEmbed,
   ImageTextBlock,
   ProductReviews,
   ProductFAQ,
@@ -76,6 +77,13 @@ export default async function NatGeoLightUpAirRocketsPage() {
               "The included Learning Guide covers the physics that makes the rockets fly: air pressure, trajectory, and the forces acting on every launch. Children who want to go deeper have somewhere to go; those who just want to stomp and launch can do that too.",
           },
         ]}
+      />
+
+      {/* white */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=e08qUnZjIcA"
+        title="See the Light-Up Air Rockets in Action"
+        background="white"
       />
 
       {/* gray */}
