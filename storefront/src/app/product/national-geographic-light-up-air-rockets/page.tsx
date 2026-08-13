@@ -14,9 +14,9 @@ import {
   ProductTrackingProvider,
 } from "@/components/product-sections";
 
-const PRODUCT_HANDLE = "national-geographic-light-up-sky-rockets";
+const PRODUCT_HANDLE = "national-geographic-light-up-air-rockets";
 
-export default async function NatGeoLightUpSkyRocketsPage() {
+export default async function NatGeoLightUpAirRocketsPage() {
   const product = await getProductByHandle(PRODUCT_HANDLE);
 
   if (!product) {
@@ -80,7 +80,7 @@ export default async function NatGeoLightUpSkyRocketsPage() {
 
       {/* gray */}
       <ImageTextBlock
-        image="/images/products/national-geographic-light-up-sky-rockets/dad-and-kids-playing-excited.jpg"
+        image="/images/products/national-geographic-light-up-air-rockets/dad-and-kids-playing-excited.jpg"
         imageAlt="A dad and children playing excitedly with the National Geographic Light-Up Air Rockets"
         title="The Toy That Gets Everyone Outside"
         body="Someone stomps. A rocket disappears into the sky. Within seconds, everyone in the garden wants a turn. These rockets have a way of pulling people in (siblings, friends, neighbours) because watching something fly that high, powered by nothing but a stomp, is genuinely hard to walk past."
@@ -137,7 +137,7 @@ export default async function NatGeoLightUpSkyRocketsPage() {
       {/* gray */}
       <WhatsIncluded
         title="What's in the Box"
-        image="/images/products/national-geographic-light-up-sky-rockets/whats-in-the-box.jpg"
+        image="/images/products/national-geographic-light-up-air-rockets/whats-in-the-box.jpg"
         imageAlt="National Geographic Light-Up Air Rockets kit contents laid out"
         background="gray"
         items={[
@@ -175,7 +175,7 @@ export async function generateMetadata() {
     description:
       "Stomp to launch 3 LED-lit rockets up to 100 feet high. Air-powered, foam-tipped, and ready in under 2 minutes. Includes Learning Guide. Ages 8+.",
     alternates: {
-      canonical: "/product/national-geographic-light-up-sky-rockets",
+      canonical: "/product/national-geographic-light-up-air-rockets",
     },
     openGraph: {
       images: product.images.edges[0]?.node.url
