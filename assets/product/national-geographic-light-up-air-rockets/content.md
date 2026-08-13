@@ -1,6 +1,6 @@
 # Product Research: National Geographic Light-Up Air Rockets
 
-**Product Handle:** national-geographic-light-up-sky-rockets
+**Product Handle:** national-geographic-light-up-air-rockets
 **SKU:** RTNGAIRROCKET
 **Research Date:** 2026-06-05
 
