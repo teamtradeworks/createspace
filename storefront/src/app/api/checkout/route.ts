@@ -18,8 +18,9 @@ const CART_CREATE_MUTATION = `
 `;
 
 export async function POST(request: NextRequest) {
-  const { lines } = (await request.json()) as {
+  const { lines, claimCourse } = (await request.json()) as {
     lines: { variantId: string; quantity: number; handle?: string }[];
+    claimCourse?: boolean;
   };
 
   if (!lines?.length) {
@@ -53,6 +54,10 @@ export async function POST(request: NextRequest) {
   }
   if (Object.keys(handleMap).length > 0) {
     attributes.push({ key: "_posthog_handles", value: JSON.stringify(handleMap) });
+  }
+
+  if (claimCourse) {
+    attributes.push({ key: "_inspire_africa_course", value: "yes" });
   }
 
   const data = await shopifyFetch<{

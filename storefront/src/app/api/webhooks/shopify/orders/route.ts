@@ -79,6 +79,9 @@ export async function POST(request: NextRequest) {
     (attr) => attr.name === "_posthog_distinct_id",
   )?.value;
 
+  const claimedCourse =
+    order.note_attributes?.find((attr) => attr.name === "_inspire_africa_course")?.value === "yes";
+
   // Use the anonymous ID as distinctId so the purchase event lands on the
   // same person as the browsing session. Fall back to email when no
   // anonymous ID was attached (e.g. orders placed before this change).
@@ -127,6 +130,7 @@ export async function POST(request: NextRequest) {
         shipping_city: order.shipping_address?.city,
         shipping_province: order.shipping_address?.province,
         is_repeat_customer: order.customer ? order.customer.orders_count > 1 : false,
+        claimed_inspire_africa_course: claimedCourse,
         $value: parseFloat(order.total_price),
       },
     });

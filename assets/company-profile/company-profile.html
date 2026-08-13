@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<title>CREATESPACE — Company Profile</title>
+<style>
+  @font-face { font-family: "Outfit"; src: url("assets/fonts/Outfit-Regular.ttf") format("truetype"); font-weight: 400; }
+  @font-face { font-family: "Outfit"; src: url("assets/fonts/Outfit-Medium.ttf") format("truetype"); font-weight: 500; }
+  @font-face { font-family: "Outfit"; src: url("assets/fonts/Outfit-SemiBold.ttf") format("truetype"); font-weight: 600; }
+  @font-face { font-family: "Outfit"; src: url("assets/fonts/Outfit-Bold.ttf") format("truetype"); font-weight: 700; }
+
+  :root {
+    --navy:   #0C1446;
+    --red:    #F70B28;
+    --blue:   #3CC7F7;
+    --purple: #AC4DFF;
+    --orange: #FF8B00;
+    --green:  #93DB21;
+    --yellow: #FFD500;
+    --grey:   #B3B3B3;
+    --muted:  #4A5270;
+    --line:   #E4E7F0;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @page { size: A4; margin: 0; }
+  html, body { background: #E8EAF0; }
+  body {
+    font-family: "Outfit", system-ui, sans-serif;
+    color: var(--navy);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    break-after: page;
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ─────────── HEADER ─────────── */
+  .header {
+    background: var(--navy);
+    color: #fff;
+    padding: 10mm 13mm 9mm;
+    position: relative;
+    overflow: hidden;
+    flex: 0 0 auto;
+  }
+  .header::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.18) .75px, transparent .75px);
+    background-size: 4.2mm 4.2mm;
+    opacity: .55;
+  }
+  .header > *:not(.robot) { position: relative; z-index: 3; }
+
+  .header-top {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 7mm;
+  }
+  .logo { height: 7.8mm; display: block; }
+  .kicker {
+    font-size: 6.8pt; font-weight: 600; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--blue); text-align: right; line-height: 1.5;
+  }
+  .kicker span { display: block; color: rgba(255,255,255,.5); font-weight: 400; letter-spacing: .1em; }
+
+  .headline {
+    font-size: 22pt; font-weight: 600; line-height: 1.1;
+    letter-spacing: -.015em; max-width: 128mm;
+  }
+  .headline em { font-style: normal; color: var(--orange); }
+  .standfirst {
+    margin-top: 3.6mm; font-size: 9.2pt; line-height: 1.48;
+    color: rgba(255,255,255,.78); max-width: 122mm;
+  }
+  .robot { position: absolute; right: 12mm; bottom: 6mm; height: 39mm; z-index: 2; }
+
+  /* ─────────── STAT BAND ─────────── */
+  .stats {
+    display: grid; grid-template-columns: 1.05fr .78fr 1fr .72fr 1.05fr;
+    border-bottom: .35mm solid var(--line);
+    flex: 0 0 auto;
+  }
+  .stat { padding: 4.6mm 2.6mm 5mm 4mm; position: relative; }
+  .stat:first-child { padding-left: 13mm; }
+  .stat:last-child { padding-right: 13mm; }
+  .stat + .stat::before {
+    content: ""; position: absolute; left: 0; top: 4.6mm; bottom: 4.6mm;
+    width: .3mm; background: var(--line);
+  }
+  .stat b { display: block; font-size: 15pt; font-weight: 700; line-height: 1; letter-spacing: -.025em; white-space: nowrap; }
+  .stat span { display: block; margin-top: 1.4mm; font-size: 6.9pt; font-weight: 500; line-height: 1.25; color: var(--muted); }
+  .stat:nth-child(1) b { color: var(--red); }
+  .stat:nth-child(2) b { color: var(--orange); }
+  .stat:nth-child(3) b { color: var(--purple); }
+  .stat:nth-child(4) b { color: var(--green); }
+  .stat:nth-child(5) b { color: #1D8FBF; }
+
+  /* ─────────── BODY ─────────── */
+  .body {
+    padding: 6mm 13mm 0;
+    flex: 1 1 auto;
+    display: flex; flex-direction: column; gap: 6.4mm;
+  }
+
+  .eyebrow {
+    font-size: 6.6pt; font-weight: 600; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 1.8mm;
+  }
+  h2 { font-size: 11pt; font-weight: 600; letter-spacing: -.01em; line-height: 1.2; }
+  p  { font-size: 8.2pt; line-height: 1.45; color: var(--muted); }
+
+  /* Vision + mission */
+  .vm { display: grid; grid-template-columns: 1fr 1.3fr; gap: 8mm; }
+  .vm > div { position: relative; padding-left: 4.6mm; }
+  .vm > div::before {
+    content: ""; position: absolute; left: 0; top: .6mm; bottom: .6mm;
+    width: .9mm; border-radius: .5mm;
+  }
+  .vm > div:nth-child(1)::before { background: var(--orange); }
+  .vm > div:nth-child(2)::before { background: var(--blue); }
+  .vision-line { font-size: 10pt; font-weight: 500; line-height: 1.35; color: var(--navy); }
+
+  /* What we do */
+  .offer { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+  .card {
+    border: .3mm solid var(--line); border-radius: 2.6mm;
+    padding: 5.4mm 5.4mm 6mm; position: relative; overflow: hidden;
+  }
+  .card-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2.6mm; }
+  .card-tag {
+    font-size: 6.4pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+    padding: .9mm 2.2mm; border-radius: 1mm;
+  }
+  .card:nth-child(1) .card-tag { background: rgba(60,199,247,.18); color: #0B6E93; }
+  .card:nth-child(2) .card-tag { background: rgba(172,77,255,.14); color: #7B22CC; }
+  .card-ill { height: 9mm; }
+  .card-point { font-size: 9pt; line-height: 1.5; }
+
+  /* Team */
+  .team { display: grid; grid-template-columns: 1.06fr 1fr; gap: 6mm; }
+  .photo {
+    position: relative; border-radius: 2.6mm; overflow: hidden;
+    height: 54mm; background: var(--navy);
+  }
+  .photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: 50% 88%;
+    filter: saturate(1.06) contrast(1.03);
+  }
+  .caption {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 9mm 4mm 2.8mm;
+    background: linear-gradient(to top, rgba(12,20,70,.92) 22%, rgba(12,20,70,0));
+    color: #fff; font-size: 7pt; font-weight: 500;
+  }
+
+  .roster { display: flex; flex-direction: column; justify-content: center; }
+  .roster-list { margin-top: .6mm; }
+  .person {
+    display: flex; align-items: baseline; gap: 2.4mm;
+    padding: 2.4mm 0; border-bottom: .25mm solid var(--line);
+  }
+  .person:last-child { border-bottom: 0; }
+  .person b { font-size: 8.6pt; font-weight: 600; min-width: 28mm; }
+  .person span { font-size: 7.6pt; color: var(--muted); }
+  .dot { width: 1.6mm; height: 1.6mm; border-radius: 50%; flex: 0 0 auto; transform: translateY(-.4mm); }
+
+  /* Brands */
+  .brands { border-top: .25mm solid var(--line); padding: 6.5mm 0 1mm; }
+  .brands-head { display: flex; align-items: baseline; justify-content: space-between; gap: 6mm; }
+  .brands-head .eyebrow { margin-bottom: 0; white-space: nowrap; }
+  .brands-claim { font-size: 7.8pt; font-weight: 500; color: var(--navy); text-align: right; }
+  .logo-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2.2mm; margin-top: 2.8mm; }
+  .brand-logo {
+    height: 13mm; background: #fff; border: .25mm solid var(--line); border-radius: 1.6mm;
+    display: flex; align-items: center; justify-content: center; padding: 1.4mm 2.4mm;
+  }
+  .brand-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+  /* ─────────── FOOTER ─────────── */
+  .footer {
+    background: var(--navy); color: #fff; padding: 6mm 13mm 5.5mm;
+    flex: 0 0 auto; position: relative; overflow: hidden;
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 1.42fr 1fr 1.16fr; gap: 5.5mm;
+    position: relative; z-index: 2;
+  }
+  .f-label {
+    font-size: 6pt; font-weight: 600; letter-spacing: .15em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 1.8mm;
+  }
+  .f-body { font-size: 7.4pt; line-height: 1.55; color: rgba(255,255,255,.8); }
+  .f-body strong { color: #fff; font-weight: 600; }
+  .f-body a { color: #fff; font-weight: 600; text-decoration: none; }
+  .cog {
+    position: absolute; right: 4mm; top: -4mm; height: 30mm;
+    opacity: .07; z-index: 1; filter: brightness(0) invert(1);
+  }
+
+  /* ─────────── PAGE 2 ─────────── */
+  .page:last-of-type { break-after: auto; }
+
+  .header-slim { padding: 9mm 13mm 8mm; }
+  .header-slim .header-top { margin-bottom: 0; }
+  .page2-body { padding: 9mm 13mm 0; flex: 1 1 auto; display: flex; flex-direction: column; gap: 9mm; }
+
+  .section-intro { font-size: 8.4pt; line-height: 1.45; color: var(--muted); max-width: 150mm; margin-top: -.6mm; }
+
+  /* Leadership */
+  .leaders { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 4mm; }
+  .leader {
+    border: .3mm solid var(--line); border-radius: 2.6mm;
+    padding: 5.4mm 5.4mm 6mm; display: flex; gap: 5mm;
+  }
+  .portrait {
+    width: 24mm; height: 24mm; flex: 0 0 auto; border-radius: 50%;
+    overflow: hidden; position: relative; background: #E9ECF3;
+  }
+  .portrait img {
+    position: absolute; width: 168mm; height: auto;
+    filter: saturate(1.06) contrast(1.03);
+  }
+  .portrait-dave  { box-shadow: 0 0 0 .7mm var(--red); }
+  .portrait-dylan { box-shadow: 0 0 0 .7mm var(--blue); }
+  .portrait-dave  img { left: -106.6mm; top: -28.8mm; }
+  .portrait-dylan img { left: -43.8mm; top: -38.4mm; }
+  .leader-name { font-size: 12pt; font-weight: 600; letter-spacing: -.01em; line-height: 1.15; }
+  .leader-role {
+    font-size: 6.8pt; font-weight: 600; letter-spacing: .13em; text-transform: uppercase;
+    color: var(--orange); margin-top: 1.4mm;
+  }
+  .leader-bio { font-size: 8pt; line-height: 1.46; color: var(--muted); margin-top: 2.8mm; }
+  .leader-link { display: flex; align-items: center; gap: 1.6mm; margin-top: 3.4mm; font-size: 7.4pt; font-weight: 500; }
+  .leader-link svg { width: 3.3mm; height: 3.3mm; flex: 0 0 auto; color: #0A66C2; }
+  .leader-link a { color: #0A66C2; text-decoration: none; }
+  .leader-bio a { color: var(--navy); font-weight: inherit; text-decoration: none; white-space: nowrap; }
+
+  /* References */
+  .refs-featured { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 4mm; }
+  .refs-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 5mm; }
+  .quote {
+    border-radius: 2.6mm; padding: 5mm 5.2mm 5.4mm;
+    display: flex; flex-direction: column; position: relative;
+  }
+  .quote-featured { background: var(--navy); color: #fff; }
+  .quote-plain { border: .3mm solid var(--line); }
+  .quote-mark { font-size: 20pt; font-weight: 700; line-height: .7; margin-bottom: 2.4mm; }
+  .quote-featured .quote-mark { color: var(--orange); }
+  .quote-plain .quote-mark { color: var(--grey); }
+  .quote p { font-size: 8pt; line-height: 1.48; flex: 1 1 auto; }
+  .quote-featured p { color: rgba(255,255,255,.86); }
+  .quote-cite { margin-top: 3.6mm; padding-top: 2.6mm; border-top: .25mm solid var(--line); }
+  .quote-featured .quote-cite { border-top-color: rgba(255,255,255,.2); }
+  .quote-cite b { display: block; font-size: 8.4pt; font-weight: 600; }
+  .quote-cite span { display: block; font-size: 7.2pt; color: var(--muted); margin-top: .4mm; }
+  .quote-featured .quote-cite b { color: #fff; }
+  .quote-featured .quote-cite span { color: var(--blue); }
+
+  /* Page 2 footer */
+  .footer-slim { background: var(--navy); color: #fff; padding: 6mm 13mm; flex: 0 0 auto;
+                 display: flex; align-items: center; justify-content: space-between; gap: 8mm; }
+  .footer-slim .f-body { font-size: 7.4pt; }
+  .footer-slim img { height: 6.6mm; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <img class="robot" src="assets/img/ROBOT-1.svg" alt="" />
+    <div class="header-top">
+      <img class="logo" src="assets/img/logo-white.png" alt="CREATESPACE" />
+      <div class="kicker">Company Profile<span>Page 1 of 2</span></div>
+    </div>
+    <h1 class="headline">South Africa's specialist STEM store,<br />at home and <em>in the classroom</em></h1>
+    <p class="standfirst">
+      We sell hands-on science, coding and robotics kits for kids aged 3 to 16, and we help
+      schools put them to work.
+    </p>
+  </header>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat"><b>2021</b><span>Founded in Cape&nbsp;Town</span></div>
+    <div class="stat"><b>120+</b><span>Schools supplied</span></div>
+    <div class="stat"><b>R&nbsp;8m+</b><span>Annual recurring revenue</span></div>
+    <div class="stat"><b>65+</b><span>STEM products</span></div>
+    <div class="stat"><b>10</b><span>Brands we distribute</span></div>
+  </section>
+
+  <!-- BODY -->
+  <main class="body">
+
+    <!-- Vision & mission -->
+    <section class="vm">
+      <div>
+        <div class="eyebrow">Our vision</div>
+        <p class="vision-line">To ignite a passion for science, technology, engineering and mathematics.</p>
+      </div>
+      <div>
+        <div class="eyebrow">Our mission</div>
+        <p>
+          To put well-made STEM products and programmes in the hands of young learners. Children who meet
+          science and engineering early, through play, stay curious about how things work. STEM is for
+          everyone, whatever their background or ability.
+        </p>
+      </div>
+    </section>
+
+    <!-- What we do -->
+    <section class="offer">
+      <div class="card">
+        <div class="card-head">
+          <span class="card-tag">For families</span>
+          <img class="card-ill" src="assets/img/ATOM-1.svg" alt="" />
+        </div>
+        <p class="card-point">
+          Every product lists its age range, skill level and what a child will learn, so a kit can be
+          matched to the child who will build it.
+        </p>
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <span class="card-tag">For schools</span>
+          <img class="card-ill" src="assets/img/CHIP-1.svg" alt="" />
+        </div>
+        <p class="card-point">
+          Trained facilitators, CAPS-aligned lesson plans and classroom kits built for group work, with
+          bulk pricing for schools from 10 units.
+        </p>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="team">
+      <div class="photo">
+        <img src="assets/img/team-source.jpg" alt="The CREATESPACE team in the Cape Town warehouse" />
+        <div class="caption">Every order is picked and packed by hand in our Cape Town warehouse.</div>
+      </div>
+      <div class="roster">
+        <div class="eyebrow">The team</div>
+        <div class="roster-list">
+          <div class="person"><span class="dot" style="background:var(--red)"></span><b>Dave New</b><span>Founder</span></div>
+          <div class="person"><span class="dot" style="background:var(--blue)"></span><b>Dylan Brent</b><span>Marketing director</span></div>
+          <div class="person"><span class="dot" style="background:var(--orange)"></span><b>Larize de Wet</b><span>Operations &amp; procurement</span></div>
+          <div class="person"><span class="dot" style="background:var(--green)"></span><b>Hayley New</b><span>Brand &amp; marketing</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="brands">
+      <div class="brands-head">
+        <div class="eyebrow">Brands we distribute</div>
+        <p class="brands-claim">We are an official, registered distributor for every brand below.</p>
+      </div>
+      <div class="logo-grid">
+        <div class="brand-logo"><img src="assets/img/brands/matatastudio.png" alt="MatataStudio" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/makerzoid.png" alt="Makerzoid" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/bbc-microbit.png" alt="BBC micro:bit" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/elecfreaks.png" alt="ELECFREAKS" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/snap-circuits.png" alt="Snap Circuits" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/arduino.png" alt="Arduino" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/national-geographic.png" alt="National Geographic" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/blockaroo.png" alt="Blockaroo" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/nasa.png" alt="NASA" /></div>
+        <div class="brand-logo"><img src="assets/img/brands/robotico.png" alt="Robotico" /></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <img class="cog" src="assets/img/NUT-1.svg" alt="" />
+    <div class="footer-grid">
+      <div>
+        <div class="f-label">Company details</div>
+        <div class="f-body">
+          <strong>Tradeworks Online (Pty) Ltd</strong>, trading as CREATESPACE<br />
+          Registration no. 2021/432299/07 &nbsp;·&nbsp; VAT no. 4450302973<br />
+          Registered in South Africa
+        </div>
+      </div>
+      <div>
+        <div class="f-label">Get in touch</div>
+        <div class="f-body">
+          <strong>info@thecreatespace.co.za</strong><br />
+          <a href="https://www.thecreatespace.co.za">www.thecreatespace.co.za</a>
+        </div>
+      </div>
+      <div>
+        <div class="f-label">Address</div>
+        <div class="f-body">
+          Unit 12, Platinum Park<br />
+          65 Oak Street<br />
+          Somerset West, 7130
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<div class="page">
+
+  <header class="header header-slim">
+    <div class="header-top">
+      <img class="logo" src="assets/img/logo-white.png" alt="CREATESPACE" />
+      <div class="kicker">Leadership &amp; references<span>Page 2 of 2</span></div>
+    </div>
+  </header>
+
+  <main class="page2-body">
+
+    <section>
+      <div class="eyebrow">Leadership</div>
+      <div class="leaders">
+        <div class="leader">
+          <div class="portrait portrait-dave"><img src="assets/img/team-source.jpg" alt="Dave New" /></div>
+          <div>
+            <div class="leader-name">Dave New</div>
+            <div class="leader-role">Founder</div>
+            <p class="leader-bio">
+              Entrepreneur and highly seasoned software engineer. Dave founded CREATESPACE in 2021. Previously,
+              he co-founded the global public transport platform WhereIsMyTransport and is the founding engineer
+              at <a href="https://keel.so">Keel</a>.
+            </p>
+            <div class="leader-link"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              <a href="https://www.linkedin.com/in/davenewza/">linkedin.com/in/davenewza</a>
+            </div>
+          </div>
+        </div>
+        <div class="leader">
+          <div class="portrait portrait-dylan"><img src="assets/img/team-source.jpg" alt="Dylan Brent" /></div>
+          <div>
+            <div class="leader-name">Dylan Brent</div>
+            <div class="leader-role">Marketing director</div>
+            <p class="leader-bio">
+              Digital marketer, 19 years in. Dylan specialises in paid media, tracking and analytics, and
+              founded the Cape Town agency Lost Collective. Previously ran paid media for &amp;Beyond and
+              OneDayOnly.
+            </p>
+            <div class="leader-link"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.59 0 4.26 2.36 4.26 5.44v6.3zM5.34 7.43a2.06 2.06 0 110-4.12 2.06 2.06 0 010 4.12zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+              <a href="https://www.linkedin.com/in/dylanbrent/">linkedin.com/in/dylanbrent</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="eyebrow">References</div>
+      <p class="section-intro">
+        Named partners, educators and customers, in their own words.
+      </p>
+
+      <div class="refs-featured">
+        <div class="quote quote-featured">
+          <div class="quote-mark">&ldquo;</div>
+          <p>
+            CREATESPACE has consistently demonstrated exceptional service, setting themselves apart as the
+            best in their field. Their dedication and professionalism have made every interaction a positive
+            experience. It is truly an honour to collaborate with CREATESPACE, and their outstanding support
+            continues to strengthen our working relationship.
+          </p>
+          <div class="quote-cite"><b>Erus Pretorius</b><span>CEO, Robotixkids</span></div>
+        </div>
+        <div class="quote quote-featured">
+          <div class="quote-mark">&ldquo;</div>
+          <p>
+            CREATESPACE is our go to for high quality hardware and accessories. Their extensive range and
+            technical reliability make them an invaluable partner, and their expertise and efficient service
+            allow us to focus on our mission to deliver world class STEAM education. Partnering with the
+            CREATESPACE team has been a game changer for us.
+          </p>
+          <div class="quote-cite"><b>Simon Robinson</b><span>CEO, Inspire Africa</span></div>
+        </div>
+      </div>
+
+      <div class="refs-row">
+        <div class="quote quote-plain">
+          <div class="quote-mark">&ldquo;</div>
+          <p>
+            We purchased just over 100 robotics kits last year, and the quality has been excellent. Our school
+            clients really loved them, they&rsquo;ve been engaging, reliable, and a great addition to the
+            learning experience.
+          </p>
+          <div class="quote-cite"><b>Zami Mokhali</b><span>Founder, JustMi-Kid</span></div>
+        </div>
+        <div class="quote quote-plain">
+          <div class="quote-mark">&ldquo;</div>
+          <p>
+            Our homeschool group have loved working with their Makerzoid kits this term. They have found the
+            builds to be challenging and interesting and have been able to apply creativity in adding on their
+            own ideas.
+          </p>
+          <div class="quote-cite"><b>Michelle Edwards</b><span>Educational Psychologist, Durban</span></div>
+        </div>
+        <div class="quote quote-plain">
+          <div class="quote-mark">&ldquo;</div>
+          <p>
+            There are not many companies left that go out of their way to ensure a satisfied customer, this is
+            one of them.
+          </p>
+          <div class="quote-cite"><b>Charl Jordan</b><span>Parent of a 9-year-old</span></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer-slim">
+    <img src="assets/img/logo-white.png" alt="CREATESPACE" />
+    <div class="f-body">
+      <strong>Tradeworks Online (Pty) Ltd</strong>, trading as CREATESPACE &nbsp;·&nbsp;
+      info@thecreatespace.co.za &nbsp;·&nbsp; <a href="https://www.thecreatespace.co.za">www.thecreatespace.co.za</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
