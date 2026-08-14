@@ -249,7 +249,7 @@ export default function ShopGallery({
   );
 
   return (
-    <section className="pt-4 pb-12">
+    <section className="pt-1 pb-12 lg:pt-4">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Mobile / tablet control bar */}
         <div className="lg:hidden sticky top-[92px] z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 bg-gray-50 flex items-center gap-3">
@@ -325,7 +325,7 @@ export default function ShopGallery({
                 this slot with the active-filter chips below (matching margins and
                 min-height) so the product grid doesn't shift when filters toggle. */}
             {!hasActiveFilters && (
-              <div className="lg:hidden mt-4 mb-4 min-h-[40px] flex items-center gap-1.5 pl-3 text-cs-purple translate-x-[27px] -translate-y-[14px]">
+              <div className="lg:hidden mt-0.5 mb-1 min-h-[36px] flex items-center gap-1.5 pl-3 text-cs-purple translate-x-[27px]">
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 48 44"
@@ -347,7 +347,7 @@ export default function ShopGallery({
 
             {/* Active filter chips */}
             {hasActiveFilters && (
-              <div className="flex flex-wrap items-center gap-2 mt-4 mb-4 min-h-[40px] lg:mt-0 lg:mb-5 lg:min-h-0">
+              <div className="flex flex-wrap items-center gap-2 mt-0.5 mb-1 min-h-[36px] lg:mt-0 lg:mb-5 lg:min-h-0">
                 {activeChips.map(({ axis, value }) => (
                   <button
                     key={`${axis}:${value}`}
@@ -379,7 +379,7 @@ export default function ShopGallery({
             )}
 
             {/* Mobile result count */}
-            <p className="lg:hidden text-sm text-navy/60 font-medium mb-4 mt-4">
+            <p className="lg:hidden text-sm text-navy/60 font-medium mb-4 mt-1">
               Showing <span className="text-navy font-semibold">{filteredProducts.length}</span> of{" "}
               {products.length} products
             </p>
