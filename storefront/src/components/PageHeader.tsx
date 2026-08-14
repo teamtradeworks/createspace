@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Fragment, type ReactNode } from "react";
 
-export type Breadcrumb = {
+type Breadcrumb = {
   label: string;
   /** Omit href for the current (last) page — it renders as plain text. */
   href?: string;
