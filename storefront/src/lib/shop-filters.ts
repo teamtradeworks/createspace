@@ -74,7 +74,7 @@ export function filterAndSortProducts(
       result.sort((a, b) => b.title.localeCompare(a.title));
       break;
     default:
-      break; // "featured" keeps the fetched (best-selling) order
+      break; // "featured" keeps the fetched (collection default) order
   }
 
   result.sort((a, b) => {
