@@ -379,7 +379,7 @@ export default function ShopGallery({
             )}
 
             {/* Mobile result count */}
-            <p className="lg:hidden text-sm text-navy/60 font-medium mb-4 mt-1">
+            <p className="lg:hidden text-sm text-navy/60 font-medium mb-4 mt-4">
               Showing <span className="text-navy font-semibold">{filteredProducts.length}</span> of{" "}
               {products.length} products
             </p>
