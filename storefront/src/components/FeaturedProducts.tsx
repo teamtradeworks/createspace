@@ -75,7 +75,9 @@ export default function FeaturedProducts({ products, featuredProducts }: Feature
             Filter by brand, or{" "}
             <Link
               href="/shop"
-              onClick={() => capture("home_page_shop_link_clicked", { source: "featured_subtitle" })}
+              onClick={() =>
+                capture("home_page_shop_link_clicked", { source: "featured_subtitle" })
+              }
               className="font-medium text-navy underline underline-offset-2 transition-colors hover:text-cs-orange"
             >
               browse the lot
@@ -113,55 +115,55 @@ export default function FeaturedProducts({ products, featuredProducts }: Feature
               role="group"
               aria-label="Filter by brand"
             >
-            {featuredBrands.map((brand) => {
-              const active = activeBrand === brand.key;
-              return (
-                <div key={brand.key} className="relative">
-                  {/* Floating cue pinned above the Nat Geo chip — absolute, so it
+              {featuredBrands.map((brand) => {
+                const active = activeBrand === brand.key;
+                return (
+                  <div key={brand.key} className="relative">
+                    {/* Floating cue pinned above the Nat Geo chip — absolute, so it
                       tracks the chip and takes no layout space (desktop only) */}
-                  {brand.key === "national-geographic" && (
-                    <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-6 hidden -translate-x-1/2 items-end gap-1.5 text-cs-purple lg:flex">
-                      <span className="-rotate-2 whitespace-nowrap text-base font-bold md:text-lg">
-                        Choose a brand!
-                      </span>
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 48 44"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={3.5}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="h-8 w-8 flex-none md:h-9 md:w-9"
-                      >
-                        <path d="M6 6 C 26 4, 40 14, 30 34" />
-                        <path d="M20 28 L 30 37 L 40 27" />
-                      </svg>
-                    </div>
-                  )}
-                  <button
-                    type="button"
-                    aria-pressed={active}
-                    aria-label={`Filter by ${brand.name}`}
-                    title={brand.name}
-                    onClick={() => selectBrand(brand)}
-                    className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
-                      active
-                        ? "border-cs-orange shadow-sm"
-                        : "border-gray-200 grayscale opacity-50 hover:opacity-80 hover:grayscale-0"
-                    }`}
-                  >
-                    <Image
-                      src={brand.logo}
-                      alt=""
-                      width={120}
-                      height={48}
-                      className="h-7 w-auto max-w-[96px] object-contain md:h-8"
-                    />
-                  </button>
-                </div>
-              );
-            })}
+                    {brand.key === "national-geographic" && (
+                      <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-6 hidden -translate-x-1/2 items-end gap-1.5 text-cs-purple lg:flex">
+                        <span className="-rotate-2 whitespace-nowrap text-base font-bold md:text-lg">
+                          Choose a brand!
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 48 44"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={3.5}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-8 w-8 flex-none md:h-9 md:w-9"
+                        >
+                          <path d="M6 6 C 26 4, 40 14, 30 34" />
+                          <path d="M20 28 L 30 37 L 40 27" />
+                        </svg>
+                      </div>
+                    )}
+                    <button
+                      type="button"
+                      aria-pressed={active}
+                      aria-label={`Filter by ${brand.name}`}
+                      title={brand.name}
+                      onClick={() => selectBrand(brand)}
+                      className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
+                        active
+                          ? "border-cs-orange shadow-sm"
+                          : "border-gray-200 grayscale opacity-50 hover:opacity-80 hover:grayscale-0"
+                      }`}
+                    >
+                      <Image
+                        src={brand.logo}
+                        alt=""
+                        width={120}
+                        height={48}
+                        className="h-7 w-auto max-w-[96px] object-contain md:h-8"
+                      />
+                    </button>
+                  </div>
+                );
+              })}
             </div>
             {/* Scroll controls, same row as the brand toggles */}
             <div className="hidden flex-shrink-0 gap-2 md:flex">
@@ -171,8 +173,19 @@ export default function FeaturedProducts({ products, featuredProducts }: Feature
                 aria-label="Scroll left"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
               >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
+                  />
                 </svg>
               </button>
               <button
@@ -181,8 +194,19 @@ export default function FeaturedProducts({ products, featuredProducts }: Feature
                 aria-label="Scroll right"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
               >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
                 </svg>
               </button>
             </div>

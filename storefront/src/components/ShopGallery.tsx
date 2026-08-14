@@ -120,7 +120,11 @@ export default function ShopGallery({
     if (sortBy !== "featured") params.set("sort", sortBy);
     else params.delete("sort");
     const query = params.toString();
-    window.history.replaceState(null, "", query ? `${window.location.pathname}?${query}` : window.location.pathname);
+    window.history.replaceState(
+      null,
+      "",
+      query ? `${window.location.pathname}?${query}` : window.location.pathname,
+    );
   }, [selectedAges, selectedCategories, selectedBrands, sortBy]);
 
   // Lock body scroll while the mobile filter sheet is open.
@@ -254,7 +258,15 @@ export default function ShopGallery({
             onClick={() => setSheetOpen(true)}
             className="inline-flex items-center gap-2 rounded-xl border-2 border-navy/20 bg-white px-4 py-2.5 text-sm font-semibold text-navy active:scale-95 transition-transform"
           >
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 18 18"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            >
               <path d="M2 4h14M4 9h10M7 14h4" />
             </svg>
             Filters
@@ -291,13 +303,17 @@ export default function ShopGallery({
           {/* Results column */}
           <div>
             {/* Scroll anchor: sits under the sticky header/control bar */}
-            <div ref={resultsTopRef} className="scroll-mt-[160px] lg:scroll-mt-[104px]" aria-hidden="true" />
+            <div
+              ref={resultsTopRef}
+              className="scroll-mt-[160px] lg:scroll-mt-[104px]"
+              aria-hidden="true"
+            />
 
             {/* Desktop top bar: count + sort */}
             <div className="hidden lg:flex items-center justify-between mb-5">
               <p className="text-sm text-navy/60 font-medium">
-                Showing <span className="text-navy font-semibold">{filteredProducts.length}</span> of{" "}
-                {products.length} products
+                Showing <span className="text-navy font-semibold">{filteredProducts.length}</span>{" "}
+                of {products.length} products
               </p>
               <div className="flex items-center gap-2">
                 <span className="text-sm text-navy/50">Sort</span>
@@ -316,7 +332,15 @@ export default function ShopGallery({
                     className="inline-flex items-center gap-1.5 rounded-full bg-navy/5 hover:bg-navy/10 pl-3 pr-2 py-1.5 text-sm font-medium text-navy transition-colors"
                   >
                     {labelFor(axis, value)}
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                    >
                       <path d="M3 3l6 6M9 3l-6 6" />
                     </svg>
                   </button>
@@ -358,7 +382,9 @@ export default function ShopGallery({
                     className="object-contain"
                   />
                 </div>
-                <h2 className="text-xl font-semibold text-navy mb-2">No kits match those filters</h2>
+                <h2 className="text-xl font-semibold text-navy mb-2">
+                  No kits match those filters
+                </h2>
                 <p className="text-gray-600 mb-6">
                   Nothing matched this combination. Try removing a filter to widen your search.
                 </p>
@@ -393,7 +419,15 @@ export default function ShopGallery({
                 aria-label="Close filters"
                 className="p-1.5 text-navy/60 hover:text-navy"
               >
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
                   <path d="M5 5l14 14M19 5L5 19" />
                 </svg>
               </button>
@@ -474,7 +508,11 @@ function FilterGroup({
           if (disabled) {
             stateClass = "border-gray-100 text-gray-300 cursor-not-allowed";
           } else if (isSelected && accent) {
-            style = { backgroundColor: opt.color, borderColor: opt.color, color: opt.darkText ? NAVY : "#fff" };
+            style = {
+              backgroundColor: opt.color,
+              borderColor: opt.color,
+              color: opt.darkText ? NAVY : "#fff",
+            };
             stateClass = "shadow-sm active:scale-95";
           } else if (isSelected) {
             stateClass = "border-navy bg-navy text-white shadow-sm active:scale-95";
@@ -498,7 +536,9 @@ function FilterGroup({
               {/* Brand wordmark only (no text label — the logo is the name).
                   Kept on white so it stays legible on the navy selected chip. */}
               {opt.icon && iconVariant === "logo" && (
-                <span className={`inline-flex items-center justify-center rounded px-1.5 py-1 ${isSelected ? "bg-white" : ""}`}>
+                <span
+                  className={`inline-flex items-center justify-center rounded px-1.5 py-1 ${isSelected ? "bg-white" : ""}`}
+                >
                   <Image
                     src={opt.icon}
                     alt={opt.label}
@@ -576,7 +616,13 @@ function SortMenu({
           viewBox="0 0 12 12"
           fill="none"
         >
-          <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path
+            d="M3 4.5L6 7.5L9 4.5"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
       {isOpen && (
@@ -596,7 +642,16 @@ function SortMenu({
                   }`}
                 >
                   {isActive ? (
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      width="14"
+                      height="14"
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <path d="M2 7l3.5 3.5L12 4" />
                     </svg>
                   ) : (

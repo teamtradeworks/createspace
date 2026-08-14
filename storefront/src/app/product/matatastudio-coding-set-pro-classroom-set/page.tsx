@@ -304,7 +304,10 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
             value: "USB-C rechargeable (built-in battery, no disposable batteries)",
           },
           { label: "Connectivity", value: "Bluetooth (Command Tower to MatataBot)" },
-          { label: "Software Required", value: "None. Fully screen-free, no apps or devices needed" },
+          {
+            label: "Software Required",
+            value: "None. Fully screen-free, no apps or devices needed",
+          },
           { label: "LEGO® Compatible", value: "Yes" },
           { label: "Materials", value: "ABS plastic, food-grade washable coding blocks" },
           { label: "Safety", value: "EN71 compliant, drop tested" },

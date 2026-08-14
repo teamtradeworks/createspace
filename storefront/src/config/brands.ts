@@ -5,7 +5,7 @@
  * `key` is a stable slug for internal references (e.g. photo wall attribution).
  * `blurb` is a one-line, factual description shown in brand spotlights.
  */
-export type Brand = {
+type Brand = {
   key: string;
   name: string;
   logo: string;

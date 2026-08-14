@@ -57,7 +57,9 @@ export default async function CustomerPhotoWall() {
   // handle once and share the result across its photos.
   const handles = [...new Set(pool.map((photo) => photo.handle))];
   const entries = await Promise.all(
-    handles.map(async (handle) => [handle, await getProductByHandle(handle).catch(() => null)] as const),
+    handles.map(
+      async (handle) => [handle, await getProductByHandle(handle).catch(() => null)] as const,
+    ),
   );
   const productByHandle = new Map(entries);
 

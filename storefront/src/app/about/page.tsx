@@ -79,8 +79,8 @@ export default function AboutPage() {
               <div className="h-1 w-12 rounded-full bg-cs-blue mb-5" />
               <h2 className="text-2xl md:text-3xl font-semibold text-navy mb-4">Our mission</h2>
               <p className="text-lg text-gray-700 leading-relaxed">
-                To bring young minds a curated range of hands-on STEM products and programmes, and to
-                spark a genuine, lasting curiosity about the sciences from an early age.
+                To bring young minds a curated range of hands-on STEM products and programmes, and
+                to spark a genuine, lasting curiosity about the sciences from an early age.
               </p>
             </div>
           </div>
@@ -103,7 +103,12 @@ export default function AboutPage() {
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
                 <span className="text-lg text-white/85 leading-relaxed">{belief}</span>
               </li>
@@ -168,8 +173,19 @@ export default function AboutPage() {
               className="inline-flex items-center px-8 py-4 bg-cs-orange hover:bg-cs-orange/90 active:translate-y-px text-white rounded-lg font-semibold transition-all"
             >
               Shop the range
-              <svg className="ml-2 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <svg
+                className="ml-2 w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
               </svg>
             </Link>
             <Link

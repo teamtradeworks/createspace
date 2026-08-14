@@ -95,9 +95,25 @@ export default function PromoBand() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-2 py-2.5 sm:gap-3 sm:py-3">
           {count > 1 && (
-            <button type="button" onClick={() => go(-1)} aria-label="Previous promotion" className={arrow}>
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+            <button
+              type="button"
+              onClick={() => go(-1)}
+              aria-label="Previous promotion"
+              className={arrow}
+            >
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M15 19l-7-7 7-7"
+                />
               </svg>
             </button>
           )}
@@ -142,9 +158,25 @@ export default function PromoBand() {
           </Link>
 
           {count > 1 && (
-            <button type="button" onClick={() => go(1)} aria-label="Next promotion" className={arrow}>
-              <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            <button
+              type="button"
+              onClick={() => go(1)}
+              aria-label="Next promotion"
+              className={arrow}
+            >
+              <svg
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2.5}
+                  d="M9 5l7 7-7 7"
+                />
               </svg>
             </button>
           )}

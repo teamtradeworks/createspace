@@ -215,100 +215,104 @@ export default function CustomerPhotoWallGrid({
             className="max-h-[620px] overflow-hidden scrollbar-none"
           >
             <div className="flex items-start gap-3 sm:gap-4">
-          {columnBuckets.map((bucket, ci) => (
-            <div key={ci} className="flex min-w-0 flex-1 flex-col gap-3 sm:gap-4">
-              {bucket.items.map(({ photo, aspect }, index) => {
-                const isFlipped = flippedSrc === photo.src;
-                const brand = BRANDS.find((b) => b.key === photo.brand);
-                return (
-                  <Reveal key={photo.src} delay={(index % 4) * 60}>
-                    <div
-                      className="wall-flip w-full"
-                      data-flipped={isFlipped}
-                      style={{ aspectRatio: String(aspect) }}
-                    >
-                  <div className="wall-flip-inner">
-                    {/* Front: the build photo */}
-                    <button
-                      type="button"
-                      onClick={() => toggleFlip(photo)}
-                      aria-expanded={isFlipped}
-                      aria-label={`Show the kit behind this photo: ${photo.name}`}
-                      className="wall-flip-front group relative block w-full h-full rounded-xl overflow-hidden text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-                    >
-                      <Image
-                        src={photo.src}
-                        alt={photo.alt}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      />
-                      {brand && (
-                        <span className="absolute top-2 right-2 md:top-3 md:right-3 rounded-md md:rounded-lg bg-white/95 px-1.5 py-1 md:px-2.5 md:py-1.5 shadow-sm">
-                          <Image
-                            src={brand.logo}
-                            alt={brand.name}
-                            width={160}
-                            height={64}
-                            className="h-4 w-auto max-w-[80px] object-contain sm:h-5 sm:max-w-[110px] md:h-6 lg:h-7 lg:max-w-[150px]"
-                          />
-                        </span>
-                      )}
-                      <span className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-navy/85 via-navy/25 to-transparent p-3 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 group-focus-visible:opacity-100">
-                        <span className="text-sm font-semibold text-white leading-snug">{photo.name}</span>
-                        {photo.age && <span className="text-xs text-white/80 mt-0.5">{photo.age}</span>}
-                      </span>
-                    </button>
+              {columnBuckets.map((bucket, ci) => (
+                <div key={ci} className="flex min-w-0 flex-1 flex-col gap-3 sm:gap-4">
+                  {bucket.items.map(({ photo, aspect }, index) => {
+                    const isFlipped = flippedSrc === photo.src;
+                    const brand = BRANDS.find((b) => b.key === photo.brand);
+                    return (
+                      <Reveal key={photo.src} delay={(index % 4) * 60}>
+                        <div
+                          className="wall-flip w-full"
+                          data-flipped={isFlipped}
+                          style={{ aspectRatio: String(aspect) }}
+                        >
+                          <div className="wall-flip-inner">
+                            {/* Front: the build photo */}
+                            <button
+                              type="button"
+                              onClick={() => toggleFlip(photo)}
+                              aria-expanded={isFlipped}
+                              aria-label={`Show the kit behind this photo: ${photo.name}`}
+                              className="wall-flip-front group relative block w-full h-full rounded-xl overflow-hidden text-left focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+                            >
+                              <Image
+                                src={photo.src}
+                                alt={photo.alt}
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                              />
+                              {brand && (
+                                <span className="absolute top-2 right-2 md:top-3 md:right-3 rounded-md md:rounded-lg bg-white/95 px-1.5 py-1 md:px-2.5 md:py-1.5 shadow-sm">
+                                  <Image
+                                    src={brand.logo}
+                                    alt={brand.name}
+                                    width={160}
+                                    height={64}
+                                    className="h-4 w-auto max-w-[80px] object-contain sm:h-5 sm:max-w-[110px] md:h-6 lg:h-7 lg:max-w-[150px]"
+                                  />
+                                </span>
+                              )}
+                              <span className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-navy/85 via-navy/25 to-transparent p-3 opacity-100 transition-opacity duration-300 sm:opacity-0 sm:group-hover:opacity-100 group-focus-visible:opacity-100">
+                                <span className="text-sm font-semibold text-white leading-snug">
+                                  {photo.name}
+                                </span>
+                                {photo.age && (
+                                  <span className="text-xs text-white/80 mt-0.5">{photo.age}</span>
+                                )}
+                              </span>
+                            </button>
 
-                    {/* Back: the kit card (mounted after first flip so unflips animate) */}
-                    {everFlipped.has(photo.src) && (
-                      <div
-                        className="wall-flip-back rounded-xl bg-white ring-1 ring-gray-200 p-3 flex flex-col cursor-pointer"
-                        onClick={() => toggleFlip(photo)}
-                        aria-hidden={!isFlipped}
-                      >
-                        <div className="relative flex-1 min-h-0">
-                          {photo.productImage && (
-                            <Image
-                              src={photo.productImage}
-                              alt=""
-                              fill
-                              className="object-contain p-1"
-                              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                            />
-                          )}
+                            {/* Back: the kit card (mounted after first flip so unflips animate) */}
+                            {everFlipped.has(photo.src) && (
+                              <div
+                                className="wall-flip-back rounded-xl bg-white ring-1 ring-gray-200 p-3 flex flex-col cursor-pointer"
+                                onClick={() => toggleFlip(photo)}
+                                aria-hidden={!isFlipped}
+                              >
+                                <div className="relative flex-1 min-h-0">
+                                  {photo.productImage && (
+                                    <Image
+                                      src={photo.productImage}
+                                      alt=""
+                                      fill
+                                      className="object-contain p-1"
+                                      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                    />
+                                  )}
+                                </div>
+                                <div className="mt-2">
+                                  <p className="text-sm font-semibold text-navy leading-snug line-clamp-2">
+                                    {photo.name}
+                                  </p>
+                                  <p className="text-xs text-gray-500 mt-0.5">
+                                    {photo.age}
+                                    {photo.price ? ` · ${photo.price}` : ""}
+                                  </p>
+                                  <Link
+                                    href={photo.href}
+                                    onClick={(event) => {
+                                      event.stopPropagation();
+                                      capture("home_page_wall_product_clicked", {
+                                        handle: handleFromHref(photo.href),
+                                      });
+                                    }}
+                                    tabIndex={isFlipped ? 0 : -1}
+                                    className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-navy px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy/90"
+                                  >
+                                    See the kit
+                                  </Link>
+                                </div>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        <div className="mt-2">
-                          <p className="text-sm font-semibold text-navy leading-snug line-clamp-2">
-                            {photo.name}
-                          </p>
-                          <p className="text-xs text-gray-500 mt-0.5">
-                            {photo.age}
-                            {photo.price ? ` · ${photo.price}` : ""}
-                          </p>
-                          <Link
-                            href={photo.href}
-                            onClick={(event) => {
-                              event.stopPropagation();
-                              capture("home_page_wall_product_clicked", {
-                                handle: handleFromHref(photo.href),
-                              });
-                            }}
-                            tabIndex={isFlipped ? 0 : -1}
-                            className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-navy px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy/90"
-                          >
-                            See the kit
-                          </Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                      </Reveal>
+                    );
+                  })}
                 </div>
-                  </Reveal>
-                );
-              })}
-            </div>
-          ))}
+              ))}
             </div>
           </div>
           {/* Up control + top fade — only once scrolled down */}
@@ -321,8 +325,19 @@ export default function CustomerPhotoWallGrid({
                 aria-label="Scroll photos up"
                 className="absolute left-1/2 top-2 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-navy shadow-md transition-all hover:border-navy/40 active:scale-95"
               >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 15l7-7 7 7"
+                  />
                 </svg>
               </button>
             </>
@@ -338,8 +353,19 @@ export default function CustomerPhotoWallGrid({
                 aria-label="Scroll photos down to reveal more"
                 className="absolute bottom-3 left-1/2 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border border-gray-200 bg-white text-navy shadow-md transition-all hover:border-navy/40 active:scale-95"
               >
-                <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
             </>

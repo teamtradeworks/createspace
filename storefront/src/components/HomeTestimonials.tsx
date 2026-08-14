@@ -31,7 +31,10 @@ export default function HomeTestimonials() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial) => (
-            <figure key={testimonial.author} className="bg-white rounded-2xl p-6 md:p-8 flex flex-col">
+            <figure
+              key={testimonial.author}
+              className="bg-white rounded-2xl p-6 md:p-8 flex flex-col"
+            >
               <div className="flex gap-1 mb-4" aria-label="5 out of 5 stars">
                 {[...Array(5)].map((_, i) => (
                   <svg

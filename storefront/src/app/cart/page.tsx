@@ -31,8 +31,7 @@ export default function CartPage() {
   const viewCartFired = useRef(false);
 
   const giveaway = siteConfig.giveaway?.inspireAfricaCourse;
-  const showCourseGiveaway =
-    giveaway?.enabled && subtotal >= (giveaway?.threshold ?? Infinity);
+  const showCourseGiveaway = giveaway?.enabled && subtotal >= (giveaway?.threshold ?? Infinity);
 
   // Reset the checkout button if the user returns via the browser's bfcache
   // (e.g. clicking back from Shopify checkout) — otherwise it stays stuck on
@@ -551,8 +550,8 @@ export default function CartPage() {
                         Educator Giveaway — Limited Spots
                       </p>
                       <p className="text-sm text-gray-700 mb-3">
-                        Are you a teacher or school educator? Claim your free online teaching
-                        course <em>How to get started: Coding &amp; Robotics</em> with your order.
+                        Are you a teacher or school educator? Claim your free online teaching course{" "}
+                        <em>How to get started: Coding &amp; Robotics</em> with your order.
                       </p>
                       <label className="flex items-start gap-3 cursor-pointer">
                         <input
@@ -625,10 +624,7 @@ export default function CartPage() {
                   <div className="mt-6 pt-6 border-t border-gray-200">
                     <ul className="space-y-2.5">
                       {PROMISES.map((promise) => (
-                        <li
-                          key={promise}
-                          className="flex items-center gap-2 text-sm text-gray-600"
-                        >
+                        <li key={promise} className="flex items-center gap-2 text-sm text-gray-600">
                           <svg
                             className="w-5 h-5 text-cs-green flex-shrink-0"
                             fill="none"
@@ -670,16 +666,20 @@ export default function CartPage() {
                         </span>
                       </div>
                       <div className="flex flex-wrap gap-1.5 mt-3 ml-7">
-                        {["Mastercard", "Visa", "Apple Pay", "Capitec Pay", "Buy Now Pay Later"].map(
-                          (method) => (
-                            <span
-                              key={method}
-                              className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded"
-                            >
-                              {method}
-                            </span>
-                          ),
-                        )}
+                        {[
+                          "Mastercard",
+                          "Visa",
+                          "Apple Pay",
+                          "Capitec Pay",
+                          "Buy Now Pay Later",
+                        ].map((method) => (
+                          <span
+                            key={method}
+                            className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded"
+                          >
+                            {method}
+                          </span>
+                        ))}
                       </div>
                     </div>
                   </div>

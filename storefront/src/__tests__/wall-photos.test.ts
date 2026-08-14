@@ -42,7 +42,8 @@ describe("WALL_PHOTOS", () => {
 
   it("has positive numeric dimensions (needed for the masonry aspect ratio)", () => {
     const bad = WALL_PHOTOS.filter(
-      (p) => !Number.isFinite(p.width) || !Number.isFinite(p.height) || p.width <= 0 || p.height <= 0,
+      (p) =>
+        !Number.isFinite(p.width) || !Number.isFinite(p.height) || p.width <= 0 || p.height <= 0,
     ).map((p) => p.src);
     expect(bad).toEqual([]);
   });

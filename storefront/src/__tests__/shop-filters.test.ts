@@ -119,8 +119,14 @@ describe("filterAndSortProducts", () => {
   });
 
   it("sorts by price low to high and high to low", () => {
-    const cheap = make({ id: "cheap", priceRange: { minVariantPrice: { amount: "50", currencyCode: "ZAR" } } });
-    const dear = make({ id: "dear", priceRange: { minVariantPrice: { amount: "500", currencyCode: "ZAR" } } });
+    const cheap = make({
+      id: "cheap",
+      priceRange: { minVariantPrice: { amount: "50", currencyCode: "ZAR" } },
+    });
+    const dear = make({
+      id: "dear",
+      priceRange: { minVariantPrice: { amount: "500", currencyCode: "ZAR" } },
+    });
     expect(filterAndSortProducts([dear, cheap], empty, "price-low").map((p) => p.id)).toEqual([
       "cheap",
       "dear",

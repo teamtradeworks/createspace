@@ -4,7 +4,7 @@ import { categoryMatchTags } from "@/config/categories";
 // Age bands used for shop filtering. `range` is [min, max] inclusive; the top
 // band's max is an open-ended cap. The shop UI layers colours/labels on top of
 // these ids — the ranges live here as the single source of truth for matching.
-export type AgeBand = { id: string; range: [number, number] };
+type AgeBand = { id: string; range: [number, number] };
 export const AGE_BANDS: AgeBand[] = [
   { id: "3-5", range: [3, 5] },
   { id: "6-8", range: [6, 8] },
@@ -12,7 +12,7 @@ export const AGE_BANDS: AgeBand[] = [
   { id: "13+", range: [13, 99] },
 ];
 
-export const productPrice = (p: Product) => parseFloat(p.priceRange.minVariantPrice.amount);
+const productPrice = (p: Product) => parseFloat(p.priceRange.minVariantPrice.amount);
 
 // Per-axis matchers. An empty selection means "no constraint" (match all).
 
@@ -42,7 +42,7 @@ export function matchBrand(p: Product, brands: string[]): boolean {
   return brands.some((b) => b.toLowerCase() === p.vendor.toLowerCase());
 }
 
-export type Selection = { ages: string[]; categories: string[]; brands: string[] };
+type Selection = { ages: string[]; categories: string[]; brands: string[] };
 
 // Filter across all three axes, then sort. Out-of-stock kits always sink to the
 // end whatever the sort — this relies on a stable sort to preserve the primary

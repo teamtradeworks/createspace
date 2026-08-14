@@ -14,7 +14,13 @@ export const metadata: Metadata = {
 const contactInfo = [
   {
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -30,7 +36,13 @@ const contactInfo = [
   },
   {
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -52,7 +64,13 @@ const contactInfo = [
   },
   {
     icon: (
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+      <svg
+        className="w-6 h-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -115,7 +133,8 @@ const faqs = [
   },
   {
     question: "What payment methods do you accept?",
-    answer: "We take secure payments through Stitch, including credit and debit cards and instant EFT.",
+    answer:
+      "We take secure payments through Stitch, including credit and debit cards and instant EFT.",
   },
 ];
 
@@ -152,7 +171,10 @@ export default function ContactPage() {
                 <h2 className="font-semibold text-navy mb-1">{info.title}</h2>
                 <p className="text-sm text-gray-500 mb-2">{info.description}</p>
                 {info.href ? (
-                  <a href={info.href} className="text-cs-orange hover:underline font-medium break-words">
+                  <a
+                    href={info.href}
+                    className="text-cs-orange hover:underline font-medium break-words"
+                  >
                     {info.value}
                   </a>
                 ) : (
@@ -183,12 +205,26 @@ export default function ContactPage() {
               </p>
               <div className="space-y-4">
                 {faqs.map((faq) => (
-                  <details key={faq.question} className="group bg-gray-50 rounded-xl overflow-hidden">
+                  <details
+                    key={faq.question}
+                    className="group bg-gray-50 rounded-xl overflow-hidden"
+                  >
                     <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
                       <span className="font-medium text-navy pr-4">{faq.question}</span>
                       <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cs-orange/10 flex items-center justify-center text-cs-orange group-open:rotate-180 transition-transform">
-                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          aria-hidden="true"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </span>
                     </summary>
@@ -205,7 +241,9 @@ export default function ContactPage() {
       <section className="py-12 bg-gray-50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-lg font-semibold text-navy mb-4">Find us on social</h2>
-          <p className="text-gray-600 mb-6">New kits, project ideas, and a bit of STEM inspiration.</p>
+          <p className="text-gray-600 mb-6">
+            New kits, project ideas, and a bit of STEM inspiration.
+          </p>
           <SocialLinks location="contact" />
         </div>
       </section>

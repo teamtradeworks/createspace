@@ -302,7 +302,7 @@ export async function getProducts(first: number = 8): Promise<Product[]> {
 }
 
 // Get products within a specific collection by handle
-export type CollectionSortKey = "COLLECTION_DEFAULT" | "BEST_SELLING" | "CREATED" | "PRICE" | "TITLE";
+type CollectionSortKey = "COLLECTION_DEFAULT" | "BEST_SELLING" | "CREATED" | "PRICE" | "TITLE";
 
 export async function getCollectionProducts(
   handle: string,

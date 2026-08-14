@@ -8,7 +8,7 @@
  * Used by the homepage category chips and the shop page filter — keep this the
  * single source of truth so the two can't drift apart.
  */
-export type Category = {
+type Category = {
   id: string;
   label: string;
   icon: string; // monochrome line icon, used in the nav dropdown and shop filter
