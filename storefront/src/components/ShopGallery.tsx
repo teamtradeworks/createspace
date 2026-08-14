@@ -321,9 +321,33 @@ export default function ShopGallery({
               </div>
             </div>
 
+            {/* Mobile: playful first-run nudge toward the filter sheet. Shares
+                this slot with the active-filter chips below (matching margins and
+                min-height) so the product grid doesn't shift when filters toggle. */}
+            {!hasActiveFilters && (
+              <div className="lg:hidden mt-4 mb-4 min-h-[40px] flex items-center gap-1.5 pl-3 text-cs-purple">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 48 44"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3.5}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-7 w-7 flex-none rotate-180"
+                >
+                  <path d="M6 6 C 26 4, 40 14, 30 34" />
+                  <path d="M20 28 L 30 37 L 40 27" />
+                </svg>
+                <span className="-rotate-2 text-sm font-bold leading-tight">
+                  Filter by brands, categories and age!
+                </span>
+              </div>
+            )}
+
             {/* Active filter chips */}
             {hasActiveFilters && (
-              <div className="flex flex-wrap items-center gap-2 mb-5">
+              <div className="flex flex-wrap items-center gap-2 mt-4 mb-4 min-h-[40px] lg:mt-0 lg:mb-5 lg:min-h-0">
                 {activeChips.map(({ axis, value }) => (
                   <button
                     key={`${axis}:${value}`}
