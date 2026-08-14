@@ -35,7 +35,8 @@ export default function HomeTestimonials() {
               key={testimonial.author}
               className="bg-white rounded-2xl p-6 md:p-8 flex flex-col"
             >
-              <div className="flex gap-1 mb-4" aria-label="5 out of 5 stars">
+              {/* role="img" because aria-label is prohibited on a generic div */}
+              <div role="img" className="flex gap-1 mb-4" aria-label="5 out of 5 stars">
                 {[...Array(5)].map((_, i) => (
                   <svg
                     key={i}
