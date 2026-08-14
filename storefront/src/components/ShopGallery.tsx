@@ -325,7 +325,7 @@ export default function ShopGallery({
                 this slot with the active-filter chips below (matching margins and
                 min-height) so the product grid doesn't shift when filters toggle. */}
             {!hasActiveFilters && (
-              <div className="lg:hidden mt-4 mb-4 min-h-[40px] flex items-center gap-1.5 pl-3 text-cs-purple -translate-y-1 translate-x-1">
+              <div className="lg:hidden mt-4 mb-4 min-h-[40px] flex items-center gap-1.5 pl-3 text-cs-purple translate-x-[27px] -translate-y-[14px]">
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 48 44"
