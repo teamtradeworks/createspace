@@ -92,6 +92,10 @@ export default function ProductCardImage({
           // Same sizes as the primary: without it, fill defaults to 100vw and
           // every card in view lazy-loads a viewport-sized hover image.
           sizes={sizes}
+          // Eager: this image only mounts after the page has settled (or on
+          // hover intent), so fetch it right away — lazy here would leave
+          // below-fold cards with a permanently pending swap image.
+          loading="eager"
           onLoad={() => setSecondaryLoaded(true)}
           className={`object-cover transition-opacity duration-300 ${showSecondary ? "opacity-100" : "opacity-0"}`}
         />

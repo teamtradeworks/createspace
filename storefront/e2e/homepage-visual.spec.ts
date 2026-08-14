@@ -4,6 +4,8 @@ import type { Page } from "@playwright/test";
 
 /**
  * Prepare page for deterministic screenshots:
+ * - Wait for deferred content (e.g. product-card hover images, which mount
+ *   after window load in an idle slot) so nothing mounts mid-stabilization
  * - Disable CSS animations/transitions
  * - Force lazy-loaded images to load eagerly
  */
@@ -19,14 +21,31 @@ async function prepareForScreenshot(page: Page) {
     `,
   });
 
-  await page.evaluate(() => {
-    document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
-      img.removeAttribute("loading");
-    });
-  });
+  // Idle-mounted components schedule via requestIdleCallback (3s timeout)
+  // after window load; queue behind them, then give React two frames to
+  // commit, so the DOM is settled before we start stabilizing.
+  await page.evaluate(
+    () =>
+      new Promise<void>((resolve) => {
+        const settle = () =>
+          requestIdleCallback(
+            () => requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+            { timeout: 4000 },
+          );
+        if (document.readyState === "complete") settle();
+        else window.addEventListener("load", settle, { once: true });
+      }),
+  );
 
   await page.waitForFunction(
-    () => Array.from(document.images).every((img) => img.complete),
+    () => {
+      // Strip lazy-loading as images appear so a late-mounted image can
+      // never leave the completeness check waiting forever.
+      document.querySelectorAll('img[loading="lazy"]').forEach((img) => {
+        img.removeAttribute("loading");
+      });
+      return Array.from(document.images).every((img) => img.complete);
+    },
     { timeout: 15000 }
   ).catch(() => {});
 }
