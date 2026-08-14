@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
+import PageHeader from "@/components/PageHeader";
 import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
@@ -49,20 +50,15 @@ export default function AboutPage() {
       <PageViewTracker event="about_page_viewed" />
 
       {/* Hero */}
-      <section className="bg-navy text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-balance">
-              South Africa&apos;s specialist STEM store
-            </h1>
-            <p className="mt-6 text-lg md:text-xl text-white/80 leading-relaxed max-w-2xl">
-              We&apos;re a small Cape Town team on a mission to get more kids excited about science,
-              technology, engineering and maths. We curate a focused range of hands-on kits and
-              school programmes that make STEM something kids look forward to.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
+        title={
+          <>
+            South Africa&apos;s <span className="text-cs-orange">specialist STEM store</span>
+          </>
+        }
+        subtitle="We're a small Cape Town team on a mission to get more kids excited about science, technology, engineering and maths. We curate a focused range of hands-on kits and school programmes that make STEM something kids look forward to."
+      />
 
       {/* Vision & mission */}
       <section className="py-16 md:py-20">

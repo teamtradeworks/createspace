@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import SocialLinks from "@/components/SocialLinks";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Contact Us | CREATESPACE",
@@ -142,19 +143,15 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-          <div className="max-w-2xl">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight">
-              Get in touch
-            </h1>
-            <p className="mt-4 text-lg text-white/80 leading-relaxed">
-              A question about a kit, help choosing for a certain age, or a school order? Send us a
-              message and we&apos;ll get back to you within one business day.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
+        title={
+          <>
+            Get <span className="text-cs-orange">in touch</span>
+          </>
+        }
+        subtitle="A question about a kit, help choosing for a certain age, or a school order? Send us a message and we'll get back to you within one business day."
+      />
 
       {/* Contact info */}
       <section className="py-12 bg-gray-50">

@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 
 export const metadata: Metadata = {
   title: "Downloads | CREATESPACE",
@@ -165,22 +166,15 @@ export default function DownloadsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-navy text-white py-16">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-              Resources
-            </span>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mt-2 mb-4">
-              Guides &amp; Downloads
-            </h1>
-            <p className="text-white/70 text-lg">
-              Download the tutorials, code, and other resources for your CREATESPACE electronics
-              kit.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Downloads" }]}
+        title={
+          <>
+            Guides &amp; <span className="text-cs-orange">Downloads</span>
+          </>
+        }
+        subtitle="Download the tutorials, code, and other resources for your CREATESPACE electronics kit."
+      />
 
       {/* Content */}
       <section className="py-16 bg-gray-50">

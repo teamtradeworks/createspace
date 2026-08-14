@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 import { Metadata } from "next";
 import PageViewTracker from "@/components/PageViewTracker";
 
@@ -50,33 +51,15 @@ export default function EducationPage() {
       <PageViewTracker event="education_page_viewed" />
 
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="bg-navy text-white pt-16 pb-20 relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl">
-            <span className="inline-block text-cs-orange font-semibold text-sm uppercase tracking-widest mb-4">
-              STEM Education
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-              The right STEM programme for your situation
-            </h1>
-            <p className="text-xl text-white/75 max-w-2xl leading-relaxed">
-              Every school and family is different. Tell us about yourself and we&apos;ll point you
-              in the right direction.
-            </p>
-          </div>
-        </div>
-
-        {/* Decorative illustration */}
-        <div className="hidden lg:block absolute right-16 top-1/2 -translate-y-1/2 w-52 h-52 opacity-15 pointer-events-none">
-          <Image
-            src="/images/illustrations/robot-orange.png"
-            alt=""
-            width={208}
-            height={208}
-            className="object-contain"
-          />
-        </div>
-      </section>
+      <PageHeader
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Education" }]}
+        title={
+          <>
+            The right <span className="text-cs-orange">STEM programme</span> for your situation
+          </>
+        }
+        subtitle="Every school and family is different. Tell us about yourself and we'll point you in the right direction."
+      />
 
       {/* ── Path Chooser ─────────────────────────────────────── */}
       <section className="py-16 bg-gray-50">

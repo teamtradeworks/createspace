@@ -1,8 +1,7 @@
 import { getCollectionProducts, slimProductForCard } from "@/lib/shopify";
-import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 import ShopGallery from "@/components/ShopGallery";
+import PageHeader from "@/components/PageHeader";
 import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
@@ -35,31 +34,16 @@ export default async function ShopPage({ searchParams }: Props) {
     <main className="min-h-screen bg-gray-50">
       <PageViewTracker event="shop_all_viewed" />
 
-      {/* Header band */}
-      <header className="relative bg-navy text-white overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10 relative z-10">
-          <nav className="flex text-sm text-white/60 mb-4">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <span className="mx-2">/</span>
-            <span className="text-white font-medium">Shop</span>
-          </nav>
-          <h1 className="text-3xl md:text-4xl font-semibold">STEM Kits &amp; Educational Toys</h1>
-          <p className="mt-2 text-white/70 max-w-xl">
-            A curated range of hands-on STEM kits, hand-picked by our team in Cape Town.
-          </p>
-        </div>
-        {/* Decorative brand robot */}
-        <div className="hidden md:block absolute right-8 lg:right-20 top-1/2 -translate-y-1/2 w-24 h-24 lg:w-32 lg:h-32 pointer-events-none">
-          <Image
-            src="/images/illustrations/robot-green.png"
-            alt=""
-            fill
-            className="object-contain"
-          />
-        </div>
-      </header>
+      {/* Header band — shared PageHeader (a minimal take on the home hero). */}
+      <PageHeader
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Shop" }]}
+        title={
+          <>
+            STEM kits for <span className="text-cs-orange">curious kids</span>
+          </>
+        }
+        subtitle="From first circuits to advanced coding, sorted by age and skill."
+      />
 
       {/* Products with inline filters */}
       <ShopGallery
