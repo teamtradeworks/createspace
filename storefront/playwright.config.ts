@@ -1,5 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 
+// Override when the app under test runs somewhere other than localhost:3000
+// (e.g. a second dev checkout); CI leaves this unset.
+const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3000";
+
 export default defineConfig({
   testDir: "./e2e",
   fullyParallel: true,
@@ -12,7 +16,7 @@ export default defineConfig({
     timeout: process.env.CI ? 15_000 : 10_000,
   },
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL,
     trace: "on-first-retry",
   },
   projects: [
@@ -23,7 +27,7 @@ export default defineConfig({
   ],
   webServer: {
     command: "npm run start",
-    url: "http://localhost:3000",
+    url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
