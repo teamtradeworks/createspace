@@ -20,11 +20,11 @@ type Props = {
 
 export default async function ShopPage({ searchParams }: Props) {
   const { age, category, brand, sort } = await searchParams;
-  // Fetch in best-selling order so the default "Most loved" sort is truthful.
+  // Fetch in collection default order to respect manual ordering set in Shopify admin.
   const { products: fullProducts } = await getCollectionProducts(
     "shop-all-headless",
     100,
-    "BEST_SELLING",
+    "COLLECTION_DEFAULT",
   );
   // Slim to card fields before crossing to the client grid — descriptions
   // alone are a large chunk of the serialized payload. Tags stay: the
