@@ -252,7 +252,7 @@ export default function ShopGallery({
     <section className="pt-4 pb-12">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Mobile / tablet control bar */}
-        <div className="lg:hidden sticky top-[92px] z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 bg-gray-50 border-b-2 border-navy/10 flex items-center gap-3">
+        <div className="lg:hidden sticky top-[92px] z-30 -mx-4 sm:-mx-6 px-4 sm:px-6 py-3 bg-gray-50 flex items-center gap-3">
           <button
             type="button"
             onClick={() => setSheetOpen(true)}
