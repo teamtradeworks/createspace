@@ -1,5 +1,6 @@
-import { getCollectionProducts } from "@/lib/shopify";
+import { getCollectionProducts, slimProductForCard } from "@/lib/shopify";
 import Link from "next/link";
+import Image from "next/image";
 import { Metadata } from "next";
 import ShopGallery from "@/components/ShopGallery";
 import PageViewTracker from "@/components/PageViewTracker";
@@ -19,32 +20,46 @@ type Props = {
 
 export default async function ShopPage({ searchParams }: Props) {
   const { age, category, brand, sort } = await searchParams;
-  const { products } = await getCollectionProducts("shop-all-headless", 100);
+  // Fetch in best-selling order so the default "Most loved" sort is truthful.
+  const { products: fullProducts } = await getCollectionProducts(
+    "shop-all-headless",
+    100,
+    "BEST_SELLING",
+  );
+  // Slim to card fields before crossing to the client grid — descriptions
+  // alone are a large chunk of the serialized payload. Tags stay: the
+  // category filter matches on them.
+  const products = fullProducts.map((product) => slimProductForCard(product, { keepTags: true }));
 
   return (
     <main className="min-h-screen bg-gray-50">
       <PageViewTracker event="shop_all_viewed" />
-      {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex text-sm text-gray-500">
-            <Link href="/" className="hover:text-cs-orange">
+
+      {/* Header band */}
+      <header className="relative bg-navy text-white overflow-hidden">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-10 relative z-10">
+          <nav className="flex text-sm text-white/60 mb-4">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
             <span className="mx-2">/</span>
-            <span className="text-navy font-medium">Shop</span>
+            <span className="text-white font-medium">Shop</span>
           </nav>
+          <h1 className="text-3xl md:text-4xl font-semibold">STEM Kits &amp; Educational Toys</h1>
+          <p className="mt-2 text-white/70 max-w-xl">
+            A curated range of hands-on STEM kits, hand-picked by our team in Cape Town.
+          </p>
         </div>
-      </div>
-
-      {/* Page heading */}
-      <div className="bg-gray-50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-4 pb-2">
-          <h1 className="text-3xl md:text-4xl font-semibold text-navy">
-            STEM Kits &amp; Educational Toys
-          </h1>
+        {/* Decorative brand robot */}
+        <div className="hidden md:block absolute right-8 lg:right-20 top-1/2 -translate-y-1/2 w-24 h-24 lg:w-32 lg:h-32 pointer-events-none">
+          <Image
+            src="/images/illustrations/robot-green.png"
+            alt=""
+            fill
+            className="object-contain"
+          />
         </div>
-      </div>
+      </header>
 
       {/* Products with inline filters */}
       <ShopGallery

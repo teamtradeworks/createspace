@@ -214,7 +214,7 @@ const PRODUCTS_QUERY = `
 `;
 
 const COLLECTION_PRODUCTS_QUERY = `
-  query CollectionProducts($handle: String!, $first: Int!) {
+  query CollectionProducts($handle: String!, $first: Int!, $sortKey: ProductCollectionSortKeys = COLLECTION_DEFAULT) {
     collection(handle: $handle) {
       id
       title
@@ -224,7 +224,7 @@ const COLLECTION_PRODUCTS_QUERY = `
         url
         altText
       }
-      products(first: $first, sortKey: COLLECTION_DEFAULT) {
+      products(first: $first, sortKey: $sortKey) {
         edges {
           node {
             id
@@ -302,15 +302,18 @@ export async function getProducts(first: number = 8): Promise<Product[]> {
 }
 
 // Get products within a specific collection by handle
+type CollectionSortKey = "COLLECTION_DEFAULT" | "BEST_SELLING" | "CREATED" | "PRICE" | "TITLE";
+
 export async function getCollectionProducts(
   handle: string,
   first: number = 50,
+  sortKey: CollectionSortKey = "COLLECTION_DEFAULT",
 ): Promise<{ collection: Collection | null; products: Product[] }> {
   const data = await shopifyFetch<{
     collection: (Collection & { products: { edges: { node: Product }[] } }) | null;
   }>({
     query: COLLECTION_PRODUCTS_QUERY,
-    variables: { handle, first },
+    variables: { handle, first, sortKey },
   });
 
   if (!data.collection) {
@@ -675,6 +678,21 @@ export function getStockStatus(product: StockStatusProduct): StockStatus {
   }
 
   return "in-stock";
+}
+
+// Trim a product to what the card grids render before handing it to a client
+// component — full products otherwise serialize into the page payload.
+// Drops `description` (the single heaviest field), keeps only the two images
+// the card shows, and (unless kept for filtering) drops `tags`. Variants are
+// left intact: getStockStatus reads ALL of them, so slicing could flip a
+// lead-time badge to in-stock.
+export function slimProductForCard(product: Product, opts?: { keepTags?: boolean }): Product {
+  return {
+    ...product,
+    description: "",
+    tags: opts?.keepTags ? product.tags : [],
+    images: { edges: product.images.edges.slice(0, 2) },
+  };
 }
 
 // Returns true when no variant requires shipping (i.e. digital/non-inventory product)

@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import Image from "next/image";
-import { getCollectionProducts, Product } from "@/lib/shopify";
+import { getCollectionProducts, slimProductForCard, Product } from "@/lib/shopify";
+import Hero from "@/components/Hero";
+import AgeGroups from "@/components/AgeGroups";
+import PromoBand from "@/components/PromoBand";
 import FeaturedProducts from "@/components/FeaturedProducts";
 import FeaturedProductsSkeleton from "@/components/FeaturedProductsSkeleton";
-import AgeGroups from "@/components/AgeGroups";
-import TrustBadges from "@/components/TrustBadges";
-import EducationSection from "@/components/EducationSection";
-import HeroCarousel from "@/components/HeroCarousel";
+import WhyCreatespace from "@/components/WhyCreatespace";
+import CustomerPhotoWall from "@/components/CustomerPhotoWall";
+import CustomerPhotoWallSkeleton from "@/components/CustomerPhotoWallSkeleton";
+import HomeTestimonials from "@/components/HomeTestimonials";
+import BrandStrip from "@/components/BrandStrip";
+import EducationBanner from "@/components/EducationBanner";
+import FinalCta from "@/components/FinalCta";
+import NewsletterBand from "@/components/NewsletterBand";
 import ScrollDepthTracker from "@/components/ScrollDepthTracker";
 import TrackedSection from "@/components/TrackedSection";
-import BrandLink from "@/components/BrandLink";
-import HomeTestimonials from "@/components/HomeTestimonials";
 
 export const metadata: Metadata = {
   title: "CREATESPACE | STEM Toys & Educational Kits for Kids in South Africa",
@@ -22,69 +26,39 @@ export const metadata: Metadata = {
   },
 };
 
-// Interleave products round-robin by vendor so the same brand never clusters together
-function interleaveByVendor(products: Product[]): Product[] {
-  const byVendor = new Map<string, Product[]>();
-  for (const product of products) {
-    const key = product.vendor || "unknown";
-    if (!byVendor.has(key)) byVendor.set(key, []);
-    byVendor.get(key)!.push(product);
-  }
-  const groups = Array.from(byVendor.values());
-  const result: Product[] = [];
-  let i = 0;
-  while (result.length < products.length) {
-    for (const group of groups) {
-      if (i < group.length) result.push(group[i]);
-    }
-    i++;
-  }
-  return result;
-}
-
-// Async component that fetches and renders featured products
+// Async component that fetches products for the "Shop our kits" section.
+// Two collections are fetched in parallel:
+//  - "shop-all-headless" (BEST_SELLING): full catalogue used when a brand filter
+//    is active, so the brand's complete lineup appears in best-selling order.
+//  - "featured-products-homepage-headless" (COLLECTION_DEFAULT): manually curated
+//    order set in Shopify admin, used for the default no-brand-selected view.
+// Out-of-stock kits are kept so brand lineups are complete, but sorted last.
+// Products are slimmed to card fields before crossing to the client — the full
+// objects would serialize descriptions and unused images into the page payload.
 async function FeaturedProductsLoader() {
   let allProducts: Product[] = [];
+  let featuredRaw: Product[] = [];
 
   try {
-    ({ products: allProducts } = await getCollectionProducts("shop-all-headless", 100));
+    [{ products: allProducts }, { products: featuredRaw }] = await Promise.all([
+      getCollectionProducts("shop-all-headless", 100, "BEST_SELLING"),
+      getCollectionProducts("featured-products-homepage-headless", 50, "COLLECTION_DEFAULT"),
+    ]);
   } catch (error) {
     console.error("Failed to fetch products:", error);
   }
 
-  // Filter products by age metafields — show if the product's age range overlaps with the group's range
-  const ageRanges: Record<string, [number, number]> = {
-    "3-5": [3, 5],
-    "6-8": [6, 8],
-    "9-12": [9, 12],
-    "13+": [13, 99],
-  };
+  // All products: best-selling order, in-stock first (for brand filter view).
+  const products = allProducts
+    .map((product) => slimProductForCard(product))
+    .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
 
-  const productsByAge: Record<string, Product[]> = {};
+  // Featured products: preserve Shopify collection order, in-stock first.
+  const featuredProducts = featuredRaw
+    .map((product) => slimProductForCard(product))
+    .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
 
-  const inStockProducts = allProducts.filter((product) => product.availableForSale);
-
-  // "All ages" tab shows every product that has an age metafield
-  productsByAge["all"] = interleaveByVendor(
-    inStockProducts.filter((product) => {
-      const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
-      return minAge !== null;
-    })
-  );
-
-  for (const [groupId, [minRange, maxRange]] of Object.entries(ageRanges)) {
-    productsByAge[groupId] = interleaveByVendor(
-      inStockProducts.filter((product) => {
-        const minAge = product.minAge?.value ? parseInt(product.minAge.value, 10) : null;
-        if (minAge === null) return false;
-        const maxAge = product.maxAge?.value ? parseInt(product.maxAge.value, 10) : null;
-        const productMax = maxAge ?? Infinity;
-        return minAge <= maxRange && productMax >= minRange;
-      })
-    );
-  }
-
-  return <FeaturedProducts productsByAge={productsByAge} />;
+  return <FeaturedProducts products={products} featuredProducts={featuredProducts} />;
 }
 
 export default function Home() {
@@ -92,234 +66,66 @@ export default function Home() {
     <>
       <ScrollDepthTracker event="home_page_scroll_depth" />
 
-      {/* Hero Carousel - Renders immediately, no data dependency */}
-      <TrackedSection name="HeroCarousel" page="home">
-        <HeroCarousel />
+      {/* Static hero - renders immediately, no data dependency */}
+      <TrackedSection name="Hero" page="home">
+        <Hero />
       </TrackedSection>
 
-      {/* Age Groups - Visual Cards */}
+      {/* Current promotion — full-width strip directly under the hero (config/promo.ts) */}
+      <TrackedSection name="Promo" page="home">
+        <PromoBand />
+      </TrackedSection>
+
+      {/* Find the right kit: age photo cards + category chips, fully static */}
       <TrackedSection name="AgeGroups" page="home">
         <AgeGroups />
       </TrackedSection>
 
-      {/* Featured Products with Age Group Tabs - Streamed after hero */}
-      <TrackedSection name="FeaturedProducts" page="home">
+      {/* Bestsellers with age group tabs */}
+      <TrackedSection name="Bestsellers" page="home">
         <Suspense fallback={<FeaturedProductsSkeleton />}>
           <FeaturedProductsLoader />
         </Suspense>
       </TrackedSection>
 
-      {/* Our Brands Section */}
-      <TrackedSection name="OurBrands" page="home">
-        <section className="py-20 bg-gray-50">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                Our Brands
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                Trusted Names in STEM
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                We are official, registered suppliers of these brands. Every product we stock is
-                authentic and comes with full manufacturer support.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
-              {[
-                {
-                  name: "MatataStudio",
-                  logo: "/images/brands/matatastudio.png",
-                  vendor: "MatataStudio",
-                },
-                { name: "Makerzoid", logo: "/images/brands/makerzoid.png", vendor: "Makerzoid" },
-                {
-                  name: "BBC micro:bit",
-                  logo: "/images/brands/bbc-microbit.png",
-                  vendor: "micro:bit",
-                },
-                { name: "ELECFREAKS", logo: "/images/brands/elecfreaks.png", vendor: "ELECFREAKS" },
-                {
-                  name: "Snap Circuits",
-                  logo: "/images/brands/snap-circuits.png",
-                  vendor: "Snap Circuits",
-                },
-                { name: "Arduino", logo: "/images/brands/arduino.png", vendor: "Arduino" },
-                {
-                  name: "National Geographic",
-                  logo: "/images/brands/national-geographic.png",
-                  vendor: "National Geographic",
-                },
-                { name: "Blockaroo", logo: "/images/brands/blockaroo.png", vendor: "Blockaroo" },
-                { name: "NASA", logo: "/images/brands/nasa.png", vendor: "NASA" },
-                { name: "Robotico", logo: "/images/brands/robotico.png", vendor: "Robotico" },
-              ].map((brand) => {
-                const card = (
-                  <div className="relative bg-white rounded-xl p-6 flex flex-col items-center justify-center aspect-square shadow-sm">
-                    <Image
-                      src={brand.logo}
-                      alt={brand.name}
-                      width={160}
-                      height={160}
-                      className="object-contain w-full h-full max-w-[140px] max-h-[140px]"
-                    />
-                  </div>
-                );
-
-                if (brand.vendor) {
-                  return (
-                    <BrandLink key={brand.name} brand={brand.name} vendor={brand.vendor}>
-                      {card}
-                    </BrandLink>
-                  );
-                }
-
-                return <div key={brand.name}>{card}</div>;
-              })}
-            </div>
-          </div>
-        </section>
+      {/* Genuine builds with the kits we stock. Streamed behind Suspense: the
+          wall resolves a Shopify lookup per unique product handle, and without
+          a boundary those fetches would gate the whole page's first byte
+          (including the hero/LCP) on a cold data cache. */}
+      <TrackedSection name="CustomerPhotoWall" page="home">
+        <Suspense fallback={<CustomerPhotoWallSkeleton />}>
+          <CustomerPhotoWall />
+        </Suspense>
       </TrackedSection>
 
-      {/* Testimonials Section */}
+      {/* Differentiator - the team behind the store */}
+      <TrackedSection name="WhyCreatespace" page="home">
+        <WhyCreatespace />
+      </TrackedSection>
+
+      {/* Testimonials */}
       <TrackedSection name="Testimonials" page="home">
-        <section className="py-20 bg-white relative overflow-hidden">
-          {/* Decorative illustrations */}
-          <div className="hidden lg:block absolute right-12 top-16 w-28 h-28 opacity-15">
-            <Image
-              src="/images/illustrations/robot-blue.png"
-              alt=""
-              width={112}
-              height={112}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="hidden lg:block absolute left-8 bottom-24 w-20 h-20 opacity-15">
-            <Image
-              src="/images/illustrations/lightbulb.png"
-              alt=""
-              width={80}
-              height={80}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div className="text-center mb-12">
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                Testimonials
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                What Parents & Educators Say
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Hear from the families and schools who love what we do.
-              </p>
-            </div>
-
-            {/* Testimonials Row */}
-            <HomeTestimonials />
-          </div>
-        </section>
+        <HomeTestimonials />
       </TrackedSection>
 
-      {/* Why STEM Section */}
-      <TrackedSection name="WhyStem" page="home">
-        <section className="py-16 relative overflow-hidden">
-          {/* Decorative illustrations */}
-          <div className="hidden lg:block absolute -left-16 top-1/4 w-32 h-32 opacity-20">
-            <Image
-              src="/images/illustrations/robot-orange.png"
-              alt=""
-              width={128}
-              height={128}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-          <div className="hidden lg:block absolute -right-8 bottom-1/4 w-24 h-24 opacity-20">
-            <Image
-              src="/images/illustrations/atom.png"
-              alt=""
-              width={96}
-              height={96}
-              className="object-contain"
-              loading="lazy"
-            />
-          </div>
-
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            {/* Section Header */}
-            <div className="text-center mb-12">
-              <span className="text-cs-orange font-medium text-sm uppercase tracking-wider">
-                The Numbers Don&apos;t Lie
-              </span>
-              <h2 className="text-3xl md:text-4xl font-semibold text-navy mt-2 mb-4">
-                Why Early STEM Exposure Matters
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Kids who engage with STEM early are more likely to thrive in school and in their
-                careers. These numbers are worth knowing.
-              </p>
-            </div>
-
-            {/* Stat Cards */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-              {[
-                {
-                  number: "75%",
-                  label:
-                    "of the fastest-growing careers require STEM skills. Hands-on experience now builds confidence for later.",
-                  color: "text-cs-red",
-                  border: "border-cs-red/30",
-                },
-                {
-                  number: "3x",
-                  label: "faster job growth in STEM fields compared to other industries worldwide.",
-                  color: "text-cs-blue",
-                  border: "border-cs-blue/30",
-                },
-                {
-                  number: "2x",
-                  label:
-                    "higher earning potential for STEM graduates compared to non-STEM careers.",
-                  color: "text-cs-green",
-                  border: "border-cs-green/30",
-                },
-                {
-                  number: "80%",
-                  label:
-                    "of jobs in the next decade will require some form of tech or science literacy.",
-                  color: "text-cs-purple",
-                  border: "border-cs-purple/30",
-                },
-              ].map((stat) => (
-                <div
-                  key={stat.number}
-                  className={`bg-gray-50 rounded-xl p-5 md:p-6 text-center border-2 ${stat.border}`}
-                >
-                  <p className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-3 ${stat.color}`}>
-                    {stat.number}
-                  </p>
-                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+      {/* Official supplier strip */}
+      <TrackedSection name="BrandStrip" page="home">
+        <BrandStrip />
       </TrackedSection>
 
-      {/* Trust Badges */}
-      <TrackedSection name="TrustBadges" page="home">
-        <TrustBadges />
-      </TrackedSection>
-
-      {/* Education Section */}
+      {/* Education banner */}
       <TrackedSection name="Education" page="home">
-        <EducationSection />
+        <EducationBanner />
+      </TrackedSection>
+
+      {/* Final CTA */}
+      <TrackedSection name="FinalCta" page="home">
+        <FinalCta />
+      </TrackedSection>
+
+      {/* Newsletter signup, above the footer */}
+      <TrackedSection name="Newsletter" page="home">
+        <NewsletterBand />
       </TrackedSection>
     </>
   );

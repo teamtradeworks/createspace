@@ -4,10 +4,8 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
-import HeaderSkeleton from "@/components/HeaderSkeleton";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
-import { getProducts } from "@/lib/shopify";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
@@ -47,15 +45,6 @@ export const metadata: Metadata = {
   },
 };
 
-// Async component that fetches products for the header
-async function HeaderWithProducts() {
-  const menuProducts = await getProducts(250).catch((error) => {
-    console.error("Failed to fetch menu products:", error);
-    return [];
-  });
-  return <Header products={menuProducts} />;
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -70,25 +59,15 @@ export default function RootLayout({
             __html: `if(!window.fbq){window.fbq=function(){window.fbq.callMethod?window.fbq.callMethod.apply(window.fbq,arguments):window.fbq.queue.push(arguments)};window._fbq=window.fbq;window.fbq.push=window.fbq;window.fbq.loaded=!0;window.fbq.version='2.0';window.fbq.queue=[]}`,
           }}
         />
-        {/* Preload hero image for faster LCP */}
-        <link
-          rel="preload"
-          href="/images/home/hero-stem-education.jpg"
-          as="image"
-          type="image/jpeg"
-          fetchPriority="high"
-        />
       </head>
-      <body className="antialiased">
+      <body className="antialiased min-h-screen flex flex-col">
         {process.env.NEXT_PUBLIC_GTM_ID && (
           <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
         )}
         <OrganizationJsonLd />
         <CartProvider>
-          <Suspense fallback={<HeaderSkeleton />}>
-            <HeaderWithProducts />
-          </Suspense>
-          <main>{children}</main>
+          <Header />
+          <main className="flex-1">{children}</main>
           <Footer />
           <Suspense fallback={null}>
             <ScrollToTop />

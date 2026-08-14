@@ -7,6 +7,8 @@ import {
   getProductRating,
   getStockStatus,
   isDigitalProduct,
+  slimProductForCard,
+  type Product,
   type ProductDetail,
 } from "@/lib/shopify";
 
@@ -341,5 +343,85 @@ describe("isDigitalProduct", () => {
       variants: { edges: [] },
     });
     expect(isDigitalProduct(product)).toBe(false);
+  });
+});
+
+describe("slimProductForCard", () => {
+  const image = (n: number) => ({
+    node: { url: `https://cdn.shopify.com/img-${n}.jpg`, altText: null },
+  });
+
+  function makeCardProduct(): Product {
+    return {
+      id: "gid://shopify/Product/1",
+      title: "Test Kit",
+      handle: "test-kit",
+      description: "A long description that the cards never render.",
+      vendor: "Makerzoid",
+      tags: ["category:robotics", "category:coding"],
+      availableForSale: true,
+      updatedAt: "2026-01-01T00:00:00Z",
+      priceRange: { minVariantPrice: { amount: "100.00", currencyCode: "ZAR" } },
+      images: { edges: [image(1), image(2), image(3)] },
+      variants: {
+        edges: [
+          {
+            node: {
+              id: "gid://shopify/ProductVariant/1",
+              title: "Default",
+              sku: "SKU1",
+              availableForSale: true,
+              currentlyNotInStock: false,
+              price: { amount: "100.00", currencyCode: "ZAR" },
+            },
+          },
+          {
+            node: {
+              id: "gid://shopify/ProductVariant/2",
+              title: "Deluxe",
+              sku: "SKU2",
+              availableForSale: true,
+              currentlyNotInStock: true,
+              price: { amount: "150.00", currencyCode: "ZAR" },
+            },
+          },
+        ],
+      },
+      minAge: { value: "6" },
+      maxAge: { value: "12" },
+      rating: null,
+      ratingCount: null,
+    };
+  }
+
+  it("strips the description and keeps only the two card images", () => {
+    const slim = slimProductForCard(makeCardProduct());
+    expect(slim.description).toBe("");
+    expect(slim.images.edges).toHaveLength(2);
+    expect(slim.images.edges[0].node.url).toContain("img-1");
+    expect(slim.images.edges[1].node.url).toContain("img-2");
+  });
+
+  it("drops tags by default but keeps them for filter grids", () => {
+    expect(slimProductForCard(makeCardProduct()).tags).toEqual([]);
+    expect(slimProductForCard(makeCardProduct(), { keepTags: true }).tags).toEqual([
+      "category:robotics",
+      "category:coding",
+    ]);
+  });
+
+  it("leaves every variant intact so stock status stays correct", () => {
+    const slim = slimProductForCard(makeCardProduct());
+    expect(slim.variants.edges).toHaveLength(2);
+    // Mixed availability must still resolve to in-stock, exactly as before.
+    expect(getStockStatus(slim)).toBe("in-stock");
+  });
+
+  it("keeps the fields the card renders", () => {
+    const slim = slimProductForCard(makeCardProduct());
+    expect(slim.title).toBe("Test Kit");
+    expect(slim.vendor).toBe("Makerzoid");
+    expect(slim.minAge?.value).toBe("6");
+    expect(slim.priceRange.minVariantPrice.amount).toBe("100.00");
   });
 });

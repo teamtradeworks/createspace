@@ -30,6 +30,20 @@ export default function QuickAddButton({
   const [added, setAdded] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
+  // Sold-out kits get a disabled label instead of a working add control. This
+  // is a plain span (not a button) so a tap still bubbles to the card link and
+  // opens the product page. Lead-time products stay purchasable (available).
+  if (available === false) {
+    return (
+      <span
+        aria-label="Sold out"
+        className="inline-flex items-center justify-center rounded-lg bg-gray-100 text-gray-400 text-[11px] font-medium px-2.5 py-2.5 sm:px-4 sm:py-3 sm:text-xs whitespace-nowrap cursor-not-allowed select-none"
+      >
+        Sold out
+      </span>
+    );
+  }
+
   return (
     <button
       onClick={(e) => {

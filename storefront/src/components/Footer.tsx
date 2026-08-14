@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { capture } from "@/lib/analytics";
+import BrandDecor from "@/components/BrandDecor";
 
 const footerLinks = {
   shop: [
@@ -34,7 +35,28 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="relative overflow-hidden isolate bg-navy text-white">
+      {/* Subtle brand illustrations dotted through the footer at low opacity */}
+      <BrandDecor
+        src="/images/illustrations/nut.svg"
+        className="left-[6%] top-1/3 w-24 -rotate-12 opacity-[0.06]"
+      />
+      <BrandDecor
+        src="/images/illustrations/atom-1.svg"
+        className="bottom-16 left-[22%] w-16 opacity-[0.06]"
+      />
+      <BrandDecor
+        src="/images/illustrations/beaker.svg"
+        className="bottom-10 left-1/2 w-16 rotate-6 opacity-[0.06]"
+      />
+      <BrandDecor
+        src="/images/illustrations/chip-1.svg"
+        className="left-[52%] top-12 w-20 rotate-3 opacity-[0.05]"
+      />
+      <BrandDecor
+        src="/images/illustrations/planet-2.svg"
+        className="right-[7%] top-1/2 w-14 opacity-[0.06]"
+      />
       {/* Main footer content */}
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <Image
@@ -98,6 +120,13 @@ export default function Footer() {
               <p>Tradeworks Online (Pty) Ltd</p>
               <p>Reg No.: 2021/432299/07</p>
               <p>VAT No.: 4450302973</p>
+              <p>Cape Town, South Africa</p>
+              <a
+                href="mailto:info@thecreatespace.co.za"
+                className="text-white/70 hover:text-cs-orange transition-colors"
+              >
+                info@thecreatespace.co.za
+              </a>
             </div>
           </div>
 

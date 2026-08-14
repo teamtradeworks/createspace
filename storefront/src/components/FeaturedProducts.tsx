@@ -1,201 +1,254 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { capture } from "@/lib/analytics";
 import { Product } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
-
-type AgeGroup = {
-  id: string;
-  label: string;
-  range: string;
-};
-
-const ageGroups: AgeGroup[] = [
-  { id: "all", label: "All Ages", range: "All" },
-  { id: "3-5", label: "Early Explorers", range: "3-5" },
-  { id: "6-8", label: "Junior Innovators", range: "6-8" },
-  { id: "9-12", label: "Budding Engineers", range: "9-12" },
-  { id: "13+", label: "Advanced Creators", range: "13+" },
-];
+import BrandDecor from "@/components/BrandDecor";
+import { BRANDS } from "@/config/brands";
 
 type FeaturedProductsProps = {
-  productsByAge: Record<string, Product[]>;
+  products: Product[];
+  featuredProducts: Product[];
 };
 
-export default function FeaturedProducts({ productsByAge }: FeaturedProductsProps) {
-  const [activeTab, setActiveTab] = useState(ageGroups[0].id);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const products = productsByAge[activeTab] || [];
-  const totalProducts = products.length;
-  const visibleProducts = products.slice(currentIndex, currentIndex + 3);
+// How many kits the row shows before a brand is picked — a "most loved" teaser.
+// Selecting a brand then reveals that brand's full in-stock lineup.
+const DEFAULT_VISIBLE = 18;
 
-  // Pad with empty slots if less than 3 products
-  while (visibleProducts.length < 3 && products.length > 0) {
-    visibleProducts.push(products[visibleProducts.length % products.length]);
-  }
+export default function FeaturedProducts({ products, featuredProducts }: FeaturedProductsProps) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeBrand, setActiveBrand] = useState<string | null>(null);
 
-  const canGoNext = currentIndex + 3 < totalProducts;
-  const canGoPrev = currentIndex > 0;
+  // Offer a toggle for every brand present in the set, in canonical order, so
+  // the filter lists all the brands we stock — even low-volume ones.
+  const featuredBrands = useMemo(
+    () =>
+      BRANDS.filter((brand) =>
+        products.some((p) => p.vendor?.toLowerCase() === brand.vendor.toLowerCase()),
+      ),
+    [products],
+  );
 
-  const handleNext = () => {
-    if (canGoNext) {
-      setCurrentIndex((prev) => prev + 1);
-    }
-  };
+  if (products.length === 0) return null;
 
-  const handlePrev = () => {
-    if (canGoPrev) {
-      setCurrentIndex((prev) => prev - 1);
-    }
-  };
+  const activeBrandObj = activeBrand
+    ? (featuredBrands.find((b) => b.key === activeBrand) ?? null)
+    : null;
+  // No brand selected: show the curated featured collection in Shopify order.
+  // Brand selected: show that brand's full lineup from the all-products set.
+  const shown = activeBrandObj
+    ? products.filter((p) => p.vendor?.toLowerCase() === activeBrandObj.vendor.toLowerCase())
+    : featuredProducts.slice(0, DEFAULT_VISIBLE);
 
-  const handleTabChange = (tabId: string) => {
-    const group = ageGroups.find((g) => g.id === tabId);
-    capture("featured_products_filter_clicked", {
-      age_group: tabId,
-      label: group?.label,
+  const selectBrand = (brand: (typeof BRANDS)[number]) => {
+    setActiveBrand((prev) => {
+      const next = prev === brand.key ? null : brand.key;
+      capture("home_page_featured_filter_clicked", { brand: brand.name, selected: next !== null });
+      return next;
     });
-    setActiveTab(tabId);
-    setCurrentIndex(0);
+    scrollRef.current?.scrollTo({ left: 0 });
+  };
+
+  const scrollByPage = (direction: 1 | -1) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    capture("home_page_featured_carousel_scrolled", {
+      direction: direction > 0 ? "next" : "prev",
+    });
+    el.scrollBy({ left: direction * el.clientWidth * 0.8, behavior: "smooth" });
   };
 
   return (
-    <section className="py-16 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-semibold text-navy mb-3">Featured Products</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Discover our most popular STEM kits, organised by age group
+    <section className="relative overflow-hidden py-16 md:py-20 bg-white">
+      <BrandDecor
+        src="/images/illustrations/planet-1.svg"
+        className="right-0 top-10 w-32 rotate-3 opacity-[0.06] lg:w-44"
+      />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section header */}
+        <div className="mb-6 max-w-xl">
+          <h2 className="text-3xl md:text-4xl font-semibold text-navy mb-3">Shop our kits</h2>
+          <p className="text-gray-600">
+            Filter by brand, or{" "}
+            <Link
+              href="/shop"
+              onClick={() =>
+                capture("home_page_shop_link_clicked", { source: "featured_subtitle" })
+              }
+              className="font-medium text-navy underline underline-offset-2 transition-colors hover:text-cs-orange"
+            >
+              browse the lot
+            </Link>
+            .
           </p>
         </div>
 
-        {/* Age Group Tabs */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex bg-gray-100 rounded-full p-1">
-            {ageGroups.map((group) => (
-              <button
-                key={group.id}
-                onClick={() => handleTabChange(group.id)}
-                className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  activeTab === group.id
-                    ? "bg-navy text-white shadow-md"
-                    : "text-gray-600 hover:text-navy"
-                }`}
-              >
-                {group.id === "all" ? "All ages" : `${group.range} yrs`}
-              </button>
-            ))}
+        {/* Mobile: inline "Choose a brand!" cue (desktop uses the floating cue
+            above the Nat Geo chip, which would overlap the wrapped rows here) */}
+        {featuredBrands.length > 1 && (
+          <div className="mb-4 flex items-center gap-1.5 text-cs-purple lg:hidden">
+            <span className="-rotate-2 text-base font-bold">Choose a brand!</span>
+            <svg
+              aria-hidden="true"
+              viewBox="0 0 48 44"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={3.5}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="h-7 w-7 flex-none"
+            >
+              <path d="M6 6 C 26 4, 40 14, 30 34" />
+              <path d="M20 28 L 30 37 L 40 27" />
+            </svg>
           </div>
-        </div>
+        )}
 
-        {/* Products Carousel */}
-        <div className="relative">
-          {/* Desktop-only Navigation Arrows */}
-          {canGoPrev && (
-            <button
-              onClick={handlePrev}
-              className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
-              aria-label="Previous products"
+        {/* Brand filter + carousel scroll controls share one row */}
+        {featuredBrands.length > 1 && (
+          <div className="mb-8 flex items-center justify-between gap-4">
+            <div
+              className="flex flex-wrap items-center gap-2 md:gap-3"
+              role="group"
+              aria-label="Filter by brand"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-          )}
-
-          {canGoNext && (
-            <button
-              onClick={handleNext}
-              className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-navy hover:bg-gray-50 transition-colors"
-              aria-label="Next products"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          )}
-
-          {/* Products */}
-          {products.length > 0 ? (
-            <>
-              {/* Mobile: horizontal scroll showing all products */}
-              <div className="md:hidden -mx-4 sm:-mx-6">
-                <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 sm:px-6 pb-4 scrollbar-none">
-                  {products.map((product, index) => (
-                    <div
-                      key={`${product.id}-${index}-mobile`}
-                      className="flex-none w-[72vw] snap-start"
+              {featuredBrands.map((brand) => {
+                const active = activeBrand === brand.key;
+                return (
+                  <div key={brand.key} className="relative">
+                    {/* Floating cue pinned above the Nat Geo chip — absolute, so it
+                      tracks the chip and takes no layout space (desktop only) */}
+                    {brand.key === "national-geographic" && (
+                      <div className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-6 hidden -translate-x-1/2 items-end gap-1.5 text-cs-purple lg:flex">
+                        <span className="-rotate-2 whitespace-nowrap text-base font-bold md:text-lg">
+                          Choose a brand!
+                        </span>
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 48 44"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={3.5}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="h-8 w-8 flex-none md:h-9 md:w-9"
+                        >
+                          <path d="M6 6 C 26 4, 40 14, 30 34" />
+                          <path d="M20 28 L 30 37 L 40 27" />
+                        </svg>
+                      </div>
+                    )}
+                    <button
+                      type="button"
+                      aria-pressed={active}
+                      aria-label={`Filter by ${brand.name}`}
+                      title={brand.name}
+                      onClick={() => selectBrand(brand)}
+                      className={`flex items-center justify-center rounded-xl border bg-white px-3 py-2 transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy ${
+                        active
+                          ? "border-cs-orange shadow-sm"
+                          : "border-gray-200 grayscale opacity-50 hover:opacity-80 hover:grayscale-0"
+                      }`}
                     >
-                      <ProductCard product={product} />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Desktop: 3-col grid */}
-              <div className="hidden md:grid grid-cols-3 gap-6">
-                {visibleProducts.map((product, index) => (
-                  <ProductCard key={`${product.id}-${index}`} product={product} />
-                ))}
-              </div>
-            </>
-          ) : (
-            <div className="text-center py-16 bg-gray-50 rounded-2xl">
-              <p className="text-gray-500">No products found for this age group yet.</p>
+                      <Image
+                        src={brand.logo}
+                        alt=""
+                        width={120}
+                        height={48}
+                        className="h-7 w-auto max-w-[96px] object-contain md:h-8"
+                      />
+                    </button>
+                  </div>
+                );
+              })}
             </div>
-          )}
-
-          {/* Desktop-only Progress Indicator */}
-          {totalProducts > 3 && (
-            <div className="hidden md:flex justify-center mt-8 gap-2">
-              {Array.from({ length: Math.ceil(totalProducts / 3) }).map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx * 3)}
-                  className="relative flex items-center justify-center w-11 h-11"
-                  aria-label={`Go to page ${idx + 1}`}
+            {/* Scroll controls, same row as the brand toggles */}
+            <div className="hidden flex-shrink-0 gap-2 md:flex">
+              <button
+                type="button"
+                onClick={() => scrollByPage(-1)}
+                aria-label="Scroll left"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
+              >
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
                 >
-                  <span
-                    className={`block h-1.5 rounded-full transition-all ${
-                      Math.floor(currentIndex / 3) === idx ? "w-8 bg-navy" : "w-4 bg-gray-300"
-                    }`}
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M15 19l-7-7 7-7"
                   />
-                </button>
-              ))}
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollByPage(1)}
+                aria-label="Scroll right"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-gray-200 text-navy transition-all hover:border-navy/40 active:scale-95"
+              >
+                <svg
+                  className="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
             </div>
-          )}
+          </div>
+        )}
+
+        {/* Scrollable product row (all breakpoints) */}
+        <div
+          ref={scrollRef}
+          className="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth px-4 pb-4 scrollbar-none sm:-mx-6 sm:gap-6 sm:px-6 lg:-mx-8 lg:px-8"
+        >
+          {shown.map((product) => (
+            <div
+              key={product.id}
+              className="w-[72vw] flex-none snap-start sm:w-[46%] md:w-[31%] lg:w-[23%]"
+            >
+              <ProductCard product={product} source="home_featured" />
+            </div>
+          ))}
         </div>
 
-        {/* View All Link */}
+        {/* View-all: brand-specific when filtered, otherwise the whole shop */}
         <div className="text-center mt-10">
           <Link
-            href={activeTab === "all" ? "/shop" : `/shop?age=${activeTab}`}
-            onClick={() => {
-              const group = ageGroups.find((g) => g.id === activeTab);
-              capture("featured_products_view_all_clicked", {
-                age_group: activeTab,
-                label: group?.label,
-              });
-            }}
+            href={
+              activeBrandObj ? `/shop?brand=${encodeURIComponent(activeBrandObj.vendor)}` : "/shop"
+            }
+            onClick={() =>
+              activeBrandObj
+                ? capture("home_page_featured_brand_shop_clicked", { brand: activeBrandObj.name })
+                : capture("featured_products_view_all_clicked")
+            }
             className="inline-flex items-center text-navy hover:text-cs-orange font-medium transition-colors"
           >
-            {activeTab === "all"
-              ? "View all products"
-              : `View products for ages ${ageGroups.find((g) => g.id === activeTab)?.range}`}
-            <svg className="w-5 h-5 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {activeBrandObj ? `View all ${activeBrandObj.name} products` : "View all products"}
+            <svg
+              className="w-5 h-5 ml-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

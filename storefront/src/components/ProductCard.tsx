@@ -19,6 +19,12 @@ type ProductCardProps = {
   searchQuery?: string;
   searchPosition?: number;
   priority?: boolean;
+  // When set, the card fades/staggers in on mount (used by the shop grid).
+  // Omitted elsewhere so those grids render statically.
+  index?: number;
+  // Which surface hosts the card (e.g. "home_featured", "shop_grid") — carried
+  // on product_clicked so per-surface click-through is queryable directly.
+  source?: string;
 };
 
 export default function ProductCard({
@@ -26,7 +32,14 @@ export default function ProductCard({
   searchQuery,
   searchPosition,
   priority = false,
+  index,
+  source,
 }: ProductCardProps) {
+  // Entry fade for grid cards — but never on priority (above-the-fold) cards:
+  // their image is preloaded for LCP, and starting it at opacity 0 would hold
+  // the largest paint hostage to the animation.
+  const animateIn = index !== undefined && !priority;
+
   const ageRange = formatAgeRange(product.minAge, product.maxAge);
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
@@ -51,6 +64,7 @@ export default function ProductCard({
           product_title: product.title,
           price: parseFloat(price.amount),
           currency_code: price.currencyCode,
+          ...(source ? { source } : {}),
         });
         if (searchQuery) {
           capture("search_result_clicked", {
@@ -61,7 +75,10 @@ export default function ProductCard({
           });
         }
       }}
-      className="group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg transition-shadow flex flex-col"
+      style={animateIn ? ({ "--card-index": index } as React.CSSProperties) : undefined}
+      className={`group bg-white rounded-xl sm:rounded-2xl border-2 border-gray-100 overflow-hidden hover:shadow-lg hover:shadow-navy/5 transition-shadow flex flex-col active:translate-y-px ${
+        animateIn ? "card-in" : ""
+      }`}
     >
       <div className="bg-gray-50 aspect-square relative overflow-hidden">
         {product.images.edges[0] ? (

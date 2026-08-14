@@ -13,8 +13,8 @@ import {
   calculateDeliveryCost,
   amountToFreeDelivery,
 } from "@/config/delivery";
-import TrustBadges from "@/components/TrustBadges";
 import siteConfig from "@/config/site.json";
+import { PROMISES } from "@/config/promises";
 
 export default function CartPage() {
   const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } =
@@ -31,8 +31,7 @@ export default function CartPage() {
   const viewCartFired = useRef(false);
 
   const giveaway = siteConfig.giveaway?.inspireAfricaCourse;
-  const showCourseGiveaway =
-    giveaway?.enabled && subtotal >= (giveaway?.threshold ?? Infinity);
+  const showCourseGiveaway = giveaway?.enabled && subtotal >= (giveaway?.threshold ?? Infinity);
 
   // Reset the checkout button if the user returns via the browser's bfcache
   // (e.g. clicking back from Shopify checkout) — otherwise it stays stuck on
@@ -551,8 +550,8 @@ export default function CartPage() {
                         Educator Giveaway — Limited Spots
                       </p>
                       <p className="text-sm text-gray-700 mb-3">
-                        Are you a teacher or school educator? Claim your free online teaching
-                        course <em>How to get started: Coding &amp; Robotics</em> with your order.
+                        Are you a teacher or school educator? Claim your free online teaching course{" "}
+                        <em>How to get started: Coding &amp; Robotics</em> with your order.
                       </p>
                       <label className="flex items-start gap-3 cursor-pointer">
                         <input
@@ -621,41 +620,67 @@ export default function CartPage() {
                     Continue Shopping
                   </Link>
 
-                  {/* Trust Badges */}
+                  {/* Trust promises + security reassurance */}
                   <div className="mt-6 pt-6 border-t border-gray-200">
-                    <div className="flex items-center gap-2 text-sm">
-                      <svg
-                        className="w-5 h-5 text-cs-green flex-shrink-0"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
-                        />
-                      </svg>
-                      <span>
-                        <span className="font-medium text-navy">Secure Checkout</span>
-                        <span className="text-gray-500">
-                          {" "}
-                          &middot; Protected by Stitch Payments
+                    <ul className="space-y-2.5">
+                      {PROMISES.map((promise) => (
+                        <li key={promise} className="flex items-center gap-2 text-sm text-gray-600">
+                          <svg
+                            className="w-5 h-5 text-cs-green flex-shrink-0"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={1.5}
+                              d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                            />
+                          </svg>
+                          <span>{promise}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-4 pt-4 border-t border-gray-200">
+                      <div className="flex items-center gap-2 text-sm">
+                        <svg
+                          className="w-5 h-5 text-cs-green flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.5}
+                            d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                          />
+                        </svg>
+                        <span>
+                          <span className="font-medium text-navy">Secure Checkout</span>
+                          <span className="text-gray-500">
+                            {" "}
+                            &middot; Protected by Stitch Payments
+                          </span>
                         </span>
-                      </span>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 mt-3 ml-7">
-                      {["Mastercard", "Visa", "Apple Pay", "Capitec Pay", "Buy Now Pay Later"].map(
-                        (method) => (
+                      </div>
+                      <div className="flex flex-wrap gap-1.5 mt-3 ml-7">
+                        {[
+                          "Mastercard",
+                          "Visa",
+                          "Apple Pay",
+                          "Capitec Pay",
+                          "Buy Now Pay Later",
+                        ].map((method) => (
                           <span
                             key={method}
                             className="text-xs bg-gray-100 text-gray-500 px-2 py-0.5 rounded"
                           >
                             {method}
                           </span>
-                        ),
-                      )}
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -664,9 +689,6 @@ export default function CartPage() {
           )}
         </div>
       </section>
-
-      {/* Trust Badges Section */}
-      <TrustBadges />
     </>
   );
 }

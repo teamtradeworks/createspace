@@ -2,46 +2,21 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useRef, useSyncExternalStore } from "react";
-import { Product } from "@/lib/shopify";
+import { useState, useRef, useEffect, useSyncExternalStore } from "react";
 import { useCart } from "@/context/CartContext";
-import { DELIVERY_CONFIG } from "@/config/delivery";
+import { PROMISES } from "@/config/promises";
+import BrandDecor from "@/components/BrandDecor";
+import { CATEGORIES } from "@/config/categories";
+import { BRANDS } from "@/config/brands";
+import { capture } from "@/lib/analytics";
 import SearchOverlay from "@/components/SearchOverlay";
 
-// Age group configuration with hardcoded product handles
-const ageGroups = [
-  {
-    id: "3-5",
-    label: "Age 3-5",
-    href: "/shop?age=3-5",
-    handles: ["matatastudio-tale-bot-pro", "blockaroo-magnetic-foam-builders-castle", "snap-circuits-beginner"],
-  },
-  {
-    id: "6-8",
-    label: "Age 6-8",
-    href: "/shop?age=6-8",
-    handles: [
-      "national-geographic-motorized-marble-run",
-      "elecfreaks-micro-bit-6-in-1-ring-bit-kit",
-      "makerzoid-robot-master-premium",
-    ],
-  },
-  {
-    id: "9-12",
-    label: "Age 9-12",
-    href: "/shop?age=9-12",
-    handles: [
-      "matatastudio-vincibot-coding-robot-set",
-      "bbc-micro-bit-go",
-      "elecfreaks-micro-bit-smart-cutebot-pro",
-    ],
-  },
-  {
-    id: "13+",
-    label: "Age 13+",
-    href: "/shop?age=13%2B",
-    handles: ["ultimate-mega-2560-starter-kit", "arduino-starter-kit", "matatastudio-nous-ai-set"],
-  },
+// Shop dropdown routes by our three axes: age, category, and brand.
+const ageLinks = [
+  { id: "3-5", label: "Age 3-5", sub: "Early explorers", href: "/shop?age=3-5" },
+  { id: "6-8", label: "Age 6-8", sub: "Junior innovators", href: "/shop?age=6-8" },
+  { id: "9-12", label: "Age 9-12", sub: "Budding engineers", href: "/shop?age=9-12" },
+  { id: "13+", label: "Age 13+", sub: "Advanced creators", href: "/shop?age=13%2B" },
 ];
 
 // Education options configuration
@@ -121,11 +96,7 @@ const navigation = [
   { name: "Contact", href: "/contact", dropdown: null },
 ];
 
-interface HeaderProps {
-  products?: Product[];
-}
-
-export default function Header({ products = [] }: HeaderProps) {
+export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileEducationOpen, setMobileEducationOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -138,7 +109,34 @@ export default function Header({ products = [] }: HeaderProps) {
     () => false,
   );
 
+  // The top bar shows all promises in a row on desktop; on mobile it rotates
+  // through them one at a time (paused for reduced-motion users, who see the
+  // first / free-delivery promise statically).
+  const [promoIndex, setPromoIndex] = useState(0);
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = setInterval(() => {
+      setPromoIndex((prev) => (prev + 1) % PROMISES.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
   const closeDropdown = () => setActiveDropdown(null);
+
+  const trackShopNav = (axis: "age" | "category" | "brand" | "all", value: string) => {
+    capture("nav_shop_link_clicked", { axis, value });
+    closeDropdown();
+  };
+
+  const trackEducationNav = (value: string) => {
+    capture("nav_education_link_clicked", { value });
+    closeDropdown();
+  };
+
+  const trackMobileNav = (value: string) => {
+    capture("nav_mobile_link_clicked", { value });
+    setMobileMenuOpen(false);
+  };
 
   const handleMenuEnter = (dropdown: string) => {
     if (closeTimeoutRef.current) {
@@ -156,22 +154,39 @@ export default function Header({ products = [] }: HeaderProps) {
 
   return (
     <header className="bg-navy sticky top-0 z-50">
-      {/* Promo banner */}
-      <div className="bg-cs-orange text-white text-center py-2 text-sm font-medium">
-        <span className="inline-flex items-center gap-1.5">
-          <Image
-            src="/images/brand/flag-za.svg"
-            alt="South African flag"
-            width={18}
-            height={12}
-            className="rounded-sm"
-          />
-          Free delivery on orders over R{DELIVERY_CONFIG.freeDeliveryThreshold.toLocaleString()}
-        </span>
+      {/* Promo bar: trust promises. Row on desktop, rotating below lg. */}
+      <div className="bg-cs-orange text-white text-sm font-medium">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-2">
+          {/* Desktop: all promises in a row */}
+          <ul className="hidden lg:flex items-center justify-center gap-x-10">
+            {PROMISES.map((promise) => (
+              <li key={promise} className="inline-flex items-center gap-2 whitespace-nowrap">
+                <PromiseIcon promise={promise} />
+                {promise}
+              </li>
+            ))}
+          </ul>
+          {/* Mobile / tablet: one rotating promise. Deliberately NOT aria-live:
+              announcing ambient marketing copy every few seconds would spam
+              screen readers for the life of the page. */}
+          <div className="lg:hidden flex items-center justify-center gap-2 whitespace-nowrap">
+            <PromiseIcon promise={PROMISES[promoIndex]} />
+            {PROMISES[promoIndex]}
+          </div>
+        </div>
       </div>
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="relative flex h-16 items-center justify-between">
+          {/* Subtle brand marks behind the nav (desktop only, very low opacity) */}
+          <BrandDecor
+            src="/images/illustrations/atom-1.svg"
+            className="left-[38%] top-1/2 w-8 -translate-y-1/2 opacity-[0.07]"
+          />
+          <BrandDecor
+            src="/images/illustrations/nut.svg"
+            className="right-[16%] top-1/2 w-8 -translate-y-1/2 -rotate-12 opacity-[0.07]"
+          />
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -307,7 +322,7 @@ export default function Header({ products = [] }: HeaderProps) {
                       <Link
                         href={item.href}
                         className="py-2 text-white hover:text-cs-orange transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={() => trackMobileNav(item.name)}
                       >
                         {item.name}
                       </Link>
@@ -338,7 +353,7 @@ export default function Header({ products = [] }: HeaderProps) {
                             key={option.id}
                             href={option.href}
                             className="block py-1 text-white/80 hover:text-cs-orange transition-colors text-sm"
-                            onClick={() => setMobileMenuOpen(false)}
+                            onClick={() => trackMobileNav(option.id)}
                           >
                             {option.title}
                           </Link>
@@ -346,7 +361,7 @@ export default function Header({ products = [] }: HeaderProps) {
                         <Link
                           href="/education"
                           className="block py-1 text-cs-orange hover:text-cs-orange/80 transition-colors text-sm font-medium"
-                          onClick={() => setMobileMenuOpen(false)}
+                          onClick={() => trackMobileNav("education-all")}
                         >
                           View All
                         </Link>
@@ -357,7 +372,7 @@ export default function Header({ products = [] }: HeaderProps) {
                   <Link
                     href={item.href}
                     className="block py-2 text-white hover:text-cs-orange transition-colors"
-                    onClick={() => setMobileMenuOpen(false)}
+                    onClick={() => trackMobileNav(item.name)}
                   >
                     {item.name}
                   </Link>
@@ -370,7 +385,7 @@ export default function Header({ products = [] }: HeaderProps) {
 
       {/* Shop Mega Menu Dropdown */}
       <div
-        className={`absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "shop"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -380,107 +395,110 @@ export default function Header({ products = [] }: HeaderProps) {
       >
         <div className="bg-white shadow-xl">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid grid-cols-4 gap-8">
-              {ageGroups.map((group) => {
-                // Look up hardcoded products by handle, preserving order
-                const groupProducts = group.handles
-                  .map((handle) => products.find((p) => p.handle === handle))
-                  .filter(Boolean) as Product[];
-
-                return (
-                  <div key={group.id}>
-                    {/* Column Header */}
-                    <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-100">
-                      <span className="font-semibold text-navy">{group.label}</span>
+            <div className="grid grid-cols-3 gap-8">
+              {/* By age */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 pb-2 border-b border-gray-100">
+                  Shop by age
+                </p>
+                <ul className="space-y-3">
+                  {ageLinks.map((age) => (
+                    <li key={age.id}>
                       <Link
-                        href={group.href}
-                        className="text-sm text-gray-500 hover:text-cs-orange transition-colors flex items-center"
-                        onClick={closeDropdown}
+                        href={age.href}
+                        onClick={() => trackShopNav("age", age.id)}
+                        className="group/link flex items-baseline gap-2"
                       >
-                        Shop All
-                        <svg
-                          className="w-3 h-3 ml-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
+                        <span className="font-semibold text-navy group-hover/link:text-cs-orange transition-colors">
+                          {age.label}
+                        </span>
+                        <span className="text-sm text-gray-500">{age.sub}</span>
                       </Link>
-                    </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-                    {/* Products List */}
-                    <ul className="space-y-3">
-                      {groupProducts.map((product) => (
-                        <li key={product.id}>
-                          <Link
-                            href={`/product/${product.handle}`}
-                            className="flex items-center gap-3 group/item"
-                            onClick={closeDropdown}
-                          >
-                            {/* Product Thumbnail */}
-                            <div className="w-10 h-10 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
-                              {product.images.edges[0]?.node.url && (
-                                <Image
-                                  src={product.images.edges[0].node.url}
-                                  alt={product.images.edges[0].node.altText || product.title}
-                                  width={40}
-                                  height={40}
-                                  className="w-full h-full object-cover"
-                                />
-                              )}
-                            </div>
-                            <span className="text-sm text-gray-700 group-hover/item:text-cs-orange transition-colors line-clamp-2">
-                              {product.title}
-                            </span>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
+              {/* By category */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 pb-2 border-b border-gray-100">
+                  Shop by category
+                </p>
+                <ul className="space-y-3">
+                  {CATEGORIES.map((category) => (
+                    <li key={category.id}>
+                      <Link
+                        href={`/shop?category=${category.id}`}
+                        onClick={() => trackShopNav("category", category.id)}
+                        className="flex items-center gap-2.5 text-gray-700 hover:text-cs-orange transition-colors"
+                      >
+                        <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full bg-gray-50">
+                          <Image
+                            src={category.illustration}
+                            alt=""
+                            width={32}
+                            height={32}
+                            unoptimized
+                            className="h-8 w-8 object-contain"
+                          />
+                        </span>
+                        <span className="text-sm">{category.label}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* By brand */}
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4 pb-2 border-b border-gray-100">
+                  Shop by brand
+                </p>
+                <ul className="grid grid-cols-2 gap-2">
+                  {BRANDS.map((brand) => (
+                    <li key={brand.key}>
+                      <Link
+                        href={`/shop?brand=${encodeURIComponent(brand.vendor)}`}
+                        onClick={() => trackShopNav("brand", brand.key)}
+                        className="flex items-center justify-center rounded-lg py-2.5 opacity-80 hover:bg-gray-50 hover:opacity-100 transition-all"
+                      >
+                        <Image
+                          src={brand.logo}
+                          alt={brand.name}
+                          width={120}
+                          height={36}
+                          className="h-6 w-auto max-w-[104px] object-contain"
+                        />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
 
-            {/* Bottom Banner */}
+            {/* Browse all */}
             <div className="mt-8 pt-6 border-t border-gray-100">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-cs-orange/10 rounded-full flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-cs-orange"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={1.5}
-                        d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="font-medium text-navy">Need help choosing?</p>
-                    <p className="text-sm text-gray-500">
-                      Our team can recommend the perfect kit for any age or skill level.
-                    </p>
-                  </div>
-                </div>
-                <Link
-                  href="/contact"
-                  className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
-                  onClick={closeDropdown}
+              <Link
+                href="/shop"
+                onClick={() => trackShopNav("all", "all")}
+                className="inline-flex items-center font-semibold text-navy hover:text-cs-orange transition-colors"
+              >
+                Browse all products
+                <svg
+                  className="w-4 h-4 ml-1.5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
                 >
-                  Get Advice
-                </Link>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
@@ -491,7 +509,7 @@ export default function Header({ products = [] }: HeaderProps) {
 
       {/* Education Dropdown */}
       <div
-        className={`absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "education"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -507,7 +525,7 @@ export default function Header({ products = [] }: HeaderProps) {
                   key={option.id}
                   href={option.href}
                   className="group flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-colors"
-                  onClick={closeDropdown}
+                  onClick={() => trackEducationNav(option.id)}
                 >
                   <div className="w-12 h-12 bg-cs-orange/10 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-cs-orange/20 transition-colors">
                     <div className="text-cs-orange">{option.icon}</div>
@@ -534,7 +552,7 @@ export default function Header({ products = [] }: HeaderProps) {
                 <Link
                   href="/education"
                   className="px-5 py-2.5 bg-navy hover:bg-navy/90 text-white text-sm font-medium rounded-lg transition-colors"
-                  onClick={closeDropdown}
+                  onClick={() => trackEducationNav("all")}
                 >
                   View All Options
                 </Link>
@@ -544,5 +562,30 @@ export default function Header({ products = [] }: HeaderProps) {
         </div>
       </div>
     </header>
+  );
+}
+
+// Small white check badge shown before each top-bar promise.
+function PromiseIcon({ promise }: { promise: string }) {
+  // Relevant white icon per promise, matched by keyword so it stays correct if
+  // the promises are reordered. Same 16px (w-4 h-4) footprint as before.
+  const d = /return/i.test(promise)
+    ? "M3 10h10a8 8 0 0 1 8 8v2M3 10l6 6m-6-6l6-6"
+    : /fast/i.test(promise)
+      ? "M13 10V3L4 14h7v7l9-11h-7z"
+      : "M13 16V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1m8-1a1 1 0 0 1-1 1H9m4-1V8a1 1 0 0 1 1-1h2.586a1 1 0 0 1 .707.293l3.414 3.414a1 1 0 0 1 .293.707V16a1 1 0 0 1-1 1h-1m-6-1a1 1 0 0 0 1 1h1M5 17a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0m6 0a2 2 0 1 0 4 0m-4 0a2 2 0 1 1 4 0";
+  return (
+    <svg
+      className="w-4 h-4 flex-shrink-0"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d={d} />
+    </svg>
   );
 }
