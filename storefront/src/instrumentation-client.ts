@@ -12,10 +12,10 @@ if (process.env.NODE_ENV === "production" && !process.env.NEXT_PUBLIC_IS_CI) {
     // Add optional integrations for additional features
     integrations: [Sentry.replayIntegration()],
 
-    // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-    tracesSampleRate: 1,
-    // Enable logs to be sent to Sentry
-    enableLogs: true,
+    // Sample traces at 10%. Tracing every session exhausted the Sentry ingest
+    // quota: the /monitoring tunnel returned 429s, which both drops the data
+    // and logs a console error on every page load.
+    tracesSampleRate: 0.1,
 
     // Define how likely Replay events are sampled.
     // This sets the sample rate to be 10%. You may want this to be 100% while
