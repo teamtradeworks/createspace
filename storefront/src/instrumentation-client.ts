@@ -70,7 +70,8 @@ if (isTopFrame()) {
     defaults: "2026-01-30",
     person_profiles: "always",
     capture_pageview: false, // We handle pageviews manually via PostHogPageview for SPA navigation
-    capture_exceptions: true,
+    capture_exceptions: false, // Sentry is our error tracker (see Sentry.init above) — avoids duplicate capture + loading exception-autocapture.js
+    disable_surveys: true, // No surveys in use — prevents loading surveys.js (~33 KiB)
     session_recording: {},
     debug: process.env.NODE_ENV === "development",
   });

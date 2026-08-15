@@ -6,8 +6,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 import EmailPopup from "@/components/EmailPopup";
 import PostHogPageview from "@/components/PostHogPageview";
@@ -75,8 +73,6 @@ export default function RootLayout({
             <GTMPageview />
           </Suspense>
           <EmailPopup />
-          <SpeedInsights />
-          <Analytics />
         </CartProvider>
         {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
           <Script
