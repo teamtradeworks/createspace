@@ -135,7 +135,7 @@ export default function Footer() {
 
           {/* Shop links */}
           <div>
-            <h4 className="font-semibold mb-4">Shop</h4>
+            <h2 className="font-semibold mb-4">Shop</h2>
             <ul className="space-y-2">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
@@ -153,7 +153,7 @@ export default function Footer() {
 
           {/* Education links */}
           <div>
-            <h4 className="font-semibold mb-4">Education</h4>
+            <h2 className="font-semibold mb-4">Education</h2>
             <ul className="space-y-2">
               {footerLinks.education.map((link) => (
                 <li key={link.name}>
@@ -170,7 +170,7 @@ export default function Footer() {
 
           {/* Company links */}
           <div>
-            <h4 className="font-semibold mb-4">Company</h4>
+            <h2 className="font-semibold mb-4">Company</h2>
             <ul className="space-y-2">
               {footerLinks.company.map((link) =>
                 link.href === "#subscribe" ? (
@@ -198,7 +198,7 @@ export default function Footer() {
 
           {/* Policies links */}
           <div>
-            <h4 className="font-semibold mb-4">Policies</h4>
+            <h2 className="font-semibold mb-4">Policies</h2>
             <ul className="space-y-2">
               {footerLinks.policies.map((link) => (
                 <li key={link.name}>

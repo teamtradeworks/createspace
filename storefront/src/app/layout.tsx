@@ -16,7 +16,7 @@ import GoogleTagManager from "@/components/GoogleTagManager";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const outfit = localFont({
-  src: "../../public/fonts/Outfit-VariableFont_wght.ttf",
+  src: "../../public/fonts/Outfit-VariableFont_wght.woff2",
   variable: "--font-outfit",
   display: "swap",
   weight: "100 900",

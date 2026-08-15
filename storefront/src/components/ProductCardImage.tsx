@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface ProductCardImageProps {
@@ -21,13 +21,59 @@ export default function ProductCardImage({
   sizes = "(max-width: 880px) 50vw, 33vw",
 }: ProductCardImageProps) {
   const [isHovered, setIsHovered] = useState(false);
+  // The hover-swap image is deferred: rendering it eagerly downloads it for
+  // every card in view (opacity-0 does not stop native lazy loading), which
+  // is pure waste on touch devices where hover never fires and competes with
+  // the initial load on desktop.
+  const [mountSecondary, setMountSecondary] = useState(false);
+  const [secondaryLoaded, setSecondaryLoaded] = useState(false);
 
-  const showSecondary = isHovered && secondarySrc;
+  const canHover = () => window.matchMedia("(hover: hover)").matches;
+
+  // On hover-capable devices, mount the swap image once the page has settled
+  // (after window load, in an idle slot) so it never competes with
+  // above-the-fold work. Touch devices never mount it.
+  useEffect(() => {
+    if (!secondarySrc || !canHover()) return;
+
+    let cancel = () => {};
+    const schedule = () => {
+      if (typeof window.requestIdleCallback === "function") {
+        const id = window.requestIdleCallback(() => setMountSecondary(true), {
+          timeout: 3000,
+        });
+        cancel = () => window.cancelIdleCallback(id);
+      } else {
+        const id = window.setTimeout(() => setMountSecondary(true), 1500);
+        cancel = () => window.clearTimeout(id);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      schedule();
+    } else {
+      window.addEventListener("load", schedule, { once: true });
+      cancel = () => window.removeEventListener("load", schedule);
+    }
+    return () => cancel();
+  }, [secondarySrc]);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+    // Hover intent beats the idle timer: start the fetch immediately.
+    if (secondarySrc && !mountSecondary && canHover()) {
+      setMountSecondary(true);
+    }
+  };
+
+  // Keep the primary visible until the swap image has actually loaded, so an
+  // early hover crossfades late rather than to a blank tile.
+  const showSecondary = isHovered && mountSecondary && secondaryLoaded;
 
   return (
     <div
       className="w-full h-full relative"
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={() => setIsHovered(false)}
     >
       <Image
@@ -38,15 +84,19 @@ export default function ProductCardImage({
         priority={priority}
         className={`object-cover transition-opacity duration-300 ${showSecondary ? "opacity-0" : "opacity-100"}`}
       />
-      {secondarySrc && (
+      {secondarySrc && mountSecondary && (
         <Image
           src={secondarySrc}
           alt={secondaryAlt || primaryAlt}
           fill
           // Same sizes as the primary: without it, fill defaults to 100vw and
-          // every card in view lazy-loads a viewport-sized hover image (being
-          // opacity-0 does not stop native lazy loading).
+          // every card in view lazy-loads a viewport-sized hover image.
           sizes={sizes}
+          // Eager: this image only mounts after the page has settled (or on
+          // hover intent), so fetch it right away — lazy here would leave
+          // below-fold cards with a permanently pending swap image.
+          loading="eager"
+          onLoad={() => setSecondaryLoaded(true)}
           className={`object-cover transition-opacity duration-300 ${showSecondary ? "opacity-100" : "opacity-0"}`}
         />
       )}
