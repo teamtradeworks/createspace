@@ -35,10 +35,7 @@ export default function CartPage() {
 
   const availableItems = getAvailableItems(items);
   const allDigital = availableItems.length > 0 && availableItems.every((item) => item.digital);
-  const physicalSubtotal = availableItems
-    .filter((item) => !item.digital)
-    .reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const deliveryCost = allDigital ? 0 : calculateDeliveryCost(physicalSubtotal);
+  const deliveryCost = allDigital ? 0 : calculateDeliveryCost(subtotal);
 
   // Reset the checkout button if the user returns via the browser's bfcache
   // (e.g. clicking back from Shopify checkout) — otherwise it stays stuck on
@@ -508,7 +505,7 @@ export default function CartPage() {
                               </span>
                             </span>
                           </span>
-                          {qualifiesForFreeDelivery(physicalSubtotal) ? (
+                          {qualifiesForFreeDelivery(subtotal) ? (
                             <span className="text-cs-green font-semibold">FREE</span>
                           ) : (
                             <span>
@@ -518,10 +515,10 @@ export default function CartPage() {
                             </span>
                           )}
                         </div>
-                        {!qualifiesForFreeDelivery(physicalSubtotal) && physicalSubtotal > 0 && (
+                        {!qualifiesForFreeDelivery(subtotal) && subtotal > 0 && (
                           <p className="text-xs text-cs-orange">
                             Add{" "}
-                            {formatPrice(amountToFreeDelivery(physicalSubtotal), currencyCode, {
+                            {formatPrice(amountToFreeDelivery(subtotal), currencyCode, {
                               showCents: true,
                             })}{" "}
                             more for FREE delivery!
