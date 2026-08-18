@@ -33,6 +33,13 @@ export default function CartPage() {
   const giveaway = siteConfig.giveaway?.inspireAfricaCourse;
   const showCourseGiveaway = giveaway?.enabled && subtotal >= (giveaway?.threshold ?? Infinity);
 
+  const availableItems = getAvailableItems(items);
+  const allDigital = availableItems.length > 0 && availableItems.every((item) => item.digital);
+  const physicalSubtotal = availableItems
+    .filter((item) => !item.digital)
+    .reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const deliveryCost = allDigital ? 0 : calculateDeliveryCost(physicalSubtotal);
+
   // Reset the checkout button if the user returns via the browser's bfcache
   // (e.g. clicking back from Shopify checkout) — otherwise it stays stuck on
   // "Redirecting to Checkout..."
@@ -471,47 +478,56 @@ export default function CartPage() {
                         </span>
                       </div>
                     )}
-                    <div className="flex justify-between text-gray-600">
-                      <span className="flex items-center gap-1">
-                        Delivery
-                        <span className="relative group">
-                          <svg
-                            className="w-4 h-4 text-gray-400 cursor-help"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                          <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-navy text-white text-xs rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
-                            We dispatch your order today, or tomorrow if placed after 3PM.
-                            <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-navy"></span>
+                    {allDigital ? (
+                      <div className="flex justify-between text-gray-600">
+                        <span>Delivery</span>
+                        <span className="text-cs-green font-semibold">Not required</span>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="flex justify-between text-gray-600">
+                          <span className="flex items-center gap-1">
+                            Delivery
+                            <span className="relative group">
+                              <svg
+                                className="w-4 h-4 text-gray-400 cursor-help"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth={2}
+                                  d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                                />
+                              </svg>
+                              <span className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-navy text-white text-xs rounded-lg whitespace-nowrap opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10">
+                                We dispatch your order today, or tomorrow if placed after 3PM.
+                                <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-navy"></span>
+                              </span>
+                            </span>
                           </span>
-                        </span>
-                      </span>
-                      {qualifiesForFreeDelivery(subtotal) ? (
-                        <span className="text-cs-green font-semibold">FREE</span>
-                      ) : (
-                        <span>
-                          {formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode, {
-                            showCents: true,
-                          })}
-                        </span>
-                      )}
-                    </div>
-                    {!qualifiesForFreeDelivery(subtotal) && subtotal > 0 && (
-                      <p className="text-xs text-cs-orange">
-                        Add{" "}
-                        {formatPrice(amountToFreeDelivery(subtotal), currencyCode, {
-                          showCents: true,
-                        })}{" "}
-                        more for FREE delivery!
-                      </p>
+                          {qualifiesForFreeDelivery(physicalSubtotal) ? (
+                            <span className="text-cs-green font-semibold">FREE</span>
+                          ) : (
+                            <span>
+                              {formatPrice(DELIVERY_CONFIG.standardDeliveryCost, currencyCode, {
+                                showCents: true,
+                              })}
+                            </span>
+                          )}
+                        </div>
+                        {!qualifiesForFreeDelivery(physicalSubtotal) && physicalSubtotal > 0 && (
+                          <p className="text-xs text-cs-orange">
+                            Add{" "}
+                            {formatPrice(amountToFreeDelivery(physicalSubtotal), currencyCode, {
+                              showCents: true,
+                            })}{" "}
+                            more for FREE delivery!
+                          </p>
+                        )}
+                      </>
                     )}
                   </div>
 
@@ -519,28 +535,30 @@ export default function CartPage() {
                     <div className="flex justify-between text-lg font-semibold text-navy">
                       <span>Total</span>
                       <span>
-                        {formatPrice(subtotal + calculateDeliveryCost(subtotal), currencyCode, {
+                        {formatPrice(subtotal + deliveryCost, currencyCode, {
                           showCents: true,
                         })}
                       </span>
                     </div>
                     <p className="text-xs text-gray-500 mt-1">VAT included.</p>
-                    <p className="text-xs text-cs-blue mt-2 flex items-center gap-1">
-                      <svg
-                        className="w-3.5 h-3.5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                      Next day delivery option available at checkout
-                    </p>
+                    {!allDigital && (
+                      <p className="text-xs text-cs-blue mt-2 flex items-center gap-1">
+                        <svg
+                          className="w-3.5 h-3.5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                          />
+                        </svg>
+                        Next day delivery option available at checkout
+                      </p>
+                    )}
                   </div>
 
                   {/* Inspire Africa Course Giveaway */}
