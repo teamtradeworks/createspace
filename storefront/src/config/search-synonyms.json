@@ -1,8 +1,21 @@
 {
+  "_comment": "Aliases for terms customers type that the catalogue spells differently. Punctuation and spacing variants (micro:bit / microbit / micro bit, esp 32 / esp32) do NOT need an entry — search normalises those away. Only add words the catalogue never uses.",
   "synonyms": [
     {
       "match": "MatataStudio",
       "aliases": ["MatataLabs", "Matata Labs"]
+    },
+    {
+      "match": "National Geographic",
+      "aliases": ["Nat Geo", "NatGeo"]
+    },
+    {
+      "match": "Makerzoid",
+      "aliases": ["Markerzoid", "Maker Zoid"]
+    },
+    {
+      "match": "Battery",
+      "aliases": ["batteries"]
     }
   ]
 }
