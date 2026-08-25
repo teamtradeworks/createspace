@@ -40,9 +40,9 @@ export const PROMOS: Promo[] = [
   {
     badge: "20% off Makerzoid",
     heading: "Build, code and bring robots to life.",
-    body: "Ends 6 August.",
+    body: "Ends 31 August.",
     cta: { label: "Shop the Makerzoid sale", href: "/shop?brand=Makerzoid" },
-    endsAt: "2026-08-06",
+    endsAt: "2026-08-31",
   },
   {
     eyebrow: "FREE COURSE",
