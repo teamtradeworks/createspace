@@ -1,4 +1,4 @@
-import { fuzzySearchProducts } from "@/lib/fuzzy-search";
+import { fuzzySearchProducts, type CatalogueSearchResult } from "@/lib/fuzzy-search";
 
 const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN!;
 const storefrontAccessToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
@@ -330,9 +330,13 @@ export async function getCollectionProducts(
 // Search products by text query using client-side fuzzy matching.
 // Fetches the full product catalogue (Shopify caches the response) and ranks
 // matches with Fuse.js so typos like "microbit" → "micro:bit" still resolve.
-export async function searchProducts(query: string, limit: number = 20): Promise<Product[]> {
+export async function searchProducts(
+  query: string,
+  limit: number = 20,
+): Promise<CatalogueSearchResult> {
   const products = await getProducts(250);
-  return fuzzySearchProducts(products, query).slice(0, limit);
+  const result = fuzzySearchProducts(products, query);
+  return { ...result, products: result.products.slice(0, limit) };
 }
 
 // Helper to format price consistently (avoids hydration mismatch)
