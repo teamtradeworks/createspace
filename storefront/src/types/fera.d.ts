@@ -48,6 +48,7 @@ declare global {
   interface Fera extends Array<unknown> {
     api?: FeraApi;
     push: (...args: unknown[]) => number;
+    showContentSubmitter: () => void;
   }
 
   interface Window {

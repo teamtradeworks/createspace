@@ -126,6 +126,12 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
     el.scrollBy({ left: direction === "left" ? -cardWidth : cardWidth, behavior: "smooth" });
   };
 
+  const openReviewForm = () => {
+    if (window.fera) {
+      window.fera.showContentSubmitter();
+    }
+  };
+
   if (loading) return null;
   if (!rating || rating.count === 0) return null;
   if (reviews.length === 0) return null;
@@ -150,12 +156,24 @@ export function ProductReviews({ productId, background = "white" }: ProductRevie
           </h2>
 
           {/* Rating Summary */}
-          <div className="flex items-center justify-center gap-3 mb-10">
-            <StarRating rating={rating.average} size="md" />
-            <span className={`text-lg font-bold ${textClass}`}>{rating.average.toFixed(1)}</span>
-            <span className={`text-sm ${subtextClass}`}>
-              ({rating.count} {rating.count === 1 ? "review" : "reviews"})
-            </span>
+          <div className="flex flex-col items-center gap-4 mb-10">
+            <div className="flex items-center gap-3">
+              <StarRating rating={rating.average} size="md" />
+              <span className={`text-lg font-bold ${textClass}`}>{rating.average.toFixed(1)}</span>
+              <span className={`text-sm ${subtextClass}`}>
+                ({rating.count} {rating.count === 1 ? "review" : "reviews"})
+              </span>
+            </div>
+            <button
+              onClick={openReviewForm}
+              className={`px-5 py-2 rounded-full text-sm font-semibold border-2 transition-colors ${
+                background === "navy"
+                  ? "border-white text-white hover:bg-white hover:text-navy"
+                  : "border-navy text-navy hover:bg-navy hover:text-white"
+              }`}
+            >
+              Write a Review
+            </button>
           </div>
 
           {/* Review Cards Carousel */}
