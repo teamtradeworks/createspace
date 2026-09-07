@@ -25,6 +25,13 @@ function isRetriableNetworkError(err: unknown): boolean {
   );
 }
 
+// Shopify reports some transient server-side faults as GraphQL-level errors on
+// an HTTP 200, e.g. "Internal error. Looks like something went wrong on our
+// end." or "Throttled". Those are worth one retry; a real query error is not.
+function isRetriableGraphqlError(errors: { message: string }[]): boolean {
+  return errors.some((e) => /internal error|throttled|timeout|timed out/i.test(e.message));
+}
+
 export async function shopifyFetch<T>({
   query,
   variables,
@@ -67,8 +74,14 @@ export async function shopifyFetch<T>({
       const json: ShopifyResponse<T> = await response.json();
 
       if (json.errors) {
-        // GraphQL-level errors are not retriable.
-        throw new Error(json.errors.map((e) => e.message).join("\n"));
+        const message = json.errors.map((e) => e.message).join("\n");
+        // Deterministic GraphQL errors (bad query, invalid variables) would
+        // fail identically on a retry, so only transient ones get a second go.
+        if (attempt === 0 && isRetriableGraphqlError(json.errors)) {
+          lastError = new Error(message);
+          continue;
+        }
+        throw new Error(message);
       }
 
       return json.data;

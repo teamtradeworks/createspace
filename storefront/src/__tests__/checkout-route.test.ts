@@ -5,6 +5,7 @@ const mocks = vi.hoisted(() => ({
   capture: vi.fn(),
   flush: vi.fn(),
   getCookies: vi.fn(),
+  sentryCapture: vi.fn(),
 }));
 
 vi.mock("@/lib/shopify", () => ({
@@ -20,6 +21,10 @@ vi.mock("@/lib/posthog-server", () => ({
 
 vi.mock("next/headers", () => ({
   cookies: async () => ({ getAll: mocks.getCookies }),
+}));
+
+vi.mock("@sentry/nextjs", () => ({
+  captureException: mocks.sentryCapture,
 }));
 
 import { NextRequest } from "next/server";
@@ -55,6 +60,7 @@ describe("checkout API route", () => {
     mocks.capture.mockReset();
     mocks.flush.mockReset().mockResolvedValue(undefined);
     mocks.getCookies.mockReset().mockReturnValue([]);
+    mocks.sentryCapture.mockReset();
   });
 
   describe("validation", () => {
@@ -264,6 +270,24 @@ describe("checkout API route", () => {
       );
 
       expect(res.status).toBe(500);
+    });
+
+    it("returns 502 with a JSON error and reports to Sentry when Shopify fails", async () => {
+      setPostHogCookie(null);
+      const shopifyError = new Error("Internal error. Looks like something went wrong on our end.");
+      mocks.shopifyFetch.mockRejectedValueOnce(shopifyError);
+
+      const res = await POST(
+        makeRequest({
+          lines: [{ variantId: "gid://shopify/ProductVariant/1", quantity: 1 }],
+        }),
+      );
+
+      expect(res.status).toBe(502);
+      const body = await res.json();
+      expect(body.error).toMatch(/try again/i);
+      expect(mocks.sentryCapture).toHaveBeenCalledWith(shopifyError, expect.anything());
+      expect(mocks.capture).not.toHaveBeenCalled();
     });
   });
 
