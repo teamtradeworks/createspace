@@ -5,6 +5,16 @@ import { StarRating } from "@/components/StarRating";
 import { shopifyIdToFeraId } from "@/lib/fera";
 import SectionTracker from "./SectionTracker";
 
+function decodeHtmlEntities(str: string): string {
+  return str
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'");
+}
+
 interface ProductReviewsProps {
   productId: string;
   background?: "white" | "gray" | "navy";
@@ -280,11 +290,13 @@ function ReviewCard({
       </div>
 
       {/* Review heading */}
-      {review.heading && <h3 className={`font-semibold ${textClass} mb-2`}>{review.heading}</h3>}
+      {review.heading && (
+        <h3 className={`font-semibold ${textClass} mb-2`}>{decodeHtmlEntities(review.heading)}</h3>
+      )}
 
       {/* Review body - clamped to 5 lines */}
       <p ref={bodyRef} className={`${bodyTextClass} line-clamp-5`}>
-        {review.body}
+        {decodeHtmlEntities(review.body)}
       </p>
       {isClamped && (
         <button
@@ -377,11 +389,11 @@ function ReviewModal({ review, onClose }: { review: FeraReview; onClose: () => v
 
         {/* Heading */}
         {review.heading && (
-          <h3 className="font-semibold text-navy text-lg mb-3">{review.heading}</h3>
+          <h3 className="font-semibold text-navy text-lg mb-3">{decodeHtmlEntities(review.heading)}</h3>
         )}
 
         {/* Full body */}
-        <p className="text-gray-600 whitespace-pre-line">{review.body}</p>
+        <p className="text-gray-600 whitespace-pre-line">{decodeHtmlEntities(review.body)}</p>
 
         {/* Photos */}
         {review.photos && review.photos.length > 0 && (
