@@ -394,6 +394,8 @@ Customer reviews powered by Fera. Fetches reviews and ratings client-side from t
 
 **Notes:**
 - Reviews are fetched automatically from Fera — no manual content needed
+- Fera data is treated as untrusted: `heading` and `body` can be `null` (rating-only reviews). Review text is decoded with `decodeHtmlEntities` from `@/lib/fera`, which accepts `null`
+- The section is wrapped in `SectionErrorBoundary` — a render error inside it hides the section and reports to Sentry (tagged `section: ProductReviews`) instead of crashing the whole product page
 - Displays rating summary (stars + average + count), then individual review cards
 - Each review shows: customer avatar/initial, name, date, star rating, heading, body text, and photos
 - Paginated with "Show More Reviews" button (5 per page)

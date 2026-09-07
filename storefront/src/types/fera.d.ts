@@ -5,7 +5,7 @@ declare global {
     id: number;
     public_id: string;
     heading: string | null;
-    body: string;
+    body: string | null;
     rating: number;
     customer_name: string;
     customer_avatar_url: string | null;

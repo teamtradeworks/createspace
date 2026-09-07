@@ -2,25 +2,29 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { StarRating } from "@/components/StarRating";
-import { shopifyIdToFeraId } from "@/lib/fera";
+import { decodeHtmlEntities, shopifyIdToFeraId } from "@/lib/fera";
+import SectionErrorBoundary from "./SectionErrorBoundary";
 import SectionTracker from "./SectionTracker";
-
-function decodeHtmlEntities(str: string): string {
-  return str
-    .replace(/&amp;/g, "&")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&apos;/g, "'");
-}
 
 interface ProductReviewsProps {
   productId: string;
   background?: "white" | "gray" | "navy";
 }
 
-export function ProductReviews({ productId, background = "white" }: ProductReviewsProps) {
+/**
+ * Review data comes from the third-party Fera SDK at runtime, so the section is
+ * isolated in an error boundary: unexpected data hides the reviews section
+ * instead of crashing the whole product page.
+ */
+export function ProductReviews(props: ProductReviewsProps) {
+  return (
+    <SectionErrorBoundary name="ProductReviews">
+      <ProductReviewsContent {...props} />
+    </SectionErrorBoundary>
+  );
+}
+
+function ProductReviewsContent({ productId, background = "white" }: ProductReviewsProps) {
   const [reviews, setReviews] = useState<FeraReview[]>([]);
   const [rating, setRating] = useState<FeraProductRating | null>(null);
   const [loading, setLoading] = useState(true);
@@ -389,7 +393,9 @@ function ReviewModal({ review, onClose }: { review: FeraReview; onClose: () => v
 
         {/* Heading */}
         {review.heading && (
-          <h3 className="font-semibold text-navy text-lg mb-3">{decodeHtmlEntities(review.heading)}</h3>
+          <h3 className="font-semibold text-navy text-lg mb-3">
+            {decodeHtmlEntities(review.heading)}
+          </h3>
         )}
 
         {/* Full body */}
