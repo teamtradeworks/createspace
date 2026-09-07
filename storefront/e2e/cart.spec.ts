@@ -95,4 +95,30 @@ test.describe("Cart", () => {
     await expect(main.getByText(/more for FREE delivery/i)).toHaveCount(0);
     await expect(orderTotalRow(main)).toHaveText(randWithCents(item.price));
   });
+
+  test("shows a retry message when checkout fails", async ({ page }) => {
+    await seedCart(page, [TEST_CART_ITEM]);
+
+    // Simulate Shopify being unavailable behind the checkout API. Before this
+    // was handled, the button silently reset and the customer saw nothing.
+    await page.route("**/api/checkout", (route) =>
+      route.fulfill({
+        status: 502,
+        contentType: "application/json",
+        body: JSON.stringify({
+          error: "Checkout is temporarily unavailable. Please try again.",
+        }),
+      })
+    );
+
+    await page.goto("/cart");
+    await page.getByRole("button", { name: /proceed to checkout/i }).click();
+
+    await expect(
+      page.getByRole("alert").filter({ hasText: /try again/i })
+    ).toBeVisible();
+    await expect(
+      page.getByRole("button", { name: /^try again$/i })
+    ).toBeEnabled();
+  });
 });

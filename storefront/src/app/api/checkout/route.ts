@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import * as Sentry from "@sentry/nextjs";
 import { shopifyFetch } from "@/lib/shopify";
 import { getPostHogClient } from "@/lib/posthog-server";
 
@@ -16,6 +17,13 @@ const CART_CREATE_MUTATION = `
     }
   }
 `;
+
+type CartCreateData = {
+  cartCreate: {
+    cart: { checkoutUrl: string } | null;
+    userErrors: { field: string[]; message: string }[];
+  };
+};
 
 export async function POST(request: NextRequest) {
   const { lines, claimCourse } = (await request.json()) as {
@@ -60,22 +68,33 @@ export async function POST(request: NextRequest) {
     attributes.push({ key: "_inspire_africa_course", value: "yes" });
   }
 
-  const data = await shopifyFetch<{
-    cartCreate: {
-      cart: { checkoutUrl: string } | null;
-      userErrors: { field: string[]; message: string }[];
-    };
-  }>({
-    query: CART_CREATE_MUTATION,
-    cache: "no-store",
-    variables: {
-      lines: lines.map((line) => ({
-        merchandiseId: line.variantId,
-        quantity: line.quantity,
-      })),
-      attributes,
-    },
-  });
+  let data: CartCreateData;
+  try {
+    data = await shopifyFetch<CartCreateData>({
+      query: CART_CREATE_MUTATION,
+      cache: "no-store",
+      variables: {
+        lines: lines.map((line) => ({
+          merchandiseId: line.variantId,
+          quantity: line.quantity,
+        })),
+        attributes,
+      },
+    });
+  } catch (err) {
+    // Shopify was unreachable or kept returning a server-side error after the
+    // retry inside shopifyFetch. Letting this throw would produce an opaque
+    // 500 that the cart page can't parse, so the customer would see nothing.
+    // Report it and return JSON the client can turn into a message.
+    Sentry.captureException(err, {
+      tags: { route: "checkout" },
+      extra: { lineCount: lines.length },
+    });
+    return NextResponse.json(
+      { error: "Checkout is temporarily unavailable. Please try again." },
+      { status: 502 },
+    );
+  }
 
   if (data.cartCreate.userErrors.length > 0) {
     return NextResponse.json({ error: data.cartCreate.userErrors[0].message }, { status: 400 });

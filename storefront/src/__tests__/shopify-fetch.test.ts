@@ -75,13 +75,56 @@ describe("shopifyFetch", () => {
     await expect(shopifyFetch({ query: QUERY })).rejects.toThrow(/Shopify 503/);
   });
 
-  it("does not retry GraphQL-level errors", async () => {
+  it("does not retry deterministic GraphQL-level errors", async () => {
     const fetchMock = vi
       .spyOn(globalThis, "fetch")
       .mockResolvedValueOnce(jsonResponse({ data: null, errors: [{ message: "Bad query" }] }));
 
     await expect(shopifyFetch({ query: QUERY })).rejects.toThrow("Bad query");
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+
+  it("retries once on a transient Shopify internal error and then succeeds", async () => {
+    // Shopify returns this on an HTTP 200 when something fails on their side.
+    // Seen in production on POST /api/checkout (Sentry CREATESPACE-28).
+    const internalError = {
+      message:
+        "Internal error. Looks like something went wrong on our end.\nRequest ID: abc-123 (include this in support requests).",
+    };
+    const fetchMock = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(jsonResponse({ data: null, errors: [internalError] }))
+      .mockResolvedValueOnce(jsonResponse({ data: { shop: { name: "OK" } } }));
+
+    const data = await shopifyFetch<{ shop: { name: string } }>({ query: QUERY });
+
+    expect(data.shop.name).toBe("OK");
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("retries once when Shopify reports throttling", async () => {
+    const fetchMock = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(jsonResponse({ data: null, errors: [{ message: "Throttled" }] }))
+      .mockResolvedValueOnce(jsonResponse({ data: { shop: { name: "OK" } } }));
+
+    const data = await shopifyFetch<{ shop: { name: string } }>({ query: QUERY });
+
+    expect(data.shop.name).toBe("OK");
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+  });
+
+  it("throws the Shopify message when a transient error persists on retry", async () => {
+    const internalError = {
+      message: "Internal error. Looks like something went wrong on our end.",
+    };
+    const fetchMock = vi
+      .spyOn(globalThis, "fetch")
+      .mockResolvedValueOnce(jsonResponse({ data: null, errors: [internalError] }))
+      .mockResolvedValueOnce(jsonResponse({ data: null, errors: [internalError] }));
+
+    await expect(shopifyFetch({ query: QUERY })).rejects.toThrow(/Internal error/);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it("does not retry on a 4xx response", async () => {

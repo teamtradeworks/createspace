@@ -16,6 +16,14 @@ import {
 import siteConfig from "@/config/site.json";
 import { PROMISES } from "@/config/promises";
 
+// Shown under the checkout button when /api/checkout fails. The retry copy
+// covers Shopify being unreachable; the item copy covers a cartCreate user
+// error (e.g. a variant that went out of stock between cart and checkout).
+const CHECKOUT_RETRY_MESSAGE =
+  "We couldn't connect to checkout just now. Please try again in a moment.";
+const CHECKOUT_ITEM_MESSAGE =
+  "One of the items in your cart couldn't be added to checkout. Please review your cart and try again.";
+
 export default function CartPage() {
   const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } =
     useCart();
@@ -27,6 +35,7 @@ export default function CartPage() {
     return sum;
   }, 0);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
   const [claimCourse, setClaimCourse] = useState(false);
   const viewCartFired = useRef(false);
 
@@ -111,6 +120,7 @@ export default function CartPage() {
       subtotal,
       currencyCode,
     );
+    setCheckoutError(null);
     setIsCheckingOut(true);
     try {
       const res = await fetch("/api/checkout", {
@@ -130,10 +140,15 @@ export default function CartPage() {
         window.location.href = data.checkoutUrl;
       } else {
         console.error("Checkout error:", data.error);
+        capture("checkout_failed", { status: res.status, reason: data.error });
+        setCheckoutError(res.status === 400 ? CHECKOUT_ITEM_MESSAGE : CHECKOUT_RETRY_MESSAGE);
         setIsCheckingOut(false);
       }
     } catch (e) {
+      // Network failure, or a non-JSON body from an unhandled server error.
       console.error("Checkout failed:", e);
+      capture("checkout_failed", { status: "network" });
+      setCheckoutError(CHECKOUT_RETRY_MESSAGE);
       setIsCheckingOut(false);
     }
   };
@@ -612,7 +627,7 @@ export default function CartPage() {
                       </>
                     ) : (
                       <>
-                        Proceed to Checkout
+                        {checkoutError ? "Try Again" : "Proceed to Checkout"}
                         <svg
                           className="w-5 h-5"
                           fill="none"
@@ -629,6 +644,19 @@ export default function CartPage() {
                       </>
                     )}
                   </button>
+
+                  {checkoutError && (
+                    <div
+                      role="alert"
+                      className="mt-3 rounded-lg border border-cs-red/30 bg-red-50 px-4 py-3 text-sm text-navy"
+                    >
+                      {checkoutError}{" "}
+                      <Link href="/contact" className="font-medium underline hover:text-cs-orange">
+                        Get in touch
+                      </Link>{" "}
+                      if it keeps happening and we&apos;ll sort it out.
+                    </div>
+                  )}
 
                   {/* Continue Shopping */}
                   <Link
