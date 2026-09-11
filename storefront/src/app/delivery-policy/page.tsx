@@ -20,7 +20,6 @@ export default function DeliveryPolicyPage() {
             <h2 className="text-lg font-semibold text-navy mb-3">Delivery Costs</h2>
             <ul className="list-disc pl-5 space-y-2">
               <li>Standard delivery: R128</li>
-              <li>Next day delivery: R218</li>
               <li>Free delivery on orders over R1,500</li>
             </ul>
           </div>
@@ -38,10 +37,6 @@ export default function DeliveryPolicyPage() {
             <p className="mb-3">
               Delivery time may vary depending on which area items are being delivered to, but
               typical delivery times are between 1 and 3 working days.
-            </p>
-            <p className="mb-3">
-              For next day delivery, orders must be placed before 3PM on a business day. Orders
-              placed after 3PM will be dispatched the following business day.
             </p>
             <p>
               We will ensure your order is delivered to you as timeously as possible but shall not
