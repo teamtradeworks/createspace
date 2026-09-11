@@ -37,12 +37,12 @@ export default async function CutebotProPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="The robot car that grows with your child — from first code to autonomous navigation"
+        tagline="The robot car that grows with your child, from first block of code to autonomous navigation"
         highlights={[
           "19 guided projects from beginner driving to AI road sign detection",
           "Precision encoder motors for accurate, repeatable movement",
-          "USB rechargeable — no disposable batteries ever needed",
-          "Programmes with free MakeCode blocks, upgrades to Python",
+          "USB rechargeable, no disposable batteries needed",
+          "Works with free MakeCode block coding and upgrades to Python",
         ]}
         addons={addons}
       />
@@ -62,7 +62,7 @@ export default async function CutebotProPage() {
         image="/images/products/elecfreaks-micro-bit-smart-cutebot-pro/course-case-on-laptop-introduction-obstacle-avoidance.jpg"
         imageAlt="Cutebot Pro robot car displayed next to a laptop showing the obstacle avoidance tutorial"
         title="Step-by-Step from First Drive to Obstacle Avoidance"
-        body="The 19 official tutorial cases are designed to build on each other. Your child starts by programming the robot to drive forward, then gradually takes on more complex challenges — controlling exact distances, responding to sound, following lines, and finally implementing a real PID control algorithm. Every step has sample code and clear explanations on the free ELECFREAKS wiki, so they can learn independently without needing you to be a coding expert."
+        body="The 19 official tutorial cases are designed to build on each other. Your child starts by programming the robot to drive forward, then gradually takes on more complex challenges: controlling exact distances, responding to sound, following lines, and finally implementing a real PID control algorithm. Every step has sample code and clear explanations on the free ELECFREAKS wiki, so they can learn independently without needing you to be a coding expert."
         layout="image-left"
         background="gray"
       />
@@ -70,43 +70,43 @@ export default async function CutebotProPage() {
       {/* Feature Grid */}
       <FeatureGrid
         title="What Makes the Cutebot Pro Different"
-        subtitle="Engineered for learners who are ready for more than basic driving."
+        subtitle="Built for learners who are ready for more than basic driving."
         features={[
           {
             icon: "robot",
             title: "Encoder Motors",
             description:
-              "Precise control of distance and turning angle — your child can programme the robot to drive exactly 50cm or turn precisely 90°. This opens up grid navigation, geometric paths, and accurate autonomous driving.",
+              "Precise control of distance and turning angle. Your child can programme the robot to drive exactly 50cm or turn precisely 90°, which opens up grid navigation, geometric paths, and accurate autonomous driving.",
           },
           {
             icon: "sensor",
             title: "4-Way Line Sensors",
             description:
-              "Four infrared sensors detect complex intersections like crossroads and T-junctions. They also unlock PID line inspection — a real-world algorithm used in robotics and automation.",
+              "Four infrared sensors detect complex intersections like crossroads and T-junctions. They also support PID line inspection, a real-world algorithm used in industrial robotics.",
           },
           {
             icon: "compass",
             title: "Ultrasonic Distance Sensor",
             description:
-              "Measures distance to objects in real time, enabling autonomous obstacle avoidance and follow-me behaviour. The same technology used in parking sensors and self-driving cars.",
+              "The sensor measures distance to objects in real time for autonomous obstacle avoidance and follow-me behaviour. It's the same technology behind parking sensors and driver assistance systems.",
           },
           {
             icon: "battery",
             title: "USB Rechargeable",
             description:
-              "Built-in 18650 battery box charges via any USB cable in about 2 hours. No disposable batteries ever needed — just plug in, charge, and keep coding.",
+              "The built-in 18650 battery charges via any USB cable in about 2 hours, so no disposable batteries are ever needed.",
           },
           {
             icon: "bluetooth",
             title: "4 Ways to Control",
             description:
-              "Control by Bluetooth, infrared remote, Joystick:bit gamepad, or by tilting a second micro:bit. Your child can start with a remote and work up to fully autonomous programmes.",
+              "The robot works with Bluetooth, an infrared remote, a Joystick:bit gamepad, or a second micro:bit tilted as a controller. Your child can start with a remote and work up to fully autonomous programmes.",
           },
           {
             icon: "puzzle",
             title: "Fully Assembled",
             description:
-              "No building required — attach the ultrasonic sensor, add the battery, and start coding in under 10 minutes. The focus is on programming, not assembly.",
+              "Attach the ultrasonic sensor, add the battery, and you're coding within 10 minutes. No assembly required.",
           },
         ]}
         columns={3}
@@ -118,7 +118,7 @@ export default async function CutebotProPage() {
         image="/images/products/elecfreaks-micro-bit-smart-cutebot-pro/cutebot-pro-black-background.jpg"
         imageAlt="ELECFREAKS Smart Cutebot Pro robot car on a dark background showing the aerodynamic design"
         title="A Platform, Not Just a Product"
-        body="Four servo ports, four GPIO outputs, an I2C connector, and mounting holes for building blocks make the Cutebot Pro a proper platform. Your child can attach a mechanical claw to pick up objects, build a forklift with Lego-compatible blocks, connect an AI camera to recognise road signs, or create a ball-launching vehicle. These aren't hypothetical — ELECFREAKS provides complete tutorials for every one of these builds. When your child runs out of challenges, there's always a next level."
+        body="Four servo ports, four GPIO outputs, an I2C connector, and mounting holes for building blocks make the Cutebot Pro a proper platform. Your child can attach a mechanical claw to pick up objects, build a forklift with Lego-compatible blocks, connect an AI camera to recognise road signs, or create a ball-launching vehicle. These aren't hypothetical. ELECFREAKS provides complete tutorials for every one of those builds. When your child runs out of challenges, there's always a next level."
         layout="image-right"
         background="gray"
       />
@@ -140,7 +140,7 @@ export default async function CutebotProPage() {
           {
             name: "Voice Control",
             description:
-              "The robot responds to clapping or noise — louder sounds make it go faster.",
+              "The robot responds to clapping or noise, and louder sounds make it go faster.",
             concepts: "Sensor input, conditional logic, real-time data",
             image:
               "/images/products/elecfreaks-micro-bit-smart-cutebot-pro/projects/voice-controlled.jpg",
@@ -234,22 +234,22 @@ export default async function CutebotProPage() {
           {
             question: "Does my child need a BBC micro:bit to use this?",
             answer:
-              "Yes — the Cutebot Pro is a robot chassis that needs a BBC micro:bit to act as its brain. The micro:bit is not included, but you can add a BBC micro:bit Go bundle at a discounted price directly from this page. If you already have one at home, any micro:bit V1 or V2 will work.",
+              "Yes. The Cutebot Pro is a robot chassis that needs a BBC micro:bit to act as its brain. The micro:bit is not included, but you can add a BBC micro:bit Go bundle at a discounted price directly from this page. If you already have one at home, any micro:bit V1 or V2 will work.",
           },
           {
             question: "What age is the Cutebot Pro for?",
             answer:
-              "ELECFREAKS recommends ages 9 and up. Children who've done a little coding before will get the most out of it. That said, complete beginners can absolutely start here — the first projects are beginner-friendly and the free step-by-step tutorials walk through everything.",
+              "ELECFREAKS recommends ages 9 and up. Children who've done a little coding before will get the most out of it. That said, complete beginners can start here too. The first projects are beginner-friendly and the free step-by-step tutorials walk through everything.",
           },
           {
             question: "Does my child need coding experience?",
             answer:
-              "No prior experience is needed. The first projects introduce programming concepts from scratch using MakeCode's visual block editor — no typing required. As confidence grows, your child can progress to Python text coding using the same robot.",
+              "No prior experience is needed. The first projects introduce programming concepts from scratch using MakeCode's visual block editor with no typing required. As confidence grows, your child can progress to Python text coding using the same robot.",
           },
           {
             question: "What else do they need to get started?",
             answer:
-              "You'll need a BBC micro:bit (not included — see above), a 18650 flat-topped lithium battery (not included), and any device with a web browser for MakeCode — laptop, tablet, or Chromebook all work. MakeCode is free with nothing to install.",
+              "You'll need a BBC micro:bit (not included, see above), an 18650 flat-topped lithium battery (also not included), and any device with a web browser for MakeCode. A laptop, tablet, or Chromebook all work. MakeCode is free with nothing to install.",
           },
           {
             question: "Do I need to help my child, or can they work independently?",
@@ -259,7 +259,7 @@ export default async function CutebotProPage() {
           {
             question: "What can they do after the 19 projects?",
             answer:
-              "Plenty. Your child can modify and combine the projects, add hardware expansions (a claw, forklift, AI camera, OLED display), work up to Python programming, or join robotics competitions. The Cutebot Pro has active MakeCode library support and a large community wiki — there's always a next challenge.",
+              "Plenty. Your child can modify and combine the projects, add hardware expansions (a claw, forklift, AI camera, OLED display), work up to Python programming, or join robotics competitions. The Cutebot Pro has active MakeCode library support and a large community wiki, so there's always a next challenge.",
           },
         ]}
       />
@@ -299,7 +299,7 @@ export default async function CutebotProPage() {
           { label: "Soldering Required", value: "No" },
           {
             label: "Assembly Required",
-            value: "Minimal — sensor and battery only, no tools needed",
+            value: "Minimal: sensor and battery only, no tools needed",
           },
         ]}
       />
@@ -307,7 +307,7 @@ export default async function CutebotProPage() {
       {/* Call to Action */}
       <CallToAction
         title="Get Started with the Cutebot Pro"
-        subtitle="19 guided projects. Precision motors. A platform that challenges your child for years."
+        subtitle="19 guided projects, precision motors, and a platform that will challenge your child for years."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
