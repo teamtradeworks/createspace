@@ -38,11 +38,11 @@ export default async function RingBitBricksPackPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="Build it. Code it. Watch it come to life — 6 ways."
+        tagline="Build it. Code it. Watch it come to life, six different ways."
         highlights={[
           "6 hands-on projects with step-by-step assembly and coding guides",
           "200+ LEGO-compatible bricks plus servo motors and LED strip",
-          "No soldering — safe and beginner-friendly from age 7",
+          "No soldering: safe and beginner-friendly from age 7",
           "Supports MakeCode block coding and Python for growing learners",
         ]}
         addons={addons}
@@ -63,7 +63,7 @@ export default async function RingBitBricksPackPage() {
         image={`${BASE_IMG}/brick-pieces-scattered-around.jpg`}
         imageAlt="LEGO-compatible building bricks from the Ring:bit Bricks Pack scattered on a surface"
         title="200+ Bricks. Endless Builds."
-        body="The 200+ LEGO-compatible bricks aren't just for the 6 guided projects — they're yours to keep building with. Once your child finishes the trebuchet, they can tear it down and build something completely their own. The same bricks, servos, and LED strip become raw materials for whatever they imagine next."
+        body="The 200+ LEGO-compatible bricks aren't just for the 6 guided projects. They're yours to keep building with. Once your child finishes the trebuchet, they can tear it down and build something completely their own. The same bricks, servos, and LED strip become raw materials for whatever they imagine next."
         layout="image-left"
         background="gray"
       />
@@ -71,13 +71,13 @@ export default async function RingBitBricksPackPage() {
       {/* Features Grid */}
       <FeatureGrid
         title="What Makes This Kit Different"
-        subtitle="Six genuinely different projects. One kit. Everything your child needs to build and code physical machines."
+        subtitle="Six genuinely different projects, one kit, and everything your child needs to build and code physical machines."
         features={[
           {
             icon: "puzzle",
             title: "200+ Building Bricks",
             description:
-              "LEGO-compatible bricks in multiple shapes and sizes — enough for all 6 projects and plenty left for free invention.",
+              "LEGO-compatible bricks in multiple shapes and sizes, enough for all 6 projects and plenty left over for free invention.",
           },
           {
             icon: "robot",
@@ -89,25 +89,25 @@ export default async function RingBitBricksPackPage() {
             icon: "lightbulb",
             title: "RGB LED Strip",
             description:
-              "A 10-LED NeoPixel strip with individually programmable colours. Used in the Traffic Lights and Smart Desk Lamp projects.",
+              "A 10-LED NeoPixel strip with individually programmable colours, used in the Traffic Lights and Smart Desk Lamp projects.",
           },
           {
             icon: "code",
             title: "MakeCode & Python",
             description:
-              "Begin with drag-and-drop MakeCode blocks — the same platform used in schools worldwide. Advanced learners can rewrite every project in Python.",
+              "Begin with drag-and-drop MakeCode blocks, the same platform used in schools worldwide. Advanced learners can rewrite every project in Python.",
           },
           {
             icon: "shield",
             title: "No Soldering Required",
             description:
-              "All connections use colour-coded GVS plug-and-play ports. Safe and clean for children, with no special tools needed.",
+              "All connections use colour-coded GVS plug-and-play ports, safe and clean for children with no special tools needed.",
           },
           {
             icon: "cloud",
             title: "Free Online Tutorials",
             description:
-              "Every project has a full assembly guide and coding program on the ELECFREAKS wiki — always accessible, always free.",
+              "Every project has a full assembly guide and coding program on the ELECFREAKS wiki, free and always online.",
           },
         ]}
         columns={3}
@@ -119,7 +119,7 @@ export default async function RingBitBricksPackPage() {
         image={`${BASE_IMG}/ring-bit-expansion-board.jpg`}
         imageAlt="ELECFREAKS Ring:bit V2 expansion board that plugs onto the BBC micro:bit"
         title="The Bridge Between Code and Hardware"
-        body="The Ring:bit V2 expansion board plugs directly onto the BBC micro:bit and converts its GPIO pins into simple 3-pin connectors. Your child doesn't need to know anything about wiring — they just plug in the servo or LED strip and start coding. It's the same principle that makes micro:bit the world's most popular learning board for physical computing."
+        body="The Ring:bit V2 expansion board plugs directly onto the BBC micro:bit and converts its GPIO pins into simple 3-pin connectors. Your child doesn't need to know anything about wiring. They just plug in the servo or LED strip and start coding. It's the same principle that makes micro:bit the world's most popular learning board for physical computing."
         layout="image-right"
         background="gray"
       />
@@ -127,8 +127,8 @@ export default async function RingBitBricksPackPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="6 Projects to Build & Code"
-        highlight="6 guided projects — each a different real-world machine"
-        subtitle="Projects progress from beginner to intermediate, introducing new concepts with each build. A bonus Joystick remote-control activity takes things even further."
+        highlight="6 guided projects, each a different real-world machine"
+        subtitle="Projects progress from beginner to intermediate, with each build adding new concepts. A bonus Joystick remote-control activity takes things even further."
         projects={[
           {
             name: "Traffic Lights",
@@ -140,28 +140,28 @@ export default async function RingBitBricksPackPage() {
           {
             name: "Bricks Car",
             description:
-              "Build a two-wheeled motorised car you control with button presses and micro:bit gestures — tilt to reverse, shake to stop.",
+              "Build a two-wheeled motorised car you control with button presses and micro:bit gestures. Tilt to reverse, shake to stop.",
             concepts: "Motor control, gesture input, conditionals",
             image: `${BASE_IMG}/projects/bricks-car.png`,
           },
           {
             name: "Temperature Fan",
             description:
-              "Build an automated fan that switches on above 28°C and off below 26°C — your child's first smart home device.",
+              "Build an automated fan that switches on above 28°C and off below 26°C, your child's first smart home device.",
             concepts: "Temperature sensor, if/else logic, automation",
             image: `${BASE_IMG}/projects/temperature-controlled-fans.png`,
           },
           {
             name: "Smart Desk Lamp",
             description:
-              "Create a lamp that reads ambient light and turns itself on when it gets dark — and off when it brightens up.",
+              "Create a lamp that reads ambient light and turns itself on when it gets dark, and off when it brightens up.",
             concepts: "Light sensor, NeoPixel LEDs, environment-responsive code",
             image: `${BASE_IMG}/projects/smart-desk-lamp.png`,
           },
           {
             name: "Wipers",
             description:
-              "Build a windscreen-wiper mechanism using a parallelogram linkage — the same mechanism used in real cars.",
+              "Build a windscreen-wiper mechanism using a parallelogram linkage, the same mechanism used in real cars.",
             concepts: "Mechanical linkages, servo control, event-driven code",
             image: `${BASE_IMG}/projects/wipers.png`,
           },
@@ -173,14 +173,14 @@ export default async function RingBitBricksPackPage() {
             image: `${BASE_IMG}/projects/trebuchet.png`,
           },
         ]}
-        moreText="Plus a bonus Joystick:bit extension activity — use a wireless joystick to remotely drive the Bricks Car"
+        moreText="Plus a bonus Joystick:bit extension activity: use a wireless joystick to remotely drive the Bricks Car"
         background="white"
       />
 
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="From the ELECFREAKS community — real builds and real code."
+        subtitle="From the ELECFREAKS community: real builds, real code."
         images={[
           {
             src: `${BASE_IMG}/hands-playing-with-trebuchet.jpg`,
@@ -225,17 +225,17 @@ export default async function RingBitBricksPackPage() {
           {
             question: "Does this include the BBC micro:bit?",
             answer:
-              "No — the BBC micro:bit board is not included. You'll need one to use this kit. We sell the BBC micro:bit Go separately, and you can add it on at checkout. The Ring:bit V2 expansion board (included) plugs directly onto the micro:bit.",
+              "No. The BBC micro:bit board is not included. You'll need one to use this kit. We sell the BBC micro:bit Go separately, and you can add it on at checkout. The Ring:bit V2 expansion board (included) plugs directly onto the micro:bit.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "ELECFREAKS recommends this kit from age 7. Children aged 7–10 will enjoy building and running the guided projects. Older children (10–14) get more from experimenting with the code and tackling the more challenging projects like the Trebuchet.",
+              "ELECFREAKS recommends this kit from age 7. Children aged 7-10 will enjoy building and running the guided projects. Older children (10-14) get more from experimenting with the code and tackling the more challenging projects like the Trebuchet.",
           },
           {
             question: "Do I need to buy batteries?",
             answer:
-              "Yes — 3 x AAA batteries are required to power the kit but are not included. You can add a pack of Varta Long Life AAA batteries at checkout so you're ready to go from the start.",
+              "Yes. 3 x AAA batteries are required to power the kit but are not included. You can add a pack of Varta Long Life AAA batteries at checkout so you're ready to go from the start.",
           },
           {
             question: "Is a computer required?",
@@ -250,7 +250,7 @@ export default async function RingBitBricksPackPage() {
           {
             question: "Are these LEGO bricks?",
             answer:
-              "They're LEGO-compatible — the same standard stud system — but not official LEGO bricks. They work perfectly alongside any LEGO bricks your child already has at home.",
+              "They're LEGO-compatible (the same standard stud system) but not official LEGO bricks. They work perfectly alongside any LEGO bricks your child already has at home.",
           },
         ]}
         background="gray"
@@ -298,7 +298,7 @@ export default async function RingBitBricksPackPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Building"
-        subtitle="Six projects. Two servos. 200+ bricks. One kit that teaches your child to build and code real things."
+        subtitle="Six projects, two servos, and 200+ bricks: one kit that teaches your child to build and code real things."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -319,7 +319,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build 6 real STEM projects — a car, traffic lights, smart lamp and more — with 200+ LEGO-compatible bricks, servos and LED strip. Ages 7+, no soldering.",
+      "Build 6 real STEM projects (a car, traffic lights, smart lamp and more) with 200+ LEGO-compatible bricks, servos and LED strip. Ages 7+, no soldering.",
     alternates: {
       canonical: "/product/elecfreaks-micro-bit-6-in-1-ring-bit-kit",
     },
