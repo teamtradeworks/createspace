@@ -257,23 +257,28 @@ export default function ShopGallery({
 
   const filterGroups = (
     <>
-      <FilterGroup
-        title="Deals"
-        axis="sale"
-        options={[
-          {
-            value: SALE_VALUE,
-            label: SALE_LABEL,
-            color: CS_RED,
-            darkText: false,
-            svg: <TagIcon />,
-          },
-        ]}
-        selected={selectedSale}
-        facetCount={facetCount}
-        onToggle={toggle}
-        selectStyle="accent"
-      />
+      {/* Offered only while something is actually discounted. A ?sale=true
+          arriving in a quiet week keeps its removable chip and the empty
+          state that explains it, but the rail doesn't advertise a dead axis. */}
+      {saleCount > 0 && (
+        <FilterGroup
+          title="Deals"
+          axis="sale"
+          options={[
+            {
+              value: SALE_VALUE,
+              label: SALE_LABEL,
+              color: CS_RED,
+              darkText: false,
+              svg: <TagIcon />,
+            },
+          ]}
+          selected={selectedSale}
+          facetCount={facetCount}
+          onToggle={toggle}
+          selectStyle="accent"
+        />
+      )}
       <FilterGroup
         title="Age"
         axis="age"

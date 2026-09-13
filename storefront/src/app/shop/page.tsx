@@ -1,4 +1,9 @@
-import { getCollectionProducts, slimProductForCard } from "@/lib/shopify";
+import {
+  getCollectionProducts,
+  slimProductForCard,
+  SHOP_COLLECTION_HANDLE,
+  SHOP_PRODUCT_LIMIT,
+} from "@/lib/shopify";
 import { Metadata } from "next";
 import ShopGallery from "@/components/ShopGallery";
 import PageHeader from "@/components/PageHeader";
@@ -27,8 +32,8 @@ export default async function ShopPage({ searchParams }: Props) {
   const { age, category, brand, sale, sort } = await searchParams;
   // Fetch in collection default order to respect manual ordering set in Shopify admin.
   const { products: fullProducts } = await getCollectionProducts(
-    "shop-all-headless",
-    100,
+    SHOP_COLLECTION_HANDLE,
+    SHOP_PRODUCT_LIMIT,
     "COLLECTION_DEFAULT",
   );
   // Slim to card fields before crossing to the client grid — descriptions

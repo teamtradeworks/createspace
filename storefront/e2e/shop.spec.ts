@@ -24,21 +24,34 @@ test.describe("Shop page", () => {
 });
 
 test.describe("Sale filter", () => {
-  // The rail chip is the only "On sale" control carrying aria-pressed — the
-  // removable chip in the active-filter row shares its label.
-  const saleChip = (page: import("@playwright/test").Page) =>
-    page.locator("button[aria-pressed]").filter({ hasText: "On sale" });
+  // Both the nav shortcut and the rail chip are hidden while nothing is
+  // discounted, so each test first asks whether a sale is running rather than
+  // assuming the catalogue always has one.
+  const onSaleControl = (page: import("@playwright/test").Page) =>
+    page.getByRole("button", { name: "On sale" });
 
   test("the Sale nav shortcut lands on the filtered shop", async ({ page }) => {
     await page.goto("/");
-    await page.locator("header").getByRole("link", { name: "Sale", exact: true }).click();
+    const shortcut = page.locator("header").getByRole("link", { name: "Sale", exact: true });
+    test.skip((await shortcut.count()) === 0, "nothing is on sale right now");
+
+    await shortcut.click();
     await expect(page).toHaveURL(/\/shop\?sale=true/);
-    await expect(saleChip(page)).toHaveAttribute("aria-pressed", "true");
+    await expect(onSaleControl(page).first()).toBeVisible();
+  });
+
+  test("the Sale nav shortcut is hidden when nothing is discounted", async ({ page }) => {
+    await page.goto("/shop?sale=true");
+    const discounted = await page.locator('main a[href^="/product/"]').count();
+    const shortcut = page.locator("header").getByRole("link", { name: "Sale", exact: true });
+
+    // The shortcut and the sale itself appear and disappear together.
+    expect(await shortcut.count()).toBe(discounted > 0 ? 1 : 0);
   });
 
   test("every product listed under the sale filter shows a discount badge", async ({ page }) => {
     await page.goto("/shop?sale=true");
-    await expect(saleChip(page)).toHaveAttribute("aria-pressed", "true");
+    await expect(onSaleControl(page).first()).toBeVisible();
 
     // Passes on an empty sale too: the assertion is that nothing without a
     // saving can appear here, not that a sale is always running.
@@ -52,10 +65,15 @@ test.describe("Sale filter", () => {
   test("clearing the sale filter restores the full catalogue", async ({ page }) => {
     await page.goto("/shop?sale=true");
     const saleCount = await page.locator('main a[href^="/product/"]').count();
+    test.skip(saleCount === 0, "nothing is on sale right now");
 
     await page.getByRole("button", { name: "Clear all" }).first().click();
-    await expect(saleChip(page)).toHaveAttribute("aria-pressed", "false");
     await expect(page).not.toHaveURL(/sale=true/);
+    // The rail option stays offered while a sale is on — it is simply no
+    // longer applied.
+    await expect(
+      page.locator("button[aria-pressed]").filter({ hasText: "On sale" }),
+    ).toHaveAttribute("aria-pressed", "false");
     expect(await page.locator('main a[href^="/product/"]').count()).toBeGreaterThan(saleCount);
   });
 });

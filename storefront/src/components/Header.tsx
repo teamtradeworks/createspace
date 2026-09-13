@@ -107,7 +107,7 @@ const SALE_PILL_CLASS =
   "inline-flex items-center rounded-full bg-cs-yellow px-3.5 py-1.5 text-sm font-bold text-navy " +
   "shadow-[0_2px_6px_rgba(0,0,0,0.3)] transition-transform hover:-translate-y-px active:translate-y-0 active:scale-95";
 
-export default function Header() {
+export default function Header({ saleAvailable = false }: { saleAvailable?: boolean }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileEducationOpen, setMobileEducationOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -131,6 +131,10 @@ export default function Header() {
     }, 3500);
     return () => clearInterval(timer);
   }, []);
+
+  // The Sale shortcut appears only while the shop actually has something
+  // discounted, so it can never lead to an empty grid.
+  const navItems = navigation.filter((item) => !item.accent || saleAvailable);
 
   const closeDropdown = () => setActiveDropdown(null);
 
@@ -214,7 +218,7 @@ export default function Header() {
               switches to the menu button below lg — the same breakpoint the
               promo strip above and the shop's own filter layout use. */}
           <div className="hidden lg:flex lg:items-center lg:space-x-6 xl:space-x-8">
-            {navigation.map((item) => (
+            {navItems.map((item) => (
               <div
                 key={item.name}
                 className="relative"
@@ -337,7 +341,7 @@ export default function Header() {
         {/* Mobile navigation */}
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 border-t border-white/10">
-            {navigation.map((item) => (
+            {navItems.map((item) => (
               <div key={item.name}>
                 {item.accent ? (
                   <Link

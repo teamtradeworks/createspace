@@ -36,10 +36,14 @@ export async function shopifyFetch<T>({
   query,
   variables,
   cache,
+  revalidate,
 }: {
   query: string;
   variables?: Record<string, unknown>;
   cache?: RequestCache;
+  // Seconds before the cached response goes stale. Defaults to a minute;
+  // raise it for data that every page pays for (see hasProductsOnSale).
+  revalidate?: number;
 }): Promise<T> {
   const body = JSON.stringify({ query, variables });
   const init: RequestInit = {
@@ -49,7 +53,7 @@ export async function shopifyFetch<T>({
       "X-Shopify-Storefront-Access-Token": storefrontAccessToken,
     },
     body,
-    ...(cache ? { cache } : { next: { revalidate: 60 } }),
+    ...(cache ? { cache } : { next: { revalidate: revalidate ?? 60 } }),
   };
 
   let lastError: unknown;
@@ -158,6 +162,11 @@ type Collection = {
     altText: string | null;
   } | null;
 };
+
+// The full-catalogue collection behind /shop, and how many of it we read.
+// Shared so the grid, the homepage and the sale check all see one catalogue.
+export const SHOP_COLLECTION_HANDLE = "shop-all-headless";
+export const SHOP_PRODUCT_LIMIT = 100;
 
 // Queries
 const PRODUCTS_QUERY = `
@@ -710,6 +719,55 @@ export function isOnSale(product: SalePricedProduct): boolean {
   const wasPrice = product.compareAtPriceRange?.minVariantPrice.amount;
   if (!wasPrice) return false;
   return parseFloat(wasPrice) > parseFloat(product.priceRange.minVariantPrice.amount);
+}
+
+// Just the prices, for asking whether a sale is on without pulling the images,
+// descriptions and metafields a card needs. The Storefront API can't filter on
+// compare-at price, so this still scans the collection — but over the same
+// handle and page size the shop grid uses, so the two can't disagree about
+// whether there is anything to show.
+const SALE_CHECK_QUERY = `
+  query SaleCheck($handle: String!, $first: Int!) {
+    collection(handle: $handle) {
+      products(first: $first) {
+        edges {
+          node {
+            priceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+            compareAtPriceRange {
+              minVariantPrice {
+                amount
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+// Whether anything in the shop collection is discounted right now. The header
+// asks this on every page render to decide whether to offer the Sale shortcut
+// at all, so it must never fail a page: a Shopify error resolves to false,
+// which hides the shortcut rather than aiming it at an empty grid. Cached
+// longer than the default minute because every route pays for it.
+export async function hasProductsOnSale(): Promise<boolean> {
+  try {
+    const data = await shopifyFetch<{
+      collection: { products: { edges: { node: SalePricedProduct }[] } } | null;
+    }>({
+      query: SALE_CHECK_QUERY,
+      variables: { handle: SHOP_COLLECTION_HANDLE, first: SHOP_PRODUCT_LIMIT },
+      revalidate: 300,
+    });
+    return data.collection?.products.edges.some((e) => isOnSale(e.node)) ?? false;
+  } catch (err) {
+    console.error("[shop] sale check failed:", err);
+    return false;
+  }
 }
 
 // Trim a product to what the card grids render before handing it to a client

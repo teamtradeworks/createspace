@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN = "test-shop.myshopify.com";
 process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_ACCESS_TOKEN = "test-token";
 
-import { shopifyFetch } from "@/lib/shopify";
+import { shopifyFetch, hasProductsOnSale } from "@/lib/shopify";
 
 const QUERY = "query { shop { name } }";
 
@@ -134,5 +134,63 @@ describe("shopifyFetch", () => {
 
     await expect(shopifyFetch({ query: QUERY })).rejects.toThrow(/Shopify 404/);
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("hasProductsOnSale", () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  function collection(nodes: { price: string; compareAt?: string }[]): Response {
+    return jsonResponse({
+      data: {
+        collection: {
+          products: {
+            edges: nodes.map((n) => ({
+              node: {
+                priceRange: { minVariantPrice: { amount: n.price } },
+                compareAtPriceRange: n.compareAt
+                  ? { minVariantPrice: { amount: n.compareAt } }
+                  : null,
+              },
+            })),
+          },
+        },
+      },
+    });
+  }
+
+  it("is true when any product carries a live discount", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValueOnce(
+      collection([{ price: "100" }, { price: "80", compareAt: "120" }]),
+    );
+    expect(await hasProductsOnSale()).toBe(true);
+  });
+
+  it("is false when nothing is discounted", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValueOnce(
+      collection([{ price: "100" }, { price: "80", compareAt: "80" }]),
+    );
+    expect(await hasProductsOnSale()).toBe(false);
+  });
+
+  it("is false when the collection is missing", async () => {
+    vi.spyOn(globalThis, "fetch").mockResolvedValueOnce(
+      jsonResponse({ data: { collection: null } }),
+    );
+    expect(await hasProductsOnSale()).toBe(false);
+  });
+
+  // The header calls this on every route, so a Shopify outage must hide the
+  // shortcut rather than take the whole site down with it.
+  it("is false, not thrown, when Shopify fails", async () => {
+    vi.spyOn(console, "error").mockImplementation(() => {});
+    vi.spyOn(globalThis, "fetch").mockResolvedValue(htmlResponse("Bad gateway", 502));
+    await expect(hasProductsOnSale()).resolves.toBe(false);
   });
 });
