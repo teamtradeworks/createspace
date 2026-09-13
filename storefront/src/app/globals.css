@@ -15,7 +15,19 @@
 
 html {
   scrollbar-gutter: stable;
-  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling is motion too — opt it in like every other animation here. */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Safari <=16 keeps its own disclosure triangle even with list-style: none,
+   which would double up with our chevron. */
+summary::-webkit-details-marker {
+  display: none;
 }
 
 body {

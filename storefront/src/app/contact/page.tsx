@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import SocialLinks from "@/components/SocialLinks";
 import PageHeader from "@/components/PageHeader";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import FaqJsonLd from "@/components/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "Contact Us | CREATESPACE",
@@ -80,8 +82,8 @@ const contactInfo = [
         />
       </svg>
     ),
-    title: "Hours",
-    description: "Order online anytime",
+    title: "When we reply",
+    description: "You can order any time",
     value: "Mon to Fri, 9am to 5pm",
     href: null,
   },
@@ -142,6 +144,14 @@ const faqs = [
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Contact", href: "/contact" },
+        ]}
+      />
+      <FaqJsonLd items={faqs} />
+
       {/* Hero */}
       <PageHeader
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
@@ -154,28 +164,37 @@ export default function ContactPage() {
       />
 
       {/* Contact info */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50" aria-labelledby="reach-us">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <h2 id="reach-us" className="sr-only">
+            How to reach us
+          </h2>
+          {/* Three across only from lg: the email address needs ~240px of card
+              to stay on one line, which a 3-up grid can't give until 1024px. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {contactInfo.map((info) => (
               <div
                 key={info.title}
-                className="bg-white rounded-xl p-6 ring-1 ring-gray-200/70 hover:shadow-md transition-shadow"
+                className="bg-white rounded-xl p-5 md:p-6 ring-1 ring-navy/10 hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 bg-cs-orange/10 rounded-lg flex items-center justify-center text-cs-orange mb-4">
-                  {info.icon}
+                {/* Icon sits beside the title on mobile so the three cards don't
+                    push the form a viewport and a half down the page. */}
+                <div className="flex items-center gap-3 md:block">
+                  <div className="shrink-0 w-11 h-11 md:w-12 md:h-12 bg-cs-orange/10 rounded-lg flex items-center justify-center text-navy md:mb-4">
+                    {info.icon}
+                  </div>
+                  <h3 className="font-semibold text-navy md:mb-1">{info.title}</h3>
                 </div>
-                <h2 className="font-semibold text-navy mb-1">{info.title}</h2>
-                <p className="text-sm text-gray-500 mb-2">{info.description}</p>
+                <p className="text-sm text-gray-600 mt-3 md:mt-0 md:mb-2">{info.description}</p>
                 {info.href ? (
                   <a
                     href={info.href}
-                    className="text-cs-orange hover:underline font-medium break-words"
+                    className="inline-block max-w-full py-1 text-navy font-medium break-words underline decoration-2 decoration-cs-orange underline-offset-4 hover:decoration-navy transition-colors"
                   >
                     {info.value}
                   </a>
                 ) : (
-                  <span className="text-navy font-medium">{info.value}</span>
+                  <span className="block text-navy font-medium">{info.value}</span>
                 )}
               </div>
             ))}
@@ -190,7 +209,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl font-semibold text-navy mb-2">Send us a message</h2>
               <p className="text-gray-600 mb-8">
-                Fill in the form and we&apos;ll get back to you as soon as we can.
+                Fill in the form and we&apos;ll get back to you within one business day.
               </p>
               <ContactForm />
             </div>
@@ -204,11 +223,11 @@ export default function ContactPage() {
                 {faqs.map((faq) => (
                   <details
                     key={faq.question}
-                    className="group bg-gray-50 rounded-xl overflow-hidden"
+                    className="group bg-gray-50 rounded-xl ring-1 ring-navy/10 overflow-hidden"
                   >
-                    <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
+                    <summary className="flex items-center justify-between p-5 cursor-pointer list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset rounded-xl">
                       <span className="font-medium text-navy pr-4">{faq.question}</span>
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cs-orange/10 flex items-center justify-center text-cs-orange group-open:rotate-180 transition-transform">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cs-orange/10 flex items-center justify-center text-navy group-open:rotate-180 transition-transform">
                         <svg
                           className="w-4 h-4"
                           fill="none"

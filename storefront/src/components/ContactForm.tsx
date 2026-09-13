@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { capture, identify, group } from "@/lib/analytics";
 
 interface FormData {
@@ -27,6 +28,28 @@ const subjectOptions = [
   "Other",
 ];
 
+/**
+ * Shared field styling. Navy is the ink and the focus colour throughout — the
+ * brand orange sits at 2.35:1 on white, so it is never used for text, borders,
+ * or focus rings. The border is navy/50 (3.4:1 on white) so the field boundary
+ * clears WCAG 1.4.11; the form is always rendered on a white card.
+ */
+const fieldClass =
+  "w-full px-4 py-3 bg-white text-navy border border-navy/50 rounded-lg " +
+  "placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-navy " +
+  "focus:border-navy transition-colors";
+
+const labelClass = "block text-sm font-medium text-navy mb-1";
+
+/** The asterisk is a shape, not a colour cue — `required` carries it for assistive tech. */
+function RequiredMark() {
+  return (
+    <span aria-hidden="true" className="text-navy">
+      *
+    </span>
+  );
+}
+
 export default function ContactForm({
   showEducationFields = false,
   educationSource,
@@ -40,10 +63,25 @@ export default function ContactForm({
     schoolName: "",
     position: "",
   });
-  const [subscribeToNewsletter, setSubscribeToNewsletter] = useState(true);
+  const [subscribeToNewsletter, setSubscribeToNewsletter] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const successRef = useRef<HTMLDivElement>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
+
+  // The form is torn out and replaced on success, so move focus to the
+  // confirmation — otherwise focus falls back to <body> and the outcome is
+  // never announced.
+  useEffect(() => {
+    if (isSubmitted) successRef.current?.focus();
+  }, [isSubmitted]);
+
+  // The error renders above the form and can be off-screen after scrolling.
+  useEffect(() => {
+    if (error) errorRef.current?.focus();
+  }, [error]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
@@ -75,7 +113,10 @@ export default function ContactForm({
       const data = await response.json();
 
       if (!response.ok) {
-        setError(data.error || "Something went wrong. Please try again.");
+        setError(
+          data.error ||
+            "We couldn't send your message. Try again, or email us at info@thecreatespace.co.za.",
+        );
         return;
       }
 
@@ -92,17 +133,19 @@ export default function ContactForm({
         });
       }
 
-      if (formData.email) {
+      // Only send the address to the newsletter audience when it was actually
+      // opted in — an unticked box is not consent to be stored as a contact.
+      if (subscribeToNewsletter && formData.email) {
         try {
           const res = await fetch("/api/subscribe", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: formData.email.trim(),
-              subscribed: subscribeToNewsletter,
+              subscribed: true,
             }),
           });
-          if (res.ok && subscribeToNewsletter) {
+          if (res.ok) {
             capture("newsletter_subscribed", { source: "contact_form" });
           }
         } catch {
@@ -121,7 +164,9 @@ export default function ContactForm({
         position: "",
       });
     } catch {
-      setError("Something went wrong. Please try again.");
+      setError(
+        "We couldn't reach the server. Check your connection and try again, or email us at info@thecreatespace.co.za.",
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -129,19 +174,30 @@ export default function ContactForm({
 
   if (isSubmitted) {
     return (
-      <div className="bg-cs-green/10 border border-cs-green/20 rounded-xl p-8 text-center">
+      <div
+        ref={successRef}
+        role="status"
+        tabIndex={-1}
+        className="bg-cs-green/10 ring-1 ring-cs-green/40 rounded-xl p-8 text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-navy"
+      >
         <div className="w-16 h-16 bg-cs-green rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg
+            className="w-8 h-8 text-navy"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-xl font-semibold text-navy mb-2">Message Sent!</h3>
+        <h3 className="text-xl font-semibold text-navy mb-2">Message sent</h3>
         <p className="text-gray-600 mb-6">
-          Thank you for reaching out. We&apos;ll get back to you within 24 hours.
+          Thanks for reaching out. We&apos;ll get back to you within one business day.
         </p>
         <button
           onClick={() => setIsSubmitted(false)}
-          className="text-cs-orange hover:underline font-medium"
+          className="text-navy font-medium underline decoration-2 decoration-cs-orange underline-offset-4 hover:decoration-navy transition-colors"
         >
           Send another message
         </button>
@@ -150,10 +206,33 @@ export default function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form
+      onSubmit={handleSubmit}
+      aria-label={showEducationFields ? "Education enquiry form" : "Contact form"}
+      className="space-y-5"
+    >
       {error && (
-        <div className="bg-cs-red/10 border border-cs-red/20 text-cs-red rounded-lg p-4 text-sm">
-          {error}
+        <div
+          ref={errorRef}
+          role="alert"
+          tabIndex={-1}
+          className="flex items-start gap-3 bg-cs-red/10 ring-1 ring-cs-red/40 text-navy rounded-lg p-4 text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-navy"
+        >
+          <svg
+            className="w-5 h-5 shrink-0 text-cs-red"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"
+            />
+          </svg>
+          <p>{error}</p>
         </div>
       )}
 
@@ -163,8 +242,8 @@ export default function ContactForm({
           <div className="grid sm:grid-cols-2 gap-5">
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Name <span className="text-cs-red">*</span>
+              <label htmlFor="name" className={labelClass}>
+                Name <RequiredMark />
               </label>
               <input
                 type="text"
@@ -174,14 +253,14 @@ export default function ContactForm({
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your name"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+                className={fieldClass}
               />
             </div>
 
             {/* Position Held */}
             <div>
-              <label htmlFor="position" className="block text-sm font-medium text-gray-700 mb-1">
-                Position Held
+              <label htmlFor="position" className={labelClass}>
+                Position held
               </label>
               <input
                 type="text"
@@ -190,15 +269,15 @@ export default function ContactForm({
                 value={formData.position}
                 onChange={handleChange}
                 placeholder="e.g. Principal, HOD, Teacher"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+                className={fieldClass}
               />
             </div>
           </div>
 
           {/* School Name */}
           <div>
-            <label htmlFor="schoolName" className="block text-sm font-medium text-gray-700 mb-1">
-              School Name
+            <label htmlFor="schoolName" className={labelClass}>
+              School name
             </label>
             <input
               type="text"
@@ -207,15 +286,15 @@ export default function ContactForm({
               value={formData.schoolName}
               onChange={handleChange}
               placeholder="Your school name"
-              className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+              className={fieldClass}
             />
           </div>
 
           <div className="grid sm:grid-cols-2 gap-5">
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email <span className="text-cs-red">*</span>
+              <label htmlFor="email" className={labelClass}>
+                Email <RequiredMark />
               </label>
               <input
                 type="email"
@@ -225,13 +304,13 @@ export default function ContactForm({
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="your@email.com"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+                className={fieldClass}
               />
             </div>
 
             {/* Phone */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="phone" className={labelClass}>
                 Phone
               </label>
               <input
@@ -240,8 +319,7 @@ export default function ContactForm({
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder=""
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+                className={fieldClass}
               />
             </div>
           </div>
@@ -252,8 +330,8 @@ export default function ContactForm({
           <div className="grid sm:grid-cols-2 gap-5">
             {/* Name */}
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                Name <span className="text-cs-red">*</span>
+              <label htmlFor="name" className={labelClass}>
+                Name <RequiredMark />
               </label>
               <input
                 type="text"
@@ -263,14 +341,14 @@ export default function ContactForm({
                 value={formData.name}
                 onChange={handleChange}
                 placeholder="Your name"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+                className={fieldClass}
               />
             </div>
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email <span className="text-cs-red">*</span>
+              <label htmlFor="email" className={labelClass}>
+                Email <RequiredMark />
               </label>
               <input
                 type="email"
@@ -280,7 +358,7 @@ export default function ContactForm({
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="your@email.com"
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+                className={fieldClass}
               />
             </div>
           </div>
@@ -288,7 +366,7 @@ export default function ContactForm({
           <div className="grid sm:grid-cols-2 gap-5">
             {/* Phone */}
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+              <label htmlFor="phone" className={labelClass}>
                 Phone
               </label>
               <input
@@ -297,15 +375,14 @@ export default function ContactForm({
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder=""
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors"
+                className={fieldClass}
               />
             </div>
 
             {/* Subject */}
             <div>
-              <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
-                Subject <span className="text-cs-red">*</span>
+              <label htmlFor="subject" className={labelClass}>
+                Subject <RequiredMark />
               </label>
               <select
                 id="subject"
@@ -313,7 +390,7 @@ export default function ContactForm({
                 required
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors bg-white"
+                className={fieldClass}
               >
                 <option value="">Select a topic</option>
                 {subjectOptions.map((option) => (
@@ -329,8 +406,8 @@ export default function ContactForm({
 
       {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-          Message {!showEducationFields && <span className="text-cs-red">*</span>}
+        <label htmlFor="message" className={labelClass}>
+          Message {!showEducationFields && <RequiredMark />}
         </label>
         <textarea
           id="message"
@@ -340,7 +417,7 @@ export default function ContactForm({
           value={formData.message}
           onChange={handleChange}
           placeholder="How can we help you?"
-          className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cs-orange focus:border-transparent transition-colors resize-none"
+          className={`${fieldClass} resize-y min-h-[8rem]`}
         />
       </div>
 
@@ -350,7 +427,7 @@ export default function ContactForm({
           type="checkbox"
           checked={subscribeToNewsletter}
           onChange={(e) => setSubscribeToNewsletter(e.target.checked)}
-          className="mt-0.5 h-5 w-5 rounded border-gray-300 text-cs-orange focus:ring-cs-orange cursor-pointer accent-cs-orange"
+          className="mt-0.5 h-5 w-5 rounded border-navy/50 accent-navy focus:ring-navy cursor-pointer"
         />
         <span className="text-sm text-gray-600">
           Keep me updated with new products, STEM deals, and education resources.
@@ -361,11 +438,16 @@ export default function ContactForm({
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-4 bg-cs-orange hover:bg-cs-orange/90 text-white font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full py-4 bg-cs-orange text-navy hover:bg-navy hover:text-white font-semibold rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:bg-cs-orange disabled:hover:text-navy flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
           <>
-            <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+            <svg
+              className="animate-spin h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
               <circle
                 className="opacity-25"
                 cx="12"
@@ -384,8 +466,14 @@ export default function ContactForm({
           </>
         ) : (
           <>
-            Send Message
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            Send message
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -397,11 +485,14 @@ export default function ContactForm({
         )}
       </button>
 
-      <p className="text-xs text-gray-500 text-center">
+      <p className="text-xs text-gray-600 text-center">
         By submitting this form, you agree to our{" "}
-        <a href="/privacy" className="text-cs-orange hover:underline">
+        <Link
+          href="/privacy"
+          className="text-navy font-medium underline decoration-cs-orange underline-offset-2 hover:decoration-navy transition-colors"
+        >
           Privacy Policy
-        </a>
+        </Link>
         .
       </p>
     </form>
