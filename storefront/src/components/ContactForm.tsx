@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import { capture, identify, group } from "@/lib/analytics";
 
 interface FormData {
@@ -484,17 +483,6 @@ export default function ContactForm({
           </>
         )}
       </button>
-
-      <p className="text-xs text-gray-600 text-center">
-        By submitting this form, you agree to our{" "}
-        <Link
-          href="/privacy"
-          className="text-navy font-medium underline decoration-cs-orange underline-offset-2 hover:decoration-navy transition-colors"
-        >
-          Privacy Policy
-        </Link>
-        .
-      </p>
     </form>
   );
 }

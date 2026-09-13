@@ -184,18 +184,12 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
-              <h2 className="text-2xl font-semibold text-navy mb-2">Send us a message</h2>
-              <p className="text-gray-600 mb-8">
-                Tell us who it&apos;s for and what you&apos;re after.
-              </p>
+              <h2 className="text-2xl font-semibold text-navy mb-8">Send us a message</h2>
               <ContactForm />
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-navy mb-2">Frequently asked questions</h2>
-              <p className="text-gray-600 mb-8">
-                Quick answers to what people ask most. Still stuck? Send us a message.
-              </p>
+              <h2 className="text-2xl font-semibold text-navy mb-8">Frequently asked questions</h2>
               <div className="space-y-4">
                 {faqs.map((faq) => (
                   <details
