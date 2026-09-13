@@ -36,7 +36,10 @@ export async function POST(request: NextRequest) {
   const { name, email, subject, phone, message, schoolName, position } = body;
 
   if (!name || !email || !subject) {
-    return NextResponse.json({ error: "Please fill in all required fields." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Please fill in your name, email, and subject." },
+      { status: 400 },
+    );
   }
 
   if (!email.includes("@")) {
@@ -137,7 +140,10 @@ export async function POST(request: NextRequest) {
     if (error) {
       console.error("[contact] Resend error:", error);
       return NextResponse.json(
-        { error: "Failed to send message. Please try again." },
+        {
+          error:
+            "We couldn't send your message. Try again, or email us at info@thecreatespace.co.za.",
+        },
         { status: 500 },
       );
     }
@@ -161,6 +167,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error("[contact] Error:", err);
-    return NextResponse.json({ error: "Something went wrong. Please try again." }, { status: 500 });
+    return NextResponse.json(
+      {
+        error:
+          "We couldn't send your message. Try again, or email us at info@thecreatespace.co.za.",
+      },
+      { status: 500 },
+    );
   }
 }

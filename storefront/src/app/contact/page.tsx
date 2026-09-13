@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import SocialLinks from "@/components/SocialLinks";
 import PageHeader from "@/components/PageHeader";
+import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
+import FaqJsonLd from "@/components/FaqJsonLd";
 
 export const metadata: Metadata = {
   title: "Contact Us | CREATESPACE",
@@ -63,28 +65,6 @@ const contactInfo = [
     value: "Online store, we deliver countrywide",
     href: null,
   },
-  {
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
-    title: "Hours",
-    description: "Order online anytime",
-    value: "Mon to Fri, 9am to 5pm",
-    href: null,
-  },
 ];
 
 const faqs = [
@@ -142,6 +122,14 @@ const faqs = [
 export default function ContactPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Contact", href: "/contact" },
+        ]}
+      />
+      <FaqJsonLd items={faqs} />
+
       {/* Hero */}
       <PageHeader
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact" }]}
@@ -150,33 +138,41 @@ export default function ContactPage() {
             Get <span className="text-cs-orange">in touch</span>
           </>
         }
-        subtitle="A question about a kit, help choosing for a certain age, or a school order? Send us a message and we'll get back to you within one business day."
+        subtitle="A question about a kit, help choosing for a certain age, or a school order? Send us a message."
       />
 
       {/* Contact info */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-50" aria-labelledby="reach-us">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <h2 id="reach-us" className="sr-only">
+            How to reach us
+          </h2>
+          {/* Two across from md. The email address needs ~190px of text column,
+              which a 2-up grid can't give until 768px. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {contactInfo.map((info) => (
               <div
                 key={info.title}
-                className="bg-white rounded-xl p-6 ring-1 ring-gray-200/70 hover:shadow-md transition-shadow"
+                className="flex items-start gap-3 md:gap-4 bg-white rounded-xl p-5 md:p-6 ring-1 ring-navy/10 hover:shadow-md transition-shadow"
               >
-                <div className="w-12 h-12 bg-cs-orange/10 rounded-lg flex items-center justify-center text-cs-orange mb-4">
+                <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 bg-cs-orange/10 rounded-lg flex items-center justify-center text-navy">
                   {info.icon}
                 </div>
-                <h2 className="font-semibold text-navy mb-1">{info.title}</h2>
-                <p className="text-sm text-gray-500 mb-2">{info.description}</p>
-                {info.href ? (
-                  <a
-                    href={info.href}
-                    className="text-cs-orange hover:underline font-medium break-words"
-                  >
-                    {info.value}
-                  </a>
-                ) : (
-                  <span className="text-navy font-medium">{info.value}</span>
-                )}
+                {/* min-w-0 lets the email address wrap instead of forcing the flex row wider. */}
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-navy">{info.title}</h3>
+                  <p className="text-sm text-gray-600 mt-1 mb-2">{info.description}</p>
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="inline-block max-w-full py-1 text-navy font-medium break-words underline decoration-2 decoration-cs-orange underline-offset-4 hover:decoration-navy transition-colors"
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <span className="block text-navy font-medium">{info.value}</span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -188,27 +184,21 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
-              <h2 className="text-2xl font-semibold text-navy mb-2">Send us a message</h2>
-              <p className="text-gray-600 mb-8">
-                Fill in the form and we&apos;ll get back to you as soon as we can.
-              </p>
+              <h2 className="text-2xl font-semibold text-navy mb-8">Send us a message</h2>
               <ContactForm />
             </div>
 
             <div>
-              <h2 className="text-2xl font-semibold text-navy mb-2">Frequently asked questions</h2>
-              <p className="text-gray-600 mb-8">
-                Quick answers to what people ask most. Still stuck? Send us a message.
-              </p>
+              <h2 className="text-2xl font-semibold text-navy mb-8">Frequently asked questions</h2>
               <div className="space-y-4">
                 {faqs.map((faq) => (
                   <details
                     key={faq.question}
-                    className="group bg-gray-50 rounded-xl overflow-hidden"
+                    className="group bg-gray-50 rounded-xl ring-1 ring-navy/10 overflow-hidden"
                   >
-                    <summary className="flex items-center justify-between p-5 cursor-pointer list-none">
+                    <summary className="flex items-center justify-between p-5 cursor-pointer list-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-inset rounded-xl">
                       <span className="font-medium text-navy pr-4">{faq.question}</span>
-                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cs-orange/10 flex items-center justify-center text-cs-orange group-open:rotate-180 transition-transform">
+                      <span className="flex-shrink-0 w-6 h-6 rounded-full bg-cs-orange/10 flex items-center justify-center text-navy group-open:rotate-180 transition-transform">
                         <svg
                           className="w-4 h-4"
                           fill="none"
