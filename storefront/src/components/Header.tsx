@@ -178,15 +178,20 @@ export default function Header() {
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          {/* Subtle brand marks behind the nav (desktop only, very low opacity) */}
-          <BrandDecor
-            src="/images/illustrations/atom-1.svg"
-            className="left-[38%] top-1/2 w-8 -translate-y-1/2 opacity-[0.07]"
-          />
-          <BrandDecor
-            src="/images/illustrations/nut.svg"
-            className="right-[16%] top-1/2 w-8 -translate-y-1/2 -rotate-12 opacity-[0.07]"
-          />
+          {/* Subtle brand marks behind the nav links, very low opacity. Gated to
+              lg because they are positioned to sit between the desktop links —
+              below lg the nav collapses to the hamburger and they would just
+              float in empty space. `contents` keeps them out of the flex flow. */}
+          <div className="hidden lg:contents">
+            <BrandDecor
+              src="/images/illustrations/atom-1.svg"
+              className="left-[38%] top-1/2 w-8 -translate-y-1/2 opacity-[0.07]"
+            />
+            <BrandDecor
+              src="/images/illustrations/nut.svg"
+              className="right-[16%] top-1/2 w-8 -translate-y-1/2 -rotate-12 opacity-[0.07]"
+            />
+          </div>
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -200,7 +205,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
+          <div className="hidden lg:flex lg:items-center lg:space-x-8">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -286,7 +291,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden text-white"
+              className="lg:hidden text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Menu"
             >
@@ -313,7 +318,7 @@ export default function Header() {
 
         {/* Mobile navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/10">
+          <div className="lg:hidden py-4 border-t border-white/10">
             {navigation.map((item) => (
               <div key={item.name}>
                 {item.dropdown === "education" ? (
@@ -385,7 +390,7 @@ export default function Header() {
 
       {/* Shop Mega Menu Dropdown */}
       <div
-        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden lg:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "shop"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -509,7 +514,7 @@ export default function Header() {
 
       {/* Education Dropdown */}
       <div
-        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden lg:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "education"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -519,7 +524,7 @@ export default function Header() {
       >
         <div className="bg-white shadow-xl">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid lg:grid-cols-4 gap-6">
               {educationOptions.map((option) => (
                 <Link
                   key={option.id}
