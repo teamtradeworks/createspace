@@ -65,28 +65,6 @@ const contactInfo = [
     value: "Online store, we deliver countrywide",
     href: null,
   },
-  {
-    icon: (
-      <svg
-        className="w-6 h-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        aria-hidden="true"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
-    title: "When we reply",
-    description: "You can order any time",
-    value: "Mon to Fri, 9am to 5pm",
-    href: null,
-  },
 ];
 
 const faqs = [
@@ -160,7 +138,7 @@ export default function ContactPage() {
             Get <span className="text-cs-orange">in touch</span>
           </>
         }
-        subtitle="A question about a kit, help choosing for a certain age, or a school order? Send us a message and we'll get back to you within one business day."
+        subtitle="A question about a kit, help choosing for a certain age, or a school order? Send us a message."
       />
 
       {/* Contact info */}
@@ -169,33 +147,32 @@ export default function ContactPage() {
           <h2 id="reach-us" className="sr-only">
             How to reach us
           </h2>
-          {/* Three across only from lg: the email address needs ~240px of card
-              to stay on one line, which a 3-up grid can't give until 1024px. */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {/* Two across from md. The email address needs ~190px of text column,
+              which a 2-up grid can't give until 768px. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {contactInfo.map((info) => (
               <div
                 key={info.title}
-                className="bg-white rounded-xl p-5 md:p-6 ring-1 ring-navy/10 hover:shadow-md transition-shadow"
+                className="flex items-start gap-3 md:gap-4 bg-white rounded-xl p-5 md:p-6 ring-1 ring-navy/10 hover:shadow-md transition-shadow"
               >
-                {/* Icon sits beside the title on mobile so the three cards don't
-                    push the form a viewport and a half down the page. */}
-                <div className="flex items-center gap-3 md:block">
-                  <div className="shrink-0 w-11 h-11 md:w-12 md:h-12 bg-cs-orange/10 rounded-lg flex items-center justify-center text-navy md:mb-4">
-                    {info.icon}
-                  </div>
-                  <h3 className="font-semibold text-navy md:mb-1">{info.title}</h3>
+                <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 bg-cs-orange/10 rounded-lg flex items-center justify-center text-navy">
+                  {info.icon}
                 </div>
-                <p className="text-sm text-gray-600 mt-3 md:mt-0 md:mb-2">{info.description}</p>
-                {info.href ? (
-                  <a
-                    href={info.href}
-                    className="inline-block max-w-full py-1 text-navy font-medium break-words underline decoration-2 decoration-cs-orange underline-offset-4 hover:decoration-navy transition-colors"
-                  >
-                    {info.value}
-                  </a>
-                ) : (
-                  <span className="block text-navy font-medium">{info.value}</span>
-                )}
+                {/* min-w-0 lets the email address wrap instead of forcing the flex row wider. */}
+                <div className="min-w-0">
+                  <h3 className="font-semibold text-navy">{info.title}</h3>
+                  <p className="text-sm text-gray-600 mt-1 mb-2">{info.description}</p>
+                  {info.href ? (
+                    <a
+                      href={info.href}
+                      className="inline-block max-w-full py-1 text-navy font-medium break-words underline decoration-2 decoration-cs-orange underline-offset-4 hover:decoration-navy transition-colors"
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <span className="block text-navy font-medium">{info.value}</span>
+                  )}
+                </div>
               </div>
             ))}
           </div>
@@ -209,7 +186,7 @@ export default function ContactPage() {
             <div>
               <h2 className="text-2xl font-semibold text-navy mb-2">Send us a message</h2>
               <p className="text-gray-600 mb-8">
-                Fill in the form and we&apos;ll get back to you within one business day.
+                Tell us who it&apos;s for and what you&apos;re after.
               </p>
               <ContactForm />
             </div>
