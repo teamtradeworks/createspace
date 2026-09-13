@@ -1,4 +1,4 @@
-import { Product, getStockStatus } from "@/lib/shopify";
+import { Product, getStockStatus, isOnSale } from "@/lib/shopify";
 import { categoryMatchTags } from "@/config/categories";
 
 // Age bands used for shop filtering. `range` is [min, max] inclusive; the top
@@ -42,9 +42,15 @@ export function matchBrand(p: Product, brands: string[]): boolean {
   return brands.some((b) => b.toLowerCase() === p.vendor.toLowerCase());
 }
 
-type Selection = { ages: string[]; categories: string[]; brands: string[] };
+// The sale axis is a single on/off constraint rather than a list of values:
+// off places no constraint, on requires a live discount.
+export function matchSale(p: Product, onSale: boolean): boolean {
+  return !onSale || isOnSale(p);
+}
 
-// Filter across all three axes, then sort. Out-of-stock kits always sink to the
+type Selection = { ages: string[]; categories: string[]; brands: string[]; onSale: boolean };
+
+// Filter across all four axes, then sort. Out-of-stock kits always sink to the
 // end whatever the sort — this relies on a stable sort to preserve the primary
 // order within the in-stock and out-of-stock groups. The input array is never
 // mutated (filter() returns a fresh array that is sorted in place).
@@ -57,7 +63,8 @@ export function filterAndSortProducts(
     (p) =>
       matchAge(p, selection.ages) &&
       matchCategory(p, selection.categories) &&
-      matchBrand(p, selection.brands),
+      matchBrand(p, selection.brands) &&
+      matchSale(p, selection.onSale),
   );
 
   switch (sortBy) {

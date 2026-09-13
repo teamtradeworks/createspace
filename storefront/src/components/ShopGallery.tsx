@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
-import { Product } from "@/lib/shopify";
+import { Product, isOnSale } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
 import { capture } from "@/lib/analytics";
 import { CATEGORIES } from "@/config/categories";
@@ -12,6 +12,7 @@ import {
   matchAge,
   matchCategory,
   matchBrand,
+  matchSale,
   filterAndSortProducts,
 } from "@/lib/shop-filters";
 
@@ -20,6 +21,7 @@ interface ShopGalleryProps {
   initialAge?: string;
   initialCategory?: string;
   initialBrand?: string;
+  initialSale?: string;
   initialSort?: string;
 }
 
@@ -42,13 +44,21 @@ const sortOptions = [
   { value: "name-za", label: "Name: Z to A" },
 ];
 
-type Axis = "age" | "category" | "brand";
+// The sale axis holds a single on/off value. Modelling it as a one-element
+// selection (rather than a bare boolean) lets it ride the same toggle, chip,
+// facet-count, clear-all and URL machinery as the other three axes.
+const SALE_VALUE = "true";
+const SALE_LABEL = "On sale";
+const CS_RED = "#F70B28";
+
+type Axis = "age" | "category" | "brand" | "sale";
 
 export default function ShopGallery({
   products,
   initialAge,
   initialCategory,
   initialBrand,
+  initialSale,
   initialSort,
 }: ShopGalleryProps) {
   const parseParam = (v?: string) => (v && v !== "all" ? v.split(",").filter(Boolean) : []);
@@ -58,13 +68,21 @@ export default function ShopGallery({
     parseParam(initialCategory?.toLowerCase()),
   );
   const [selectedBrands, setSelectedBrands] = useState<string[]>(parseParam(initialBrand));
+  // `?sale=true` — what the Sale nav shortcut links to. Anything else is off,
+  // so a stray `?sale=false` can't silently switch the filter on.
+  const [selectedSale, setSelectedSale] = useState<string[]>(
+    initialSale === "true" || initialSale === "1" ? [SALE_VALUE] : [],
+  );
   const [sortBy, setSortBy] = useState(initialSort || "featured");
   const [sheetOpen, setSheetOpen] = useState(false);
+
+  const onSaleOnly = selectedSale.length > 0;
 
   const selectionByAxis: Record<Axis, string[]> = {
     age: selectedAges,
     category: selectedCategories,
     brand: selectedBrands,
+    sale: selectedSale,
   };
 
   // Brands present in the catalogue, in canonical order, labelled and badged
@@ -88,11 +106,34 @@ export default function ShopGallery({
     () =>
       filterAndSortProducts(
         products,
-        { ages: selectedAges, categories: selectedCategories, brands: selectedBrands },
+        {
+          ages: selectedAges,
+          categories: selectedCategories,
+          brands: selectedBrands,
+          onSale: onSaleOnly,
+        },
         sortBy,
       ),
-    [products, selectedAges, selectedCategories, selectedBrands, sortBy],
+    [products, selectedAges, selectedCategories, selectedBrands, onSaleOnly, sortBy],
   );
+
+  // Whether anything in the catalogue is discounted at all — drives the empty
+  // state when someone follows the Sale shortcut during a quiet week.
+  const saleCount = useMemo(() => products.filter((p) => isOnSale(p)).length, [products]);
+
+  // Whether a product satisfies one candidate value on a single axis.
+  const matchesValue = (p: Product, axis: Axis, value: string): boolean => {
+    switch (axis) {
+      case "age":
+        return matchAge(p, [value]);
+      case "category":
+        return matchCategory(p, [value]);
+      case "brand":
+        return matchBrand(p, [value]);
+      case "sale":
+        return isOnSale(p);
+    }
+  };
 
   // How many products a value would yield given the OTHER active axes. Used to
   // disable options that would lead to an empty grid (the number isn't shown).
@@ -102,11 +143,8 @@ export default function ShopGallery({
         (axis === "age" || matchAge(p, selectedAges)) &&
         (axis === "category" || matchCategory(p, selectedCategories)) &&
         (axis === "brand" || matchBrand(p, selectedBrands)) &&
-        (axis === "age"
-          ? matchAge(p, [value])
-          : axis === "category"
-            ? matchCategory(p, [value])
-            : matchBrand(p, [value])),
+        (axis === "sale" || matchSale(p, onSaleOnly)) &&
+        matchesValue(p, axis, value),
     ).length;
 
   // Sync filter state to the URL without triggering a navigation.
@@ -117,6 +155,7 @@ export default function ShopGallery({
     set("age", selectedAges);
     set("category", selectedCategories);
     set("brand", selectedBrands);
+    set("sale", selectedSale);
     if (sortBy !== "featured") params.set("sort", sortBy);
     else params.delete("sort");
     const query = params.toString();
@@ -125,7 +164,7 @@ export default function ShopGallery({
       "",
       query ? `${window.location.pathname}?${query}` : window.location.pathname,
     );
-  }, [selectedAges, selectedCategories, selectedBrands, sortBy]);
+  }, [selectedAges, selectedCategories, selectedBrands, selectedSale, sortBy]);
 
   // Lock body scroll while the mobile filter sheet is open.
   useEffect(() => {
@@ -163,7 +202,7 @@ export default function ShopGallery({
     if (sheetOpen) return;
     scrollToResults(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedAges, selectedCategories, selectedBrands]);
+  }, [selectedAges, selectedCategories, selectedBrands, selectedSale]);
 
   // Always scroll to the results after the mobile sheet is applied.
   useEffect(() => {
@@ -176,6 +215,7 @@ export default function ShopGallery({
     age: setSelectedAges,
     category: setSelectedCategories,
     brand: setSelectedBrands,
+    sale: setSelectedSale,
   };
 
   const toggle = (axis: Axis, value: string) => {
@@ -189,7 +229,8 @@ export default function ShopGallery({
     setSortBy(value);
   };
 
-  const activeCount = selectedAges.length + selectedCategories.length + selectedBrands.length;
+  const activeCount =
+    selectedAges.length + selectedCategories.length + selectedBrands.length + selectedSale.length;
   const hasActiveFilters = activeCount > 0;
 
   const clearFilters = () => {
@@ -197,15 +238,18 @@ export default function ShopGallery({
     setSelectedAges([]);
     setSelectedCategories([]);
     setSelectedBrands([]);
+    setSelectedSale([]);
   };
 
   // Flat list of active selections for the removable-chip row.
   const labelFor = (axis: Axis, value: string): string => {
+    if (axis === "sale") return SALE_LABEL;
     if (axis === "age") return AGE_UI[value]?.label ?? value;
     if (axis === "category") return CATEGORIES.find((c) => c.id === value)?.label ?? value;
     return brandFacets.find((b) => b.value === value)?.label ?? value;
   };
   const activeChips: { axis: Axis; value: string }[] = [
+    ...selectedSale.map((v) => ({ axis: "sale" as const, value: v })),
     ...selectedAges.map((v) => ({ axis: "age" as const, value: v })),
     ...selectedCategories.map((v) => ({ axis: "category" as const, value: v })),
     ...selectedBrands.map((v) => ({ axis: "brand" as const, value: v })),
@@ -213,6 +257,23 @@ export default function ShopGallery({
 
   const filterGroups = (
     <>
+      <FilterGroup
+        title="Deals"
+        axis="sale"
+        options={[
+          {
+            value: SALE_VALUE,
+            label: SALE_LABEL,
+            color: CS_RED,
+            darkText: false,
+            svg: <TagIcon />,
+          },
+        ]}
+        selected={selectedSale}
+        facetCount={facetCount}
+        onToggle={toggle}
+        selectStyle="accent"
+      />
       <FilterGroup
         title="Age"
         axis="age"
@@ -407,10 +468,14 @@ export default function ShopGallery({
                   />
                 </div>
                 <h2 className="text-xl font-semibold text-navy mb-2">
-                  No kits match those filters
+                  {onSaleOnly && saleCount === 0
+                    ? "No deals running right now"
+                    : "No kits match those filters"}
                 </h2>
                 <p className="text-gray-600 mb-6">
-                  Nothing matched this combination. Try removing a filter to widen your search.
+                  {onSaleOnly && saleCount === 0
+                    ? "Nothing is discounted at the moment. Clear the filter to browse the full range."
+                    : "Nothing matched this combination. Try removing a filter to widen your search."}
                 </p>
                 {hasActiveFilters && (
                   <button
@@ -490,6 +555,8 @@ type FacetOption = {
   value: string;
   label: string;
   icon?: string;
+  // Inline mark drawn in currentColor, for chips with no image asset.
+  svg?: React.ReactNode;
   color?: string;
   darkText?: boolean;
 };
@@ -590,12 +657,35 @@ function FilterGroup({
                   />
                 </span>
               )}
+              {opt.svg}
               {iconVariant !== "logo" && opt.label}
             </button>
           );
         })}
       </div>
     </div>
+  );
+}
+
+// Price-tag mark for the "On sale" chip. Drawn rather than borrowed so it
+// inherits the chip's currentColor across both the idle and selected fills.
+function TagIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      width="15"
+      height="15"
+      viewBox="0 0 18 18"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="flex-none"
+    >
+      <path d="M2.2 9.6 9.6 2.2H15.8v6.2L8.4 15.8Z" />
+      <circle cx="12.6" cy="5.4" r="1.2" fill="currentColor" stroke="none" />
+    </svg>
   );
 }
 

@@ -697,6 +697,21 @@ export function getStockStatus(product: StockStatusProduct): StockStatus {
   return "in-stock";
 }
 
+// Whether a product currently carries a live discount: Shopify keeps the
+// pre-sale price in compareAtPrice, so anything strictly above what we charge
+// is a saving. Product cards badge off this and the shop's sale filter matches
+// on it, so the two can never disagree about what "on sale" means.
+type SalePricedProduct = {
+  priceRange: { minVariantPrice: { amount: string } };
+  compareAtPriceRange?: { minVariantPrice: { amount: string } };
+};
+
+export function isOnSale(product: SalePricedProduct): boolean {
+  const wasPrice = product.compareAtPriceRange?.minVariantPrice.amount;
+  if (!wasPrice) return false;
+  return parseFloat(wasPrice) > parseFloat(product.priceRange.minVariantPrice.amount);
+}
+
 // Trim a product to what the card grids render before handing it to a client
 // component — full products otherwise serialize into the page payload.
 // Drops `description` (the single heaviest field), keeps only the two images

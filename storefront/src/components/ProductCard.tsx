@@ -8,6 +8,7 @@ import {
   formatAgeRange,
   getProductRating,
   getStockStatus,
+  isOnSale,
 } from "@/lib/shopify";
 import QuickAddButton from "@/components/QuickAddButton";
 import ProductCardImage from "@/components/ProductCardImage";
@@ -44,9 +45,12 @@ export default function ProductCard({
   const ratingData = getProductRating(product.rating, product.ratingCount);
   const stockStatus = getStockStatus(product);
   const price = product.priceRange.minVariantPrice;
-  const compareAtPrice = product.compareAtPriceRange?.minVariantPrice;
-  const hasDiscount =
-    compareAtPrice && parseFloat(compareAtPrice.amount) > parseFloat(price.amount);
+  // `isOnSale` is the same signal the shop's sale filter matches on, so a kit
+  // that survives that filter always carries its saving here on the card.
+  const compareAtPrice = isOnSale(product)
+    ? product.compareAtPriceRange?.minVariantPrice
+    : undefined;
+  const hasDiscount = compareAtPrice !== undefined;
   const discountPercent = hasDiscount
     ? Math.round(
         ((parseFloat(compareAtPrice.amount) - parseFloat(price.amount)) /
