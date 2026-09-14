@@ -72,6 +72,7 @@ export default function QuickAddButton({
           currencyCode,
         );
         setAdded(true);
+        window.dispatchEvent(new CustomEvent("cart:item-added"));
         if (timerRef.current) clearTimeout(timerRef.current);
         timerRef.current = setTimeout(() => setAdded(false), 1500);
       }}

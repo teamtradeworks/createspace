@@ -50,6 +50,7 @@ export default function ProductActions({
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [isBuyingNow, setIsBuyingNow] = useState(false);
   const [addedToCart, setAddedToCart] = useState(false);
+  const [showCartNudge, setShowCartNudge] = useState(false);
   const [selectedAddons, setSelectedAddons] = useState<Set<string>>(new Set(defaultSelectedAddons));
   const [showUpsellModal, setShowUpsellModal] = useState(false);
   const [upsellAction, setUpsellAction] = useState<"cart" | "buy">("cart");
@@ -160,9 +161,11 @@ export default function ProductActions({
       await new Promise((resolve) => setTimeout(resolve, 300));
       setIsAddingToCart(false);
       setAddedToCart(true);
+      setShowCartNudge(true);
 
-      // Reset success state after 2 seconds
+      // Reset button after 2 seconds, nudge after 5 seconds
       setTimeout(() => setAddedToCart(false), 2000);
+      setTimeout(() => setShowCartNudge(false), 5000);
     },
     [
       addItem,
@@ -570,6 +573,30 @@ export default function ProductActions({
             "BUY IT NOW"
           )}
         </button>
+      </div>
+
+      {/* Cart nudge — appears after adding to cart */}
+      <div
+        className={`overflow-hidden transition-all duration-300 ${showCartNudge ? "max-h-20 opacity-100" : "max-h-0 opacity-0"}`}
+        aria-live="polite"
+      >
+        <div className="flex items-center justify-between gap-3 rounded-lg bg-cs-green/10 border border-cs-green/30 px-4 py-3 text-sm">
+          <span className="flex items-center gap-2 text-navy font-medium">
+            <svg className="w-4 h-4 text-cs-green flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Added to your cart
+          </span>
+          <Link
+            href="/cart"
+            className="text-cs-orange font-semibold hover:underline whitespace-nowrap flex items-center gap-1"
+          >
+            View cart
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
       </div>
 
       {/* Addon Upsell Modal */}
