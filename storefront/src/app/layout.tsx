@@ -5,6 +5,7 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import CartToast from "@/components/CartToast";
 import { CartProvider } from "@/context/CartContext";
 import OrganizationJsonLd from "@/components/OrganizationJsonLd";
 import EmailPopup from "@/components/EmailPopup";
@@ -73,6 +74,7 @@ export default function RootLayout({
             <GTMPageview />
           </Suspense>
           <EmailPopup />
+          <CartToast />
         </CartProvider>
         {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
           <Script

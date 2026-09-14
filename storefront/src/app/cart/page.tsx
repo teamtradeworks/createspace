@@ -169,9 +169,9 @@ export default function CartPage() {
       </div>
 
       {/* Cart Content */}
-      <section className="py-12">
+      <section className="py-8 pb-24 lg:pb-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-semibold text-navy mb-8">Your Shopping Cart</h1>
+          <h1 className="text-3xl font-semibold text-navy mb-6">Your Shopping Cart</h1>
 
           {!isHydrated ? (
             /* Loading State */
@@ -245,7 +245,7 @@ export default function CartPage() {
           ) : (
             /* Cart with Items */
             <div className="lg:grid lg:grid-cols-12 lg:gap-12">
-              {/* Cart Items */}
+              {/* Cart Items — first in DOM so products appear above summary on mobile */}
               <div className="lg:col-span-8">
                 {/* Table Header */}
                 <div className="hidden md:grid md:grid-cols-12 gap-4 pb-4 border-b border-gray-200 text-sm font-medium text-gray-500">
@@ -473,8 +473,8 @@ export default function CartPage() {
                 </div>
               </div>
 
-              {/* Cart Summary */}
-              <div className="lg:col-span-4 mt-8 lg:mt-0">
+              {/* Cart Summary — second in DOM, below items on mobile; right column on desktop */}
+              <div className="lg:col-span-4 mt-6 lg:mt-0">
                 <div className="bg-gray-50 rounded-2xl p-6 sticky top-24">
                   <h2 className="text-lg font-semibold text-navy mb-4">Order Summary</h2>
 
@@ -582,11 +582,11 @@ export default function CartPage() {
                     </div>
                   )}
 
-                  {/* Checkout Button */}
+                  {/* Checkout Button — hidden on mobile (sticky bar handles it) */}
                   <button
                     onClick={handleCheckout}
                     disabled={isCheckingOut || itemCount === 0}
-                    className="w-full py-4 bg-cs-orange hover:bg-cs-orange/90 text-white font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                    className="hidden lg:flex w-full py-4 bg-cs-orange hover:bg-cs-orange/90 text-white font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors items-center justify-center gap-2"
                   >
                     {isCheckingOut ? (
                       <>
@@ -630,7 +630,7 @@ export default function CartPage() {
                   {checkoutError && (
                     <div
                       role="alert"
-                      className="mt-3 rounded-lg border border-cs-red/30 bg-red-50 px-4 py-3 text-sm text-navy"
+                      className="hidden lg:block mt-3 rounded-lg border border-cs-red/30 bg-red-50 px-4 py-3 text-sm text-navy"
                     >
                       {checkoutError}{" "}
                       <Link href="/contact" className="font-medium underline hover:text-cs-orange">
@@ -643,13 +643,13 @@ export default function CartPage() {
                   {/* Continue Shopping */}
                   <Link
                     href="/shop"
-                    className="w-full mt-3 py-3 border border-navy text-navy font-medium rounded-lg hover:bg-navy hover:text-white transition-colors flex items-center justify-center gap-2"
+                    className="hidden lg:flex w-full mt-3 py-3 border border-navy text-navy font-medium rounded-lg hover:bg-navy hover:text-white transition-colors items-center justify-center gap-2"
                   >
                     Continue Shopping
                   </Link>
 
                   {/* Trust promises + security reassurance */}
-                  <div className="mt-6 pt-6 border-t border-gray-200">
+                  <div className="mt-4 lg:mt-6 pt-6 border-t border-gray-200">
                     <ul className="space-y-2.5">
                       {PROMISES.map((promise) => (
                         <li key={promise} className="flex items-center gap-2 text-sm text-gray-600">
@@ -713,10 +713,49 @@ export default function CartPage() {
                   </div>
                 </div>
               </div>
+
             </div>
           )}
         </div>
       </section>
+      {/* Mobile sticky checkout bar — hidden on desktop */}
+      {isHydrated && availableItems.length > 0 && (
+        <div className="lg:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-gray-200 shadow-lg px-4 py-3">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-xs text-gray-500">Total</p>
+              <p className="text-lg font-bold text-navy">
+                {formatPrice(subtotal + deliveryCost, currencyCode, { showCents: true })}
+              </p>
+            </div>
+            <button
+              onClick={handleCheckout}
+              disabled={isCheckingOut}
+              className="flex-1 max-w-xs py-3.5 bg-cs-orange hover:bg-cs-orange/90 text-white font-semibold rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+            >
+              {isCheckingOut ? (
+                <>
+                  <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                  </svg>
+                  Redirecting...
+                </>
+              ) : (
+                <>
+                  Proceed to Checkout
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </>
+              )}
+            </button>
+          </div>
+          {checkoutError && (
+            <p className="text-xs text-cs-red mt-2 text-center">{checkoutError}</p>
+          )}
+        </div>
+      )}
     </>
   );
 }
