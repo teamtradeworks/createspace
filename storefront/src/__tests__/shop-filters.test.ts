@@ -3,6 +3,7 @@ import {
   matchAge,
   matchCategory,
   matchBrand,
+  matchSale,
   filterAndSortProducts,
   AGE_BANDS,
 } from "@/lib/shop-filters";
@@ -108,8 +109,46 @@ describe("matchBrand", () => {
   });
 });
 
+describe("matchSale", () => {
+  // Price is 100 in the builder; compare-at above that is a live discount.
+  const discounted = make({
+    compareAtPriceRange: { minVariantPrice: { amount: "150.00", currencyCode: "ZAR" } },
+  });
+
+  it("matches everything when the sale filter is off", () => {
+    expect(matchSale(make(), false)).toBe(true);
+    expect(matchSale(discounted, false)).toBe(true);
+  });
+
+  it("matches a product whose compare-at price is above its price", () => {
+    expect(matchSale(discounted, true)).toBe(true);
+  });
+
+  it("excludes a product with no compare-at price", () => {
+    expect(matchSale(make(), true)).toBe(false);
+  });
+
+  it("excludes a compare-at price equal to or below the price", () => {
+    const equal = make({
+      compareAtPriceRange: { minVariantPrice: { amount: "100.00", currencyCode: "ZAR" } },
+    });
+    const lower = make({
+      compareAtPriceRange: { minVariantPrice: { amount: "80.00", currencyCode: "ZAR" } },
+    });
+    expect(matchSale(equal, true)).toBe(false);
+    expect(matchSale(lower, true)).toBe(false);
+  });
+
+  it("excludes a zeroed compare-at price (Shopify's cleared-discount value)", () => {
+    const cleared = make({
+      compareAtPriceRange: { minVariantPrice: { amount: "0.0", currencyCode: "ZAR" } },
+    });
+    expect(matchSale(cleared, true)).toBe(false);
+  });
+});
+
 describe("filterAndSortProducts", () => {
-  const empty = { ages: [], categories: [], brands: [] };
+  const empty = { ages: [], categories: [], brands: [], onSale: false };
 
   it("does not mutate the input array", () => {
     const products = [make({ id: "a", title: "B" }), make({ id: "b", title: "A" })];
@@ -169,7 +208,21 @@ describe("filterAndSortProducts", () => {
     );
   });
 
-  it("applies all three axes together", () => {
+  it("keeps only discounted products when the sale axis is on", () => {
+    const onSale = make({
+      id: "onSale",
+      compareAtPriceRange: { minVariantPrice: { amount: "150.00", currencyCode: "ZAR" } },
+    });
+    const fullPrice = make({ id: "fullPrice" });
+    const result = filterAndSortProducts(
+      [onSale, fullPrice],
+      { ...empty, onSale: true },
+      "featured",
+    );
+    expect(result.map((p) => p.id)).toEqual(["onSale"]);
+  });
+
+  it("applies all four axes together", () => {
     const match = make({
       id: "match",
       vendor: "Makerzoid",
@@ -180,7 +233,7 @@ describe("filterAndSortProducts", () => {
     const wrongBrand = make({ ...match, id: "wrongBrand", vendor: "Arduino" } as Partial<Product>);
     const result = filterAndSortProducts(
       [match, wrongBrand],
-      { ages: ["6-8"], categories: ["robotics-coding"], brands: ["Makerzoid"] },
+      { ages: ["6-8"], categories: ["robotics-coding"], brands: ["Makerzoid"], onSale: false },
       "featured",
     );
     expect(result.map((p) => p.id)).toEqual(["match"]);

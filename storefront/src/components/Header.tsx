@@ -87,16 +87,27 @@ const educationOptions = [
   },
 ];
 
-const navigation = [
+// `accent` marks the one item that reads as a badge rather than a nav link —
+// the Sale shortcut, which lands on the shop's sale filter.
+type NavItem = { name: string; href: string; dropdown: string | null; accent?: boolean };
+
+const navigation: NavItem[] = [
   { name: "Home", href: "/", dropdown: null },
   { name: "Shop", href: "/shop", dropdown: "shop" },
+  { name: "Sale", href: "/shop?sale=true", dropdown: null, accent: true },
   { name: "Education", href: "/education", dropdown: "education" },
   { name: "About Us", href: "/about", dropdown: null },
   { name: "Downloads", href: "/downloads", dropdown: null },
   { name: "Contact", href: "/contact", dropdown: null },
 ];
 
-export default function Header() {
+// Yellow badge, navy text: the loudest thing on the navy bar, and the only
+// brand accent that clears AA against it at this size.
+const SALE_PILL_CLASS =
+  "inline-flex items-center rounded-full bg-cs-yellow px-3.5 py-1.5 text-sm font-bold text-navy " +
+  "shadow-[0_2px_6px_rgba(0,0,0,0.3)] transition-transform hover:-translate-y-px active:translate-y-0 active:scale-95";
+
+export default function Header({ saleAvailable = false }: { saleAvailable?: boolean }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileEducationOpen, setMobileEducationOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -121,9 +132,13 @@ export default function Header() {
     return () => clearInterval(timer);
   }, []);
 
+  // The Sale shortcut appears only while the shop actually has something
+  // discounted, so it can never lead to an empty grid.
+  const navItems = navigation.filter((item) => !item.accent || saleAvailable);
+
   const closeDropdown = () => setActiveDropdown(null);
 
-  const trackShopNav = (axis: "age" | "category" | "brand" | "all", value: string) => {
+  const trackShopNav = (axis: "age" | "category" | "brand" | "sale" | "all", value: string) => {
     capture("nav_shop_link_clicked", { axis, value });
     closeDropdown();
   };
@@ -199,37 +214,49 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop navigation */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            {navigation.map((item) => (
+          {/* Desktop navigation. Seven items no longer clear 768px, so the bar
+              switches to the menu button below lg — the same breakpoint the
+              promo strip above and the shop's own filter layout use. */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-6 xl:space-x-8">
+            {navItems.map((item) => (
               <div
                 key={item.name}
                 className="relative"
                 onMouseEnter={() => item.dropdown && handleMenuEnter(item.dropdown)}
                 onMouseLeave={() => item.dropdown && handleMenuLeave()}
               >
-                <Link
-                  href={item.href}
-                  className="text-white hover:text-cs-orange transition-colors text-sm font-medium flex items-center gap-1"
-                  onClick={closeDropdown}
-                >
-                  {item.name}
-                  {item.dropdown && (
-                    <svg
-                      className={`w-4 h-4 transition-transform ${activeDropdown === item.dropdown ? "rotate-180" : ""}`}
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  )}
-                </Link>
+                {item.accent ? (
+                  <Link
+                    href={item.href}
+                    className={SALE_PILL_CLASS}
+                    onClick={() => trackShopNav("sale", "nav")}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-white hover:text-cs-orange transition-colors text-sm font-medium flex items-center gap-1"
+                    onClick={closeDropdown}
+                  >
+                    {item.name}
+                    {item.dropdown && (
+                      <svg
+                        className={`w-4 h-4 transition-transform ${activeDropdown === item.dropdown ? "rotate-180" : ""}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    )}
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -286,7 +313,7 @@ export default function Header() {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden text-white"
+              className="lg:hidden text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Menu"
             >
@@ -313,10 +340,18 @@ export default function Header() {
 
         {/* Mobile navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/10">
-            {navigation.map((item) => (
+          <div className="lg:hidden py-4 border-t border-white/10">
+            {navItems.map((item) => (
               <div key={item.name}>
-                {item.dropdown === "education" ? (
+                {item.accent ? (
+                  <Link
+                    href={item.href}
+                    className={`my-1.5 ${SALE_PILL_CLASS}`}
+                    onClick={() => trackMobileNav(item.name)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : item.dropdown === "education" ? (
                   <>
                     <div className="flex items-center justify-between">
                       <Link
@@ -385,7 +420,7 @@ export default function Header() {
 
       {/* Shop Mega Menu Dropdown */}
       <div
-        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden lg:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "shop"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"
@@ -509,7 +544,7 @@ export default function Header() {
 
       {/* Education Dropdown */}
       <div
-        className={`hidden md:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
+        className={`hidden lg:block absolute top-full left-0 right-0 z-50 transition-all duration-200 ${
           activeDropdown === "education"
             ? "opacity-100 visible"
             : "opacity-0 invisible pointer-events-none"

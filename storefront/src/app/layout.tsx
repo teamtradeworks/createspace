@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
+import { hasProductsOnSale } from "@/lib/shopify";
 import Footer from "@/components/Footer";
 import CartToast from "@/components/CartToast";
 import { CartProvider } from "@/context/CartContext";
@@ -44,11 +45,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // The Sale shortcut is only worth offering while something is discounted,
+  // and the header sits on every route — so the answer is fetched here once
+  // and cached (see hasProductsOnSale) rather than per page.
+  const saleAvailable = await hasProductsOnSale();
+
   return (
     <html lang="en" className={outfit.variable}>
       <head>
@@ -65,7 +71,7 @@ export default function RootLayout({
         )}
         <OrganizationJsonLd />
         <CartProvider>
-          <Header />
+          <Header saleAvailable={saleAvailable} />
           <main className="flex-1">{children}</main>
           <Footer />
           <Suspense fallback={null}>

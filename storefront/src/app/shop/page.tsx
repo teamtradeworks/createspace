@@ -1,4 +1,9 @@
-import { getCollectionProducts, slimProductForCard } from "@/lib/shopify";
+import {
+  getCollectionProducts,
+  slimProductForCard,
+  SHOP_COLLECTION_HANDLE,
+  SHOP_PRODUCT_LIMIT,
+} from "@/lib/shopify";
 import { Metadata } from "next";
 import ShopGallery from "@/components/ShopGallery";
 import PageHeader from "@/components/PageHeader";
@@ -14,15 +19,21 @@ export const metadata: Metadata = {
 };
 
 type Props = {
-  searchParams: Promise<{ age?: string; category?: string; brand?: string; sort?: string }>;
+  searchParams: Promise<{
+    age?: string;
+    category?: string;
+    brand?: string;
+    sale?: string;
+    sort?: string;
+  }>;
 };
 
 export default async function ShopPage({ searchParams }: Props) {
-  const { age, category, brand, sort } = await searchParams;
+  const { age, category, brand, sale, sort } = await searchParams;
   // Fetch in collection default order to respect manual ordering set in Shopify admin.
   const { products: fullProducts } = await getCollectionProducts(
-    "shop-all-headless",
-    100,
+    SHOP_COLLECTION_HANDLE,
+    SHOP_PRODUCT_LIMIT,
     "COLLECTION_DEFAULT",
   );
   // Slim to card fields before crossing to the client grid — descriptions
@@ -51,8 +62,9 @@ export default async function ShopPage({ searchParams }: Props) {
         initialAge={age}
         initialCategory={category}
         initialBrand={brand}
+        initialSale={sale}
         initialSort={sort}
-        key={`${age || "all"}-${category || "all"}-${brand || "all"}-${sort || "featured"}`}
+        key={`${age || "all"}-${category || "all"}-${brand || "all"}-${sale || "off"}-${sort || "featured"}`}
       />
     </main>
   );

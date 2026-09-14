@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { getCollectionProducts, slimProductForCard, Product } from "@/lib/shopify";
+import {
+  getCollectionProducts,
+  slimProductForCard,
+  Product,
+  SHOP_COLLECTION_HANDLE,
+  SHOP_PRODUCT_LIMIT,
+} from "@/lib/shopify";
 import Hero from "@/components/Hero";
 import AgeGroups from "@/components/AgeGroups";
 import PromoBand from "@/components/PromoBand";
@@ -41,7 +47,7 @@ async function FeaturedProductsLoader() {
 
   try {
     [{ products: allProducts }, { products: featuredRaw }] = await Promise.all([
-      getCollectionProducts("shop-all-headless", 100, "BEST_SELLING"),
+      getCollectionProducts(SHOP_COLLECTION_HANDLE, SHOP_PRODUCT_LIMIT, "BEST_SELLING"),
       getCollectionProducts("featured-products-homepage-headless", 50, "COLLECTION_DEFAULT"),
     ]);
   } catch (error) {
