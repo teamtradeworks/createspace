@@ -38,11 +38,11 @@ export function activePromos(now: Date = new Date()): Promo[] {
 
 export const PROMOS: Promo[] = [
   {
-    badge: "20% off Makerzoid",
-    heading: "Build, code and bring robots to life.",
-    body: "Ends 31 August.",
-    cta: { label: "Shop the Makerzoid sale", href: "/shop?brand=Makerzoid" },
-    endsAt: "2026-08-31",
+    badge: "School Holiday Sale",
+    heading: "20% off selected products.",
+    body: "Ends 30 September.",
+    cta: { label: "Shop the sale", href: "/shop?sale=true" },
+    endsAt: "2026-09-30",
   },
   {
     eyebrow: "FREE COURSE",
