@@ -7,7 +7,7 @@
 CREATESPACE is a South African online STEM education store targeting parents (B2C) and educators (B2B). The storefront is a headless Shopify store built with Next.js, deployed on Vercel.
 
 - **Currency**: ZAR (South African Rand)
-- **Delivery**: The Courier Guy, free over R 1,500, standard R 128, next-day R 218
+- **Delivery**: The Courier Guy, free over R 1,500, standard R 140, next-day R 218
 - **Payments**: Stitch (stitch.money)
 - **Lead time**: 7-14 days for non-stock items
 

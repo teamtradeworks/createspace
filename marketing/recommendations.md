@@ -12,7 +12,7 @@ Recommendations are ranked by **impact** (potential revenue/conversion lift) and
 ## P0: Quick Wins (High Impact, Low Effort)
 
 ### 1. Add "free delivery" progress bar to cart
-- **Problem**: Users may abandon cart when they see R 128 delivery charge, not realising they're close to the R 1,500 free delivery threshold.
+- **Problem**: Users may abandon cart when they see R 140 delivery charge, not realising they're close to the R 1,500 free delivery threshold.
 - **Action**: Show a progress bar on the cart page: "You're R 300 away from free delivery!"
 - **Expected impact**: Increased average order value, reduced cart abandonment
 - **Effort**: Small frontend change
