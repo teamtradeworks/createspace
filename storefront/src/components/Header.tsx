@@ -193,15 +193,20 @@ export default function Header({ saleAvailable = false }: { saleAvailable?: bool
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative flex h-16 items-center justify-between">
-          {/* Subtle brand marks behind the nav (desktop only, very low opacity) */}
-          <BrandDecor
-            src="/images/illustrations/atom-1.svg"
-            className="left-[38%] top-1/2 w-8 -translate-y-1/2 opacity-[0.07]"
-          />
-          <BrandDecor
-            src="/images/illustrations/nut.svg"
-            className="right-[16%] top-1/2 w-8 -translate-y-1/2 -rotate-12 opacity-[0.07]"
-          />
+          {/* Subtle brand marks behind the nav links, very low opacity. Gated to
+              lg because they are positioned to sit between the desktop links —
+              below lg the nav collapses to the hamburger and they would just
+              float in empty space. `contents` keeps them out of the flex flow. */}
+          <div className="hidden lg:contents">
+            <BrandDecor
+              src="/images/illustrations/atom-1.svg"
+              className="left-[38%] top-1/2 w-8 -translate-y-1/2 opacity-[0.07]"
+            />
+            <BrandDecor
+              src="/images/illustrations/nut.svg"
+              className="right-[16%] top-1/2 w-8 -translate-y-1/2 -rotate-12 opacity-[0.07]"
+            />
+          </div>
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
@@ -554,7 +559,7 @@ export default function Header({ saleAvailable = false }: { saleAvailable?: bool
       >
         <div className="bg-white shadow-xl">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
-            <div className="grid md:grid-cols-4 gap-6">
+            <div className="grid lg:grid-cols-4 gap-6">
               {educationOptions.map((option) => (
                 <Link
                   key={option.id}
