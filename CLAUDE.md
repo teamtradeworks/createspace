@@ -458,6 +458,14 @@ Purchases come in via a Shopify `orders/create` webhook at `/api/webhooks/shopif
 | `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container ID |
 | `SHOPIFY_WEBHOOK_SECRET` | HMAC secret for Shopify webhook verification |
 
+## Meta Ads MCP
+
+`.mcp.json` registers Meta's official Ads MCP server as `meta-ads` (`https://mcp.facebook.com/ads`). Each person connects it with their own Facebook login through `/mcp` (OAuth). No Meta developer app or token is needed, and nothing is committed. Docs: https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-overview
+
+- **Use it mainly to read**: campaign performance (`ads_get_ad_entities`, `ads_insights_*`), delivery errors (`ads_get_errors`), Pixel and dataset health, and the catalogue behind Meta catalogue ads.
+- **Write tools act on the live ad account.** `.claude/settings.json` has `ask` rules so every Meta tool that creates, updates, activates, deletes, boosts or connects something asks for approval, even in bypass mode. Keep those rules when editing that file.
+- New campaigns, ad sets and ads are created paused. `ads_activate_entity`, `ads_boost_ig_post` and budget changes through `ads_update_entity` spend money, so only call them when the user asks in chat.
+
 # Marketing Creative
 
 Meta ads, flyers, posters and other campaign assets live in `marketing/` as static HTML, designed with the Impeccable skill and rendered to PNG/PDF by `marketing/scripts/render.sh`. Full workflow: `marketing/creative/README.md`. Canvas sizes, safe zones and bleed: `marketing/creative/formats.md`.

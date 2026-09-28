@@ -33,6 +33,14 @@
       "Bash(for file in brand/*.png)",
       "Bash(sort:*)",
       "WebFetch(domain:pagespeed.web.dev)"
+    ],
+    "ask": [
+      "mcp__meta-ads__*create*",
+      "mcp__meta-ads__*update*",
+      "mcp__meta-ads__*activate*",
+      "mcp__meta-ads__*delete*",
+      "mcp__meta-ads__*boost*",
+      "mcp__meta-ads__*connect*"
     ]
   }
 }
