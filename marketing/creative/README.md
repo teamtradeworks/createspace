@@ -70,7 +70,7 @@ Impeccable treats `marketing/` as its own project, separate from the storefront,
 
 7. **Ship it.** Run `marketing/scripts/check-links.sh` on the campaign folder once more, since shop filters and product pages change. Then upload the PNGs to Ads Manager with the copy from the brief. Send `<name>.pdf` (with bleed) to a print shop, or print `<name>-trim.pdf` in the office. Commit the campaign folder, exports included, so we have a record of what ran.
 
-8. **Afterwards,** write `results.md`: spend, reach, CTR, and what PostHog shows for the campaign's `utm_campaign`.
+8. **Afterwards,** write `results.md`: spend, reach, CTR, and what PostHog shows for the campaign's `utm_campaign`. Pull the Meta numbers with the Meta Ads MCP (`ads_get_ad_entities`) instead of copying them out of Ads Manager.
 
 ## Useful Impeccable commands on an asset
 
