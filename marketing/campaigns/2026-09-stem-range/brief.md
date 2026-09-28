@@ -23,7 +23,7 @@ Three concepts are tested against each other, all at `meta-portrait`:
 | File | Concept | On-image headline |
 |---|---|---|
 | `feed-portrait-week.html` | A week planner, one hands-on activity per day | Robots on Monday. Rockets by Friday. |
-| `feed-portrait-curious.html` | Six kid types the parent recognises their child in | What kind of curious is yours? |
+| `feed-portrait-curious.html` | Six kid types the parent recognises their child in | What kind of curious is your child? |
 | `feed-portrait-specimens.html` | Six real kits laid out with labels | Pick a science. Any science. |
 
 ## What we can say
