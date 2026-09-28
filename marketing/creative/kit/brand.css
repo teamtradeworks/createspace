@@ -1,0 +1,63 @@
+/*
+ * CREATESPACE brand primitives for marketing creative.
+ * Fonts and CI colours only. How to use them lives in marketing/DESIGN.md.
+ * Link it from an asset with a relative path, e.g. ../../creative/kit/brand.css
+ */
+
+@font-face {
+  font-family: "Outfit";
+  src: url("fonts/Outfit-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("fonts/Outfit-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: block;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("fonts/Outfit-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: block;
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("fonts/Outfit-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: block;
+}
+
+:root {
+  --cs-navy: #0c1446;
+  --cs-white: #ffffff;
+  --cs-red: #f70b28;
+  --cs-blue: #3cc7f7;
+  --cs-purple: #ac4dff;
+  --cs-orange: #ff8b00;
+  --cs-green: #93db21;
+  --cs-yellow: #ffd500;
+  --cs-grey: #b3b3b3;
+
+  --cs-font: "Outfit", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--cs-font);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
