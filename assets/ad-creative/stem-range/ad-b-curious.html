@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8">
+<title>CREATESPACE ad B: what kind of curious</title>
+<link rel="stylesheet" href="ads.css">
+<style>
+  .ad {
+    background: var(--navy); color: var(--white);
+    display: grid;
+    grid-template-rows: 408px 1fr 408px;
+    row-gap: 0;
+  }
+
+  .strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  }
+  .tile { position: relative; overflow: hidden; }
+  .tile img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* flat labels printed on the tile edge that meets the headline band */
+  .tag {
+    position: absolute; left: 0;
+    padding: 12px 24px 14px 22px;
+    font-size: 30px; font-weight: 600; letter-spacing: -0.01em; line-height: 1;
+    color: var(--navy);
+  }
+  .strip--top .tag { bottom: 0; }
+  .strip--bottom .tag { top: 0; }
+  .tag.light-ink { color: var(--white); }
+
+  .band {
+    position: relative;
+    padding: 50px 72px 0;
+    display: flex; flex-direction: column;
+  }
+  .band .logo { height: 36px; width: auto; align-self: flex-start; }
+  h1 {
+    margin-top: 34px;
+    font-size: 104px; line-height: 0.96; font-weight: 600; letter-spacing: -0.04em;
+    text-wrap: balance;
+  }
+  h1 em { font-style: normal; }
+  .band .row {
+    margin-top: auto; margin-bottom: 44px;
+    display: flex; justify-content: space-between; align-items: flex-end; gap: 32px;
+  }
+  .band .sub { font-size: 28px; line-height: 1.32; color: rgb(255 255 255 / 0.8); max-width: 580px; }
+  .band .sub strong { color: var(--white); font-weight: 600; }
+  /* the storefront's add-to-cart button (orange, navy text, small radius) */
+  .buy {
+    display: inline-flex; align-items: center; height: 96px; padding: 0 44px;
+    background: var(--orange); color: var(--navy);
+    border-radius: 14px;
+    font-size: 36px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<main class="ad" aria-label="CREATESPACE: what kind of curious is yours?">
+  <div class="strip strip--top">
+    <div class="tile">
+      <img src="images/coder-boy-microbit.jpg" alt="Boy holding up a micro:bit he coded" style="object-position:62% 50%">
+      <span class="tag" style="background:var(--c-coding)">The coder</span>
+    </div>
+    <div class="tile">
+      <img src="images/circuits-arcade-glow.jpg" alt="Kids' hands on a glowing Snap Circuits board" style="object-position:50% 50%; transform:scale(1.08)">
+      <span class="tag" style="background:var(--c-circuits)">The tinkerer</span>
+    </div>
+    <div class="tile">
+      <img src="images/builder-two-kids-makerzoid.jpg" alt="Two kids building a Makerzoid robot together at the table" style="object-position:42% 45%">
+      <span class="tag" style="background:var(--c-building)">The builder</span>
+    </div>
+  </div>
+
+  <section class="band">
+    <img class="logo" src="images/logo-on-navy.png" alt="CREATESPACE">
+    <h1>What kind of curious is <em>yours?</em></h1>
+    <div class="row">
+      <p class="sub"><strong>Hands-on STEM kits, ages 3 to 13+.</strong><br>Robots, circuits, fossils, telescopes, volcanoes.</p>
+      <span class="buy">Find their kit</span>
+    </div>
+  </section>
+
+  <div class="strip strip--bottom">
+    <div class="tile">
+      <img src="images/palaeo-girl-dino-fossil.jpg" alt="Girl smiling as she uncovers a dinosaur fossil" style="object-position:55% 50%">
+      <span class="tag" style="background:var(--c-earth)">The palaeontologist</span>
+    </div>
+    <div class="tile">
+      <img src="images/space-boy-telescope.jpg" alt="Boy looking through a telescope" style="object-position:62% 40%">
+      <span class="tag light-ink" style="background:var(--c-space)">The stargazer</span>
+    </div>
+    <div class="tile">
+      <img src="images/chem-kids-pouring-volcano.jpg" alt="Kids making their volcano erupt" style="object-position:50% 45%">
+      <span class="tag light-ink" style="background:var(--c-chem)">The geologist</span>
+    </div>
+  </div>
+</main>
+</body>
+</html>
