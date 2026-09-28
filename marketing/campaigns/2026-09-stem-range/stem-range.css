@@ -1,0 +1,35 @@
+/*
+ * Shared by the STEM range ads. Fonts, CI colours and the reset come from
+ * ../../creative/kit/brand.css; the canvas size comes from canvas.js.
+ */
+
+:root {
+  /* one accent per category, matching storefront/src/config/categories.ts where it can */
+  --c-coding: var(--cs-blue);
+  --c-circuits: var(--cs-yellow);
+  --c-building: var(--cs-orange);
+  --c-earth: var(--cs-green);
+  --c-space: var(--cs-red);
+  --c-chem: var(--cs-purple);
+}
+
+* { margin: 0; padding: 0; }
+img { display: block; }
+
+.canvas { text-rendering: geometricPrecision; }
+
+/* primary action: Launch Orange, sentence case (marketing/DESIGN.md, Orange Means Go).
+   Navy label, as on the storefront's add-to-cart: white on orange is 2.3:1 and fails AA. */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  height: 96px;
+  padding: 0 44px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  color: var(--cs-navy);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}

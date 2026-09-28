@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en-ZA" data-canvas="meta-portrait">
 <head>
 <meta charset="UTF-8">
 <title>CREATESPACE ad C: pick a science</title>
-<link rel="stylesheet" href="ads.css">
+<link rel="stylesheet" href="../../creative/kit/brand.css">
+<link rel="stylesheet" href="stem-range.css">
+<script src="../../creative/kit/canvas.js"></script>
 <style>
-  .ad { background: var(--white); color: var(--navy); }
+  .canvas { background: var(--cs-white); color: var(--cs-navy); }
 
   .top {
     position: absolute; left: 64px; right: 64px; top: 60px;
@@ -40,32 +42,32 @@
   }
   .tag::before { /* leader line from the object to the label */
     content: ""; position: absolute; left: -6px; top: 20px;
-    width: 52px; height: 3px; border-radius: 2px;
-    background: var(--navy);
+    width: 52px; height: 3px;
+    background: var(--cs-navy);
   }
   .tag::after { /* category dot where the leader lands */
     content: ""; position: absolute; left: -12px; top: 13px;
     width: 17px; height: 17px; border-radius: 50%;
     background: var(--dot);
-    box-shadow: 0 0 0 3px var(--navy);
+    box-shadow: 0 0 0 3px var(--cs-navy);
   }
   .tag b { display: block; font-size: 32px; font-weight: 600; letter-spacing: -0.015em; line-height: 1.05; }
   .tag span { display: block; margin-top: 8px; font-size: 26px; line-height: 1.2; color: rgb(12 20 70 / 0.8); }
 
   .band {
     position: absolute; left: 0; right: 0; bottom: 0; height: 168px;
-    background: var(--navy); color: var(--white);
+    background: var(--cs-navy); color: var(--cs-white);
     padding: 0 64px;
     display: flex; justify-content: space-between; align-items: center;
   }
   .band .note { font-size: 28px; line-height: 1.3; color: rgb(255 255 255 / 0.85); }
-  .band .note strong { color: var(--white); font-weight: 600; }
+  .band .note strong { color: var(--cs-white); font-weight: 600; }
 </style>
 </head>
 <body>
-<main class="ad" aria-label="CREATESPACE: pick a science, any science">
+<main class="canvas" aria-label="CREATESPACE: pick a science, any science">
   <div class="top">
-    <img src="images/logo-on-white.png" alt="CREATESPACE">
+    <img src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
     <span class="ages">Ages 3 to 13+</span>
   </div>
 
@@ -99,10 +101,8 @@
   </section>
 
   <div class="band">
-    <p class="note"><strong>Six kinds of STEM, one specialist.</strong><br>Free delivery over R1,500.</p>
-    <span class="cta cta--light">Shop all six
-      <span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-    </span>
+    <p class="note"><strong>Six kinds of STEM, one specialist.</strong><br>Free delivery over R 1,500.</p>
+    <span class="cta">Shop all six</span>
   </div>
 </main>
 </body>

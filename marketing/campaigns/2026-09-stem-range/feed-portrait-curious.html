@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en-ZA" data-canvas="meta-portrait">
 <head>
 <meta charset="UTF-8">
 <title>CREATESPACE ad B: what kind of curious</title>
-<link rel="stylesheet" href="ads.css">
+<link rel="stylesheet" href="../../creative/kit/brand.css">
+<link rel="stylesheet" href="stem-range.css">
+<script src="../../creative/kit/canvas.js"></script>
 <style>
-  .ad {
-    background: var(--navy); color: var(--white);
+  .canvas {
+    background: var(--cs-navy); color: var(--cs-white);
     display: grid;
     grid-template-rows: 408px 1fr 408px;
     row-gap: 0;
@@ -23,11 +25,11 @@
     position: absolute; left: 0;
     padding: 12px 24px 14px 22px;
     font-size: 30px; font-weight: 600; letter-spacing: -0.01em; line-height: 1;
-    color: var(--navy);
+    color: var(--cs-navy);
   }
   .strip--top .tag { bottom: 0; }
   .strip--bottom .tag { top: 0; }
-  .tag.light-ink { color: var(--white); }
+  .tag.light-ink { color: var(--cs-white); }
 
   .band {
     position: relative;
@@ -46,18 +48,11 @@
     display: flex; justify-content: space-between; align-items: flex-end; gap: 32px;
   }
   .band .sub { font-size: 28px; line-height: 1.32; color: rgb(255 255 255 / 0.8); max-width: 580px; }
-  .band .sub strong { color: var(--white); font-weight: 600; }
-  /* the storefront's add-to-cart button (orange, navy text, small radius) */
-  .buy {
-    display: inline-flex; align-items: center; height: 96px; padding: 0 44px;
-    background: var(--orange); color: var(--navy);
-    border-radius: 14px;
-    font-size: 36px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap;
-  }
+  .band .sub strong { color: var(--cs-white); font-weight: 600; }
 </style>
 </head>
 <body>
-<main class="ad" aria-label="CREATESPACE: what kind of curious is yours?">
+<main class="canvas" aria-label="CREATESPACE: what kind of curious is yours?">
   <div class="strip strip--top">
     <div class="tile">
       <img src="images/coder-boy-microbit.jpg" alt="Boy holding up a micro:bit he coded" style="object-position:62% 50%">
@@ -74,11 +69,11 @@
   </div>
 
   <section class="band">
-    <img class="logo" src="images/logo-on-navy.png" alt="CREATESPACE">
+    <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
     <h1>What kind of curious is <em>yours?</em></h1>
     <div class="row">
       <p class="sub"><strong>Hands-on STEM kits, ages 3 to 13+.</strong><br>Robots, circuits, fossils, telescopes, volcanoes.</p>
-      <span class="buy">Find their kit</span>
+      <span class="cta">Find their kit</span>
     </div>
   </section>
 

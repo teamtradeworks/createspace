@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-ZA">
+<html lang="en-ZA" data-canvas="meta-portrait">
 <head>
 <meta charset="UTF-8">
 <title>CREATESPACE ad A: the week</title>
-<link rel="stylesheet" href="ads.css">
+<link rel="stylesheet" href="../../creative/kit/brand.css">
+<link rel="stylesheet" href="stem-range.css">
+<script src="../../creative/kit/canvas.js"></script>
 <style>
-  .ad { background: var(--navy); color: var(--white); }
+  .canvas { background: var(--cs-navy); color: var(--cs-white); }
 
   .top {
     position: absolute; left: 72px; right: 72px; top: 64px;
@@ -18,14 +20,14 @@
     position: absolute; left: 72px; top: 150px;
     font-size: 98px; line-height: 0.98; font-weight: 600; letter-spacing: -0.035em;
   }
-  h1 .robots { color: var(--blue); }
-  h1 .rockets { color: var(--red); }
+  h1 .robots { color: var(--cs-blue); }
+  h1 .rockets { color: var(--cs-orange); }
 
   /* the planner sheet */
   .sheet {
     position: absolute; left: 48px; right: 48px; top: 400px; height: 772px;
-    background: var(--white); color: var(--navy);
-    border-radius: 36px;
+    background: var(--cs-white); color: var(--cs-navy);
+    border-radius: 24px;
     padding: 14px 28px;
     box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.5);
   }
@@ -42,14 +44,14 @@
     width: 96px; height: 96px; border-radius: 24px;
     display: grid; place-items: center;
     font-size: 28px; font-weight: 700; letter-spacing: 0.04em;
-    color: var(--navy);
+    color: var(--cs-navy);
   }
-  .day.dark-ink { color: var(--white); }
+  .day.dark-ink { color: var(--cs-white); }
 
   .what { font-size: 39px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
   .cat { margin-top: 6px; font-size: 28px; color: rgb(12 20 70 / 0.8); }
 
-  .frame { width: 196px; height: 104px; border-radius: 18px; overflow: hidden; background: var(--navy); }
+  .frame { width: 196px; height: 104px; border-radius: 16px; overflow: hidden; background: var(--cs-navy); }
   .photo { width: 100%; height: 100%; object-fit: cover; }
 
   .robot {
@@ -62,19 +64,19 @@
     display: flex; justify-content: space-between; align-items: center;
   }
   .foot .note { font-size: 27px; line-height: 1.3; color: rgb(255 255 255 / 0.8); }
-  .foot .note strong { color: var(--white); font-weight: 600; }
+  .foot .note strong { color: var(--cs-white); font-weight: 600; }
 </style>
 </head>
 <body>
-<main class="ad" aria-label="CREATESPACE: a week of STEM">
+<main class="canvas" aria-label="CREATESPACE: a week of STEM">
   <div class="top">
-    <img src="images/logo-on-navy.png" alt="CREATESPACE">
+    <img src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
     <span class="ages">Ages 3 to 13+</span>
   </div>
 
   <h1><span class="robots">Robots</span> on Monday.<br><span class="rockets">Rockets</span> by Friday.</h1>
 
-  <img class="robot" src="images/robot-4.svg" alt="">
+  <img class="robot" src="../../creative/kit/illustrations/robot-4.svg" alt="">
 
   <section class="sheet" aria-label="A week of STEM">
     <div class="row">
@@ -110,10 +112,8 @@
   </section>
 
   <div class="foot">
-    <p class="note"><strong>Hands-on STEM kits.</strong><br>Free delivery over R1,500.</p>
-    <span class="cta cta--light">Shop by category
-      <span class="disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-    </span>
+    <p class="note"><strong>Hands-on STEM kits.</strong><br>Free delivery over R 1,500.</p>
+    <span class="cta">Shop by category</span>
   </div>
 </main>
 </body>
