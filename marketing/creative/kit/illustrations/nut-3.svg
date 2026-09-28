@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123.11 106.61">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke-linecap: round;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        isolation: isolate;
+      }
+
+      .cls-2, .cls-4 {
+        fill: #ac4dff;
+      }
+
+      .cls-4 {
+        mix-blend-mode: multiply;
+        opacity: .6;
+      }
+    </style>
+  </defs>
+  <g class="cls-3">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <path class="cls-2" d="M88.81,6.1h-54.51L7.04,53.31l27.26,47.21h54.51l27.26-47.21L88.81,6.1ZM61.55,79.46c-14.45,0-26.16-11.71-26.16-26.15s11.71-26.16,26.16-26.16,26.16,11.71,26.16,26.16-11.71,26.15-26.16,26.15Z"/>
+        <path class="cls-4" d="M88.81,6.1h-8.88l18.15,30.46c4.67,7.84,4.79,17.58.31,25.53l-6.89,12.24c-4.51,8.02-13,12.98-22.2,12.98H26.68l7.62,13.2h54.51l27.26-47.21L88.81,6.1Z"/>
+        <line class="cls-1" x1="39.58" y1="99.65" x2="39.58" y2="82.9"/>
+        <line class="cls-1" x1="45.2" y1="99.65" x2="45.2" y2="86.5"/>
+      </g>
+    </g>
+  </g>
+</svg>
