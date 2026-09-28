@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+<meta charset="UTF-8">
+<title>CREATESPACE ad A: the week</title>
+<link rel="stylesheet" href="../../creative/kit/brand.css">
+<link rel="stylesheet" href="stem-range.css">
+<script src="../../creative/kit/canvas.js"></script>
+<style>
+  .canvas { background: var(--cs-navy); color: var(--cs-white); }
+
+  .top {
+    position: absolute; left: 72px; right: 72px; top: 64px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .top img { height: 42px; width: auto; }
+  .top .ages { font-size: 30px; color: rgb(255 255 255 / 0.88); }
+
+  h1 {
+    position: absolute; left: 72px; top: 150px;
+    font-size: 98px; line-height: 0.98; font-weight: 600; letter-spacing: -0.035em;
+  }
+  h1 .robots { color: var(--cs-blue); }
+  h1 .rockets { color: var(--cs-orange); }
+
+  /* the planner sheet */
+  .sheet {
+    position: absolute; left: 48px; right: 48px; top: 400px; height: 772px;
+    background: var(--cs-white); color: var(--cs-navy);
+    border-radius: 24px;
+    padding: 14px 28px;
+    box-shadow: 0 30px 60px -20px rgb(0 0 0 / 0.5);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 96px 1fr 196px;
+    align-items: center;
+    column-gap: 28px;
+    height: 124px;
+  }
+  .row + .row { border-top: 1.5px solid rgb(12 20 70 / 0.1); }
+
+  .day {
+    width: 96px; height: 96px; border-radius: 24px;
+    display: grid; place-items: center;
+    font-size: 28px; font-weight: 700; letter-spacing: 0.04em;
+    color: var(--cs-navy);
+  }
+  .day.dark-ink { color: var(--cs-white); }
+
+  .what { font-size: 39px; font-weight: 600; letter-spacing: -0.02em; line-height: 1.05; }
+  .cat { margin-top: 6px; font-size: 28px; color: rgb(12 20 70 / 0.8); }
+
+  .frame { width: 196px; height: 104px; border-radius: 16px; overflow: hidden; background: var(--cs-navy); }
+  .photo { width: 100%; height: 100%; object-fit: cover; }
+
+  .robot {
+    position: absolute; right: 70px; top: 262px; width: 170px; height: auto;
+    transform: rotate(8deg);
+  }
+
+  .foot {
+    position: absolute; left: 72px; right: 72px; bottom: 58px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .foot .note { font-size: 27px; line-height: 1.3; color: rgb(255 255 255 / 0.8); }
+  .foot .note strong { color: var(--cs-white); font-weight: 600; }
+</style>
+</head>
+<body>
+<main class="canvas" aria-label="CREATESPACE: a week of STEM">
+  <div class="top">
+    <img src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+    <span class="ages">Ages 3 to 13+</span>
+  </div>
+
+  <h1><span class="robots">Robots</span> on Monday.<br><span class="rockets">Rockets</span> by Friday.</h1>
+
+  <img class="robot" src="../../creative/kit/illustrations/robot-4.svg" alt="">
+
+  <section class="sheet" aria-label="A week of STEM">
+    <div class="row">
+      <div class="day" style="background:var(--c-coding)">MON</div>
+      <div><p class="what">Code a robot</p><p class="cat">Robotics &amp; Coding</p></div>
+      <div class="frame" style="--tint:var(--c-coding)"><img class="photo" src="images/coder-boy-microbit.jpg" alt="Boy holding up a micro:bit he coded" style="object-position:60% 45%"></div>
+    </div>
+    <div class="row">
+      <div class="day" style="background:var(--c-circuits)">TUE</div>
+      <div><p class="what">Snap together a circuit</p><p class="cat">Electronics &amp; Circuits</p></div>
+      <div class="frame" style="--tint:var(--c-circuits)"><img class="photo" src="images/circuits-arcade-glow.jpg" alt="Kids' hands building a glowing Snap Circuits board" style="object-position:50% 45%"></div>
+    </div>
+    <div class="row">
+      <div class="day" style="background:var(--c-building)">WED</div>
+      <div><p class="what">Build with real gears</p><p class="cat">Building &amp; Mechanics</p></div>
+      <div class="frame" style="--tint:var(--c-building)"><img class="photo" src="images/builder-girl-makerzoid.jpg" alt="Girl building a figure from gears and blocks" style="object-position:30% 55%"></div>
+    </div>
+    <div class="row">
+      <div class="day" style="background:var(--c-earth)">THU</div>
+      <div><p class="what">Crack open a geode</p><p class="cat">Earth Sciences</p></div>
+      <div class="frame" style="--tint:var(--c-earth)"><img class="photo" src="images/digger-kids-geodes.jpg" alt="Two girls cracking open geodes with a hammer" style="object-position:50% 62%"></div>
+    </div>
+    <div class="row">
+      <div class="day dark-ink" style="background:var(--c-space)">FRI</div>
+      <div><p class="what">Stomp-launch a rocket</p><p class="cat">Space &amp; Astronomy</p></div>
+      <div class="frame" style="--tint:var(--c-space)"><img class="photo" src="images/space-family-rocket-launch.jpg" alt="Family cheering as an air rocket launches" style="object-position:40% 38%"></div>
+    </div>
+    <div class="row">
+      <div class="day dark-ink" style="background:var(--c-chem)">SAT</div>
+      <div><p class="what">Make a volcano erupt</p><p class="cat">Chemistry</p></div>
+      <div class="frame" style="--tint:var(--c-chem)"><img class="photo" src="images/chem-kids-pouring-volcano.jpg" alt="Kids pouring liquid into a bubbling volcano" style="object-position:62% 88%"></div>
+    </div>
+  </section>
+
+  <div class="foot">
+    <p class="note"><strong>Hands-on STEM kits.</strong><br>Free delivery over R 1,500.</p>
+    <span class="cta">Shop by category</span>
+  </div>
+</main>
+</body>
+</html>
