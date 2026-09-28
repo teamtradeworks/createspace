@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 94.2 94.2">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient-2);
+      }
+
+      .cls-1, .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-4 {
+        isolation: isolate;
+      }
+
+      .cls-2 {
+        fill: url(#radial-gradient);
+      }
+
+      .cls-3 {
+        fill: #fcd821;
+      }
+
+      .cls-5 {
+        fill: #ffd500;
+        mix-blend-mode: multiply;
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="37.22" cy="87.5" fx="37.22" fy="87.5" r=".36" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#244a80"/>
+      <stop offset="1" stop-color="#2e3192" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="radial-gradient-2" cx="41.66" cy="88.18" fx="41.66" fy="88.18" r=".55" xlink:href="#radial-gradient"/>
+  </defs>
+  <g class="cls-4">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <circle class="cls-3" cx="47.1" cy="47.1" r="41.86"/>
+        <line class="cls-2" x1="37.22" y1="87.78" x2="37.22" y2="74.02"/>
+        <line class="cls-1" x1="41.66" y1="88.61" x2="41.66" y2="67.82"/>
+        <ellipse class="cls-5" cx="33.83" cy="26.85" rx="19" ry="13.15" transform="translate(-8.51 18.32) rotate(-27.04)"/>
+      </g>
+    </g>
+  </g>
+</svg>

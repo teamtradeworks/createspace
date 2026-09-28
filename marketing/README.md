@@ -10,11 +10,17 @@ marketing/
 ├── overview.md                # Current state assessment and key metrics
 ├── user-journeys.md           # Mapped user journeys and drop-off points
 ├── recommendations.md         # Prioritised optimisation recommendations
-├── data/                      # Raw and processed analytics data exports
-│   └── .gitkeep
-└── campaigns/                 # Campaign planning and performance tracking
-    └── .gitkeep
+├── PRODUCT.md                 # Impeccable product record for marketing creative
+├── DESIGN.md                  # Visual system for creative (matches the storefront)
+├── .impeccable/               # Impeccable sidecar and per-asset briefs
+├── creative/                  # How to make ads and flyers: guide, formats, shared brand kit
+├── campaigns/                 # One folder per campaign: brief, assets, exports, results
+│   └── _template/             # Copy this to start a campaign
+├── scripts/                   # render.sh (HTML to PNG/PDF), qr.sh (UTM QR codes)
+└── data/                      # Raw and processed analytics data exports
 ```
+
+Designing ads, flyers and posters with the Impeccable skill is covered in [creative/README.md](creative/README.md).
 
 ## How to Use This Folder
 
@@ -57,4 +63,4 @@ When asking Claude to analyse user behaviour or marketing performance:
 - Export fresh data periodically and save to `data/`
 - Re-run funnel analysis monthly
 - Update recommendations.md when implementing changes
-- Track campaign performance in `campaigns/`
+- Track campaign performance in `campaigns/<campaign>/results.md`

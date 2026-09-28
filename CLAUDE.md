@@ -458,6 +458,15 @@ Purchases come in via a Shopify `orders/create` webhook at `/api/webhooks/shopif
 | `NEXT_PUBLIC_GTM_ID` | Google Tag Manager container ID |
 | `SHOPIFY_WEBHOOK_SECRET` | HMAC secret for Shopify webhook verification |
 
+# Marketing Creative
+
+Meta ads, flyers, posters and other campaign assets live in `marketing/` as static HTML, designed with the Impeccable skill and rendered to PNG/PDF by `marketing/scripts/render.sh`. Full workflow: `marketing/creative/README.md`. Canvas sizes, safe zones and bleed: `marketing/creative/formats.md`.
+
+- `marketing/` is its own Impeccable project: `marketing/PRODUCT.md` and `marketing/DESIGN.md` apply to any target inside it and do not apply to the storefront. Always name a file inside `marketing/` as the target when running Impeccable for creative, so it loads the marketing context.
+- One folder per campaign: `marketing/campaigns/<yyyy-mm>-<slug>/` (copy `_template/`). The campaign slug is the `utm_campaign` value.
+- Assets reference only files under `marketing/` (the shared kit in `marketing/creative/kit/`, plus the campaign's own `images/`). Copy photos in from `assets/product/`; don't link across.
+- Each asset declares its canvas with `<html data-canvas="...">` and loads `creative/kit/canvas.js`; sizes live only in that file.
+
 # Newsletters
 
 Marketing newsletters are authored as React components in `storefront/emails/` using [react-email](https://react.email/) and published to Resend as **Broadcasts** (drafts). A human reviews and sends them from the Resend dashboard — the script never sends.
