@@ -16,11 +16,11 @@ marketing/
 ├── creative/                  # How to make ads and flyers: guide, formats, shared brand kit
 ├── campaigns/                 # One folder per campaign: brief, assets, exports, results
 │   └── _template/             # Copy this to start a campaign
-├── scripts/                   # render.sh (HTML to PNG/PDF), qr.sh (UTM QR codes)
+├── scripts/                   # render.sh (HTML to PNG/PDF), qr.sh (UTM QR codes), check-links.sh
 └── data/                      # Raw and processed analytics data exports
 ```
 
-Designing ads, flyers and posters with the Impeccable skill is covered in [creative/README.md](creative/README.md).
+Start a campaign with `/campaign {name}`. Designing its ads, flyers and posters with the Impeccable skill is covered in [creative/README.md](creative/README.md).
 
 ## How to Use This Folder
 

@@ -28,26 +28,31 @@ marketing/
 │       └── results.md    What happened, once it has run
 └── scripts/
     ├── render.sh         HTML to PNG (screen) or PDF + preview (print)
-    └── qr.sh             UTM-tagged QR code as SVG
+    ├── qr.sh             UTM-tagged QR code as SVG
+    └── check-links.sh    Checks every landing URL in a brief loads (run again before shipping)
 ```
 
 Impeccable treats `marketing/` as its own project, separate from the storefront, because `marketing/PRODUCT.md` and `marketing/DESIGN.md` sit here. It picks them up whenever the target file is inside `marketing/`.
 
 ## Making a campaign
 
-1. **Start the folder.** Copy the template and name it `<yyyy-mm>-<slug>`:
+1. **Start with `/campaign`.** Give it a name, not a product:
 
-   ```bash
-   cp -R marketing/campaigns/_template marketing/campaigns/2026-10-holiday-sale
+   ```
+   /campaign makerzoid month
+   /campaign brand awareness
+   /campaign holiday sale
    ```
 
-2. **Fill in `brief.md`.** Audience (parents *or* educators), the one action, the offer, and the facts with their sources. Impeccable reads this; the better the brief, the less it guesses.
+   It works for any campaign type: products, a partner brand, a sale, an age group or category, CREATESPACE awareness, or education. It asks a few questions, then creates `campaigns/<yyyy-mm>-<slug>/` and writes `brief.md`. The brief holds the audience, the one action, facts checked against Shopify, `site.json` and the company profile, landing links with UTMs (tested with `scripts/check-links.sh`), photos copied into `images/`, QR codes, and draft Meta copy. Read the brief, fix anything under Open questions, and set its status to Approved.
 
-3. **Bring in images.** Copy the product photos you want from `assets/product/<handle>/lifestyle/` (or `end-user/`) into the campaign's `images/` folder with descriptive lowercase names. Don't link to `assets/` directly; the campaign folder should render on its own.
+2. **Or do it by hand.** Copy `campaigns/_template/`, name it `<yyyy-mm>-<slug>`, and fill in `brief.md` yourself.
+
+3. **Images** are in the campaign's `images/` folder (`/campaign` copies them in). If you add more, copy them from `assets/product/<handle>/lifestyle/` or `end-user/` with descriptive lowercase names. Don't link to `assets/` directly; the campaign folder should render on its own.
 
 4. **Design with Impeccable.** Name the asset file and canvas in the request so Impeccable loads the marketing context. For example:
 
-   > /impeccable Design a Meta feed ad for the holiday sale in marketing/campaigns/2026-10-holiday-sale/feed-portrait.html, canvas meta-portrait. Brief is in brief.md in that folder.
+   > /impeccable Design a Meta feed ad for the holiday sale in marketing/campaigns/2026-10-holiday-sale/feed-portrait.html, canvas meta-portrait, starting from marketing/campaigns/_template/asset.html. Brief is in brief.md in that folder.
 
    Impeccable runs its direction round and saves a surface brief for the asset in `marketing/.impeccable/`. Then it builds the HTML.
 
@@ -63,7 +68,7 @@ Impeccable treats `marketing/` as its own project, separate from the storefront,
 
    Look at every export at real size: the PNGs on a phone, the `-preview.png` for print. Then run a refinement command if it needs one (see below).
 
-7. **Ship it.** Upload the PNGs to Ads Manager with the copy from the brief. Send `<name>.pdf` (with bleed) to a print shop, or print `<name>-trim.pdf` in the office. Commit the campaign folder, exports included, so we have a record of what ran.
+7. **Ship it.** Run `marketing/scripts/check-links.sh` on the campaign folder once more, since shop filters and product pages change. Then upload the PNGs to Ads Manager with the copy from the brief. Send `<name>.pdf` (with bleed) to a print shop, or print `<name>-trim.pdf` in the office. Commit the campaign folder, exports included, so we have a record of what ran.
 
 8. **Afterwards,** write `results.md`: spend, reach, CTR, and what PostHog shows for the campaign's `utm_campaign`.
 
