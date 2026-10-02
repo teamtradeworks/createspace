@@ -253,8 +253,11 @@ Section openers are left-aligned (a headline, then a short grey subheading cappe
 - **Story (1080 x 1920):** photo fills the top 58% with a navy gradient fading down into a solid navy copy block; sale pill top left, logo top right, CTA and URL on one row at the bottom.
 - **Landscape link ad (1200 x 628):** the square layout compressed, with a 464px copy column.
 - **A4 print:** navy header band with logo and headline, white body on a clear grid of cards and rules, navy footer band with contact details.
+- **Feed portrait (1080 x 1350, 4:5):** set by the 2026-09 STEM range and 2026-10 hero kits campaigns. A single column with 72px side margins (64px on the square): headline at the top, one product photo running edge to edge or as a pair of 16px panels in the middle, and a bottom row with the product name and orange 700 price on the left, the orange CTA on the right. The age sits beside the price as an outlined pill, in the same place on every concept.
+- **Story (1080 x 1920), single-product:** the portrait column with the content held inside the 270px top and bottom safe zones (about 290px of padding).
+- **Google image assets (`google-landscape` 1200 x 628, `google-square` 1200 x 1200, `google-portrait` 960 x 1200):** photo only, the white logo on a navy tab hanging from the top edge, and at most one short navy pill badge (a number or the age) bottom left. No CTA button, headline or URL; Google supplies those as text assets.
 
-No precedent exists yet for 1080 x 1350 or A5 and A3; scale the square and A4 structures proportionally rather than inventing new ones.
+No precedent exists yet for A5 and A3; scale the square and A4 structures proportionally rather than inventing new ones.
 
 ## Elevation & Depth
 
@@ -285,6 +288,7 @@ Warm, confident and chunky; they look pressable.
 - **Ghost on navy:** transparent with a 1px white-at-30% border and white label; hover adds a 10% white wash.
 - **Ghost on white:** transparent with a 1px navy-at-20% border and navy label; hover adds a 5% navy wash.
 - **Ad CTA (precedent):** Launch Orange, white 700 label, uppercase with 0.08em tracking, 18px by 42px at 26px type on a 1080 canvas, 10px radius. Always paired with the URL "thecreatespace.co.za" in white at 30%.
+- **Ad CTA (2026-09 and 2026-10 campaigns):** Launch Orange with a **navy** 600 label in sentence case ("Meet Tale-Bot", "Shop by category"), with a right arrow in the 2026-10 set, 96px tall at 36px type on a 1080 canvas, 12px radius. Navy, not white, because white on orange is about 2.3:1 and fails AA; this matches the storefront add-to-cart. These campaigns dropped the URL line.
 
 ### Chips
 - **Category chip:** white pill with a 1px Hairline Grey border, navy 500 label, and a round Workbench Mist disc holding a small product or illustration icon on the left. Hover switches the border to orange.
