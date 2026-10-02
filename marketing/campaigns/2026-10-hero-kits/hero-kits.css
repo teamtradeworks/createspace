@@ -1,0 +1,593 @@
+/*
+ * Hero kits: four single-product concepts, Meta and Google sizes.
+ * Fonts, CI colours and the reset come from ../../creative/kit/brand.css;
+ * the canvas size comes from canvas.js (data-canvas on <html>).
+ *
+ * One block per concept. Each concept's markup is the same on every Meta
+ * canvas; the canvas selectors below only change sizes and arrangement.
+ */
+
+* { margin: 0; padding: 0; }
+img { display: block; }
+ul, ol { list-style: none; }
+
+.canvas {
+  font-family: var(--cs-font);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+h1 em { font-style: normal; }
+
+/* ---------- shared parts ---------- */
+
+/* Primary action: Launch Orange with a navy label (white on orange fails AA). */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  padding: 0 40px 0 44px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  color: var(--cs-navy);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cta svg { width: 30px; height: 30px; }
+
+/* Product name over price, bottom left of every Meta canvas. */
+.buy {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+}
+.what {
+  font-size: 28px;
+  line-height: 1.3;
+  color: rgb(255 255 255 / 0.72);
+  max-width: 520px;
+}
+.what .price {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+}
+.what b {
+  display: block;
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--cs-orange);
+}
+
+/* Age, readable at a glance next to the price */
+.age-chip {
+  padding: 8px 20px;
+  border-radius: 9999px;
+  border: 2px solid rgb(255 255 255 / 0.35);
+  color: var(--cs-white);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* White logo on a navy tab hanging from the top edge, for photo-led canvases. */
+.logo-tab {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 64px;
+  padding: 30px 30px 26px;
+  border-radius: 0 0 16px 16px;
+  background: var(--cs-navy);
+}
+.logo-tab img { height: 38px; width: auto; }
+.logo-tab--white { background: var(--cs-white); }
+
+[data-canvas="meta-story"] .logo-tab { top: 286px; border-radius: 16px; padding: 26px 30px; }
+
+/* Google image assets: logo tab plus one short badge, no button. */
+.g-badge {
+  position: absolute;
+  z-index: 3;
+  left: 56px;
+  bottom: 56px;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 36px;
+  border-radius: 9999px;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.g-badge b { font-weight: 700; color: var(--cs-orange); }
+[data-canvas="google-landscape"] .logo-tab { left: 48px; padding: 24px 24px 20px; }
+[data-canvas="google-landscape"] .logo-tab img { height: 30px; }
+[data-canvas="google-landscape"] .g-badge { left: 44px; bottom: 44px; font-size: 32px; padding: 16px 24px; }
+
+
+/* =====================================================================
+   1. Human Body: lights on, lights off
+   ===================================================================== */
+
+.c-body {
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  display: flex;
+  flex-direction: column;
+  padding: 60px 72px 64px;
+}
+.c-body .logo { height: 40px; width: auto; align-self: flex-start; }
+.c-body h1 {
+  margin-top: 44px;
+  font-size: 104px;
+}
+.c-body h1 em { color: var(--cs-green); }
+
+.diptych {
+  flex: 1;
+  min-height: 0;
+  margin: 44px 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.pane {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.pane img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pane--on { background: #080733; }
+.pane--on img { object-position: 74% 0%; top: 76px; height: calc(100% - 76px); }
+.pane--off { background: #000; }
+.pane--off img { object-position: 50% 30%; }
+.pane::after {
+  content: "";
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(to top, #080733 34%, rgb(8 7 51 / 0));
+}
+/* 1px ring over the photo, as DESIGN.md's photo treatment */
+.pane::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.14);
+  pointer-events: none;
+}
+.c-body-g .pane::before { display: none; }
+.pane--off::after { background: linear-gradient(to top, rgb(0 0 0 / 0.92) 20%, rgb(0 0 0 / 0)); }
+.pane figcaption {
+  position: absolute;
+  z-index: 1;
+  left: 28px;
+  right: 24px;
+  bottom: 28px;
+  font-size: 27px;
+  line-height: 1.25;
+  color: rgb(255 255 255 / 0.78);
+}
+.pane figcaption strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 40px;
+  line-height: 1.05;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--cs-white);
+}
+.pane--off figcaption strong { color: var(--cs-green); }
+.state {
+  position: absolute;
+  z-index: 1;
+  top: 22px;
+  left: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px 10px 14px;
+  border-radius: 9999px;
+  background: var(--cs-white);
+  color: var(--cs-navy);
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.state svg { width: 30px; height: 30px; }
+.state--off { background: var(--cs-green); }
+
+[data-canvas="meta-square"] .c-body { padding: 52px 64px 56px; }
+[data-canvas="meta-square"] .c-body h1 { margin-top: 32px; font-size: 84px; }
+[data-canvas="meta-square"] .diptych { margin: 34px 0 32px; }
+[data-canvas="meta-square"] .pane figcaption { font-size: 28px; }
+[data-canvas="meta-square"] .pane figcaption strong { font-size: 36px; }
+
+[data-canvas="meta-story"] .c-body { padding: 296px 72px 290px; }
+[data-canvas="meta-story"] .c-body h1 { margin-top: 48px; font-size: 120px; }
+[data-canvas="meta-story"] .diptych { margin: 52px 0 48px; }
+
+/* Google: the diptych alone, two chips and the logo */
+.c-body-g {
+  background: var(--cs-navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.c-body-g .pane { border-radius: 0; }
+.c-body-g .pane::after { inset: 60% 0 0; }
+.c-body-g .state { top: auto; left: 40px; bottom: 40px; font-size: 30px; padding: 12px 22px 12px 16px; }
+[data-canvas="google-landscape"] .c-body-g .pane--on img { top: 0; height: 100%; }
+[data-canvas="google-square"] .c-body-g .pane--on img,
+[data-canvas="google-portrait"] .c-body-g .pane--on img { top: 110px; height: calc(100% - 110px); }
+[data-canvas="google-square"] .c-body-g .pane--off img,
+[data-canvas="google-portrait"] .c-body-g .pane--off img { top: 60px; height: calc(100% - 60px); }
+.c-body-g .state svg { width: 30px; height: 30px; }
+[data-canvas="google-landscape"] .c-body-g .state { font-size: 22px; left: 28px; bottom: 28px; padding: 8px 16px 8px 12px; }
+[data-canvas="google-landscape"] .c-body-g .pane--on .state { left: auto; right: 28px; }
+[data-canvas="google-landscape"] .c-body-g .logo-tab { left: 32px; }
+
+
+/* =====================================================================
+   2. Makerzoid: the number sentence
+   ===================================================================== */
+
+.c-mkz {
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  display: grid;
+}
+.c-mkz .copy { position: relative; z-index: 2; }
+.c-mkz .copy .logo { height: 40px; width: auto; }
+.c-mkz h1 { font-size: 112px; line-height: 1; letter-spacing: -0.04em; }
+.c-mkz h1 span { display: block; white-space: nowrap; }
+.c-mkz h1 b { font-weight: 700; color: var(--cs-orange); letter-spacing: -0.03em; }
+.c-mkz .sub {
+  font-size: 30px;
+  line-height: 1.35;
+  color: rgb(255 255 255 / 0.8);
+}
+.c-mkz .sub strong { font-weight: 600; color: var(--cs-white); }
+.c-mkz .photo { position: relative; overflow: hidden; }
+.c-mkz .photo img { width: 100%; height: 100%; object-fit: cover; }
+.c-mkz .buy { position: relative; z-index: 2; }
+
+/* portrait and story: copy on top, photo below running to the edges, buy row over the photo's foot */
+[data-canvas="meta-portrait"] .c-mkz,
+[data-canvas="meta-story"] .c-mkz {
+  grid-template-rows: auto 1fr;
+}
+[data-canvas="meta-portrait"] .c-mkz .copy { padding: 60px 72px 0; }
+[data-canvas="meta-portrait"] .c-mkz h1 { margin-top: 52px; }
+[data-canvas="meta-portrait"] .c-mkz .sub { margin-top: 32px; max-width: 800px; }
+[data-canvas="meta-portrait"] .c-mkz .photo,
+[data-canvas="meta-story"] .c-mkz .photo { margin-top: -40px; }
+[data-canvas="meta-portrait"] .c-mkz .photo img { object-position: 50% 62%; }
+.c-mkz .photo::before,
+.c-mkz .photo::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.c-mkz .photo::before { top: 0; height: 180px; background: linear-gradient(to bottom, var(--cs-navy), rgb(12 20 70 / 0)); }
+.c-mkz .photo::after { bottom: 0; height: 300px; background: linear-gradient(to top, rgb(12 20 70 / 0.97) 30%, rgb(12 20 70 / 0)); }
+[data-canvas="meta-portrait"] .c-mkz .buy,
+[data-canvas="meta-story"] .c-mkz .buy {
+  position: absolute;
+  left: 72px;
+  right: 72px;
+  bottom: 64px;
+}
+
+[data-canvas="meta-story"] .c-mkz .copy { padding: 296px 72px 0; }
+[data-canvas="meta-story"] .c-mkz h1 { margin-top: 56px; font-size: 128px; }
+[data-canvas="meta-story"] .c-mkz .sub { margin-top: 40px; max-width: 860px; font-size: 34px; }
+[data-canvas="meta-story"] .c-mkz .photo { margin-bottom: 420px; }
+[data-canvas="meta-story"] .c-mkz .photo img { object-position: 50% 55%; }
+[data-canvas="meta-story"] .c-mkz .buy { bottom: 290px; }
+
+/* square: copy column left, photo panel bleeding off the right edge */
+[data-canvas="meta-square"] .c-mkz {
+  grid-template-columns: 600px 1fr;
+  grid-template-rows: 1fr auto;
+}
+[data-canvas="meta-square"] .c-mkz .copy { grid-column: 1; grid-row: 1; padding: 56px 0 0 64px; }
+[data-canvas="meta-square"] .c-mkz h1 { margin-top: 48px; font-size: 66px; }
+[data-canvas="meta-square"] .c-mkz .sub { margin-top: 30px; font-size: 27px; max-width: 470px; }
+[data-canvas="meta-square"] .c-mkz .photo { grid-column: 2; grid-row: 1 / 3; margin-left: -40px; }
+[data-canvas="meta-square"] .c-mkz .photo img { object-position: 6% 50%; transform: scale(1.14); transform-origin: 0 0; }
+[data-canvas="meta-square"] .c-mkz .photo::before { top: 0; bottom: 0; left: 0; right: auto; width: 220px; height: auto; background: linear-gradient(to right, var(--cs-navy), rgb(12 20 70 / 0)); }
+[data-canvas="meta-square"] .c-mkz .photo::after { display: none; }
+[data-canvas="meta-square"] .c-mkz .buy { grid-column: 1; grid-row: 2; padding: 0 0 56px 64px; flex-direction: column; align-items: flex-start; gap: 28px; }
+
+/* Google */
+/* Google: build it / code it, the two halves of the kit, side by side */
+.c-mkz-g {
+  background: var(--cs-navy);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.c-mkz-g .pane { border-radius: 0; }
+.c-mkz-g .pane::before { display: none; }
+.c-mkz-g .pane::after { inset: 62% 0 0; background: linear-gradient(to top, rgb(12 20 70 / 0.85), rgb(12 20 70 / 0)); }
+.c-mkz-g .state { top: auto; left: 36px; bottom: 40px; font-size: 34px; padding: 14px 26px 14px 18px; }
+.c-mkz-g .state svg { width: 34px; height: 34px; }
+.state--code { background: var(--cs-blue); }
+.pane--build img { object-position: 50% 40%; }
+.pane--code img { object-position: 30% 50%; }
+[data-canvas="google-square"] .c-mkz-g,
+[data-canvas="google-portrait"] .c-mkz-g { grid-template-columns: 5fr 7fr; }
+[data-canvas="google-square"] .pane--code img,
+[data-canvas="google-portrait"] .pane--code img { object-position: 22% 50%; }
+[data-canvas="google-landscape"] .c-mkz-g .state { font-size: 26px; left: 28px; bottom: 28px; padding: 10px 20px 10px 14px; }
+[data-canvas="google-landscape"] .c-mkz-g .state svg { width: 28px; height: 28px; }
+[data-canvas="google-landscape"] .c-mkz-g .logo-tab { left: 32px; }
+
+
+/* =====================================================================
+   3. Tale-Bot Pro: coding before reading
+   ===================================================================== */
+
+.c-tb {
+  background: var(--cs-navy);
+  color: var(--cs-white);
+}
+.c-tb .bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.c-tb .scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, var(--cs-navy) 0%, rgb(12 20 70 / 0.94) 36%, rgb(12 20 70 / 0) 58%);
+}
+.c-tb .block {
+  position: absolute;
+  z-index: 2;
+  left: 72px;
+  right: 72px;
+  bottom: 64px;
+}
+
+/* The programme: the robot's own command buttons, drawn. */
+.program {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.key {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 22px;
+  color: var(--cs-navy);
+}
+.key svg { width: 46px; height: 46px; }
+.key--up { background: var(--cs-blue); }
+.key--right { background: var(--cs-green); }
+.key--go { background: var(--cs-white); width: auto; padding: 0 28px 0 22px; gap: 10px; grid-auto-flow: column; font-size: 34px; font-weight: 700; letter-spacing: -0.01em; }
+.key--go svg { width: 36px; height: 36px; }
+
+.c-tb h1 { margin-top: 40px; font-size: 112px; }
+.c-tb h1 em { color: var(--cs-blue); }
+.c-tb .sub {
+  margin-top: 24px;
+  font-size: 31px;
+  line-height: 1.35;
+  color: rgb(255 255 255 / 0.82);
+}
+.c-tb .sub strong { color: var(--cs-white); font-weight: 600; }
+.c-tb .buy { margin-top: 44px; }
+
+[data-canvas="meta-portrait"] .c-tb .bg { height: 800px; object-position: 50% 30%; }
+[data-canvas="meta-portrait"] .c-tb .scrim { top: 520px; background: linear-gradient(to top, var(--cs-navy) 70%, rgb(12 20 70 / 0)); }
+
+[data-canvas="meta-square"] .c-tb .bg { height: 660px; object-position: 50% 30%; }
+[data-canvas="meta-square"] .c-tb .scrim { top: 380px; background: linear-gradient(to top, var(--cs-navy) 62%, rgb(12 20 70 / 0)); }
+[data-canvas="meta-square"] .c-tb .block { left: 64px; right: 64px; bottom: 56px; }
+[data-canvas="meta-square"] .c-tb h1 { margin-top: 30px; font-size: 92px; }
+[data-canvas="meta-square"] .c-tb .sub { margin-top: 18px; font-size: 28px; }
+[data-canvas="meta-square"] .c-tb .buy { margin-top: 34px; }
+[data-canvas="meta-square"] .key { width: 72px; height: 72px; border-radius: 18px; }
+[data-canvas="meta-square"] .key svg { width: 40px; height: 40px; }
+[data-canvas="meta-square"] .key--go { width: auto; font-size: 30px; }
+
+[data-canvas="meta-story"] .c-tb .bg { top: 400px; height: 900px; object-position: 50% 30%; }
+[data-canvas="meta-story"] .c-tb::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 399px;
+  height: 140px;
+  background: linear-gradient(to bottom, var(--cs-navy), rgb(12 20 70 / 0));
+}
+[data-canvas="meta-story"] .c-tb .scrim { top: 1080px; background: linear-gradient(to top, var(--cs-navy) 76%, rgb(12 20 70 / 0)); }
+[data-canvas="meta-story"] .c-tb .block { bottom: 290px; }
+[data-canvas="meta-story"] .c-tb h1 { font-size: 124px; }
+
+/* Google */
+.c-tb-g { background: var(--cs-navy); }
+.c-tb-g .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+[data-canvas="google-landscape"] .c-tb-g .bg { object-position: 50% 40%; }
+[data-canvas="google-square"] .c-tb-g .bg { object-position: 55% 50%; }
+
+
+/* =====================================================================
+   4. Light-Up Air Rockets: the gift tag (white ground)
+   ===================================================================== */
+
+.c-gift {
+  background: var(--cs-white);
+  color: var(--cs-navy);
+}
+.c-gift .photo {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 990px;
+  overflow: hidden;
+}
+.c-gift .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+
+.tag {
+  position: absolute;
+  z-index: 4;
+  right: 48px;
+  top: 330px;
+  width: 470px;
+  padding: 32px 32px 30px 84px;
+  border-radius: 14px 26px 26px 14px;
+  background: var(--cs-yellow);
+  color: var(--cs-navy);
+  transform: rotate(-5deg);
+  transform-origin: 30px 50%;
+  box-shadow: 0 22px 44px -12px rgb(12 20 70 / 0.45);
+}
+/* the punched hole */
+.tag::before {
+  content: "";
+  position: absolute;
+  left: 30px;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  margin-top: -15px;
+  border-radius: 50%;
+  background: var(--cs-white);
+  box-shadow: inset 0 0 0 5px rgb(12 20 70 / 0.18);
+}
+.tag .to {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 2px dashed rgb(12 20 70 / 0.35);
+}
+.tag .to span { font-weight: 400; }
+.checks li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+.checks li + li { margin-top: 14px; }
+.box {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 3px solid var(--cs-navy);
+}
+.checks .done .box { background: var(--cs-navy); color: var(--cs-yellow); }
+.box svg { width: 24px; height: 24px; }
+.checks .done { font-weight: 600; }
+.tag .sign { font-size: 34px; font-weight: 600; letter-spacing: -0.015em; }
+
+.c-gift .copy {
+  position: absolute;
+  left: 72px;
+  right: 72px;
+  top: 1016px;
+}
+.c-gift h1 { font-size: 68px; }
+/* highlighter swipe behind the payoff word: navy text stays AA on white */
+.c-gift h1 em {
+  background: linear-gradient(to top, transparent 6%, var(--cs-yellow) 6%, var(--cs-yellow) 44%, transparent 44%);
+  padding: 0 4px;
+  margin: 0 -4px;
+}
+.c-gift .buy {
+  position: absolute;
+  left: 72px;
+  right: 72px;
+  bottom: 64px;
+}
+.c-gift .what { color: rgb(12 20 70 / 0.7); max-width: 620px; }
+.c-gift .what b { color: var(--cs-navy); }
+.c-gift .age-chip { color: var(--cs-navy); border-color: rgb(12 20 70 / 0.3); }
+
+[data-canvas="meta-square"] .c-gift .photo { height: 620px; }
+[data-canvas="meta-square"] .c-gift .photo img { object-position: 50% 62%; }
+[data-canvas="meta-square"] .c-gift .tag { top: 470px; width: 470px; padding: 28px 30px 26px 84px; }
+[data-canvas="meta-square"] .c-gift .tag .to { font-size: 28px; }
+[data-canvas="meta-square"] .c-gift .checks li { font-size: 28px; }
+[data-canvas="meta-square"] .c-gift .copy { left: 64px; right: 64px; top: 730px; }
+[data-canvas="meta-square"] .c-gift h1 { font-size: 72px; }
+[data-canvas="meta-square"] .c-gift .buy { left: 64px; right: 64px; bottom: 56px; }
+
+[data-canvas="meta-story"] .c-gift .photo { height: 1150px; }
+[data-canvas="meta-story"] .c-gift .photo img { object-position: 50% 30%; }
+[data-canvas="meta-story"] .c-gift .tag { top: 560px; }
+[data-canvas="meta-story"] .c-gift .copy { top: 1200px; }
+[data-canvas="meta-story"] .c-gift h1 { font-size: 100px; }
+[data-canvas="meta-story"] .c-gift .buy { bottom: 290px; }
+
+/* Google: photo, logo, and a small tag carrying only the age */
+.c-gift-g { background: var(--cs-white); }
+.c-gift-g .photo { position: absolute; inset: 0; }
+.c-gift-g .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.c-gift-g .photo--second { display: none; }
+.c-gift-g .tag {
+  top: 70px;
+  right: 60px;
+  left: auto;
+  width: auto;
+  padding: 22px 34px 22px 80px;
+  font-size: 44px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.c-gift-g .tag::before { left: 26px; width: 26px; height: 26px; margin-top: -13px; }
+[data-canvas="google-landscape"] .c-gift-g .photo { right: auto; width: 594px; }
+[data-canvas="google-landscape"] .c-gift-g .photo--second { display: block; left: auto; right: 0; }
+[data-canvas="google-landscape"] .c-gift-g .tag { top: 40px; right: 40px; font-size: 32px; padding: 16px 26px 16px 64px; }
+[data-canvas="google-landscape"] .c-gift-g .tag::before { left: 20px; width: 22px; height: 22px; margin-top: -11px; }
+
+/* grandparent variant: shorter tag, so the longer headline takes the full width below it */
+.c-gift--gran .copy { top: 1016px; }
+.c-gift--gran h1 { font-size: 66px; }

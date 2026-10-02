@@ -21,6 +21,19 @@ Notes:
 - Export at exactly these sizes (`render.sh` does). Meta recompresses everything, so avoid fine text under about 28px and thin hairlines: they turn to mush.
 - Safe-zone figures follow Meta's published guidance (roughly 14% top, 14% or 35% bottom). Meta changes its UI from time to time. If an ad looks covered in the Ads Manager preview, trust the preview and widen the zone in `canvas.js`.
 
+## Screen (Google)
+
+| Canvas | Size (px) | Ratio | Where it runs | Keep clear |
+|---|---|---|---|---|
+| `google-landscape` | 1200 x 628 | 1.91:1 | Performance Max and Demand Gen (required) | Google crops to other ratios automatically, so keep the subject central |
+| `google-square` | 1200 x 1200 | 1:1 | Performance Max and Demand Gen (required) | Nothing enforced |
+| `google-portrait` | 960 x 1200 | 4:5 | Performance Max, Discover, YouTube feeds | Nothing enforced |
+
+Notes:
+
+- Google's image guidance asks for little or no overlaid text, and no fake buttons. Keep Google images to the photo, the logo and at most one short badge (an age or a number). Headlines and descriptions go in the asset group as text assets.
+- Each file must stay under 5MB. `render.sh` PNGs are well under.
+
 ## Print
 
 All print canvases are built with **3mm bleed** on every side and a **5mm safe margin** inside the trim line. `render.sh` exports two PDFs from the same file: one with bleed for a print shop, one trimmed for an office printer.

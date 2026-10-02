@@ -24,6 +24,10 @@
     // Meta vertical: keep text and logos out of the zones Meta's UI covers
     "meta-story": { w: 1080, h: 1920, safe: { top: 270, right: 0, bottom: 270, left: 0 } },
     "meta-reel": { w: 1080, h: 1920, safe: { top: 270, right: 65, bottom: 670, left: 65 } },
+    // Google Performance Max / Demand Gen image assets
+    "google-landscape": { w: 1200, h: 628, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
+    "google-square": { w: 1200, h: 1200, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
+    "google-portrait": { w: 960, h: 1200, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
   };
 
   // Trim sizes in mm, portrait. Append "-landscape" to the name to rotate.
