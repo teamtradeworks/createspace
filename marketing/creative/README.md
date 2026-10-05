@@ -32,7 +32,7 @@ marketing/
     └── check-links.sh    Checks every landing URL in a brief loads (run again before shipping)
 ```
 
-Impeccable treats `marketing/` as its own project, separate from the storefront, because `marketing/PRODUCT.md` and `marketing/DESIGN.md` sit here. It picks them up whenever the target file is inside `marketing/`.
+Impeccable treats `marketing/` as its own workspace, separate from the storefront. The root `.impeccable/config.json` declares both under `projectRoots`, and each carries its own `PRODUCT.md` and `DESIGN.md`. Impeccable picks up the marketing pair whenever the target file is inside `marketing/`, which is why every request here names an asset file. The storefront's design record is the canonical visual system; `marketing/DESIGN.md` is derived from it and adds the fixed-canvas and print rules, so update it when the storefront tokens change.
 
 ## Making a campaign
 

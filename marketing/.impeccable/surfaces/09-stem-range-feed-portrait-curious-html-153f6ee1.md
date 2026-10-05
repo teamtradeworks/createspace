@@ -1,15 +1,8 @@
 ---
 version: 1
-slug: "09-stem-range-feed-portrait-curious-html-5e397db1"
-primary_target: "marketing/campaigns/2026-09-stem-range/feed-portrait-curious.html"
-related_targets: ["marketing/campaigns/2026-09-stem-range/feed-portrait-week.html","marketing/campaigns/2026-09-stem-range/feed-portrait-specimens.html"]
----
-
----
-version: 1
-slug: "assets-ad-creative-stem-range-index-html"
-primary_target: "assets/ad-creative/stem-range/index.html"
-related_targets: []
+slug: "09-stem-range-feed-portrait-curious-html-153f6ee1"
+primary_target: "campaigns/2026-09-stem-range/feed-portrait-curious.html"
+related_targets: ["campaigns/2026-09-stem-range/feed-portrait-week.html","campaigns/2026-09-stem-range/feed-portrait-specimens.html"]
 ---
 
 # Meta ads: STEM range (4:5 feed)
