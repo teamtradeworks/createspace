@@ -155,6 +155,73 @@ body {
   }
 }
 
+/* Join-link toast (JoinFromLink.tsx): the card rises in, then the robot pops
+   up over its top edge; the exit is a quicker fade-down. The timer line shows
+   how long the toast will stay. Reduced motion keeps a short opacity fade so
+   the confirmation is still noticeable, drops the spatial movement, and hides
+   the timer line (static, it would just be a misleading stripe). */
+.join-toast-timer {
+  display: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .join-toast-in {
+    animation: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .join-toast-in .join-toast-robot {
+    animation: join-robot-pop 0.55s cubic-bezier(0.22, 1.4, 0.36, 1) 0.18s both;
+  }
+  .join-toast-out {
+    animation: join-toast-out 0.2s ease-in both;
+  }
+  .join-toast-timer {
+    display: block;
+    transform-origin: left;
+    animation: join-toast-timer var(--join-toast-duration, 8s) linear both;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .join-toast-in {
+    animation: join-toast-fade-in 0.2s ease-out both;
+  }
+  .join-toast-out {
+    animation: join-toast-fade-out 0.15s ease-in both;
+  }
+}
+@keyframes join-robot-pop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.7) rotate(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes join-toast-out {
+  to {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@keyframes join-toast-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes join-toast-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes join-toast-timer {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
 /* Photo wall flip cards: the tile is a fixed aspect box (uniform grid), the
    build photo fills the front and the kit card sits on the back face.
    Reduced-motion users get an instant swap. */

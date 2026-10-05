@@ -65,6 +65,27 @@ test.describe("Join link (?join=email)", () => {
     await expect(toast(page)).toContainText("couldn't add you");
   });
 
+  test("an error toast stays put and can be retried", async ({ page }) => {
+    // First attempt fails, the retry succeeds.
+    let attempts = 0;
+    await page.route("**/api/subscribe", async (route) => {
+      attempts += 1;
+      await route.fulfill({
+        status: attempts === 1 ? 500 : 200,
+        contentType: "application/json",
+        body: JSON.stringify(attempts === 1 ? { error: "x" } : { success: true }),
+      });
+    });
+
+    await page.goto("/?join=playwright-join@example.com");
+    await expect(toast(page)).toContainText("couldn't add you");
+
+    await toast(page).getByRole("button", { name: "Try again" }).click();
+
+    await expect(toast(page)).toContainText("You're on the list!");
+    expect(attempts).toBe(2);
+  });
+
   test("ignores a value that is not an email address", async ({ page }) => {
     const bodies = await stubSubscribe(page, { success: true });
 
