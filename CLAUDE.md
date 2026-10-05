@@ -497,6 +497,10 @@ The default export is the React component. The file may also export:
 
 Shared layout lives in `storefront/emails/components/EmailLayout.tsx`.
 
+## One-click join link
+
+Any storefront URL opened with `?join={email}` (e.g. `https://www.thecreatespace.co.za/shop?join=jane@example.com`) adds that address to the Resend audience through `/api/subscribe` and confirms with a small toast — no form to fill in. Use it where the address is already known, such as order emails, WhatsApp follow-ups or QR codes. The client component is `storefront/src/components/JoinFromLink.tsx`, mounted once in the root layout; the parsing lives in `storefront/src/lib/join-param.ts`. A `+` in the address can be left as is or encoded as `%2B`; both arrive intact.
+
 ## Image URLs in emails
 
 Email clients can't fetch local Next.js assets. All `/images/...` references are resolved against `EMAIL_ASSET_BASE_URL` and must be reachable on the public internet at publish time. Set this to a deployed Vercel URL (or production once cut over) — never `localhost`.
