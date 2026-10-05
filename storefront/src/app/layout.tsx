@@ -14,6 +14,7 @@ import PostHogPageview from "@/components/PostHogPageview";
 import GTMPageview from "@/components/GTMPageview";
 import GoogleTagManager from "@/components/GoogleTagManager";
 import ScrollToTop from "@/components/ScrollToTop";
+import JoinFromLink from "@/components/JoinFromLink";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.woff2",
@@ -78,6 +79,7 @@ export default async function RootLayout({
             <ScrollToTop />
             <PostHogPageview />
             <GTMPageview />
+            <JoinFromLink />
           </Suspense>
           <EmailPopup />
           <CartToast />
