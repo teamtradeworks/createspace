@@ -32,3 +32,9 @@ logs/
 
 # Generated previews (regenerate with the sibling build script)
 assets/company-profile/CREATESPACE-Company-Profile.png
+
+# Impeccable engine binaries (per-platform, ~15 MB). The launcher next to them
+# downloads and checksum-verifies the version in scripts/VERSION on first run.
+.claude/skills/impeccable/scripts/bin/
+.agents/skills/impeccable/scripts/bin/
+.github/skills/impeccable/scripts/bin/
