@@ -1,0 +1,8 @@
+# Impeccable working files. Keep design.json, config.json and surface briefs in git.
+config.local.json
+review/
+mocks/
+build/
+live/
+hook.cache.json
+hook.pending.json

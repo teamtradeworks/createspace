@@ -466,11 +466,29 @@ Purchases come in via a Shopify `orders/create` webhook at `/api/webhooks/shopif
 - **Write tools act on the live ad account.** `.claude/settings.json` has `ask` rules so every Meta tool that creates, updates, activates, deletes, boosts or connects something asks for approval, even in bypass mode. Keep those rules when editing that file.
 - New campaigns, ad sets and ads are created paused. `ads_activate_entity`, `ads_boost_ig_post` and budget changes through `ads_update_entity` spend money, so only call them when the user asks in chat.
 
+# Impeccable
+
+The Impeccable design skill (`/impeccable`) is installed once, at the repo root, and used in two workspaces. The root `.impeccable/config.json` declares them under `projectRoots`:
+
+| Workspace | Product record | Design record |
+|---|---|---|
+| `storefront/` (the website) | `storefront/PRODUCT.md` | `storefront/DESIGN.md` and `storefront/.impeccable/design.json` |
+| `marketing/` (ads, flyers, posters) | `marketing/PRODUCT.md` | `marketing/DESIGN.md` and `marketing/.impeccable/design.json` |
+
+- **Always name a target file inside the workspace you are working in**, for example `storefront/src/app/page.tsx` or a campaign's `feed-portrait.html`. Impeccable resolves `PRODUCT.md` and `DESIGN.md` upward from that file and never mixes the two workspaces. Without a target it stops and asks which workspace to use.
+- There is deliberately no root `PRODUCT.md` or `DESIGN.md`. Shared business facts (audiences, brand, voice) live in `assets/brand/`; product records reference them rather than repeating them.
+- The storefront's design record is the canonical CREATESPACE visual system. `marketing/DESIGN.md` is derived from it and adds fixed-canvas and print rules, so update it when storefront tokens change.
+- Run Impeccable's helper commands (`impeccable surface-brief write`, `doctor`, `live`) from the workspace directory with workspace-relative paths, or pass `--target`. Surface briefs in `<workspace>/.impeccable/surfaces/` must hold paths relative to the workspace (`campaigns/...`, not `marketing/campaigns/...`); a `surface-brief write` run from the repo root records repo-relative paths that the lookup never matches.
+- Hook and detector settings shared by both workspaces live in the root `.impeccable/config.json`; a workspace that needs different settings adds its own `.impeccable/config.json` (marketing's records `buildPath: code`, chosen 2026-10-05; the decision page's toggle still allows comp-first for one session). Change hook settings with `/impeccable hooks`, not by hand. In every `.impeccable/` folder, `config.json`, `design.json` and `surfaces/` are committed and the rest is gitignored working state.
+- The Claude Code hook manifest is `.claude/settings.local.json`, which is gitignored. If `impeccable context` reports `MANUAL_DETECTOR_REQUIRED`, run `/impeccable hooks on` once in that checkout.
+- `/impeccable doctor` reports drift for the whole repo; add `--target <path>` to inspect one workspace. A workspace-targeted doctor always adds `config-project-roots-match-nothing`; that is a false positive in engine 0.1.11 (resolution is correct, and the root-level doctor shows both workspaces), so ignore it rather than changing the globs.
+- Update with `.claude/skills/impeccable/scripts/impeccable update --project -y` from the repo root (not `npx`). It rewrites the skill copies under `.claude/`, `.agents/` and `.github/`; engine binaries are gitignored and the launcher downloads them.
+
 # Marketing Creative
 
 Meta ads, flyers, posters and other campaign assets live in `marketing/` as static HTML, designed with the Impeccable skill and rendered to PNG/PDF by `marketing/scripts/render.sh`. Full workflow: `marketing/creative/README.md`. Canvas sizes, safe zones and bleed: `marketing/creative/formats.md`.
 
-- `marketing/` is its own Impeccable project: `marketing/PRODUCT.md` and `marketing/DESIGN.md` apply to any target inside it and do not apply to the storefront. Always name a file inside `marketing/` as the target when running Impeccable for creative, so it loads the marketing context.
+- `marketing/` is one of the two Impeccable workspaces (see the Impeccable section above): `marketing/PRODUCT.md` and `marketing/DESIGN.md` apply to any target inside it. Always name an asset file inside `marketing/` as the target when running Impeccable for creative, so it loads the marketing context.
 - Start campaigns with `/campaign {name}` (the `campaign` skill). A campaign can be about products, a partner brand, a sale, an age group or category, CREATESPACE awareness, or education, so the name describes the campaign, not a SKU. It writes the brief; Impeccable designs the assets from it afterwards.
 - One folder per campaign: `marketing/campaigns/<yyyy-mm>-<slug>/`, holding `brief.md` (campaign context and checked facts), the asset HTML, `images/`, `exports/` and `results.md`. The campaign slug is the `utm_campaign` value.
 - Assets reference only files under `marketing/` (the shared kit in `marketing/creative/kit/`, plus the campaign's own `images/`). Copy photos in from `assets/product/`; don't link across.

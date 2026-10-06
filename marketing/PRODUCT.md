@@ -2,7 +2,7 @@
 
 <!-- impeccable:product-schema 1 -->
 
-This record scopes Impeccable to CREATESPACE marketing creative: paid social ads, flyers, posters and other campaign pieces made in `marketing/`. The storefront in `storefront/` is a separate surface with no PRODUCT.md of its own; the facts below about the business apply to both.
+This record scopes Impeccable to CREATESPACE marketing creative: paid social ads, flyers, posters and other campaign pieces made in `marketing/`. The storefront in `storefront/` is a separate Impeccable workspace (both are declared in the root `.impeccable/config.json`); the facts below about the business apply to both.
 
 ## Platform
 
