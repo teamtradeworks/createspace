@@ -47,6 +47,7 @@ declare global {
 
   interface Fera extends Array<unknown> {
     api?: FeraApi;
+    writeReview?: (options: { product_id: string }) => void;
     push: (...args: unknown[]) => number;
   }
 

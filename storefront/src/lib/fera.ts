@@ -26,3 +26,16 @@ export function decodeHtmlEntities(str: string | null | undefined): string {
     .replace(/&apos;/g, "'")
     .replace(/&amp;/g, "&");
 }
+
+/**
+ * Open Fera's own "Write Review" form for a product.
+ *
+ * On a Shopify theme Fera detects the product from the page; on this headless
+ * site it can't, so the product must be passed explicitly or the review is
+ * saved as a store review. Returns false when the Fera SDK hasn't loaded.
+ */
+export function openWriteReview(feraProductId: string): boolean {
+  if (typeof window === "undefined" || !window.fera?.writeReview) return false;
+  window.fera.writeReview({ product_id: feraProductId });
+  return true;
+}

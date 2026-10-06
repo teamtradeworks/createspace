@@ -410,7 +410,7 @@ export default function KitchenSinkPage() {
       {/* ProductReviews */}
       <ComponentWrapper
         name="ProductReviews"
-        description="Fera-powered customer reviews with ratings, avatars, and load more. Hidden when no Fera reviews exist."
+        description="Fera-powered customer reviews with ratings, avatars, and load more. Shows only a Write a review line when no Fera reviews exist."
       >
         <ProductReviews productId="gid://shopify/Product/0" background="white" />
       </ComponentWrapper>
@@ -418,7 +418,7 @@ export default function KitchenSinkPage() {
       {/* ProductReviews - Navy */}
       <ComponentWrapper
         name="ProductReviews (navy)"
-        description="Customer reviews with navy background. Hidden when no Fera reviews exist."
+        description="Customer reviews with navy background. Shows only a Write a review line when no Fera reviews exist."
       >
         <ProductReviews productId="gid://shopify/Product/0" background="navy" />
       </ComponentWrapper>

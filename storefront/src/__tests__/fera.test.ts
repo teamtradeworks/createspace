@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
-import { shopifyIdToFeraId, decodeHtmlEntities } from "@/lib/fera";
+import { describe, it, expect, vi, afterEach } from "vitest";
+import { shopifyIdToFeraId, decodeHtmlEntities, openWriteReview } from "@/lib/fera";
 
 describe("shopifyIdToFeraId", () => {
   it("extracts numeric ID from Shopify product GID", () => {
@@ -44,5 +44,28 @@ describe("decodeHtmlEntities", () => {
 
   it("returns an empty string for an empty string", () => {
     expect(decodeHtmlEntities("")).toBe("");
+  });
+});
+
+describe("openWriteReview", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("opens Fera's review form for the given product", () => {
+    const writeReview = vi.fn();
+    vi.stubGlobal("window", { fera: { writeReview } });
+
+    expect(openWriteReview("8056467161225")).toBe(true);
+    expect(writeReview).toHaveBeenCalledWith({ product_id: "8056467161225" });
+  });
+
+  it("returns false when the Fera SDK hasn't loaded", () => {
+    vi.stubGlobal("window", {});
+    expect(openWriteReview("8056467161225")).toBe(false);
+  });
+
+  it("returns false outside the browser", () => {
+    expect(openWriteReview("8056467161225")).toBe(false);
   });
 });
