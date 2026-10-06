@@ -288,7 +288,7 @@ Warm, confident and chunky; they look pressable.
 - **Ghost on navy:** transparent with a 1px white-at-30% border and white label; hover adds a 10% white wash.
 - **Ghost on white:** transparent with a 1px navy-at-20% border and navy label; hover adds a 5% navy wash.
 - **Ad CTA (precedent):** Launch Orange, white 700 label, uppercase with 0.08em tracking, 18px by 42px at 26px type on a 1080 canvas, 10px radius. Always paired with the URL "thecreatespace.co.za" in white at 30%.
-- **Ad CTA (2026-09 and 2026-10 campaigns):** Launch Orange with a **navy** 600 label in sentence case ("Meet Tale-Bot", "Shop by category"), with a right arrow in the 2026-10 set, 96px tall at 36px type on a 1080 canvas, 12px radius. Navy, not white, because white on orange is about 2.3:1 and fails AA; this matches the storefront add-to-cart. These campaigns dropped the URL line.
+- **Ad CTA (2026-09 and 2026-10 campaigns):** Launch Orange with a **navy** 600 label in sentence case ("Meet Tale-Bot", "Shop by category"), with a right arrow in the 2026-10 set, 96px tall at 36px type on a 1080 canvas, 12px radius. Navy, not white, because white on orange is about 2.3:1 and fails AA; this matches the storefront's contact form submit button (the add-to-cart itself is an outlined navy button). These campaigns dropped the URL line.
 
 ### Chips
 - **Category chip:** white pill with a 1px Hairline Grey border, navy 500 label, and a round Workbench Mist disc holding a small product or illustration icon on the left. Hover switches the border to orange.

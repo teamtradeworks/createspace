@@ -472,7 +472,7 @@ The Impeccable design skill (`/impeccable`) is installed once, at the repo root,
 
 | Workspace | Product record | Design record |
 |---|---|---|
-| `storefront/` (the website) | `storefront/PRODUCT.md` (not yet written; create it with `/impeccable init`) | `storefront/DESIGN.md` and `storefront/.impeccable/design.json` (not yet generated; create them from the code with `/impeccable document`) |
+| `storefront/` (the website) | `storefront/PRODUCT.md` | `storefront/DESIGN.md` and `storefront/.impeccable/design.json` |
 | `marketing/` (ads, flyers, posters) | `marketing/PRODUCT.md` | `marketing/DESIGN.md` and `marketing/.impeccable/design.json` |
 
 - **Always name a target file inside the workspace you are working in**, for example `storefront/src/app/page.tsx` or a campaign's `feed-portrait.html`. Impeccable resolves `PRODUCT.md` and `DESIGN.md` upward from that file and never mixes the two workspaces. Without a target it stops and asks which workspace to use.

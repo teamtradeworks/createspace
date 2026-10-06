@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-05T15:58:32.000Z",
+  "generatedAt": "2026-10-06T04:18:28.000Z",
   "title": "Design System: CREATESPACE",
   "extensions": {
     "colorMeta": {
@@ -436,7 +436,7 @@
       "name": "Ad CTA (2026 campaigns)",
       "kind": "button",
       "refersTo": "",
-      "description": "STEM range (2026-09) and hero kits (2026-10) precedent: Launch Orange with a navy 600 sentence-case label and a right arrow, 96px tall at 36px type with 12px radius on a 1080 canvas, shown at half scale. Navy, not white, because white on orange is about 2.3:1 and fails AA; matches the storefront add-to-cart. No URL line.",
+      "description": "STEM range (2026-09) and hero kits (2026-10) precedent: Launch Orange with a navy 600 sentence-case label and a right arrow, 96px tall at 36px type with 12px radius on a 1080 canvas, shown at half scale. Navy, not white, because white on orange is about 2.3:1 and fails AA; matches the storefront's contact form submit button. No URL line.",
       "html": "<div class=\"ds-ad-cta-campaign-stage\"><a class=\"ds-ad-cta-campaign\" href=\"#\">Meet Tale-Bot <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\"/></svg></a></div>",
       "css": ".ds-ad-cta-campaign-stage { font-family: Outfit, sans-serif; background: #0C1446; padding: 28px; display: inline-flex; border-radius: 8px; } .ds-ad-cta-campaign { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px 0 22px; border-radius: 6px; background: #FF8B00; color: #0C1446; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; white-space: nowrap; text-decoration: none; }"
     },

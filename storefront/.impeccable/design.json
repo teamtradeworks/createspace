@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T04:20:28.000Z",
+  "title": "Design System: CREATESPACE",
+  "extensions": {
+    "colorMeta": {
+      "deep-space-navy": {
+        "role": "primary",
+        "displayName": "Deep Space Navy",
+        "canonical": "#0C1446",
+        "oklch": "oklch(22.4% 0.094 269.9)",
+        "tonalRamp": [
+          "oklch(15% 0.086 269.9)",
+          "oklch(26% 0.090 269.9)",
+          "oklch(37% 0.078 269.9)",
+          "oklch(48% 0.067 269.9)",
+          "oklch(60% 0.054 269.9)",
+          "oklch(71% 0.043 269.9)",
+          "oklch(83% 0.031 269.9)",
+          "oklch(95% 0.018 269.9)"
+        ]
+      },
+      "clean-white": {
+        "role": "primary",
+        "displayName": "Clean White",
+        "canonical": "#FFFFFF",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(37% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(60% 0.000 89.9)",
+          "oklch(71% 0.000 89.9)",
+          "oklch(83% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "launch-orange": {
+        "role": "secondary",
+        "displayName": "Launch Orange",
+        "canonical": "#FF8B00",
+        "oklch": "oklch(74.9% 0.180 57.8)",
+        "tonalRamp": [
+          "oklch(15% 0.060 57.8)",
+          "oklch(26% 0.082 57.8)",
+          "oklch(37% 0.104 57.8)",
+          "oklch(48% 0.126 57.8)",
+          "oklch(60% 0.150 57.8)",
+          "oklch(71% 0.172 57.8)",
+          "oklch(83% 0.163 57.8)",
+          "oklch(95% 0.139 57.8)"
+        ]
+      },
+      "rocket-red": {
+        "role": "secondary",
+        "displayName": "Rocket Red",
+        "canonical": "#F70B28",
+        "oklch": "oklch(61.7% 0.247 25.6)",
+        "tonalRamp": [
+          "oklch(15% 0.119 25.6)",
+          "oklch(26% 0.149 25.6)",
+          "oklch(37% 0.180 25.6)",
+          "oklch(48% 0.210 25.6)",
+          "oklch(60% 0.243 25.6)",
+          "oklch(71% 0.222 25.6)",
+          "oklch(83% 0.189 25.6)",
+          "oklch(95% 0.156 25.6)"
+        ]
+      },
+      "sky-circuit-blue": {
+        "role": "tertiary",
+        "displayName": "Sky Circuit Blue",
+        "canonical": "#3CC7F7",
+        "oklch": "oklch(77.7% 0.133 226.1)",
+        "tonalRamp": [
+          "oklch(15% 0.040 226.1)",
+          "oklch(26% 0.057 226.1)",
+          "oklch(37% 0.073 226.1)",
+          "oklch(48% 0.089 226.1)",
+          "oklch(60% 0.107 226.1)",
+          "oklch(71% 0.123 226.1)",
+          "oklch(83% 0.125 226.1)",
+          "oklch(95% 0.107 226.1)"
+        ]
+      },
+      "nebula-purple": {
+        "role": "tertiary",
+        "displayName": "Nebula Purple",
+        "canonical": "#AC4DFF",
+        "oklch": "oklch(62.8% 0.251 304.4)",
+        "tonalRamp": [
+          "oklch(15% 0.118 304.4)",
+          "oklch(26% 0.148 304.4)",
+          "oklch(37% 0.179 304.4)",
+          "oklch(48% 0.210 304.4)",
+          "oklch(60% 0.243 304.4)",
+          "oklch(71% 0.228 304.4)",
+          "oklch(83% 0.195 304.4)",
+          "oklch(95% 0.161 304.4)"
+        ]
+      },
+      "sprout-green": {
+        "role": "tertiary",
+        "displayName": "Sprout Green",
+        "canonical": "#93DB21",
+        "oklch": "oklch(81.3% 0.211 130.1)",
+        "tonalRamp": [
+          "oklch(15% 0.055 130.1)",
+          "oklch(26% 0.081 130.1)",
+          "oklch(37% 0.107 130.1)",
+          "oklch(48% 0.133 130.1)",
+          "oklch(60% 0.161 130.1)",
+          "oklch(71% 0.187 130.1)",
+          "oklch(83% 0.207 130.1)",
+          "oklch(95% 0.179 130.1)"
+        ]
+      },
+      "spark-yellow": {
+        "role": "tertiary",
+        "displayName": "Spark Yellow",
+        "canonical": "#FFD500",
+        "oklch": "oklch(88.3% 0.181 94.5)",
+        "tonalRamp": [
+          "oklch(15% 0.034 94.5)",
+          "oklch(26% 0.056 94.5)",
+          "oklch(37% 0.078 94.5)",
+          "oklch(48% 0.100 94.5)",
+          "oklch(60% 0.124 94.5)",
+          "oklch(71% 0.146 94.5)",
+          "oklch(83% 0.170 94.5)",
+          "oklch(95% 0.168 94.5)"
+        ]
+      },
+      "chassis-grey": {
+        "role": "tertiary",
+        "displayName": "Chassis Grey",
+        "canonical": "#B3B3B3",
+        "oklch": "oklch(76.7% 0.000 89.9)",
+        "tonalRamp": [
+          "oklch(15% 0.000 89.9)",
+          "oklch(26% 0.000 89.9)",
+          "oklch(37% 0.000 89.9)",
+          "oklch(48% 0.000 89.9)",
+          "oklch(60% 0.000 89.9)",
+          "oklch(71% 0.000 89.9)",
+          "oklch(83% 0.000 89.9)",
+          "oklch(95% 0.000 89.9)"
+        ]
+      },
+      "workbench-mist": {
+        "role": "neutral",
+        "displayName": "Workbench Mist",
+        "canonical": "#F9FAFB",
+        "oklch": "oklch(98.5% 0.002 247.8)",
+        "tonalRamp": [
+          "oklch(15% 0.000 247.8)",
+          "oklch(26% 0.000 247.8)",
+          "oklch(37% 0.001 247.8)",
+          "oklch(48% 0.001 247.8)",
+          "oklch(60% 0.001 247.8)",
+          "oklch(71% 0.001 247.8)",
+          "oklch(83% 0.001 247.8)",
+          "oklch(95% 0.002 247.8)"
+        ]
+      },
+      "card-edge": {
+        "role": "neutral",
+        "displayName": "Card Edge",
+        "canonical": "#F3F4F6",
+        "oklch": "oklch(96.7% 0.003 264.5)",
+        "tonalRamp": [
+          "oklch(15% 0.001 264.5)",
+          "oklch(26% 0.002 264.5)",
+          "oklch(37% 0.002 264.5)",
+          "oklch(48% 0.003 264.5)",
+          "oklch(60% 0.003 264.5)",
+          "oklch(71% 0.003 264.5)",
+          "oklch(83% 0.002 264.5)",
+          "oklch(95% 0.002 264.5)"
+        ]
+      },
+      "hairline-grey": {
+        "role": "neutral",
+        "displayName": "Hairline Grey",
+        "canonical": "#E5E7EB",
+        "oklch": "oklch(92.8% 0.006 264.5)",
+        "tonalRamp": [
+          "oklch(15% 0.001 264.5)",
+          "oklch(26% 0.002 264.5)",
+          "oklch(37% 0.002 264.5)",
+          "oklch(48% 0.003 264.5)",
+          "oklch(60% 0.004 264.5)",
+          "oklch(71% 0.004 264.5)",
+          "oklch(83% 0.005 264.5)",
+          "oklch(95% 0.006 264.5)"
+        ]
+      },
+      "quiet-grey": {
+        "role": "neutral",
+        "displayName": "Quiet Grey",
+        "canonical": "#9CA3AF",
+        "oklch": "oklch(71.4% 0.019 261.3)",
+        "tonalRamp": [
+          "oklch(15% 0.010 261.3)",
+          "oklch(26% 0.012 261.3)",
+          "oklch(37% 0.014 261.3)",
+          "oklch(48% 0.017 261.3)",
+          "oklch(60% 0.019 261.3)",
+          "oklch(71% 0.017 261.3)",
+          "oklch(83% 0.014 261.3)",
+          "oklch(95% 0.012 261.3)"
+        ]
+      },
+      "caption-grey": {
+        "role": "neutral",
+        "displayName": "Caption Grey",
+        "canonical": "#6B7280",
+        "oklch": "oklch(55.1% 0.023 264.4)",
+        "tonalRamp": [
+          "oklch(15% 0.013 264.4)",
+          "oklch(26% 0.016 264.4)",
+          "oklch(37% 0.019 264.4)",
+          "oklch(48% 0.022 264.4)",
+          "oklch(60% 0.022 264.4)",
+          "oklch(71% 0.019 264.4)",
+          "oklch(83% 0.016 264.4)",
+          "oklch(95% 0.013 264.4)"
+        ]
+      },
+      "slate-body": {
+        "role": "neutral",
+        "displayName": "Slate Body",
+        "canonical": "#4B5563",
+        "oklch": "oklch(44.6% 0.026 256.8)",
+        "tonalRamp": [
+          "oklch(15% 0.018 256.8)",
+          "oklch(26% 0.021 256.8)",
+          "oklch(37% 0.024 256.8)",
+          "oklch(48% 0.025 256.8)",
+          "oklch(60% 0.022 256.8)",
+          "oklch(71% 0.019 256.8)",
+          "oklch(83% 0.015 256.8)",
+          "oklch(95% 0.012 256.8)"
+        ]
+      },
+      "ink-grey": {
+        "role": "neutral",
+        "displayName": "Ink Grey",
+        "canonical": "#374151",
+        "oklch": "oklch(37.3% 0.031 259.7)",
+        "tonalRamp": [
+          "oklch(15% 0.016 259.7)",
+          "oklch(26% 0.019 259.7)",
+          "oklch(37% 0.023 259.7)",
+          "oklch(48% 0.027 259.7)",
+          "oklch(60% 0.031 259.7)",
+          "oklch(71% 0.027 259.7)",
+          "oklch(83% 0.023 259.7)",
+          "oklch(95% 0.019 259.7)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The single h1 in the hero and page headers; 72px stepping to 60px and 48px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings and product titles on a product hero; 36px, 30px on phones."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Feature titles, info tile values, footer column heads, mega-menu links; product card titles step to 16px."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero and page-header standfirst, product hero description."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs, capped at 32rem to 42rem."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every button label, sentence case."
+      },
+      "nav": {
+        "displayName": "Nav",
+        "purpose": "Header links, chips, trust strip, breadcrumbs, metadata."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase kickers above headings and mega-menu column heads."
+      },
+      "price": {
+        "displayName": "Price",
+        "purpose": "Prices on cards (30px on a product hero); orange, red on sale."
+      },
+      "badge": {
+        "displayName": "Badge",
+        "purpose": "Discount, age and promo badges, the Sale pill, the cart count."
+      }
+    },
+    "shadows": [
+      {
+        "name": "resting-lift",
+        "value": "0 1px 2px 0 rgba(0,0,0,0.05)",
+        "purpose": "Badges on photos, info tiles, the promo badge."
+      },
+      {
+        "name": "hover-lift",
+        "value": "0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)",
+        "purpose": "Chips and small cards on hover."
+      },
+      {
+        "name": "card-hover",
+        "value": "0 10px 15px -3px rgba(12,20,70,0.05), 0 4px 6px -4px rgba(12,20,70,0.05)",
+        "purpose": "Product card hover; navy-tinted, not black."
+      },
+      {
+        "name": "floating-chrome",
+        "value": "0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)",
+        "purpose": "The mega menu, modals and the cart toast."
+      },
+      {
+        "name": "sale-pill-pop",
+        "value": "0 2px 6px rgba(0,0,0,0.3)",
+        "purpose": "The yellow Sale pill only."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-arrive",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Soft-overshoot easing for fade-up, scroll reveal, card stagger and the mobile filter sheet."
+      },
+      {
+        "name": "fade-up",
+        "value": "0.7s ease-arrive, 16px rise",
+        "purpose": "Above-the-fold arrival; scroll reveal uses the same curve with a 24px rise."
+      },
+      {
+        "name": "card-stagger",
+        "value": "0.5s ease-arrive, 45ms per card, capped at 8",
+        "purpose": "Shop grid cards on mount."
+      },
+      {
+        "name": "ease-standard",
+        "value": "150ms to 300ms, colour and shadow transitions",
+        "purpose": "Hover and focus state changes on links, buttons, chips and cards."
+      },
+      {
+        "name": "press",
+        "value": "translateY(1px) on :active",
+        "purpose": "Every button and the product card nudge down when pressed."
+      },
+      {
+        "name": "promo-pan",
+        "value": "12s ease-in-out infinite background-position pan, 300% background size",
+        "purpose": "The promo band gradient; a 6.5s 40% white sweep rides on top."
+      },
+      {
+        "name": "robot-pop",
+        "value": "0.55s cubic-bezier(0.22, 1.4, 0.36, 1), 0.18s delay",
+        "purpose": "The join-link toast mascot."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: no-preference gates every animation",
+        "purpose": "Reduced-motion users get instant states and a short opacity fade on the toast."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      },
+      {
+        "name": "2xl",
+        "value": "1536px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single action colour. Every call to action that moves the visitor on, on navy or white.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Browse the range <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; gap: 8px; padding: 16px 32px; background: #FF8B00; color: #FFFFFF; font-weight: 600; font-size: 16px; line-height: 24px; border-radius: 8px; text-decoration: none; transition: all 150ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background: rgba(255,139,0,0.9); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid #0C1446; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button on Navy",
+      "kind": "button",
+      "refersTo": "button-ghost-on-navy",
+      "description": "Secondary action beside the orange button on navy grounds.",
+      "html": "<div class=\"ds-navy-stage\"><a class=\"ds-btn-ghost-navy\" href=\"#\">For schools</a></div>",
+      "css": ".ds-navy-stage { background: #0C1446; padding: 24px; display: inline-block; border-radius: 8px; } .ds-btn-ghost-navy { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; padding: 16px 32px; background: transparent; color: #FFFFFF; font-weight: 600; font-size: 16px; line-height: 24px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; text-decoration: none; transition: all 150ms; } .ds-btn-ghost-navy:hover { background: rgba(255,255,255,0.1); } .ds-btn-ghost-navy:active { transform: translateY(1px); } .ds-btn-ghost-navy:focus-visible { outline: 2px solid #3CC7F7; outline-offset: 2px; }"
+    },
+    {
+      "name": "Add to Cart",
+      "kind": "button",
+      "refersTo": "button-add-to-cart",
+      "description": "The product hero purchase button: outlined navy, filling navy on hover, Sprout Green once added. The one call to action that is not orange.",
+      "html": "<button class=\"ds-btn-cart\" type=\"button\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.5L22 8H6\"/><circle cx=\"10\" cy=\"20\" r=\"1\"/><circle cx=\"18\" cy=\"20\" r=\"1\"/></svg> Add to cart</button>",
+      "css": ".ds-btn-cart { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 320px; padding: 16px 24px; background: transparent; color: #0C1446; font-weight: 600; font-size: 16px; line-height: 24px; border: 2px solid #0C1446; border-radius: 8px; cursor: pointer; transition: background 150ms, color 150ms; } .ds-btn-cart:hover { background: #0C1446; color: #FFFFFF; } .ds-btn-cart:active { transform: translateY(1px); } .ds-btn-cart:disabled { opacity: 0.5; cursor: not-allowed; } .ds-btn-cart:focus-visible { outline: 2px solid #0C1446; outline-offset: 2px; }"
+    },
+    {
+      "name": "Form Submit",
+      "kind": "button",
+      "refersTo": "button-form-submit",
+      "description": "Full-width orange with a navy label (white on orange fails AA); inverts to navy on hover. Contact form, and the model for the campaign ad CTA.",
+      "html": "<button class=\"ds-btn-submit\" type=\"button\">Send message</button>",
+      "css": ".ds-btn-submit { font-family: Outfit, sans-serif; display: block; width: 320px; padding: 16px 24px; background: #FF8B00; color: #0C1446; font-weight: 600; font-size: 16px; line-height: 24px; border: 0; border-radius: 8px; cursor: pointer; transition: background 150ms, color 150ms; } .ds-btn-submit:hover { background: #0C1446; color: #FFFFFF; } .ds-btn-submit:focus-visible { outline: none; box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #0C1446; }"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "refersTo": "chip-category",
+      "description": "White pill with an icon disc; hover turns the border orange and lifts it.",
+      "html": "<a class=\"ds-chip\" href=\"#\"><span class=\"ds-chip-icon\"><svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#0C1446\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect x=\"4\" y=\"7\" width=\"16\" height=\"12\" rx=\"3\"/><circle cx=\"9\" cy=\"13\" r=\"1.5\"/><circle cx=\"15\" cy=\"13\" r=\"1.5\"/><path d=\"M12 3v4\"/></svg></span>Robotics</a>",
+      "css": ".ds-chip { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px 6px 6px; background: #FFFFFF; color: #0C1446; font-size: 14px; font-weight: 500; line-height: 20px; border: 1px solid #E5E7EB; border-radius: 9999px; text-decoration: none; transition: all 150ms; } .ds-chip-icon { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 9999px; background: #F9FAFB; } .ds-chip:hover { border-color: #FF8B00; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1); } .ds-chip:focus-visible { outline: 2px solid #0C1446; outline-offset: 2px; }"
+    },
+    {
+      "name": "Product Card",
+      "kind": "card",
+      "refersTo": "card-product",
+      "description": "Square photo on mist with discount and age badges, title, stock line, orange stars, price and the navy quick-add.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card-img\"><span class=\"ds-card-off\">-20%</span><span class=\"ds-card-age\">Ages 8-12</span></div><div class=\"ds-card-body\"><h3 class=\"ds-card-title\">Arduino Starter Kit</h3><div class=\"ds-card-stock\"><span class=\"ds-card-dot\"></span>In Stock</div><div class=\"ds-card-stars\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 15l-5.2 2.8 1-5.9L1.5 7.7l5.9-.8z\"/></svg><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 15l-5.2 2.8 1-5.9L1.5 7.7l5.9-.8z\"/></svg><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 15l-5.2 2.8 1-5.9L1.5 7.7l5.9-.8z\"/></svg><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 15l-5.2 2.8 1-5.9L1.5 7.7l5.9-.8z\"/></svg><svg width=\"14\" height=\"14\" viewBox=\"0 0 20 20\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M10 1.5l2.6 5.4 5.9.8-4.3 4.2 1 5.9L10 15l-5.2 2.8 1-5.9L1.5 7.7l5.9-.8z\"/></svg><span>(12)</span></div><div class=\"ds-card-row\"><div class=\"ds-card-price\"><span class=\"ds-card-sale\">R 1,360</span><s>R 1,700</s></div><span class=\"ds-card-add\">Add</span></div></div></a>",
+      "css": ".ds-card { font-family: Outfit, sans-serif; display: flex; flex-direction: column; width: 260px; background: #FFFFFF; border: 2px solid #F3F4F6; border-radius: 16px; overflow: hidden; text-decoration: none; color: #0C1446; transition: box-shadow 150ms; } .ds-card:hover { box-shadow: 0 10px 15px -3px rgba(12,20,70,0.05), 0 4px 6px -4px rgba(12,20,70,0.05); } .ds-card:hover .ds-card-title { color: #FF8B00; } .ds-card:active { transform: translateY(1px); } .ds-card-img { position: relative; aspect-ratio: 1; background: #F9FAFB; } .ds-card-off { position: absolute; top: 12px; left: 12px; background: #F70B28; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 9999px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); } .ds-card-age { position: absolute; top: 12px; right: 12px; background: rgba(12,20,70,0.85); color: #FFFFFF; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 9999px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); } .ds-card-body { padding: 20px; display: flex; flex-direction: column; gap: 8px; } .ds-card-title { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.375; transition: color 150ms; } .ds-card-stock { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #6B7280; } .ds-card-dot { width: 8px; height: 8px; border-radius: 9999px; background: #93DB21; } .ds-card-stars { display: flex; align-items: center; gap: 2px; color: #FF8B00; font-size: 12px; } .ds-card-stars span { color: #6B7280; margin-left: 4px; } .ds-card-row { display: flex; align-items: center; justify-content: space-between; margin-top: 4px; } .ds-card-price { display: flex; align-items: baseline; gap: 6px; } .ds-card-sale { font-size: 18px; font-weight: 700; color: #F70B28; } .ds-card-price s { font-size: 14px; color: #9CA3AF; } .ds-card-add { padding: 12px 16px; background: #0C1446; color: #FFFFFF; font-size: 12px; font-weight: 500; border-radius: 8px; transition: background 300ms; } .ds-card:hover .ds-card-add { background: #FF8B00; }"
+    },
+    {
+      "name": "Nav Sale Pill",
+      "kind": "chip",
+      "refersTo": "pill-sale-nav",
+      "description": "Spark Yellow pill with a navy label and a small pop shadow; appears in the header while anything is discounted.",
+      "html": "<div class=\"ds-navy-stage\"><a class=\"ds-sale-pill\" href=\"#\">Sale</a></div>",
+      "css": ".ds-navy-stage { background: #0C1446; padding: 24px; display: inline-block; border-radius: 8px; } .ds-sale-pill { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; padding: 6px 14px; background: #FFD500; color: #0C1446; font-size: 14px; font-weight: 700; line-height: 20px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); text-decoration: none; transition: transform 150ms; } .ds-sale-pill:hover { transform: translateY(-1px); } .ds-sale-pill:active { transform: translateY(0) scale(0.95); }"
+    },
+    {
+      "name": "Search Input",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "8px corners, 2px hairline border that turns orange on focus, search icon inset right.",
+      "html": "<div class=\"ds-search\"><input class=\"ds-search-input\" type=\"search\" placeholder=\"Search kits, brands, ages\"><span class=\"ds-search-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"11\" cy=\"11\" r=\"7\"/><path d=\"m21 21-4.3-4.3\"/></svg></span></div>",
+      "css": ".ds-search { position: relative; width: 320px; } .ds-search-input { font-family: Outfit, sans-serif; width: 100%; box-sizing: border-box; padding: 12px 48px 12px 16px; background: #FFFFFF; color: #0C1446; font-size: 16px; line-height: 24px; border: 2px solid #E5E7EB; border-radius: 8px; outline: none; transition: border-color 150ms; } .ds-search-input::placeholder { color: #9CA3AF; } .ds-search-input:focus { border-color: #FF8B00; } .ds-search-icon { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #9CA3AF; display: inline-flex; } .ds-search:hover .ds-search-icon { color: #FF8B00; }"
+    },
+    {
+      "name": "Newsletter Field and Button",
+      "kind": "input",
+      "refersTo": "input-newsletter",
+      "description": "On navy: a 10% white pill field with a 20% white border beside an orange pill button.",
+      "html": "<div class=\"ds-navy-stage ds-news\"><input class=\"ds-news-input\" type=\"email\" placeholder=\"you@example.com\"><button class=\"ds-news-btn\" type=\"button\">Join</button></div>",
+      "css": ".ds-navy-stage { background: #0C1446; padding: 24px; display: inline-block; border-radius: 8px; } .ds-news { display: inline-flex; gap: 12px; } .ds-news-input { font-family: Outfit, sans-serif; width: 220px; padding: 12px 20px; background: rgba(255,255,255,0.1); color: #FFFFFF; font-size: 16px; line-height: 24px; border: 1px solid rgba(255,255,255,0.2); border-radius: 9999px; outline: none; transition: border-color 150ms; } .ds-news-input::placeholder { color: rgba(255,255,255,0.4); } .ds-news-input:focus { border-color: rgba(255,255,255,0.5); } .ds-news-btn { font-family: Outfit, sans-serif; padding: 12px 28px; background: #FF8B00; color: #FFFFFF; font-weight: 600; font-size: 16px; line-height: 24px; border: 0; border-radius: 9999px; cursor: pointer; transition: opacity 150ms; } .ds-news-btn:hover { opacity: 0.9; } .ds-news-btn:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Info Tile",
+      "kind": "card",
+      "refersTo": "tile-info",
+      "description": "Product page quick facts: a blue icon disc, a grey label and a navy value, with the resting lift.",
+      "html": "<div class=\"ds-tile\"><span class=\"ds-tile-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 7h11v8H3zM14 10h4l3 3v2h-7z\"/><circle cx=\"7\" cy=\"17\" r=\"2\"/><circle cx=\"17\" cy=\"17\" r=\"2\"/></svg></span><div><div class=\"ds-tile-label\">Delivery</div><div class=\"ds-tile-value\">1-3 days</div></div></div>",
+      "css": ".ds-tile { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; gap: 12px; padding: 16px 20px; background: #FFFFFF; border: 1px solid #F3F4F6; border-radius: 12px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); } .ds-tile-icon { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 9999px; background: rgba(60,199,247,0.1); color: #3CC7F7; } .ds-tile-label { font-size: 12px; color: #6B7280; } .ds-tile-value { font-size: 16px; font-weight: 600; color: #0C1446; }"
+    },
+    {
+      "name": "Section Kicker and Heading",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Uppercase accent kicker above a SemiBold navy headline and a Slate Body subheading.",
+      "html": "<div class=\"ds-section-head\"><span class=\"ds-kicker\">Why CREATESPACE</span><h2 class=\"ds-h2\">A specialist store, not a toy aisle</h2><p class=\"ds-sub\">Every kit is chosen for its age fit and what a child actually learns from it.</p></div>",
+      "css": ".ds-section-head { font-family: Outfit, sans-serif; max-width: 36rem; } .ds-kicker { display: block; margin-bottom: 8px; font-size: 14px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #FF8B00; } .ds-h2 { margin: 0 0 12px; font-size: 36px; font-weight: 600; line-height: 1.2; color: #0C1446; } .ds-sub { margin: 0; font-size: 16px; line-height: 1.625; color: #4B5563; }"
+    },
+    {
+      "name": "Hero Headline on Navy",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Display type on navy with one-word accent highlights and a blurred blue glow.",
+      "html": "<div class=\"ds-hero\"><div class=\"ds-hero-glow\"></div><h1 class=\"ds-h1\">Build. <span class=\"ds-hl-orange\">Play.</span> <span class=\"ds-hl-blue\">Learn.</span></h1><p class=\"ds-hero-lead\">Robotics, coding and science kits that teach through play. <span>Inspiring tomorrow's engineers, inventors, doctors and scientists.</span></p></div>",
+      "css": ".ds-hero { font-family: Outfit, sans-serif; position: relative; isolation: isolate; overflow: hidden; background: #0C1446; color: #FFFFFF; padding: 48px; width: 520px; border-radius: 8px; } .ds-hero-glow { position: absolute; right: -80px; top: -40px; width: 320px; height: 320px; border-radius: 9999px; background: rgba(60,199,247,0.25); filter: blur(64px); z-index: -1; } .ds-h1 { margin: 0; font-size: 56px; font-weight: 600; line-height: 1.05; letter-spacing: -0.025em; } .ds-hl-orange { color: #FF8B00; } .ds-hl-blue { color: #3CC7F7; } .ds-hero-lead { margin: 24px 0 0; font-size: 20px; line-height: 1.625; } .ds-hero-lead span { color: rgba(255,255,255,0.6); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Night-Sky Workshop",
+    "overview": "CREATESPACE looks like a workbench set up under a clear night sky. Deep Space Navy is the sky: a calm, trustworthy ground that fills the hero, the header and footer, the education and newsletter bands and the page headers. Against it, the brand's toy-bright accents (orange, blue, purple, green, yellow, red) behave like kit pieces scattered on the bench: they light up single words, prices, badges and the outlined illustrations of robots, planets and atoms that drift at the edges of a section. White pages are the bench itself, where product photography and plain-language copy do the selling.\n\nThe feel is friendly and confident rather than loud. One typeface, Outfit, does everything: SemiBold for headings and buttons, Regular for reading, heavier weights only for prices and badges. Shapes are soft (8px buttons, 16px cards, full pills for anything that reads as a label) and surfaces are flat; depth comes from blurred blue and purple glows on navy and from faint navy-tinted lift on hover, never from heavy drop shadows. Motion is quick and opt-in: content fades up as it arrives, cards stagger in, controls nudge down a pixel when pressed, and all of it switches off under reduced motion.\n\nThe storefront is designed for a parent on a phone deciding whether a kit fits their child, so every surface leads with the thing the child will make, states the age and the price plainly, and keeps the single orange action in reach. Three looks are confirmed rejections: the discount toy shop (wall-to-wall sale red, starbursts, cluttered grids of boxes), corporate edtech (stock classrooms, grey SaaS cards, jargon-led heroes), and the childish cartoon (bubble lettering, confetti, mascot-driven layouts). The site talks to the parent, not the child.",
+    "keyCharacteristics": [
+      "Navy or white ground, always; accents are highlights, never backgrounds.",
+      "Launch Orange is the action colour: every call to action is orange, with the navy add-to-cart as the one deliberate exception.",
+      "Rocket Red marks money and urgency: discount badges, sale prices, the promo badge, errors.",
+      "One family, Outfit: SemiBold headlines, Regular body, Bold only for prices, stats and badges.",
+      "Soft, friendly corners and pill-shaped labels.",
+      "Flat surfaces lifted by blurred blue and purple glows on navy, and a faint navy shadow on hover.",
+      "Outlined, colourful STEM illustrations used sparingly: faint in section corners, or a few full-colour pieces orbiting the hero subject.",
+      "Motion is brief, eased with a soft overshoot, and entirely opt-in."
+    ],
+    "rules": [
+      {
+        "name": "The Navy-or-White Ground Rule",
+        "body": "Every section grounds on Deep Space Navy, Clean White or Workbench Mist. Accent colours fill small shapes (buttons, badges, tiles, glows, icon discs), never a whole section. The one sanctioned exception is the promo band's thin blue-to-purple gradient strip.",
+        "section": "colors"
+      },
+      {
+        "name": "The Orange Means Go Rule",
+        "body": "Launch Orange is the fill for every call to action that moves the visitor on (browse, for schools, contact, subscribe), on navy and on white alike. Secondary actions are outlined ghosts in white or navy, never a second accent colour. The two purchase buttons are the deliberate exception: the add-to-cart is an outlined navy button and the card quick-add is navy-filled; both turn orange or navy on hover and Sprout Green once the item is in the cart.",
+        "section": "colors"
+      },
+      {
+        "name": "The Red Means Saving Rule",
+        "body": "In type and badges, Rocket Red signals a saving, a sale or a problem (discount badges, sale prices, out of stock, errors). It is never decorative emphasis in a headline; that job belongs to orange and blue.",
+        "section": "colors"
+      },
+      {
+        "name": "The One-Word Highlight Rule",
+        "body": "Headlines are white on navy or navy on white, with at most one or two words picked out in an accent (\"Build. **Play.** **Learn.**\"). Highlight a word, never a whole line.",
+        "section": "colors"
+      },
+      {
+        "name": "The SemiBold Ceiling Rule",
+        "body": "Words top out at SemiBold (600). Bold (700) and ExtraBold (800) are reserved for numbers and tiny labels: prices, discount percentages, stats, badges and the Sale pill.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence Case Rule",
+        "body": "Headlines, section headings, buttons and nav links are sentence case. Uppercase is reserved for small tracked labels: kickers, the promo badge and mega-menu column heads.",
+        "section": "typography"
+      },
+      {
+        "name": "The Glow Not Shadow Rule",
+        "body": "On navy, lift the subject with a soft blurred blue and purple glow behind it. Drop shadows are for chrome that floats above the page, never for content at rest.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do ground every section on Deep Space Navy, Clean White or Workbench Mist, and let the accents appear as small, bright shapes.",
+      "Do make every call to action Launch Orange with a white SemiBold label, 16px by 32px padding and 8px corners; use a navy label only on full-width form submits, and keep the add-to-cart as an outlined navy button.",
+      "Do reserve Rocket Red for discount badges, sale prices, the promo badge, out-of-stock and errors.",
+      "Do highlight one or two words of a headline in orange or blue, keeping the rest navy or white.",
+      "Do keep headlines at Outfit SemiBold (600) in sentence case; save 700 and 800 for prices, stats and badges.",
+      "Do lead with the thing the child makes: real photos of builds and children mid-build, with navy scrims for any text on top.",
+      "Do lift subjects on navy with a soft blurred blue and purple glow, and lift cards on hover with the navy-tinted shadow.",
+      "Do use rounded corners throughout: 8px buttons and inputs, 16px cards and photos, full pills for labels.",
+      "Do keep the container at 1280px with 16px, 24px and 32px gutters, and 64px to 80px of section padding.",
+      "Do wrap every animation in `prefers-reduced-motion: no-preference` and keep hit targets at 44px on phones.",
+      "Do tuck illustrations into section corners at 5% to 8% opacity, or orbit a few full-colour pieces around a hero subject."
+    ],
+    "donts": [
+      "Don't flood a section with an accent colour; the only sanctioned accent ground is the thin promo band.",
+      "Don't use a second accent colour for a primary button, or make secondary actions filled.",
+      "Don't use red for decorative headline emphasis, or stack sale red across a page like a discount toy shop.",
+      "Don't set headlines in Bold or ExtraBold, or in all caps.",
+      "Don't use grey SaaS-style cards, stock classroom photography or jargon-led hero copy; the site is a specialist store, not corporate edtech.",
+      "Don't reach for bubble lettering, confetti, mascots or primary-colour clutter; the reader is the parent, not the child.",
+      "Don't let illustrations compete with the product photo or the message: faint in the background, or a few full-colour pieces orbiting the subject, never both at full strength behind text.",
+      "Don't use Chassis Grey or accent colours for body text; body text is navy, Slate Body or Ink Grey on white, or white at reduced opacity on navy.",
+      "Don't add dark drop shadows to content at rest; shadows belong to floating chrome and hover only.",
+      "Don't put white text on orange; it is about 2.3:1 and fails AA."
+    ]
+  }
+}
