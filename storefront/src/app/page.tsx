@@ -38,7 +38,8 @@ export const metadata: Metadata = {
 //    is active, so the brand's complete lineup appears in best-selling order.
 //  - "featured-products-homepage-headless" (COLLECTION_DEFAULT): manually curated
 //    order set in Shopify admin, used for the default no-brand-selected view.
-// Out-of-stock kits are kept so brand lineups are complete, but sorted last.
+// Only in-stock kits are shown; out-of-stock ones are dropped from both sets
+// (a brand with nothing in stock then drops out of the brand filter too).
 // Products are slimmed to card fields before crossing to the client — the full
 // objects would serialize descriptions and unused images into the page payload.
 async function FeaturedProductsLoader() {
@@ -54,15 +55,15 @@ async function FeaturedProductsLoader() {
     console.error("Failed to fetch products:", error);
   }
 
-  // All products: best-selling order, in-stock first (for brand filter view).
+  // All products: best-selling order, in stock only (for brand filter view).
   const products = allProducts
-    .map((product) => slimProductForCard(product))
-    .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
+    .filter((product) => product.availableForSale)
+    .map((product) => slimProductForCard(product));
 
-  // Featured products: preserve Shopify collection order, in-stock first.
+  // Featured products: preserve Shopify collection order, in stock only.
   const featuredProducts = featuredRaw
-    .map((product) => slimProductForCard(product))
-    .sort((a, b) => Number(b.availableForSale) - Number(a.availableForSale));
+    .filter((product) => product.availableForSale)
+    .map((product) => slimProductForCard(product));
 
   return <FeaturedProducts products={products} featuredProducts={featuredProducts} />;
 }
