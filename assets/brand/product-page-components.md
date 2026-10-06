@@ -383,7 +383,7 @@ Accordion-style frequently asked questions.
 
 ## ProductReviews
 
-Customer reviews powered by Fera. Fetches reviews and ratings client-side from the Fera SDK. Automatically hidden when no reviews exist for the product.
+Customer reviews powered by Fera. Fetches reviews and ratings client-side from the Fera SDK. Includes a quiet "Bought this? Write a review" link that opens Fera's own review form for this product.
 
 **Props:**
 
@@ -399,7 +399,9 @@ Customer reviews powered by Fera. Fetches reviews and ratings client-side from t
 - Displays rating summary (stars + average + count), then individual review cards
 - Each review shows: customer avatar/initial, name, date, star rating, heading, body text, and photos
 - Paginated with "Show More Reviews" button (5 per page)
-- Component renders nothing while loading or if there are no reviews
+- Component renders nothing while loading or if the Fera SDK fails to load
+- With no reviews yet, it renders only a single centred "Bought this? Write a review" line, not an empty reviews panel
+- The "Write a review" link calls `openWriteReview` from `@/lib/fera`, which opens Fera's form with the product preselected. Fera can't detect the product on this headless site, so without it the review would be saved as a store review. Clicks fire the `review_form_opened` PostHog event
 - Requires `NEXT_PUBLIC_FERA_PUBLIC_KEY` environment variable
 
 **Example:**

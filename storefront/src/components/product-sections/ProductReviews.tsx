@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import { StarRating } from "@/components/StarRating";
-import { decodeHtmlEntities, shopifyIdToFeraId } from "@/lib/fera";
+import { capture } from "@/lib/analytics";
+import { decodeHtmlEntities, openWriteReview, shopifyIdToFeraId } from "@/lib/fera";
 import SectionErrorBoundary from "./SectionErrorBoundary";
 import SectionTracker from "./SectionTracker";
 
@@ -28,6 +29,7 @@ function ProductReviewsContent({ productId, background = "white" }: ProductRevie
   const [reviews, setReviews] = useState<FeraReview[]>([]);
   const [rating, setRating] = useState<FeraProductRating | null>(null);
   const [loading, setLoading] = useState(true);
+  const [feraReady, setFeraReady] = useState(false);
   const [selectedReview, setSelectedReview] = useState<FeraReview | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
@@ -83,6 +85,7 @@ function ProductReviewsContent({ productId, background = "white" }: ProductRevie
         setLoading(false);
         return;
       }
+      setFeraReady(true);
 
       try {
         const [ratingResult] = await Promise.all([
@@ -140,16 +143,33 @@ function ProductReviewsContent({ productId, background = "white" }: ProductRevie
     el.scrollBy({ left: direction === "left" ? -cardWidth : cardWidth, behavior: "smooth" });
   };
 
-  if (loading) return null;
-  if (!rating || rating.count === 0) return null;
-  if (reviews.length === 0) return null;
-
   const bgClass = {
     white: "bg-white",
     gray: "bg-gray-50",
     navy: "bg-navy",
   }[background];
   const textClass = background === "navy" ? "text-white" : "text-navy";
+  const linkClass =
+    background === "navy" ? "text-cs-blue hover:text-white" : "text-navy hover:text-cs-blue";
+
+  if (loading || !feraReady) return null;
+
+  // No reviews yet: a single quiet line rather than an empty reviews panel.
+  if (!rating || rating.count === 0 || reviews.length === 0) {
+    return (
+      <section id="reviews" className={`py-8 ${bgClass}`}>
+        <p
+          className={`text-center text-sm ${background === "navy" ? "text-white/70" : "text-gray-500"}`}
+        >
+          Bought this?{" "}
+          <WriteReviewLink feraId={feraId} className={linkClass}>
+            Write a review
+          </WriteReviewLink>
+        </p>
+      </section>
+    );
+  }
+
   const subtextClass = background === "navy" ? "text-white/70" : "text-gray-500";
   const cardBg = background === "navy" ? "bg-white/10" : "bg-white";
   const cardBorder = background === "navy" ? "" : "border border-gray-200";
@@ -164,13 +184,19 @@ function ProductReviewsContent({ productId, background = "white" }: ProductRevie
           </h2>
 
           {/* Rating Summary */}
-          <div className="flex items-center justify-center gap-3 mb-10">
+          <div className="flex items-center justify-center gap-3 mb-3">
             <StarRating rating={rating.average} size="md" />
             <span className={`text-lg font-bold ${textClass}`}>{rating.average.toFixed(1)}</span>
             <span className={`text-sm ${subtextClass}`}>
               ({rating.count} {rating.count === 1 ? "review" : "reviews"})
             </span>
           </div>
+          <p className={`text-center text-sm ${subtextClass} mb-10`}>
+            Bought this?{" "}
+            <WriteReviewLink feraId={feraId} className={linkClass}>
+              Write a review
+            </WriteReviewLink>
+          </p>
 
           {/* Review Cards Carousel */}
           <div className="relative">
@@ -236,6 +262,31 @@ function ProductReviewsContent({ productId, background = "white" }: ProductRevie
         )}
       </section>
     </SectionTracker>
+  );
+}
+
+/** Opens Fera's own review form, with this product preselected. */
+function WriteReviewLink({
+  feraId,
+  className,
+  children,
+}: {
+  feraId: string;
+  className: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => {
+        if (openWriteReview(feraId)) {
+          capture("review_form_opened", { product_id: feraId });
+        }
+      }}
+      className={`font-semibold underline underline-offset-4 transition-colors ${className}`}
+    >
+      {children}
+    </button>
   );
 }
 
