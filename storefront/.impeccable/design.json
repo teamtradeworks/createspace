@@ -325,9 +325,9 @@
         "purpose": "The mega menu, modals and the cart toast."
       },
       {
-        "name": "sale-pill-pop",
-        "value": "0 2px 6px rgba(0,0,0,0.3)",
-        "purpose": "The yellow Sale pill only."
+        "name": "sale-pill-lift",
+        "value": "inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.25)",
+        "purpose": "The yellow Sale pill only; deepens to 0 6px 14px -4px rgba(0,0,0,0.5) under the highlight on hover."
       }
     ],
     "motion": [
@@ -448,9 +448,9 @@
       "name": "Nav Sale Pill",
       "kind": "chip",
       "refersTo": "pill-sale-nav",
-      "description": "Spark Yellow pill with a navy label and a small pop shadow; appears in the header while anything is discounted.",
-      "html": "<div class=\"ds-navy-stage\"><a class=\"ds-sale-pill\" href=\"#\">Sale</a></div>",
-      "css": ".ds-navy-stage { background: #0C1446; padding: 24px; display: inline-block; border-radius: 8px; } .ds-sale-pill { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; padding: 6px 14px; background: #FFD500; color: #0C1446; font-size: 14px; font-weight: 700; line-height: 20px; border-radius: 9999px; box-shadow: 0 2px 6px rgba(0,0,0,0.3); text-decoration: none; transition: transform 150ms; } .ds-sale-pill:hover { transform: translateY(-1px); } .ds-sale-pill:active { transform: translateY(0) scale(0.95); }"
+      "description": "Spark Yellow pill with a navy price-tag mark and the promotion's name, a thin top highlight and a small lift; appears in the header only while a promotion is running. On hover it rises, the tag swings and a light sweep crosses it.",
+      "html": "<div class=\"ds-navy-stage\"><a class=\"ds-sale-pill\" href=\"#\"><svg aria-hidden=\"true\" width=\"15\" height=\"15\" viewBox=\"0 0 18 18\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2.2 9.6 9.6 2.2H15.8v6.2L8.4 15.8Z\"/><circle cx=\"12.6\" cy=\"5.4\" r=\"1.2\" fill=\"currentColor\" stroke=\"none\"/></svg>Black Friday Sale</a></div>",
+      "css": ".ds-navy-stage { background: #0C1446; padding: 24px; display: inline-block; border-radius: 8px; } .ds-sale-pill { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; padding: 6px 14px 6px 12px; background: #FFD500; color: #0C1446; font-size: 14px; font-weight: 700; line-height: 20px; border-radius: 9999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.25); text-decoration: none; transition: transform 200ms, box-shadow 200ms; } .ds-sale-pill svg { flex: none; transform-origin: 70% 30%; transition: transform 300ms; } .ds-sale-pill:hover { transform: translateY(-1px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 6px 14px -4px rgba(0,0,0,0.5); } .ds-sale-pill:hover svg { transform: rotate(-12deg); } .ds-sale-pill:focus-visible { outline: 2px solid #3CC7F7; outline-offset: 2px; } .ds-sale-pill:active { transform: translateY(0) scale(0.95); }"
     },
     {
       "name": "Search Input",

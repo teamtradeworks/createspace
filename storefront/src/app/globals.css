@@ -115,6 +115,43 @@ body {
     transform: translateX(430%) skewX(-12deg);
   }
 }
+/* Header promotion pill: one light sweep a beat after the page loads (::before)
+   and one on each hover (::after). It never loops because the header sits on
+   every page. The hover sweep is a transition that snaps back unseen when the
+   pointer leaves, so leaving never replays anything. Both paint over the
+   yellow but under the label (isolation + z-index -1). Opt-in motion only. */
+.promo-pill {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .promo-pill::before,
+  .promo-pill::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(100deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
+    transform: translateX(-110%);
+  }
+  .promo-pill::before {
+    animation: promo-pill-sweep 1s cubic-bezier(0.45, 0, 0.25, 1) 1.2s 1 both;
+  }
+  .promo-pill:hover::after {
+    transform: translateX(110%);
+    transition: transform 0.8s cubic-bezier(0.45, 0, 0.25, 1);
+  }
+}
+@keyframes promo-pill-sweep {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(110%);
+  }
+}
 /* Scroll reveal: hidden state is applied client-side only (see Reveal.tsx) */
 @media (prefers-reduced-motion: no-preference) {
   .reveal-hidden {

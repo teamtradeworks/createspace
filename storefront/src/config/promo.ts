@@ -1,4 +1,4 @@
-// Rotating homepage promo strip (PromoBand).
+// Rotating homepage promo strip (PromoBand), and the header's promotion pill.
 //
 // The strip cycles through these in order (first entry shows first) — via the
 // left/right arrows and a gentle auto-advance. Add, remove, or reorder freely;
@@ -11,9 +11,17 @@
 // can be an inline link: `["Save on ", { text: "robots", href: "/shop" }, "!"]`.
 // Inline links render underlined within the single-line heading.
 //
-// `endsAt` ("YYYY-MM-DD") keeps a promo visible through the END of that day in
-// South Africa (UTC+2), then drops it automatically — no code change needed
-// when a sale lapses. Keep any date mentioned in the copy in sync with it.
+// `startsAt` and `endsAt` ("YYYY-MM-DD") bound a promo in South Africa
+// (UTC+2): it appears from the START of `startsAt` and stays through the END
+// of `endsAt`, then drops out automatically — no code change needed when a
+// sale begins or lapses. Keep any date mentioned in the copy in sync with them.
+//
+// `navLabel` also features the promo in the header nav, as a yellow pill with
+// that label (the promo's name, e.g. "Black Friday Sale") linking to the CTA,
+// for exactly as long as the promo is live. Set it on real promotions only;
+// with none live, the nav has no pill at all. If several are live at once, the
+// first in this list wins. Keep it to 19 characters or fewer (a test checks):
+// any longer and it crowds the desktop bar at 1024px.
 export type PromoSegment = string | { text: string; href: string };
 
 export type Promo = {
@@ -22,18 +30,30 @@ export type Promo = {
   heading: string | PromoSegment[];
   body?: string;
   cta: { label: string; href: string };
+  startsAt?: string;
   endsAt?: string;
+  navLabel?: string;
 };
 
-// Whether a promo is still live at `now`. A promo with no `endsAt` never
-// expires; one with `endsAt` lasts through 23:59:59 SAST on that day.
+export type NavPromo = { label: string; href: string };
+
+// Whether a promo is live at `now`. Missing dates leave that side open: a
+// promo with neither is always on. `startsAt` begins at 00:00 SAST that day;
+// `endsAt` lasts through 23:59:59 SAST on that day.
 export function isPromoActive(promo: Promo, now: Date): boolean {
-  if (!promo.endsAt) return true;
-  return now <= new Date(`${promo.endsAt}T23:59:59+02:00`);
+  if (promo.startsAt && now < new Date(`${promo.startsAt}T00:00:00+02:00`)) return false;
+  if (promo.endsAt && now > new Date(`${promo.endsAt}T23:59:59+02:00`)) return false;
+  return true;
 }
 
 export function activePromos(now: Date = new Date()): Promo[] {
   return PROMOS.filter((promo) => isPromoActive(promo, now));
+}
+
+// The promotion the header nav should feature right now, if any.
+export function activeNavPromo(now: Date = new Date(), promos: Promo[] = PROMOS): NavPromo | null {
+  const promo = promos.find((p) => p.navLabel && isPromoActive(p, now));
+  return promo?.navLabel ? { label: promo.navLabel, href: promo.cta.href } : null;
 }
 
 export const PROMOS: Promo[] = [
@@ -42,7 +62,9 @@ export const PROMOS: Promo[] = [
     heading: "20% off selected products.",
     body: "Ends 30 September.",
     cta: { label: "Shop the sale", href: "/shop?sale=true" },
+    startsAt: "2026-09-16",
     endsAt: "2026-09-30",
+    navLabel: "School Holiday Sale",
   },
   {
     eyebrow: "FREE COURSE",
