@@ -37,12 +37,12 @@ export default async function MicrobitGoPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        tagline="The pocket-sized computer that teaches coding through play"
+        tagline="A pocket-sized computer kids can code on day one"
         highlights={[
-          "Everything included to start coding immediately",
-          "No software installation - code in your browser",
-          "Built-in sensors, speaker, and LED display",
-          "Used by millions of students worldwide",
+          "Board, cable, batteries and battery holder in the box",
+          "Code in your web browser, with nothing to install",
+          "Sensors, a speaker and an LED display built into the board",
+          "Used in primary and high school classrooms around the world",
         ]}
         addons={addons}
       />
@@ -62,7 +62,7 @@ export default async function MicrobitGoPage() {
         image="/images/products/bbc-micro-bit-go/blocks-coding-example-in-makecode.png"
         imageAlt="MakeCode block-based coding interface showing a micro:bit program"
         title="A Pocket-Sized Programmable Computer"
-        body="The BBC micro:bit V2 is a tiny computer — about the size of a credit card — designed from the ground up to teach coding. Despite its size, the board packs a 25-LED display, built-in speaker, microphone, accelerometer, compass, temperature sensor, and wireless connectivity. You program it directly in your web browser using Microsoft MakeCode's drag-and-drop blocks — no software to install. The Go bundle includes the micro:bit V2 board, a USB cable, battery holder, and batteries, so everything you need to start coding is right in the box."
+        body="The BBC micro:bit V2 is a small computer (roughly credit-card sized) made for learning to code. On the board you'll find a 25-LED display, a speaker, a microphone, an accelerometer, a compass, a temperature sensor and wireless radio. Kids program it in a web browser with Microsoft MakeCode, snapping drag-and-drop blocks together, so there's no software to install. The Go bundle adds a USB cable, a battery holder and batteries, which means you can plug in and write your first program the day it arrives."
         layout="image-left"
         background="gray"
       />
@@ -70,40 +70,40 @@ export default async function MicrobitGoPage() {
       {/* Features Grid */}
       <FeatureGrid
         title="Key Features"
-        subtitle="The micro:bit V2 has everything built-in to create amazing projects - no extra components needed to get started."
+        subtitle="All of this is on the board itself, so you don't need extra parts for your first projects."
         features={[
           {
             icon: "lightbulb",
             title: "25 LED Display",
             description:
-              "Show images, animations, text, and numbers. The LEDs also work as light sensors",
+              "Scroll text, show numbers or draw little pictures. The LEDs can also sense light",
           },
           {
             icon: "music",
             title: "Built-in Speaker",
             description:
-              "Play sounds, music, and speech without connecting any external components",
+              "Play sounds, tunes and even speech without plugging anything in",
           },
           {
             icon: "microphone",
             title: "Microphone",
             description:
-              "Respond to sounds and voices. Create sound-activated projects and voice commands",
+              "Make projects that react to a clap, a shout or a whisper",
           },
           {
             icon: "running",
             title: "Motion Sensors",
-            description: "Accelerometer and compass detect movement, tilt, shaking, and direction",
+            description: "The accelerometer and compass know when it's tilted, shaken or pointed a new direction",
           },
           {
             icon: "touch",
             title: "Touch Sensitive Logo",
-            description: "The gold logo is a touch sensor - create projects that respond to touch",
+            description: "Tap the gold logo on the front to start a program or trigger a reaction",
           },
           {
             icon: "bluetooth",
             title: "Wireless Communication",
-            description: "Bluetooth and radio let micro:bits talk to each other and to phones",
+            description: "Radio and Bluetooth let micro:bits send messages to each other and to phones",
           },
         ]}
         columns={3}
@@ -114,8 +114,8 @@ export default async function MicrobitGoPage() {
       <ImageTextBlock
         image="/images/products/bbc-micro-bit-go/kids-holding-microbits.jpg"
         imageAlt="Two children holding micro:bit boards and smiling"
-        title="Built for Group Learning"
-        body="The micro:bit's built-in radio lets devices talk to each other wirelessly. Create multiplayer games, send secret messages, or build collaborative projects. Learning is always more fun with friends."
+        title="Code Games to Play with Friends"
+        body="Each micro:bit has a radio, so two or more boards can talk to each other without any wires. Kids use it to build multiplayer games, pass secret messages across the room, or team up on a bigger project where every board has its own job."
         layout="image-right"
         background="gray"
       />
@@ -124,11 +124,11 @@ export default async function MicrobitGoPage() {
       <ProjectShowcase
         title="Projects to Get Started"
         highlight="200+ free projects available on microbit.org"
-        subtitle="No extra parts needed - these projects use only what's built into the micro:bit."
+        subtitle="These projects only use what's on the board, so you can try them straight out of the box."
         projects={[
           {
             name: "Beating Heart",
-            description: "Your first program - animate a beating heart on the LED display",
+            description: "A good first program: make a heart pulse on the LED display",
             concepts: "Loops, timing, LED control",
             image: "/images/products/bbc-micro-bit-go/projects/beating-heart.png",
           },
@@ -163,14 +163,14 @@ export default async function MicrobitGoPage() {
             image: "/images/products/bbc-micro-bit-go/projects/displaying-images.png",
           },
         ]}
-        moreText="Plus 200+ free projects on microbit.org including games, music makers, and science experiments"
+        moreText="When these are done, microbit.org has 200+ more free projects, from games to music makers and science experiments"
         background="white"
       />
 
       {/* Customer Showcase */}
       <CustomerShowcase
         title="See What Others Are Creating"
-        subtitle="From first-timers to confident coders — projects they're proud to show off."
+        subtitle="Kids at home and in classrooms, mid-project with their micro:bits."
         background="gray"
         images={[
           {
@@ -215,32 +215,32 @@ export default async function MicrobitGoPage() {
           {
             question: "What's the difference between micro:bit Go and just the board?",
             answer:
-              "The Go bundle includes everything you need: the micro:bit V2 board, USB cable, battery holder, and batteries. If you buy the board alone, you'll need to purchase these accessories separately.",
+              "The Go bundle comes with the micro:bit V2 board plus a USB cable, a battery holder and two batteries. If you buy the board on its own, you'll need to get those separately.",
           },
           {
             question: "Do I need to install any software?",
             answer:
-              "No! You can code your micro:bit directly in your web browser using MakeCode or Python. Just connect via USB, write your code, and click download. It works on any computer - Windows, Mac, Chromebook, or Linux.",
+              "No. You write code in your web browser using MakeCode or Python, plug the micro:bit in with the USB cable, and click download. It works on Windows, Mac, Chromebook and Linux.",
           },
           {
             question: "What age is this suitable for?",
             answer:
-              "The micro:bit is designed for ages 8 and up. Younger children can enjoy it with adult guidance using the block-based MakeCode editor. It's used in schools worldwide from primary through to secondary level.",
+              "It's designed for ages 8 and up. Younger kids can still have a go with the MakeCode blocks if an adult sits with them. Schools use it with learners from primary through to high school.",
           },
           {
             question: "Can I use it without a computer?",
             answer:
-              "Once you've loaded a program, the micro:bit runs independently using the included batteries. You can take your projects anywhere! You'll need a computer to write and update your programs though.",
+              "Yes, once a program is loaded. The micro:bit runs on the included batteries, so kids can carry a project around the house or take it to school. You'll still need a computer to write new programs or change old ones.",
           },
           {
             question: "What can I connect to it?",
             answer:
-              "The edge connector has 25 pins for connecting motors, sensors, LEDs, and more. Use crocodile clips for simple connections or an edge connector breakout board for larger projects.",
+              "The edge connector along the bottom has 25 pins for motors, sensors, LEDs and more. Crocodile clips are fine for simple circuits, and an edge connector breakout board makes bigger builds easier.",
           },
           {
             question: "Is this compatible with other micro:bit accessories?",
             answer:
-              "Yes! The micro:bit V2 works with the vast ecosystem of micro:bit accessories including robot kits, expansion boards, and sensor packs. Just check that accessories are V2 compatible for full feature support.",
+              "Yes. There are lots of micro:bit add-ons, including robot kits, expansion boards and sensor packs. Check that an accessory says it supports V2 so you get all of its features.",
           },
         ]}
         background="white"
@@ -284,8 +284,8 @@ export default async function MicrobitGoPage() {
 
       {/* Final CTA */}
       <CallToAction
-        title="Get Started with micro:bit"
-        subtitle="Board, USB cable, batteries, and battery holder — everything in the box to start coding right away."
+        title="Start Coding with micro:bit"
+        subtitle="The board, USB cable, batteries and battery holder all come in the box, so your first program is only a few minutes away."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -306,7 +306,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Get started with coding using the BBC micro:bit Go. Complete starter kit with micro:bit V2, USB cable, batteries, and battery holder. Perfect for beginners aged 8+.",
+      "The BBC micro:bit Go comes with the micro:bit V2, a USB cable, batteries and a battery holder. Kids aged 8+ code it in a browser without installing anything.",
     alternates: {
       canonical: "/product/bbc-micro-bit-go",
     },
