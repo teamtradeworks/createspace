@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Product, isOnSale } from "@/lib/shopify";
 import ProductCard from "@/components/ProductCard";
+import TagIcon from "@/components/TagIcon";
 import { capture } from "@/lib/analytics";
 import { CATEGORIES } from "@/config/categories";
 import { BRANDS } from "@/config/brands";
@@ -68,8 +69,9 @@ export default function ShopGallery({
     parseParam(initialCategory?.toLowerCase()),
   );
   const [selectedBrands, setSelectedBrands] = useState<string[]>(parseParam(initialBrand));
-  // `?sale=true` — what the Sale nav shortcut links to. Anything else is off,
-  // so a stray `?sale=false` can't silently switch the filter on.
+  // `?sale=true` — where sale promos link (their nav pill and band CTA, see
+  // config/promo.ts) and where sale ads land. Anything else is off, so a
+  // stray `?sale=false` can't silently switch the filter on.
   const [selectedSale, setSelectedSale] = useState<string[]>(
     initialSale === "true" || initialSale === "1" ? [SALE_VALUE] : [],
   );
@@ -118,7 +120,7 @@ export default function ShopGallery({
   );
 
   // Whether anything in the catalogue is discounted at all — drives the empty
-  // state when someone follows the Sale shortcut during a quiet week.
+  // state when someone lands on ?sale=true during a quiet week.
   const saleCount = useMemo(() => products.filter((p) => isOnSale(p)).length, [products]);
 
   // Whether a product satisfies one candidate value on a single axis.
@@ -669,28 +671,6 @@ function FilterGroup({
         })}
       </div>
     </div>
-  );
-}
-
-// Price-tag mark for the "On sale" chip. Drawn rather than borrowed so it
-// inherits the chip's currentColor across both the idle and selected fills.
-function TagIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      width="15"
-      height="15"
-      viewBox="0 0 18 18"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.75"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="flex-none"
-    >
-      <path d="M2.2 9.6 9.6 2.2H15.8v6.2L8.4 15.8Z" />
-      <circle cx="12.6" cy="5.4" r="1.2" fill="currentColor" stroke="none" />
-    </svg>
   );
 }
 

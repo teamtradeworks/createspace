@@ -266,7 +266,7 @@ The system is flat by default. Cards sit on white or mist with a thin grey borde
 ### Shadow Vocabulary
 - **Resting lift** (`box-shadow: 0 1px 2px rgba(0,0,0,0.05)`): Badges on photos and info badges.
 - **Hover lift** (`box-shadow: 0 10px 15px -3px rgba(12,20,70,0.05)`): Product card hover only.
-- **Sale pill pop** (`box-shadow: 0 2px 6px rgba(0,0,0,0.3)`): The yellow nav Sale pill.
+- **Sale pill lift** (`box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.25)`): The yellow nav Sale pill. A thin white top highlight and a dark lift; never a yellow glow, which turns olive against navy.
 - **Collage drop** (`box-shadow: 0 16px 48px rgba(0,0,0,0.5)`): Rotated photos in the ad collage on navy.
 
 ### Named Rules
@@ -299,7 +299,7 @@ Warm, confident and chunky; they look pressable.
 - **Discount badge (cards):** Rocket Red full pill, white 700 "-20%", top left of the product photo.
 - **Age badge (cards):** navy at 85% full pill, white 600 "Ages 8-12", top right of the product photo.
 - **Promo band badge:** Rocket Red, 6px radius, white 800 uppercase, sitting on the blue-to-purple band beside a navy eyebrow pill and a navy SemiBold message.
-- **Nav Sale pill:** Spark Yellow full pill, navy 700 label, small dark drop shadow.
+- **Nav Sale pill:** Spark Yellow full pill with a navy price-tag mark and the promotion's name as a navy 700 label, the sale pill lift.
 
 ### Cards / Containers
 - **Corner Style:** 16px (12px on mobile).

@@ -9,7 +9,9 @@ import BrandDecor from "@/components/BrandDecor";
 import { CATEGORIES } from "@/config/categories";
 import { BRANDS } from "@/config/brands";
 import { capture } from "@/lib/analytics";
+import type { NavPromo } from "@/config/promo";
 import SearchOverlay from "@/components/SearchOverlay";
+import TagIcon from "@/components/TagIcon";
 
 // Shop dropdown routes by our three axes: age, category, and brand.
 const ageLinks = [
@@ -88,13 +90,14 @@ const educationOptions = [
 ];
 
 // `accent` marks the one item that reads as a badge rather than a nav link —
-// the Sale shortcut, which lands on the shop's sale filter.
+// the slot for the live promotion's pill. It takes the promo's name and link
+// (see config/promo.ts) and is dropped entirely while no promotion is running.
 type NavItem = { name: string; href: string; dropdown: string | null; accent?: boolean };
 
 const navigation: NavItem[] = [
   { name: "Home", href: "/", dropdown: null },
   { name: "Shop", href: "/shop", dropdown: "shop" },
-  { name: "Sale", href: "/shop?sale=true", dropdown: null, accent: true },
+  { name: "Promotion", href: "/shop", dropdown: null, accent: true },
   { name: "Education", href: "/education", dropdown: "education" },
   { name: "About Us", href: "/about", dropdown: null },
   { name: "Downloads", href: "/downloads", dropdown: null },
@@ -102,12 +105,24 @@ const navigation: NavItem[] = [
 ];
 
 // Yellow badge, navy text: the loudest thing on the navy bar, and the only
-// brand accent that clears AA against it at this size.
-const SALE_PILL_CLASS =
-  "inline-flex items-center rounded-full bg-cs-yellow px-3.5 py-1.5 text-sm font-bold text-navy " +
-  "shadow-[0_2px_6px_rgba(0,0,0,0.3)] transition-transform hover:-translate-y-px active:translate-y-0 active:scale-95";
+// brand accent that clears AA against it at this size. A thin top highlight
+// and a small lift that deepens on hover; no yellow glow, which turns olive
+// against navy. `promo-pill` (globals.css) adds a single light sweep after load
+// and on hover. Padding is per placement: compact in the desktop bar, a fuller
+// tap target on phones.
+const PROMO_PILL_CLASS =
+  "promo-pill group inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-cs-yellow " +
+  "text-sm font-bold text-navy shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_1px_2px_rgba(0,0,0,0.25)] " +
+  "transition-[transform,box-shadow] duration-200 hover:-translate-y-px " +
+  "hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_6px_14px_-4px_rgba(0,0,0,0.5)] " +
+  "active:translate-y-0 active:scale-95 focus-visible:outline focus-visible:outline-2 " +
+  "focus-visible:outline-offset-2 focus-visible:outline-cs-blue";
 
-export default function Header({ saleAvailable = false }: { saleAvailable?: boolean }) {
+// The tag swings from its hole on hover, like one hanging off a kit box.
+const PROMO_TAG_CLASS =
+  "origin-[70%_30%] motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:-rotate-12";
+
+export default function Header({ navPromo = null }: { navPromo?: NavPromo | null }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileEducationOpen, setMobileEducationOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -132,9 +147,10 @@ export default function Header({ saleAvailable = false }: { saleAvailable?: bool
     return () => clearInterval(timer);
   }, []);
 
-  // The Sale shortcut appears only while the shop actually has something
-  // discounted, so it can never lead to an empty grid.
-  const navItems = navigation.filter((item) => !item.accent || saleAvailable);
+  const navItems = navigation.flatMap((item) => {
+    if (!item.accent) return [item];
+    return navPromo ? [{ ...item, name: navPromo.label, href: navPromo.href }] : [];
+  });
 
   const closeDropdown = () => setActiveDropdown(null);
 
@@ -233,9 +249,10 @@ export default function Header({ saleAvailable = false }: { saleAvailable?: bool
                 {item.accent ? (
                   <Link
                     href={item.href}
-                    className={SALE_PILL_CLASS}
-                    onClick={() => trackShopNav("sale", "nav")}
+                    className={`${PROMO_PILL_CLASS} py-1.5 pl-3 pr-3.5`}
+                    onClick={() => trackShopNav("sale", item.name)}
                   >
+                    <TagIcon className={PROMO_TAG_CLASS} />
                     {item.name}
                   </Link>
                 ) : (
@@ -351,9 +368,10 @@ export default function Header({ saleAvailable = false }: { saleAvailable?: bool
                 {item.accent ? (
                   <Link
                     href={item.href}
-                    className={`my-1.5 ${SALE_PILL_CLASS}`}
+                    className={`my-1.5 ${PROMO_PILL_CLASS} py-2.5 pl-3.5 pr-4`}
                     onClick={() => trackMobileNav(item.name)}
                   >
+                    <TagIcon className={PROMO_TAG_CLASS} />
                     {item.name}
                   </Link>
                 ) : item.dropdown === "education" ? (

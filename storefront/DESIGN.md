@@ -162,7 +162,7 @@ components:
     textColor: "{colors.deep-space-navy}"
     typography: "{typography.price}"
     rounded: "{rounded.full}"
-    padding: "6px 14px"
+    padding: "6px 14px 6px 12px"
   badge-discount:
     backgroundColor: "{colors.rocket-red}"
     textColor: "{colors.clean-white}"
@@ -299,7 +299,7 @@ Content sits in a centred container capped at 1280px with side gutters of 16px, 
 
 Grids of cards use 24px gaps on desktop and 12px to 16px on phones; the shop grid runs two columns on phones and up to four on desktop, and feature or info cards become a horizontal snap-scrolling row on phones. Section openers are left-aligned (a headline, then a short grey subheading capped at 32rem to 42rem) except the closing call to action, which is centred. The hero puts copy in the left half and the photographic subject in the right half, grounded on the bottom edge, with the subject centred below the copy on phones.
 
-The header is sticky: a 14px orange trust strip of three promises above a 64px navy bar with the logo (24px tall) left, links and search and cart right, and a yellow Sale pill when anything is discounted. Desktop dropdowns open as a white mega menu with three kicker-headed columns; on phones the menu becomes a stacked list under the bar and filters slide in as a right-hand sheet.
+The header is sticky: a 14px orange trust strip of three promises above a 64px navy bar with the logo (24px tall) left, links and search and cart right, and, while a promotion is running, a yellow Sale pill carrying its name (such as "Black Friday Sale"). Desktop dropdowns open as a white mega menu with three kicker-headed columns; on phones the menu becomes a stacked list under the bar and filters slide in as a right-hand sheet.
 
 Breakpoints are Tailwind's defaults: 640px, 768px, 1024px, 1280px and 1536px.
 
@@ -312,7 +312,7 @@ The system is flat by default. Cards sit on white or mist with a thin grey borde
 - **Hover lift** (`box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1)`): Chips and small cards on hover.
 - **Card hover** (`box-shadow: 0 10px 15px -3px rgba(12,20,70,0.05), 0 4px 6px -4px rgba(12,20,70,0.05)`): Product card hover; the shadow is navy-tinted, not black.
 - **Floating chrome** (`box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1)`): The mega menu, modals and the cart toast.
-- **Sale pill pop** (`box-shadow: 0 2px 6px rgba(0,0,0,0.3)`): The yellow Sale pill only.
+- **Sale pill lift** (`box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.25)`, deepening on hover to `inset 0 1px 0 rgba(255,255,255,0.5), 0 6px 14px -4px rgba(0,0,0,0.5)`): The yellow Sale pill only. A thin white top highlight and a dark lift; never a yellow glow, which turns olive against navy.
 
 ### Named Rules
 **The Glow Not Shadow Rule.** On navy, lift the subject with a soft blurred blue and purple glow behind it. Drop shadows are for chrome that floats above the page, never for content at rest.
@@ -349,7 +349,7 @@ Warm, confident and chunky. Controls look pressable, cards look like cards, and 
 - **Discount pill (product hero):** red-at-10% pill with a red 700 label beside the price.
 - **Stock line:** a small coloured dot and 12px label: Sprout Green "In Stock", Launch Orange "Delivery in 7 - 14 days", Rocket Red "Out of Stock".
 - **Promo badge:** Rocket Red, 6px radius, white 800 uppercase tracked label, sitting on the blue-to-purple promo band beside a navy eyebrow pill and a navy SemiBold message.
-- **Nav Sale pill:** Spark Yellow full pill, navy 700 14px label, the sale pill pop shadow; lifts 1px on hover and squashes to 95% when pressed.
+- **Nav Sale pill:** Spark Yellow full pill holding a navy price-tag mark (the same drawn tag as the shop's "On sale" chip) and the promotion's name as a navy 700 14px label, 19 characters at most, on one line; the sale pill lift. On hover it rises 1px, its shadow deepens, the tag swings from its hole and one light sweep crosses it; it squashes to 95% when pressed and shows a 2px Sky Circuit Blue focus ring offset 2px. 32px tall in the desktop bar, 40px in the phone menu.
 - **Cart count:** a 16px orange disc with white 12px text pinned to the cart icon's corner.
 
 ### Cards / Containers
@@ -390,7 +390,7 @@ Real photographs of children and hands building kits, and real product photograp
 ### Motion
 - **Arrival:** above-the-fold content fades up 16px over 0.7s with a soft overshoot (`cubic-bezier(0.16, 1, 0.3, 1)`); sections below reveal the same way as they scroll into view, 24px up over 0.7s; shop cards stagger in at 45ms steps (capped at eight).
 - **Interaction:** colour and shadow transitions run 150ms to 300ms; pressed controls nudge down 1px; hovered cards lift or zoom their photo 5%.
-- **Flourish:** the promo band pans and sweeps; the join toast rises, pops its robot and shows a draining timer line.
+- **Flourish:** the promo band pans and sweeps; the nav Sale pill sweeps once a beat after the page loads and once per hover, never on a loop; the join toast rises, pops its robot and shows a draining timer line.
 - **Opt-in only:** every animation sits inside `prefers-reduced-motion: no-preference`; reduced-motion users get instant states and a short opacity fade on the toast.
 
 ## Do's and Don'ts

@@ -4,7 +4,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
-import { hasProductsOnSale } from "@/lib/shopify";
+import { activeNavPromo } from "@/config/promo";
 import Footer from "@/components/Footer";
 import CartToast from "@/components/CartToast";
 import { CartProvider } from "@/context/CartContext";
@@ -46,15 +46,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+// Every route re-renders at least this often (in seconds), so the header's
+// promotion pill appears and lapses on its configured dates without a deploy,
+// even on pages that fetch nothing else.
+export const revalidate = 300;
+
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // The Sale shortcut is only worth offering while something is discounted,
-  // and the header sits on every route — so the answer is fetched here once
-  // and cached (see hasProductsOnSale) rather than per page.
-  const saleAvailable = await hasProductsOnSale();
+  // Decided on the server, where the page is rendered, so the HTML and the
+  // hydrated header always agree on whether a promotion is live.
+  const navPromo = activeNavPromo();
 
   return (
     <html lang="en" className={outfit.variable}>
@@ -72,7 +76,7 @@ export default async function RootLayout({
         )}
         <OrganizationJsonLd />
         <CartProvider>
-          <Header saleAvailable={saleAvailable} />
+          <Header navPromo={navPromo} />
           <main className="flex-1">{children}</main>
           <Footer />
           <Suspense fallback={null}>

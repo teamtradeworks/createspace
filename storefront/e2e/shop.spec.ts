@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { activeNavPromo, PROMOS } from "../src/config/promo";
 
 test.describe("Shop page", () => {
   test("loads and displays products", async ({ page }) => {
@@ -23,31 +24,44 @@ test.describe("Shop page", () => {
   });
 });
 
+test.describe("Promotion nav pill", () => {
+  // The pill follows the dated promos in config/promo.ts, not prices, so each
+  // test asks the config what should be live today.
+  test("names only the live promotion, and none once a promotion ends", async ({ page }) => {
+    await page.goto("/");
+    const header = page.locator("header");
+    const live = activeNavPromo();
+
+    for (const promo of PROMOS) {
+      if (!promo.navLabel || promo.navLabel === live?.label) continue;
+      await expect(header.getByRole("link", { name: promo.navLabel, exact: true })).toHaveCount(0);
+    }
+    if (live) {
+      await expect(header.getByRole("link", { name: live.label, exact: true })).toBeVisible();
+    }
+  });
+
+  test("lands on the promotion's page", async ({ page }) => {
+    const live = activeNavPromo();
+    test.skip(!live, "no promotion is running right now");
+    if (!live) return;
+
+    await page.goto("/");
+    await page.locator("header").getByRole("link", { name: live.label, exact: true }).click();
+    const target = new URL(live.href, page.url());
+    await expect(page).toHaveURL((url) => url.pathname === target.pathname);
+    for (const [key, value] of target.searchParams) {
+      expect(new URL(page.url()).searchParams.get(key)).toBe(value);
+    }
+  });
+});
+
 test.describe("Sale filter", () => {
-  // Both the nav shortcut and the rail chip are hidden while nothing is
-  // discounted, so each test first asks whether a sale is running rather than
-  // assuming the catalogue always has one.
+  // The rail's "On sale" option is hidden while nothing is discounted, so
+  // tests that need one ask whether a sale is running rather than assuming the
+  // catalogue always has one.
   const onSaleControl = (page: import("@playwright/test").Page) =>
     page.getByRole("button", { name: "On sale" });
-
-  test("the Sale nav shortcut lands on the filtered shop", async ({ page }) => {
-    await page.goto("/");
-    const shortcut = page.locator("header").getByRole("link", { name: "Sale", exact: true });
-    test.skip((await shortcut.count()) === 0, "nothing is on sale right now");
-
-    await shortcut.click();
-    await expect(page).toHaveURL(/\/shop\?sale=true/);
-    await expect(onSaleControl(page).first()).toBeVisible();
-  });
-
-  test("the Sale nav shortcut is hidden when nothing is discounted", async ({ page }) => {
-    await page.goto("/shop?sale=true");
-    const discounted = await page.locator('main a[href^="/product/"]').count();
-    const shortcut = page.locator("header").getByRole("link", { name: "Sale", exact: true });
-
-    // The shortcut and the sale itself appear and disappear together.
-    expect(await shortcut.count()).toBe(discounted > 0 ? 1 : 0);
-  });
 
   test("every product listed under the sale filter shows a discount badge", async ({ page }) => {
     await page.goto("/shop?sale=true");
