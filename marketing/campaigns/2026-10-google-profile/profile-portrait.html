@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+  Google Business Profile cover, portrait, for the tall photo tile in the
+  Search knowledge panel. That tile shows roughly 0.62:1 from the centre, so
+  ~90px top and bottom are cut; everything that matters sits inside it.
+  The logo and headline sit at the vertical centre so they also survive the
+  wide strip Maps crops on mobile. The tile is shown at ~250px wide, so type
+  is set large.
+-->
+<html lang="en-ZA" data-canvas="google-business-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE Google profile portrait</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      overflow: hidden;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      display: grid;
+      grid-template-rows: 390px minmax(0, 1fr) 290px 230px;
+      gap: 40px;
+      padding: 170px 48px 120px;
+    }
+
+    .photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      min-height: 0;
+    }
+    .photos img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+      border-radius: 28px;
+      display: block;
+    }
+    .photos.top img:first-child { border-top: 10px solid var(--cs-orange); }
+    .photos.top img:last-child { border-top: 10px solid var(--cs-green); }
+    .photos.bottom img:first-child { border-bottom: 10px solid var(--cs-blue); }
+    .photos.bottom img:last-child { border-bottom: 10px solid var(--cs-yellow); }
+
+    .centre {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      width: 760px;
+      height: auto;
+      display: block;
+      margin-bottom: 48px;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 100px;
+      line-height: 1.02;
+      letter-spacing: -0.015em;
+      margin: 0 0 30px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--cs-yellow);
+    }
+    .sub {
+      font-size: 46px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin: 0;
+      color: var(--cs-blue);
+    }
+
+    /* Partner brands */
+    .brands {
+      background: var(--cs-white);
+      border-radius: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: 1fr 1fr;
+      align-items: center;
+      justify-items: center;
+      padding: 18px 26px;
+    }
+    .brands img {
+      display: block;
+      height: 74px;
+      width: auto;
+      max-width: 210px;
+      object-fit: contain;
+    }
+    .brands img.wide { height: 56px; }
+    .brands img.tall { height: 86px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="photos top">
+      <img src="images/builder-two-kids-makerzoid.jpg" alt="">
+      <img src="images/chem-kids-pouring-volcano.jpg" alt="" style="object-position: center 80%">
+    </div>
+
+    <div class="centre">
+      <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+      <h1>STEM toys<br>and kits for<br><em>curious kids</em></h1>
+      <p class="sub">Delivered across South Africa</p>
+    </div>
+
+    <div class="photos bottom">
+      <img src="images/coder-boy-microbit.jpg" alt="">
+      <img src="images/space-family-rocket-launch.jpg" alt="">
+    </div>
+
+    <footer class="brands">
+      <img src="images/brands/national-geographic.png" alt="National Geographic" class="wide">
+      <img src="images/brands/nasa.png" alt="NASA" class="tall">
+      <img src="images/brands/bbc-microbit.png" alt="BBC micro:bit" class="tall">
+      <img src="images/brands/arduino.png" alt="Arduino" class="tall">
+      <img src="images/brands/makerzoid.png" alt="Makerzoid" class="tall">
+      <img src="images/brands/snap-circuits.png" alt="Snap Circuits" class="wide">
+      <img src="images/brands/matatastudio.png" alt="MatataStudio">
+      <img src="images/brands/elecfreaks.png" alt="ELECFREAKS" class="wide">
+    </footer>
+  </main>
+</body>
+</html>

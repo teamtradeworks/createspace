@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!--
+  Google Business Profile photo: every brand we stock (src/config/brands.ts).
+  Square, for the profile's photo gallery. Google shows gallery thumbnails
+  cropped, so the logo grid keeps a generous margin.
+-->
+<html lang="en-ZA" data-canvas="google-square">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE brands we stock</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      overflow: hidden;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 40px;
+      text-align: center;
+    }
+
+    .logo {
+      width: 480px;
+      height: auto;
+      display: block;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 86px;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--cs-yellow);
+    }
+    .sub {
+      font-size: 38px;
+      margin: 0 0 50px;
+      color: var(--cs-blue);
+      font-weight: 500;
+    }
+
+    /* 3 / 4 / 3 rows of white tiles */
+    .grid {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      width: 100%;
+    }
+    .row {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+    }
+    .tile {
+      background: var(--cs-white);
+      border-radius: 24px;
+      width: 264px;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .tile img {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .doodle {
+      position: absolute;
+      opacity: 0.95;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="doodle" src="../../creative/kit/illustrations/planet-1.svg" alt="" style="width:120px; top:48px; left:48px">
+    <img class="doodle" src="../../creative/kit/illustrations/lightbulb.svg" alt="" style="width:84px; top:40px; right:60px">
+
+    <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+    <h1>Top STEM brands,<br><em>all in one place</em></h1>
+    <p class="sub">Delivered across South Africa</p>
+
+    <div class="grid">
+      <div class="row">
+        <div class="tile"><img src="images/brands/national-geographic.png" alt="National Geographic"></div>
+        <div class="tile"><img src="images/brands/nasa.png" alt="NASA"></div>
+        <div class="tile"><img src="images/brands/bbc-microbit.png" alt="BBC micro:bit"></div>
+      </div>
+      <div class="row">
+        <div class="tile"><img src="images/brands/arduino.png" alt="Arduino"></div>
+        <div class="tile"><img src="images/brands/makerzoid.png" alt="Makerzoid"></div>
+        <div class="tile"><img src="images/brands/snap-circuits.png" alt="Snap Circuits"></div>
+        <div class="tile"><img src="images/brands/matatastudio.png" alt="MatataStudio"></div>
+      </div>
+      <div class="row">
+        <div class="tile"><img src="images/brands/elecfreaks.png" alt="ELECFREAKS"></div>
+        <div class="tile"><img src="images/brands/blockaroo.png" alt="Blockaroo"></div>
+        <div class="tile"><img src="images/brands/robotico.png" alt="Robotico"></div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

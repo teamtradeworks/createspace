@@ -42,7 +42,7 @@ We curate. Every kit is chosen for its age fit and learning value, and we explai
 - **Name.** Always "CREATESPACE", all caps.
 - **Words.** "Delivery", never "Shipping". "VAT", never "Tax".
 - **Money.** Rand, written `R 1,200` (space after R, comma thousands, period decimals: `R 2,500.99`).
-- **Delivery facts** come from `storefront/src/config/site.json` and must match it: currently free delivery over R 1,500, standard R 140, next-day available at checkout. Never hard-code a delivery number from memory.
+- **Delivery facts** come from `storefront/src/config/site.json` and must match it: currently free delivery over R 1,500, standard R 140. Next-day delivery is no longer offered. Never hard-code a delivery number from memory.
 - **Prices and sale percentages** must match Shopify at the time the asset ships. A sale asset names its end date or is pulled when the sale ends.
 - **We sell locally only.** No international delivery claims.
 - **Meta text.** Meta no longer rejects text-heavy images, but less text on the image performs better. The headline on the image is short; the long copy goes in the ad's primary text field.

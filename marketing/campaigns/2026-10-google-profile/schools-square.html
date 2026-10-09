@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+  Google Business Profile gallery: CREATESPACE for schools (educator audience).
+  The four offers match the education section of the website.
+-->
+<html lang="en-ZA" data-canvas="google-square">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE for schools</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      overflow: hidden;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      display: grid;
+      grid-template-rows: 770px 1fr;
+    }
+    .photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+    .panel {
+      padding: 0 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 34px;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 92px;
+      line-height: 1;
+      letter-spacing: -0.015em;
+      margin: 0;
+    }
+    h1 em { font-style: normal; color: var(--cs-yellow); }
+    .offers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .offer {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 10px solid var(--accent);
+      border-radius: 18px;
+      padding: 24px 28px;
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 1.1;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="photo" src="images/schools-teacher-vincibot-classroom.jpg" alt="">
+    <section class="panel">
+      <div class="head">
+        <h1>STEM for <em>schools</em></h1>
+      </div>
+      <div class="offers">
+        <div class="offer" style="--accent: var(--cs-blue)">Classroom kits</div>
+        <div class="offer" style="--accent: var(--cs-orange)">STEM tutors</div>
+        <div class="offer" style="--accent: var(--cs-green)">CAPS-aligned curriculum</div>
+        <div class="offer" style="--accent: var(--cs-purple)">Short courses</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

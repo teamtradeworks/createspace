@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--
+  Google Business Profile gallery: what we stock, by category.
+  Categories match storefront/src/config/categories.ts.
+-->
+<html lang="en-ZA" data-canvas="google-square">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE categories</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 56px;
+      text-align: center;
+    }
+    .logo { width: 400px; display: block; margin-bottom: 40px; }
+    h1 {
+      font-weight: 600;
+      font-size: 84px;
+      line-height: 1.04;
+      letter-spacing: -0.01em;
+      margin: 0 0 56px;
+    }
+    h1 em { font-style: normal; color: var(--cs-yellow); }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      width: 100%;
+    }
+    .tile {
+      background: var(--cs-white);
+      color: var(--cs-navy);
+      border-radius: 28px;
+      height: 290px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border-bottom: 12px solid var(--accent);
+    }
+    .tile img { height: 140px; width: auto; display: block; }
+    .tile span { font-size: 34px; font-weight: 600; line-height: 1.1; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+    <h1>STEM kits for<br><em>every curious kid</em></h1>
+    <div class="grid">
+      <div class="tile" style="--accent: var(--cs-blue)"><img src="../../creative/kit/illustrations/robot-1.svg" alt=""><span>Robotics<br>&amp; Coding</span></div>
+      <div class="tile" style="--accent: var(--cs-yellow)"><img src="../../creative/kit/illustrations/lightbulb.svg" alt=""><span>Electronics<br>&amp; Circuits</span></div>
+      <div class="tile" style="--accent: var(--cs-orange)"><img src="../../creative/kit/illustrations/nut-1.svg" alt=""><span>Building<br>&amp; Mechanics</span></div>
+      <div class="tile" style="--accent: var(--cs-green)"><img src="../../creative/kit/illustrations/microscope.svg" alt=""><span>Earth<br>Sciences</span></div>
+      <div class="tile" style="--accent: var(--cs-red)"><img src="../../creative/kit/illustrations/planet-1.svg" alt=""><span>Space<br>&amp; Astronomy</span></div>
+      <div class="tile" style="--accent: var(--cs-purple)"><img src="../../creative/kit/illustrations/beaker-1.svg" alt=""><span>Chemistry</span></div>
+    </div>
+  </main>
+</body>
+</html>
