@@ -28,6 +28,10 @@
     "google-landscape": { w: 1200, h: 628, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
     "google-square": { w: 1200, h: 1200, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
     "google-portrait": { w: 960, h: 1200, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
+    // Google Business Profile cover photo (Search and Maps listing)
+    "google-business-cover": { w: 1080, h: 608, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
+    // Portrait cover: the Search knowledge-panel tile crops it to about 0.62:1, losing ~90px top and bottom
+    "google-business-portrait": { w: 1080, h: 1920, safe: { top: 90, right: 0, bottom: 90, left: 0 } },
   };
 
   // Trim sizes in mm, portrait. Append "-landscape" to the name to rotate.

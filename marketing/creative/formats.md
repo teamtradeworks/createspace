@@ -28,6 +28,8 @@ Notes:
 | `google-landscape` | 1200 x 628 | 1.91:1 | Performance Max and Demand Gen (required) | Google crops to other ratios automatically, so keep the subject central |
 | `google-square` | 1200 x 1200 | 1:1 | Performance Max and Demand Gen (required) | Nothing enforced |
 | `google-portrait` | 960 x 1200 | 4:5 | Performance Max, Discover, YouTube feeds | Nothing enforced |
+| `google-business-cover` | 1080 x 608 | 16:9 | Google Business Profile cover photo (Search and Maps) | Google crops it differently per surface, sometimes close to square. Keep the logo and headline inside the middle 70% |
+| `google-business-portrait` | 1080 x 1920 | 9:16 | Google Business Profile cover when it should fill the tall photo tile in the Search knowledge panel | That tile shows about 0.62:1 from the centre, so keep everything within the middle 1080 x 1740. Maps on mobile crops a wide strip from the middle, so put the logo and headline at the vertical centre |
 
 Notes:
 

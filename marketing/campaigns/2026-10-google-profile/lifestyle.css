@@ -1,0 +1,77 @@
+/* Brand lifestyle squares for the Google Business Profile gallery.
+   Full-bleed photo, a small brand badge and a CREATESPACE tag. Google prefers
+   real photos with little text, so nothing else goes on top. */
+.canvas {
+  position: relative;
+  overflow: hidden;
+  background: var(--cs-navy);
+}
+.photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* Soft shade at the bottom so the badges sit on any photo */
+.canvas::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 300px;
+  background: linear-gradient(to top, rgba(12, 20, 70, 0.55), rgba(12, 20, 70, 0));
+}
+.badges {
+  position: absolute;
+  z-index: 1;
+  left: 48px;
+  right: 48px;
+  bottom: 48px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.brand {
+  background: var(--cs-white);
+  border-radius: 24px;
+  padding: 24px 34px;
+  box-shadow: 0 10px 30px rgba(12, 20, 70, 0.25);
+}
+.brand img {
+  display: block;
+  height: 96px;
+  width: auto;
+}
+.cs {
+  background: var(--cs-navy);
+  border-radius: 999px;
+  padding: 22px 36px;
+}
+.cs img {
+  display: block;
+  width: 300px;
+  height: auto;
+}
+
+/* Brand badge in the top-right corner, for photos where the product sits bottom left */
+.brand.top-right {
+  position: absolute;
+  z-index: 1;
+  top: 48px;
+  right: 48px;
+}
+.brand.top-right { padding: 18px 26px; }
+.brand.top-right img { height: 72px; }
+.badges.end { justify-content: flex-end; }
+.brand.top-left {
+  position: absolute;
+  z-index: 1;
+  top: 48px;
+  left: 48px;
+  padding: 22px 30px;
+}
+.brand.top-left img { height: 96px; }
+.badges.start { justify-content: flex-start; }

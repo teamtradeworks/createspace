@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--
+  Google Business Profile gallery: how buying from us works.
+  Facts must match storefront/src/config/site.json and promises.ts.
+-->
+<html lang="en-ZA" data-canvas="google-square">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE delivery</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      overflow: hidden;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 96px;
+    }
+    .logo { width: 380px; display: block; margin-bottom: 48px; }
+    h1 {
+      font-weight: 600;
+      font-size: 104px;
+      line-height: 1.0;
+      letter-spacing: -0.015em;
+      margin: 0 0 56px;
+    }
+    h1 em { font-style: normal; color: var(--cs-yellow); }
+    ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 30px; }
+    li {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      font-size: 44px;
+      line-height: 1.15;
+    }
+    li strong { font-weight: 600; }
+    .icon {
+      flex: none;
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .icon svg { width: 56px; height: 56px; fill: none; stroke: var(--cs-navy); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .doodle { position: absolute; }
+    .robot { width: 270px; right: 90px; bottom: 64px; }
+    .atom { width: 200px; right: 96px; top: 70px; }
+    .nut { width: 92px; right: 300px; top: 250px; transform: rotate(18deg); }
+    .route { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .canvas > *:not(.route):not(.doodle) { position: relative; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <!-- dashed route the robot rolls along, with speed lines behind it -->
+    <svg class="route" viewBox="0 0 1200 1200" aria-hidden="true">
+      <path d="M -20 1135 C 300 1135, 520 1060, 760 1112 S 980 1150, 1220 1120" fill="none" stroke="#ffffff" stroke-opacity="0.28" stroke-width="6" stroke-linecap="round" stroke-dasharray="2 22"/>
+      <g stroke="#3cc7f7" stroke-width="10" stroke-linecap="round">
+        <line x1="700" y1="1005" x2="790" y2="1005"/>
+        <line x1="660" y1="1045" x2="790" y2="1045"/>
+        <line x1="720" y1="1085" x2="790" y2="1085"/>
+      </g>
+    </svg>
+    <img class="doodle atom" src="../../creative/kit/illustrations/earth.svg" alt="">
+    <img class="doodle nut" src="../../creative/kit/illustrations/nut-2.svg" alt="">
+    <img class="doodle robot" src="../../creative/kit/illustrations/robot-4.svg" alt="">
+    <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+    <h1>Free delivery<br>over <em>R 1,500</em></h1>
+    <ul>
+      <li>
+        <span class="icon" style="background: var(--cs-yellow)"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></span>
+        <span><strong>Delivered</strong> across South Africa</span>
+      </li>
+      <li>
+        <span class="icon" style="background: var(--cs-blue)"><svg viewBox="0 0 24 24"><path d="M1 6h13v10H1zM14 9h4l4 4v3h-8z"/><circle cx="5.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></svg></span>
+        <span><strong>1 to 3 days</strong> to your door<br>with The Courier Guy</span>
+      </li>
+      <li>
+        <span class="icon" style="background: var(--cs-green)"><svg viewBox="0 0 24 24"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+        <span><strong>Secure payment</strong> with Stitch</span>
+      </li>
+      <li>
+        <span class="icon" style="background: var(--cs-orange)"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v5h5"/></svg></span>
+        <span><strong>30-day</strong> easy returns</span>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>

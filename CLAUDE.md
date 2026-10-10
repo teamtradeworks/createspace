@@ -94,7 +94,7 @@ product(handle: "example") {
 
 ## Delivery Rates
 
-Delivery pricing is configured in `storefront/src/config/site.json`. Update that file to change thresholds across the site when prompted. Next day delivery option is also available at checkout at an additional cost.
+Delivery pricing is configured in `storefront/src/config/site.json`. Update that file to change thresholds across the site when prompted. We no longer offer next-day delivery, so never mention it.
 
 # Brand and Tone
 

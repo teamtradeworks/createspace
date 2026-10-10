@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<!--
+  Google Business Profile cover photo.
+  Centred layout on purpose: Google crops the cover differently on Search,
+  Maps and mobile (sometimes close to square), so the logo and headline sit in
+  the middle and the photos on the sides are allowed to lose their edges.
+-->
+<html lang="en-ZA" data-canvas="google-business-cover">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE Google profile cover</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      overflow: hidden;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) 118px;
+    }
+
+    .stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 250px 1fr 250px;
+      align-items: center;
+      padding: 0 28px;
+      gap: 28px;
+    }
+
+    /* Photo columns: two stacked tiles each side */
+    .photos {
+      display: grid;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      height: 430px;
+    }
+    .photos img {
+      width: 100%;
+      height: 100%;
+      min-height: 0;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+    .photos.left img:first-child { border-top: 6px solid var(--cs-orange); }
+    .photos.left img:last-child { border-bottom: 6px solid var(--cs-blue); }
+    .photos.right img:first-child { border-top: 6px solid var(--cs-green); }
+    .photos.right img:last-child { border-bottom: 6px solid var(--cs-yellow); }
+
+    .centre {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .logo {
+      width: 300px;
+      height: auto;
+      display: block;
+      margin-bottom: 34px;
+    }
+    h1 {
+      font-weight: 600;
+      font-size: 46px;
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+      margin: 0 0 18px;
+    }
+    h1 em {
+      font-style: normal;
+      color: var(--cs-yellow);
+    }
+    .sub {
+      font-size: 21px;
+      line-height: 1.35;
+      margin: 0;
+      opacity: 0.9;
+    }
+    .sub strong {
+      font-weight: 500;
+      color: var(--cs-blue);
+    }
+
+    .doodle {
+      position: absolute;
+      width: 54px;
+      opacity: 0.9;
+    }
+
+    /* Partner brands */
+    .brands {
+      background: var(--cs-white);
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      padding: 0 30px;
+    }
+    .brands img {
+      display: block;
+      height: 46px;
+      width: auto;
+      max-width: 118px;
+      object-fit: contain;
+    }
+    .brands img.wide { height: 34px; max-width: 132px; }
+    .brands img.tall { height: 60px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <section class="stage">
+      <div class="photos left">
+        <img src="images/builder-two-kids-makerzoid.jpg" alt="">
+        <img src="images/coder-boy-microbit.jpg" alt="">
+      </div>
+
+      <div class="centre">
+        <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+        <h1>STEM toys and kits<br>for <em>curious kids</em></h1>
+        <p class="sub">Robotics, coding, science and space.<br><strong>Delivered across South Africa.</strong></p>
+      </div>
+
+      <div class="photos right">
+        <img src="images/chem-kids-pouring-volcano.jpg" alt="" style="object-position: center 75%">
+        <img src="images/space-family-rocket-launch.jpg" alt="">
+      </div>
+    </section>
+
+    <footer class="brands">
+      <img src="images/brands/national-geographic.png" alt="National Geographic" class="wide">
+      <img src="images/brands/nasa.png" alt="NASA" class="tall">
+      <img src="images/brands/bbc-microbit.png" alt="BBC micro:bit" class="tall">
+      <img src="images/brands/arduino.png" alt="Arduino" class="tall">
+      <img src="images/brands/makerzoid.png" alt="Makerzoid" class="tall">
+      <img src="images/brands/snap-circuits.png" alt="Snap Circuits" class="wide">
+      <img src="images/brands/matatastudio.png" alt="MatataStudio">
+      <img src="images/brands/elecfreaks.png" alt="ELECFREAKS" class="wide">
+    </footer>
+  </main>
+</body>
+</html>
