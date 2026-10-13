@@ -60,8 +60,8 @@
       width: 100%;
     }
     .tile {
-      background: var(--bg);
-      color: var(--ink, var(--cs-navy));
+      background: var(--cs-white);
+      color: var(--cs-navy);
       border-radius: 28px;
       height: 264px;
       display: flex;
@@ -69,8 +69,7 @@
       align-items: center;
       justify-content: center;
       gap: 14px;
-      transform: rotate(var(--tilt, 0deg));
-      box-shadow: 0 10px 0 rgba(0, 0, 0, 0.22);
+      border-bottom: 12px solid var(--accent);
     }
     .tile img { height: 124px; width: auto; max-width: 240px; display: block; }
     .tile span { font-size: 33px; font-weight: 600; line-height: 1.1; }
@@ -112,12 +111,12 @@
     <div class="sticker">of all ages.</div>
 
     <div class="grid">
-      <div class="tile" style="--bg: var(--cs-green); --tilt: -2deg"><img src="../../creative/kit/illustrations/robot-1.svg" alt=""><span>Robotics<br>&amp; Coding</span></div>
-      <div class="tile" style="--bg: var(--cs-red); --ink: var(--cs-white); --tilt: 1.5deg"><img src="../../creative/kit/illustrations/lightbulb.svg" alt=""><span>Electronics<br>&amp; Circuits</span></div>
-      <div class="tile" style="--bg: var(--cs-yellow); --tilt: -1.5deg"><img src="../../creative/kit/illustrations/nut-1.svg" alt=""><span>Building<br>&amp; Mechanics</span></div>
-      <div class="tile" style="--bg: var(--cs-orange); --tilt: 1.5deg"><img src="../../creative/kit/illustrations/microscope.svg" alt=""><span>Earth<br>Sciences</span></div>
-      <div class="tile" style="--bg: var(--cs-blue); --tilt: -1deg"><img src="../../creative/kit/illustrations/planet-1.svg" alt=""><span>Space<br>&amp; Astronomy</span></div>
-      <div class="tile" style="--bg: var(--cs-purple); --ink: var(--cs-white); --tilt: 2deg"><img src="../../creative/kit/illustrations/beaker-1.svg" alt=""><span>Chemistry</span></div>
+      <div class="tile" style="--accent: var(--cs-blue)"><img src="../../creative/kit/illustrations/robot-1.svg" alt=""><span>Robotics<br>&amp; Coding</span></div>
+      <div class="tile" style="--accent: var(--cs-yellow)"><img src="../../creative/kit/illustrations/lightbulb.svg" alt=""><span>Electronics<br>&amp; Circuits</span></div>
+      <div class="tile" style="--accent: var(--cs-orange)"><img src="../../creative/kit/illustrations/nut-1.svg" alt=""><span>Building<br>&amp; Mechanics</span></div>
+      <div class="tile" style="--accent: var(--cs-green)"><img src="../../creative/kit/illustrations/microscope.svg" alt=""><span>Earth<br>Sciences</span></div>
+      <div class="tile" style="--accent: var(--cs-red)"><img src="../../creative/kit/illustrations/planet-1.svg" alt=""><span>Space<br>&amp; Astronomy</span></div>
+      <div class="tile" style="--accent: var(--cs-purple)"><img src="../../creative/kit/illustrations/beaker-1.svg" alt=""><span>Chemistry</span></div>
     </div>
 
     <p class="url">www.thecreatespace.co.za</p>
