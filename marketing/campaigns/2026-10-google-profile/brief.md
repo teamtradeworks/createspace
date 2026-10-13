@@ -8,7 +8,8 @@
 
 | File (in `exports/`) | Size | Where it goes |
 |---|---|---|
-| `profile-portrait.png` | 1080 x 1920 | **Cover photo.** Fills the tall first tile in the Search knowledge panel |
+| `cover-categories.png` | 1080 x 1920 | **Cover photo.** "STEM kits for curious kids of all ages." with the six shop categories. Fills the tall first tile in the Search knowledge panel |
+| `profile-portrait.png` | 1080 x 1920 | Alternative cover: photos, headline and partner brands |
 | `logo-square.png` | 1200 x 1200 | **Logo.** Shown as a small circle beside the business name, so it is the red mark only |
 | `lifestyle-*.png` | 1200 x 1200 | Photos: one per brand (National Geographic, MatataStudio, Snap Circuits, Blockaroo, micro:bit, NASA, Makerzoid) |
 | `brands-square.png` | 1200 x 1200 | Photos: every brand we stock |
@@ -21,14 +22,14 @@ Upload order: cover and logo first, then the brand lifestyle photos, then the te
 
 ## How the cover is cropped
 
-The Search knowledge-panel tile shows about 0.62:1 from the centre of the cover, so a landscape design loses its sides. The portrait canvas (`google-business-portrait` in `creative/kit/canvas.js`) keeps everything inside the middle 1080 x 1740. Maps on mobile can crop a wide strip instead, so the logo and headline sit at the vertical centre.
+The Search knowledge-panel tile shows about 0.62:1 from the centre of the cover, so a landscape design loses its sides. The portrait canvas (`google-business-portrait` in `creative/kit/canvas.js`) keeps everything inside the middle 1080 x 1740. Maps on mobile can crop a wide strip from the middle instead.
 
 ## Checked facts
 
 - Delivery: free over R 1,500, 1 to 3 days with The Courier Guy (`storefront/src/config/site.json`). Next-day delivery is no longer offered.
 - Payments: Stitch. Returns: 30 days (`storefront/src/config/promises.ts`).
 - Brands: the ten in `storefront/src/config/brands.ts`.
-- Categories: the six in `storefront/src/config/categories.ts`.
+- Categories: the six in `storefront/src/config/categories.ts` (cover and categories square).
 - Schools: classroom kits, STEM tutors, CAPS-aligned curriculum, short courses (the education section of the site).
 
 ## Photos
