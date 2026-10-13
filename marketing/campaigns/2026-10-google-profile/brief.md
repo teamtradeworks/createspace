@@ -16,6 +16,7 @@
 | `delivery-square.png` | 1200 x 1200 | Photos: delivery, payment and returns |
 | `categories-square.png` | 1200 x 1200 | Photos: the six shop categories |
 | `schools-square.png` | 1200 x 1200 | Photos: STEM for schools |
+| `instagram-categories.png` | 1080 x 1350 | **Instagram feed post** (4:5), matching the cover. The profile grid previews it at 3:4, trimming a little off each side |
 | `profile-cover@2x.png` | 2160 x 1216 | Alternative 16:9 cover. Not used: the Search tile crops it to a tall centre slice |
 
 Upload order: cover and logo first, then the brand lifestyle photos, then the text-led squares. Google favours real photos over graphics, and picks which photo leads the tile, so the new cover can take a few days to appear.
