@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pop-up Mall Shortlist</title>
+<style>
+  @font-face { font-family: "Outfit"; font-weight: 400; src: url("../../assets/design/Outfit/static/Outfit-Regular.ttf"); }
+  @font-face { font-family: "Outfit"; font-weight: 500; src: url("../../assets/design/Outfit/static/Outfit-Medium.ttf"); }
+  @font-face { font-family: "Outfit"; font-weight: 600; src: url("../../assets/design/Outfit/static/Outfit-SemiBold.ttf"); }
+
+  :root {
+    --navy: #0C1446; --red: #F70B28; --blue: #3CC7F7; --purple: #AC4DFF;
+    --orange: #FF8B00; --green: #93DB21; --yellow: #FFD500; --grey: #B3B3B3;
+    --ink-soft: #4a4f73; --rule: #e3e5ee; --wash: #f4f5f9;
+  }
+  @page { size: A4; margin: 16mm 15mm 16mm 15mm; } @page :first { margin-top: 0; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #fff; }
+  body { font-family: "Outfit", sans-serif; font-weight: 400; color: var(--navy); font-size: 10pt; line-height: 1.45; }
+  h1, h2, h3, h4 { font-weight: 600; margin: 0; line-height: 1.15; }
+  p { margin: 0 0 7pt; }
+  ul { margin: 0 0 7pt; padding-left: 14pt; }
+  li { margin-bottom: 2.5pt; }
+  strong { font-weight: 600; }
+  .muted { color: var(--ink-soft); }
+  .small { font-size: 8.5pt; }
+
+  /* Cover band */
+  .cover { background: var(--navy); color: #fff; margin: 0 -15mm 0; padding: 14mm 15mm 11mm; position: relative; }
+  .cover img { height: 26pt; display: block; margin-bottom: 18pt; }
+  .cover .kicker { color: var(--yellow); text-transform: uppercase; letter-spacing: .12em; font-size: 8.5pt; font-weight: 500; margin-bottom: 6pt; }
+  .cover h1 { font-size: 27pt; margin-bottom: 8pt; }
+  .cover p { color: #d7daea; max-width: 150mm; font-size: 10.5pt; }
+  .cover .meta { margin-top: 10pt; font-size: 8.5pt; color: #aab0d0; }
+  .stripe { display: flex; height: 4pt; margin: 0 -15mm 14pt; }
+  .stripe span { flex: 1; }
+
+  h2 { font-size: 15pt; margin: 14pt 0 6pt; padding-bottom: 4pt; border-bottom: 2pt solid var(--navy); }
+  h2 .tag { font-size: 8.5pt; font-weight: 500; color: var(--ink-soft); margin-left: 6pt; }
+  h3 { font-size: 11.5pt; margin-bottom: 3pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 4pt 0 9pt; font-size: 9pt; }
+  th { text-align: left; font-weight: 600; background: var(--wash); padding: 5pt 6pt; border-bottom: 1pt solid var(--navy); }
+  td { padding: 5pt 6pt; border-bottom: .75pt solid var(--rule); vertical-align: top; }
+  td.num, th.num { text-align: right; white-space: nowrap; }
+  tr { break-inside: avoid; }
+
+  .pill { display: inline-block; font-size: 7.5pt; font-weight: 600; padding: 1.5pt 6pt; border-radius: 10pt; white-space: nowrap; }
+  .t1 { background: var(--green); color: var(--navy); }
+  .t2 { background: var(--yellow); color: var(--navy); }
+  .t3 { background: var(--grey); color: var(--navy); }
+
+  .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; margin: 6pt 0 4pt; }
+  .callout { background: var(--wash); border-left: 3pt solid var(--blue); padding: 7pt 9pt; break-inside: avoid; }
+  .callout.orange { border-color: var(--orange); }
+  .callout.purple { border-color: var(--purple); }
+  .callout h4 { font-size: 9.5pt; margin-bottom: 3pt; }
+  .callout p, .callout ul { font-size: 9pt; margin-bottom: 0; }
+
+  .mall { border: .75pt solid var(--rule); border-top: 3pt solid var(--navy); padding: 8pt 10pt 6pt; margin-bottom: 8pt; break-inside: avoid; }
+  .mall-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8pt; margin-bottom: 2pt; }
+  .mall-head .where { font-size: 8.5pt; color: var(--ink-soft); }
+  .mall .grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 10pt; font-size: 9pt; }
+  .mall .label { font-size: 7.5pt; text-transform: uppercase; letter-spacing: .08em; color: var(--ink-soft); font-weight: 600; margin-bottom: 1pt; }
+  .mall ul { margin-bottom: 4pt; }
+  .mall p { margin-bottom: 4pt; }
+
+  .area-intro { font-size: 9.5pt; margin-bottom: 7pt; }
+  .page-break { break-before: page; }
+  .footer-note { font-size: 8pt; color: var(--ink-soft); border-top: .75pt solid var(--rule); padding-top: 6pt; margin-top: 10pt; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12pt; }
+</style>
+</head>
+<body>
+
+<section class="cover">
+  <img src="../../storefront/public/images/brand/logo-dark.png" alt="CREATESPACE">
+  <div class="kicker">Pop-up shop planning</div>
+  <h1>Where to pop up: a mall shortlist for the Western Cape</h1>
+  <p>Which malls in Somerset West, Stellenbosch, Cape Town and the Northern Suburbs best match CREATESPACE customers: families with school-age children, close to good schools, and comfortable spending on premium STEM kits.</p>
+  <div class="meta">Prepared 8 October 2026 &middot; Sales data: Shopify orders, last 12 months</div>
+</section>
+<div class="stripe"><span style="background:var(--red)"></span><span style="background:var(--orange)"></span><span style="background:var(--yellow)"></span><span style="background:var(--green)"></span><span style="background:var(--blue)"></span><span style="background:var(--purple)"></span></div>
+
+<h2>The short answer</h2>
+<p>If you only test a handful of malls, start with these five. Each one sits in an affluent, family-heavy catchment with a strong cluster of well-regarded schools, and most line up with suburbs where we already sell online.</p>
+
+<table>
+  <thead><tr><th style="width:4%">#</th><th style="width:27%">Mall</th><th style="width:18%">Area</th><th>Why it makes the list</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td><strong>Somerset Mall</strong></td><td>Somerset West</td><td>Main regional mall for the Helderberg. Our highest-value Western Cape area per order, and close to Somerset College, Reddam House Somerset and a dense ring of family estates.</td></tr>
+    <tr><td>2</td><td><strong>Cavendish Square</strong></td><td>Claremont, Cape Town</td><td>Premium Southern Suburbs mall in the middle of the city's biggest private and top public school cluster. Already markets a small promotional court for pop-ups.</td></tr>
+    <tr><td>3</td><td><strong>Tyger Valley Centre / Willowbridge</strong></td><td>Bellville, Northern Suburbs</td><td>Two neighbouring centres serving Durbanville, Welgemoed and Bellville families. Highest order count of any area cluster in our data.</td></tr>
+    <tr><td>4</td><td><strong>Constantia Village</strong></td><td>Constantia, Cape Town</td><td>Boutique, upmarket and family-focused. Small footprint, but the shopper profile is close to ideal for premium gifting.</td></tr>
+    <tr><td>5</td><td><strong>Stellenbosch Square</strong></td><td>Jamestown, Stellenbosch</td><td>Serves the estate belt south of Stellenbosch (Paradyskloof, De Zalze, Jamestown). More families, fewer students than town-centre Eikestad Mall.</td></tr>
+  </tbody>
+</table>
+
+<div class="summary">
+  <div class="callout">
+    <h4>What our own sales say</h4>
+    <p>The Western Cape brought in about R424,000 from 161 orders in the last year, with the <strong>highest average order of any province (R2,233 vs R1,780 in Gauteng)</strong>. Western Cape shoppers spend more per basket, which supports a premium pop-up.</p>
+  </div>
+  <div class="callout orange">
+    <h4>Best timing</h4>
+    <p>The festive season (late November to Christmas) is the obvious first test. Book now, as malls fill promotional courts early. School holidays are good follow-ups.</p>
+  </div>
+</div>
+
+<!-- ============ METHOD + DATA ============ -->
+<section class="page-break">
+<h2>How we chose</h2>
+<p>Each mall was weighed against five things that matter for a premium, educational, hands-on product:</p>
+<div class="two-col">
+  <ul>
+    <li><strong>Household spending power.</strong> Suburbs where a R1,500 to R4,000 kit is a considered purchase, not a stretch.</li>
+    <li><strong>Families with children aged 5 to 14.</strong> Our core buyer is a parent or grandparent shopping for a school-age child.</li>
+    <li><strong>Nearby schools.</strong> Private and strong public schools within a short drive bring weekday after-school traffic and give us outreach partners.</li>
+  </ul>
+  <ul>
+    <li><strong>The right neighbours.</strong> Woolworths, bookshops, toy and lifestyle stores signal shoppers who pay for quality.</li>
+    <li><strong>Existing CREATESPACE demand.</strong> Where we already ship orders, a pop-up converts browsers who know us and brings in new ones.</li>
+  </ul>
+</div>
+
+<h2>Our Western Cape orders by area <span class="tag">Shopify, last 12 months, grouped by postal code</span></h2>
+<table>
+  <thead><tr><th>Area (postal codes)</th><th>Nearest shortlisted mall</th><th class="num">Orders</th><th class="num">Sales</th><th class="num">Avg order</th></tr></thead>
+  <tbody>
+    <tr><td>Southern Suburbs: Rondebosch, Claremont, Constantia, Hout Bay, Plumstead, Tokai (7700, 7708, 7780, 7800, 7806, 7945)</td><td>Cavendish Square, Constantia Village, Blue Route</td><td class="num">32</td><td class="num">R 98,953</td><td class="num">R 3,092</td></tr>
+    <tr><td>Northern Suburbs: Durbanville, Bellville, Brackenfell, Parow (7500, 7530, 7550, 7551, 7560, 7561, 7570)</td><td>Tyger Valley, Willowbridge, Cape Gate</td><td class="num">21</td><td class="num">R 41,383</td><td class="num">R 1,971</td></tr>
+    <tr><td>Helderberg: Somerset West, Strand (7130, 7140)</td><td>Somerset Mall, Waterstone Village</td><td class="num">14</td><td class="num">R 64,953</td><td class="num">R 4,640</td></tr>
+    <tr><td>Milnerton, Table View, Century City (7441)</td><td>Canal Walk</td><td class="num">10</td><td class="num">R 19,521</td><td class="num">R 1,952</td></tr>
+    <tr><td>Stellenbosch (7600)</td><td>Stellenbosch Square, Eikestad Mall</td><td class="num">6</td><td class="num">R 8,683</td><td class="num">R 1,447</td></tr>
+    <tr><td>City Bowl, Atlantic Seaboard (8001, 8005)</td><td>V&amp;A Waterfront, Gardens Centre</td><td class="num">5</td><td class="num">R 10,149</td><td class="num">R 2,030</td></tr>
+  </tbody>
+</table>
+<p class="small muted">Postal codes are grouped by approximate suburb. Several orders are typed only as "Cape Town" in the city field, so the postal code is the more reliable signal. The Helderberg average is lifted by one large order from Strand; even without it, Somerset West orders average about R2,800. Paarl (6 orders, R11,823) sits outside the four areas but is worth noting for later.</p>
+
+<div class="callout purple">
+  <h4>Reading the numbers</h4>
+  <ul>
+    <li><strong>Southern Suburbs</strong> is our biggest Cape Town market by value. Two of the top five malls are here.</li>
+    <li><strong>Helderberg</strong> punches well above its size: 14 orders worth nearly R65,000. Somerset Mall is a strong first test.</li>
+    <li><strong>Stellenbosch</strong> has fewer orders, which makes a pop-up more about <em>awareness</em> than serving existing demand. Good for a second wave.</li>
+  </ul>
+</div>
+</section>
+
+<!-- ============ SOMERSET WEST ============ -->
+<section class="page-break">
+<h2>Somerset West</h2>
+<p class="area-intro">The Helderberg has grown fast on the back of secure family estates and semigration from Gauteng. Many young families, many private schools, and our highest average order value in the province.</p>
+
+<div class="mall">
+  <div class="mall-head"><h3>Somerset Mall</h3><span class="pill t1">Top pick</span></div>
+  <div class="where">Main Road / N2, Somerset West &middot; Regional mall, the biggest in the Helderberg</div>
+  <div class="grid">
+    <div>
+      <div class="label">Why it fits</div>
+      <ul>
+        <li>Pulls from the whole Helderberg: Somerset West, Strand, Gordon's Bay and the estates along the R44.</li>
+        <li>Full anchor line-up with Woolworths and family and lifestyle brands, so busy with parents on weekends and after school.</li>
+        <li>Matches our strongest provincial basket size (14 orders, nearly R65,000).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Schools nearby</div>
+      <p>Somerset College, Reddam House Somerset, Somerset West Private School, Beaumont Primary, Parel Vallei High, Hottentots-Holland High, Helderberg College.</p>
+      <div class="label">Watch out for</div>
+      <p>Busiest mall in the area, so festive-season promo space goes quickly and costs more. Book early.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mall">
+  <div class="mall-head"><h3>Waterstone Village</h3><span class="pill t2">Strong alternative</span></div>
+  <div class="where">Main Road / R44, Somerset West &middot; Convenience and lifestyle centre</div>
+  <div class="grid">
+    <div>
+      <div class="label">Why it fits</div>
+      <ul>
+        <li>Smaller, quieter and easier to stand out in than Somerset Mall.</li>
+        <li>Close to the estates on the Stellenbosch side of town where many younger families live.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Watch out for</div>
+      <p>Lower foot traffic. Better for a longer, cheaper stay or a weekend workshop than a short festive blitz.</p>
+    </div>
+  </div>
+</div>
+
+<div class="callout orange">
+  <h4>Not a mall, but worth a look: Lourensford Market</h4>
+  <p>The weekend market at Lourensford Wine Estate draws affluent Helderberg families in a relaxed, browsing mood. A stall there is a low-cost way to test the area before committing to a mall.</p>
+</div>
+
+<!-- ============ STELLENBOSCH ============ -->
+<h2>Stellenbosch</h2>
+<p class="area-intro">A university town with high-income professional families on its edges and some of the country's best-known schools. The family shopper is concentrated in the southern estates, not the student-heavy town centre.</p>
+
+<div class="mall">
+  <div class="mall-head"><h3>Stellenbosch Square</h3><span class="pill t1">Top pick</span></div>
+  <div class="where">R44, Jamestown &middot; Community lifestyle centre</div>
+  <div class="grid">
+    <div>
+      <div class="label">Why it fits</div>
+      <ul>
+        <li>On the doorstep of Paradyskloof, Jamestown, De Zalze and Techno Park, home to many young professional families.</li>
+        <li>Woolworths-anchored, easy parking, family convenience shopping.</li>
+        <li>Also catches traffic driving between Stellenbosch and Somerset West.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Schools nearby</div>
+      <p>Stellenbosch schools are a short drive away (see Eikestad Mall), plus the primary schools serving the southern estates.</p>
+      <div class="label">Watch out for</div>
+      <p>Smaller centre, so check whether a dedicated promo space exists or if it is a corridor kiosk.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mall">
+  <div class="mall-head"><h3>Eikestad Mall</h3><span class="pill t2">Strong alternative</span></div>
+  <div class="where">Andringa Street, central Stellenbosch &middot; Town-centre mall, 100+ stores</div>
+  <div class="grid">
+    <div>
+      <div class="label">Why it fits</div>
+      <ul>
+        <li>Walking distance from the town's top schools: perfect for after-school and Saturday traffic.</li>
+        <li>Woolworths and Checkers anchors bring families in for everyday shopping.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Schools nearby</div>
+      <p>Paul Roos Gymnasium, Rhenish Girls' High, Bloemhof Girls' High, Stellenbosch High, Laerskool Eikestad.</p>
+      <div class="label">Watch out for</div>
+      <p>Big student share of shoppers, who are not our buyer. The cinema there reportedly closed recently, which may have reduced evening family traffic.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ============ CAPE TOWN ============ -->
+<section class="page-break">
+<h2>Cape Town</h2>
+<p class="area-intro">The Southern Suburbs is our largest Western Cape market by value and holds the city's densest cluster of private and top public schools. Malls here should be the core of a Cape Town plan. The City Bowl and Century City options are secondary.</p>
+
+<div class="mall">
+  <div class="mall-head"><h3>Cavendish Square</h3><span class="pill t1">Top pick</span></div>
+  <div class="where">Claremont &middot; Premium regional mall</div>
+  <div class="grid">
+    <div>
+      <div class="label">Why it fits</div>
+      <ul>
+        <li>Upmarket tenant mix and shoppers used to paying for quality.</li>
+        <li>Central to Rondebosch, Newlands, Claremont, Kenilworth and Bishopscourt, where we have strong existing sales.</li>
+        <li>Already advertises a small promotional court (about 12m²) for product launches and pop-up shops.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Schools nearby</div>
+      <p>Bishops, Herschel Girls, Westerford High, Rondebosch Boys', SACS, Springfield Convent, Wynberg Boys' and Girls', St Joseph's College.</p>
+      <div class="label">Watch out for</div>
+      <p>Among the priciest promo space in the city. Weigh a short, high-impact festive run over a long stay.</p>
+    </div>
+  </div>
+</div>
+
+<div class="mall">
+  <div class="mall-head"><h3>Constantia Village</h3><span class="pill t1">Top pick</span></div>
+  <div class="where">Constantia &middot; Boutique lifestyle centre</div>
+  <div class="grid">
+    <div>
+      <div class="label">Why it fits</div>
+      <ul>
+        <li>One of the wealthiest family catchments in the country: Constantia, Bishopscourt, Bergvliet, Hout Bay.</li>
+        <li>Calm, browse-friendly centre suited to a hands-on demo table.</li>
+        <li>A children's store previously traded here, so the centre knows the kids' gifting shopper.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Schools nearby</div>
+      <p>Reddam House Constantia, American International School of Cape Town, Constantia Waldorf, Herzlia Constantia, Sweet Valley Primary.</p>
+      <div class="label">Watch out for</div>
+      <p>Permanent shops are fully let, with a waitlist. Ask specifically about courtyard or temporary space.</p>
+    </div>
+  </div>
+</div>
+
+<table>
+  <thead><tr><th style="width:24%">Mall</th><th style="width:13%">Fit</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Blue Route Mall</strong><br><span class="small muted">Tokai</span></td><td><span class="pill t2">Good</span></td><td>Family mall for Tokai, Bergvliet, Meadowridge and Kirstenhof. Less premium than Cavendish but likely cheaper space and strong weekend family traffic. Near Bergvliet High, Kirstenhof and Tokai primary schools.</td></tr>
+    <tr><td><strong>V&amp;A Waterfront</strong><br><span class="small muted">Waterfront</span></td><td><span class="pill t2">Good, seasonal</span></td><td>Huge footfall and high spend, but heavy on tourists who cannot use local delivery or return. Best as a December holiday play or a weekend market stall, not a first test.</td></tr>
+    <tr><td><strong>Canal Walk</strong><br><span class="small muted">Century City</span></td><td><span class="pill t2">Good, volume</span></td><td>Very high traffic and catches Milnerton, Table View and Parklands families (10 orders from 7441). A broad income mix means more browsers per sale.</td></tr>
+    <tr><td><strong>Gardens Centre</strong><br><span class="small muted">Gardens</span></td><td><span class="pill t3">Lower priority</span></td><td>Serves City Bowl families near Herzlia and St Cyprian's, but small and more convenience-led. Low existing demand from 8001 and 8005.</td></tr>
+  </tbody>
+</table>
+
+<!-- ============ NORTHERN SUBURBS ============ -->
+<h2 class="page-break">Northern Suburbs</h2>
+<p class="area-intro">Our second-biggest Cape Town cluster by orders. Durbanville, Welgemoed and Bellville have large, established family neighbourhoods and many strong Afrikaans- and English-medium schools.</p>
+
+<div class="mall">
+  <div class="mall-head"><h3>Tyger Valley Centre and Willowbridge</h3><span class="pill t1">Top pick</span></div>
+  <div class="where">Bellville &middot; Regional mall plus lifestyle centre, across the road from each other</div>
+  <div class="grid">
+    <div>
+      <div class="label">Why it fits</div>
+      <ul>
+        <li>Together they are the shopping hub for the whole Northern Suburbs.</li>
+        <li>Willowbridge is the more upmarket, relaxed option. Tyger Valley brings the volume.</li>
+        <li>Matches our 21 orders from Durbanville, Bellville and surrounds.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="label">Schools nearby</div>
+      <p>Stellenberg High, DF Malan, Durbanville High, Fairmont High, Curro Durbanville, Eversdal Primary, Bellville schools.</p>
+      <div class="label">Watch out for</div>
+      <p>Pick one centre at a time. Willowbridge for a premium feel, Tyger Valley for footfall.</p>
+    </div>
+  </div>
+</div>
+
+<table>
+  <thead><tr><th style="width:24%">Mall</th><th style="width:13%">Fit</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Cape Gate</strong><br><span class="small muted">Brackenfell</span></td><td><span class="pill t2">Good, volume</span></td><td>Large family mall serving Brackenfell, Kuils River and northern Durbanville. Mid-market, so expect smaller baskets, but plenty of young families.</td></tr>
+    <tr><td><strong>Table Bay Mall</strong><br><span class="small muted">Sunningdale</span></td><td><span class="pill t3">Worth a test later</span></td><td>Technically West Coast, not Northern Suburbs. Serves fast-growing young-family suburbs (Sunningdale, Parklands, Blouberg).</td></tr>
+  </tbody>
+</table>
+</section>
+
+<!-- ============ NEXT STEPS ============ -->
+<section class="page-break">
+<h2>Suggested rollout</h2>
+<table>
+  <thead><tr><th style="width:20%">Wave</th><th style="width:30%">Malls</th><th>Goal</th></tr></thead>
+  <tbody>
+    <tr><td><strong>1. Festive 2026</strong><br><span class="small muted">late Nov to 24 Dec</span></td><td>Somerset Mall, Cavendish Square</td><td>Test the two strongest catchments during peak gift buying. Compare sales per day, footfall to the stand and email sign-ups.</td></tr>
+    <tr><td><strong>2. Early 2027</strong></td><td>Willowbridge or Tyger Valley, Constantia Village</td><td>Roll out to the next-best areas using what worked in wave 1. Back-to-school timing suits a "learning through play" message.</td></tr>
+    <tr><td><strong>3. Mid-year holidays</strong></td><td>Stellenbosch Square, Blue Route or Canal Walk</td><td>Build awareness in lower-demand areas. Run short hands-on workshops to draw families in.</td></tr>
+  </tbody>
+</table>
+
+<div class="two-col">
+  <div>
+    <h3>Questions to ask each mall</h3>
+    <ul>
+      <li>What promotional or court spaces are available, what size, and where (near which anchor)?</li>
+      <li>Daily, weekly and monthly rate, and any festive premium?</li>
+      <li>Is it a licence or a lease? Minimum and maximum stay?</li>
+      <li>Power points, Wi-Fi, lockable overnight storage?</li>
+      <li>Public liability insurance requirements?</li>
+      <li>Trading hours we must staff, including late-night festive trading?</li>
+      <li>Footfall figures for the space and the period we want?</li>
+      <li>Any rules on demos, noise (robots!) or running workshops?</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Making each pop-up count</h3>
+    <ul>
+      <li><strong>Lead with play.</strong> A working demo (a robot, a circuit, a build) stops parents and pulls children in. Our edge over a toy shop is that kids can try it.</li>
+      <li><strong>Collect emails.</strong> A QR code on the stand to our newsletter, so browsers who don't buy can be followed up.</li>
+      <li><strong>Track by mall.</strong> Use a unique UTM link or discount code per pop-up so online orders that follow can be credited to the right location.</li>
+      <li><strong>Talk to schools.</strong> Each mall has schools nearby. Let teachers know you're there and invite them to the education range.</li>
+      <li><strong>Carry the bestsellers.</strong> Stock the kits with the strongest gift appeal, with clear ages on every box.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="footer-note">
+  <strong>About this shortlist.</strong> Mall and school details reflect general public knowledge of these areas and should be confirmed before booking: tenants, promotional space and centre management change often. Demographic notes are qualitative; for hard numbers, check Census 2022 suburb data from Stats SA and ask each mall's leasing team for footfall and shopper profile reports. Order figures come from our Shopify store (last 12 months to 8 October 2026), grouped by delivery postal code.
+</div>
+</section>
+
+</body>
+</html>
