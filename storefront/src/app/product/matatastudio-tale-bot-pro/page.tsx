@@ -42,7 +42,7 @@ export default async function TaleBotProPage() {
           "100% screen-free: no tablets or apps required for basic coding",
           "14 challenge missions plus 5 interactive themed maps",
           "Voice recording for storytelling and creative expression",
-          "Grows with your child, with optional Scratch programming for advanced learners",
+          "Draws with washable markers and dances with 6 built-in moves",
         ]}
         addons={addons}
       />
@@ -169,7 +169,7 @@ export default async function TaleBotProPage() {
               "/images/products/matatastudio-tale-bot-pro/tale-bot-compatible-with-lego-blocks.png",
           },
         ]}
-        moreText="Plus blank maps for open-ended creativity, voice recording activities, multi-language exploration, and advanced Scratch programming when they're ready"
+        moreText="Plus blank maps for open-ended creativity, voice recording activities and multi-language exploration"
         background="white"
       />
 
@@ -212,12 +212,12 @@ export default async function TaleBotProPage() {
           {
             question: "What age is this suitable for?",
             answer:
-              "The manufacturer recommends ages 3-5, though many children aged 3-7 enjoy Tale-Bot Pro. Younger children (3-4) benefit from guided play, while older children (5+) can work independently with the challenge booklet. The Scratch programming feature extends use for older learners.",
+              "The manufacturer recommends ages 3-5, though many children aged 3-7 enjoy Tale-Bot Pro. Younger children (3-4) benefit from guided play, while older children (5+) can work independently with the challenge booklet.",
           },
           {
             question: "Do we need a tablet or computer?",
             answer:
-              "No! Basic coding requires zero screens; children use physical command buttons on the robot itself. The Scratch programming feature is optional and requires a tablet or computer, designed for older or more advanced learners who are ready for that next step.",
+              "No! All coding happens on the physical command buttons on the robot itself, with no app or screen needed. MatataStudio's MatataCode app is only used with the optional TaleMap add-on, for designing your own interactive maps.",
           },
           {
             question: "Does it require batteries?",
@@ -237,7 +237,7 @@ export default async function TaleBotProPage() {
           {
             question: "What can they do after finishing the challenges?",
             answer:
-              "Tale-Bot Pro has excellent replayability. The blank maps allow for open-ended creativity, the voice recording feature enables new storytelling adventures, LEGO compatibility offers limitless building combinations, and the Scratch programming support provides years of advanced learning. You can also add the MatataStudio Activity Box for additional maps and activities.",
+              "Tale-Bot Pro has excellent replayability. The blank maps allow for open-ended creativity, the voice recording feature enables new storytelling adventures, and LEGO compatibility offers limitless building combinations. You can also add the MatataStudio Activity Box for additional maps and activities.",
           },
         ]}
         background="gray"
@@ -287,7 +287,6 @@ export default async function TaleBotProPage() {
           { label: "Material", value: "Eco-friendly, food-grade material" },
           { label: "Safety", value: "Lead-free, sturdy and fall-resistant design" },
           { label: "Technology", value: "Smart OID interactive technology" },
-          { label: "Scratch Support", value: "Yes, compatible with Scratch programming" },
         ]}
         background="gray"
       />
@@ -295,7 +294,7 @@ export default async function TaleBotProPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get Started with Tale-Bot Pro"
-        subtitle="Screen-free coding with voice recording, interactive maps, and Scratch support. Designed for ages 3-5, no tablets needed."
+        subtitle="Screen-free coding with voice recording, drawing and interactive maps. Designed for ages 3-5, no tablets needed."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Coding Toys"
@@ -316,7 +315,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Screen-free coding robot for ages 3-5. Includes 14 challenge missions, 5 interactive maps, voice recording, and Scratch support. No tablets or apps required.",
+      "Screen-free coding robot for ages 3-5. Includes 14 challenge missions, 5 interactive maps, voice recording and drawing. No tablets or apps required.",
     alternates: {
       canonical: "/product/matatastudio-tale-bot-pro",
     },
