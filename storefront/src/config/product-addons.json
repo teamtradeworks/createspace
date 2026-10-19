@@ -245,6 +245,14 @@
       "discountPercent": 0,
       "description": "Pair your wearable kits with the BBC micro:bit Club pack — everything you need to run a full coding club.",
       "viewProductLink": true
+    },
+    {
+      "parentHandle": "geosafari-jr-talking-microscope",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "The Talking Microscope needs 3 x AAA batteries (not included). Add them here so it's ready to go out of the box.",
+      "viewProductLink": false
     }
   ]
 }
