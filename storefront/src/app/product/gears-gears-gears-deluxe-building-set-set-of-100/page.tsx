@@ -39,7 +39,7 @@ export default async function GearsDeluxeBuildingSetPage() {
           "100 chunky pieces: 46 gears plus pillars, axles, bases and a crank",
           "Build flat, build tall or build sideways, and it all still turns",
           "Activity guide with starter builds and two simple gear experiments",
-          "No batteries or screens. Ages 3+",
+          "No batteries or screens. Ages 3–8",
         ]}
         addons={addons}
       />
@@ -118,7 +118,7 @@ export default async function GearsDeluxeBuildingSetPage() {
           {
             question: "What age is this set best for?",
             answer:
-              "It's made for ages 3 and up. Three-year-olds usually start by filling the bases with gears and turning the crank, while five- and six-year-olds build tall towers and bigger machines. Because it's open-ended, the set keeps up as your child grows. It has small parts, so it isn't suitable for children under 3.",
+              "It's made for ages 3 to 8. Three-year-olds usually start by filling the bases with gears and turning the crank, while older children build tall towers and bigger machines. Because it's open-ended, the set grows with your child through those years. It has small parts, so it isn't suitable for children under 3.",
           },
           {
             question: "Will my child need my help?",
@@ -188,7 +188,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "100 chunky pieces to build gear machines that spin with one turn of the crank. Activity guide included, no batteries or screens. For ages 3+.",
+      "100 chunky pieces to build gear machines that spin with one turn of the crank. Activity guide included, no batteries or screens. For ages 3–8.",
     alternates: {
       canonical: "/product/gears-gears-gears-deluxe-building-set-set-of-100",
     },
