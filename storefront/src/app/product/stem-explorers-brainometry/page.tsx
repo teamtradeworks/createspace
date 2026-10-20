@@ -5,6 +5,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
+  ImageTextBlock,
   FeatureGrid,
   ProductReviews,
   ProductFAQ,
@@ -45,10 +46,21 @@ export default async function StemExplorersBrainometryPage() {
       <QuickInfoBadges product={product} />
 
       {/* white */}
+      <ImageTextBlock
+        image="/images/products/stem-explorers-brainometry/girl-building-brainometry-tower.jpg"
+        imageAlt="Smiling girl adding a green piece to a tower of patterned Brainometry shapes"
+        title="From a Flat Picture to a Real Build"
+        body="Each card shows a flat picture. Your child works out how to turn it into something they can hold: which pieces to use, which way round they go, and what sits on top of what. They try a piece, take it off and try another until it fits. That's spatial reasoning, and it's the same thinking they'll use later in geometry and engineering."
+        layout="image-left"
+        background="white"
+        imageObjectPosition="50% 90%"
+      />
+
+      {/* gray */}
       <FeatureGrid
         title="Solve the Secrets of the Shapes"
         columns={2}
-        background="white"
+        background="gray"
         features={[
           {
             icon: "puzzle",
@@ -75,6 +87,16 @@ export default async function StemExplorersBrainometryPage() {
               "Once the cards are done, the pieces are just as much fun for free building. Houses with triangle roofs, towers, long walls. Build something and dare a brother, sister or parent to copy it.",
           },
         ]}
+      />
+
+      {/* white */}
+      <ImageTextBlock
+        image="/images/products/stem-explorers-brainometry/girl-reading-brainometry-challenge-card.jpg"
+        imageAlt="Girl lying on the floor holding up a Brainometry challenge card, with patterned pieces scattered beside her"
+        title="Quiet Play, No Screen Needed"
+        body="Everything fits in one small box, with no batteries or app. It's easy to take along when you go out, and kids can play on their own, one card at a time. Each card has a clear goal, so they can tell when they've solved it."
+        layout="image-right"
+        background="white"
       />
 
       {/* gray */}
