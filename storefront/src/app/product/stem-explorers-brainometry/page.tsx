@@ -5,6 +5,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
+  VideoEmbed,
   ImageTextBlock,
   FeatureGrid,
   ProductReviews,
@@ -46,21 +47,28 @@ export default async function StemExplorersBrainometryPage() {
       <QuickInfoBadges product={product} />
 
       {/* white */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=_gxrItB5SVY"
+        title="See It in Action"
+        background="white"
+      />
+
+      {/* gray */}
       <ImageTextBlock
         image="/images/products/stem-explorers-brainometry/girl-building-brainometry-tower.jpg"
         imageAlt="Smiling girl adding a green piece to a tower of patterned Brainometry shapes"
         title="From a Flat Picture to a Real Build"
         body="Each card shows a flat picture. Your child works out how to turn it into something they can hold: which pieces to use, which way round they go, and what sits on top of what. They try a piece, take it off and try another until it fits. That's spatial reasoning, and it's the same thinking they'll use later in geometry and engineering."
         layout="image-left"
-        background="white"
+        background="gray"
         imageObjectPosition="50% 90%"
       />
 
-      {/* gray */}
+      {/* white */}
       <FeatureGrid
         title="Solve the Secrets of the Shapes"
         columns={2}
-        background="gray"
+        background="white"
         features={[
           {
             icon: "puzzle",
@@ -89,23 +97,23 @@ export default async function StemExplorersBrainometryPage() {
         ]}
       />
 
-      {/* white */}
+      {/* gray */}
       <ImageTextBlock
         image="/images/products/stem-explorers-brainometry/girl-reading-brainometry-challenge-card.jpg"
         imageAlt="Girl lying on the floor holding up a Brainometry challenge card, with patterned pieces scattered beside her"
         title="Quiet Play, No Screen Needed"
         body="Everything fits in one small box, with no batteries or app. It's easy to take along when you go out, and kids can play on their own, one card at a time. Each card has a clear goal, so they can tell when they've solved it."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
-      {/* gray */}
-      <ProductReviews productId={product.id} background="gray" />
-
       {/* white */}
+      <ProductReviews productId={product.id} background="white" />
+
+      {/* gray */}
       <ProductFAQ
         title="Common Questions"
-        background="white"
+        background="gray"
         faqs={[
           {
             question: "What age is Brainometry best for?",
@@ -145,12 +153,12 @@ export default async function StemExplorersBrainometryPage() {
         ]}
       />
 
-      {/* gray */}
+      {/* white */}
       <WhatsIncluded
         title="What's in the Box"
         image="/images/products/stem-explorers-brainometry/whats-in-the-box.jpg"
         imageAlt="STEM Explorers Brainometry box with patterned shape pieces stacked into a wall and a tower beside a challenge card"
-        background="gray"
+        background="white"
         items={[
           "24 patterned 3-D shapes: an L, T, zigzag, cross, cube and triangle in each of 4 colours",
           "10 double-sided challenge cards (English on one side, Spanish, French and German on the other)",
