@@ -253,6 +253,14 @@
       "discountPercent": 0,
       "description": "The Talking Microscope needs 3 x AAA batteries (not included). Add them here so it's ready to go out of the box.",
       "viewProductLink": false
+    },
+    {
+      "parentHandle": "code-go-robot-mouse-activity-set",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "Colby needs 3 x AAA batteries (not included). Add them here so he's ready to run on day one.",
+      "viewProductLink": false
     }
   ]
 }
