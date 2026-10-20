@@ -13,6 +13,7 @@ import {
   WhatsIncluded,
   CallToAction,
   ProductTrackingProvider,
+  VideoEmbed,
 } from "@/components/product-sections";
 
 const PRODUCT_HANDLE = "code-go-robot-mouse-activity-set";
@@ -48,10 +49,17 @@ export default async function CodeGoRobotMousePage() {
       <QuickInfoBadges product={product} />
 
       {/* white */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=O_hRTaHydBg"
+        title="Meet Colby"
+        background="white"
+      />
+
+      {/* gray */}
       <FeatureGrid
         title="Why Kids Love Colby"
         columns={2}
-        background="white"
+        background="gray"
         features={[
           {
             icon: "map",
@@ -80,7 +88,7 @@ export default async function CodeGoRobotMousePage() {
         ]}
       />
 
-      {/* gray */}
+      {/* white */}
       <ImageTextBlock
         image={`${IMG}/lifestyle-close-up-of-mouse-on-track.jpg`}
         imageAlt="Close-up of Colby the robot mouse on the maze board, next to an orange tunnel and the cheese wedge"
@@ -88,24 +96,24 @@ export default async function CodeGoRobotMousePage() {
         title="Will He Make It?"
         body="The first maze is just a straight hallway: two steps forward and Colby's at the cheese. From there the cards add turns, then squares where he has to do his action trick, then tunnels he has to pass under on the way. Each of the 20 mazes is a little puzzle to work out before pressing go. Then comes the best part, watching him trundle along and hoping you counted right."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
+      {/* gray */}
       <ImageTextBlock
         image={`${IMG}/lifestyle-girl-and-boy-playing-together-in-classroom.jpg`}
         imageAlt="Two children at a table with the maze board, one holding up an activity card"
         title="Make a Maze for Someone Else"
         body="Once the activity cards are done, the walls and tunnels are theirs to rearrange. Kids love building a tricky maze and challenging a sibling, a friend or a parent to get Colby through it. Switch him to his faster speed and he can also roam on the floor or a table, so a maze can be made out of books and blocks too."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
-      {/* gray */}
+      {/* white */}
       <CustomerShowcase
         title="Colby at Home and in Class"
         subtitle="On the floor, at the table and in the classroom"
-        background="gray"
+        background="white"
         images={[
           {
             src: `${IMG}/end-user-mouse-on-board-child-holding-card.jpg`,
@@ -146,13 +154,13 @@ export default async function CodeGoRobotMousePage() {
         ]}
       />
 
-      {/* white */}
-      <ProductReviews productId={product.id} background="white" />
-
       {/* gray */}
+      <ProductReviews productId={product.id} background="gray" />
+
+      {/* white */}
       <ProductFAQ
         title="Common Questions"
-        background="gray"
+        background="white"
         faqs={[
           {
             question: "What age is it best for?",
@@ -192,10 +200,10 @@ export default async function CodeGoRobotMousePage() {
         ]}
       />
 
-      {/* white */}
+      {/* gray */}
       <WhatsIncluded
         title="What's in the Box"
-        background="white"
+        background="gray"
         items={[
           "Colby, the robot mouse",
           "16 maze grid squares that join into one big board",
