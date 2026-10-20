@@ -76,7 +76,7 @@ export default async function SnapCircuitsMyHomePage() {
             icon: "puzzle",
             title: "7 Coloured Base Grids",
             description:
-              "Build a house or city tower and wire it up. The 3-D structure turns a flat circuit board into a real building your child designed.",
+              "Build a house or city tower and wire it up. The 3D structure turns a flat circuit board into a real building your child designed.",
           },
           {
             icon: "book",
