@@ -51,7 +51,17 @@ for file in "$@"; do
   case "$kind" in
     png)
       size="${render#png }"
-      chrome --window-size="${size/x/,}" --screenshot="$out/$base.png" "$url"
+      w="${size%x*}"; h="${size#*x}"
+      # Newer headless Chrome makes the viewport shorter than the window, which
+      # leaves a blank strip at the bottom of the screenshot. Measure the gap,
+      # grow the window by it, then crop back to the canvas from the top.
+      seen="$(chrome --window-size="$w,$h" --dump-dom \
+        'data:text/html,<script>document.write("vh="+innerHeight)</script>' | grep -o 'vh=[0-9]*' | cut -d= -f2)"
+      extra=$(( h - ${seen:-$h} ))
+      chrome --window-size="$w,$(( h + extra ))" --screenshot="$out/$base.png" "$url"
+      if [ "$extra" -gt 0 ]; then
+        sips --cropToHeightWidth "$h" "$w" --cropOffset 0 0 "$out/$base.png" >/dev/null
+      fi
       echo "$file -> exports/$base.png ($size)"
       ;;
     pdf)
