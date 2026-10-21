@@ -35,7 +35,7 @@ Unit tests use **Vitest** and live in `storefront/src/__tests__/`. E2E tests use
 - Unit tests go in `src/__tests__/{module}.test.ts`
 - E2E tests go in `e2e/{feature}.spec.ts`
 
-**CI:** GitHub Actions runs lint, unit tests, build, and E2E tests on every PR to `main`. All must pass to merge.
+**CI:** GitHub Actions runs lint, unit tests, build, and E2E tests on every PR to `main`. All must pass to merge. The jobs only run when something under `storefront/` (or the workflow itself) changed — PRs that touch only `marketing/`, `assets/`, `docs/` or skills skip them.
 
 ## SEO
 
