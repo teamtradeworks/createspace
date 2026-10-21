@@ -91,9 +91,6 @@
       <label>Full name
         <input id="name" type="text" value="Dave New" required>
       </label>
-      <label>Job title <small>(optional)</small>
-        <input id="title" type="text" value="Founder">
-      </label>
       <label>Mobile <small>(optional, shown as typed)</small>
         <input id="mobile" type="text" placeholder="082 000 0000">
       </label>
@@ -142,8 +139,21 @@
   const MUTED = "#5B6079";
   const STRIPE = ["#F70B28", "#3CC7F7", "#FF8B00", "#FFD500", "#93DB21"];
   const TAGLINE = "STEM toys, kits and school programmes for South African families and schools.";
+  // Same order and vendor strings as storefront/src/config/brands.ts; the shop filters on the exact vendor.
+  const BRANDS = [
+    ["MatataStudio", "MatataStudio"],
+    ["Makerzoid", "Makerzoid"],
+    ["BBC micro:bit", "micro:bit"],
+    ["ELECFREAKS", "ELECFREAKS"],
+    ["Snap Circuits", "Snap Circuits"],
+    ["Arduino", "Arduino"],
+    ["National Geographic", "National Geographic"],
+    ["Blockaroo", "Blockaroo"],
+    ["NASA", "NASA"],
+    ["Robotico", "Robotico"],
+  ];
 
-  const fields = ["name", "title", "mobile", "signoff"].map((id) => document.getElementById(id));
+  const fields = ["name", "mobile", "signoff"].map((id) => document.getElementById(id));
 
   function esc(s) {
     return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -155,19 +165,17 @@
     return v;
   }
 
-  function buildHtml({ name, title, mobile, signoff }) {
+  function buildHtml({ name, mobile, signoff }) {
     const link = (href, text) =>
       `<a href="${href}" style="color:${NAVY};text-decoration:none;white-space:nowrap;">${text}</a>`;
-    const dot = `<span style="color:#FF8B00;padding:0 7px;">&bull;</span>`;
+    // Non-breaking before the bullet, a real space after: lines wrap only after a bullet.
+    const dot = `<span style="color:#FF8B00;">&nbsp;&nbsp;&bull;&nbsp;</span> `;
     const rows = [];
 
     if (signoff) {
       rows.push(`<tr><td style="${FONT}font-size:15px;line-height:22px;color:${NAVY};padding:0 0 14px 0;">${esc(signoff)}</td></tr>`);
     }
     rows.push(`<tr><td style="${FONT}font-size:16px;line-height:22px;font-weight:600;color:${NAVY};padding:0;">${esc(name || "Your name")}</td></tr>`);
-    if (title) {
-      rows.push(`<tr><td style="${FONT}font-size:13px;line-height:18px;color:${MUTED};padding:0;">${esc(title)}</td></tr>`);
-    }
 
     rows.push(
       `<tr><td style="padding:16px 0 0 0;"><a href="${BASE}/" style="text-decoration:none;">` +
@@ -189,6 +197,11 @@
     }
     rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:4px 0 0 0;">${contact}</td></tr>`);
 
+    const brandLinks = BRANDS.map(([label, vendor]) =>
+      `<a href="${BASE}/shop?brand=${encodeURIComponent(vendor)}" style="color:${NAVY};text-decoration:none;white-space:nowrap;">${esc(label)}</a>`
+    ).join(dot);
+    rows.push(`<tr><td style="${FONT}font-size:12px;line-height:20px;color:${NAVY};padding:8px 0 0 0;">${brandLinks}</td></tr>`);
+
     const icon = (href, file, alt) =>
       `<a href="${href}" style="text-decoration:none;"><img src="${BASE}/images/brand/${file}" width="22" height="22" alt="${alt}" style="display:inline-block;border:0;width:22px;height:22px;vertical-align:middle;"></a>`;
     rows.push(
@@ -202,12 +215,12 @@
     return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${FONT}color:${NAVY};">${rows.join("")}</table>`;
   }
 
-  function buildText({ name, title, mobile, signoff }) {
+  function buildText({ name, mobile, signoff }) {
     const lines = [];
     if (signoff) lines.push(signoff, "");
     lines.push(name || "Your name");
-    if (title) lines.push(title);
     lines.push("", "CREATESPACE", TAGLINE, "www.thecreatespace.co.za | info@thecreatespace.co.za" + (mobile ? " | " + mobile : ""));
+    lines.push(BRANDS.map(([label]) => label).join(" | "));
     return lines.join("\n");
   }
 
