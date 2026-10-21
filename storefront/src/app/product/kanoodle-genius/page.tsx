@@ -7,6 +7,7 @@ import {
   QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
+  VideoEmbed,
   CustomerShowcase,
   ProductReviews,
   ProductFAQ,
@@ -47,10 +48,17 @@ export default async function KanoodleGeniusPage() {
       <QuickInfoBadges product={product} />
 
       {/* white */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=4I7Pjh91pJI"
+        title="See Kanoodle Genius in Action"
+        background="white"
+      />
+
+      {/* gray */}
       <FeatureGrid
         title="Kanoodle, Turned Up a Notch"
         columns={2}
-        background="white"
+        background="gray"
         features={[
           {
             icon: "puzzle",
@@ -79,21 +87,21 @@ export default async function KanoodleGeniusPage() {
         ]}
       />
 
-      {/* gray */}
+      {/* white */}
       <ImageTextBlock
         image="/images/products/kanoodle-genius/lifestyle-man-playing-on-rug.jpg"
         imageAlt="Man lying on a rug working on a Kanoodle Genius puzzle, holding the puzzle book in one hand and a piece in the other"
         title="Three Steps, Then the Thinking Starts"
         body="Pick a puzzle from the book, place the starting pieces exactly as shown, then fill the rest of the board with the pieces you have left. The first few pieces usually drop in easily. Then one won't fit anywhere, so you turn it over, take two others out and try again. Eventually the last piece clicks into place, and there are still a couple of hundred more to go."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
+      {/* gray */}
       <CustomerShowcase
         title="Kanoodle Genius at Home"
         subtitle="Photos from families playing the previous edition of the game"
-        background="white"
+        background="gray"
         images={[
           {
             src: "/images/products/kanoodle-genius/end-user-pieces-filling-board.jpg",
@@ -122,13 +130,13 @@ export default async function KanoodleGeniusPage() {
         ]}
       />
 
-      {/* gray */}
-      <ProductReviews productId={product.id} background="gray" />
-
       {/* white */}
+      <ProductReviews productId={product.id} background="white" />
+
+      {/* gray */}
       <ProductFAQ
         title="Common Questions"
-        background="white"
+        background="gray"
         faqs={[
           {
             question: "What age is Kanoodle Genius best for?",
@@ -168,12 +176,12 @@ export default async function KanoodleGeniusPage() {
         ]}
       />
 
-      {/* gray */}
+      {/* white */}
       <WhatsIncluded
         title="What's in the Box"
         image="/images/products/kanoodle-genius/whats-in-the-box.jpg"
         imageAlt="Kanoodle Genius box beside the open case with coloured pieces on the board and loose pieces in front"
-        background="gray"
+        background="white"
         items={[
           "7 puzzle pieces",
           "Puzzle book with 204 2D and 3D puzzles",
