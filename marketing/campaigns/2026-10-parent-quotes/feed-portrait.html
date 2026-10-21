@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+  Ad brief N5: "Things I never thought I'd say as a parent", Meta feed
+  portrait (1080 x 1350). Native look: plain white, black DM Sans, set like a
+  text post someone screenshotted. The only brand elements are the product box
+  and the small wordmark bottom right.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>Parent quotes</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    @font-face {
+      font-family: "DM Sans";
+      src: url("../../creative/kit/fonts/DMSans.ttf") format("truetype");
+      font-weight: 100 1000;
+      font-display: block;
+    }
+
+    :root {
+      --paper: #ffffff;
+      --ink: #111111;
+      --ink-soft: #4d4d4d;
+      --rule: #e6e6e6;
+      --ui: "DM Sans", sans-serif;
+    }
+
+    body { background: var(--paper); }
+
+    .canvas {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--ui);
+      font-optical-sizing: auto;
+    }
+
+    h1 {
+      position: absolute;
+      top: 96px;
+      left: 72px;
+      right: 72px;
+      margin: 0;
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 1.14;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+    }
+
+    .quotes {
+      position: absolute;
+      top: 302px;
+      left: 72px;
+      width: 372px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .quotes li {
+      font-size: 38px;
+      font-weight: 400;
+      line-height: 1.22;
+      letter-spacing: -0.015em;
+      text-indent: -0.42em; /* hang the opening quote mark */
+      text-wrap: pretty;
+    }
+
+    .quotes li + li { margin-top: 72px; }
+
+    .box {
+      position: absolute;
+      top: 268px;
+      right: 56px;
+      width: 560px;
+      height: auto;
+    }
+
+    footer {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      bottom: 70px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+      padding-top: 34px;
+      border-top: 2px solid var(--rule);
+    }
+
+    footer strong {
+      display: block;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+    }
+
+    footer p {
+      margin: 8px 0 0;
+      font-size: 28px;
+      line-height: 1.3;
+      color: var(--ink-soft);
+    }
+
+    .wordmark {
+      flex: none;
+      width: 220px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <h1>Things I never thought I’d say as a parent:</h1>
+
+    <ul class="quotes">
+      <li>“Please don’t launch rockets at the dog.”</li>
+      <li>“Yes, 30 metres is very high. Shoes on, please.”</li>
+      <li>“No, the rocket can’t sleep in your bed.”</li>
+      <li>“OK. One more launch. Then supper.”</li>
+    </ul>
+
+    <img class="box" src="images/national-geographic-light-up-air-rockets-box.jpg" alt="National Geographic Light-Up Air Rockets box">
+
+    <footer>
+      <div>
+        <strong>Light-Up Air Rockets, ages 6-12</strong>
+        <p>Stomp the pump. Watch it go. Repeat until dark.</p>
+      </div>
+      <img class="wordmark" src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
+    </footer>
+  </main>
+</body>
+</html>
