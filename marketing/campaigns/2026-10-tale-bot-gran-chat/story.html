@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+  Story (9:16) cut of feed-portrait.html.
+  Tale-Bot Pro, "Gran" chat. A generic phone messaging screen, built to read
+  as a real screenshot. Not modelled on any one messaging app: no status bar,
+  no app chrome beyond a plain header. Brief: brief.md in this folder.
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>Tale-Bot Pro, Gran chat (story)</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="gran-chat.css">
+  <style>
+    /* Story: the header band runs up under Meta's top UI, its content clears the safe zone */
+    .header { box-sizing: border-box; height: calc(var(--safe-top) + 160px); align-items: flex-end; padding-bottom: 36px; }
+    .thread { padding-top: 40px; }
+    .link { width: 760px; }
+    .link img { height: 400px; }
+    .wordmark { bottom: calc(var(--safe-bottom) + 40px); }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <header class="header">
+      <svg class="back" viewBox="0 0 30 52" aria-hidden="true">
+        <path d="M25 4 5 26l20 22" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="avatar">G</div>
+      <div class="who">
+        <div class="name">Gran</div>
+        <div class="presence">online</div>
+      </div>
+    </header>
+
+    <section class="thread">
+      <div class="stamp"><b>Today</b> 18:42</div>
+
+      <div class="msg gran">What does Ava want for her 5th birthday?</div>
+      <div class="msg parent turn">Honestly, anything that isn't another screen.</div>
+      <div class="msg gran turn">Found a little robot she codes with buttons. No tablet, no app, no reading needed.</div>
+      <div class="msg parent turn">Wait, that exists??</div>
+      <div class="receipt">Read 18:44</div>
+
+      <div class="link">
+        <img src="images/talebot-three-bots-white.jpg" alt="Three Tale-Bot Pro robots with arm attachments on a white background">
+        <div class="link-text">
+          <div class="link-title">MatataStudio Tale-Bot Pro | Ages 3-6</div>
+          <div class="link-domain">thecreatespace.co.za</div>
+        </div>
+      </div>
+    </section>
+
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
+  </main>
+</body>
+</html>
