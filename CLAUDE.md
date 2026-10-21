@@ -37,6 +37,8 @@ Unit tests use **Vitest** and live in `storefront/src/__tests__/`. E2E tests use
 
 **CI:** GitHub Actions runs lint, unit tests, build, and E2E tests on every PR to `main`. All must pass to merge. The jobs only run when something under `storefront/` (or the workflow itself) changed — PRs that touch only `marketing/`, `assets/`, `docs/` or skills skip them.
 
+**Vercel:** Deployments are skipped the same way. `storefront/vercel.json` sets an `ignoreCommand` that runs `storefront/scripts/vercel-ignore-build.sh`, which exits 0 (skip) when nothing under `storefront/` changed since the last successful deployment of that branch. Commits that touch only `marketing/`, `assets/`, `docs/` or skills produce a cancelled Vercel build rather than a new deployment.
+
 ## SEO
 
 The site has foundational SEO infrastructure that must be maintained:
