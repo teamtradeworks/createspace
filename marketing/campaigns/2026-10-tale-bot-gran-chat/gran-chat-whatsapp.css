@@ -1,0 +1,188 @@
+/* Gran chat, WhatsApp-style look. Shared by feed-portrait-whatsapp.html and story-whatsapp.html. */
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../../creative/kit/fonts/DMSans.ttf") format("truetype");
+  font-weight: 100 1000;
+  font-display: block;
+}
+
+:root {
+  --wall: #efeae2;
+  --header-bg: #ffffff;
+  --header-rule: #e1ddd5;
+  --icon: #54656f;
+  --in-bubble: #ffffff;
+  --out-bubble: #d9fdd3;
+  --ink: #111b21;
+  --meta-ink: #667781;
+  --tick: #53bdeb;
+  --avatar: #8b8f97;
+  --chip: #ffffff;
+  --preview-bg: #f0f2f5;
+  --link-ink: #027eb5;
+}
+
+body { margin: 0; }
+
+.canvas {
+  background: var(--wall);
+  font-family: "DM Sans", sans-serif;
+  font-size: 34px;
+  line-height: 1.3;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Doodle wallpaper, drawn from the brand illustrations */
+.wallpaper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.wallpaper img {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: grayscale(1) sepia(.35);
+  opacity: .085;
+}
+
+/* Header */
+.header {
+  position: relative;
+  z-index: 1;
+  flex: none;
+  height: 150px;
+  background: var(--header-bg);
+  border-bottom: 1.5px solid var(--header-rule);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 30px 0 26px;
+  color: var(--ink);
+}
+.header svg { color: var(--icon); flex: none; }
+.avatar {
+  flex: none;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--avatar);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 42px;
+  font-weight: 500;
+}
+.who { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+.name { font-size: 38px; font-weight: 600; line-height: 1.1; }
+.presence { font-size: 24px; color: var(--meta-ink); line-height: 1.2; }
+.actions { display: flex; align-items: center; gap: 44px; }
+
+/* Thread */
+.thread {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 26px 40px 0;
+}
+.day {
+  align-self: center;
+  background: var(--chip);
+  color: var(--meta-ink);
+  font-size: 24px;
+  padding: 8px 22px;
+  border-radius: 14px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 1px rgba(11, 20, 26, .12);
+}
+
+.msg {
+  position: relative;
+  max-width: 840px;
+  padding: 16px 24px 18px;
+  border-radius: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 1px 1px rgba(11, 20, 26, .14);
+  text-wrap: pretty;
+}
+/* The tail sits on the top corner, as on the first bubble of a run */
+.msg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 22px;
+  height: 26px;
+  background: inherit;
+}
+.in {
+  align-self: flex-start;
+  background: var(--in-bubble);
+  border-top-left-radius: 0;
+}
+.in::before { left: -18px; clip-path: polygon(0 0, 100% 0, 100% 100%); border-top-left-radius: 6px; }
+.out {
+  align-self: flex-end;
+  background: var(--out-bubble);
+  border-top-right-radius: 0;
+}
+.out::before { right: -18px; clip-path: polygon(0 0, 100% 0, 0 100%); border-top-right-radius: 6px; }
+
+/* Time (and ticks) tucked into the bubble's last line */
+.spacer { display: inline-block; width: 92px; }
+.out .spacer { width: 130px; }
+.meta {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 21px;
+  line-height: 1;
+  color: var(--meta-ink);
+}
+.meta svg { width: 30px; height: 18px; color: var(--tick); }
+
+/* Link preview inside Gran's bubble */
+.link { width: 680px; padding: 8px 8px 18px; }
+.preview {
+  background: var(--preview-bg);
+  border-radius: 14px;
+  overflow: hidden;
+  /* The photo is shot on white, so the preview needs its own edge inside a white bubble */
+  box-shadow: inset 0 0 0 2px var(--preview-bg);
+  border: 2px solid var(--preview-bg);
+}
+.preview img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  background: #fff;
+}
+.preview-text { padding: 16px 22px 20px; }
+.preview-title { font-size: 29px; font-weight: 600; line-height: 1.22; }
+.preview-domain { margin-top: 6px; font-size: 24px; color: var(--meta-ink); }
+.url {
+  padding: 14px 16px 0;
+  font-size: 29px;
+  line-height: 1.3;
+  color: var(--link-ink);
+  overflow-wrap: anywhere;
+}
+
+.wordmark {
+  position: absolute;
+  z-index: 2;
+  right: 44px;
+  bottom: 40px;
+  width: 230px;
+  height: auto;
+}
