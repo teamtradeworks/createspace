@@ -5,6 +5,7 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   QuickInfoBadges,
+  VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
   CustomerShowcase,
@@ -47,10 +48,17 @@ export default async function KanoodlePage() {
       <QuickInfoBadges product={product} />
 
       {/* white */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=UG-oIcEhxAo"
+        title="See How Kanoodle Works"
+        background="white"
+      />
+
+      {/* gray */}
       <FeatureGrid
         title="Why Kanoodle Is So Hard to Put Down"
         columns={2}
-        background="white"
+        background="gray"
         features={[
           {
             icon: "puzzle",
@@ -79,31 +87,31 @@ export default async function KanoodlePage() {
         ]}
       />
 
-      {/* gray */}
+      {/* white */}
       <ImageTextBlock
         image="/images/products/kanoodle/lifestyle-girl-playing-with-kanoodle.jpg"
         imageAlt="Smiling girl fitting colourful Kanoodle pieces into the board"
         title="Sounds Simple. Then It Gets Tricky."
         body="Each puzzle in the book shows where to put some of the pieces. Your child sets those up, then tries to squeeze the rest into the gaps that are left. The first ones are easy, with just one piece to place. Further into the book, more of the board is empty and there are more pieces left over. They'll rotate a piece, flip it, try it somewhere else and suddenly see where it goes. That's the moment that has them turning to the next page."
         layout="image-right"
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
+      {/* gray */}
       <ImageTextBlock
         image="/images/products/kanoodle/lifestyle-boy-playing-with-kanoodle.jpg"
         imageAlt="Boy playing Kanoodle at a table with the puzzle book beside him"
         title="Kanoodle Anywhere"
         body="All 12 pieces pack into a pocket-size case, and the case is the game board. Throw it in a school bag, the car or a handbag for long drives, flights, waiting rooms and restaurants. There's nothing to charge and no screen, just a puzzle book and a handful of pieces."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
-      {/* gray */}
+      {/* white */}
       <CustomerShowcase
         title="Kanoodle in Real Life"
         subtitle="At the kitchen table, on the couch and out for dinner"
-        background="gray"
+        background="white"
         images={[
           {
             src: "/images/products/kanoodle/end-user-boy-playing-with-kanoodle-at-restaurant-table.jpg",
@@ -150,13 +158,13 @@ export default async function KanoodlePage() {
         ]}
       />
 
-      {/* white */}
-      <ProductReviews productId={product.id} background="white" />
-
       {/* gray */}
+      <ProductReviews productId={product.id} background="gray" />
+
+      {/* white */}
       <ProductFAQ
         title="Common Questions"
-        background="gray"
+        background="white"
         faqs={[
           {
             question: "What age is Kanoodle best for?",
@@ -196,12 +204,12 @@ export default async function KanoodlePage() {
         ]}
       />
 
-      {/* white */}
+      {/* gray */}
       <WhatsIncluded
         title="What's in the Box"
         image="/images/products/kanoodle/whats-in-the-box.jpg"
         imageAlt="Kanoodle box beside the open case with coloured puzzle pieces"
-        background="white"
+        background="gray"
         items={[
           "12 Kanoodle puzzle pieces",
           "Illustrated puzzle book with 228 puzzles",
