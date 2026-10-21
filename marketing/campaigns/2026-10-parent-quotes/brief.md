@@ -49,6 +49,7 @@ National Geographic is a licensed brand, so this ad goes to the licensor before 
 | File | Canvas | Notes |
 |---|---|---|
 | `feed-portrait` | meta-portrait (1080 x 1350) | Quotes left, box right, footer row |
+| `story` | meta-story (1080 x 1920) | Same layout held inside the 270px top and bottom safe zones; box slightly larger (580px) |
 
 ## Imagery
 
@@ -67,3 +68,5 @@ Suggested, not yet reviewed:
 ## Landing URL
 
 `https://www.thecreatespace.co.za/product/national-geographic-light-up-air-rockets?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-parent-quotes&utm_content=feed-portrait`
+
+For the story, use `utm_content=story`.
