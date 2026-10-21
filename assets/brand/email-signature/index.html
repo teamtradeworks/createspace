@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CREATESPACE Email Signature</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap">
+<style>
+  /* Layout: a narrow form column beside a white "email canvas" preview; stacks on phones. */
+  :root {
+    --bg: #ffffff;
+    --fg: #0C1446;
+    --muted: #5B6079;
+    --line: #E3E5EE;
+    --panel: #F5F6FB;
+    --accent: #FF8B00;
+    --ok: #3f9d1a;
+    --font: "Outfit", Helvetica, Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0C1446; --fg: #ffffff; --muted: #B7BCD6; --line: #2A3367; --panel: #141C57; --accent: #FF8B00; --ok: #93DB21;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0C1446; --fg: #ffffff; --muted: #B7BCD6; --line: #2A3367; --panel: #141C57; --accent: #FF8B00; --ok: #93DB21;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 15px; line-height: 1.5; }
+  .wrap {
+    max-width: 1040px; margin: 0 auto;
+    padding-block: 32px 48px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  header { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 28px; }
+  h1 { font-size: 24px; font-weight: 600; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+  header p { margin: 0; color: var(--muted); max-width: 60ch; }
+  .grid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 32px; align-items: start; }
+  @media (max-width: 760px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+  form { display: grid; gap: 16px; min-width: 0; }
+  label { display: grid; gap: 5px; font-size: 13px; font-weight: 500; }
+  label small { font-weight: 400; color: var(--muted); }
+  input {
+    font: inherit; font-size: 15px; color: var(--fg); background: var(--bg);
+    border: 1px solid var(--line); border-radius: 6px; padding: 9px 11px; width: 100%; min-width: 0;
+  }
+  input:focus-visible, button:focus-visible, textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .preview-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+  .preview-head span { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+  .canvas {
+    background: #ffffff; color: #0C1446; border: 1px solid var(--line); border-radius: 8px;
+    padding: 28px 28px 32px; min-width: 0; overflow-x: auto;
+  }
+  .canvas .body-sample { font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3b4060; margin: 0 0 18px; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
+  button {
+    font: inherit; font-weight: 600; font-size: 15px; cursor: pointer;
+    background: var(--fg); color: var(--bg); border: 0; border-radius: 999px; padding: 11px 22px;
+  }
+  button.secondary { background: transparent; color: var(--fg); border: 1px solid var(--line); font-weight: 500; }
+  .status { font-size: 14px; color: var(--muted); min-height: 1.5em; }
+  .status.ok { color: var(--ok); }
+  .steps { margin-top: 36px; padding: 20px 22px; background: var(--panel); border-radius: 8px; }
+  .steps h2 { font-size: 16px; font-weight: 600; margin: 0 0 10px; }
+  .steps ol { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+  .steps li { color: var(--fg); }
+  .steps p { margin: 12px 0 0; font-size: 14px; color: var(--muted); }
+  details { margin-top: 20px; }
+  summary { cursor: pointer; font-weight: 500; }
+  textarea {
+    width: 100%; min-height: 180px; margin-top: 10px; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: var(--fg); background: var(--panel); border: 1px solid var(--line); border-radius: 6px; padding: 10px;
+  }
+  @media (prefers-reduced-motion: no-preference) { .status { transition: color 150ms; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>CREATESPACE email signature</h1>
+    <p>Fill in your details, copy the signature, and paste it into Gmail. Everyone on the team gets the same layout.</p>
+  </header>
+
+  <div class="grid">
+    <form id="form" autocomplete="off">
+      <label>Full name
+        <input id="name" type="text" value="Dave New" required>
+      </label>
+      <label>Job title <small>(optional)</small>
+        <input id="title" type="text" value="Founder">
+      </label>
+      <label>Mobile <small>(optional, shown as typed)</small>
+        <input id="mobile" type="text" placeholder="082 000 0000">
+      </label>
+      <label>Sign-off line <small>(optional)</small>
+        <input id="signoff" type="text" value="Keep exploring,">
+      </label>
+    </form>
+
+    <section>
+      <div class="preview-head">
+        <span>Preview on a white email background</span>
+      </div>
+      <div class="canvas">
+        <p class="body-sample">Thanks for getting in touch. I'll have the quote over to you by tomorrow.</p>
+        <div id="preview"></div>
+      </div>
+      <div class="actions">
+        <button id="copy" type="button">Copy signature</button>
+        <button id="copy-html" type="button" class="secondary">Copy raw HTML</button>
+        <div id="status" class="status" role="status" aria-live="polite"></div>
+      </div>
+
+      <div class="steps">
+        <h2>Add it to Gmail</h2>
+        <ol>
+          <li>Click <strong>Copy signature</strong> above.</li>
+          <li>In Gmail, open the gear icon, then <strong>See all settings</strong>. Stay on the <strong>General</strong> tab and scroll to <strong>Signature</strong>.</li>
+          <li>Click <strong>Create new</strong>, give it a name, click once inside the editor and paste (Cmd+V or Ctrl+V).</li>
+          <li>Under <strong>Signature defaults</strong>, choose it for new emails and for replies, then click <strong>Save Changes</strong> at the bottom of the page.</li>
+        </ol>
+        <p>The logo and icons load from thecreatespace.co.za, so they show for anyone online. Send yourself a test email to check it.</p>
+      </div>
+
+      <details>
+        <summary>Raw HTML (for Apple Mail, Outlook or anything that takes HTML directly)</summary>
+        <textarea id="html" readonly spellcheck="false"></textarea>
+      </details>
+    </section>
+  </div>
+</div>
+
+<script>
+  const BASE = "https://www.thecreatespace.co.za";
+  const FONT = "font-family:Outfit,Helvetica,Arial,sans-serif;";
+  const NAVY = "#0C1446";
+  const MUTED = "#5B6079";
+  const STRIPE = ["#F70B28", "#3CC7F7", "#FF8B00", "#FFD500", "#93DB21"];
+  const TAGLINE = "STEM toys, kits and school programmes for South African families and schools.";
+
+  const fields = ["name", "title", "mobile", "signoff"].map((id) => document.getElementById(id));
+
+  function esc(s) {
+    return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  }
+
+  function values() {
+    const v = {};
+    fields.forEach((f) => { v[f.id] = f.value.trim(); });
+    return v;
+  }
+
+  function buildHtml({ name, title, mobile, signoff }) {
+    const link = (href, text) =>
+      `<a href="${href}" style="color:${NAVY};text-decoration:none;white-space:nowrap;">${text}</a>`;
+    const dot = `<span style="color:#FF8B00;padding:0 7px;">&bull;</span>`;
+    const rows = [];
+
+    if (signoff) {
+      rows.push(`<tr><td style="${FONT}font-size:15px;line-height:22px;color:${NAVY};padding:0 0 14px 0;">${esc(signoff)}</td></tr>`);
+    }
+    rows.push(`<tr><td style="${FONT}font-size:16px;line-height:22px;font-weight:600;color:${NAVY};padding:0;">${esc(name || "Your name")}</td></tr>`);
+    if (title) {
+      rows.push(`<tr><td style="${FONT}font-size:13px;line-height:18px;color:${MUTED};padding:0;">${esc(title)}</td></tr>`);
+    }
+
+    rows.push(
+      `<tr><td style="padding:16px 0 0 0;"><a href="${BASE}/" style="text-decoration:none;">` +
+      `<img src="${BASE}/images/brand/logo-light.png" width="180" height="22" alt="CREATESPACE" style="display:block;border:0;width:180px;height:22px;"></a></td></tr>`
+    );
+    const stripeCells = STRIPE.map(
+      (c) => `<td width="36" height="3" bgcolor="${c}" style="width:36px;height:3px;font-size:0;line-height:0;">&nbsp;</td>`
+    ).join("");
+    rows.push(
+      `<tr><td style="padding:7px 0 0 0;"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>${stripeCells}</tr></table></td></tr>`
+    );
+
+    rows.push(`<tr><td style="${FONT}font-size:12px;line-height:18px;color:${MUTED};padding:10px 0 0 0;">${TAGLINE}</td></tr>`);
+
+    let contact = link(`${BASE}/`, "www.thecreatespace.co.za") + dot + link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za");
+    if (mobile) {
+      const digits = mobile.replace(/[^\d+]/g, "");
+      contact += dot + link(`tel:${digits}`, esc(mobile));
+    }
+    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:4px 0 0 0;">${contact}</td></tr>`);
+
+    const icon = (href, file, alt) =>
+      `<a href="${href}" style="text-decoration:none;"><img src="${BASE}/images/brand/${file}" width="22" height="22" alt="${alt}" style="display:inline-block;border:0;width:22px;height:22px;vertical-align:middle;"></a>`;
+    rows.push(
+      `<tr><td style="padding:12px 0 0 0;line-height:22px;">` +
+      icon("https://www.facebook.com/thecreatespace.za/", "icon-facebook.png", "Facebook") +
+      `<span style="display:inline-block;width:10px;">&nbsp;</span>` +
+      icon("https://www.instagram.com/thecreatespace.za/", "icon-instagram.png", "Instagram") +
+      `</td></tr>`
+    );
+
+    return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${FONT}color:${NAVY};">${rows.join("")}</table>`;
+  }
+
+  function buildText({ name, title, mobile, signoff }) {
+    const lines = [];
+    if (signoff) lines.push(signoff, "");
+    lines.push(name || "Your name");
+    if (title) lines.push(title);
+    lines.push("", "CREATESPACE", TAGLINE, "www.thecreatespace.co.za | info@thecreatespace.co.za" + (mobile ? " | " + mobile : ""));
+    return lines.join("\n");
+  }
+
+  const preview = document.getElementById("preview");
+  const htmlBox = document.getElementById("html");
+  const status = document.getElementById("status");
+
+  function render() {
+    const v = values();
+    const html = buildHtml(v);
+    preview.innerHTML = html;
+    htmlBox.value = html;
+    try { localStorage.setItem("cs-signature", JSON.stringify(v)); } catch (e) {}
+  }
+
+  function say(msg, ok) {
+    status.textContent = msg;
+    status.classList.toggle("ok", !!ok);
+  }
+
+  function selectPreviewAndCopy() {
+    const range = document.createRange();
+    range.selectNodeContents(preview);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    const done = document.execCommand("copy");
+    sel.removeAllRanges();
+    return done;
+  }
+
+  document.getElementById("copy").addEventListener("click", async () => {
+    const v = values();
+    const html = buildHtml(v);
+    try {
+      await navigator.clipboard.write([
+        new ClipboardItem({
+          "text/html": new Blob([html], { type: "text/html" }),
+          "text/plain": new Blob([buildText(v)], { type: "text/plain" }),
+        }),
+      ]);
+      say("Copied. Paste it into Gmail's signature editor.", true);
+    } catch (e) {
+      if (selectPreviewAndCopy()) say("Copied. Paste it into Gmail's signature editor.", true);
+      else say("Copying was blocked. Select the preview above, copy it, and paste into Gmail.", false);
+    }
+  });
+
+  document.getElementById("copy-html").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(htmlBox.value);
+      say("Raw HTML copied.", true);
+    } catch (e) {
+      htmlBox.closest("details").open = true;
+      htmlBox.select();
+      say("Select the HTML below and copy it.", false);
+    }
+  });
+
+  try {
+    const saved = JSON.parse(localStorage.getItem("cs-signature") || "null");
+    if (saved) fields.forEach((f) => { if (typeof saved[f.id] === "string") f.value = saved[f.id]; });
+  } catch (e) {}
+
+  fields.forEach((f) => f.addEventListener("input", render));
+  document.getElementById("form").addEventListener("submit", (e) => e.preventDefault());
+  render();
+</script>
+</body>
+</html>
