@@ -1,0 +1,142 @@
+/* Comment their age. Shared by feed-portrait.html and story.html. */
+
+:root {
+  --body-ink: #d8dbea;
+  --bubble-ink: #0c1446;
+  --bubble-meta: #5a6080;
+}
+
+body { background: var(--cs-navy); }
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 72px;
+  color: var(--cs-white);
+  /* Soft blue and purple light behind the tiles and thread, per the glow-not-shadow rule. */
+  background:
+    radial-gradient(circle at 100% 52%, rgba(60, 199, 247, 0.20), rgba(60, 199, 247, 0) 34%),
+    radial-gradient(circle at 0% 96%, rgba(172, 77, 255, 0.20), rgba(172, 77, 255, 0) 36%),
+    var(--cs-navy);
+}
+
+.canvas > * { position: relative; z-index: 1; }
+
+.wordmark {
+  display: block;
+  width: 300px;
+  height: auto;
+}
+
+h1 {
+  margin: 76px 0 0;
+  font-size: 96px;
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+h1 span { display: block; }
+h1 em {
+  font-style: normal;
+  color: var(--cs-yellow);
+}
+
+.lede {
+  margin: 32px 0 0;
+  max-width: 900px;
+  font-size: 34px;
+  line-height: 1.4;
+  color: var(--body-ink);
+  text-wrap: pretty;
+}
+
+.ages {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 18px;
+  margin: 64px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ages li {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  border: 4px solid var(--cs-yellow);
+  border-radius: 24px;
+  font-size: 68px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums tabular-nums;
+  line-height: 1;
+}
+
+.ages .older {
+  grid-column: span 2;
+  aspect-ratio: auto;
+  background: var(--cs-yellow);
+  color: var(--cs-navy);
+}
+
+.thread {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-top: auto;
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.comment.reply { padding-left: 90px; }
+
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.avatar.you {
+  background: var(--cs-blue);
+  color: var(--cs-navy);
+}
+
+.avatar.us {
+  background: var(--cs-red);
+  color: var(--cs-white);
+}
+
+.bubble {
+  margin: 0;
+  padding: 20px 30px 22px;
+  border-radius: 24px;
+  border-top-left-radius: 8px;
+  background: var(--cs-white);
+  color: var(--bubble-ink);
+  font-size: 32px;
+  line-height: 1.32;
+  text-wrap: pretty;
+  box-shadow: 0 10px 28px -10px rgba(3, 6, 28, 0.55);
+}
+
+.bubble b {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--bubble-meta);
+}
+
+.reply .bubble b { color: var(--bubble-ink); }

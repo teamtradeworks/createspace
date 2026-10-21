@@ -60,7 +60,31 @@ for file in "$@"; do
       extra=$(( h - ${seen:-$h} ))
       chrome --window-size="$w,$(( h + extra ))" --screenshot="$out/$base.png" "$url"
       if [ "$extra" -gt 0 ]; then
-        sips --cropToHeightWidth "$h" "$w" --cropOffset 0 0 "$out/$base.png" >/dev/null
+        # sips treats --cropOffset 0 0 as "centre", which shifts the canvas up
+        # by half the gap. Keep the top $h rows instead: PNG row filters only
+        # look at earlier rows, so cutting off the bottom is exact.
+        python3 -I - "$out/$base.png" "$h" <<'PY'
+import struct, sys, zlib
+path, keep = sys.argv[1], int(sys.argv[2])
+data = open(path, "rb").read()
+chunks, i = [], 8
+while i < len(data):
+    n = struct.unpack(">I", data[i:i + 4])[0]
+    chunks.append((data[i + 4:i + 8], data[i + 8:i + 8 + n]))
+    i += 12 + n
+ihdr = chunks[0][1]
+w, _, depth, ctype, _, _, interlace = struct.unpack(">IIBBBBB", ihdr)
+assert depth == 8 and interlace == 0, "unexpected PNG format"
+channels = {0: 1, 2: 3, 4: 2, 6: 4}[ctype]
+raw = zlib.decompress(b"".join(c for t, c in chunks if t == b"IDAT"))
+raw = raw[:keep * (1 + w * channels)]
+def chunk(t, c):
+    return struct.pack(">I", len(c)) + t + c + struct.pack(">I", zlib.crc32(t + c) & 0xFFFFFFFF)
+out = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">II", w, keep) + ihdr[8:])
+out += b"".join(chunk(t, c) for t, c in chunks if t not in (b"IHDR", b"IDAT", b"IEND"))
+out += chunk(b"IDAT", zlib.compress(raw, 9)) + chunk(b"IEND", b"")
+open(path, "wb").write(out)
+PY
       fi
       echo "$file -> exports/$base.png ($size)"
       ;;

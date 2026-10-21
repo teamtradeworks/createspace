@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+  Ad brief C1: "Comment their age", Meta story (1080 x 1920).
+  A comment prompt: the age tiles invite a reply, and the mock exchange at the
+  bottom shows what a reply from us looks like. The commenter is labelled
+  "You" so it never reads as a real customer.
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>Comment their age</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="comment-age.css">
+  <style>
+    /* Same layout as the feed, held inside the 270px top and bottom safe zones. */
+    .canvas { padding: 290px 72px; }
+    h1 { margin-top: 96px; }
+    .lede { margin-top: 40px; }
+    .ages { margin-top: 88px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+
+    <h1>
+      <span>Tell us their <em>age</em>.</span>
+      <span>We'll tell you the kit.</span>
+    </h1>
+
+    <p class="lede">Drop your child's age in the comments. We reply to every one with the single kit we'd pick, and why.</p>
+
+    <ul class="ages" aria-label="Ages">
+      <li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li>
+      <li>9</li><li>10</li><li>11</li><li>12</li><li class="older">13+</li>
+    </ul>
+
+    <div class="thread">
+      <div class="comment">
+        <span class="avatar you" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c0-4.4 3.8-7.4 8.5-7.4s8.5 3 8.5 7.4z"/></svg>
+        </span>
+        <p class="bubble"><b>You</b>6, obsessed with LEGO</p>
+      </div>
+      <div class="comment reply">
+        <span class="avatar us" aria-hidden="true">C</span>
+        <p class="bubble"><b>CREATESPACE</b>Makerzoid Robot Master Premium. Bricks fit their LEGO, and there are 200+ robots to build, then code.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
