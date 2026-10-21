@@ -30,6 +30,36 @@ chrome() {
     --no-first-run --no-default-browser-check --virtual-time-budget=8000 "$@" 2>/dev/null
 }
 
+# Keep the top <height> rows of a PNG. sips can't do this: it ignores
+# --cropOffset 0 0 and crops from the centre, and skips any other offset.
+# So go through an uncompressed BMP and drop the rows in Python (stdlib only).
+crop_top() {
+  local png="$1" height="$2" bmp
+  bmp="$(mktemp -t render).bmp"
+  sips -s format bmp "$png" --out "$bmp" >/dev/null
+  python3 -I - "$bmp" "$height" <<'PY'
+import struct, sys
+path, keep = sys.argv[1], int(sys.argv[2])
+data = bytearray(open(path, "rb").read())
+offset = struct.unpack_from("<I", data, 10)[0]
+width, rows = struct.unpack_from("<ii", data, 18)
+stride = (width * (struct.unpack_from("<H", data, 28)[0] // 8) + 3) // 4 * 4
+pixels = data[offset:offset + stride * abs(rows)]
+if rows > 0:  # bottom-up: the top rows sit at the end
+    pixels = pixels[len(pixels) - stride * keep:]
+    struct.pack_into("<i", data, 22, keep)
+else:
+    pixels = pixels[:stride * keep]
+    struct.pack_into("<i", data, 22, -keep)
+struct.pack_into("<I", data, 34, len(pixels))
+out = data[:offset] + pixels
+struct.pack_into("<I", out, 2, len(out))
+open(path, "wb").write(out)
+PY
+  sips -s format png "$bmp" --out "$png" >/dev/null
+  rm -f "$bmp"
+}
+
 for file in "$@"; do
   case "$file" in *.html) ;; *) echo "skip $file (not .html)"; continue ;; esac
   [ -f "$file" ] || { echo "missing $file" >&2; exit 1; }
@@ -56,35 +86,11 @@ for file in "$@"; do
       # leaves a blank strip at the bottom of the screenshot. Measure the gap,
       # grow the window by it, then crop back to the canvas from the top.
       seen="$(chrome --window-size="$w,$h" --dump-dom \
-        'data:text/html,<script>document.write("vh="+innerHeight)</script>' | grep -o 'vh=[0-9]*' | cut -d= -f2)"
+        'data:text/html,<script>document.write("vh="+innerHeight)</script>' | grep -o 'vh=[0-9][0-9]*' | head -1 | cut -d= -f2)"
       extra=$(( h - ${seen:-$h} ))
       chrome --window-size="$w,$(( h + extra ))" --screenshot="$out/$base.png" "$url"
       if [ "$extra" -gt 0 ]; then
-        # sips treats --cropOffset 0 0 as "centre", which shifts the canvas up
-        # by half the gap. Keep the top $h rows instead: PNG row filters only
-        # look at earlier rows, so cutting off the bottom is exact.
-        python3 -I - "$out/$base.png" "$h" <<'PY'
-import struct, sys, zlib
-path, keep = sys.argv[1], int(sys.argv[2])
-data = open(path, "rb").read()
-chunks, i = [], 8
-while i < len(data):
-    n = struct.unpack(">I", data[i:i + 4])[0]
-    chunks.append((data[i + 4:i + 8], data[i + 8:i + 8 + n]))
-    i += 12 + n
-ihdr = chunks[0][1]
-w, _, depth, ctype, _, _, interlace = struct.unpack(">IIBBBBB", ihdr)
-assert depth == 8 and interlace == 0, "unexpected PNG format"
-channels = {0: 1, 2: 3, 4: 2, 6: 4}[ctype]
-raw = zlib.decompress(b"".join(c for t, c in chunks if t == b"IDAT"))
-raw = raw[:keep * (1 + w * channels)]
-def chunk(t, c):
-    return struct.pack(">I", len(c)) + t + c + struct.pack(">I", zlib.crc32(t + c) & 0xFFFFFFFF)
-out = b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">II", w, keep) + ihdr[8:])
-out += b"".join(chunk(t, c) for t, c in chunks if t not in (b"IHDR", b"IDAT", b"IEND"))
-out += chunk(b"IDAT", zlib.compress(raw, 9)) + chunk(b"IEND", b"")
-open(path, "wb").write(out)
-PY
+        crop_top "$out/$base.png" "$h"
       fi
       echo "$file -> exports/$base.png ($size)"
       ;;
