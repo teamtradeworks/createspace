@@ -1,0 +1,109 @@
+/*
+ * Venn meme, Meta feed portrait (1080 x 1350).
+ * Deliberately off-system: the brief asks for a native, home-made meme look,
+ * so it uses DM Sans and black ink on off-white instead of Outfit on navy.
+ * Every position is in canvas pixels; the SVG and the labels share one grid.
+ */
+@font-face {
+  font-family: "DM Sans";
+  src: url("../../creative/kit/fonts/DMSans.ttf") format("truetype");
+  font-weight: 100 1000;
+  font-display: block;
+}
+
+:root {
+  --paper: #fbfaf6;
+  --ink: #111111;
+  --ink-soft: #5f5f5c;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background: var(--paper); }
+
+.canvas {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-optical-sizing: auto;
+}
+
+.headline {
+  position: absolute;
+  top: 64px;
+  left: 64px;
+  right: 64px;
+  font-size: 52px;
+  line-height: 1.12;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+}
+
+.venn {
+  position: absolute;
+  inset: 0;
+  width: 1080px;
+  height: 1350px;
+}
+
+.venn circle { stroke: var(--ink); stroke-width: 3; }
+.venn .set { fill-opacity: 0.3; }
+.venn .blue { fill: #3cc7f7; }
+.venn .yellow { fill: #ffd500; }
+.venn .green { fill: #93db21; }
+.venn .hub { fill: #ffffff; }
+
+.label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 36px;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.label--tl { left: 262px; top: 412px; width: 250px; }
+.label--tr { left: 818px; top: 412px; width: 250px; }
+.label--b { left: 540px; top: 902px; width: 330px; }
+
+/* The product sits in a white disc where all three sets meet. */
+.product {
+  position: absolute;
+  left: 540px;
+  top: 596px;
+  width: 270px;
+  transform: translate(-50%, -50%);
+}
+
+.product img { display: block; width: 100%; height: auto; }
+
+.caption {
+  position: absolute;
+  left: 64px;
+  right: 64px;
+  top: 1092px;
+}
+
+.caption h2 {
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.caption p {
+  margin-top: 4px;
+  font-size: 33px;
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+
+.wordmark {
+  position: absolute;
+  left: 64px;
+  bottom: 64px;
+  width: 320px;
+  height: auto;
+}
