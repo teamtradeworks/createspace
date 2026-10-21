@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--
+  Ad brief C3: "Pick 1, 2 or 3", Meta feed portrait (1080 x 1350).
+  Engagement objective: a one-number comment tells us which interest the
+  parent's child has, and we retarget each commenter with that product's
+  single-product ad. Navy ground, three full-width white rows, each led by a
+  yellow block holding the number to comment.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>Pick 1, 2 or 3</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    :root {
+      --margin: 64px;
+      --row-h: 262px;
+      --row-gap: 22px;
+      --slate: #4a5270;
+    }
+
+    .canvas {
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      font-family: var(--cs-font);
+    }
+
+    /* Soft glow behind the headline, the system's depth on navy */
+    .canvas::before {
+      content: "";
+      position: absolute;
+      top: -260px;
+      right: -220px;
+      width: 760px;
+      height: 760px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(60, 199, 247, 0.22), rgba(172, 77, 255, 0.10) 45%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .wordmark {
+      position: absolute;
+      top: 60px;
+      left: var(--margin);
+      height: 46px;
+      width: auto;
+    }
+
+    h1 {
+      position: absolute;
+      top: 150px;
+      left: var(--margin);
+      right: var(--margin);
+      margin: 0;
+      font-size: 88px;
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+      text-wrap: balance;
+    }
+
+    .prompt {
+      position: absolute;
+      top: 356px;
+      left: var(--margin);
+      margin: 0;
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .prompt b {
+      font-weight: 700;
+      color: var(--cs-yellow);
+    }
+
+    .picks {
+      position: absolute;
+      left: var(--margin);
+      right: var(--margin);
+      bottom: var(--margin);
+      display: grid;
+      gap: var(--row-gap);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .pick {
+      display: grid;
+      grid-template-columns: 196px 248px 1fr;
+      align-items: center;
+      height: var(--row-h);
+      overflow: hidden;
+      background: var(--cs-white);
+      border-radius: 16px;
+      color: var(--cs-navy);
+    }
+
+    .num {
+      display: grid;
+      place-items: center;
+      height: 100%;
+      background: var(--cs-yellow);
+      font-size: 200px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: lining-nums;
+      padding-bottom: 12px; /* optical centre: Outfit numerals sit high */
+    }
+
+    .pick img {
+      justify-self: center;
+      width: 228px;
+      height: 228px;
+      object-fit: contain;
+    }
+
+    .copy {
+      padding: 0 32px 0 12px;
+    }
+
+    .copy strong {
+      display: block;
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+    }
+
+    .copy span {
+      display: block;
+      margin-top: 12px;
+      font-size: 27px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--slate);
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+
+    <h1>Which one gets opened first in your house?</h1>
+    <p class="prompt">Comment <b>1</b>, <b>2</b> or <b>3</b>.</p>
+
+    <ol class="picks">
+      <li class="pick">
+        <div class="num" aria-hidden="true">1</div>
+        <img src="images/national-geographic-mega-bug-habitat-box.jpg" alt="National Geographic Mega Bug Habitat box">
+        <div class="copy">
+          <strong>The bug catcher</strong>
+          <span>Mega Bug Habitat, ages 4-12</span>
+        </div>
+      </li>
+      <li class="pick">
+        <div class="num" aria-hidden="true">2</div>
+        <img src="images/national-geographic-epic-circuits-box.jpg" alt="National Geographic Epic Circuits box">
+        <div class="copy">
+          <strong>The circuit builder</strong>
+          <span>Epic Circuits, ages 8-14</span>
+        </div>
+      </li>
+      <li class="pick">
+        <div class="num" aria-hidden="true">3</div>
+        <img src="images/national-geographic-light-up-air-rockets-box.jpg" alt="National Geographic Light-Up Air Rockets box">
+        <div class="copy">
+          <strong>The rocket launcher</strong>
+          <span>Light-Up Air Rockets, ages 6-12</span>
+        </div>
+      </li>
+    </ol>
+  </main>
+</body>
+</html>
