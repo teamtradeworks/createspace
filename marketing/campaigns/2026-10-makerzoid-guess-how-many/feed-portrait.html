@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+  Ad brief C2: "Guess how many", Meta feed portrait (1080 x 1350).
+  A comment prompt. Yellow ground and an ExtraBold headline are pinned by the
+  brief, deliberately louder than the usual navy/white system so it stops the
+  scroll. The box art prints "200+ IN 1", so a strip of tape (images/
+  masking-tape.png) hides it; reveal.html shows the tape peeled off.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>Guess how many</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    body { background: var(--cs-yellow); }
+
+    .canvas {
+      display: flex;
+      flex-direction: column;
+      padding: 72px;
+      background: var(--cs-yellow);
+      color: var(--cs-navy);
+    }
+
+    .wordmark {
+      display: block;
+      width: 300px;
+      height: auto;
+    }
+
+    h1 {
+      margin: 52px 0 0;
+      font-size: 104px;
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+      text-wrap: balance;
+    }
+
+    .sub {
+      margin: 26px 0 0;
+      font-size: 34px;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .stage {
+      position: relative;
+      flex: 1;
+      display: grid;
+      place-items: end center;
+      padding-bottom: 14px;
+    }
+
+    .card {
+      position: relative;
+      width: 730px;
+      padding: 32px;
+      background: var(--cs-white);
+      border-radius: 28px;
+      transform: rotate(-3deg);
+      box-shadow:
+        0 2px 4px rgba(12, 20, 70, 0.10),
+        0 28px 56px -18px rgba(12, 20, 70, 0.38);
+    }
+
+    .box {
+      position: relative;
+    }
+
+    .box img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* Masking tape over the "200+ IN 1" printed on the box. */
+    .tape {
+      position: absolute;
+      left: 46%;
+      top: 12.6%;
+      width: 24%;
+      padding: 10px 0 11px;
+      background: url("images/masking-tape.png") center / 100% 100% no-repeat;
+      transform: rotate(-3deg);
+      filter: drop-shadow(0 2px 3px rgba(60, 48, 20, 0.28));
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.01em;
+      text-align: center;
+      white-space: nowrap;
+      color: var(--cs-navy);
+    }
+
+    .badge {
+      position: absolute;
+      top: -60px;
+      right: -82px;
+      display: grid;
+      place-items: center;
+      width: 214px;
+      height: 214px;
+      border-radius: 50%;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      transform: rotate(13deg); /* 10deg on the page, after the card's -3deg */
+      box-shadow: 0 18px 36px -14px rgba(12, 20, 70, 0.55);
+      font-size: 164px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .badge span { transform: translateY(-4px); }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 32px;
+      padding-top: 26px;
+      border-top: 3px solid var(--cs-navy);
+      font-size: 30px;
+      line-height: 1.2;
+    }
+
+    .foot .name { font-weight: 600; }
+    .foot .hint { font-weight: 500; }
+    .foot .hint b { font-weight: 800; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
+
+    <h1>How many robots are in this box?</h1>
+    <p class="sub">Guess in the comments. We reveal the answer on Friday.</p>
+
+    <div class="stage">
+      <figure class="card">
+        <div class="box">
+          <img src="images/makerzoid-robot-master-premium-box.jpg" alt="Makerzoid Robot Master Premium box">
+          <i class="tape">No peeking!</i>
+        </div>
+        <div class="badge" aria-hidden="true"><span>?</span></div>
+      </figure>
+    </div>
+
+    <footer class="foot">
+      <span class="name">Makerzoid Robot Master Premium</span>
+      <span class="hint"><b>Hint:</b> it’s not 10.</span>
+    </footer>
+  </main>
+</body>
+</html>

@@ -28,6 +28,12 @@
   font-weight: 700;
   font-display: block;
 }
+@font-face {
+  font-family: "Outfit";
+  src: url("fonts/Outfit-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-display: block;
+}
 
 :root {
   --cs-navy: #0c1446;
