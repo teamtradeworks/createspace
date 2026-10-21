@@ -42,6 +42,7 @@ CREATESPACE appears only in the stuck-on photo of the box (white card, tilted -4
 | File | Canvas | Notes |
 |---|---|---|
 | `feed-portrait` | meta-portrait | Box shot reused from `2026-10-venn-meme/images/` (Shopify product image, trimmed) |
+| `story` | meta-story | Same note, held inside the 270px top and bottom safe zones; photo slightly larger |
 
 The price and age are left off the image to keep it looking like a real note. Put them in the primary text.
 
@@ -62,3 +63,5 @@ Suggested, not yet reviewed:
 ## Landing URL
 
 `https://www.thecreatespace.co.za/product/makerzoid-robot-master-premium?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-notes-checklist&utm_content=feed-portrait`
+
+For the story, use `utm_content=story`.
