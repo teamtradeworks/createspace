@@ -30,6 +30,36 @@ chrome() {
     --no-first-run --no-default-browser-check --virtual-time-budget=8000 "$@" 2>/dev/null
 }
 
+# Keep the top <height> rows of a PNG. sips can't do this: it ignores
+# --cropOffset 0 0 and crops from the centre, and skips any other offset.
+# So go through an uncompressed BMP and drop the rows in Python (stdlib only).
+crop_top() {
+  local png="$1" height="$2" bmp
+  bmp="$(mktemp -t render).bmp"
+  sips -s format bmp "$png" --out "$bmp" >/dev/null
+  python3 -I - "$bmp" "$height" <<'PY'
+import struct, sys
+path, keep = sys.argv[1], int(sys.argv[2])
+data = bytearray(open(path, "rb").read())
+offset = struct.unpack_from("<I", data, 10)[0]
+width, rows = struct.unpack_from("<ii", data, 18)
+stride = (width * (struct.unpack_from("<H", data, 28)[0] // 8) + 3) // 4 * 4
+pixels = data[offset:offset + stride * abs(rows)]
+if rows > 0:  # bottom-up: the top rows sit at the end
+    pixels = pixels[len(pixels) - stride * keep:]
+    struct.pack_into("<i", data, 22, keep)
+else:
+    pixels = pixels[:stride * keep]
+    struct.pack_into("<i", data, 22, -keep)
+struct.pack_into("<I", data, 34, len(pixels))
+out = data[:offset] + pixels
+struct.pack_into("<I", out, 2, len(out))
+open(path, "wb").write(out)
+PY
+  sips -s format png "$bmp" --out "$png" >/dev/null
+  rm -f "$bmp"
+}
+
 for file in "$@"; do
   case "$file" in *.html) ;; *) echo "skip $file (not .html)"; continue ;; esac
   [ -f "$file" ] || { echo "missing $file" >&2; exit 1; }
@@ -56,11 +86,11 @@ for file in "$@"; do
       # leaves a blank strip at the bottom of the screenshot. Measure the gap,
       # grow the window by it, then crop back to the canvas from the top.
       seen="$(chrome --window-size="$w,$h" --dump-dom \
-        'data:text/html,<script>document.write("vh="+innerHeight)</script>' | grep -o 'vh=[0-9]*' | cut -d= -f2)"
+        'data:text/html,<script>document.write("vh="+innerHeight)</script>' | grep -o 'vh=[0-9][0-9]*' | head -1 | cut -d= -f2)"
       extra=$(( h - ${seen:-$h} ))
       chrome --window-size="$w,$(( h + extra ))" --screenshot="$out/$base.png" "$url"
       if [ "$extra" -gt 0 ]; then
-        sips --cropToHeightWidth "$h" "$w" --cropOffset 0 0 "$out/$base.png" >/dev/null
+        crop_top "$out/$base.png" "$h"
       fi
       echo "$file -> exports/$base.png ($size)"
       ;;
