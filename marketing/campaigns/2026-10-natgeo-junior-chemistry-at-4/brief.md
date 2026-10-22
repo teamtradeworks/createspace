@@ -37,7 +37,7 @@ At 4 a child can do real experiments: measure, pour, mix and watch what happens,
 
 `age-series.css` is copied unchanged from A1 (`2026-10-tale-bot-coding-at-3`). This ad sets `--accent` to orange, plus its copy, photo and product. Series label "Ages 4-8", top right, in the accent, matching the kit and the first pill (as A4 and A5 do).
 
-The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over unchanged from A4 (`2026-10-natgeo-epic-circuits-at-8`), in the ad's own `<style>`.| NATIONAL GEOGRAPHIC" is carried over from A4 (`2026-10-natgeo-epic-circuits-at-8`), in the ad's own `<style>`. "Early explorers 3-5" is the longest label in the series, so the lockup is a step smaller than in A4 (wordmark 34px instead of 38px, partner name 20px instead of 22px) and the label is 24px instead of 26px. Without that the label wraps into the lockup.
+The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over unchanged from A4 (`2026-10-natgeo-epic-circuits-at-8`), in the ad's own `<style>`.
 
 ## Assets
 
