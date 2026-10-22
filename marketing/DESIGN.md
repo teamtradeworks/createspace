@@ -210,7 +210,9 @@ A deep navy and white pairing carries the brand, with seven toy-bright accents f
 - **Print Hairline** (#E4E7F0): The navy-tinted rule and card border colour in the company profile.
 
 ### Named Rules
-**The Navy-or-White Ground Rule.** Every canvas grounds on Deep Space Navy or Clean White. Accent colours fill small shapes (buttons, badges, tiles, glows), never the whole canvas. The one sanctioned exception is the promo band's slow blue-to-purple gradient strip, which is a thin band, not a ground.
+**The Navy-or-White Ground Rule.** Every canvas grounds on Deep Space Navy or Clean White. Accent colours fill small shapes (buttons, badges, tiles, glows), never the whole canvas. The one sanctioned accent exception is the promo band's slow blue-to-purple gradient strip, which is a thin band, not a ground.
+
+**The Native-Screenshot Exception Rule.** An ad built to read as a parent's own phone screenshot (a messaging thread, a notes list, a search panel, a home-made meme) may set aside the Navy-or-White ground and the Outfit type rules inside that screen: a generic app look modelled on no real app, a white, near-white or light grey ground, DM Sans (`creative/kit/fonts/DMSans.ttf`) at the weights the native look needs, and no CTA on the image. CREATESPACE appears as the small navy wordmark (`logo-on-white.png`); anything branded beyond it, such as the VinciBot answer card, returns fully to Outfit and the system palette. Each campaign records the exception and its one-off palette in its brief.md; those palettes are not system colours.
 
 **The Orange Means Go Rule.** Launch Orange is the only fill for a primary call to action, on navy and on white alike. Secondary actions are outlined ghosts in navy or white, never a second accent colour.
 
