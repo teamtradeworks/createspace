@@ -42,6 +42,7 @@ The CTA is a **red** pill because the brief asks for it. That breaks DESIGN.md's
 | File | Canvas | Notes |
 |---|---|---|
 | `feed-portrait` | meta-portrait | Product shot is Shopify image `MS0201500088-1.png`, saved as `images/vincibot-coding-robot-set.jpg` |
+| `feed-story` | meta-story | Same layout as `feed-portrait`, centred inside the 270px top and bottom safe zones |
 
 The price is left off the image to keep the text light. Put it in the primary text.
 
