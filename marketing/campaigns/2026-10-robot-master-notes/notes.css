@@ -1,4 +1,4 @@
-/* Robot Master notes checklist, generic notes-app look. */
+/* Robot Master notes checklist, generic notes-app look. Shared by feed-portrait.html and story.html. */
 
 @font-face {
   font-family: "DM Sans";
@@ -153,3 +153,16 @@ html, body { margin: 0; overflow: hidden; background: var(--paper); }
   width: 210px;
   height: auto;
 }
+
+/* Story: keep text and the wordmark out of Meta's top and bottom 270px */
+[data-canvas="meta-story"] .bar { top: 300px; }
+[data-canvas="meta-story"] .note { top: 412px; }
+[data-canvas="meta-story"] .list li { margin-bottom: 40px; }
+[data-canvas="meta-story"] .snap {
+  right: 72px;
+  bottom: 318px;
+  width: 500px;
+}
+[data-canvas="meta-story"] .snap img { width: 460px; height: 400px; }
+[data-canvas="meta-story"] .snap figcaption { font-size: 26px; }
+[data-canvas="meta-story"] .wordmark { bottom: 330px; }

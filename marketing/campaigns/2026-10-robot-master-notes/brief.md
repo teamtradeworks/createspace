@@ -36,6 +36,7 @@ The four ticked builds (robot dog, crane, walking dinosaur, coded car) are illus
 | File | Canvas | Channel | Landing URL (with UTMs) | Link checked |
 |---|---|---|---|---|
 | `feed-portrait.html` | `meta-portrait` | Meta feed | `https://www.thecreatespace.co.za/product/makerzoid-robot-master-premium?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-robot-master-notes&utm_content=feed-portrait` | 200 OK 2026-10-21 |
+| `story.html` | `meta-story` | Meta stories | `https://www.thecreatespace.co.za/product/makerzoid-robot-master-premium?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-robot-master-notes&utm_content=story` | 200 OK 2026-10-22 |
 
 ## Imagery
 
@@ -50,6 +51,7 @@ The four ticked builds (robot dog, crane, walking dinosaur, coded car) are illus
 - Mustard `#D9A21B` for the back label and the filled round ticks. Done items are struck through in grey; the open item is near-black.
 - The product sits on a white card tilted -4 degrees with a soft shadow, like a photo stuck onto the note. A tape strip was tried and dropped: in CSS it read as a highlighter box.
 - The only brand mark is the small CREATESPACE wordmark at the bottom left. No CTA button on the image; Meta's button does that job.
+- **Story** (`story.html`) shares `notes.css` with the feed version. The note starts below Meta's top 270px, the photo card is a little larger, and the card and wordmark sit above the bottom 270px.
 
 ## Ad copy (Meta)
 
