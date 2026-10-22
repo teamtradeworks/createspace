@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<!--
+  Ad brief N3: search bar with autocomplete, Meta story (1080 x 1920).
+  Same layout as feed-portrait, centred in the 270px top and bottom safe zones.
+  The search panel is deliberately generic (DM Sans, grey ground, no engine
+  branding) so it reads as the parent's own phone. The answer card switches
+  to CREATESPACE's Outfit on navy: the question is theirs, the answer is ours.
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>VinciBot search autocomplete story</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    @font-face {
+      font-family: "DM Sans";
+      src: url("../../creative/kit/fonts/DMSans.ttf") format("truetype");
+      font-weight: 100 1000;
+      font-display: block;
+    }
+
+    :root {
+      --ground: #f3f4f7;
+      --ink: #15171c;
+      --ink-soft: #6b6f78;
+      --rule: #e6e8ee;
+      --ui: "DM Sans", sans-serif;
+    }
+
+    body { background: var(--ground); }
+
+    .canvas {
+      background: var(--ground);
+      color: var(--ink);
+      font-family: var(--ui);
+      font-optical-sizing: auto;
+    }
+
+    /* Search panel: input and suggestions share one white sheet, as on a phone. */
+    .search {
+      position: absolute;
+      top: 328px;
+      left: 64px;
+      right: 64px;
+      background: #fff;
+      border-radius: 24px;
+      box-shadow:
+        0 1px 2px rgba(12, 20, 70, 0.06),
+        0 14px 40px -8px rgba(12, 20, 70, 0.16);
+      overflow: hidden;
+    }
+
+    .query {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      height: 124px;
+      padding: 0 36px 0 38px;
+    }
+
+    .icon { flex: none; color: var(--ink-soft); }
+
+    .typed {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
+      font-size: 38px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .caret {
+      flex: none;
+      width: 3px;
+      height: 48px;
+      margin-left: 3px;
+      border-radius: 2px;
+      background: var(--ink);
+    }
+
+    .suggestions {
+      list-style: none;
+      border-top: 2px solid var(--rule);
+      padding: 14px 0 18px;
+    }
+
+    .suggestions li {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      height: 82px;
+      padding: 0 38px 0 42px;
+      font-size: 34px;
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+    }
+
+    .suggestions .icon { color: #a3a7b0; }
+    .suggestions .stem { color: var(--ink-soft); font-weight: 400; }
+    .suggestions b { color: #000; font-weight: 700; }
+
+    /* The answer. */
+    .result {
+      position: absolute;
+      top: 812px;
+      left: 64px;
+      right: 64px;
+      bottom: 428px;
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 40px;
+      align-items: center;
+      padding: 44px 44px 44px 44px;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      border-radius: 24px;
+      font-family: var(--cs-font);
+      overflow: hidden;
+    }
+
+    /* Soft blue and purple light behind the product, per the glow rule. */
+    .result::before {
+      content: "";
+      position: absolute;
+      left: -120px;
+      top: -80px;
+      width: 640px;
+      height: 640px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(60, 199, 247, 0.22), rgba(172, 77, 255, 0.10) 45%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .shot {
+      position: relative;
+      aspect-ratio: 1;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .shot img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform: scale(1.04);
+    }
+
+    .answer { position: relative; }
+
+    .answer .brand {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--cs-blue);
+    }
+
+    .answer h1 {
+      margin-top: 18px;
+      font-size: 70px;
+      font-weight: 600;
+      line-height: 1.04;
+      letter-spacing: -0.025em;
+    }
+
+    .answer h1 em { font-style: normal; color: var(--cs-yellow); }
+
+    .answer p {
+      margin-top: 22px;
+      font-size: 29px;
+      line-height: 1.36;
+      color: rgba(255, 255, 255, 0.82);
+      text-wrap: pretty;
+    }
+
+    .buy {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      margin-top: 36px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      height: 84px;
+      padding: 0 40px;
+      border-radius: 999px;
+      background: var(--cs-red);
+      color: #fff;
+      font-size: 31px;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 6px 16px -6px rgba(0, 0, 0, 0.45);
+    }
+
+    .foot {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 328px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .foot img { display: block; width: 300px; height: auto; }
+
+    .foot span {
+      font-family: var(--cs-font);
+      font-size: 29px;
+      font-weight: 500;
+      color: var(--cs-navy);
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <section class="search" aria-label="Search">
+      <div class="query">
+        <svg class="icon" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/>
+        </svg>
+        <div class="typed">toys that build problem solving at 8<span class="caret"></span></div>
+        <svg class="icon" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18"/>
+        </svg>
+      </div>
+      <ul class="suggestions">
+        <li>
+          <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg>
+          <span><span class="stem">…at 8 </span><b>without a tablet</b></span>
+        </li>
+        <li>
+          <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg>
+          <span><span class="stem">…at 8 </span><b>that they won't get bored of</b></span>
+        </li>
+        <li>
+          <svg class="icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 20 20"/></svg>
+          <span><span class="stem">…at 8 </span><b>south africa</b></span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="result">
+      <div class="shot"><img src="images/vincibot-coding-robot-set.jpg" alt="MatataStudio VinciBot Coding Robot Set with remote and challenge booklet"></div>
+      <div class="answer">
+        <p class="brand">MATATASTUDIO VINCIBOT</p>
+        <h1>Found it.<br>Ages <em>8-12</em>.</h1>
+        <p>75 activity cards and 18 challenges. They plan the route, test it, fix it, try again.</p>
+        <div class="buy">
+          <span class="cta">Shop VinciBot</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <img src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
+      <span>thecreatespace.co.za</span>
+    </footer>
+  </main>
+</body>
+</html>
