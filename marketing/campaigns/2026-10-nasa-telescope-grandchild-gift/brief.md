@@ -35,6 +35,7 @@ A real telescope is the gift for the grandchild who asks about everything, and i
 | File | Canvas | Channel | Landing URL (with UTMs) | Link checked |
 |---|---|---|---|---|
 | `feed-portrait.html` | `meta-portrait` | Meta feed | `https://www.thecreatespace.co.za/product/nasa-lunar-telescope?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-nasa-telescope-grandchild-gift&utm_content=feed-portrait` | 200 OK 2026-10-22 |
+| `story.html` | `meta-story` | Meta stories | `https://www.thecreatespace.co.za/product/nasa-lunar-telescope?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-nasa-telescope-grandchild-gift&utm_content=story` | 200 OK 2026-10-22 |
 
 ## Imagery
 
@@ -50,10 +51,11 @@ A real telescope is the gift for the grandchild who asks about everything, and i
 - Left column holds the body and three green tick marks; the telescope sits on a 530px white circle on the right with a soft shadow.
 - Footer under a hairline: product name, price and domain, red "Shop gifts" pill.
 - Money is written `R 1,150` (house format, with the space).
+- **Story** (`story.html`) shares `grandchild-gift.css` with the feed. Content sits inside Meta's top and bottom 270px safe zones (290px padding). With the extra height, the body gets its own full-width row on two lines above the ticks and circle.
 
 ## NASA licensor review
 
-**Required before launch.** The ad says "Officially licensed NASA" and the product photo shows the NASA insignia on the telescope tube. NASA's brand guidelines restrict use of the insignia and the NASA name in advertising, and licensed-product ads normally go through the licensee (Blue Marble) for approval. Send the rendered PNG and the ad copy below to Blue Marble / the NASA licensing contact and record the outcome here before upload.
+**Required before launch.** The ads say "Officially licensed NASA" and the product photo shows the NASA insignia on the telescope tube. NASA's brand guidelines restrict use of the insignia and the NASA name in advertising, and licensed-product ads normally go through the licensee (Blue Marble) for approval. Send the rendered PNGs and the ad copy below to Blue Marble / the NASA licensing contact and record the outcome here before upload.
 
 - [ ] Sent for review (date, to whom)
 - [ ] Approved, or changes requested
