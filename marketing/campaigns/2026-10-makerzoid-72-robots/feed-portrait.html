@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<!--
+  Ad brief G3: "This one has 72 robots in it." Meta feed portrait (1080 x 1350).
+  Gifting and durability. The struck-through line names the gift that gets
+  put away; the headline answers it with the 72 builds. Layout pinned by the
+  brief: white ground, navy type, product on a pale blue card bleeding off the
+  right edge, red CTA pill.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>This one has 72 robots in it</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    :root {
+      --margin: 72px;
+      --card: #eef8fd;
+      /* Navy-tinted grey: reads as "past it" but still clears 3:1 at 36px */
+      --struck-ink: #858aa3;
+      --body-ink: #3d4466;
+    }
+
+    .canvas {
+      display: flex;
+      flex-direction: column;
+      padding: var(--margin);
+      background: var(--cs-white);
+      color: var(--cs-navy);
+      font-family: var(--cs-font);
+      overflow: hidden;
+    }
+
+    .wordmark {
+      display: block;
+      height: 44px;
+      width: auto;
+      align-self: flex-start;
+    }
+
+    .struck {
+      margin: 56px 0 0;
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.3;
+      color: var(--struck-ink);
+    }
+
+    .struck span {
+      display: block;
+      width: fit-content;
+      text-decoration: line-through;
+      text-decoration-color: var(--cs-red);
+      text-decoration-thickness: 6px;
+      text-decoration-skip-ink: none;
+    }
+
+    h1 {
+      margin: 28px 0 0;
+      font-size: 100px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    h1 > span {
+      display: block;
+    }
+
+    /* Highlighter band: sits on the lower two thirds of the numerals, a little
+       wider than the glyphs, slightly askew like a pen stroke */
+    .marker {
+      position: relative;
+      z-index: 0;
+      font-weight: 700;
+    }
+
+    .marker::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: -4px;
+      right: -14px;
+      top: 0.4em;
+      bottom: 0.04em;
+      background: var(--cs-yellow);
+      border-radius: 6px 10px 8px 4px;
+      transform: rotate(-1.5deg);
+    }
+
+    .body {
+      max-width: 820px;
+      margin: 32px 0 0;
+      font-size: 32px;
+      font-weight: 400;
+      line-height: 1.35;
+      color: var(--body-ink);
+      text-wrap: pretty;
+    }
+
+    /* Pale blue card: starts at the left margin, bleeds off the right edge */
+    .card {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      margin: 40px calc(-1 * var(--margin)) 0 0;
+      background: var(--card);
+      border-radius: 28px 0 0 28px;
+    }
+
+    .card img {
+      position: absolute;
+      inset: 14px 40px 10px 32px;
+      width: calc(100% - 72px);
+      height: calc(100% - 24px);
+      object-fit: contain;
+      object-position: center;
+      /* The product shot is on white; multiply lets the card colour through */
+      mix-blend-mode: multiply;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .product {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+
+    .price {
+      margin: 8px 0 0;
+      font-size: 26px;
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--body-ink);
+    }
+
+    .price b {
+      font-weight: 700;
+      color: var(--cs-navy);
+    }
+
+    .cta {
+      flex: none;
+      padding: 22px 46px 24px;
+      border-radius: 9999px;
+      background: var(--cs-red);
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1;
+      color: var(--cs-white);
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
+
+    <p class="struck">
+      <span>Opened on Christmas morning.</span>
+      <span>In the cupboard by Boxing Day.</span>
+    </p>
+
+    <h1>
+      <span>This one has <span class="marker">72</span></span>
+      <span>robots in it.</span>
+    </h1>
+
+    <p class="body">Build one, take it apart, build the next.<br>300 pieces, no screen needed.</p>
+
+    <div class="card">
+      <img src="images/makerzoid-smart-robot-box-and-builds.jpg" alt="Makerzoid Smart Robot box with a built robot drummer and eleven other robot builds around it">
+    </div>
+
+    <div class="footer">
+      <div>
+        <p class="product">Makerzoid Smart Robot, ages 6+</p>
+        <p class="price"><b>R 980</b> | thecreatespace.co.za</p>
+      </div>
+      <span class="cta">Shop gifts</span>
+    </div>
+  </main>
+</body>
+</html>
