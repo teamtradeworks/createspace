@@ -1,8 +1,8 @@
-# National Geographic Junior Chemistry Lab: Lab coat on at 4
+# National Geographic Junior Chemistry Lab: Lab coat on at 5
 
 ## Summary
 
-- **Campaign slug:** `2026-10-natgeo-junior-chemistry-at-4` (also the `utm_campaign` value)
+- **Campaign slug:** `2026-10-natgeo-junior-chemistry-at-5` (also the `utm_campaign` value)
 - **Type:** Category or age (ad brief A6 of the age and skill series, A1-A6)
 - **Audience:** Parents
 - **Persona:** Parents of 4 to 8 year olds who want a first, safe taste of real science at home (`assets/brand/brand-strategy.md`)
@@ -12,7 +12,7 @@
 
 ## The one thing
 
-At 4 a child can do real experiments: measure, pour, mix and watch what happens, then ask why.
+At 5 a child can do real experiments: measure, pour, mix and watch what happens, then ask why.
 
 ## Subject
 
@@ -43,8 +43,8 @@ The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over unchange
 
 | File | Canvas | Channel | Destination | Link checked |
 |---|---|---|---|---|
-| `feed-portrait.html` | `meta-portrait` | Meta feed | `https://www.thecreatespace.co.za/product/national-geographic-junior-chemistry-lab-kit?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-natgeo-junior-chemistry-at-4&utm_content=feed-portrait` | Yes, 200 (2026-10-22) |
-| `story.html` | `meta-story` | Meta stories | `https://www.thecreatespace.co.za/product/national-geographic-junior-chemistry-lab-kit?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-natgeo-junior-chemistry-at-4&utm_content=story` | Yes, 200 (2026-10-22) |
+| `feed-portrait.html` | `meta-portrait` | Meta feed | `https://www.thecreatespace.co.za/product/national-geographic-junior-chemistry-lab-kit?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-natgeo-junior-chemistry-at-5&utm_content=feed-portrait` | Yes, 200 (2026-10-22) |
+| `story.html` | `meta-story` | Meta stories | `https://www.thecreatespace.co.za/product/national-geographic-junior-chemistry-lab-kit?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-natgeo-junior-chemistry-at-5&utm_content=story` | Yes, 200 (2026-10-22) |
 
 ## Imagery
 
@@ -54,12 +54,13 @@ The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over unchange
 
 ## Ad copy (Meta)
 
-- **Primary text:** Lab coat on at 4. 25 experiments sized for little hands: measure, pour, mix and watch what happens. Beakers, flasks, droppers and goggles in a 20+ piece set. Ages 4-8, R 570. Questions guaranteed.
-- **Headline:** Lab coat on at 4.
+- **Primary text:** Lab coat on at 5. 25 experiments sized for little hands: measure, pour, mix and watch what happens. Beakers, flasks, droppers and goggles in a 20+ piece set. Ages 4-8, R 570. Questions guaranteed.
+- **Headline:** Lab coat on at 5.
 - **Button:** Shop now
 
 ## Notes
 
+- The brief gave the headline as "Lab coat on at 4." Changed to "at 5" on 2026-10-22; 5 sits inside the kit's 4-8 range.
 - The brief gave the series label as "Early explorers 3-5" (the A1 band). Changed to "Ages 4-8" on 2026-10-22 so it matches the kit.
 - The brief wrote the price as "R570". The image uses "R 570" to follow the house money format, as A1-A5 did.
 - The CTA stays red, as the series asks.
