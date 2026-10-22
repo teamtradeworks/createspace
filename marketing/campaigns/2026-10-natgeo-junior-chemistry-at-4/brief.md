@@ -35,9 +35,9 @@ At 4 a child can do real experiments: measure, pour, mix and watch what happens,
 
 ## Series layout (A1-A6)
 
-`age-series.css` is copied unchanged from A1 (`2026-10-tale-bot-coding-at-3`). This ad sets `--accent` to orange, plus its copy, photo and product. Series label "Early explorers 3-5", top right, in the accent, as the brief gave it.
+`age-series.css` is copied unchanged from A1 (`2026-10-tale-bot-coding-at-3`). This ad sets `--accent` to orange, plus its copy, photo and product. Series label "Ages 4-8", top right, in the accent, matching the kit and the first pill (as A4 and A5 do).
 
-The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over from A4 (`2026-10-natgeo-epic-circuits-at-8`), in the ad's own `<style>`. "Early explorers 3-5" is the longest label in the series, so the lockup is a step smaller than in A4 (wordmark 34px instead of 38px, partner name 20px instead of 22px) and the label is 24px instead of 26px. Without that the label wraps into the lockup.
+The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over unchanged from A4 (`2026-10-natgeo-epic-circuits-at-8`), in the ad's own `<style>`.| NATIONAL GEOGRAPHIC" is carried over from A4 (`2026-10-natgeo-epic-circuits-at-8`), in the ad's own `<style>`. "Early explorers 3-5" is the longest label in the series, so the lockup is a step smaller than in A4 (wordmark 34px instead of 38px, partner name 20px instead of 22px) and the label is 24px instead of 26px. Without that the label wraps into the lockup.
 
 ## Assets
 
@@ -60,6 +60,7 @@ The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over from A4 
 
 ## Notes
 
+- The brief gave the series label as "Early explorers 3-5" (the A1 band). Changed to "Ages 4-8" on 2026-10-22 so it matches the kit.
 - The brief wrote the price as "R570". The image uses "R 570" to follow the house money format, as A1-A5 did.
 - The CTA stays red, as the series asks.
 - Orange is also A2's accent (VinciBot). The two won't sit side by side in a carousel unless we choose to.
@@ -75,5 +76,4 @@ The co-brand lockup "CREATESPACE | NATIONAL GEOGRAPHIC" is carried over from A4 
 
 ## Open questions
 
-- **Series label vs ages.** The label reads "Early explorers 3-5" (as briefed, same band as A1) while the kit and the pill say 4-8. A 3-5 label on a 4-8 kit may read as a contradiction. A3 used "Junior Innovators 6-8"; consider "Ages 4-8" as A4 and A5 did.
 - Recheck the R 570 price in Shopify on upload day.
