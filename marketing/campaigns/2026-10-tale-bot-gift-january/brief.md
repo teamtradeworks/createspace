@@ -37,12 +37,14 @@ Most gifts are forgotten by New Year. Tale-Bot Pro is coded with the buttons on 
 - Lower left: kraft gift tag (`#D8B98A`), chamfered top corners, punched hole with a reinforcement ring and a twine loop, tilted -6 degrees with a soft shadow. Handwritten note in Caveat SemiBold, dark brown (`#4A2C17`), with the "0" circled in the same marker.
 - Lower right: product photo on a white card bleeding off the right edge, the tag overlapping its left edge.
 - Footer: product name and ages, price and delivery line, red "Shop gifts" pill.
+- Story: the same stack, padded 290px at the top and bottom to clear Meta's UI, with a taller card. The shared layout is `gift-tag.css`; each canvas only moves the card, tag and footer.
 
 ## Assets
 
 | File | Canvas | Channel | Destination | Link checked |
 |---|---|---|---|---|
 | `feed-portrait.html` | `meta-portrait` | Meta feed | `https://www.thecreatespace.co.za/product/matatastudio-tale-bot-pro?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-tale-bot-gift-january&utm_content=feed-portrait` | No |
+| `story.html` | `meta-story` | Meta stories | `https://www.thecreatespace.co.za/product/matatastudio-tale-bot-pro?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-tale-bot-gift-january&utm_content=story` | No |
 
 ## Imagery
 
