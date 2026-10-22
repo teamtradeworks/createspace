@@ -37,6 +37,9 @@ Most Christmas toys are done by Boxing Day. The Makerzoid Smart Robot is 72 diff
 | File | Canvas | Channel | Destination | Link checked |
 |---|---|---|---|---|
 | `feed-portrait.html` | `meta-portrait` | Meta feed | `https://www.thecreatespace.co.za/product/makerzoid-smart-robot?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-makerzoid-72-robots&utm_content=feed-portrait` | 2026-10-22 |
+| `story.html` | `meta-story` | Meta stories | `https://www.thecreatespace.co.za/product/makerzoid-smart-robot?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-makerzoid-72-robots&utm_content=story` | 2026-10-22 |
+
+Both share `g3-ad.css`. The story keeps the same stack with 290px top and bottom padding (Meta's 270px story safe zones), so the product card grows to fill the extra height.
 
 ## Imagery
 
