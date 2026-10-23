@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-ZA" data-canvas="display-mrec">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE Parenting Hub MREC: no arrow</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    /* Follows the earlier clean CREATESPACE MRECs (photo left, copy right), on Deep Space Navy instead of white */
+    .canvas {
+      background: var(--cs-navy);
+      color: var(--cs-white);
+    }
+
+    .canvas::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid var(--cs-navy);
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 176px;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    /* Wavy seam where the photo meets the blue panel */
+    .wave {
+      position: absolute;
+      top: 0;
+      left: 158px;
+      width: 24px;
+      height: 250px;
+    }
+
+    /* The cell from her screen, popped out under a magnifier */
+    .zoom {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--cs-white);
+      box-shadow: 0 6px 14px rgba(12, 20, 70, 0.3);
+      z-index: 3;
+    }
+    .zoom img { width: 100%; height: 100%; object-fit: cover; }
+    .handle {
+      position: absolute;
+      left: 60px;
+      top: 56px;
+      width: 9px;
+      height: 26px;
+      background: var(--cs-navy);
+      border-radius: 5px;
+      transform: rotate(-42deg);
+      transform-origin: top center;
+      z-index: 2;
+    }
+
+    .atom {
+      position: absolute;
+      right: -14px;
+      top: 50px;
+      width: 46px;
+      transform: rotate(14deg);
+      opacity: 0.9;
+    }
+
+    .copy {
+      position: absolute;
+      left: 190px;
+      right: 14px;
+      top: 14px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo { width: 86px; height: auto; align-self: flex-start; }
+
+    h1 {
+      margin: 8px 0 0;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1;
+      letter-spacing: -0.025em;
+    }
+    /* "Play." on a tilted Sky Circuit Blue marker, echoing the blue "Play." of the earlier banners */
+    h1 em {
+      display: inline-block;
+      margin: 2px 0 1px -5px;
+      padding: 0 5px 2px;
+      font-style: normal;
+      background: var(--cs-blue);
+      color: var(--cs-navy);
+      border-radius: 6px;
+      transform: rotate(-3deg);
+    }
+
+    .sub {
+      margin: 8px 0 10px;
+      font-size: 12.5px;
+      font-weight: 400;
+      line-height: 1.28;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .cta {
+      margin-top: auto;
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 16px;
+      background: var(--cs-orange);
+      color: var(--cs-navy);
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="photo" src="images/girl-microscope.jpg" alt="A young girl pointing at the screen of a digital microscope showing a plant cell">
+    <svg class="wave" viewBox="0 0 24 250" preserveAspectRatio="none" shape-rendering="geometricPrecision" aria-hidden="true">
+      <path fill="#0C1446" d="M24 0 L10.00 0 L10.45 1 L10.90 2 L11.35 3 L11.78 4 L12.21 5 L12.62 6 L13.02 7 L13.40 8 L13.77 9 L14.11 10 L14.43 11 L14.72 12 L14.98 13 L15.22 14 L15.43 15 L15.61 16 L15.75 17 L15.86 18 L15.94 19 L15.99 20 L16.00 21 L15.98 22 L15.92 23 L15.83 24 L15.71 25 L15.55 26 L15.36 27 L15.15 28 L14.90 29 L14.62 30 L14.32 31 L14.00 32 L13.65 33 L13.28 34 L12.89 35 L12.49 36 L12.07 37 L11.64 38 L11.20 39 L10.75 40 L10.30 41 L9.85 42 L9.40 43 L8.95 44 L8.51 45 L8.07 46 L7.65 47 L7.24 48 L6.85 49 L6.47 50 L6.12 51 L5.78 52 L5.47 53 L5.19 54 L4.93 55 L4.71 56 L4.51 57 L4.34 58 L4.21 59 L4.11 60 L4.04 61 L4.00 62 L4.00 63 L4.04 64 L4.11 65 L4.21 66 L4.34 67 L4.51 68 L4.71 69 L4.93 70 L5.19 71 L5.47 72 L5.78 73 L6.12 74 L6.47 75 L6.85 76 L7.24 77 L7.65 78 L8.07 79 L8.51 80 L8.95 81 L9.40 82 L9.85 83 L10.30 84 L10.75 85 L11.20 86 L11.64 87 L12.07 88 L12.49 89 L12.89 90 L13.28 91 L13.65 92 L14.00 93 L14.32 94 L14.62 95 L14.90 96 L15.15 97 L15.36 98 L15.55 99 L15.71 100 L15.83 101 L15.92 102 L15.98 103 L16.00 104 L15.99 105 L15.94 106 L15.86 107 L15.75 108 L15.61 109 L15.43 110 L15.22 111 L14.98 112 L14.72 113 L14.43 114 L14.11 115 L13.77 116 L13.40 117 L13.02 118 L12.62 119 L12.21 120 L11.78 121 L11.35 122 L10.90 123 L10.45 124 L10.00 125 L9.55 126 L9.10 127 L8.65 128 L8.22 129 L7.79 130 L7.38 131 L6.98 132 L6.60 133 L6.23 134 L5.89 135 L5.57 136 L5.28 137 L5.02 138 L4.78 139 L4.57 140 L4.39 141 L4.25 142 L4.14 143 L4.06 144 L4.01 145 L4.00 146 L4.02 147 L4.08 148 L4.17 149 L4.29 150 L4.45 151 L4.64 152 L4.85 153 L5.10 154 L5.38 155 L5.68 156 L6.00 157 L6.35 158 L6.72 159 L7.11 160 L7.51 161 L7.93 162 L8.36 163 L8.80 164 L9.25 165 L9.70 166 L10.15 167 L10.60 168 L11.05 169 L11.49 170 L11.93 171 L12.35 172 L12.76 173 L13.15 174 L13.53 175 L13.88 176 L14.22 177 L14.53 178 L14.81 179 L15.07 180 L15.29 181 L15.49 182 L15.66 183 L15.79 184 L15.89 185 L15.96 186 L16.00 187 L16.00 188 L15.96 189 L15.89 190 L15.79 191 L15.66 192 L15.49 193 L15.29 194 L15.07 195 L14.81 196 L14.53 197 L14.22 198 L13.88 199 L13.53 200 L13.15 201 L12.76 202 L12.35 203 L11.93 204 L11.49 205 L11.05 206 L10.60 207 L10.15 208 L9.70 209 L9.25 210 L8.80 211 L8.36 212 L7.93 213 L7.51 214 L7.11 215 L6.72 216 L6.35 217 L6.00 218 L5.68 219 L5.38 220 L5.10 221 L4.85 222 L4.64 223 L4.45 224 L4.29 225 L4.17 226 L4.08 227 L4.02 228 L4.00 229 L4.01 230 L4.06 231 L4.14 232 L4.25 233 L4.39 234 L4.57 235 L4.78 236 L5.02 237 L5.28 238 L5.57 239 L5.89 240 L6.23 241 L6.60 242 L6.98 243 L7.38 244 L7.79 245 L8.22 246 L8.65 247 L9.10 248 L9.55 249 L10.00 250 L24 250 Z"/>
+    </svg>
+
+    <div class="zoom"><img src="images/microscope-cell.jpg" alt=""></div>
+    <div class="handle"></div>
+
+    <img class="atom" src="../../creative/kit/illustrations/atom-2.svg" alt="">
+
+    <div class="copy">
+      <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+      <h1>Build.<br><em>Play.</em><br>Learn.</h1>
+      <p class="sub">Hands-on STEM kits that turn playtime into discovery.</p>
+      <div class="cta">
+        Shop now
+      </div>
+    </div>
+  </main>
+</body>
+</html>
