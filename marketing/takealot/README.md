@@ -21,3 +21,9 @@ Facts come from the research in `assets/product/{slug}/content.md`. Box sizes an
 | Kanoodle | [kanoodle.md](kanoodle.md) |
 | Kanoodle Genius | [kanoodle-genius.md](kanoodle-genius.md) |
 | STEM Explorers Brainometry | [stem-explorers-brainometry.md](stem-explorers-brainometry.md) |
+| MatataStudio VinciBot Coding Robot Set | [matatastudio-vincibot-coding-robot-set.md](matatastudio-vincibot-coding-robot-set.md) |
+| MatataStudio Digital Microscope MX2-AS | [matatastudio-digital-microscope-mx2-as.md](matatastudio-digital-microscope-mx2-as.md) |
+| MatataStudio Digital Microscope MT3-2 | [matatastudio-digital-microscope-mt3-2.md](matatastudio-digital-microscope-mt3-2.md) |
+| MatataStudio Tale-Bot Pro | [matatastudio-tale-bot-pro.md](matatastudio-tale-bot-pro.md) |
+| MatataStudio Coding Set Pro | [matatastudio-coding-set-pro.md](matatastudio-coding-set-pro.md) |
+| MatataStudio Nous AI Set | [matatastudio-nous-ai-set.md](matatastudio-nous-ai-set.md) |
