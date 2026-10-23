@@ -7,6 +7,7 @@ import {
   QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
+  VideoEmbed,
   CustomerShowcase,
   ProductReviews,
   ProductFAQ,
@@ -49,16 +50,23 @@ export default async function GeoSafariJrTalkingMicroscopePage() {
       <QuickInfoBadges product={product} />
 
       {/* white */}
+      <VideoEmbed
+        url="https://www.youtube.com/watch?v=u37LRnKZlEs"
+        title="See It in Action"
+        background="white"
+      />
+
+      {/* gray */}
       <ImageTextBlock
         image={`${IMAGE_PATH}/girl-looking-through-microscope-at-dandelion-slide.jpg`}
         imageAlt="Girl looking through the Talking Microscope at a dandelion slide, with a speech bubble sharing a dandelion fact"
         title="Tiny Details, Up Close"
         body="Each of the 20 slides holds three full-colour photos, 60 in all, covering animals, plants and things from around the house, magnified five times. Look at a butterfly wing and it turns out to be covered in thousands of tiny, shiny scales. Look at a dandelion puff and Bindi explains that it's full of seeds that will grow into yellow flowers. Small facts like these tend to come up again at the dinner table."
         layout="image-right"
-        background="white"
+        background="gray"
       />
 
-      {/* gray */}
+      {/* white */}
       <FeatureGrid
         title="What Makes It Special"
         features={[
@@ -88,20 +96,20 @@ export default async function GeoSafariJrTalkingMicroscopePage() {
           },
         ]}
         columns={2}
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
+      {/* gray */}
       <ImageTextBlock
         image={`${IMAGE_PATH}/child-picking-up-microscope-slides.jpg`}
         imageAlt="Child picking up Talking Microscope slides spread across a wooden table"
         title="Their Own Science Station"
         body="There's no setup beyond batteries and a language choice, after which young scientists can run the whole show themselves. They pick a slide, push it into place and press a button to hear about it. When they're done, every slide goes back into the drawer in the base, so nothing ends up lost under the couch."
         layout="image-left"
-        background="white"
+        background="gray"
       />
 
-      {/* gray */}
+      {/* white */}
       <CustomerShowcase
         title="Little Scientists at Home"
         subtitle="Photos from families using the Talking Microscope"
@@ -131,13 +139,13 @@ export default async function GeoSafariJrTalkingMicroscopePage() {
             description: "Out of the box and ready for slides",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
-      <ProductReviews productId={product.id} background="white" />
-
       {/* gray */}
+      <ProductReviews productId={product.id} background="gray" />
+
+      {/* white */}
       <ProductFAQ
         title="Common Questions"
         faqs={[
@@ -172,10 +180,10 @@ export default async function GeoSafariJrTalkingMicroscopePage() {
               "With 60 pictures and more than 100 facts and questions there's a lot to get through, and Quiz Mode gives them a reason to go back. Young children also love repeating what they've heard. One grandparent's review mentioned their 5-year-old grandson was memorising the facts in no time.",
           },
         ]}
-        background="gray"
+        background="white"
       />
 
-      {/* white */}
+      {/* gray */}
       <WhatsIncluded
         title="What's in the Box"
         image={`${IMAGE_PATH}/whats-in-the-box.jpg`}
@@ -187,10 +195,10 @@ export default async function GeoSafariJrTalkingMicroscopePage() {
           "Instructions, plus an activity guide on the packaging",
           "Batteries not included (needs 3 AAA)",
         ]}
-        background="white"
+        background="gray"
       />
 
-      {/* gray */}
+      {/* white */}
       <Specifications
         title="Specifications"
         specs={[
@@ -205,7 +213,7 @@ export default async function GeoSafariJrTalkingMicroscopePage() {
           { label: "Size", value: "Approx. 14 x 20 x 25 cm" },
           { label: "Material", value: "Plastic" },
         ]}
-        background="gray"
+        background="white"
       />
 
       {/* navy */}
