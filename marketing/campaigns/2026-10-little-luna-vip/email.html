@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--
+  Little Luna farewell email: invites Little Luna customers to join the
+  CREATESPACE list for VIP early access to Black Friday.
+
+  Sent from Little Luna's own email tool, so this is plain table-based HTML
+  with inline styles. Paste it in as a custom HTML / code template.
+
+  Before sending:
+  1. Replace {{EMAIL}} (two places: hero link and button) with your tool's merge tag for the
+     subscriber's email address:
+       Mailchimp  *|EMAIL|*
+       Klaviyo    {{ email }}
+       Brevo      {{ contact.EMAIL }}
+       Omnisend   [[contact.email]]
+     Leave the rest of the link as it is. The CREATESPACE site reads ?join=
+     and subscribes that address with one tap.
+  2. Send yourself a test and tap "Get VIP access": the CREATESPACE site
+     should show a "You're on the list!" toast.
+  3. Your tool adds the unsubscribe link and postal address at the bottom.
+
+  Images load from www.thecreatespace.co.za, so the hero only shows once
+  storefront/public/images/email/little-luna-vip-hero.png is deployed.
+-->
+<html lang="en-ZA" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="x-apple-disable-message-reformatting">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+  <title>Goodnight from Little Luna</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; padding: 0; background: #f5f6fb; }
+    a { color: #0c1446; }
+    @media (max-width: 620px) {
+      .container { width: 100% !important; border-radius: 0 !important; }
+      .px { padding-left: 24px !important; padding-right: 24px !important; }
+      .h1 { font-size: 28px !important; }
+      .btn a { display: block !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:0; background:#f5f6fb;">
+  <!-- Inbox preview text -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+    Goodnight from Little Luna, and a VIP pass to CREATESPACE's Black Friday deals before anyone else.
+    &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847; &#8199;&#65279;&#847;
+  </div>
+
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f5f6fb;">
+    <tr>
+      <td align="center" style="padding:24px 12px;">
+        <table role="presentation" class="container" width="600" cellpadding="0" cellspacing="0" border="0" style="width:600px; max-width:600px; background:#ffffff; border-radius:16px; overflow:hidden; font-family:'Outfit', Helvetica, Arial, sans-serif; color:#0c1446;">
+
+          <!-- Sender line. Swap the text for the Little Luna logo if you like. -->
+          <tr>
+            <td class="px" style="padding:20px 40px; font-size:13px; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; color:#6b7090;">
+              &#9790; A little note from Little Luna
+            </td>
+          </tr>
+
+          <!-- Hero -->
+          <tr>
+            <td>
+              <a href="https://www.thecreatespace.co.za/?join={{EMAIL}}&amp;utm_source=little-luna&amp;utm_medium=email&amp;utm_campaign=2026-10-little-luna-vip&amp;utm_content=hero" style="display:block;">
+                <img src="https://www.thecreatespace.co.za/images/email/little-luna-vip-hero.png" width="600" alt="VIP early access to Black Friday, for CREATESPACE subscribers only" style="display:block; width:100%; max-width:600px; height:auto; border:0; background:#0c1446; color:#ffffff; font-size:18px;">
+              </a>
+            </td>
+          </tr>
+
+          <!-- Intro -->
+          <tr>
+            <td class="px" style="padding:36px 40px 4px;">
+              <h1 class="h1" style="margin:0; font-size:32px; line-height:1.15; font-weight:600; color:#0c1446;">
+                Goodnight from Little Luna
+              </h1>
+              <p style="margin:16px 0 0; font-size:17px; line-height:1.6; color:#333a5c;">
+                We're closing Little Luna to put all our heart into CREATESPACE, our STEM store for curious kids. Same team, same care, just a little more space.
+              </p>
+            </td>
+          </tr>
+
+          <!-- VIP offer -->
+          <tr>
+            <td class="px" style="padding:24px 40px 4px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#0c1446; border-radius:14px;">
+                <tr>
+                  <td align="center" style="padding:30px 28px 30px; color:#ffffff;">
+                    <p style="margin:0; font-size:13px; letter-spacing:0.16em; text-transform:uppercase; font-weight:600; color:#ffd500;">
+                      &#9733; Subscribers only &#9733;
+                    </p>
+                    <h2 style="margin:10px 0 0; font-size:25px; line-height:1.2; font-weight:600; color:#ffffff;">
+                      Your VIP pass to Black Friday
+                    </h2>
+                    <p style="margin:10px 0 0; font-size:16px; line-height:1.6; color:#d7d9e6;">
+                      Join the CREATESPACE list and you'll shop our Black Friday deals before anyone else.
+                    </p>
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="btn" style="margin-top:22px;">
+                      <tr>
+                        <td align="center" bgcolor="#ff8b00" style="border-radius:10px;">
+                          <a href="https://www.thecreatespace.co.za/?join={{EMAIL}}&amp;utm_source=little-luna&amp;utm_medium=email&amp;utm_campaign=2026-10-little-luna-vip&amp;utm_content=vip-button" style="display:inline-block; padding:15px 34px; font-family:'Outfit', Helvetica, Arial, sans-serif; font-size:17px; font-weight:600; color:#ffffff; text-decoration:none; border-radius:10px;">
+                            Get VIP access
+                          </a>
+                        </td>
+                      </tr>
+                    </table>
+                    <p style="margin:12px 0 0; font-size:13px; line-height:1.5; color:#9da1bd;">
+                      One tap and you're on the list.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Sign-off -->
+          <tr>
+            <td class="px" style="padding:24px 40px 34px;">
+              <p style="margin:0; font-size:17px; line-height:1.6; color:#333a5c;">
+                Thank you for every order. We love you to the moon and back.
+              </p>
+              <p style="margin:14px 0 0; font-size:17px; line-height:1.6; color:#0c1446; font-weight:600;">
+                &#9790; The Little Luna team
+              </p>
+            </td>
+          </tr>
+
+          <!-- CREATESPACE strip -->
+          <tr>
+            <td align="center" style="background:#0c1446; padding:26px 24px;">
+              <a href="https://www.thecreatespace.co.za/?utm_source=little-luna&amp;utm_medium=email&amp;utm_campaign=2026-10-little-luna-vip&amp;utm_content=footer-logo">
+                <img src="https://www.thecreatespace.co.za/images/brand/logo-dark.png" width="240" alt="CREATESPACE" style="display:block; width:240px; height:auto; border:0; color:#ffffff;">
+              </a>
+              <p style="margin:12px 0 0; font-size:13px; line-height:1.5; color:#9da1bd;">
+                STEM toys, kits and education for South African families and schools
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
