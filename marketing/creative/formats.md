@@ -36,6 +36,18 @@ Notes:
 - Google's image guidance asks for little or no overlaid text, and no fake buttons. Keep Google images to the photo, the logo and at most one short badge (an age or a number). Headlines and descriptions go in the asset group as text assets.
 - Each file must stay under 5MB. `render.sh` PNGs are well under.
 
+## Screen (display banners)
+
+| Canvas | Size (px) | Ratio | Where it runs | Keep clear |
+|---|---|---|---|---|
+| `display-mrec` | 300 x 250 | 6:5 | Medium rectangle (MREC) bought directly from publisher sites such as Parenting Hub | Nothing enforced. Keep a visible 1px edge: publishers often require a border so the ad doesn't bleed into a white page |
+
+Notes:
+
+- Unlike Meta and Google, the banner carries everything: logo, message and CTA button all sit on the image. There is no text outside it.
+- It shows at actual size, so keep type at 12px or larger and the headline to six words or fewer.
+- `render.sh` exports at 1x. If the publisher asks for a retina file, render again with Chrome's `--force-device-scale-factor=2` for a 600 x 500 PNG. Most publisher ad servers cap files at about 150KB.
+
 ## Print
 
 All print canvases are built with **3mm bleed** on every side and a **5mm safe margin** inside the trim line. `render.sh` exports two PDFs from the same file: one with bleed for a print shop, one trimmed for an office printer.
