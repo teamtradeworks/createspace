@@ -9,9 +9,8 @@ Open it straight from disk in a browser, or use the published copy shared with t
 - Optional sign-off line (defaults to "Keep exploring,")
 - Name
 - CREATESPACE wordmark with the five-colour brand stripe
-- One-line description of what we do
 - Website, info@ address and an optional mobile number
-- The ten brands from `storefront/src/config/brands.ts`, each linking to its filtered shop page (`/shop?brand=<vendor>`)
+- The ten brands from `storefront/src/config/brands.ts` in semi-bold orange, each linking to its filtered shop page (`/shop?brand=<vendor>`)
 - Facebook and Instagram icons
 
 ## Hosted images

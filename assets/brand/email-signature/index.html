@@ -136,9 +136,7 @@
   const BASE = "https://www.thecreatespace.co.za";
   const FONT = "font-family:Outfit,Helvetica,Arial,sans-serif;";
   const NAVY = "#0C1446";
-  const MUTED = "#5B6079";
   const STRIPE = ["#F70B28", "#3CC7F7", "#FF8B00", "#FFD500", "#93DB21"];
-  const TAGLINE = "STEM toys, kits and school programmes for South African families and schools.";
   // Same order and vendor strings as storefront/src/config/brands.ts; the shop filters on the exact vendor.
   const BRANDS = [
     ["MatataStudio", "MatataStudio"],
@@ -188,19 +186,19 @@
       `<tr><td style="padding:7px 0 0 0;"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>${stripeCells}</tr></table></td></tr>`
     );
 
-    rows.push(`<tr><td style="${FONT}font-size:12px;line-height:18px;color:${MUTED};padding:10px 0 0 0;">${TAGLINE}</td></tr>`);
-
     let contact = link(`${BASE}/`, "www.thecreatespace.co.za") + dot + link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za");
     if (mobile) {
       const digits = mobile.replace(/[^\d+]/g, "");
       contact += dot + link(`tel:${digits}`, esc(mobile));
     }
-    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:4px 0 0 0;">${contact}</td></tr>`);
+    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:12px 0 0 0;">${contact}</td></tr>`);
 
+    // Brands are the accent of the signature: semi-bold orange, muted separators.
+    const brandDot = `<span style="color:#B3B3B3;font-weight:400;">&nbsp;&nbsp;&bull;&nbsp;</span> `;
     const brandLinks = BRANDS.map(([label, vendor]) =>
-      `<a href="${BASE}/shop?brand=${encodeURIComponent(vendor)}" style="color:${NAVY};text-decoration:none;white-space:nowrap;">${esc(label)}</a>`
-    ).join(dot);
-    rows.push(`<tr><td style="${FONT}font-size:12px;line-height:20px;color:${NAVY};padding:8px 0 0 0;">${brandLinks}</td></tr>`);
+      `<a href="${BASE}/shop?brand=${encodeURIComponent(vendor)}" style="color:#FF8B00;font-weight:600;text-decoration:none;white-space:nowrap;">${esc(label)}</a>`
+    ).join(brandDot);
+    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:22px;font-weight:600;color:#FF8B00;padding:10px 0 0 0;">${brandLinks}</td></tr>`);
 
     const icon = (href, file, alt) =>
       `<a href="${href}" style="text-decoration:none;"><img src="${BASE}/images/brand/${file}" width="22" height="22" alt="${alt}" style="display:inline-block;border:0;width:22px;height:22px;vertical-align:middle;"></a>`;
@@ -219,7 +217,7 @@
     const lines = [];
     if (signoff) lines.push(signoff, "");
     lines.push(name || "Your name");
-    lines.push("", "CREATESPACE", TAGLINE, "www.thecreatespace.co.za | info@thecreatespace.co.za" + (mobile ? " | " + mobile : ""));
+    lines.push("", "CREATESPACE", "www.thecreatespace.co.za | info@thecreatespace.co.za" + (mobile ? " | " + mobile : ""));
     lines.push(BRANDS.map(([label]) => label).join(" | "));
     return lines.join("\n");
   }
