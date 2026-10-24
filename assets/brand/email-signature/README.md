@@ -19,11 +19,11 @@ Email clients can only show images from a public URL, so the signature points at
 
 | Image | URL |
 |-------|-----|
-| Wordmark (navy, for white backgrounds) | `https://www.thecreatespace.co.za/images/brand/logo-light.png` |
+| Wordmark (navy, trimmed of its transparent margin so it sits flush left) | `https://www.thecreatespace.co.za/images/brand/logo-light-trimmed.png` |
 | Facebook icon | `https://www.thecreatespace.co.za/images/brand/icon-facebook.png` |
 | Instagram icon | `https://www.thecreatespace.co.za/images/brand/icon-instagram.png` |
 
-The icons live in `storefront/public/images/brand/` and must be deployed before the signature shows them.
+The trimmed wordmark and the icons live in `storefront/public/images/brand/` and must be deployed before the signature shows them.
 
 ## Gmail notes
 
