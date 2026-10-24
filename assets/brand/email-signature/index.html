@@ -55,7 +55,7 @@
     background: #ffffff; color: #0C1446; border: 1px solid var(--line); border-radius: 8px;
     padding: 28px 28px 32px; min-width: 0; overflow-x: auto;
   }
-  .canvas .body-sample { font-family: Helvetica, Arial, sans-serif; font-size: 14px; color: #3b4060; margin: 0 0 18px; }
+  .canvas .body-sample { font-family: Verdana, Geneva, sans-serif; font-size: 13px; line-height: 20px; color: #0C1446; margin: 0 0 18px; }
   .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
   button {
     font: inherit; font-weight: 600; font-size: 15px; cursor: pointer;
@@ -83,19 +83,13 @@
 <div class="wrap">
   <header>
     <h1>CREATESPACE email signature</h1>
-    <p>Fill in your details, copy the signature, and paste it into Gmail. Everyone on the team gets the same layout.</p>
+    <p>Enter your name, copy the signature, and paste it into Gmail. The sign-off, phone number and links are the same for everyone.</p>
   </header>
 
   <div class="grid">
     <form id="form" autocomplete="off">
       <label>Full name
         <input id="name" type="text" value="Dave New" required>
-      </label>
-      <label>Mobile <small>(optional, shown as typed)</small>
-        <input id="mobile" type="text" placeholder="082 000 0000">
-      </label>
-      <label>Sign-off line <small>(optional)</small>
-        <input id="signoff" type="text" value="Keep exploring,">
       </label>
     </form>
 
@@ -151,7 +145,11 @@
     ["Robotico", "Robotico"],
   ];
 
-  const fields = ["name", "mobile", "signoff"].map((id) => document.getElementById(id));
+  const BODY_FONT = "font-family:Verdana,Geneva,sans-serif;";
+  const SIGNOFF = "Keep exploring,";
+  const PHONE = "087 265 0997";
+
+  const fields = ["name"].map((id) => document.getElementById(id));
 
   function esc(s) {
     return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -163,17 +161,16 @@
     return v;
   }
 
-  function buildHtml({ name, mobile, signoff }) {
+  function buildHtml({ name }) {
     const link = (href, text) =>
       `<a href="${href}" style="color:${NAVY};text-decoration:none;white-space:nowrap;">${text}</a>`;
     // Non-breaking before the bullet, a real space after: lines wrap only after a bullet.
     const dot = `<span style="color:#FF8B00;">&nbsp;&nbsp;&bull;&nbsp;</span> `;
     const rows = [];
 
-    if (signoff) {
-      rows.push(`<tr><td style="${FONT}font-size:15px;line-height:22px;color:${NAVY};padding:0 0 14px 0;">${esc(signoff)}</td></tr>`);
-    }
-    rows.push(`<tr><td style="${FONT}font-size:16px;line-height:22px;font-weight:600;color:${NAVY};padding:0;">${esc(name || "Your name")}</td></tr>`);
+    // The sign-off matches the email body (Verdana, Gmail's "normal" size); the block below is the brand font.
+    rows.push(`<tr><td style="${BODY_FONT}font-size:13px;line-height:20px;color:${NAVY};padding:0 0 14px 0;">${SIGNOFF}</td></tr>`);
+    rows.push(`<tr><td style="${FONT}font-size:16px;line-height:22px;font-weight:600;color:${NAVY};padding:0;">${esc(name || "Your name")} &#x2728;</td></tr>`);
 
     rows.push(
       `<tr><td style="padding:16px 0 0 0;"><a href="${BASE}/" style="text-decoration:none;">` +
@@ -186,11 +183,10 @@
       `<tr><td style="padding:7px 0 0 0;"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>${stripeCells}</tr></table></td></tr>`
     );
 
-    let contact = link(`${BASE}/`, "www.thecreatespace.co.za") + dot + link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za");
-    if (mobile) {
-      const digits = mobile.replace(/[^\d+]/g, "");
-      contact += dot + link(`tel:${digits}`, esc(mobile));
-    }
+    const contact =
+      link(`${BASE}/`, "www.thecreatespace.co.za") + dot +
+      link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za") + dot +
+      link(`tel:${PHONE.replace(/\s/g, "")}`, PHONE);
     rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:12px 0 0 0;">${contact}</td></tr>`);
 
     // Brands are the accent of the signature: semi-bold orange, muted separators.
@@ -213,11 +209,9 @@
     return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${FONT}color:${NAVY};">${rows.join("")}</table>`;
   }
 
-  function buildText({ name, mobile, signoff }) {
-    const lines = [];
-    if (signoff) lines.push(signoff, "");
-    lines.push(name || "Your name");
-    lines.push("", "CREATESPACE", "www.thecreatespace.co.za | info@thecreatespace.co.za" + (mobile ? " | " + mobile : ""));
+  function buildText({ name }) {
+    const lines = [SIGNOFF, "", (name || "Your name") + " ✨"];
+    lines.push("", "CREATESPACE", "www.thecreatespace.co.za | info@thecreatespace.co.za | " + PHONE);
     lines.push(BRANDS.map(([label]) => label).join(" | "));
     return lines.join("\n");
   }

@@ -1,15 +1,15 @@
 # Email signature
 
-`index.html` is a small generator page: fill in a name and title, click **Copy signature**, and paste into Gmail (Settings → See all settings → General → Signature → Create new). It copies rich HTML to the clipboard, so the logo, colour stripe and social icons come across as-is.
+`index.html` is a small generator page: enter your name, click **Copy signature**, and paste into Gmail (Settings → See all settings → General → Signature → Create new). It copies rich HTML to the clipboard, so the logo, colour stripe and social icons come across as-is.
 
 Open it straight from disk in a browser, or use the published copy shared with the team.
 
 ## What the signature contains
 
-- Optional sign-off line (defaults to "Keep exploring,")
-- Name
+- "Keep exploring," sign-off in Verdana, matching the email body
+- Name with the ✨ sparkles from the original signature
 - CREATESPACE wordmark with the five-colour brand stripe
-- Website, info@ address and an optional mobile number
+- Website, info@ address and the shared number 087 265 0997
 - The ten brands from `storefront/src/config/brands.ts` in semi-bold orange, each linking to its filtered shop page (`/shop?brand=<vendor>`)
 - Facebook and Instagram icons
 
