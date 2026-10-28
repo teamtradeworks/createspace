@@ -10,7 +10,7 @@
   },
   "giveaway": {
     "inspireAfricaCourse": {
-      "enabled": true,
+      "enabled": false,
       "threshold": 1500,
       "spotsTotal": 25
     }
