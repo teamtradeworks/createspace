@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!--
+  Instagram/Facebook Story (9:16), adapted from feed-portrait.html.
+  Everything sits between the 270px top and bottom safe zones, where the
+  profile name and the reply bar / link sticker cover the image.
+  Render: marketing/scripts/render.sh marketing/campaigns/2026-10-vip-black-friday/story.html
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>VIP Black Friday sign up</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      z-index: -1;
+    }
+    .glow--blue   { width: 600px; height: 820px; left: 0;     top: 760px; background: rgba(60, 199, 247, 0.22); }
+    .glow--purple { width: 620px; height: 840px; left: 500px; top: 700px; background: rgba(172, 77, 255, 0.24); }
+
+    .logo {
+      position: absolute;
+      left: 50%;
+      top: 152px;
+      height: 48px;
+      transform: translateX(-50%);
+      width: auto;
+    }
+
+    .piece { position: absolute; display: block; height: auto; }
+    /* Faint whitened illustrations in the background */
+    .faint  { filter: brightness(0) invert(1); opacity: 0.1; }
+    .atom   { width: 280px; right: -70px; top: 300px; transform: rotate(16deg); }
+    .planet { width: 280px; left: -70px; top: 1700px; transform: rotate(-14deg); }
+    .bulb   { width: 150px; right: 70px; top: 1690px; transform: rotate(12deg); }
+    .code   { width: 200px; left: 56px; top: 70px; transform: rotate(-10deg); }
+    .beaker { width: 120px; right: 210px; top: 40px; transform: rotate(14deg); }
+
+    /* Hand-drawn swoosh under "first." */
+    .swoosh {
+      position: absolute;
+      left: 646px;
+      top: 494px;
+      width: 233px;
+      height: 30px;
+    }
+
+    /* VIP badge on the right photo */
+    .badge {
+      position: absolute;
+      left: 728px;
+      top: 656px;
+      width: 232px;
+      height: 232px;
+      border-radius: 50%;
+      background: var(--cs-red);
+      color: var(--cs-white);
+      display: grid;
+      place-content: center;
+      text-align: center;
+      transform: rotate(10deg);
+      z-index: 3;
+      box-shadow: 0 12px 28px rgba(4, 8, 30, 0.45);
+    }
+    .badge::before {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+    .badge b { font-weight: 800; font-size: 78px; line-height: 0.88; letter-spacing: 0.03em; }
+    .badge i {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+
+    .headline {
+      position: absolute;
+      left: 64px;
+      top: 288px;
+      margin: 0;
+      font-weight: 600;
+      font-size: 108px;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+    .headline em { font-style: normal; color: var(--cs-orange); }
+
+    .sub {
+      position: absolute;
+      left: 64px;
+      top: 568px;
+      margin: 0;
+      font-size: 48px;
+      line-height: 1.3;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* Photo collage */
+    .photo {
+      position: absolute;
+      margin: 0;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+      outline: 6px solid var(--cs-white);
+    }
+    .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .photo--1 { left: 40px;  top: 1104px; width: 460px; height: 368px; transform: rotate(-4deg); z-index: 2; }
+    .photo--3 { left: 580px; top: 1116px; width: 460px; height: 368px; transform: rotate(4deg); z-index: 2; }
+    .photo--2 { left: 280px; top: 692px; width: 520px; height: 470px; transform: rotate(2deg); z-index: 1; }
+    .photo--1 img { object-position: 50% 30%; }
+    .photo--3 img { object-position: 50% 50%; }
+
+    .foot {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 226px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+    .foot p {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.25;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .foot p strong { color: var(--cs-white); font-weight: 600; }
+    .cta {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      height: 104px;
+      padding: 0 52px;
+      border-radius: 12px;
+      background: var(--cs-orange);
+      color: var(--cs-navy);
+      font-weight: 600;
+      font-size: 44px;
+    }
+    .cta svg { width: 42px; height: 42px; }
+  </style>
+</head>
+<body>
+<main class="canvas">
+  <div class="glow glow--blue"></div>
+  <div class="glow glow--purple"></div>
+
+  <img class="logo" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+
+  <h1 class="headline">Sign up and shop<br>Black Friday <em>first.</em></h1>
+  <p class="sub">Our sale opens early for subscribers only.</p>
+
+  <img class="piece faint atom" src="images/atom-2-outline.svg" alt="">
+  <img class="piece faint planet" src="images/planet-1-outline.svg" alt="">
+  <img class="piece faint bulb" src="images/lightbulb-outline.svg" alt="">
+  <img class="piece faint code" src="images/code-1-outline.svg" alt="">
+  <img class="piece faint beaker" src="images/beaker-1-outline.svg" alt="">
+
+
+  <svg class="swoosh" viewBox="0 0 186 30" aria-hidden="true"><path d="M4 22 C 50 8, 120 4, 182 14" fill="none" stroke="#ff8b00" stroke-width="7" stroke-linecap="round"/></svg>
+
+  <figure class="photo photo--1"><img src="images/two-kids-coding-tale-bot.jpg" alt="Two children coding a Tale-Bot robot on a story map"></figure>
+  <figure class="photo photo--3"><img src="images/dad-and-son-digital-microscope.jpg" alt="Dad and son smiling at a digital microscope"></figure>
+  <figure class="photo photo--2"><img src="images/dad-and-kids-launching-rockets.jpg" alt="Dad and two boys cheering as an air rocket launches"></figure>
+
+
+  <div class="badge"><b>VIP</b><i>Early<br>access</i></div>
+
+  <footer class="foot">
+    <span class="cta">Get on the list <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </footer>
+</main>
+</body>
+</html>
