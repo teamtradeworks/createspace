@@ -15,6 +15,7 @@ import GTMPageview from "@/components/GTMPageview";
 import GoogleTagManager from "@/components/GoogleTagManager";
 import ScrollToTop from "@/components/ScrollToTop";
 import JoinFromLink from "@/components/JoinFromLink";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const outfit = localFont({
   src: "../../public/fonts/Outfit-VariableFont_wght.woff2",
@@ -87,6 +88,7 @@ export default function RootLayout({
           </Suspense>
           <EmailPopup />
           <CartToast />
+          <WhatsAppButton />
         </CartProvider>
         {process.env.NEXT_PUBLIC_FERA_PUBLIC_KEY && (
           <Script

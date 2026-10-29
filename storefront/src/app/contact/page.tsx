@@ -4,6 +4,8 @@ import SocialLinks from "@/components/SocialLinks";
 import PageHeader from "@/components/PageHeader";
 import BreadcrumbJsonLd from "@/components/BreadcrumbJsonLd";
 import FaqJsonLd from "@/components/FaqJsonLd";
+import WhatsAppLink, { WHATSAPP_ICON } from "@/components/WhatsAppLink";
+import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 export const metadata: Metadata = {
   title: "Contact Us | CREATESPACE",
@@ -15,6 +17,18 @@ export const metadata: Metadata = {
 };
 
 const contactInfo = [
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d={WHATSAPP_ICON} />
+      </svg>
+    ),
+    title: "WhatsApp",
+    description: "Quick question? Chat to us",
+    value: WHATSAPP_NUMBER,
+    href: null,
+    whatsapp: true,
+  },
   {
     icon: (
       <svg
@@ -66,6 +80,9 @@ const contactInfo = [
     href: null,
   },
 ];
+
+const linkClass =
+  "inline-block max-w-full py-1 text-navy font-medium break-words underline decoration-2 decoration-cs-orange underline-offset-4 hover:decoration-navy transition-colors";
 
 const faqs = [
   {
@@ -138,7 +155,7 @@ export default function ContactPage() {
             Get <span className="text-cs-orange">in touch</span>
           </>
         }
-        subtitle="A question about a kit, help choosing for a certain age, or a school order? Send us a message."
+        subtitle="A question about a kit, help choosing for a certain age, or a school order? WhatsApp us or send a message."
       />
 
       {/* Contact info */}
@@ -147,13 +164,14 @@ export default function ContactPage() {
           <h2 id="reach-us" className="sr-only">
             How to reach us
           </h2>
-          {/* Two across from md. The email address needs ~190px of text column,
-              which a 2-up grid can't give until 768px. */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {/* Two across from md, three from xl. The email address needs ~190px of
+              text column, which a 2-up grid can't give until 768px or a 3-up grid
+              until 1280px. At two across the last card spans the full row. */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6">
             {contactInfo.map((info) => (
               <div
                 key={info.title}
-                className="flex items-start gap-3 md:gap-4 bg-white rounded-xl p-5 md:p-6 ring-1 ring-navy/10 hover:shadow-md transition-shadow"
+                className="flex items-start gap-3 md:gap-4 bg-white rounded-xl p-5 md:p-6 ring-1 ring-navy/10 hover:shadow-md transition-shadow md:last:col-span-2 xl:last:col-span-1"
               >
                 <div className="shrink-0 w-10 h-10 md:w-12 md:h-12 bg-cs-orange/10 rounded-lg flex items-center justify-center text-navy">
                   {info.icon}
@@ -162,11 +180,10 @@ export default function ContactPage() {
                 <div className="min-w-0">
                   <h3 className="font-semibold text-navy">{info.title}</h3>
                   <p className="text-sm text-gray-600 mt-1 mb-2">{info.description}</p>
-                  {info.href ? (
-                    <a
-                      href={info.href}
-                      className="inline-block max-w-full py-1 text-navy font-medium break-words underline decoration-2 decoration-cs-orange underline-offset-4 hover:decoration-navy transition-colors"
-                    >
+                  {info.whatsapp ? (
+                    <WhatsAppLink location="contact_page" className={linkClass} />
+                  ) : info.href ? (
+                    <a href={info.href} className={linkClass}>
                       {info.value}
                     </a>
                   ) : (

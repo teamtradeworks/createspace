@@ -5,6 +5,9 @@
     "provider": "The Courier Guy",
     "estimatedDays": "1-3 days to your door"
   },
+  "whatsapp": {
+    "number": "+27 75 624 6775"
+  },
   "leadTime": {
     "estimatedDays": "7 - 14 days"
   },
