@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--
+  Meta square feed ad: VIP early access to Black Friday, as a phone lock screen.
+  The parent's own phone (kids as the wallpaper) shows the email subscribers
+  will get, with Gran's "sorted the presents yet?" underneath. The lock screen
+  is deliberately generic (DM Sans, no OS branding), like the Notes and search
+  ads. Only the strip at the bottom speaks as CREATESPACE.
+  Render: marketing/scripts/render.sh marketing/campaigns/2026-10-vip-black-friday/feed-square-notification.html
+-->
+<html lang="en-ZA" data-canvas="meta-square">
+<head>
+  <meta charset="utf-8">
+  <title>VIP Black Friday lock screen</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    @font-face {
+      font-family: "DM Sans";
+      src: url("../../creative/kit/fonts/DMSans.ttf") format("truetype");
+      font-weight: 100 1000;
+      font-display: block;
+    }
+
+    :root {
+      --ui: "DM Sans", sans-serif;
+      --card: rgba(246, 246, 248, 0.86);
+      --ink: #15171c;
+      --ink-soft: #5d616b;
+    }
+
+    .canvas {
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    /* Wallpaper: their kids, mid-launch */
+    .wallpaper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 0%;
+      z-index: -2;
+    }
+    .shade {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(to bottom, rgba(6, 10, 35, 0.42) 0%, rgba(6, 10, 35, 0) 26%),
+        linear-gradient(to top, rgba(12, 20, 70, 0.96) 0%, rgba(12, 20, 70, 0.82) 15%, rgba(12, 20, 70, 0) 46%);
+    }
+
+    /* Status bar */
+    .status {
+      position: absolute;
+      top: 30px;
+      right: 52px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+    .status svg { height: 26px; width: auto; }
+
+    .lockscreen {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 52px;
+      text-align: center;
+      font-family: var(--ui);
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+    }
+    .lockscreen .lock { width: 34px; height: 34px; }
+    .date {
+      margin: 4px 0 0;
+      font-weight: 600;
+      font-size: 36px;
+      line-height: 1.2;
+    }
+    .clock {
+      margin: -14px 0 0;
+      font-weight: 600;
+      font-size: 196px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    /* Notifications */
+    .notes {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      top: 452px;
+      display: grid;
+      gap: 14px;
+      font-family: var(--ui);
+      color: var(--ink);
+    }
+    .note {
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 28px 34px 30px 28px;
+      border-radius: 38px;
+      background: var(--card);
+      backdrop-filter: blur(28px) saturate(1.6);
+      -webkit-backdrop-filter: blur(28px) saturate(1.6);
+      box-shadow: 0 18px 50px -14px rgba(4, 8, 30, 0.55);
+    }
+    .note--quiet { background: rgba(246, 246, 248, 0.7); padding-top: 24px; padding-bottom: 26px; }
+
+    .icon {
+      width: 84px;
+      height: 84px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      margin-top: 4px;
+    }
+    .icon--cs { background: var(--cs-navy); }
+    .icon--cs img { height: 46px; width: auto; }
+    .icon--gran {
+      border-radius: 50%;
+      background: #d8c3a5;
+      color: #5a4126;
+      font-weight: 600;
+      font-size: 38px;
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 26px;
+      color: var(--ink-soft);
+      margin-bottom: 4px;
+    }
+    .head b { font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+    .title {
+      margin: 0;
+      font-weight: 700;
+      font-size: 37px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    .body {
+      margin: 4px 0 0;
+      font-size: 32px;
+      line-height: 1.32;
+      color: #2a2d35;
+    }
+    .note--quiet .body { margin-top: 0; }
+
+    /* The "early access" stamp: the one use of red */
+    .vip {
+      display: inline-block;
+      vertical-align: 5px;
+      margin-left: 10px;
+      padding: 5px 14px 4px;
+      border-radius: 9999px;
+      background: var(--cs-red);
+      color: var(--cs-white);
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    /* CREATESPACE strip */
+    .foot {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 54px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 32px;
+    }
+    .foot h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 62px;
+      line-height: 1.15;
+      letter-spacing: -0.025em;
+    }
+    .foot h1 em { font-style: normal; color: var(--cs-orange); }
+    .cta {
+      flex: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 92px;
+      padding: 0 40px;
+      border-radius: 12px;
+      background: var(--cs-orange);
+      color: var(--cs-navy);
+      font-weight: 600;
+      font-size: 36px;
+    }
+    .cta svg { width: 34px; height: 34px; }
+  </style>
+</head>
+<body>
+<main class="canvas">
+  <img class="wallpaper" src="images/dad-and-kids-launching-rockets.jpg" alt="Dad and two boys cheering as an air rocket launches">
+  <div class="shade"></div>
+
+  <div class="status" aria-hidden="true">
+    <svg viewBox="0 0 34 22" fill="#fff"><rect x="0" y="15" width="6" height="7" rx="1.5"/><rect x="9" y="10" width="6" height="12" rx="1.5"/><rect x="18" y="5" width="6" height="17" rx="1.5"/><rect x="27" y="0" width="6" height="22" rx="1.5"/></svg>
+    <svg viewBox="0 0 30 22" fill="#fff"><path d="M15 21.5 10.6 17a6.3 6.3 0 0 1 8.8 0L15 21.5Zm-7.1-7.2-3-3a14.3 14.3 0 0 1 20.2 0l-3 3a10 10 0 0 0-14.2 0ZM2.3 8.6 0 6.3a21.4 21.4 0 0 1 30 0l-2.3 2.3a18.2 18.2 0 0 0-25.4 0Z"/></svg>
+    <svg viewBox="0 0 50 24"><rect x="1" y="1" width="42" height="22" rx="6" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2"/><rect x="4" y="4" width="30" height="16" rx="3.5" fill="#fff"/><rect x="45.5" y="8" width="3" height="8" rx="1.5" fill="#fff" fill-opacity=".55"/></svg>
+  </div>
+
+  <div class="lockscreen" aria-hidden="true">
+    <svg class="lock" viewBox="0 0 24 24" fill="#fff"><path d="M7 10V7a5 5 0 0 1 10 0v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h1Zm2 0h6V7a3 3 0 0 0-6 0v3Z"/></svg>
+    <p class="date">Thursday 19 November</p>
+    <p class="clock">7:41</p>
+  </div>
+
+  <div class="notes">
+    <article class="note">
+      <div class="icon icon--cs"><img src="../../creative/kit/logo/mark-red.png" alt=""></div>
+      <div>
+        <div class="head"><b>CREATESPACE</b><span>now</span></div>
+        <p class="title">You’re in early for Black Friday <span class="vip">VIP</span></p>
+        <p class="body">Subscribers shop our Black Friday sale from 19&nbsp;to&nbsp;22&nbsp;Nov. Everyone else waits until the 23rd.</p>
+      </div>
+    </article>
+    <article class="note note--quiet">
+      <div class="icon icon--gran">G</div>
+      <div>
+        <div class="head"><b>Gran</b><span>12m ago</span></div>
+        <p class="body">Have you sorted the kids’ presents yet?? x</p>
+      </div>
+    </article>
+  </div>
+
+  <footer class="foot">
+    <div>
+      <h1>Sign up now to shop<br><em>4 days early.</em></h1>    </div>
+    <span class="cta">Get on the list <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </footer>
+</main>
+</body>
+</html>

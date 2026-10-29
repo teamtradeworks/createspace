@@ -24,9 +24,12 @@ Join the CREATESPACE email list now, because subscribers get into the Black Frid
 |---|---|---|---|
 | Subscribers get early Black Friday access | Yes | Owner, 2026-10-15 (Little Luna brief) and 2026-10-27 | 2026-10-27 |
 | Subscribers get their own early sale ("subscriber-only deals") | Yes, the VIP sale is for subscribers only | Owner, 2026-10-27 | 2026-10-27 |
+| VIP sale dates | 19 to 22 Nov 2026 (subscribers only) | Owner, 2026-10-28 | 2026-10-28 |
+| Open Black Friday sale dates | 23 to 30 Nov 2026 (everyone) | Owner, 2026-10-28 | 2026-10-28 |
+| Subscribers shop 4 days early | 19, 20, 21, 22 Nov | Follows from the dates above | 2026-10-28 |
 | Signing up is free | Yes, the newsletter costs nothing | `storefront/src/components/EmailPopup.tsx` | 2026-10-27 |
 
-**Not claiming:** a discount percentage, the early-access date, how long early access lasts, which products are included, subscriber counts, or "limited spots" (there is no limit, so no false scarcity).
+**Not claiming:** a discount percentage, which products are included, subscriber counts, or "limited spots" (there is no limit, so no false scarcity).
 
 ## Assets
 
@@ -35,7 +38,10 @@ Join the CREATESPACE email list now, because subscribers get into the Black Frid
 | `feed-square.html` | `meta-square` | Meta feed | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square` | 2026-10-27 |
 | `feed-portrait.html` | `meta-portrait` | Instagram and Facebook feed (4:5) | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait` | 2026-10-28 |
 | `story.html` | `meta-story` | Instagram and Facebook Stories (9:16) | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story` | 2026-10-28 |
-| `feed-square-notes.html` | `meta-square` | Meta feed, second concept to test against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-notes` | Same page as above, 2026-10-27 |
+| `feed-square-notification.html` | `meta-square` | Meta feed, A/B against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-notification` | 2026-10-28 |
+| `feed-portrait-notification.html` | `meta-portrait` | Instagram and Facebook feed (4:5), A/B against `feed-portrait` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-notification` | 2026-10-28 |
+| `story-notification.html` | `meta-story` | Instagram and Facebook Stories (9:16), A/B against `story` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-notification` | 2026-10-28 |
+| `feed-square-notes.html` | `meta-square` | Meta feed, A/B against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-notes` | Same page as above, 2026-10-27 |
 | `feed-portrait-notes.html` | `meta-portrait` | Instagram and Facebook feed post (4:5), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-notes` | Same page as above, 2026-10-27 |
 | `story-notes.html` | `meta-story` | Instagram and Facebook Stories (9:16), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-notes` | Same page as above, 2026-10-27 |
 
@@ -51,6 +57,14 @@ Three lifestyle photos in a collage, chosen by the owner on 2026-10-28. Two earl
 
 **On the image:** "Sign up and shop Black Friday first." / "Our sale opens early for subscribers only." / red round badge "VIP early access" / button "Get on the list".
 
+### Lock screen variant (`feed-square-notification`, `feed-portrait-notification`, `story-notification`)
+
+Added 2026-10-28 as a challenger to the collage square. A parent's phone lock screen dated Thursday 19 November (the day VIP opens), their kids as the wallpaper (`dad-and-kids-launching-rockets.jpg`), showing the email subscribers will get: "You're in early for Black Friday" with a red VIP stamp ("Subscribers shop our Black Friday sale from 19 to 22 Nov. Everyone else waits until the 23rd."), and a message from Gran underneath ("Have you sorted the kids' presents yet?? x"). The lock screen is generic (DM Sans, no OS branding), like the Notes and search ads. Bottom strip: "Sign up now to shop 4 days early." / "Get on the list". No logo (removed by the owner 2026-10-28); the CREATESPACE notification carries the brand.
+
+The campaign runs before the sale opens, so the lock screen is dated 19 November to show it as a future moment, and the notification gives dates instead of saying the sale "is open". Primary text for this variant: "Our Black Friday sale opens to everyone on 23 November. Subscribers get in four days earlier, from 19 to 22 November. Sign up now and this lands on your phone before anyone else's. It's free and takes ten seconds."
+
+Why this style: it shows the reward itself (being first to hear) instead of describing it, it looks like phone content rather than an ad, and Gran's message adds gift-buying timing without inventing a deadline. Gran is made up; don't present her as a real customer.
+
 ## Ad copy (Meta)
 
 - **Primary text:** Our Black Friday sale opens early for people on our email list. Sign up now and you'll get first pick of the STEM kits before everyone else, which matters when the best ones sell out. It's free and takes ten seconds.
@@ -58,7 +72,7 @@ Three lifestyle photos in a collage, chosen by the owner on 2026-10-28. Two earl
 - **Description:** Subscribers shop first
 - **Button:** Sign up
 
-### Second concept: Notes plan (`feed-square-notes.html`, `feed-portrait-notes.html` and `story-notes.html`, added 2026-10-28)
+### Notes plan variant (`feed-square-notes.html`, `feed-portrait-notes.html` and `story-notes.html`, added 2026-10-28)
 
 A parent's own notes-app "Black Friday plan", in the generic notes look from `2026-10-notes-checklist`. Three ticked items (write the gift list, nothing with another screen, hide the list from the kids) and one open item with the cursor: "get on the CREATESPACE list so we shop first". A taped photo of the rocket launch, captioned "Subscribers shop Black Friday before everyone else", carries the red VIP early-access sticker. No button on the image; Meta supplies it.
 
@@ -71,11 +85,13 @@ Why test it: it reads as content rather than an ad, it matches what gift-plannin
 
 ## Constraints
 
-- No date or discount on the image until the owner confirms them.
+- No discount on the image until the owner confirms it. Dates are confirmed (2026-10-28): VIP 19 to 22 Nov, open sale 23 to 30 Nov.
+- The ads run before the sale starts. Never say the sale "is open" or "is on" without a date next to it.
 - Red only for the "early access" stamp (urgency), per the Red Means Saving rule.
 
 ## Open questions
 
 - **The landing page doesn't mention VIP access yet.** The homepage popup and newsletter band both say "Stay in the loop". Someone tapping this ad should see "Get VIP early access to Black Friday" where they sign up, or the ad's promise gets lost. Update `EmailPopup.tsx` and `NewsletterBand.tsx` copy before the ad goes live (or consider a Meta Instant Form).
 - **The popup never opens by itself.** `EmailPopup.tsx` only opens on an `open-email-popup` event, so ad traffic lands on the homepage and has to scroll to the newsletter band near the bottom. Either open the popup for visitors arriving with `utm_campaign=2026-10-vip-black-friday`, or point the ad at a short dedicated VIP signup page.
-- When is the VIP sale and what's the discount? Add them to the ad once confirmed; dated creative usually beats undated.
+- What's the discount? Add it once confirmed.
+- The collage `feed-square`, `feed-portrait` and `story` still carry no dates. Consider adding "19 to 22 Nov" now that they're confirmed.
