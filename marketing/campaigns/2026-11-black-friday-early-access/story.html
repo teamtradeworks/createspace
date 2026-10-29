@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<!--
+  Black Friday early access for subscribers: the Instagram and Facebook story (9:16).
+  Adapted from feed-portrait.html. Headline starts below the top 270px (profile name, progress bar),
+  and the navy CTA panel floats above the bottom 270px (reply bar), with the photo running behind it to the edge.
+  The VinciBot studio photo has a pure white top, so the headline sits on it in navy.
+  Render: marketing/scripts/render.sh marketing/campaigns/2026-11-black-friday-early-access/story.html
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>Black Friday early access, story</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      background: var(--cs-white);
+      color: var(--cs-navy);
+      overflow: hidden;
+    }
+
+    .photo {
+      position: absolute;
+      left: -140px;
+      top: 630px;
+      width: 1360px;
+      height: auto;
+    }
+
+    .copy {
+      position: absolute;
+      left: 64px;
+      top: 236px;
+      right: 64px;
+    }
+    .title {
+      margin: 0;
+      font-weight: 800;
+      font-size: 320px;
+      line-height: 0.86;
+      letter-spacing: -0.045em;
+      white-space: nowrap;
+    }
+    .sub {
+      margin: 80px 0 0 9px;
+      font-weight: 600;
+      font-size: 70px;
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+    }
+    .sub em { font-style: normal; color: var(--cs-red); }
+
+    /* Sale sticker over the robot's shoulder */
+    .sticker {
+      position: absolute;
+      left: 780px;
+      top: 990px;
+      width: 248px;
+      height: 248px;
+      border-radius: 50%;
+      background: var(--cs-red);
+      color: var(--cs-white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-bottom: 28px;
+      box-sizing: border-box;
+      transform: rotate(-12deg);
+      box-shadow: 0 18px 36px rgba(12, 20, 70, 0.28);
+    }
+    .sticker svg { width: 34px; height: 34px; color: var(--cs-yellow); margin-bottom: 6px; }
+    .sticker span {
+      font-weight: 800;
+      font-size: 54px;
+      line-height: 0.92;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+
+    .band {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      bottom: 230px;
+      height: 160px;
+      box-sizing: border-box;
+      padding: 0 48px;
+      border-radius: 28px;
+      box-shadow: 0 20px 40px rgba(12, 20, 70, 0.25);
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .band p {
+      margin: 0;
+      font-weight: 600;
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: -0.01em;
+    }
+    .band strong { font-weight: 800; color: var(--cs-yellow); }
+    .mark { display: block; height: 78px; width: auto; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="photo" src="images/vincibot-on-line-track.jpg" alt="MatataStudio VinciBot following a line track">
+
+    <div class="copy">
+      <h1 class="title">Black<br>Friday</h1>
+      <p class="sub">Subscribers shop the <em>sale first.</em></p>
+    </div>
+
+    <div class="sticker">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.5l3.1 6.6 7.2.9-5.3 5 1.4 7.1L12 17.6l-6.4 3.5L7 14l-5.3-5 7.2-.9z"/></svg>
+      <span>Early<br>access</span>
+    </div>
+
+    <div class="band">
+      <p><strong>Join our email list.</strong></p>
+      <img class="mark" src="../../creative/kit/logo/mark-red.png" alt="CREATESPACE">
+    </div>
+  </main>
+</body>
+</html>
