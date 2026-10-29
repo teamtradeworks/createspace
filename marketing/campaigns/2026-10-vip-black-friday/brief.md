@@ -41,6 +41,9 @@ Join the CREATESPACE email list now, because subscribers get into the Black Frid
 | `feed-square-notification.html` | `meta-square` | Meta feed, A/B against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-notification` | 2026-10-28 |
 | `feed-portrait-notification.html` | `meta-portrait` | Instagram and Facebook feed (4:5), A/B against `feed-portrait` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-notification` | 2026-10-28 |
 | `story-notification.html` | `meta-story` | Instagram and Facebook Stories (9:16), A/B against `story` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-notification` | 2026-10-28 |
+| `feed-square-notes.html` | `meta-square` | Meta feed, A/B against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-notes` | Same page as above, 2026-10-27 |
+| `feed-portrait-notes.html` | `meta-portrait` | Instagram and Facebook feed post (4:5), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-notes` | Same page as above, 2026-10-27 |
+| `story-notes.html` | `meta-story` | Instagram and Facebook Stories (9:16), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-notes` | Same page as above, 2026-10-27 |
 
 ## Imagery
 
@@ -67,6 +70,17 @@ Why this style: it shows the reward itself (being first to hear) instead of desc
 - **Primary text:** Our Black Friday sale opens early for people on our email list. Sign up now and you'll get first pick of the STEM kits before everyone else, which matters when the best ones sell out. It's free and takes ten seconds.
 - **Headline:** Get early access to Black Friday
 - **Description:** Subscribers shop first
+- **Button:** Sign up
+
+### Notes plan variant (`feed-square-notes.html`, `feed-portrait-notes.html` and `story-notes.html`, added 2026-10-28)
+
+A parent's own notes-app "Black Friday plan", in the generic notes look from `2026-10-notes-checklist`. Three ticked items (write the gift list, nothing with another screen, hide the list from the kids) and one open item with the cursor: "get on the CREATESPACE list so we shop first". A taped photo of the rocket launch, captioned "Subscribers shop Black Friday before everyone else", carries the red VIP early-access sticker. No button on the image; Meta supplies it.
+
+Why test it: it reads as content rather than an ad, it matches what gift-planning parents are doing right now (making the list), and the unticked item asks for the sign-up without a hard sell. Run it against `feed-square` in the same ad set and keep the winner by cost per sign-up.
+
+- **Primary text:** Black Friday plan, sorted. Except one thing. Our subscribers get into the CREATESPACE Black Friday sale before it opens to everyone else, so you get first pick of the STEM kits before the good ones go. It's free and takes ten seconds.
+- **Headline:** Shop Black Friday first
+- **Description:** Free to join
 - **Button:** Sign up
 
 ## Constraints
