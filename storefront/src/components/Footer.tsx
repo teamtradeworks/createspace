@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { capture } from "@/lib/analytics";
 import BrandDecor from "@/components/BrandDecor";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 const footerLinks = {
   shop: [
@@ -127,6 +128,13 @@ export default function Footer() {
               >
                 info@thecreatespace.co.za
               </a>
+              <p>
+                WhatsApp:{" "}
+                <WhatsAppLink
+                  location="footer"
+                  className="text-white/70 hover:text-cs-orange transition-colors"
+                />
+              </p>
             </div>
           </div>
 

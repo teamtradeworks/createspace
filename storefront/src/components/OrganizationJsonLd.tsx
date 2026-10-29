@@ -1,3 +1,5 @@
+import { WHATSAPP_NUMBER } from "@/lib/whatsapp";
+
 export default function OrganizationJsonLd() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -10,6 +12,7 @@ export default function OrganizationJsonLd() {
     contactPoint: {
       "@type": "ContactPoint",
       email: "info@thecreatespace.co.za",
+      telephone: WHATSAPP_NUMBER,
       contactType: "customer service",
       areaServed: "ZA",
       availableLanguage: "English",
