@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--
+  Instagram feed post (4:5): "Snap Circuits are back!"
+  Render: marketing/scripts/render.sh marketing/campaigns/2026-10-snap-circuits-back/ig-portrait.html
+  Exports at 1080 x 1350, Instagram's portrait feed size.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>Snap Circuits are back</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      isolation: isolate;
+    }
+
+    /* The board photo sits in a rounded card between headline and stats */
+    .photo {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      top: 646px;
+      height: 500px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(4, 8, 30, 0.5);
+    }
+    .photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 72%;
+    }
+
+    /* Light, not shadow: blue and purple glows behind the headline */
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: -1;
+    }
+    .glow--blue {
+      width: 640px; height: 360px;
+      left: -120px; top: 140px;
+      background: rgba(60, 199, 247, 0.2);
+    }
+    .glow--purple {
+      width: 560px; height: 360px;
+      right: -140px; top: 260px;
+      background: rgba(172, 77, 255, 0.22);
+    }
+
+    .top {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      top: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    /* Partner logos sit on white */
+    .brand {
+      background: var(--cs-white);
+      border-radius: 20px;
+      padding: 14px 22px;
+      box-shadow: 0 10px 30px rgba(4, 8, 30, 0.35);
+    }
+    .brand img {
+      display: block;
+      height: 66px;
+      width: auto;
+    }
+    .pill {
+      padding: 12px 28px 14px;
+      border-radius: 9999px;
+      background: var(--cs-yellow);
+      color: var(--cs-navy);
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .headline {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      top: 168px;
+    }
+    .headline h1 {
+      margin: 0;
+      font-weight: 600;
+      font-size: 136px;
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+    }
+    .headline h1 em {
+      font-style: normal;
+      color: var(--cs-orange);
+    }
+
+    /* A Snap Circuits wire piece, standing in for an underline */
+    .wire {
+      position: relative;
+      display: block;
+      width: 520px;
+      height: 70px;
+      margin: 26px 0 0 4px;
+      transform: rotate(-2.5deg);
+    }
+
+    .sub {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      top: 556px;
+      margin: 0;
+      font-size: 38px;
+      line-height: 1.3;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .footer {
+      position: absolute;
+      left: 72px;
+      right: 72px;
+      bottom: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .stat b {
+      font-weight: 700;
+      font-size: 44px;
+      line-height: 1.1;
+    }
+    .stat span {
+      font-size: 28px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+    .stat--blue b   { color: var(--cs-blue); }
+    .stat--green b  { color: var(--cs-green); }
+    .stat--yellow b { color: var(--cs-yellow); }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="glow glow--blue"></div>
+    <div class="glow glow--purple"></div>
+
+    <div class="photo">
+      <img src="images/snap-circuits-boy-pressing-switch.jpg" alt="A child pressing a switch on a Snap Circuits board">
+    </div>
+
+    <div class="top">
+      <div class="brand"><img src="images/brands/snap-circuits.png" alt="Snap Circuits"></div>
+      <span class="pill">Back in stock</span>
+    </div>
+
+    <div class="headline">
+      <h1>Snap Circuits<br>are <em>back!</em></h1>
+      <svg class="wire" viewBox="0 0 520 70" aria-hidden="true">
+        <defs>
+          <radialGradient id="stud" cx="40%" cy="35%" r="65%">
+            <stop offset="0%" stop-color="#ffffff"/>
+            <stop offset="55%" stop-color="#c9ced8"/>
+            <stop offset="100%" stop-color="#7d8496"/>
+          </radialGradient>
+        </defs>
+        <rect x="2" y="7" width="516" height="56" rx="28" fill="#3cc7f7"/>
+        <rect x="2" y="7" width="516" height="56" rx="28" fill="none" stroke="#1d8fc0" stroke-width="3"/>
+        <line x1="44" y1="35" x2="476" y2="35" stroke="#ffffff" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="260" cy="35" r="21" fill="#ffffff" stroke="#1d8fc0" stroke-width="3"/>
+        <text x="260" y="44" text-anchor="middle" font-family="Outfit" font-weight="700" font-size="26" fill="#0c1446">5</text>
+        <circle cx="35" cy="35" r="18" fill="url(#stud)" stroke="#5c6377" stroke-width="2"/>
+        <circle cx="485" cy="35" r="18" fill="url(#stud)" stroke="#5c6377" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <p class="sub">Snap it together, flip the switch, watch it light up.</p>
+
+    <div class="footer">
+      <div class="stat stat--blue"><b>5 kits</b><span>Beginner to Classic 300</span></div>
+      <div class="stat stat--green"><b>Ages 5 to 14</b><span>First circuits to big builds</span></div>
+      <div class="stat stat--yellow"><b>21 to 305</b><span>projects per kit</span></div>
+    </div>
+  </main>
+</body>
+</html>
