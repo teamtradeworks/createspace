@@ -44,6 +44,9 @@ Join the CREATESPACE email list now, because subscribers get into the Black Frid
 | `feed-square-notes.html` | `meta-square` | Meta feed, A/B against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-notes` | Same page as above, 2026-10-27 |
 | `feed-portrait-notes.html` | `meta-portrait` | Instagram and Facebook feed post (4:5), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-notes` | Same page as above, 2026-10-27 |
 | `story-notes.html` | `meta-story` | Instagram and Facebook Stories (9:16), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-notes` | Same page as above, 2026-10-27 |
+| `feed-square-calendar.html` | `meta-square` | Meta feed, A/B against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-calendar` | Same page as above, not rechecked |
+| `feed-portrait-calendar.html` | `meta-portrait` | Instagram and Facebook feed post (4:5), calendar concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-calendar` | Same page as above, not rechecked |
+| `story-calendar.html` | `meta-story` | Instagram and Facebook Stories (9:16), calendar concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-calendar` | Same page as above, not rechecked |
 | `feed-portrait-struck.html` | `meta-portrait` | Instagram and Facebook feed (4:5), built on the 72 robots winner | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-struck` | Same page as above, not rechecked |
 | `feed-square-struck.html` | `meta-square` | Meta feed, square version of `feed-portrait-struck` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-struck` | Same page as above, not rechecked |
 | `story-struck.html` | `meta-story` | Instagram and Facebook Stories (9:16), story version of `feed-portrait-struck` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-struck` | Same page as above, not rechecked |
@@ -86,6 +89,16 @@ Why test it: it reads as content rather than an ad, it matches what gift-plannin
 - **Description:** Free to join
 - **Button:** Sign up
 
+### Calendar variant (`feed-square-calendar.html`, `feed-portrait-calendar.html` and `story-calendar.html`, added 2026-11-02)
+
+Two weeks of November on navy. Thursday 19 to Sunday 22 sit in a solid Sky Circuit Blue block labelled "Subscribers"; 23 to 29 sit in a dashed outline labelled "Everyone else". A tilted photo card of a boy, hands on his head and mouth wide open, behind his painted National Geographic volcano (`images/kid-shocked-with-volcano.jpg`, resized from `assets/product/national-geographic-build-your-own-volcano/lifestyle/kid-shocked-with-volcano-erupting.jpeg`) sits above the subscriber days with the red VIP early-access stamp on its corner. Headline "Shop Black Friday 4 days early." (the last three words in orange), subhead "Join our email list and the sale opens to you on 19 November.", and a centred orange "Get on the list" button. The volcano is there to show the kind of kit on offer, not as a claim that it is in the sale.
+
+Why test it: the collage and notes concepts say "first" or "early" without showing how much earlier. The calendar makes the head start a fact you can count, using only the confirmed dates. Blue (not orange or red) fills the subscriber days so orange stays the action colour and red stays the stamp.
+
+- **Primary text:** Our Black Friday sale opens to everyone on 23 November. Subscribers get in on the 19th, four days earlier, with first pick of the STEM kits before the good ones go. Joining the CREATESPACE email list is free and takes ten seconds.
+- **Headline:** Shop Black Friday 4 days early
+- **Description:** Subscribers shop from 19 Nov
+- **Button:** Sign up
 
 ### Struck-through variant (`feed-portrait-struck.html`, `feed-square-struck.html`, `story-struck.html`, added 2026-11-02)
 
