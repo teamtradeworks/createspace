@@ -44,6 +44,9 @@ Join the CREATESPACE email list now, because subscribers get into the Black Frid
 | `feed-square-notes.html` | `meta-square` | Meta feed, A/B against `feed-square` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-notes` | Same page as above, 2026-10-27 |
 | `feed-portrait-notes.html` | `meta-portrait` | Instagram and Facebook feed post (4:5), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-notes` | Same page as above, 2026-10-27 |
 | `story-notes.html` | `meta-story` | Instagram and Facebook Stories (9:16), Notes concept | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-notes` | Same page as above, 2026-10-27 |
+| `feed-portrait-struck.html` | `meta-portrait` | Instagram and Facebook feed (4:5), built on the 72 robots winner | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-portrait-struck` | Same page as above, not rechecked |
+| `feed-square-struck.html` | `meta-square` | Meta feed, square version of `feed-portrait-struck` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=feed-square-struck` | Same page as above, not rechecked |
+| `story-struck.html` | `meta-story` | Instagram and Facebook Stories (9:16), story version of `feed-portrait-struck` | `https://www.thecreatespace.co.za/?utm_source=meta&utm_medium=paid&utm_campaign=2026-10-vip-black-friday&utm_content=story-struck` | Same page as above, not rechecked |
 
 ## Imagery
 
@@ -80,6 +83,28 @@ Why test it: it reads as content rather than an ad, it matches what gift-plannin
 
 - **Primary text:** Black Friday plan, sorted. Except one thing. Our subscribers get into the CREATESPACE Black Friday sale before it opens to everyone else, so you get first pick of the STEM kits before the good ones go. It's free and takes ten seconds.
 - **Headline:** Shop Black Friday first
+- **Description:** Free to join
+- **Button:** Sign up
+
+
+### Struck-through variant (`feed-portrait-struck.html`, `feed-square-struck.html`, `story-struck.html`, added 2026-11-02)
+
+Built on `2026-10-makerzoid-72-robots`, the best performer in the test campaign, using the same layout and product photo: white ground, one struck-through "old way" line (faded grey, red strike), a 112px navy headline with one number on a yellow marker, the Makerzoid box and builds on a pale blue card bleeding off the right edge, and a red CTA pill. A round red stamp on the card ("VIP from 19 Nov") carries the date. One line under the headline says who it's for, so the headline isn't read as a sale open to everyone. A first version with a calendar card and a body paragraph was dropped on 2026-11-02 as too wordy and plain.
+
+The three sizes share `struck.css`, and each file sets only its own sizes. The square shrinks everything a step, and its card is a 620px block inside the margins instead of bleeding off the edge (a full-width card on the short canvas read as a long thin strip), with the stamp beside it overlapping the card's right edge. The story keeps the portrait layout between the top and bottom 270px, and moves the stamp to the bottom right of the card because the taller photo's builds column reaches the top right.
+
+- **Struck:** "Wait for Black Friday like everyone else."
+- **Headline:** "Shop Black Friday 4 days early." (the 4 is marked)
+- **Under the headline:** "Only for people on our email list."
+- **Stamp:** "VIP from 19 Nov"
+- **Footer:** "VIP early access, 19 to 22 Nov" / thecreatespace.co.za / button "Sign up free"
+
+Image: `images/makerzoid-smart-robot-box-and-builds.jpg`, copied from the 72 robots campaign (source `assets/product/makerzoid-smart-robot/lifestyle/whats-in-the-box.jpg`). It shows the kind of thing on offer; the ad doesn't claim the Makerzoid is in the sale.
+
+Like the 72 robots ad, it uses red for the strike and the CTA instead of orange (Orange Means Go). Here red stands for urgency (the early-access date), which the Red Means Saving rule allows, and it keeps the look of the winning ad.
+
+- **Primary text:** Our Black Friday sale opens to everyone on 23 November. People on our email list get in four days earlier, from 19 November, with first pick of the robots, coding kits and science sets. It's free and takes ten seconds.
+- **Headline:** Shop Black Friday 4 days early
 - **Description:** Free to join
 - **Button:** Sign up
 

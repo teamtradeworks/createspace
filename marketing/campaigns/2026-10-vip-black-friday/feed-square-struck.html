@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+  VIP Black Friday sign-up, Meta feed square (1080 x 1080).
+  Everything shrinks a step to fit the shorter canvas.
+  Adapted from feed-portrait-struck.html; shared styles are in struck.css,
+  and only the sizes below differ.
+-->
+<html lang="en-ZA" data-canvas="meta-square">
+<head>
+  <meta charset="utf-8">
+  <title>Shop Black Friday 4 days early</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="struck.css">
+  <style>
+    :root {
+      --margin: 60px;
+    }
+
+    .wordmark {
+      height: 38px;
+    }
+
+    .struck {
+      margin-top: 36px;
+      font-size: 32px;
+    }
+
+    h1 {
+      margin-top: 14px;
+      font-size: 92px;
+    }
+
+    .who {
+      margin-top: 18px;
+      font-size: 32px;
+    }
+
+    /* On the short canvas a full-width bleeding card turns into a long thin
+       strip, so it becomes a squarer block on the left, inside the margins,
+       with the stamp beside it overlapping its edge */
+    .card {
+      align-self: flex-start;
+      width: 620px;
+      margin: 28px 0 0;
+      border-radius: 28px;
+    }
+
+    .card img {
+      inset: 14px 20px 10px 20px;
+      width: calc(100% - 40px);
+      height: calc(100% - 24px);
+      /* Photo to the left so the stamp only covers empty card */
+      object-position: left center;
+    }
+
+    .stamp {
+      top: 50%;
+      right: auto;
+      left: 580px;
+      width: 270px;
+      height: 270px;
+      padding-top: 16px;
+      transform: translateY(-50%) rotate(8deg);
+      box-shadow: 0 0 0 8px var(--cs-white), 0 0 0 11px var(--cs-red);
+    }
+
+    .stamp small {
+      font-size: 30px;
+    }
+
+    .stamp b {
+      font-size: 108px;
+    }
+
+    .footer {
+      margin-top: 28px;
+    }
+
+    .product {
+      font-size: 32px;
+    }
+
+    .price {
+      font-size: 28px;
+    }
+
+    .cta {
+      padding: 22px 44px 24px;
+      font-size: 34px;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
+
+    <p class="struck">Wait for Black Friday like everyone else.</p>
+
+    <h1>
+      <span>Shop Black Friday</span>
+      <span><span class="marker">4</span> days early.</span>
+    </h1>
+
+    <p class="who">Only for people on our <b>email list</b>.</p>
+
+    <div class="card">
+      <img src="images/makerzoid-smart-robot-box-and-builds.jpg" alt="Makerzoid Smart Robot box with a built robot drummer and eleven other robot builds around it">
+      <div class="stamp">
+        <small>VIP from</small>
+        <b>19</b>
+        <small>Nov</small>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>
+        <p class="product">VIP early access, 19 to 22 Nov</p>
+        <p class="price">thecreatespace.co.za</p>
+      </div>
+      <span class="cta">Sign up free</span>
+    </div>
+  </main>
+</body>
+</html>

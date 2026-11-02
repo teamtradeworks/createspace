@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+  VIP Black Friday sign-up, Instagram and Facebook Stories (1080 x 1920).
+  The portrait layout sits between the top and bottom 270px, which Meta covers
+  with the profile name and the reply bar. The card gets the extra height.
+  Adapted from feed-portrait-struck.html; shared styles are in struck.css,
+  and only the sizes below differ.
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>Shop Black Friday 4 days early</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="struck.css">
+  <style>
+    /* Keep everything clear of the top and bottom 270px */
+    .canvas {
+      padding-top: 290px;
+      padding-bottom: 300px;
+    }
+
+    h1 {
+      font-size: 120px;
+    }
+
+    .who {
+      font-size: 40px;
+    }
+
+    /* The taller card scales the photo up, so the builds column reaches the
+       top right; the stamp moves to the empty bottom right instead */
+    .stamp {
+      top: auto;
+      bottom: 40px;
+      right: 22px;
+      width: 262px;
+      height: 262px;
+      padding-top: 16px;
+    }
+
+    .stamp small {
+      font-size: 30px;
+    }
+
+    .stamp b {
+      font-size: 106px;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-white.png" alt="CREATESPACE">
+
+    <p class="struck">Wait for Black Friday like everyone else.</p>
+
+    <h1>
+      <span>Shop Black Friday</span>
+      <span><span class="marker">4</span> days early.</span>
+    </h1>
+
+    <p class="who">Only for people on our <b>email list</b>.</p>
+
+    <div class="card">
+      <img src="images/makerzoid-smart-robot-box-and-builds.jpg" alt="Makerzoid Smart Robot box with a built robot drummer and eleven other robot builds around it">
+      <div class="stamp">
+        <small>VIP from</small>
+        <b>19</b>
+        <small>Nov</small>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div>
+        <p class="product">VIP early access, 19 to 22 Nov</p>
+        <p class="price">thecreatespace.co.za</p>
+      </div>
+      <span class="cta">Sign up free</span>
+    </div>
+  </main>
+</body>
+</html>

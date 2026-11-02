@@ -1,0 +1,182 @@
+/*
+ * Shared styles for the struck-through VIP ads (feed-portrait-struck,
+ * feed-square-struck, story-struck). Sized for the 1080 x 1350 portrait;
+ * the square and story files override sizes in their own <style>.
+ */
+
+:root {
+  --margin: 72px;
+  --card: #eef8fd;
+  /* Same navy-tinted greys as the 72 robots ad */
+  --struck-ink: #858aa3;
+  --body-ink: #3d4466;
+}
+
+.canvas {
+  display: flex;
+  flex-direction: column;
+  padding: var(--margin);
+  background: var(--cs-white);
+  color: var(--cs-navy);
+  font-family: var(--cs-font);
+  overflow: hidden;
+}
+
+.wordmark {
+  display: block;
+  height: 44px;
+  width: auto;
+  align-self: flex-start;
+}
+
+.struck {
+  width: fit-content;
+  margin: 56px 0 0;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--struck-ink);
+  text-decoration: line-through;
+  text-decoration-color: var(--cs-red);
+  text-decoration-thickness: 6px;
+  text-decoration-skip-ink: none;
+}
+
+h1 {
+  margin: 24px 0 0;
+  font-size: 112px;
+  font-weight: 600;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+}
+
+h1 > span {
+  display: block;
+}
+
+.marker {
+  position: relative;
+  z-index: 0;
+  font-weight: 700;
+}
+
+.marker::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -2px;
+  right: -12px;
+  top: 0.4em;
+  bottom: 0.04em;
+  background: var(--cs-yellow);
+  border-radius: 6px 10px 8px 4px;
+  transform: rotate(-1.5deg);
+}
+
+/* Says who the early access is for, so the headline isn't read as
+   an offer open to everyone */
+.who {
+  margin: 28px 0 0;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--body-ink);
+}
+
+.who b {
+  font-weight: 600;
+  color: var(--cs-navy);
+}
+
+/* Pale blue card: starts at the left margin, bleeds off the right edge */
+.card {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  margin: 40px calc(-1 * var(--margin)) 0 0;
+  background: var(--card);
+  border-radius: 28px 0 0 28px;
+}
+
+.card img {
+  position: absolute;
+  inset: 20px 40px 16px 24px;
+  width: calc(100% - 64px);
+  height: calc(100% - 36px);
+  object-fit: contain;
+  object-position: left center;
+  /* The product shot is on white; multiply lets the card colour through */
+  mix-blend-mode: multiply;
+}
+
+/* Round VIP stamp, slapped on the top right of the card */
+.stamp {
+  position: absolute;
+  top: 30px;
+  right: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 290px;
+  height: 290px;
+  /* Caps and figures leave empty descender space under each line, which
+     makes the block read high; push it down to the optical centre */
+  padding-top: 18px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: var(--cs-red);
+  color: var(--cs-white);
+  text-align: center;
+  transform: rotate(8deg);
+  box-shadow: 0 0 0 8px var(--card), 0 0 0 11px var(--cs-red);
+}
+
+.stamp small {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.stamp b {
+  margin: 0 0 2px;
+  font-size: 116px;
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.product {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.price {
+  margin: 8px 0 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--body-ink);
+}
+
+.cta {
+  flex: none;
+  padding: 24px 48px 26px;
+  border-radius: 9999px;
+  background: var(--cs-red);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--cs-white);
+}
