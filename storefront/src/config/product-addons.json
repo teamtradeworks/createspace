@@ -225,6 +225,14 @@
       "viewProductLink": false
     },
     {
+      "parentHandle": "national-geographic-engine-building-kit",
+      "addonHandle": "varta-long-life-aa-alkaline-battery",
+      "quantity": 3,
+      "discountPercent": 0,
+      "description": "This engine requires 3 x AA batteries (not included). Add them so it's ready to run the moment it's built.",
+      "viewProductLink": false
+    },
+    {
       "parentHandle": "national-geographic-epic-circuits-science-kit",
       "addonHandle": "varta-long-life-aaa-alkaline-battery",
       "quantity": 3,
