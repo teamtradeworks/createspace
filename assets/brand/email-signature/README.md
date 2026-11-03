@@ -26,6 +26,8 @@ Email clients can only show images from a public URL, so the signature points at
 
 The trimmed wordmark and the icons live in `storefront/public/images/brand/` and must be deployed before the signature shows them.
 
+Each image URL carries a `?v=N` parameter (`ASSET_VERSION` in `index.html`). Gmail's image proxy and browsers cache by URL, and they cache a 404 fetched before a file was deployed, so bump the version whenever an image is added or replaced and have everyone re-copy the signature.
+
 ## Gmail notes
 
 - Gmail keeps inline styles, tables, `bgcolor` and image URLs, which is all the signature uses. It drops `<style>` blocks and web fonts, so the signature falls back from Outfit to Helvetica/Arial on most recipients' screens.

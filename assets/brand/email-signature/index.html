@@ -128,6 +128,9 @@
 
 <script>
   const BASE = "https://www.thecreatespace.co.za";
+  // Bump when an image is replaced: Gmail's image proxy and browsers cache by URL,
+  // including a 404 fetched before the file was deployed.
+  const ASSET_VERSION = "?v=2";
   const FONT = "font-family:Outfit,Helvetica,Arial,sans-serif;";
   const NAVY = "#0C1446";
   const STRIPE = ["#F70B28", "#3CC7F7", "#FF8B00", "#FFD500", "#93DB21"];
@@ -175,7 +178,7 @@
 
     rows.push(
       `<tr><td style="padding:16px 0 0 0;"><a href="${BASE}/" style="text-decoration:none;">` +
-      `<img src="${BASE}/images/brand/logo-light-trimmed.png" width="180" height="20" alt="CREATESPACE" style="display:block;border:0;width:180px;height:20px;"></a></td></tr>`
+      `<img src="${BASE}/images/brand/logo-light-trimmed.png${ASSET_VERSION}" width="180" height="20" alt="CREATESPACE" style="display:block;border:0;width:180px;height:20px;"></a></td></tr>`
     );
     const stripeCells = STRIPE.map(
       (c) => `<td width="36" height="3" bgcolor="${c}" style="width:36px;height:3px;font-size:0;line-height:0;">&nbsp;</td>`
@@ -198,7 +201,7 @@
     rows.push(`<tr><td style="${FONT}font-size:13px;line-height:22px;font-weight:600;color:#FF8B00;padding:10px 0 0 0;">${brandLinks}</td></tr>`);
 
     const icon = (href, file, alt) =>
-      `<a href="${href}" style="text-decoration:none;"><img src="${BASE}/images/brand/${file}" width="22" height="22" alt="${alt}" style="display:inline-block;border:0;width:22px;height:22px;vertical-align:middle;"></a>`;
+      `<a href="${href}" style="text-decoration:none;"><img src="${BASE}/images/brand/${file}${ASSET_VERSION}" width="22" height="22" alt="${alt}" style="display:inline-block;border:0;width:22px;height:22px;vertical-align:middle;"></a>`;
     rows.push(
       `<tr><td style="padding:12px 0 0 0;line-height:22px;">` +
       icon("https://www.facebook.com/thecreatespace.za/", "icon-facebook.png", "Facebook") +
