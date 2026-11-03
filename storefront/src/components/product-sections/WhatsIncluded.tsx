@@ -10,6 +10,7 @@ interface WhatsIncludedProps {
   image?: string;
   imageAlt?: string;
   background?: "white" | "gray";
+  showIcons?: boolean;
 }
 
 export function WhatsIncluded({
@@ -18,6 +19,7 @@ export function WhatsIncluded({
   image,
   imageAlt = "Box contents",
   background = "gray",
+  showIcons = true,
 }: WhatsIncludedProps) {
   const [isOpen, setIsOpen] = useState(false);
   const bgClass = background === "gray" ? "bg-gray-50" : "bg-white";
@@ -72,19 +74,21 @@ export function WhatsIncluded({
                       key={index}
                       className="flex items-center gap-3 bg-white rounded-lg px-4 py-3 shadow-sm"
                     >
-                      <svg
-                        className="w-5 h-5 text-cs-green flex-shrink-0"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
+                      {showIcons && (
+                        <svg
+                          className="w-5 h-5 text-cs-green flex-shrink-0"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      )}
                       <span className="text-gray-700">{item}</span>
                     </li>
                   ))}
