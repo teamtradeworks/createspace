@@ -10,8 +10,8 @@ Open it straight from disk in a browser, or use the published copy shared with t
 - Name with the ✨ sparkles from the original signature
 - CREATESPACE wordmark with the five-colour brand stripe
 - Website, info@ address and the shared number 087 265 0997
-- The ten brands from `storefront/src/config/brands.ts` in semi-bold orange, each linking to its filtered shop page (`/shop?brand=<vendor>`)
-- Facebook and Instagram icons
+- Nine brands in semi-bold orange, each linking to its filtered shop page (`/shop?brand=<vendor>`). Vendor strings come from `storefront/src/config/brands.ts`; the order is set in `index.html` and Arduino is deliberately left out.
+- Facebook, Instagram and Google icons. The Google icon links to our review page (`https://g.page/r/CUyt6FQiOY1FEAI/review`).
 
 ## Hosted images
 
@@ -22,6 +22,7 @@ Email clients can only show images from a public URL, so the signature points at
 | Wordmark (navy, trimmed of its transparent margin so it sits flush left) | `https://www.thecreatespace.co.za/images/brand/logo-light-trimmed.png` |
 | Facebook icon | `https://www.thecreatespace.co.za/images/brand/icon-facebook.png` |
 | Instagram icon | `https://www.thecreatespace.co.za/images/brand/icon-instagram.png` |
+| Google icon | `https://www.thecreatespace.co.za/images/brand/icon-google.png` |
 
 The trimmed wordmark and the icons live in `storefront/public/images/brand/` and must be deployed before the signature shows them.
 
