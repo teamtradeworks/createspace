@@ -589,6 +589,7 @@ Checklist of box contents with optional image.
 | `image` | `string` | Yes | — | Product image (unboxed kit, components laid out, or product shot) |
 | `imageAlt` | `string` | No | `"Box contents"` | Alt text |
 | `background` | `"white" \| "gray"` | No | `"gray"` | Background colour |
+| `showIcons` | `boolean` | No | `true` | Show the green tick beside each item. Set `false` when items already carry their own quantity (e.g. "1 x River stone") |
 
 **Image guidelines:**
 - Prefer an image showing the kit unboxed with all components laid out
