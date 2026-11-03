@@ -131,19 +131,20 @@
   const FONT = "font-family:Outfit,Helvetica,Arial,sans-serif;";
   const NAVY = "#0C1446";
   const STRIPE = ["#F70B28", "#3CC7F7", "#FF8B00", "#FFD500", "#93DB21"];
-  // Same order and vendor strings as storefront/src/config/brands.ts; the shop filters on the exact vendor.
+  // Vendor strings match storefront/src/config/brands.ts; the shop filters on the exact vendor.
+  // Order is deliberate (Arduino is left out).
   const BRANDS = [
+    ["National Geographic", "National Geographic"],
     ["MatataStudio", "MatataStudio"],
     ["Makerzoid", "Makerzoid"],
     ["BBC micro:bit", "micro:bit"],
     ["ELECFREAKS", "ELECFREAKS"],
     ["Snap Circuits", "Snap Circuits"],
-    ["Arduino", "Arduino"],
-    ["National Geographic", "National Geographic"],
     ["Blockaroo", "Blockaroo"],
     ["NASA", "NASA"],
     ["Robotico", "Robotico"],
   ];
+  const GOOGLE_REVIEW_URL = "https://g.page/r/CUyt6FQiOY1FEAI/review";
 
   const BODY_FONT = "font-family:Verdana,Geneva,sans-serif;";
   const SIGNOFF = "Keep exploring,";
@@ -203,6 +204,8 @@
       icon("https://www.facebook.com/thecreatespace.za/", "icon-facebook.png", "Facebook") +
       `<span style="display:inline-block;width:10px;">&nbsp;</span>` +
       icon("https://www.instagram.com/thecreatespace.za/", "icon-instagram.png", "Instagram") +
+      `<span style="display:inline-block;width:10px;">&nbsp;</span>` +
+      icon(GOOGLE_REVIEW_URL, "icon-google.png", "Review us on Google") +
       `</td></tr>`
     );
 
