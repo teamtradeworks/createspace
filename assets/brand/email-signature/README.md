@@ -9,7 +9,7 @@ Open it straight from disk in a browser, or use the published copy shared with t
 - "Keep exploring," sign-off in Verdana, matching the email body
 - Name with the ✨ sparkles from the original signature
 - CREATESPACE wordmark with the five-colour brand stripe
-- Website, info@ address and the shared number 087 265 0997
+- Website, info@ address, the shared number 087 265 0997 and the WhatsApp number 075 624 6775 as a wa.me link (same number as `storefront/src/config/site.json`)
 - Nine brands in semi-bold orange, each linking to its filtered shop page (`/shop?brand=<vendor>`). Vendor strings come from `storefront/src/config/brands.ts`; the order is set in `index.html` and Arduino is deliberately left out.
 - Facebook, Instagram and Google icons. The Google icon links to our review page (`https://g.page/r/CUyt6FQiOY1FEAI/review`).
 

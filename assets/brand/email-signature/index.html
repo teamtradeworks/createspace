@@ -161,6 +161,9 @@
   const BODY_FONT = "font-family:Verdana,Geneva,sans-serif;";
   const SIGNOFF = "Keep exploring,";
   const PHONE = "087 265 0997";
+  // Same number as storefront/src/config/site.json (whatsapp.number).
+  const WHATSAPP = "075 624 6775";
+  const WHATSAPP_LINK = "https://wa.me/27" + WHATSAPP.replace(/\D/g, "").slice(1);
 
   const fields = ["name"].map((id) => document.getElementById(id));
 
@@ -204,7 +207,8 @@
     const contact =
       link(`${BASE}/`, "www.thecreatespace.co.za") + dot +
       link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za") + dot +
-      link(`tel:${PHONE.replace(/\s/g, "")}`, PHONE);
+      link(`tel:${PHONE.replace(/\s/g, "")}`, PHONE) + dot +
+      link(WHATSAPP_LINK, `WhatsApp ${WHATSAPP}`);
     rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:12px 0 0 0;">${contact}</td></tr>`);
 
     // Brands are the accent of the signature: semi-bold orange, muted separators.
@@ -231,7 +235,7 @@
 
   function buildText({ name }) {
     const lines = [SIGNOFF, "", (name || "Your name") + " ✨"];
-    lines.push("", "CREATESPACE", "www.thecreatespace.co.za | info@thecreatespace.co.za | " + PHONE);
+    lines.push("", "CREATESPACE", "www.thecreatespace.co.za | info@thecreatespace.co.za | " + PHONE + " | WhatsApp " + WHATSAPP);
     lines.push(BRANDS.map(([label]) => label).join(" | "));
     return lines.join("\n");
   }
