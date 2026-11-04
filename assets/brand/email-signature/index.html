@@ -211,10 +211,14 @@
       `<img src="${imgSrc(file, preview)}" width="14" height="14" alt="${alt}" style="display:inline-block;border:0;width:14px;height:14px;vertical-align:-2px;margin-right:5px;">`;
     const contact =
       link(`${BASE}/`, "www.thecreatespace.co.za") + dot +
-      link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za") + dot +
-      link(`tel:${PHONE.replace(/\s/g, "")}`, inlineIcon("icon-phone.png", "Phone") + PHONE) + dot +
-      link(WHATSAPP_LINK, inlineIcon("icon-whatsapp.png", "WhatsApp") + WHATSAPP);
+      link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za");
     rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:12px 0 0 0;">${contact}</td></tr>`);
+
+    // Phone numbers on their own line, each labelled.
+    const numbers =
+      link(`tel:${PHONE.replace(/\s/g, "")}`, inlineIcon("icon-phone.png", "Phone") + PHONE + " (Office)") + dot +
+      link(WHATSAPP_LINK, inlineIcon("icon-whatsapp.png", "WhatsApp") + WHATSAPP + " (WhatsApp)");
+    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:2px 0 0 0;">${numbers}</td></tr>`);
 
     // Brands are the accent of the signature: semi-bold orange, muted separators.
     const brandDot = `<span style="color:#B3B3B3;font-weight:400;">&nbsp;&nbsp;&bull;&nbsp;</span> `;
@@ -240,7 +244,8 @@
 
   function buildText({ name }) {
     const lines = [SIGNOFF, "", (name || "Your name") + " ✨"];
-    lines.push("", "CREATESPACE", "www.thecreatespace.co.za | info@thecreatespace.co.za | " + PHONE + " | WhatsApp " + WHATSAPP);
+    lines.push("", "CREATESPACE", "www.thecreatespace.co.za | info@thecreatespace.co.za");
+    lines.push(PHONE + " (Office) | " + WHATSAPP + " (WhatsApp)");
     lines.push(BRANDS.map(([label]) => label).join(" | "));
     return lines.join("\n");
   }
