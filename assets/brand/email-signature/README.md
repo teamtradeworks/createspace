@@ -9,7 +9,7 @@ Open it straight from disk in a browser, or use the published copy shared with t
 - "Keep exploring," sign-off in Verdana, matching the email body
 - Name with the ✨ sparkles from the original signature
 - CREATESPACE wordmark with the five-colour brand stripe
-- Website, info@ address, the shared number 087 265 0997 and the WhatsApp number 075 624 6775 as a wa.me link (same number as `storefront/src/config/site.json`)
+- Website, info@ address, the shared number 087 265 0997 with a phone icon, and the WhatsApp number 075 624 6775 with a WhatsApp icon as a wa.me link (same number as `storefront/src/config/site.json`)
 - Nine brands in semi-bold orange, each linking to its filtered shop page (`/shop?brand=<vendor>`). Vendor strings come from `storefront/src/config/brands.ts`; the order is set in `index.html` and Arduino is deliberately left out.
 - Facebook, Instagram and Google icons. The Google icon links to our review page (`https://g.page/r/CUyt6FQiOY1FEAI/review`).
 
@@ -23,6 +23,8 @@ Email clients can only show images from a public URL, so the signature points at
 | Facebook icon | `https://www.thecreatespace.co.za/images/brand/icon-facebook.png` |
 | Instagram icon | `https://www.thecreatespace.co.za/images/brand/icon-instagram.png` |
 | Google icon | `https://www.thecreatespace.co.za/images/brand/icon-google.png` |
+| Phone icon | `https://www.thecreatespace.co.za/images/brand/icon-phone.png` |
+| WhatsApp icon | `https://www.thecreatespace.co.za/images/brand/icon-whatsapp.png` |
 
 The trimmed wordmark and the icons live in `storefront/public/images/brand/` and must be deployed before the signature shows them.
 
