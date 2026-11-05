@@ -4,6 +4,8 @@
 **SKU:** MS0201500089
 **Research Date:** 2026-02-11
 
+> **Correction (2026-10-14): Tale-Bot Pro does not support Scratch.** MatataStudio's official FAQ (https://shop.matatastudio.com/products/tale-bot-pro-classroom-set) says standard play uses only the robot's buttons, with no app or screen, and that the MatataCode app is only used with the optional TaleMap system for custom maps. No MatataStudio source mentions Scratch for Tale-Bot Pro. The Scratch claims below came from our own Shopify description and retailer copy; they have been corrected. Other official facts: ages 3–5 (MatataStudio's meta description: "screen-free coding robot for ages 3–5"), 2.5 h charging time with a 5V 2A adapter, 6 preset dance moves. The language count (11 here, 10 in the classroom set notes) isn't stated by MatataStudio either; see `assets/product/matatastudio-tale-bot-pro-classroom-set/content.md`.
+
 ---
 
 ## Shopify Data (Dynamic - Not for Research)
@@ -17,6 +19,9 @@ These details come from Shopify API and are already available on the site:
 - **Tags:** coding, engineering, robotics, technology
 
 ### Current Shopify Description
+
+*Note (2026-10-14): the "supports Scratch programming" sentences in this live Shopify description are wrong and need removing in Shopify admin. The `custom.coding_platform` metafield ("Screen-free physical buttons; optional Scratch") is also wrong and shows in the QuickInfoBadges.*
+
 The MatataStudio Tale-Bot Pro Screenless Coding Robot is an interactive, screen-free STEM coding robot designed to spark creativity, build early programming logic and foster storytelling in children. Introduce young learners to coding and robotics with the MatataStudio Tale-Bot Pro — a fun, hands-on, screen-free robot designed for kids aged 3–5. Perfect for preschoolers and early learners, this robot makes coding intuitive and playful, giving children a strong foundation in sequencing, logic, and problem-solving through interactive play. Children can start coding right away using physical command buttons on the robot. No tablets, screens, or reading skills are required — kids can learn basic programming through playful, tactile interaction, making coding as simple as arranging building blocks. For older or more advanced learners, the Tale-Bot Pro also supports Scratch programming. Kids can connect the robot to a tablet or computer and explore loops, functions, and more complex coding sequences, bridging early learning with future coding skills. The Tale-Bot Pro encourages children to explore, experiment, and problem-solve while telling stories, navigating obstacle courses, and interacting with hands-on materials. This play-based approach builds confidence, critical thinking, and creativity while keeping screen time low. The MatataStudio Tale-Bot Pro is perfect for preschoolers, kindergartens, and early learners at home or in the classroom. It makes coding approachable, fun, and interactive, giving children the foundational skills for STEM learning in a playful, screen-free way.
 
 ---
@@ -38,7 +43,7 @@ Tale-Bot Pro is described as "a cute and smart robot who can walk, draw, sing, d
 
 The robot operates through a simple three-step process: plan the path → press play button → robot executes commands. Children can start coding right away using physical command buttons on the robot. No tablets, screens, or reading skills are required.
 
-For older or more advanced learners, the Tale-Bot Pro also supports Scratch programming. Kids can connect the robot to a tablet or computer and explore loops, functions, and more complex coding sequences, bridging early learning with future coding skills.
+Standard coding play needs no app or screen. MatataStudio's MatataCode app is only used with the optional TaleMap add-on, for designing custom interactive maps. Tale-Bot Pro does not support Scratch.
 
 ### Specifications
 
@@ -55,7 +60,9 @@ For older or more advanced learners, the Tale-Bot Pro also supports Scratch prog
 | **Material** | Eco-friendly, food-grade material |
 | **Safety** | Lead-free, sturdy and fall-resistant design |
 | **Technology** | Smart OID interactive technology |
-| **Scratch Support** | Yes — compatible with Scratch programming via tablet/computer |
+| **Charging Time** | 2.5 hours with a 5V 2A adapter |
+| **App / Screen** | None for standard play. MatataCode app only used with the optional TaleMap add-on |
+| **Scratch Support** | No. Not mentioned in any MatataStudio source (corrected 2026-10-14) |
 
 ### Features
 
@@ -101,7 +108,6 @@ For older or more advanced learners, the Tale-Bot Pro also supports Scratch prog
 - 32 physical command cards included
 - Real-time visual feedback through illuminated LED lights showing code execution
 - Intuitive debugging tracking through colour-coded indicators
-- Supports Scratch programming for advanced learners
 
 ### What's Included
 
@@ -168,8 +174,8 @@ For older or more advanced learners, the Tale-Bot Pro also supports Scratch prog
 
 ### Requirements
 - **Batteries:** Built-in rechargeable lithium battery (1500mAh) — no external batteries required
-- **Software:** None required for basic use; Scratch programming optional for advanced use
-- **OS Compatibility:** N/A for basic use; Scratch available on Windows/Mac/Chromebook/tablet for advanced use
+- **Software:** None. Standard play uses only the robot's buttons (MatataCode app only needed for the separate TaleMap add-on)
+- **OS Compatibility:** N/A
 - **Tools:** None required
 - **Additional:** Flat surface for interactive maps; USB-C power source for charging
 
@@ -217,7 +223,7 @@ Studies also show there are no gender-related differences in programming ability
 - Understanding input/output relationships
 - Basic robotics concepts (sensors, movement, feedback)
 - Introduction to microelectronics and how robots work
-- Foundation for future Scratch programming and text-based coding
+- Foundation for later block-based (e.g. Scratch) and text-based coding on other platforms
 
 ### Project-to-Skill Mapping
 
@@ -235,7 +241,6 @@ The Tale-Bot Pro includes 14 challenge missions in the challenge booklet plus 5 
 | LEGO building + coding | Engineering design, construction, creative problem-solving |
 | Blank map exploration | Open-ended creativity, self-directed learning, imagination |
 | Multi-language activities | Cultural awareness, language exposure, communication |
-| Scratch programming (advanced) | Loops, functions, variables, complex sequences, digital literacy |
 
 ### Life Skills & Character Development
 
@@ -334,9 +339,9 @@ Based on educator reviews, research, and product testing:
 - No specific FCC/CE certification numbers found in research (information gap)
 
 ### Longevity
-- **Replayability:** High — 14 challenge missions, 5 themed double-sided maps, blank maps for open-ended play, LEGO compatibility for limitless building combinations, voice recording for new stories, Scratch programming extends use for older children
+- **Replayability:** High — 14 challenge missions, 5 themed double-sided maps, blank maps for open-ended play, LEGO compatibility for limitless building combinations, voice recording for new stories
 - **Expansion Packs:** MatataStudio Activity Box available as add-on (R780 on CREATESPACE store) — adds new activities, challenges, storytelling elements, and cross-curricular themes with additional interactive maps and stickers
-- **Progression Path:** Screen-free button coding → command card coding → Scratch programming — grows with the child
+- **Progression Path:** Screen-free button coding → command card coding → loops with the Repeat button (Tale-Bot Pro has no Scratch or app-based coding; children move to a different product for screen coding)
 - **Community/Support:** MatataStudio official website, user guides included, challenge booklet with progressive missions
 - **Classroom Set Available:** MatataStudio Tale-Bot Pro Classroom Set with 6 robots and rich teaching materials (R15,080 on CREATESPACE store, currently out of stock)
 
@@ -350,7 +355,6 @@ Based on educator reviews, research, and product testing:
 - **Storytelling integration** — uniquely combines coding with narrative creation, voice recording, and themed educational maps
 - **11-language support** — exceptionally multilingual for an early childhood coding robot, beneficial for multicultural classrooms and language exposure
 - **LEGO/DUPLO compatibility** — bridges coding with physical construction play that children already know and love
-- **Dual learning modes** — screen-free button coding for beginners AND Scratch programming for advanced learners, providing years of growth
 - **Colour-coded debugging** — LED coding indicators match command button colours, making debugging intuitive and visual for pre-readers
 - **Drawing capability** — transforms coding into art as the robot draws shapes with washable markers
 - **OID interactive technology** — maps respond to the robot's presence, creating truly interactive learning experiences
@@ -364,7 +368,7 @@ Based on educator reviews, research, and product testing:
 - USB-C charging time not specified in any source
 - Specific FCC/CE/safety certification numbers not found (though the product is sold by major retailers including Amazon, B&H Photo, and School Specialty, suggesting compliance)
 - No specific South African curriculum (CAPS) alignment information found — would need to map manually
-- Scratch programming compatibility details (exact version, supported devices) not fully specified
+- ~~Scratch programming compatibility details~~ Resolved 2026-10-14: Tale-Bot Pro does not support Scratch
 - No information on warranty or repair/replacement policies from manufacturer
 
 ---
