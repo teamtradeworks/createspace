@@ -16,6 +16,7 @@ marketing/
 ├── creative/                  # How to make ads and flyers: guide, formats, shared brand kit
 ├── campaigns/                 # One folder per campaign: brief, assets, exports, results
 │   └── _template/             # Copy this to start a campaign
+├── emails/                    # Copy for automated emails sent from our email tool (e.g. Google review request)
 ├── scripts/                   # render.sh (HTML to PNG/PDF), qr.sh (UTM QR codes), check-links.sh
 └── data/                      # Raw and processed analytics data exports
 ```
