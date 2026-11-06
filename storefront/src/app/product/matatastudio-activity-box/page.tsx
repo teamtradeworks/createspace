@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   ExtensionBanner,
-  QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
   WhatsIncluded,
@@ -57,8 +56,6 @@ export default async function ActivityBoxPage() {
         parentProductHref={parentProductHref}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* What This Adds */}
       <FeatureGrid

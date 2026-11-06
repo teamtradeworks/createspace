@@ -129,7 +129,7 @@ components:
     backgroundColor: "{colors.deep-space-navy}"
     textColor: "{colors.clean-white}"
   button-add-to-cart:
-    backgroundColor: "transparent"
+    backgroundColor: "{colors.launch-orange}"
     textColor: "{colors.deep-space-navy}"
     typography: "{typography.button}"
     rounded: "{rounded.lg}"
@@ -137,6 +137,9 @@ components:
   button-add-to-cart-hover:
     backgroundColor: "{colors.deep-space-navy}"
     textColor: "{colors.clean-white}"
+  button-add-to-cart-added:
+    backgroundColor: "{colors.sprout-green}"
+    textColor: "{colors.deep-space-navy}"
   button-quick-add:
     backgroundColor: "{colors.deep-space-navy}"
     textColor: "{colors.clean-white}"
@@ -224,7 +227,7 @@ The storefront is designed for a parent on a phone deciding whether a kit fits t
 
 **Key Characteristics:**
 - Navy or white ground, always; accents are highlights, never backgrounds.
-- Launch Orange is the action colour: every call to action is orange, with the navy add-to-cart as the one deliberate exception.
+- Launch Orange is the action colour: every call to action is orange, including the product hero's add-to-cart (orange with a navy label); the navy quick-add on product cards is the one deliberate exception.
 - Rocket Red marks money and urgency: discount badges, sale prices, the promo badge, errors.
 - One family, Outfit: SemiBold headlines, Regular body, Bold only for prices, stats and badges.
 - Soft, friendly corners and pill-shaped labels.
@@ -237,7 +240,7 @@ The storefront is designed for a parent on a phone deciding whether a kit fits t
 A deep navy and white pairing carries the brand, with seven toy-bright accents from the CI used as highlights and signals, and a short grey scale for supporting text and edges.
 
 ### Primary
-- **Deep Space Navy** (#0C1446): The brand ground and the brand ink. Full-bleed background for the hero, the site header and footer, page headers, the education band and the newsletter band. On white it is the colour of every heading, product title, nav label and price label. On the purchase surface it is the colour of commitment: the add-to-cart button's 2px outline and label (filling navy on hover) and the quick-add button's fill on product cards. Translucent navy carries the age badge on product photos (85%), the skill tag fill (10%), ghost-button borders on white (20% to 30%), the hover lift on cards (5%), and the scrim that rises under text on photos.
+- **Deep Space Navy** (#0C1446): The brand ground and the brand ink. Full-bleed background for the hero, the site header and footer, page headers, the education band and the newsletter band. On white it is the colour of every heading, product title, nav label and price label. On the purchase surface it is the colour of commitment: the label on the orange add-to-cart button (the button fills navy on hover), the price, the fit facts, and the quick-add button's fill on product cards. Translucent navy carries the age badge on product photos (85%), the skill tag fill (10%), ghost-button borders on white (20% to 30%), the hover lift on cards (5%), and the scrim that rises under text on photos.
 - **Clean White** (#FFFFFF): The second ground, used interchangeably with navy. Product cards, testimonial cards, info tiles, the "Why CREATESPACE" section, the brand strip and the final call to action. On navy it is the text colour, stepped down to 80%, 70%, 60% or 40% for supporting lines, and used at 10% for ghost fills and dividers.
 
 ### Secondary
@@ -263,7 +266,7 @@ A deep navy and white pairing carries the brand, with seven toy-bright accents f
 ### Named Rules
 **The Navy-or-White Ground Rule.** Every section grounds on Deep Space Navy, Clean White or Workbench Mist. Accent colours fill small shapes (buttons, badges, tiles, glows, icon discs), never a whole section. The one sanctioned exception is the promo band's thin blue-to-purple gradient strip.
 
-**The Orange Means Go Rule.** Launch Orange is the fill for every call to action that moves the visitor on (browse, for schools, contact, subscribe), on navy and on white alike. Secondary actions are outlined ghosts in white or navy, never a second accent colour. The two purchase buttons are the deliberate exception: the add-to-cart is an outlined navy button and the card quick-add is navy-filled; both turn orange or navy on hover and Sprout Green once the item is in the cart.
+**The Orange Means Go Rule.** Launch Orange is the fill for every call to action that moves the visitor on (browse, for schools, contact, subscribe), on navy and on white alike. Secondary actions are outlined ghosts in white or navy, never a second accent colour. The product hero's add-to-cart is orange with a navy label (white on orange fails AA) and fills navy on hover; the card quick-add is the one navy-filled purchase button. Both turn Sprout Green with navy text once the item is in the cart.
 
 **The Red Means Saving Rule.** In type and badges, Rocket Red signals a saving, a sale or a problem (discount badges, sale prices, out of stock, errors). It is never decorative emphasis in a headline; that job belongs to orange and blue.
 
@@ -334,9 +337,9 @@ Warm, confident and chunky. Controls look pressable, cards look like cards, and 
 - **Ghost on navy:** transparent with a 1px white-at-30% border and white label; hover adds a 10% white wash or brightens the border to white.
 - **Ghost on white:** transparent with a 1px navy-at-20% to 30% border and navy label; hover adds a 5% navy wash.
 - **Form submit:** full-width Launch Orange with a navy label (white on orange fails AA), inverting to navy with a white label on hover.
-- **Add to cart (product hero):** full width, 2px navy border, navy SemiBold label with a cart icon, 16px by 24px padding, 8px corners; hover fills navy with a white label, and for 1.5s after adding it turns Sprout Green with a white label; disabled at 50% opacity.
+- **Add to cart (product hero):** the one purchase button. Full width, Launch Orange fill, navy SemiBold 18px label with a cart icon and the price ("Add to cart · R 1,480"), 16px by 24px padding, 8px corners, nudges down 1px when pressed; hover fills navy with a white label, and for 2s after adding it turns Sprout Green with a navy label. Out of stock: Card Edge fill with Ink Grey "Out of stock" and a WhatsApp link beneath. On phones a sticky bottom bar (white at 95% with a blur, hairline top, soft upward navy shadow) carries a 44px thumbnail, the title, price and age, and a compact orange Add to cart once the hero button scrolls away.
 - **Quick add (cards):** a compact navy 8px-radius button with a white 12px label (an icon on phones, "Add" on larger screens); hover turns it orange and adding turns it green; disabled it turns Card Edge with Quiet Grey text.
-- **Quantity stepper:** a 1px bordered 8px box with 44px square minus and plus targets.
+- **Quantity stepper (cart only):** a 1px bordered 8px box with 44px square minus and plus targets. The product hero has no stepper; quantity is changed in the cart.
 
 ### Chips
 - **Category chip:** white pill with a 1px Hairline Grey border, navy 500 14px label, and a round Workbench Mist disc (32px, 44px on larger screens) holding a small product icon on the left. Hover switches the border to orange and adds the hover lift.
@@ -376,7 +379,7 @@ Warm, confident and chunky. Controls look pressable, cards look like cards, and 
 A thin strip between the hero and the first section: a slowly panning blue-to-purple gradient (12s, 300% background size) with a periodic 40% white light sweep, carrying the red promo badge, a navy eyebrow pill, and a navy SemiBold message with an underlined link. The gradient renders statically for everyone; the pan and sweep are opt-in motion.
 
 ### Product Hero
-The purchase surface. A two-column grid (gallery left with a 16px-radius frame and thumbnail strip, purchase panel right): brand link in Caption Grey with the brand name in orange, the title at headline size, a short lead, the price at 30px 700 (orange, or red with the compare-at price and a red discount pill), a stock line, a checklist of four benefits with Sprout Green ticks, skill-tag pills, then a bordered block of delivery facts with orange icons, the quantity stepper, the add-on upsell box on mist, and the outlined navy add-to-cart button.
+The purchase surface, built as a decision card for a parent on a phone. A two-column grid (gallery left with a 16px-radius frame and a thumbnail strip with its scrollbar hidden, purchase panel right). The gallery leads with a lifestyle photo of the child or the build when the page supplies one, cropped to fill, with the box shots after it. The panel runs: brand link in navy (orange on hover), the title at headline size, the rating, a short lead, then the fit facts (a two- or three-column definition list between hairlines: Caption Grey 12px label over a navy SemiBold 14px value, for age, batteries, projects, instructions, coding and soldering), the price at 30px 700 (navy, or red with the compare-at price and a red discount pill) with the stock line in navy beside it, and the orange add-to-cart with the price on its label. Below the button: a checklist of benefits with Sprout Green ticks, a bordered block of delivery and trust facts with orange icons (delivery time, free delivery threshold, 30-day returns, secure payment through Stitch), and the category chips. After adding, a green-tinted nudge confirms, links to the cart and offers each add-on with its own outlined navy Add button; nothing sits between the price and the button.
 
 ### Illustrations
 The brand illustrations are outlined, flat-coloured STEM objects (robots, planets, atoms, beakers, microscopes, nuts, chips, code brackets) in the accent palette with black strokes, served as SVG from `public/images/illustrations/`.
@@ -397,7 +400,7 @@ Real photographs of children and hands building kits, and real product photograp
 
 ### Do:
 - **Do** ground every section on Deep Space Navy, Clean White or Workbench Mist, and let the accents appear as small, bright shapes.
-- **Do** make every call to action Launch Orange with a white SemiBold label, 16px by 32px padding and 8px corners; use a navy label only on full-width form submits, and keep the add-to-cart as an outlined navy button.
+- **Do** make every call to action Launch Orange with a white SemiBold label, 16px by 32px padding and 8px corners; use a navy label on full-width form submits and on the product hero's add-to-cart.
 - **Do** reserve Rocket Red for discount badges, sale prices, the promo badge, out-of-stock and errors.
 - **Do** highlight one or two words of a headline in orange or blue, keeping the rest navy or white.
 - **Do** keep headlines at Outfit SemiBold (600) in sentence case; save 700 and 800 for prices, stats and badges.

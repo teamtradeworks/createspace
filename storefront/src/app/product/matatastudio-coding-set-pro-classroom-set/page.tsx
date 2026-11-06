@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   ImageTextBlock,
   FeatureGrid,
   ProjectShowcase,
@@ -46,8 +45,6 @@ export default async function MatataStudioCodingSetProClassroomSetPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Teacher-led learning image */}
       <ImageTextBlock

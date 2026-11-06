@@ -55,10 +55,10 @@ The following information is pulled **automatically from the Shopify Storefront 
 - Product images (gallery)
 - Availability / stock status
 - Delivery information
-- Add-to-cart functionality
-- Product add-ons / upsells
+- Add-to-cart functionality (one orange button; quantity is changed in the cart)
+- Product add-ons, offered after the item is in the cart
 
-**QuickInfoBadges** (from Shopify product metafields):
+**Fit facts in the HeroSection** (from Shopify product metafields, shown above the price):
 - Age range (`custom.minimum_age` / `custom.maximum_age`)
 - Battery requirements (`custom.batteries_required` / `custom.batteries_included` / `custom.batteries_list`)
 - Number of projects (`custom.projects`)
@@ -66,7 +66,7 @@ The following information is pulled **automatically from the Shopify Storefront 
 - Soldering requirement (`custom.soldering`)
 - Coding platform (`custom.coding_platform`)
 
-Since this information already appears as badges at the top of every product page, **do not duplicate it as standalone data points** elsewhere. However, these details should still be discussed naturally in written content — for example, referencing the number of projects in hero highlights, addressing battery requirements in FAQs, or mentioning the coding platform in feature descriptions. The badges provide at-a-glance facts; the written content provides narrative context and reassurance.
+Since this information already appears as fit facts in the hero of every product page, **do not duplicate it as standalone data points** elsewhere, and do not restate it in the hero highlights. However, these details should still be discussed naturally in written content — for example, referencing the number of projects in hero highlights, addressing battery requirements in FAQs, or mentioning the coding platform in feature descriptions. The fit facts provide at-a-glance answers; the written content provides narrative context and reassurance.
 
 ---
 
@@ -78,7 +78,7 @@ Every product page must answer three parent questions. If a parent can't answer 
 
 | Element         | Purpose                      | Where it appears                               |
 | --------------- | ---------------------------- | ---------------------------------------------- |
-| **Age range**   | Immediate filtering          | QuickInfoBadges (auto from Shopify metafields) |
+| **Age range**   | Immediate filtering          | HeroSection fit facts (auto from Shopify metafields) |
 | **Skill level** | Match to child's confidence  | FAQ section or body copy                       |
 | **Independence**| Address supervision concerns | FAQ section (e.g. "Does my child need help?")  |
 

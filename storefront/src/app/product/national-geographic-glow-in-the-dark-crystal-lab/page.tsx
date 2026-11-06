@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
   ProductReviews,
@@ -42,7 +41,6 @@ export default async function NatGeoGlowCrystalLabPage() {
         addons={addons}
       />
 
-      <QuickInfoBadges product={product} />
 
       <FeatureGrid
         title="What Makes This Kit Special"
