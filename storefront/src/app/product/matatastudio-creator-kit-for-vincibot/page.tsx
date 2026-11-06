@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   ExtensionBanner,
-  QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
   VideoEmbed,
@@ -57,8 +56,6 @@ export default async function VinciBotCreatorKitPage() {
         parentProductHref={parentProductHref}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Storytelling image */}
       <ImageTextBlock

@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
-  QuickInfoBadges,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -47,8 +46,6 @@ export default async function TaleBotProPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Video Section */}
       <VideoEmbed

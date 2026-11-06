@@ -90,7 +90,6 @@ Import components from `@/components/product-sections`:
 import {
   HeroSection,
   ExtensionBanner,
-  QuickInfoBadges,
   NumberedSteps,
   VideoEmbed,
   FeatureGrid,
@@ -122,7 +121,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   ExtensionBanner,
-  QuickInfoBadges,
   NumberedSteps,
   FeatureGrid,
   WhatsIncluded,
@@ -177,9 +175,6 @@ export default async function ExtensionProductPage() {
         parentProductName={parentProductName}
         parentProductHref={parentProductHref}
       />
-
-      {/* Required: Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Recommended: What's New (NumberedSteps or FeatureGrid) */}
       <NumberedSteps
@@ -297,7 +292,6 @@ ls -la assets/product/{slug}/projects/ 2>/dev/null
 **Required sections (always include):**
 - HeroSection (tagline references extension nature)
 - ExtensionBanner (links to parent product)
-- QuickInfoBadges
 - WhatsIncluded
 - ProductFAQ (extension-focused)
 - CallToAction (secondary CTA links to parent product)
@@ -423,7 +417,7 @@ Before completing, verify:
 - [ ] Hero tagline references the extension nature
 - [ ] CTA secondary button links to parent product (not `/shop`)
 - [ ] FAQ includes "Do I need the [parent product]?" question
-- [ ] Required sections included: HeroSection, ExtensionBanner, QuickInfoBadges, WhatsIncluded, ProductFAQ, CallToAction, RelatedProducts
+- [ ] Required sections included: HeroSection, ExtensionBanner, WhatsIncluded, ProductFAQ, CallToAction, RelatedProducts; no `<QuickInfoBadges product={product} />` (the hero shows the fit facts)
 - [ ] `<ProductJsonLd product={product} />` included
 - [ ] `openGraph.images` included in `generateMetadata`
 - [ ] `alternates.canonical` included in `generateMetadata`

@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
-  QuickInfoBadges,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -37,6 +36,8 @@ export default async function ArduinoStarterKitPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
+        heroImage="/images/products/arduino-starter-kit/kid-working-with-starter-kit.jpg"
+        heroImageAlt="Child building a circuit with the Arduino Starter Kit"
         tagline="Learn electronics and coding by building 15 real projects"
         highlights={[
           "15 hands-on projects with step-by-step instructions",
@@ -47,8 +48,6 @@ export default async function ArduinoStarterKitPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Video Section */}
       <VideoEmbed

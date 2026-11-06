@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   FeatureGrid,
   VideoEmbed,
   ImageTextBlock,
@@ -33,6 +32,8 @@ export default async function NatGeoBreakOpen5GeodesPage() {
 
       <HeroSection
         product={product}
+        heroImage="/images/products/national-geographic-break-open-5-geodes/kids-breaking-open-geodes-with-hammer.jpg"
+        heroImageAlt="Children cracking open a geode with the hammer from the kit"
         tagline="Crack open a real rock and discover the crystals that have been waiting inside for millions of years."
         highlights={[
           "5 real geodes to break open, every reveal a genuine surprise",
@@ -43,8 +44,6 @@ export default async function NatGeoBreakOpen5GeodesPage() {
         addons={addons}
       />
 
-      {/* gray (fixed) */}
-      <QuickInfoBadges product={product} />
 
       {/* white */}
       <VideoEmbed

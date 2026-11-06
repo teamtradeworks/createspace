@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
-  QuickInfoBadges,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -45,8 +44,6 @@ export default async function SnapCircuitsBeginnerPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Snap Together, Light Up — lifestyle image */}
       <ImageTextBlock

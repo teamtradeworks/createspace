@@ -13,13 +13,15 @@ test.describe("Product page", () => {
     ).toBeVisible();
   });
 
-  test("has an add-to-cart button", async ({ page }) => {
+  test("has a purchase button", async ({ page }) => {
     await page.goto(TEST_PRODUCT);
 
-    const addToCart = page
-      .getByRole("button", { name: /add to cart/i })
+    // The hero's one button reads "Add to cart · R 1,980" when the product is
+    // purchasable and "Out of stock" (disabled) when Shopify says it is not.
+    const purchaseButton = page
+      .getByRole("button", { name: /add to cart|out of stock/i })
       .first();
-    await expect(addToCart).toBeVisible();
+    await expect(purchaseButton).toBeVisible();
   });
 
   test("returns 404 for non-existent product", async ({ page }) => {

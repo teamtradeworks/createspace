@@ -6,8 +6,13 @@ import WhatsAppLink, { WHATSAPP_ICON } from "@/components/WhatsAppLink";
 /** Floating chat button, fixed to the bottom-right corner of every page. */
 export default function WhatsAppButton() {
   const pathname = usePathname();
-  // The cart has a sticky checkout bar along the bottom on mobile; sit above it.
-  const bottom = pathname === "/cart" ? "bottom-24 lg:bottom-6" : "bottom-6";
+  // The cart has a sticky checkout bar along the bottom on mobile, and product
+  // pages show a sticky add-to-cart bar (body.sticky-buy) once the hero button
+  // scrolls away; sit above either.
+  const bottom =
+    pathname === "/cart"
+      ? "bottom-24 lg:bottom-6"
+      : "bottom-6 max-lg:[.sticky-buy_&]:bottom-24";
 
   return (
     <WhatsAppLink
