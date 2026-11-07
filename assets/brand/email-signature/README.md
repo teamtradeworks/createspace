@@ -36,7 +36,6 @@ Each image URL carries a `?v=N` parameter (`ASSET_VERSION` in `index.html`). Gma
 ## Gmail notes
 
 - The signature is stacked `<div>` blocks, not a table, and nothing uses `white-space: nowrap`. Gmail on iOS shrinks a whole message to fit any element it considers wider than the screen, and a table of nowrap links triggered that (tiny signature, oversized body text). Keep new rows as plain blocks that can wrap; hold multi-word names together with `&nbsp;`.
-
 - Gmail keeps inline styles, tables, `bgcolor` and image URLs, which is all the signature uses. It drops `<style>` blocks and web fonts, so the signature falls back from Outfit to Helvetica/Arial on most recipients' screens.
-- Gmail's limit is 10,000 characters per signature. This one is about 3,000.
+- Gmail's limit is 10,000 characters per signature. This one is about 6,000.
 - Tick the signature under **Signature defaults** for both new emails and replies, then **Save Changes** at the bottom of the settings page.
