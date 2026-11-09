@@ -185,61 +185,68 @@
   }
 
   function buildHtml({ name }, preview = false) {
+    // Stacked blocks, no tables around text and no white-space:nowrap. Gmail on iOS
+    // shrinks the whole message to fit any element wider than the screen, so every
+    // line must be free to wrap; multi-word names stay together with &nbsp; instead.
+    const nb = (s) => s.replace(/ /g, "&nbsp;");
     const link = (href, text) =>
-      `<a href="${href}" style="color:${NAVY};text-decoration:none;white-space:nowrap;">${text}</a>`;
+      `<a href="${href}" style="color:${NAVY};text-decoration:none;">${text}</a>`;
     // Non-breaking before the bullet, a real space after: lines wrap only after a bullet.
     const dot = `<span style="color:#FF8B00;">&nbsp;&nbsp;&bull;&nbsp;</span> `;
-    const rows = [];
+    const block = (style, inner) => `<div style="${style}">${inner}</div>`;
+    const parts = [];
 
     // The sign-off matches the email body (Verdana, Gmail's "normal" size); the block below is the brand font.
-    rows.push(`<tr><td style="${BODY_FONT}font-size:13px;line-height:20px;color:${NAVY};padding:0 0 14px 0;">${SIGNOFF}</td></tr>`);
-    rows.push(`<tr><td style="${FONT}font-size:16px;line-height:22px;font-weight:600;color:${NAVY};padding:0;">${esc(name || "Your name")} &#x2728;</td></tr>`);
+    parts.push(block(`${BODY_FONT}font-size:13px;line-height:20px;color:${NAVY};padding:0 0 14px 0;`, SIGNOFF));
+    parts.push(block(`${FONT}font-size:16px;line-height:22px;font-weight:600;color:${NAVY};`, `${esc(name || "Your name")} &#x2728;`));
 
-    rows.push(
-      `<tr><td style="padding:16px 0 0 0;"><a href="${BASE}/" style="text-decoration:none;">` +
-      `<img src="${imgSrc("logo-light-trimmed.png", preview)}" width="180" height="20" alt="CREATESPACE" style="display:block;border:0;width:180px;height:20px;"></a></td></tr>`
-    );
+    parts.push(block(
+      "padding:16px 0 0 0;",
+      `<a href="${BASE}/" style="text-decoration:none;"><img src="${imgSrc("logo-light-trimmed.png", preview)}" width="180" height="20" alt="CREATESPACE" style="display:block;border:0;width:180px;height:20px;"></a>`
+    ));
     const stripeCells = STRIPE.map(
       (c) => `<td width="36" height="3" bgcolor="${c}" style="width:36px;height:3px;font-size:0;line-height:0;">&nbsp;</td>`
     ).join("");
-    rows.push(
-      `<tr><td style="padding:7px 0 0 0;"><table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;"><tr>${stripeCells}</tr></table></td></tr>`
-    );
+    parts.push(block(
+      "padding:7px 0 0 0;",
+      `<table cellpadding="0" cellspacing="0" border="0" width="180" style="border-collapse:collapse;width:180px;"><tr>${stripeCells}</tr></table>`
+    ));
 
     // Small inline icon before a contact item, sized to the 13px text.
     const inlineIcon = (file, alt) =>
       `<img src="${imgSrc(file, preview)}" width="14" height="14" alt="${alt}" style="display:inline-block;border:0;width:14px;height:14px;vertical-align:-2px;margin-right:5px;">`;
-    const contact =
-      link(`${BASE}/`, "www.thecreatespace.co.za") + dot +
-      link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za");
-    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:12px 0 0 0;">${contact}</td></tr>`);
+    const text13 = `${FONT}font-size:13px;line-height:20px;color:${NAVY};`;
+    parts.push(block(
+      `${text13}padding:12px 0 0 0;`,
+      link(`${BASE}/`, "www.thecreatespace.co.za") + dot + link("mailto:info@thecreatespace.co.za", "info@thecreatespace.co.za")
+    ));
 
     // Phone numbers on their own line, each labelled.
-    const numbers =
-      link(`tel:${PHONE.replace(/\s/g, "")}`, inlineIcon("icon-phone.png", "Phone") + PHONE + " (Office)") + dot +
-      link(WHATSAPP_LINK, inlineIcon("icon-whatsapp.png", "WhatsApp") + WHATSAPP + " (WhatsApp)");
-    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:20px;color:${NAVY};padding:2px 0 0 0;">${numbers}</td></tr>`);
+    parts.push(block(
+      `${text13}padding:2px 0 0 0;`,
+      link(`tel:${PHONE.replace(/\s/g, "")}`, inlineIcon("icon-phone.png", "Phone") + nb(PHONE) + "&nbsp;(Office)") + dot +
+      link(WHATSAPP_LINK, inlineIcon("icon-whatsapp.png", "WhatsApp") + nb(WHATSAPP) + "&nbsp;(WhatsApp)")
+    ));
 
     // Brands are the accent of the signature: semi-bold orange, muted separators.
     const brandDot = `<span style="color:#B3B3B3;font-weight:400;">&nbsp;&nbsp;&bull;&nbsp;</span> `;
     const brandLinks = BRANDS.map(([label, vendor]) =>
-      `<a href="${BASE}/shop?brand=${encodeURIComponent(vendor)}" style="color:#FF8B00;font-weight:600;text-decoration:none;white-space:nowrap;">${esc(label)}</a>`
+      `<a href="${BASE}/shop?brand=${encodeURIComponent(vendor)}" style="color:#FF8B00;font-weight:600;text-decoration:none;">${nb(esc(label))}</a>`
     ).join(brandDot);
-    rows.push(`<tr><td style="${FONT}font-size:13px;line-height:22px;font-weight:600;color:#FF8B00;padding:10px 0 0 0;">${brandLinks}</td></tr>`);
+    parts.push(block(`${FONT}font-size:13px;line-height:22px;font-weight:600;color:#FF8B00;padding:10px 0 0 0;`, brandLinks));
 
     const icon = (href, file, alt) =>
       `<a href="${href}" style="text-decoration:none;"><img src="${imgSrc(file, preview)}" width="22" height="22" alt="${alt}" style="display:inline-block;border:0;width:22px;height:22px;vertical-align:middle;"></a>`;
-    rows.push(
-      `<tr><td style="padding:12px 0 0 0;line-height:22px;">` +
+    parts.push(block(
+      "padding:12px 0 0 0;line-height:22px;",
       icon("https://www.facebook.com/thecreatespace.za/", "icon-facebook.png", "Facebook") +
       `<span style="display:inline-block;width:10px;">&nbsp;</span>` +
       icon("https://www.instagram.com/thecreatespace.za/", "icon-instagram.png", "Instagram") +
       `<span style="display:inline-block;width:10px;">&nbsp;</span>` +
-      icon(GOOGLE_REVIEW_URL, "icon-google.png", "Review us on Google") +
-      `</td></tr>`
-    );
+      icon(GOOGLE_REVIEW_URL, "icon-google.png", "Review us on Google")
+    ));
 
-    return `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;${FONT}color:${NAVY};">${rows.join("")}</table>`;
+    return `<div style="${FONT}color:${NAVY};max-width:600px;">${parts.join("")}</div>`;
   }
 
   function buildText({ name }) {
