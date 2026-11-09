@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+  Black Friday early access: organic Instagram story (9:16), "VIP lanyard" concept.
+  Story version of feed-portrait-pass.html; shared styles live in pass.css, this file sets only story positions.
+  Everything that matters sits between the top 270px and bottom 270px safe zones.
+  No CTA on the image: add Instagram's link sticker when posting.
+  Render: marketing/scripts/render.sh marketing/campaigns/2026-11-black-friday-early-access/story-pass.html
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>Black Friday early access, VIP lanyard story</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="pass.css">
+  <style>
+    .title { top: 200px; font-size: 112px; width: 620px; }
+
+    .dates { top: 900px; gap: 44px; }
+    .label { font-size: 36px; }
+    .date b { font-size: 80px; }
+    .date.later b { font-size: 66px; }
+
+    .footer { bottom: 250px; }
+    .footer p { font-size: 58px; }
+
+    .lanyard { left: 668px; top: -20px; transform: rotate(2.5deg) scale(1.1); transform-origin: 50% 0; }
+    .strap { height: 700px; }
+    .clip { top: 670px; }
+    .badge { top: 720px; }
+
+    .i-bulb   { left: 560px; top: 120px; }
+    .i-flask  { left: 470px; top: 700px; }
+    .i-planet { left: 18px;  top: 1330px; }
+    .i-atom   { left: 410px; top: 1440px; }
+    .i-gear   { left: 930px; top: 1660px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <img class="icon i-bulb" src="images/icon-lightbulb.png" alt="">
+    <img class="icon i-flask" src="images/icon-flask.png" alt="">
+    <img class="icon i-atom" src="images/icon-atom.png" alt="">
+    <img class="icon i-planet" src="images/icon-planet.png" alt="">
+    <img class="icon i-gear" src="images/icon-gear.png" alt="">
+
+    <h1 class="title">Your pass to shop Black Friday <em>first!</em></h1>
+
+    <div class="dates">
+      <div class="date">
+        <span class="label">Subscribers</span>
+        <b class="hl">19 to 22 Nov</b>
+      </div>
+      <div class="date later">
+        <span class="label">Everyone else</span>
+        <b>From 23 Nov</b>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><strong>Sign up on our website.</strong></p>
+    </div>
+
+    <div class="lanyard">
+      <svg class="strap" viewBox="0 0 380 360" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="20,0 80,0 214,350 166,350" fill="#3cc7f7"/>
+        <polygon points="300,0 360,0 214,350 166,350" fill="#2fb3e2"/>
+      </svg>
+      <div class="clip"></div>
+      <div class="badge">
+        <span class="slot"></span>
+        <div class="photo">
+          <img src="images/two-kids-coding-tale-bot.jpg" alt="Two children coding a Tale-Bot robot on a story map">
+        </div>
+        <span class="vip">VIP</span>
+        <span class="vip-sub">Black Friday<br>early access</span>
+        <div class="badge-strip">
+          <b>4</b><span>days<br>early</span>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
