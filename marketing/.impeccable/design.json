@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-21T00:00:00.000Z",
+  "generatedAt": "2026-11-09T00:00:00.000Z",
   "title": "Design System: CREATESPACE",
   "extensions": {
     "colorMeta": {
@@ -243,6 +243,12 @@
           "oklch(83% 0.011 271.3)",
           "oklch(95% 0.012 271.3)"
         ]
+      },
+      "ballpoint-ink": {
+        "role": "ink",
+        "displayName": "Ballpoint Ink",
+        "canonical": "#16205E",
+        "purpose": "Handwriting and hand-drawn marks on a white paper object in ads (wish-list page). Not a text colour for typeset copy."
       }
     },
     "typographyMeta": {
@@ -281,6 +287,10 @@
       "sale-numeral": {
         "displayName": "Sale Numeral",
         "purpose": "Makerzoid ad precedent: giant red percentage on a 1080 canvas."
+      },
+      "handwriting": {
+        "displayName": "Handwriting (Caveat)",
+        "purpose": "Bounded exception: a child's or family member's own words written on a paper object inside an ad, Caveat 600 from creative/kit/fonts/Caveat.ttf. Never headlines, kit names, prices, labels or CTAs; never on the website."
       }
     },
     "shadows": [
@@ -318,6 +328,16 @@
         "name": "photo-scrim",
         "value": "linear-gradient(to top, rgba(12,20,70,0.85), rgba(12,20,70,0.25), transparent)",
         "purpose": "Text over photos."
+      },
+      {
+        "name": "paper-drop",
+        "value": "0 30px 60px -10px rgba(2,5,26,0.6), 0 4px 10px rgba(2,5,26,0.35)",
+        "purpose": "Tilted paper object lying on the navy ground in ads (wish-list notepad page; the 2026-10 gift tag uses the same shape as a drop-shadow filter)."
+      },
+      {
+        "name": "taped-tile",
+        "value": "0 6px 12px -4px rgba(12,20,70,0.35)",
+        "purpose": "Photo tiles taped onto a paper page."
       }
     ],
     "motion": [
@@ -487,16 +507,24 @@
       "description": "Thin blue-to-purple gradient strip with a red badge, navy eyebrow pill and navy message.",
       "html": "<div class=\"ds-promo\"><span class=\"ds-promo-badge\">Sale</span><span class=\"ds-promo-eyebrow\">School holidays</span><span class=\"ds-promo-msg\"><u>Up to 20% off</u> <em>selected kits this week.</em></span></div>",
       "css": ".ds-promo { font-family: Outfit, sans-serif; display: flex; align-items: center; gap: 12px; padding: 12px 20px; color: #0C1446; background: linear-gradient(-60deg, #3CC7F7, #AC4DFF, #3CC7F7); background-size: 300% 300%; animation: ds-pan 12s ease-in-out infinite; } @keyframes ds-pan { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } } @media (prefers-reduced-motion: reduce) { .ds-promo { animation: none; } } .ds-promo-badge { background: #F70B28; color: #FFFFFF; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.025em; padding: 4px 10px; border-radius: 6px; box-shadow: 0 1px 2px rgba(0,0,0,0.05); } .ds-promo-eyebrow { background: #0C1446; color: #FFFFFF; font-size: 12px; font-weight: 700; padding: 2px 10px; border-radius: 9999px; } .ds-promo-msg { font-size: 16px; font-weight: 600; } .ds-promo-msg u { text-decoration-thickness: 2px; text-decoration-color: rgba(12,20,70,0.5); text-underline-offset: 2px; } .ds-promo-msg em { font-style: normal; font-weight: 400; color: rgba(12,20,70,0.7); }"
+    },
+    {
+      "name": "Wish-List Page",
+      "kind": "custom",
+      "refersTo": "notepad-page",
+      "description": "2026-12 Christmas gift guide: tilted white ruled notepad on navy, Caveat wish in ballpoint ink, Outfit kit name and age beneath, orange tick in a drawn margin box, taped photo tile. Half scale.",
+      "html": "<div class=\"ds-wl-stage\"><section class=\"ds-wl-page\"><p class=\"ds-wl-dear\">Dear Father Christmas,<svg viewBox=\"0 0 48 48\" aria-hidden=\"true\"><path d=\"M23 6c1.6 4.4 3.4 8.7 5.6 12.8 4.6-.1 9.1.4 13.6.9-3.6 2.9-7.4 5.5-10.7 8.6 1.4 4.2 2.6 8.6 3.3 13-3.9-2.6-7.6-5.4-11.6-7.8-3.7 2.8-7.4 5.6-11.5 7.8 1.2-4.4 2.5-8.8 3.9-13.1C12.2 25.4 8.7 22.6 5 20c4.6-.4 9.2-.9 13.8-.8C20.4 14.8 21.6 10.3 23 6z\" fill=\"#FFD500\" stroke=\"#16205E\" stroke-width=\"2.6\" stroke-linejoin=\"round\"/></svg></p><div class=\"ds-wl-row\"><i class=\"ds-wl-tick\"><svg viewBox=\"0 0 48 48\" fill=\"none\" stroke=\"#FF8B00\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M9 26c4 3 7 7 9 11 6-12 13-21 22-29\"/></svg></i><p class=\"ds-wl-wish\">a robot that draws pictures</p><p class=\"ds-wl-kit\">MatataStudio Tale-Bot Pro <span>Ages 3-6</span></p><figure class=\"ds-wl-snap\"></figure></div></section></div>",
+      "css": ".ds-wl-stage { --line: 32px; --gutter: 52px; background: #0C1446; padding: 36px 28px; border-radius: 8px; display: inline-block; } .ds-wl-page { position: relative; width: 440px; padding: 20px 20px 0 var(--gutter); background-color: #FFFFFF; background-image: linear-gradient(90deg, transparent calc(var(--gutter) - 1px), #F28B98 calc(var(--gutter) - 1px), #F28B98 var(--gutter), transparent var(--gutter)), repeating-linear-gradient(180deg, transparent 0 calc(var(--line) - 1px), #C9D6F2 calc(var(--line) - 1px) var(--line)); background-position: 0 0, 0 20px; background-repeat: no-repeat, repeat-y; border-radius: 3px; color: #16205E; transform: rotate(-1.4deg); box-shadow: 0 15px 30px -5px rgba(2,5,26,0.6), 0 2px 5px rgba(2,5,26,0.35); } .ds-wl-dear, .ds-wl-wish { margin: 0; font-family: Caveat, cursive; font-weight: 600; font-size: 27px; line-height: var(--line); height: var(--line); padding-left: 11px; transform: translateY(-4px); white-space: nowrap; } .ds-wl-dear svg { width: 30px; height: 30px; vertical-align: -4px; margin-left: 8px; } .ds-wl-row { position: relative; display: grid; grid-template-columns: 1fr 86px; height: calc(var(--line) * 3); } .ds-wl-tick { position: absolute; left: calc(var(--gutter) * -1 + 13px); top: calc(var(--line) - 25px); width: 20px; height: 20px; border: 2px solid #16205E; border-radius: 3px 2px 4px 2px; transform: rotate(-3deg); } .ds-wl-tick svg { position: absolute; left: -3px; top: -8px; width: 29px; height: 29px; } .ds-wl-kit { position: absolute; left: 11px; top: var(--line); margin: 0; height: var(--line); display: flex; align-items: center; gap: 7px; font-family: Outfit, sans-serif; font-size: 14px; font-weight: 600; color: #0C1446; white-space: nowrap; } .ds-wl-kit span { font-weight: 500; color: #4B5563; } .ds-wl-kit span::before { content: \"\"; display: inline-block; width: 3px; height: 3px; margin: 0 7px 2px 0; border-radius: 50%; background: #FF8B00; vertical-align: middle; } .ds-wl-snap { position: relative; margin: 0; width: 86px; height: 86px; border-radius: 2px; background: linear-gradient(135deg, #3CC7F7, #AC4DFF); box-shadow: 0 3px 6px -2px rgba(12,20,70,0.35); transform: rotate(3deg); } .ds-wl-snap::after { content: \"\"; position: absolute; left: 50%; top: -6px; width: 36px; height: 13px; margin-left: -18px; background: rgba(250,236,186,0.62); transform: rotate(-6deg); }"
     }
   ],
   "narrative": {
     "northStar": "The Night-Sky Workshop",
-    "overview": "CREATESPACE looks like a workbench set up under a clear night sky. Deep Space Navy is the sky: a calm, trustworthy ground that fills heroes, headers, footers and ad canvases. Against it, the brand's toy-bright accents (orange, blue, purple, green, yellow, red) behave like the kit pieces scattered on the bench. They light up single words, price tags, badges and the outlined illustrations of robots, planets, beakers and nuts, but they never take over the ground. The white side of the system is the same workshop with the lights on: clean white and a whisper of grey, navy type, the same accents doing the same jobs.\n\nThe feel is friendly and confident rather than loud. Type is one family (Outfit) used almost entirely at SemiBold for headings and Regular for reading, so the personality comes from colour and imagery, not from typographic stunts. Shapes are soft (8px buttons, 16px cards, full pills) and surfaces are mostly flat, with depth coming from soft coloured glows and navy photo scrims rather than heavy shadows. Real photography of children and hands building kits carries the emotional weight; illustrations are the seasoning.\n\nThe logo itself sets the tone: a tightly tracked, condensed wordmark where the \"A\" in SPACE stands apart in Rocket Red and doubles as an upward arrow. Space, lift and exploration are the idea, so layouts leave air around the mark and around the key message.",
+    "overview": "CREATESPACE looks like a workbench set up under a clear night sky. Deep Space Navy is the sky: a calm, trustworthy ground that fills heroes, headers, footers and ad canvases. Against it, the brand's toy-bright accents (orange, blue, purple, green, yellow, red) behave like the kit pieces scattered on the bench. They light up single words, price tags, badges and the outlined illustrations of robots, planets, beakers and nuts, but they never take over the ground. The white side of the system is the same workshop with the lights on: clean white and a whisper of grey, navy type, the same accents doing the same jobs.\n\nThe feel is friendly and confident rather than loud. Brand type is one family (Outfit) used almost entirely at SemiBold for headings and Regular for reading, so the personality comes from colour and imagery, not from typographic stunts. The single bounded exception is handwriting (Caveat) for a child's or family member's own words written on a paper object inside an ad. Shapes are soft (8px buttons, 16px cards, full pills) and surfaces are mostly flat, with depth coming from soft coloured glows and navy photo scrims rather than heavy shadows. Real photography of children and hands building kits carries the emotional weight; illustrations are the seasoning.\n\nThe logo itself sets the tone: a tightly tracked, condensed wordmark where the \"A\" in SPACE stands apart in Rocket Red and doubles as an upward arrow. Space, lift and exploration are the idea, so layouts leave air around the mark and around the key message.",
     "keyCharacteristics": [
       "Navy or white ground, always; accents are highlights, never backgrounds.",
       "Launch Orange is the single action colour: every primary call to action is orange.",
       "Rocket Red marks money and urgency: sale pills, discount badges, sale prices.",
-      "One family, Outfit: SemiBold headlines, Regular body, heavier weights only for numbers and badges.",
+      "One brand family, Outfit: SemiBold headlines, Regular body, heavier weights only for numbers and badges. Caveat appears only as a person's handwriting on a paper object inside an ad (see The Handwriting Exception Rule).",
       "Soft, friendly corners and pill-shaped labels.",
       "Flat surfaces lifted by blurred blue and purple glows, not drop shadows.",
       "Outlined, colourful STEM illustrations used sparingly: faint in the background, or a few full-colour pieces orbiting the hero subject."
@@ -523,9 +551,19 @@
         "section": "colors"
       },
       {
+        "name": "The Pink Margin Rule",
+        "body": "A ruled paper page draws its margin line in a soft pink (#F28B98), never Rocket Red, so red keeps meaning a saving. The page's pale blue rules (#C9D6F2) and the tape tint are values of the paper object, not system colours.",
+        "section": "colors"
+      },
+      {
         "name": "The One-Word Highlight Rule",
         "body": "Headlines are navy on white or white on navy, with at most one or two words picked out in an accent (\"Build. **Play.** **Learn.**\"). Highlight a word, never a whole line.",
         "section": "colors"
+      },
+      {
+        "name": "The Handwriting Exception Rule",
+        "body": "Caveat (600) is sanctioned only for words a child or family member would write themselves (a wish, a gift-tag note), written on a paper object inside an ad. Everything CREATESPACE says stays Outfit: the headline, kit names, ages, facts and the CTA. Never set a headline, label, price or button in Caveat, and never use it on the website. Precedents: the 2026-10 Tale-Bot kraft gift tag and the 2026-12 Christmas wish list.",
+        "section": "typography"
       },
       {
         "name": "The SemiBold Ceiling Rule",
@@ -539,7 +577,7 @@
       },
       {
         "name": "The Glow Not Shadow Rule",
-        "body": "On navy, lift the subject with a soft blurred blue and purple glow behind it. Dark drop shadows are reserved for the rotated photo collage in ads.",
+        "body": "On navy, lift the subject with a soft blurred blue and purple glow behind it. Dark drop shadows are reserved for physical objects lying on the ground in ads: the rotated photo collage and tilted paper objects (notepad page, gift tag), which keep the glow behind them as well.",
         "section": "elevation"
       }
     ],
@@ -553,7 +591,8 @@
       "Do use real photos of children and hands building kits as the emotional lead, with navy scrims for any text on top.",
       "Do lift subjects on navy with a soft blurred blue and purple glow.",
       "Do use rounded corners throughout: 8px buttons, 16px photos and cards, full pills for labels.",
-      "Do keep outer margins at about 6% of the short edge on fixed canvases, as the precedents do."
+      "Do keep outer margins at about 6% of the short edge on fixed canvases, as the precedents do.",
+      "Do set a person's own handwritten words on a paper object in Caveat 600, and keep every CREATESPACE line on that object (kit names, ages) in Outfit."
     ],
     "donts": [
       "Don't flood a canvas with an accent colour; the only sanctioned accent ground is the thin blue-to-purple promo band.",
@@ -563,7 +602,8 @@
       "Don't let illustrations compete with the product photo or the message: faint in the background, or a few full-colour pieces orbiting the subject, never both at full strength behind text.",
       "Don't use Chassis Grey or accent colours for body text; body text is navy, Slate Body grey on white, or white at reduced opacity on navy.",
       "Don't add heavy dark drop shadows to cards; depth comes from glows, scrims and the ad collage only.",
-      "Don't place the colour logo on anything other than navy or white; the CI shows only navy, white, and mono on black or white."
+      "Don't place the colour logo on anything other than navy or white; the CI shows only navy, white, and mono on black or white.",
+      "Don't set headlines, CTAs, prices or labels in Caveat, use it on the website, or draw a paper margin rule in Rocket Red."
     ]
   }
 }

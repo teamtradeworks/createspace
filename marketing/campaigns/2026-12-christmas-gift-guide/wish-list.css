@@ -1,0 +1,276 @@
+/*
+ * Christmas gift guide: the wish list.
+ * Fonts, CI colours and the reset come from ../../creative/kit/brand.css;
+ * the canvas size comes from canvas.js (data-canvas on <html>).
+ * Shared by feed-portrait, feed-square and story. Each canvas file sets
+ * the layout variables in its own <style> block.
+ */
+
+@font-face {
+  font-family: "Caveat";
+  src: url("../../creative/kit/fonts/Caveat.ttf") format("truetype");
+  font-weight: 400 700;
+  font-display: block;
+}
+
+:root {
+  --margin: 72px;
+  --ink: #16205e;            /* ballpoint navy, a step lighter than the ground */
+  --rule: #c9d6f2;           /* pale blue notepad lines */
+  --margin-rule: #f28b98;    /* notepad margin line, pink not sale red */
+  --slate: #4b5563;
+  --line: 64px;              /* notepad line pitch: everything on the page sits on it */
+  --row: calc(var(--line) * 2);
+  --thumb: 152px;
+}
+
+* { margin: 0; padding: 0; }
+img { display: block; }
+ul { list-style: none; }
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-family: var(--cs-font);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Soft blue and purple light behind the page (Glow Not Shadow Rule) */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+}
+.glow--blue { background: rgb(60 199 247 / 0.28); }
+.glow--purple { background: rgb(172 77 255 / 0.24); }
+
+.wordmark {
+  position: relative;
+  display: block;
+  height: 46px;
+  width: auto;
+}
+
+h1 {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+h1 em {
+  font-style: normal;
+  color: var(--cs-orange);
+}
+
+/* ---------- the notepad page ---------- */
+
+.page {
+  position: absolute;
+  background-color: var(--cs-white);
+  /* ruled lines on the line pitch, under a pink margin rule */
+  background-image:
+    linear-gradient(90deg, transparent calc(var(--gutter) - 2px), var(--margin-rule) calc(var(--gutter) - 2px), var(--margin-rule) var(--gutter), transparent var(--gutter)),
+    repeating-linear-gradient(180deg, transparent 0 calc(var(--line) - 2px), var(--rule) calc(var(--line) - 2px) var(--line));
+  background-position: 0 0, 0 var(--page-top);
+  background-repeat: no-repeat, repeat-y;
+  border-radius: 6px;
+  color: var(--ink);
+  transform: rotate(-1.4deg);
+  box-shadow: 0 30px 60px -10px rgb(2 5 26 / 0.6), 0 4px 10px rgb(2 5 26 / 0.35);
+  padding: var(--page-top) var(--page-right) 0 var(--gutter);
+}
+
+.dear {
+  position: relative;
+  height: var(--line);
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: 54px;
+  line-height: var(--line);
+  padding-left: 22px;
+  transform: translateY(-9px); /* sit the handwriting on the ruled line */
+}
+.dear svg {
+  position: absolute;
+  top: 2px;
+  width: 62px;
+  height: 62px;
+  margin-left: 18px;
+  overflow: visible;
+}
+
+.wishes li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr var(--thumb);
+  column-gap: 12px;
+  align-items: center;
+  height: var(--row);
+  padding-left: 22px;
+}
+
+/* Tick box drawn in the margin, ticked in orange */
+.tick {
+  position: absolute;
+  left: calc(var(--gutter) * -1 + 26px);
+  top: calc(var(--line) - 50px);
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--ink);
+  border-radius: 5px 3px 6px 4px;
+  transform: rotate(-3deg);
+}
+.tick svg {
+  position: absolute;
+  left: -6px;
+  top: -16px;
+  width: 58px;
+  height: 58px;
+  color: var(--cs-orange);
+}
+
+.wish {
+  align-self: start;
+  font-family: "Caveat", cursive;
+  font-weight: 600;
+  font-size: 54px;
+  line-height: var(--line);
+  white-space: nowrap;
+  transform: translateY(-9px);
+}
+
+.kit {
+  position: absolute;
+  left: 22px;
+  top: var(--line);
+  height: var(--line);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--cs-navy);
+  white-space: nowrap;
+}
+/* Age sits on the next ruled line, under the kit name */
+.kit .age {
+  position: absolute;
+  left: 0;
+  top: var(--line);
+  height: var(--line);
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--cs-navy);
+  transform: translateY(-14px);
+}
+.kit .age::before {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin-right: 12px;
+  border-radius: 50%;
+  background: var(--cs-orange);
+}
+
+/* Photo cut out of a catalogue and taped to the page */
+.snap {
+  position: relative;
+  width: var(--thumb);
+  height: var(--thumb);
+}
+.snap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px -4px rgb(12 20 70 / 0.35);
+}
+.snap::after {
+  /* translucent tape */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -13px;               /* straddles the photo edge so it reads against the paper */
+  width: 72px;
+  height: 26px;
+  margin-left: -36px;
+  background: rgb(250 236 186 / 0.62);
+  /* torn short ends */
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 66 22' preserveAspectRatio='none'%3E%3Cpath d='M3 0h60l-2 3 3 3-2 4 3 3-3 4 2 3-1 2H3l2-3-3-3 2-4-3-3 3-4-2-3z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 66 22' preserveAspectRatio='none'%3E%3Cpath d='M3 0h60l-2 3 3 3-2 4 3 3-3 4 2 3-1 2H3l2-3-3-3 2-4-3-3 3-4-2-3z'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+  transform: rotate(var(--tape, -6deg));
+}
+.wishes li:nth-child(odd) .snap { transform: rotate(3deg); }
+.wishes li:nth-child(even) .snap { transform: rotate(-2.5deg); --tape: 5deg; }
+.wishes li:nth-child(n+2) .snap { z-index: 1; }
+
+/* A real hand never lines up: each wish drifts a little */
+.wishes li:nth-child(1) .wish { transform: translate(0, -9px) rotate(-0.5deg); }
+.wishes li:nth-child(2) .wish { transform: translate(8px, -8px) rotate(0.4deg); }
+.wishes li:nth-child(3) .wish { transform: translate(-4px, -10px) rotate(-0.6deg); }
+.wishes li:nth-child(4) .wish { transform: translate(10px, -9px) rotate(0.3deg); }
+.wishes li:nth-child(5) .wish { transform: translate(2px, -7px) rotate(-0.4deg); }
+
+/* One emphasis gesture: REALLY underlined twice */
+.wish .really {
+  position: relative;
+  display: inline-block;
+}
+.wish .really svg {
+  position: absolute;
+  left: -4px;
+  bottom: 2px;
+  width: calc(100% + 8px);
+  height: 16px;
+  overflow: visible;
+  color: var(--ink);
+}
+
+/* ---------- footer ---------- */
+
+.buy {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.facts {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--cs-white);
+}
+.facts b {
+  display: block;
+  font-weight: 600;
+  color: var(--cs-white);
+}
+
+/* Primary action: Launch Orange with a navy label (white on orange fails AA) */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  padding: 0 40px 0 44px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  color: var(--cs-navy);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cta svg { width: 30px; height: 30px; }
