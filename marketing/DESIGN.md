@@ -17,6 +17,7 @@ colors:
   caption-grey: "#6B7280"
   print-muted-ink: "#4A5270"
   print-hairline: "#E4E7F0"
+  ballpoint-ink: "#16205E"
 typography:
   display:
     fontFamily: "Outfit, sans-serif"
@@ -72,6 +73,12 @@ typography:
     fontWeight: 800
     lineHeight: 0.85
     letterSpacing: "-8px"
+  handwriting:
+    fontFamily: "Caveat, cursive"
+    fontSize: "54px"
+    fontWeight: 600
+    lineHeight: "64px"
+    letterSpacing: "normal"
 rounded:
   md: "6px"
   lg: "8px"
@@ -159,6 +166,12 @@ components:
     textColor: "{colors.slate-body}"
     rounded: "{rounded.2xl}"
     padding: "32px"
+  notepad-page:
+    backgroundColor: "{colors.clean-white}"
+    textColor: "{colors.ballpoint-ink}"
+    typography: "{typography.handwriting}"
+    rounded: "{rounded.md}"
+    padding: "40px 40px 0 104px"
 ---
 
 # Design System: CREATESPACE
@@ -169,7 +182,7 @@ components:
 
 CREATESPACE looks like a workbench set up under a clear night sky. Deep Space Navy is the sky: a calm, trustworthy ground that fills heroes, headers, footers and ad canvases. Against it, the brand's toy-bright accents (orange, blue, purple, green, yellow, red) behave like the kit pieces scattered on the bench. They light up single words, price tags, badges and the outlined illustrations of robots, planets, beakers and nuts, but they never take over the ground. The white side of the system is the same workshop with the lights on: clean white and a whisper of grey, navy type, the same accents doing the same jobs.
 
-The feel is friendly and confident rather than loud. Type is one family (Outfit) used almost entirely at SemiBold for headings and Regular for reading, so the personality comes from colour and imagery, not from typographic stunts. Shapes are soft (8px buttons, 16px cards, full pills) and surfaces are mostly flat, with depth coming from soft coloured glows and navy photo scrims rather than heavy shadows. Real photography of children and hands building kits carries the emotional weight; illustrations are the seasoning.
+The feel is friendly and confident rather than loud. Brand type is one family (Outfit) used almost entirely at SemiBold for headings and Regular for reading, so the personality comes from colour and imagery, not from typographic stunts. The single bounded exception is handwriting (Caveat) for a child's or family member's own words written on a paper object inside an ad. Shapes are soft (8px buttons, 16px cards, full pills) and surfaces are mostly flat, with depth coming from soft coloured glows and navy photo scrims rather than heavy shadows. Real photography of children and hands building kits carries the emotional weight; illustrations are the seasoning.
 
 The logo itself sets the tone: a tightly tracked, condensed wordmark where the "A" in SPACE stands apart in Rocket Red and doubles as an upward arrow. Space, lift and exploration are the idea, so layouts leave air around the mark and around the key message.
 
@@ -177,7 +190,7 @@ The logo itself sets the tone: a tightly tracked, condensed wordmark where the "
 - Navy or white ground, always; accents are highlights, never backgrounds.
 - Launch Orange is the single action colour: every primary call to action is orange.
 - Rocket Red marks money and urgency: sale pills, discount badges, sale prices.
-- One family, Outfit: SemiBold headlines, Regular body, heavier weights only for numbers and badges.
+- One brand family, Outfit: SemiBold headlines, Regular body, heavier weights only for numbers and badges. Caveat appears only as a person's handwriting on a paper object inside an ad (see The Handwriting Exception Rule).
 - Soft, friendly corners and pill-shaped labels.
 - Flat surfaces lifted by blurred blue and purple glows, not drop shadows.
 - Outlined, colourful STEM illustrations used sparingly: faint in the background, or a few full-colour pieces orbiting the hero subject.
@@ -198,7 +211,7 @@ A deep navy and white pairing carries the brand, with seven toy-bright accents f
 - **Sky Circuit Blue** (#3CC7F7): Cool counterweight to orange. The second headline highlight ("Learn." in the hero), kickers and labels on navy in print, the 9 to 12 age tile, icon discs, and the large blurred glow behind hero figures (25% opacity). Half of the promo band gradient.
 - **Nebula Purple** (#AC4DFF): Secondary glow behind hero figures (20% opacity), the 13+ age tile, education kickers, and the other half of the promo band gradient.
 - **Sprout Green** (#93DB21): "In Stock" indicator dot and text, the 6 to 8 age tile, and stat highlights in print. Pair with navy text when used as a fill.
-- **Spark Yellow** (#FFD500): Rare and celebratory. Star ratings, and the "Sale" pill in the site navigation (yellow with navy text). Always carries navy text.
+- **Spark Yellow** (#FFD500): Rare and celebratory. Star ratings, the "Sale" pill in the site navigation (yellow with navy text), and the single hand-doodled star on the 2026-12 wish-list page (yellow fill with a ballpoint-ink outline). Always carries navy text or a navy outline.
 - **Chassis Grey** (#B3B3B3): The CI grey. On the website it appears only inside illustrations (robot bodies, wheels) and as the quiet quote mark on plain print testimonials. It is not used for text.
 
 ### Neutral
@@ -209,6 +222,9 @@ A deep navy and white pairing carries the brand, with seven toy-bright accents f
 - **Print Muted Ink** (#4A5270): The navy-tinted body grey used in the A4 company profile instead of the web's cool slate. Prefer it for print.
 - **Print Hairline** (#E4E7F0): The navy-tinted rule and card border colour in the company profile.
 
+### Ink
+- **Ballpoint Ink** (#16205E): A navy pen a step lighter than the ground. Used only for handwriting and hand-drawn marks on a white paper object (the wish-list page's Caveat lines, tick boxes, the double underline, the star outline). Typeset brand text on the same page (kit names) stays Deep Space Navy, so pen and print read as two different hands. Handwriting on a non-white paper takes the ink that suits that paper and records it in the campaign brief (the 2026-10 kraft gift tag uses a dark brown marker).
+
 ### Named Rules
 **The Navy-or-White Ground Rule.** Every canvas grounds on Deep Space Navy or Clean White. Accent colours fill small shapes (buttons, badges, tiles, glows), never the whole canvas. The one sanctioned accent exception is the promo band's slow blue-to-purple gradient strip, which is a thin band, not a ground.
 
@@ -218,12 +234,15 @@ A deep navy and white pairing carries the brand, with seven toy-bright accents f
 
 **The Red Means Saving Rule.** In type and badges, Rocket Red signals a saving, a sale or urgency (discount badges, sale pills, sale prices, out of stock). Do not use red for decorative emphasis in headlines; that job belongs to orange and blue.
 
+**The Pink Margin Rule.** A ruled paper page draws its margin line in a soft pink (#F28B98), never Rocket Red, so red keeps meaning a saving. The page's pale blue rules (#C9D6F2) and the tape tint are values of the paper object, not system colours.
+
 **The One-Word Highlight Rule.** Headlines are navy on white or white on navy, with at most one or two words picked out in an accent ("Build. **Play.** **Learn.**"). Highlight a word, never a whole line.
 
 ## Typography
 
 **Display Font:** Outfit (with sans-serif)
 **Body Font:** Outfit (with sans-serif)
+**Handwriting Font (ads only, bounded):** Caveat (with cursive), from `creative/kit/fonts/Caveat.ttf`
 
 **Character:** A single geometric sans with round, open letterforms that reads friendly and modern without looking childish. The CI specifies Outfit SemiBold for headlines and Outfit Regular for body copy and headlines; the website loads the variable font and uses heavier weights only for numbers and badges.
 
@@ -237,8 +256,11 @@ A deep navy and white pairing carries the brand, with seven toy-bright accents f
 - **Price** (700, 16px to 18px): Product prices. Orange by default, red when on sale, with the compare-at price struck through in light grey beside it.
 - **Badge** (700 to 800, 11px to 14px): Discount and age badges, the promo band badge (uppercase, 800).
 - **Sale numeral** (800, 190px on a 1080 canvas, line-height 0.85, tracking -8px): From the Makerzoid ad precedent. The giant "20%" in Rocket Red, followed by "OFF" at 700 weight and 78px with 0.05em tracking.
+- **Handwriting** (Caveat 600, 54px on a 1080 canvas, set on the 64px line pitch of the paper it sits on): A person's own words written on a paper object in an ad. Ballpoint Ink on white paper; 47px dark brown marker on the 2026-10 kraft gift tag. Lines drift by a few pixels and up to about half a degree each, as a real hand does. Lowercase is allowed because it is the writer's voice, not a headline.
 
 ### Named Rules
+**The Handwriting Exception Rule.** Caveat (600) is sanctioned only for words a child or family member would write themselves (a wish, a gift-tag note), written on a paper object inside an ad. Everything CREATESPACE says stays Outfit: the headline, kit names, ages, facts and the CTA. Never set a headline, label, price or button in Caveat, and never use it on the website. Precedents: the 2026-10 Tale-Bot kraft gift tag and the 2026-12 Christmas wish list.
+
 **The SemiBold Ceiling Rule.** Words top out at SemiBold (600). Bold (700) and ExtraBold (800) are reserved for numbers and tiny labels: prices, discount percentages, stats, badges and the sale numeral.
 
 **The Sentence Case Rule.** Headlines, section headings and web buttons are sentence case. Uppercase is reserved for small tracked labels: kickers, badges, the sale pill and, in the ad precedent, the CTA.
@@ -259,6 +281,8 @@ Section openers are left-aligned (a headline, then a short grey subheading cappe
 - **Story (1080 x 1920), single-product:** the portrait column with the content held inside the 270px top and bottom safe zones (about 290px of padding).
 - **Google image assets (`google-landscape` 1200 x 628, `google-square` 1200 x 1200, `google-portrait` 960 x 1200):** photo only, the white logo on a navy tab hanging from the top edge, and at most one short navy pill badge (a number or the age) bottom left. No CTA button, headline or URL; Google supplies those as text assets.
 
+- **Feed portrait, wish-list form (2026-12 Christmas gift guide):** logo and a two-line Outfit headline at the top, then one white ruled notepad page about 952px wide, tilted -1.4 degrees, filling the middle (y about 396 to 1072), and the usual facts-left, orange-CTA-right footer. Everything on the page sits on its 64px line pitch: the handwritten salutation on one line, then each wish as a three-line row (Caveat wish, Outfit kit name and age on the line below, a blank line), with the tick box in the 104px margin and a taped photo tile at the right of the row.
+
 No precedent exists yet for A5 and A3; scale the square and A4 structures proportionally rather than inventing new ones.
 
 ## Elevation & Depth
@@ -270,13 +294,15 @@ The system is flat by default. Cards sit on white or mist with a thin grey borde
 - **Hover lift** (`box-shadow: 0 10px 15px -3px rgba(12,20,70,0.05)`): Product card hover only.
 - **Sale pill lift** (`box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 1px 2px rgba(0,0,0,0.25)`): The yellow nav Sale pill. A thin white top highlight and a dark lift; never a yellow glow, which turns olive against navy.
 - **Collage drop** (`box-shadow: 0 16px 48px rgba(0,0,0,0.5)`): Rotated photos in the ad collage on navy.
+- **Paper drop** (`box-shadow: 0 30px 60px -10px rgba(2,5,26,0.6), 0 4px 10px rgba(2,5,26,0.35)`): A tilted paper object lying on the navy ground: the wish-list notepad page, and (as a drop-shadow filter of the same shape) the 2026-10 kraft gift tag. Soft, centred, no hard offset.
+- **Taped tile** (`box-shadow: 0 6px 12px -4px rgba(12,20,70,0.35)`): Photo tiles taped onto a paper page.
 
 ### Named Rules
-**The Glow Not Shadow Rule.** On navy, lift the subject with a soft blurred blue and purple glow behind it. Dark drop shadows are reserved for the rotated photo collage in ads.
+**The Glow Not Shadow Rule.** On navy, lift the subject with a soft blurred blue and purple glow behind it. Dark drop shadows are reserved for physical objects lying on the ground in ads: the rotated photo collage and tilted paper objects (notepad page, gift tag), which keep the glow behind them as well.
 
 ## Shapes
 
-Corners are consistently soft and friendly. Buttons and small tiles use 8px; product cards, photo frames and testimonial cards use 16px (12px on small screens); large panels such as the newsletter box use 24px. Anything that reads as a label (sale pill, discount and age badges, category chips, email field and subscribe button) is a full pill. The promo band badge is the one squarer label at 6px. In print, cards and photos use about 2.6mm; in ads, photos use 18px and the CTA 10px.
+Corners are consistently soft and friendly. Buttons and small tiles use 8px; product cards, photo frames and testimonial cards use 16px (12px on small screens); large panels such as the newsletter box use 24px. Anything that reads as a label (sale pill, discount and age badges, category chips, email field and subscribe button) is a full pill. The promo band badge is the one squarer label at 6px. In print, cards and photos use about 2.6mm; in ads, photos use 18px and the CTA 10px (12px in the 2026 campaigns). Paper objects keep the corners of paper: the notepad page is 6px, photo tiles taped onto it are 4px, and hand-drawn tick boxes are slightly uneven (about 3px to 6px per corner, rotated a few degrees).
 
 Borders are hairlines: 1px to 2px in Hairline Grey on white, or white at 10% to 30% on navy. Photos are clipped to their radius with a 1px ring. Circles appear as icon discs (navy or blue at 5% to 10% tint), portrait crops with a 0.7mm accent ring in print, and glows.
 
@@ -302,6 +328,16 @@ Warm, confident and chunky; they look pressable.
 - **Age badge (cards):** navy at 85% full pill, white 600 "Ages 8-12", top right of the product photo.
 - **Promo band badge:** Rocket Red, 6px radius, white 800 uppercase, sitting on the blue-to-purple band beside a navy eyebrow pill and a navy SemiBold message.
 - **Nav Sale pill:** Spark Yellow full pill with a navy price-tag mark and the promotion's name as a navy 700 label, the sale pill lift.
+
+### Wish-List Page (2026-12 Christmas gift guide)
+A child's letter to Father Christmas on a white notepad page, each wish already granted.
+- **Paper:** Clean White, 6px corners, tilted -1.4 degrees, paper drop shadow, the blue and purple glow still behind it on navy.
+- **Ruling:** pale blue rules on the 64px line pitch, a 2px pink margin rule at 104px (The Pink Margin Rule).
+- **Salutation:** "Dear Father Christmas," in Caveat 600 Ballpoint Ink, with the page's one doodled Spark Yellow star outlined in ink beside it.
+- **Wish row (three lines):** the wish in Caveat 600 Ballpoint Ink in the child's words; on the line below, the kit name in Outfit 600 Deep Space Navy (28px), a small orange dot, and the age in Outfit 500 Slate Body. One emphasis gesture is allowed per page (a double ink underline under "at least!").
+- **Tick:** a box drawn in ink in the margin, ticked with a hand-drawn Launch Orange check that overshoots the box.
+- **Photo tile:** a 152px to 172px square real photo, 4px corners, rotated about +3 or -2.5 degrees alternately, held by a strip of translucent cream tape with torn ends that straddles the photo's top edge so it reads against the paper.
+- **Around it:** the Outfit headline above with one orange word, and the 2026 navy-label orange CTA ("Shop STEM gifts") in the footer.
 
 ### Cards / Containers
 - **Corner Style:** 16px (12px on mobile).
@@ -348,6 +384,7 @@ Sticky navy bar with an orange trust strip above it, the white logo left, white 
 - **Do** lift subjects on navy with a soft blurred blue and purple glow.
 - **Do** use rounded corners throughout: 8px buttons, 16px photos and cards, full pills for labels.
 - **Do** keep outer margins at about 6% of the short edge on fixed canvases, as the precedents do.
+- **Do** set a person's own handwritten words on a paper object in Caveat 600, and keep every CREATESPACE line on that object (kit names, ages) in Outfit.
 
 ### Don't:
 - **Don't** flood a canvas with an accent colour; the only sanctioned accent ground is the thin blue-to-purple promo band.
@@ -358,3 +395,4 @@ Sticky navy bar with an orange trust strip above it, the white logo left, white 
 - **Don't** use Chassis Grey or accent colours for body text; body text is navy, Slate Body grey on white, or white at reduced opacity on navy.
 - **Don't** add heavy dark drop shadows to cards; depth comes from glows, scrims and the ad collage only.
 - **Don't** place the colour logo on anything other than navy or white; the CI shows only navy, white, and mono on black or white.
+- **Don't** set headlines, CTAs, prices or labels in Caveat, use it on the website, or draw a paper margin rule in Rocket Red.

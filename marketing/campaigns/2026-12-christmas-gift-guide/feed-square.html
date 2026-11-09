@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-ZA" data-canvas="meta-square">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE: Unwrapped in December. Still playing in January.</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="wish-list.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .orbit { position: absolute; display: block; pointer-events: none; }
+    .twinkle { position: absolute; display: block; }
+    .twinkle path { fill: currentColor; }
+    .wordmark { position: absolute; }
+    h1 { position: absolute; }
+    .wishes .snap { align-self: start; margin-top: 4px; }
+    .dear { margin-bottom: var(--line); }
+
+    :root { --margin: 60px; --line: 56px; }
+    .glow--blue { width: 640px; height: 520px; left: 420px; top: 300px; }
+    .glow--purple { width: 560px; height: 480px; left: -160px; top: 560px; }
+    .wordmark { left: var(--margin); top: 56px; height: 34px; }
+    h1 { left: var(--margin); right: 200px; top: 50px; font-size: 62px; }
+    .page {
+      --gutter: 96px; --page-top: 32px; --page-right: 34px;
+      --row: calc(var(--line) * 3); --thumb: 150px;
+      left: 60px; top: 206px; width: 960px; height: 704px;
+    }
+    .dear, .wish { font-size: 48px; }
+    .dear { transform: translateY(-8px); }
+    .kit { font-size: 31px; }
+    .kit .age { font-size: 29px; transform: translateY(-12px); }
+    .tick { width: 36px; height: 36px; top: calc(var(--line) - 44px); }
+    .tick svg { width: 52px; height: 52px; }
+    .buy { left: var(--margin); right: var(--margin); bottom: 44px; }
+    .facts { font-size: 28px; }
+    .cta { height: 84px; font-size: 34px; }
+    .orbit--planet { right: -40px; top: 28px; width: 220px; transform: rotate(-12deg); }
+    .orbit--robot { left: -36px; top: 450px; width: 150px; transform: rotate(12deg); }
+    .orbit--nut { right: -30px; top: 790px; width: 104px; transform: rotate(18deg); }
+  </style>
+</head>
+<body>
+<main class="canvas" aria-label="CREATESPACE Christmas gift guide: a child's wish list with three STEM kits ticked off">
+  <div class="glow glow--blue" aria-hidden="true"></div>
+  <div class="glow glow--purple" aria-hidden="true"></div>
+  <svg class="twinkle" viewBox="0 0 24 24" aria-hidden="true" style="left:760px;top:40px;width:24px;color:#ffd500"><path d="M12 0c1 6.5 5.5 11 12 12-6.5 1-11 5.5-12 12-1-6.5-5.5-11-12-12C6.5 11 11 6.5 12 0z"/></svg>
+  <svg class="twinkle" viewBox="0 0 24 24" aria-hidden="true" style="left:22px;top:192px;width:18px;color:#3cc7f7"><path d="M12 0c1 6.5 5.5 11 12 12-6.5 1-11 5.5-12 12-1-6.5-5.5-11-12-12C6.5 11 11 6.5 12 0z"/></svg>
+  <svg class="twinkle" viewBox="0 0 24 24" aria-hidden="true" style="left:690px;top:176px;width:14px;color:#fff;opacity:.7"><path d="M12 0c1 6.5 5.5 11 12 12-6.5 1-11 5.5-12 12-1-6.5-5.5-11-12-12C6.5 11 11 6.5 12 0z"/></svg>
+  <svg class="twinkle" viewBox="0 0 24 24" aria-hidden="true" style="left:470px;top:986px;width:16px;color:#ffd500"><path d="M12 0c1 6.5 5.5 11 12 12-6.5 1-11 5.5-12 12-1-6.5-5.5-11-12-12C6.5 11 11 6.5 12 0z"/></svg>
+  <svg class="twinkle" viewBox="0 0 24 24" aria-hidden="true" style="left:24px;top:930px;width:13px;color:#fff;opacity:.6"><path d="M12 0c1 6.5 5.5 11 12 12-6.5 1-11 5.5-12 12-1-6.5-5.5-11-12-12C6.5 11 11 6.5 12 0z"/></svg>
+  <img class="orbit orbit--planet" src="../../creative/kit/illustrations/planet-1.svg" alt="" aria-hidden="true">
+  <img class="orbit orbit--robot" src="../../creative/kit/illustrations/robot-4.svg" alt="" aria-hidden="true">
+  <img class="orbit orbit--nut" src="../../creative/kit/illustrations/nut-2.svg" alt="" aria-hidden="true">
+
+  <h1>Unwrapped in December. Still playing in <em>January.</em></h1>
+
+  <section class="page" aria-label="Wish list">
+    <p class="dear">Dear Father Christmas,<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M23 6c1.6 4.4 3.4 8.7 5.6 12.8 4.6-.1 9.1.4 13.6.9-3.6 2.9-7.4 5.5-10.7 8.6 1.4 4.2 2.6 8.6 3.3 13-3.9-2.6-7.6-5.4-11.6-7.8-3.7 2.8-7.4 5.6-11.5 7.8 1.2-4.4 2.5-8.8 3.9-13.1C12.2 25.4 8.7 22.6 5 20c4.6-.4 9.2-.9 13.8-.8C20.4 14.8 21.6 10.3 23 6z" fill="#ffd500" stroke="#16205e" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/><path d="M22.4 5.2c.5 1.1.9 2.2 1.2 3.3" fill="none" stroke="#16205e" stroke-width="2.6" stroke-linecap="round"/></svg></p>
+    <ul class="wishes">
+      <li>
+        <i class="tick" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 25c4 3 7 8 9 12 6-13 14-22 22-30"/></svg></i>
+        <p class="wish">200 robots (<span class="really">at least!<svg viewBox="0 0 100 16" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M2 5c30-3 62-4 96-1"/><path d="M8 12c26-3 56-3 86-2"/></svg></span>)</p>
+        <p class="kit">Makerzoid Robot Master Premium <span class="age">Ages 6-14</span></p>
+        <figure class="snap"><img src="images/kids-building-makerzoid-robot.jpg" alt="Two children building a Makerzoid robot on the floor" style="object-position: 70% 50%"></figure>
+      </li>
+      <li>
+        <i class="tick" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 27c4 2 7 6 9 10 6-12 13-21 22-29"/></svg></i>
+        <p class="wish">a burglar alarm for my room</p>
+        <p class="kit">Snap Circuits Explorer Junior <span class="age">Ages 8-12</span></p>
+        <figure class="snap"><img src="images/boy-building-snap-circuits.jpg" alt="A boy building a Snap Circuits project at a table" style="object-view-box: inset(18% 8% 0% 14%)"></figure>
+      </li>
+      <li>
+        <i class="tick" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 26c4 3 7 7 9 11 6-12 13-21 22-29"/></svg></i>
+        <p class="wish">a robot I can code myself</p>
+        <p class="kit">MatataStudio VinciBot <span class="age">Ages 8-12</span></p>
+        <figure class="snap"><img src="images/vincibot-on-line-track.jpg" alt="VinciBot following a line on its track map" style="object-view-box: inset(24% 18% 20% 18%)"></figure>
+      </li>
+    </ul>
+  </section>
+
+  <footer class="buy">
+    <p class="facts">Free delivery over R 1,500</p>
+    <span class="cta">Shop STEM gifts <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </footer>
+</main>
+</body>
+</html>
