@@ -5,6 +5,7 @@ import Image from "next/image";
 import { capture } from "@/lib/analytics";
 import BrandDecor from "@/components/BrandDecor";
 import WhatsAppLink from "@/components/WhatsAppLink";
+import { PHONE_NUMBER, phoneLink } from "@/lib/phone";
 
 const footerLinks = {
   shop: [
@@ -128,6 +129,16 @@ export default function Footer() {
               >
                 info@thecreatespace.co.za
               </a>
+              <p>
+                Phone:{" "}
+                <a
+                  href={phoneLink(PHONE_NUMBER)}
+                  className="text-white/70 hover:text-cs-orange transition-colors"
+                  onClick={() => capture("phone_link_clicked", { location: "footer" })}
+                >
+                  {PHONE_NUMBER}
+                </a>
+              </p>
               <p>
                 WhatsApp:{" "}
                 <WhatsAppLink

@@ -19,15 +19,14 @@ const links = [
 
 export default function SocialLinks({ location }: { location: string }) {
   return (
-    <div className="flex justify-center gap-4">
+    <div className="flex flex-wrap gap-x-4 gap-y-1">
       {links.map((link) => (
         <a
           key={link.platform}
           href={link.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-cs-orange hover:shadow-md transition-all"
-          aria-label={link.label}
+          className="group inline-flex items-center gap-2 py-1 font-medium text-navy"
           onClick={() =>
             capture("social_link_clicked", {
               platform: link.platform,
@@ -35,9 +34,17 @@ export default function SocialLinks({ location }: { location: string }) {
             })
           }
         >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+          <svg
+            className="h-4 w-4 text-navy/70 transition-colors group-hover:text-navy"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
             <path d={link.icon} />
           </svg>
+          <span className="underline decoration-cs-orange decoration-2 underline-offset-4 transition-colors group-hover:decoration-navy">
+            {link.label}
+          </span>
         </a>
       ))}
     </div>
