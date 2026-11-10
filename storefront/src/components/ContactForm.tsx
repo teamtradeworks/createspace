@@ -251,7 +251,6 @@ export default function ContactForm({
                 required
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your name"
                 className={fieldClass}
               />
             </div>
@@ -284,7 +283,6 @@ export default function ContactForm({
               name="schoolName"
               value={formData.schoolName}
               onChange={handleChange}
-              placeholder="Your school name"
               className={fieldClass}
             />
           </div>
@@ -339,7 +337,6 @@ export default function ContactForm({
                 required
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Your name"
                 className={fieldClass}
               />
             </div>
@@ -461,26 +458,10 @@ export default function ContactForm({
                 d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
               />
             </svg>
-            Sending...
+            Sending…
           </>
         ) : (
-          <>
-            Send message
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
-          </>
+          "Send message"
         )}
       </button>
     </form>

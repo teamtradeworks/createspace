@@ -1,6 +1,5 @@
 // WhatsApp support contact. The number is configured in site.json; edit it
-// there and every link on the site (floating button, contact page, footer,
-// structured data) picks it up.
+// there and every link on the site (floating button, contact page, footer) picks it up.
 
 import siteConfig from "@/config/site.json";
 
