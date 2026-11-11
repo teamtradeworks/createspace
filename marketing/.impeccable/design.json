@@ -393,7 +393,7 @@
       {
         "name": "feed-portrait",
         "value": "1080x1350",
-        "precedent": "marketing/campaigns/2026-09-stem-range, marketing/campaigns/2026-10-hero-kits"
+        "precedent": "marketing/campaigns/2026-09-stem-range, marketing/campaigns/2026-10-hero-kits; two-product comparison: marketing/campaigns/2026-11-microscope-comparison"
       },
       {
         "name": "story",

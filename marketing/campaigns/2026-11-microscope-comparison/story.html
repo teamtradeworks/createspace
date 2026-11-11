@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+<meta charset="UTF-8">
+<title>CREATESPACE: Little explorer or young scientist? MatataStudio microscopes</title>
+<link rel="stylesheet" href="../../creative/kit/brand.css">
+<script src="../../creative/kit/canvas.js"></script>
+<style>
+  * { margin: 0; padding: 0; }
+  img { display: block; }
+
+  .canvas {
+    --blue: var(--cs-blue);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 220px 56px 210px;
+    background: var(--cs-navy);
+    color: var(--cs-white);
+    font-family: var(--cs-font);
+    text-rendering: geometricPrecision;
+  }
+
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+  .glow--blue { width: 760px; height: 760px; right: -300px; top: 40px; background: rgb(60 199 247 / 0.28); }
+  .glow--purple { width: 680px; height: 680px; left: -300px; top: 720px; background: rgb(172 77 255 / 0.18); }
+
+  /* Two columns that share every row, from the heading down */
+  .cols {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+  }
+
+  /* The heading is the comparison: each column carries its own words */
+  .says {
+    font-size: 82px;
+    font-weight: 600;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    text-align: center;
+  }
+  .or {
+    position: absolute;
+    left: 50%;
+    top: 80px;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--blue);
+    color: var(--cs-navy);
+    font-size: 46px;
+    font-weight: 600;
+    line-height: 1;
+    padding-bottom: 0.1em;
+    box-shadow: 0 0 0 8px var(--cs-navy);
+  }
+
+  .head {
+    margin-top: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+  }
+  .name {
+    font-size: 42px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .age {
+    padding: 4px 16px;
+    border-radius: 9999px;
+    border: 2px solid var(--blue);
+    color: var(--blue);
+    font-size: 32px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .photo {
+    margin-top: 44px;
+    height: 580px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .photo--mx2 img { object-position: 12% 50%; }
+
+  /* Light-blue sheet holding the spec rows */
+  .sheet {
+    position: relative;
+    margin-top: 32px;
+    padding: 6px 28px 4px;
+    border-radius: 16px;
+    background: rgb(60 199 247 / 0.13);
+    box-shadow: inset 0 0 0 1px rgb(60 199 247 / 0.35);
+    color: var(--cs-white);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 200px 1fr;
+    align-items: center;
+    min-height: 68px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(60 199 247 / 0.25);
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.15;
+  }
+  .row dt {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--blue);
+  }
+  .row dd { grid-row: 1; }
+  .row .l { grid-column: 1; }
+  .row .r { grid-column: 3; text-align: right; }
+  .row small { font-size: inherit; font-weight: inherit; color: inherit; }
+  .row--price { border-bottom: 0; min-height: 88px; }
+  .row--price dd { font-size: 52px; font-weight: 700; letter-spacing: -0.015em; color: var(--cs-orange); }
+
+  .foot {
+    position: relative;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+  }
+  .both {
+    font-size: 32px;
+    line-height: 1.3;
+    color: rgb(255 255 255 / 0.78);
+  }
+  .both strong { color: var(--cs-white); font-weight: 600; }
+  .bio {
+    display: inline-flex;
+    align-items: center;
+    height: 84px;
+    padding: 0 38px;
+    border-radius: 12px;
+    background: var(--cs-orange);
+    color: var(--cs-navy);
+    font-size: 34px;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+<main class="canvas" aria-label="Little explorer or young scientist? MatataStudio MX2-AS and MT3-2 microscopes compared">
+  <div class="glow glow--blue"></div>
+  <div class="glow glow--purple"></div>
+
+  <section class="cols">
+    <h1 class="says">Little<br>explorer</h1>
+    <p class="says says--mt3">young<br>scientist?</p>
+    <span class="or" aria-hidden="true">or</span>
+
+    <div class="head"><p class="name">MX2-AS</p><span class="age">Ages 4-11</span></div>
+    <div class="head"><p class="name">MT3-2</p><span class="age">Ages 11-16</span></div>
+
+    <figure class="photo photo--mx2"><img src="images/mx2-girl-pointing-at-screen.jpg" alt="A young girl pointing at a magnified plant cell on the MX2-AS screen"></figure>
+    <figure class="photo photo--mt3"><img src="images/mt3-boy-and-dad-at-microscope.jpg" alt="A boy and his dad smiling at the MT3-2 microscope"></figure>
+  </section>
+
+  <dl class="sheet">
+    <div class="row"><dt>Use it</dt><dd class="l">Handheld <small>+ stand</small></dd><dd class="r">On the desk, <small>3 lenses</small></dd></div>
+    <div class="row"><dt>Screen</dt><dd class="l">4.3-inch</dd><dd class="r">7-inch</dd></div>
+    <div class="row"><dt>Zoom</dt><dd class="l">1600× digital</dd><dd class="r">400× optical</dd></div>
+    <div class="row"><dt>Slides</dt><dd class="l">5 prepared</dd><dd class="r">10 <small>+ make your own</small></dd></div>
+    <div class="row"><dt>Share to</dt><dd class="l">Tablet, laptop</dd><dd class="r">Tablet, laptop, TV</dd></div>
+    <div class="row row--price"><dt>Price</dt><dd class="l">R 2,980</dd><dd class="r">R 5,580</dd></div>
+  </dl>
+
+  <footer class="foot">
+    <p class="both"><strong>Both</strong> take photos and video,<br>and work without a phone.</p>
+    <span class="bio">Links in bio</span>
+  </footer>
+</main>
+</body>
+</html>
