@@ -37,12 +37,12 @@ export default async function TaleBotProClassroomSetPage() {
       <HeroSection
         product={product}
         stockQuantity={1}
-        tagline="Bring screen-free coding to every learner in your Foundation Phase classroom"
+        tagline="Bring screen-free coding to your Grade R and Grade 1 classroom"
         highlights={[
-          "6 robots, serving groups of 3–4 learners simultaneously across a full class",
-          "42 Activity Cards across 4 curriculum categories, from basic commands to complex programmes",
-          "10-port USB charging station and storage bin included for full classroom management",
-          "Reusable term after term: durable, rechargeable, and built for repeated daily use",
+          "6 robots: 12 learners code in pairs at once, or rotate small groups through a full class",
+          "42 step-by-step Activity Cards in four levels, from first button presses to loops and story challenges",
+          "Designed for ages 3–5, so it suits Grade R and Grade 1 best. No reading or screens needed",
+          "10-port USB charging station and storage bin keep the set ready for daily use, term after term",
         ]}
         addons={addons}
       />
@@ -61,52 +61,52 @@ export default async function TaleBotProClassroomSetPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro-classroom-set/teacher-teaching-kids.jpg"
         imageAlt="Teacher demonstrating Tale-Bot Pro to a group of young learners in a classroom"
-        title="Screen-Free Coding That Works for Every Learner"
-        body="Research consistently shows that screen-free, tangible coding robots are more effective than screen-based tools for developing computational thinking in Foundation Phase learners. Tale-Bot Pro uses physical command buttons directly on the robot; learners press, plan, and observe results in real time. No reading skills are required, making this accessible to Grades R, 1, 2, and 3 regardless of literacy level. Colour-coded LED indicators help learners debug their code independently, reducing the burden on the educator to troubleshoot every group."
+        title="Coding Without Screens or Reading"
+        body="Learners build a programme by pressing the arrow buttons on top of the robot, then press Play and watch it run. A row of coloured lights shows each command in order, so a group can spot where their route went wrong, and the Clear button removes the last command without starting over. Because everything is done with picture buttons, Grade R and Grade 1 learners can take part whatever their reading level."
         layout="image-left"
         background="gray"
       />
 
       {/* Feature Grid */}
       <FeatureGrid
-        title="Everything Your Classroom Needs"
-        subtitle="The Tale-Bot Pro Classroom Set includes six complete robots and a full suite of teaching materials. No additional purchases required to get started."
+        title="Six Robots and 42 Activity Cards in One Set"
+        subtitle="Robots, Activity Cards, 18 maps and a charging station, packed in one storage bin."
         features={[
           {
             icon: "book",
             title: "42 Activity Cards",
             description:
-              "Structured cross-curricular curriculum in 4 categories: basic commands, exploration, patterns, and comprehensive challenges",
+              "Step-by-step activities in four levels: basic commands, cross-curricular exploration, patterns and loops, and themed challenges",
           },
           {
             icon: "users",
-            title: "Serves a Full Class",
+            title: "Pairs or Small Groups",
             description:
-              "Six robots support groups of 3–4 learners simultaneously across a class of 18–24",
+              "The activities are written for pairs, so six robots serve 12 learners at once. Groups of 3–4 stretch that to 18–24",
           },
           {
-            icon: "language",
-            title: "11 Languages Supported",
+            icon: "microphone",
+            title: "Record in Any Language",
             description:
-              "Speaks English, Afrikaans context, French, Mandarin, and more, making it well-suited for multilingual South African classrooms",
+              "Learners record up to 30 seconds of their own voice and add it to a programme, so stories can be told in their home language",
           },
           {
             icon: "map",
             title: "Cross-Curricular Maps",
             description:
-              "Double-sided interactive maps cover frog life cycles, plant growth, and more, linking coding to Natural Sciences",
+              "15 interactive maps across 10 themes, including frog and sunflower life cycles, plus 3 blank grid maps for your own activities",
           },
           {
             icon: "battery",
             title: "Rechargeable Batteries",
             description:
-              "Built-in 1500mAh batteries last up to 4 hours. USB-C charging, no disposable batteries to manage",
+              "Each robot runs for 4+ hours and recharges in about 2.5 hours. The 10-port USB station charges all six at once",
           },
           {
             icon: "shield",
             title: "Classroom Durable",
             description:
-              "Eco-friendly, food-grade materials with fall-resistant construction, built to withstand repeated daily use",
+              "Sturdy, fall-resistant, lead-free robots made from eco-friendly, food-grade material",
           },
         ]}
         columns={3}
@@ -117,8 +117,8 @@ export default async function TaleBotProClassroomSetPage() {
       <ImageTextBlock
         image="/images/products/matatastudio-tale-bot-pro-classroom-set/teacher-with-kids.jpg"
         imageAlt="Teacher working alongside young learners using Tale-Bot Pro in a group setting"
-        title="Cross-Curricular Learning in Every Lesson"
-        body="Tale-Bot Pro connects coding to the rest of your curriculum. Learners navigate the frog life cycle map to reinforce Natural Sciences concepts. They code the robot through plant growth stages, connecting programming to Life and Living. The voice recording feature develops oral language skills in Home Language, while the drawing capability links to Arts and Crafts. One tool, multiple learning areas. Educators consistently report that learners engage more deeply with subject content when they're coding it rather than reading it."
+        title="Coding Linked to Maths, Life Skills and Language"
+        body="Each Activity Card is tagged with the learning area it supports. Learners count strawberries on the Counting Game map, match foods to shapes on Shape Monster, follow the frog and sunflower life cycles, and tell the story of a trip around My Town. The record button lets them narrate in their own words, and the washable markers turn a programmed route into a drawing."
         layout="image-right"
         background="gray"
       />
@@ -126,50 +126,49 @@ export default async function TaleBotProClassroomSetPage() {
       {/* Project Showcase */}
       <ProjectShowcase
         title="Classroom Activities"
-        highlight="42 Activity Cards plus a Challenge Booklet: a complete cross-curricular coding curriculum for Grades R–3"
-        subtitle="Activities progress from basic movement sequences to complex coding challenges, supporting mixed-ability classrooms and differentiated instruction."
+        highlight="42 step-by-step Activity Cards plus a Challenge Booklet, written for ages 3–5"
+        subtitle="Cards progress from single commands to sequences, loops and themed challenges. Each one lists its learning area, the materials needed and a class-time estimate."
         projects={[
           {
             name: "Basic Movement Commands",
-            description: "Sequence forward, backward, left, and right commands",
-            concepts: "Sequential thinking, cause and effect, spatial reasoning",
+            description: "Sequence forward, backward, left and right commands",
+            concepts: "Sequencing, cause and effect, spatial reasoning",
             image:
               "/images/products/matatastudio-tale-bot-pro-classroom-set/boy-pressing-button-on-talebot.jpeg",
           },
           {
             name: "Frog Life Cycle Map",
             description: "Navigate the stages from egg to adult frog",
-            concepts: "Natural Sciences: Life and Living, sequencing, observation",
+            concepts: "Life Skills (Beginning Knowledge): life cycles, sequencing",
             image: "/images/products/matatastudio-tale-bot-pro/tale-bot-on-frog-cycle-board.png",
           },
           {
             name: "Plant Growth Map",
             description: "Code the robot through the stages of a sunflower's life",
-            concepts: "Natural Sciences: Life and Living, sequential ordering",
+            concepts: "Life Skills (Beginning Knowledge): plant growth, ordering",
             image:
               "/images/products/matatastudio-tale-bot-pro-classroom-set/two-kids-playing-with-growing-map.jpg",
           },
           {
             name: "Drawing with Markers",
             description: "Programme the robot to draw shapes and patterns on paper",
-            concepts: "Geometry, spatial reasoning, fine motor, creative expression",
+            concepts: "Space and shape, fine motor skills, creative expression",
             image: "/images/products/matatastudio-tale-bot-pro/tale-bot-drawing-front-view.png",
           },
           {
-            name: "Dancing & Music Coding",
-            description: "Programme sequences of movement and sound",
-            concepts: "Pattern recognition, rhythm, creative coding, sequencing",
+            name: "Dance Routines with Loops",
+            description: "Design dance steps with the arrow buttons, then repeat them with the Repeat button",
+            concepts: "Loops, patterns, sequencing",
             image: "/images/products/matatastudio-tale-bot-pro/tale-bot-singing-and-dancing.png",
           },
           {
-            name: "LEGO Construction Challenges",
-            description: "Combine building and coding in open-ended design tasks",
-            concepts: "Engineering design, Technology: Structures, problem-solving",
-            image:
-              "/images/products/matatastudio-tale-bot-pro/tale-bot-compatible-with-lego-blocks.png",
+            name: "Zoo Visit Story Map",
+            description: "Follow the robot's spoken zoo story, then code the route and invent a new visit",
+            concepts: "Storytelling, listening, sequencing",
+            image: "/images/products/matatastudio-tale-bot-pro/tale-bot-talking-on-zoo-visit-map.jpg",
           },
         ]}
-        moreText="Plus blank maps for open-ended investigation, voice recording storytelling activities, and optional Scratch programming extension tasks for advanced learners"
+        moreText="Plus counting, shape and town maps, blank grid maps for your own activities, and voice recording for learner-made stories"
         background="white"
       />
 
@@ -222,39 +221,39 @@ export default async function TaleBotProClassroomSetPage() {
         title="Educator Questions"
         faqs={[
           {
-            question: "Does this cover skills from the national curriculum?",
+            question: "Which grades and curriculum areas does this suit?",
             answer:
-              "Tale-Bot Pro covers computational thinking, sequencing, and algorithmic reasoning, skills that feature prominently in South African curricula for Foundation Phase (Grades R–3). The interactive maps also connect to Natural Sciences (Life and Living) and the drawing activities link to Arts and Crafts. However, we don't provide a formal CAPS mapping document for this product. We recommend mapping activities to your specific term plan using the included teacher guide.",
+              "MatataStudio designs Tale-Bot Pro and its Activity Cards for ages 3–5, so the set suits Grade R and Grade 1 best. Grade 2 and 3 learners can use it as an introduction, but it was designed for younger children. The activities practise sequencing, patterns, and position and direction, which link to Foundation Phase Mathematics, and the life cycle and town maps tie in with Life Skills (Beginning Knowledge). We don't provide a formal CAPS mapping, but every Activity Card has a code (A-1 to D-10) and a learning-area tag, which makes it easy to slot cards into your term plan.",
           },
           {
             question: "How many learners can use the classroom set simultaneously?",
             answer:
-              "With 6 robots, the classroom set supports groups of 3–4 learners per robot, meaning 18–24 learners can engage simultaneously in small group rotations. This is ideal for a standard Foundation Phase class, and the group format naturally encourages peer learning and collaboration.",
+              "MatataStudio writes the activities for pairs, so six robots let 12 learners code at the same time. In a bigger class, groups of 3–4 per robot or a station rotation let 18–24 learners take part, with learners taking turns to plan, press the buttons and check the route.",
           },
           {
             question: "Do I need a STEM background to teach with this?",
             answer:
-              "Not at all. The classroom set includes a complete teacher guide with step-by-step lesson plans, learning objectives, and assessment rubrics. Educators without any STEM background consistently deliver effective lessons using the provided materials. The robot's physical interface is intuitive; if you can follow a lesson plan, you can teach this.",
+              "No. MatataStudio states that no coding or computer science teaching experience is needed. Each Activity Card gives numbered, illustrated steps, the materials you need, a class-time estimate and a bonus idea for extending the activity or starting a class discussion. To build your confidence first, MatataStudio's free, self-guided Tale-Bot Pro educator course (under Professional Development on matatalab.com) walks you through the robot and the Activity Cards, and you get a certificate when you pass the final quiz.",
           },
           {
             question: "How durable are the robots for repeated daily classroom use?",
             answer:
-              "Tale-Bot Pro is built from eco-friendly, food-grade materials with a fall-resistant design, specifically to withstand the rigours of young learners. The built-in rechargeable battery eliminates the cost of disposable batteries, and the robots are designed to be reused across multiple terms and multiple cohorts of learners.",
+              "Tale-Bot Pro has a sturdy, fall-resistant body made from eco-friendly, food-grade material, and it's lead-free. The built-in rechargeable batteries mean there are no disposable batteries to buy, and the robots and maps can be reused across terms and classes.",
           },
           {
             question: "What preparation is needed before lessons?",
             answer:
-              "Minimal. Ensure all robots are charged (up to 4 hours of use per charge), lay out the relevant interactive maps, and review the lesson plan. Most educators report preparation time of under 10 minutes per lesson. The robots require no software installation or screen setup for standard use.",
+              "Charge the robots (about 2.5 hours gives 4+ hours of use), read the Activity Card, and set out the map and any materials it lists. A few cards use everyday items such as paper cups. MatataStudio suggests lessons of 20–30 minutes, and no software, app or screen is needed.",
           },
           {
             question: "Is bulk or school pricing available?",
             answer:
-              "The classroom set is already priced for school procurement and represents significant savings over individual robot purchases. For multiple classroom sets, school-wide orders, or ongoing supply arrangements, please contact us via the Education section of our website.",
+              "The classroom set is priced as a bundle: six robots plus the charging station, storage bin, 42 Activity Cards and 18 maps. For multiple classroom sets or school-wide orders, please contact us via the Education section of our website.",
           },
           {
-            question: "What structured curriculum comes with the set?",
+            question: "What teaching materials come with the set?",
             answer:
-              "The classroom set includes 42 Activity Cards in four progressive categories: basic commands (10 activities), exploration activities linking coding to health, science, social studies, and language (15 activities), pattern recognition introducing loops (7 activities), and comprehensive challenges that combine all programming concepts (10 activities). It's a complete, ready-to-teach curriculum; educators can follow it as written or use it as a framework to develop their own lessons.",
+              "The set includes 42 Activity Cards in four levels: basic commands (10 activities), exploration linking coding to health, science, social studies and language (15), patterns and loops (7), and themed challenges that combine everything (10). You also get a Challenge Booklet, a user guide and a quick guide. There is no separate teacher guide, lesson plans or assessment rubrics, so plan to record learner progress with your school's own observation tools.",
           },
         ]}
         background="gray"
@@ -267,20 +266,21 @@ export default async function TaleBotProClassroomSetPage() {
         imageAlt="Tale-Bot Pro Classroom Set contents laid out showing all 6 robots and teaching materials"
         items={[
           "6x Tale-Bot Pro Robots",
-          "12x Assembly accessories (wings & arms, 2 sets per robot)",
+          "18x Accessories (wings, arms and brick adapters)",
           "12x Washable markers (2 per robot)",
           "6x Command card sets (1 per robot)",
           "6x USB-C charging cables",
-          "18x Double-sided interactive maps (shared across groups)",
-          "1x Activity Cards set (42 structured activities in 4 categories)",
+          "18x Double-sided maps (15 interactive across 10 themes, plus 3 blank grids)",
+          "1x Activity Cards set (42 activities in 4 levels)",
           "1x Challenge booklet",
-          "1x Configuration card (11 languages)",
           "1x User guide",
+          "1x Configuration card (for changing the robot's language)",
+          "3x Sticker booklets",
           "3x Callout sticker sheets",
           "1x Callout stickers quick guide",
-          "2x Paper craft materials",
+          "2x Paper craft sets",
           "1x 10-port USB charging station",
-          "1x Plastic storage bin",
+          "1x Storage bin",
         ]}
         background="white"
       />
@@ -288,7 +288,7 @@ export default async function TaleBotProClassroomSetPage() {
       {/* Final CTA */}
       <CallToAction
         title="Equip Your Classroom"
-        subtitle="Trusted by schools across South Africa. Give your Foundation Phase learners a hands-on coding experience they'll remember."
+        subtitle="Six robots, 42 Activity Cards and a 10-port charging station for screen-free coding in Grade R and Grade 1."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse Classroom Kits"
@@ -309,7 +309,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Screen-free coding classroom kit with 6 robots. Covers key curriculum skills for Grades R–3, complete teacher guide included. Serves 18–24 learners per session.",
+      "Screen-free coding classroom set: 6 robots, 42 step-by-step Activity Cards and a 10-port charging station. Designed for ages 3–5, best for Grade R–1.",
     alternates: {
       canonical: "/product/matatastudio-tale-bot-pro-classroom-set",
     },
