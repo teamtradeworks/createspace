@@ -22,6 +22,9 @@
 // with none live, the nav has no pill at all. If several are live at once, the
 // first in this list wins. Keep it to 19 characters or fewer (a test checks):
 // any longer and it crowds the desktop bar at 1024px.
+//
+// A `cta.href` of "#subscribe" opens the newsletter sign-up popup instead of
+// navigating.
 export type PromoSegment = string | { text: string; href: string };
 
 export type Promo = {
@@ -67,13 +70,9 @@ export const PROMOS: Promo[] = [
     navLabel: "School Holiday Sale",
   },
   {
-    eyebrow: "FREE COURSE",
-    heading: [
-      "Spend R1,500, get full access to the ",
-      { text: "Early Years Coding & Robotics", href: "/education/courses" },
-      " online course",
-    ],
-    body: "Worth R999.",
-    cta: { label: "Learn more", href: "/education/courses" },
+    eyebrow: "NEWSLETTER",
+    heading: "Be the first to hear about deals, new kits and STEM ideas.",
+    body: "Sign up for our newsletter.",
+    cta: { label: "Sign up for our newsletter", href: "#subscribe" },
   },
 ];
