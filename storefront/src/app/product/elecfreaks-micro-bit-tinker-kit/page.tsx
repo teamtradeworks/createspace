@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
-  QuickInfoBadges,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -46,8 +45,6 @@ export default async function ElecfreaksTinkerKitPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* What the Tinker Kit adds */}
       <ImageTextBlock

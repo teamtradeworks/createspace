@@ -37,7 +37,6 @@ export default async function MicrobitEssentialStemLabBundlePage() {
           "No prior STEAM experience required",
         ]}
         addons={addons}
-        addonUpsellModal
         vendorOverride="InspireAfrica"
       />
       <QuickInfoBadges

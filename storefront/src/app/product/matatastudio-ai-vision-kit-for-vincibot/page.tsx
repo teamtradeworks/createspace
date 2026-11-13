@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   ExtensionBanner,
-  QuickInfoBadges,
   ImageTextBlock,
   VideoEmbed,
   ProductFAQ,
@@ -56,8 +55,6 @@ export default async function AIVisionKitPage() {
         parentProductHref={parentProductHref}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Video Section */}
       <VideoEmbed

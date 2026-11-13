@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -48,8 +47,6 @@ export default async function RingBitBricksPackPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Video Section */}
       <VideoEmbed

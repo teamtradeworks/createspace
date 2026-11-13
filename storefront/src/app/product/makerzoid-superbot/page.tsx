@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   VideoEmbed,
   ImageTextBlock,
   FeatureGrid,
@@ -37,6 +36,8 @@ export default async function MakerzoidSuperbotPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
+        heroImage="/images/products/makerzoid-superbot/child-building-blocks-with-tablet.jpg"
+        heroImageAlt="Child building a Makerzoid Superbot model with the app open on a tablet"
         tagline="Your child's first programmable robot: build it, code it, race it"
         highlights={[
           "26+ motorised models with 400+ bricks",
@@ -47,8 +48,6 @@ export default async function MakerzoidSuperbotPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Video */}
       <VideoEmbed
