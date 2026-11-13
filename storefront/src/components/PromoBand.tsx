@@ -124,9 +124,14 @@ export default function PromoBand() {
           <Link
             key={index}
             href={promo.cta.href}
-            onClick={() =>
-              capture("home_promo_band_clicked", { heading: headingText, position: shownIndex })
-            }
+            onClick={(e) => {
+              capture("home_promo_band_clicked", { heading: headingText, position: shownIndex });
+              // "#subscribe" opens the newsletter popup, as the footer link does.
+              if (promo.cta.href === "#subscribe") {
+                e.preventDefault();
+                window.dispatchEvent(new CustomEvent("open-email-popup"));
+              }
+            }}
             aria-label={promo.cta.label}
             className="promo-in group flex min-w-0 flex-1 items-center gap-2.5 sm:gap-3"
           >
@@ -136,7 +141,7 @@ export default function PromoBand() {
               </span>
             )}
             {promo.eyebrow && (
-              <span className="hidden flex-shrink-0 items-center whitespace-nowrap rounded-full bg-navy px-2.5 py-0.5 text-xs font-bold text-white sm:inline-flex">
+              <span className="hidden flex-shrink-0 items-center whitespace-nowrap rounded-full bg-navy px-3.5 py-1 text-xs font-bold tracking-wider text-white sm:inline-flex">
                 {promo.eyebrow}
               </span>
             )}
