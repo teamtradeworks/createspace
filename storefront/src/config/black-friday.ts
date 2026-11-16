@@ -19,7 +19,7 @@
 // products, Shopify was lower than the pricing sheet, so their sale prices
 // apply the sheet's discount to the Shopify price, rounded to the nearest R10.
 
-export type SaleProduct = { handle: string; wasPrice: number; salePrice: number };
+type SaleProduct = { handle: string; wasPrice: number; salePrice: number };
 
 export const BLACK_FRIDAY_PRODUCTS: SaleProduct[] = [
   { handle: "makerzoid-robot-master-tournament", wasPrice: 5580, salePrice: 4460 },
