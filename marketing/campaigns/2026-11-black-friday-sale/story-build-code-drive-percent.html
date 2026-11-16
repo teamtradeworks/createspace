@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--
+  PERCENT VARIANT of story-build-code-drive.html: identical except the saving reads "20% off"
+  instead of the rand amount, for the value-vs-percent test (brief.md).
+
+  Black Friday rework of "FST26 | 17 Build Code Drive | Robot Master Premium"
+  (uploaded to Meta 2026-11-16). Same navy canvas and three brick bands
+  (Build it / Code it / Drive it with the app screens); the sale arrives as the
+  red pill, a red R 480 off sticker, the struck price in the footer and the
+  orange CTA. The band images are cropped from the original ad's render.
+  Story (1080 x 1920): the feed layout in a 1350px frame, 285px down, clear of the top and bottom 270px safe zones. Facts: brief.md.
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>From a box of blocks to a robot they drive</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="sale.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas.bcd {
+      position: relative;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      font-family: var(--cs-font);
+      overflow: hidden;
+    }
+
+    .frame { position: absolute; left: 0; right: 0; top: 285px; height: 1350px; }
+
+    .bcd .wordmark {
+      position: absolute;
+      left: 68px;
+      top: 58px;
+      height: 42px;
+    }
+
+    .bcd .sale-pill {
+      position: absolute;
+      right: 64px;
+      top: 52px;
+    }
+
+    .bcd h1 {
+      position: absolute;
+      left: 64px;
+      top: 146px;
+      margin: 0;
+      font-size: 78px;
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    /* No shadow on navy (Glow Not Shadow Rule) */
+    .bcd .sticker {
+      right: 58px;
+      top: 138px;
+      box-shadow: none;
+    }
+
+    /* Brick bands: a full-bleed band with studs along its top edge */
+    .band {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 260px;
+      color: var(--cs-navy);
+    }
+
+    /* Studs along the top edge, like a brick */
+    .studs {
+      position: absolute;
+      left: 60px;
+      top: -18px;
+      display: flex;
+      gap: 48px;
+    }
+
+    .studs i {
+      width: 96px;
+      height: 18px;
+      border-radius: 8px 8px 0 0;
+      background: var(--stud);
+    }
+
+    .band.build { top: 390px; background: var(--cs-green); --stud: var(--cs-green); }
+    .band.code  { top: 670px; background: var(--cs-yellow); --stud: var(--cs-yellow); }
+    .band.drive { top: 950px; background: var(--cs-blue); --stud: var(--cs-blue); }
+
+    .band h2 {
+      position: absolute;
+      left: 64px;
+      top: 34px;
+      margin: 0;
+      font-size: 104px;
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.035em;
+    }
+
+    .band p {
+      position: absolute;
+      left: 64px;
+      top: 162px;
+      width: 390px;
+      margin: 0;
+      font-size: 29px;
+      font-weight: 400;
+      line-height: 1.22;
+    }
+
+    .band img {
+      position: absolute;
+      left: 455px;
+      top: 5px;
+      width: 625px;
+      height: 250px;
+    }
+
+    .bcd .footer {
+      position: absolute;
+      left: 64px;
+      right: 64px;
+      bottom: 30px;
+      margin: 0;
+    }
+
+    .bcd .product {
+      font-size: 32px;
+      color: var(--cs-white);
+    }
+
+    .bcd .price s {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .bcd .age-pill {
+      border-color: rgba(255, 255, 255, 0.4);
+      color: var(--cs-white);
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas bcd">
+  <div class="frame">
+    <img class="wordmark" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+    <span class="sale-pill">Black Friday · ends 30 Nov</span>
+
+    <h1>From a box of blocks<br>to a robot they drive.</h1>
+
+    <div class="sticker" aria-label="20% off, now R 1,900">
+      <span class="amount">20%</span>
+      <span class="off">off</span>
+      <span class="now">Now R 1,900</span>
+    </div>
+
+    <section class="band build">
+      <div class="studs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h2>Build it</h2>
+      <p>Step-by-step 3D instructions in the free app</p>
+      <img src="images/app-band-build.jpg" alt="A built dinosaur robot beside the app's 3D building instructions">
+    </section>
+
+    <section class="band code">
+      <div class="studs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h2>Code it</h2>
+      <p>Drag-and-drop Scratch coding, no typing needed</p>
+      <img src="images/app-band-code.jpg" alt="A built deer robot beside Scratch coding blocks in the app">
+    </section>
+
+    <section class="band drive">
+      <div class="studs" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <h2>Drive it</h2>
+      <p>Take control from your phone or tablet</p>
+      <img src="images/app-band-drive.jpg" alt="A built robot car beside the app's remote control screen">
+    </section>
+
+    <div class="footer">
+      <div>
+        <p class="product">Makerzoid Robot Master Premium</p>
+        <p class="price"><s>R 2,380</s><b>R 1,900</b><span class="age-pill">Ages 6 to 14</span></p>
+      </div>
+      <span class="cta">Shop the sale <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </div>
+  </main>
+</body>
+</html>

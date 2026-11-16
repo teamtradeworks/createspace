@@ -1,0 +1,280 @@
+/* Shared by every asset in 2026-11-black-friday-sale.
+   Built on the "72 robots" layout (2026-10-makerzoid-72-robots), the best
+   add-to-cart ad of the last 90 days: white ground, big navy headline with
+   one yellow-highlighted number, product on a pale blue card.
+   Red only marks the sale (pill, saving, sale price, discount badges); the
+   CTA is Launch Orange with a navy label (DESIGN.md, Orange Means Go). */
+
+:root {
+  --margin: 72px;
+  --card: #eef8fd;
+  /* Print Muted Ink from DESIGN.md for both. Caption Grey (#6b7280) lands
+     at 4.48:1 on the pale blue card, just under AA, so the struck price
+     uses the darker ink and relies on the strike to read as "was". */
+  --struck-ink: #4a5270;
+  --body-ink: #4a5270;
+}
+
+.canvas {
+  display: flex;
+  flex-direction: column;
+  padding: var(--margin);
+  background: var(--cs-white);
+  color: var(--cs-navy);
+  font-family: var(--cs-font);
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wordmark {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+/* Sale pill (DESIGN.md: Rocket Red full pill, white 700 uppercase, tracked, dot) */
+.sale-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 24px 16px;
+  border-radius: 9999px;
+  background: var(--cs-red);
+  color: var(--cs-white);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sale-pill::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cs-white);
+}
+
+h1 {
+  margin: 56px 0 0;
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+h1 > span {
+  display: block;
+}
+
+.marker {
+  position: relative;
+  z-index: 0;
+  font-weight: 700;
+}
+
+.marker::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -4px;
+  right: -14px;
+  top: 0.4em;
+  bottom: 0.1em;
+  background: var(--cs-yellow);
+  border-radius: 6px 10px 8px 4px;
+  transform: rotate(-1.5deg);
+}
+
+/* The saving line: red, the amount at 700 (a number), the word at 600
+   (SemiBold ceiling for words). */
+.saving {
+  color: var(--cs-red);
+}
+
+.saving b {
+  font-weight: 700;
+}
+
+.body {
+  max-width: 860px;
+  margin: 32px 0 0;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--body-ink);
+  text-wrap: pretty;
+}
+
+.card {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  margin: 40px calc(-1 * var(--margin)) 0 0;
+  background: var(--card);
+  border-radius: 24px 0 0 24px;
+}
+
+.card img {
+  position: absolute;
+  inset: 20px 48px 20px 40px;
+  width: calc(100% - 88px);
+  height: calc(100% - 40px);
+  object-fit: contain;
+  object-position: center;
+  mix-blend-mode: multiply;
+}
+
+/* Built-robot hero: the assembled dinosaur fills the card, the case sits
+   smaller in the lower right so people see what they're buying. A built
+   robot as the hero was the best-returning Robot Master image on Meta
+   (July 2025 Makerzoid sale ads; see brief.md). Both images are cut-outs
+   with transparency, so no blend mode. */
+.card.hero .build,
+.card.hero .case {
+  position: absolute;
+  inset: auto;
+  object-fit: contain;
+  mix-blend-mode: normal;
+}
+
+.card.hero .build {
+  left: 3%;
+  top: 7%;
+  height: 74%;
+  width: auto;
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 22px 18px rgba(12, 20, 70, 0.18));
+}
+
+.card.hero .case {
+  right: 36px;
+  bottom: 28px;
+  height: 58%;
+  width: auto;
+  filter: drop-shadow(0 14px 16px rgba(12, 20, 70, 0.2));
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.product {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 10px 0 0;
+  line-height: 1;
+}
+
+.price s {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--struck-ink);
+  text-decoration-thickness: 3px;
+}
+
+.price b {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--cs-red);
+  letter-spacing: -0.01em;
+}
+
+/* Ad CTA (2026-10 precedent): Launch Orange, navy 600 sentence-case label
+   with a right arrow, 12px radius. Navy, not white, because white on orange
+   fails AA. */
+.cta {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  padding: 0 40px 2px 44px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cs-navy);
+}
+
+.cta svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
+
+/* Age: outlined navy pill beside the price, as in the feed-portrait precedent */
+.age-pill {
+  align-self: center;
+  padding: 7px 16px 8px;
+  border: 2px solid rgba(12, 20, 70, 0.25);
+  border-radius: 9999px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cs-navy);
+  letter-spacing: 0;
+}
+
+/* Saving sticker: a red round price tag stuck on at an angle. Red because it
+   is the saving (Red Means Saving). Used by the reworked "Build it, code it,
+   drive it" and "Real engineering, disguised as play" ads. */
+.sticker {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 216px;
+  height: 216px;
+  border-radius: 50%;
+  background: var(--cs-red);
+  color: var(--cs-white);
+  text-align: center;
+  transform: rotate(-9deg);
+  box-shadow: 0 14px 24px rgba(12, 20, 70, 0.28);
+}
+
+.sticker .amount {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.sticker .off {
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sticker .now {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 2px solid rgba(255, 255, 255, 0.45);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1;
+}
