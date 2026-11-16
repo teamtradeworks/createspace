@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--
+  Black Friday rework of "FST26 | 16 Engineering disguised as play | Robot
+  Master Premium" (uploaded to Meta 2026-11-16). Same structure: kids-building
+  photo on top, headline with "play." highlighted, three rising brick blocks
+  for the lesson levels with a build on each, navy footer bar. The sale
+  arrives as the red pill on the photo, a red R 480 off sticker on the photo
+  edge, the price line in the body and the orange CTA.
+  Meta feed portrait (1080 x 1350). Facts: brief.md.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>Real engineering, disguised as play</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="sale.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas.rep {
+      position: relative;
+      background: var(--cs-white);
+      color: var(--cs-navy);
+      font-family: var(--cs-font);
+      overflow: hidden;
+    }
+
+    .rep .photo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 470px;
+      object-fit: cover;
+      object-position: 50% 55%;
+    }
+
+    .rep .sale-pill {
+      position: absolute;
+      left: 64px;
+      top: 52px;
+    }
+
+    .rep .age {
+      position: absolute;
+      right: 64px;
+      top: 52px;
+      padding: 14px 26px 15px;
+      border-radius: 9999px;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      font-size: 30px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .rep .sticker {
+      right: 60px;
+      top: 372px;
+    }
+
+    .rep h1 {
+      position: absolute;
+      left: 64px;
+      top: 516px;
+      margin: 0;
+      font-size: 82px;
+      font-weight: 600;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
+    }
+
+    .rep .marker::before {
+      top: 0.42em;
+      bottom: 0.08em;
+    }
+
+    .rep .lede {
+      position: absolute;
+      left: 64px;
+      top: 706px;
+      width: 690px;
+      margin: 0;
+      font-size: 29px;
+      line-height: 1.3;
+      color: var(--body-ink);
+    }
+
+    .rep .lede b {
+      font-weight: 700;
+      color: var(--cs-red);
+    }
+
+    .rep .lede s {
+      color: var(--struck-ink);
+      text-decoration-thickness: 2px;
+    }
+
+    /* Rising brick blocks, one per lesson level */
+    .block {
+      position: absolute;
+      bottom: 128px;
+      width: 311px;
+      padding: 30px 22px 0;
+      color: var(--cs-navy);
+    }
+
+    .block .studs {
+      position: absolute;
+      left: 24px;
+      top: -14px;
+      display: flex;
+      gap: 47px;
+    }
+
+    .block .studs i {
+      width: 56px;
+      height: 14px;
+      border-radius: 7px 7px 0 0;
+      background: var(--fill);
+    }
+
+    .block.l1 { left: 64px;  height: 210px; background: var(--cs-green);  --fill: var(--cs-green); }
+    .block.l2 { left: 385px; height: 250px; background: var(--cs-yellow); --fill: var(--cs-yellow); }
+    .block.l3 { left: 705px; height: 320px; background: var(--cs-blue);   --fill: var(--cs-blue); }
+
+    .block .lvl {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .block h2 {
+      margin: 6px 0 0;
+      font-size: 34px;
+      font-weight: 600;
+      line-height: 1.1;
+    }
+
+    .block .what {
+      margin: 10px 0 0;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .block .note {
+      position: absolute;
+      left: 22px;
+      bottom: 20px;
+      padding: 9px 16px 10px;
+      border-radius: 9999px;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    .build {
+      position: absolute;
+      z-index: 2;
+      filter: drop-shadow(0 10px 10px rgba(12, 20, 70, 0.16));
+    }
+
+    .build.dino { left: 186px; top: 888px;  width: 190px; }
+    .build.deer { left: 505px; top: 828px;  width: 186px; mix-blend-mode: multiply; filter: none; }
+    .build.car  { left: 830px; top: 762px;  width: 172px; }
+
+    .bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 128px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 64px;
+      background: var(--cs-navy);
+    }
+
+    .bar .wordmark {
+      height: 40px;
+    }
+
+    .bar .cta {
+      height: 88px;
+      font-size: 34px;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas rep">
+    <img class="photo" src="images/kids-building-with-tablet.jpg" alt="Two children building a Makerzoid robot on the floor, following the instructions on a tablet">
+    <span class="sale-pill">Black Friday · ends 30 Nov</span>
+    <span class="age">Ages 6 to 14</span>
+
+    <div class="sticker" aria-label="R 480 off, now R 1,900">
+      <span class="amount">R 480</span>
+      <span class="off">off</span>
+      <span class="now">Now R 1,900</span>
+    </div>
+
+    <h1><span>Real engineering,</span><span>disguised as <span class="marker">play.</span></span></h1>
+
+    <p class="lede">The Makerzoid Robot Master Premium comes with 47 video lessons in three levels that grow with your child. <b>R 1,900</b> <s>R 2,380</s></p>
+
+    <img class="build dino" src="images/robot-master-dinosaur-build.png" alt="">
+    <img class="build deer" src="images/robot-master-deer-build.jpg" alt="">
+    <img class="build car" src="images/robot-master-race-car-build.png" alt="">
+
+    <section class="block l1">
+      <div class="studs" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="lvl">Level 1</p>
+      <h2>Structures</h2>
+      <p class="what">Frames and balance</p>
+      <span class="note">Starts simple at 6</span>
+    </section>
+
+    <section class="block l2">
+      <div class="studs" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="lvl">Level 2</p>
+      <h2>Gears &amp; motion</h2>
+      <p class="what">Motors and moving parts</p>
+    </section>
+
+    <section class="block l3">
+      <div class="studs" aria-hidden="true"><i></i><i></i><i></i></div>
+      <p class="lvl">Level 3</p>
+      <h2>Coding</h2>
+      <p class="what">Scratch and sensors</p>
+      <span class="note">Still a challenge at 14</span>
+    </section>
+
+    <div class="bar">
+      <img class="wordmark" src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+      <span class="cta">Shop the sale <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </main>
+</body>
+</html>
