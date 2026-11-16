@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getProducts } from "@/lib/shopify";
+import { BLACK_FRIDAY, isPromoActive } from "@/config/promo";
 
 const BASE_URL = "https://thecreatespace.co.za";
 
@@ -110,5 +111,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  return [...staticPages, ...productEntries];
+  // The Black Friday page only exists while the sale is live.
+  const salePages: MetadataRoute.Sitemap = isPromoActive(BLACK_FRIDAY, new Date())
+    ? [
+        {
+          url: `${BASE_URL}/black-friday`,
+          lastModified: shopLastModified,
+          changeFrequency: "daily",
+          priority: 0.9,
+        },
+      ]
+    : [];
+
+  return [...staticPages, ...salePages, ...productEntries];
 }

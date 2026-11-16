@@ -24,6 +24,10 @@ interface ShopGalleryProps {
   initialBrand?: string;
   initialSale?: string;
   initialSort?: string;
+  // Hide the "On sale" filter, e.g. on a sale page where everything is on sale.
+  hideSaleFilter?: boolean;
+  // Which page hosts the grid, carried on product_clicked and filter events.
+  source?: string;
 }
 
 // Per-band UI presentation (matching the homepage cards and product badges).
@@ -61,6 +65,8 @@ export default function ShopGallery({
   initialBrand,
   initialSale,
   initialSort,
+  hideSaleFilter = false,
+  source = "shop_grid",
 }: ShopGalleryProps) {
   const parseParam = (v?: string) => (v && v !== "all" ? v.split(",").filter(Boolean) : []);
 
@@ -222,12 +228,17 @@ export default function ShopGallery({
 
   const toggle = (axis: Axis, value: string) => {
     const selected = !selectionByAxis[axis].includes(value);
-    capture("shop_filter_applied", { filter: axis, value, selected });
+    capture("shop_filter_applied", { filter: axis, value, selected, source });
     setterByAxis[axis]((prev) => (selected ? [...prev, value] : prev.filter((v) => v !== value)));
   };
 
   const handleSortChange = (value: string) => {
-    capture("shop_filter_applied", { filter: "sort", value, selected: value !== "featured" });
+    capture("shop_filter_applied", {
+      filter: "sort",
+      value,
+      selected: value !== "featured",
+      source,
+    });
     setSortBy(value);
   };
 
@@ -236,7 +247,7 @@ export default function ShopGallery({
   const hasActiveFilters = activeCount > 0;
 
   const clearFilters = () => {
-    capture("shop_filters_cleared", { cleared_count: activeCount });
+    capture("shop_filters_cleared", { cleared_count: activeCount, source });
     setSelectedAges([]);
     setSelectedCategories([]);
     setSelectedBrands([]);
@@ -262,7 +273,7 @@ export default function ShopGallery({
       {/* Offered only while something is actually discounted. A ?sale=true
           arriving in a quiet week keeps its removable chip and the empty
           state that explains it, but the rail doesn't advertise a dead axis. */}
-      {saleCount > 0 && (
+      {!hideSaleFilter && saleCount > 0 && (
         <FilterGroup
           title="Deals"
           axis="sale"
@@ -460,7 +471,7 @@ export default function ShopGallery({
                     product={product}
                     priority={index < 6}
                     index={index}
-                    source="shop_grid"
+                    source={source}
                   />
                 ))}
               </div>

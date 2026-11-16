@@ -59,7 +59,20 @@ export function activeNavPromo(now: Date = new Date(), promos: Promo[] = PROMOS)
   return promo?.navLabel ? { label: promo.navLabel, href: promo.cta.href } : null;
 }
 
+// Black Friday 2026. Its dates also gate the /black-friday page (see
+// config/black-friday.ts for the products on it).
+export const BLACK_FRIDAY: Promo = {
+  badge: "Black Friday Sale",
+  heading: "Up to 20% off robots, science kits and more.",
+  body: "Ends 30 November.",
+  cta: { label: "Shop the sale", href: "/black-friday" },
+  startsAt: "2026-11-19",
+  endsAt: "2026-11-30",
+  navLabel: "Black Friday Sale",
+};
+
 export const PROMOS: Promo[] = [
+  BLACK_FRIDAY,
   {
     badge: "School Holiday Sale",
     heading: "20% off selected products.",
