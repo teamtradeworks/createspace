@@ -254,6 +254,7 @@ export default function Footer() {
               <span className="text-xs bg-white/10 px-2 py-1 rounded">Mastercard</span>
               <span className="text-xs bg-white/10 px-2 py-1 rounded">Visa</span>
               <span className="text-xs bg-white/10 px-2 py-1 rounded">Apple Pay</span>
+              <span className="text-xs bg-white/10 px-2 py-1 rounded">Google Pay</span>
               <span className="text-xs bg-white/10 px-2 py-1 rounded">Capitec Pay</span>
               <span className="text-xs bg-white/10 px-2 py-1 rounded">Buy Now Pay Later</span>
             </div>

@@ -698,6 +698,7 @@ export default function CartPage() {
                           "Mastercard",
                           "Visa",
                           "Apple Pay",
+                          "Google Pay",
                           "Capitec Pay",
                           "Buy Now Pay Later",
                         ].map((method) => (
