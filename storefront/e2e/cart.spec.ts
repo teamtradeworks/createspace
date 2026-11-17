@@ -65,6 +65,9 @@ test.describe("Cart", () => {
     const cartItem = page
       .locator("main")
       .locator("text=/R[\\s\\u00a0][\\d,]+\\.\\d{2}/")
+      // Cart rows render some prices twice (mobile and desktop layouts),
+      // so skip the copy hidden at this viewport.
+      .filter({ visible: true })
       .first();
     await expect(cartItem).toBeVisible();
   });

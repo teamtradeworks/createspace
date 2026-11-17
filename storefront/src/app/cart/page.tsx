@@ -259,16 +259,114 @@ export default function CartPage() {
                 <div className="divide-y divide-gray-200">
                   {sortedItems.map((item) => {
                     const isUnavailable = item.available === false;
+                    const onSale =
+                      !isUnavailable && !!item.compareAtPrice && item.compareAtPrice > item.price;
+                    const handleRemove = () => {
+                      capture("product_removed_from_cart", {
+                        product_handle: item.handle,
+                        product_title: item.title,
+                        price: item.price,
+                        currency_code: item.currencyCode,
+                        quantity: item.quantity,
+                      });
+                      removeItem(item.variantId);
+                    };
+                    const changeQuantity = (delta: 1 | -1) => {
+                      capture("cart_quantity_changed", {
+                        product_handle: item.handle,
+                        product_title: item.title,
+                        previous_quantity: item.quantity,
+                        new_quantity: item.quantity + delta,
+                        direction: delta > 0 ? "increase" : "decrease",
+                      });
+                      updateQuantity(item.variantId, item.quantity + delta);
+                    };
+                    const trashIcon = (
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+                        />
+                      </svg>
+                    );
+                    // Mobile buttons are slightly narrower so the stepper, bin and
+                    // line total fit in the column beside the image.
+                    const stepperButton = "w-9 md:w-11 h-10 md:h-11";
+                    const stepper = isUnavailable ? null : (
+                      <div className="flex items-center border rounded-lg">
+                        <button
+                          onClick={() => changeQuantity(-1)}
+                          disabled={item.quantity <= 1}
+                          className={`${stepperButton} flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors`}
+                          aria-label="Decrease quantity"
+                        >
+                          <svg
+                            className="w-3 h-3"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M20 12H4"
+                            />
+                          </svg>
+                        </button>
+                        <span className="w-8 md:w-10 text-center text-sm font-medium">
+                          {item.quantity}
+                        </span>
+                        <button
+                          onClick={() => changeQuantity(1)}
+                          className={`${stepperButton} flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors`}
+                          aria-label="Increase quantity"
+                        >
+                          <svg
+                            className="w-3 h-3"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 4v16m8-8H4"
+                            />
+                          </svg>
+                        </button>
+                      </div>
+                    );
+                    const lineTotal = (
+                      <span
+                        className={
+                          isUnavailable ? "text-gray-400 line-through" : "font-semibold text-navy"
+                        }
+                      >
+                        {formatPrice(item.price * item.quantity, item.currencyCode, {
+                          showCents: true,
+                        })}
+                      </span>
+                    );
                     return (
                       <div
                         key={item.variantId}
-                        className={`py-6 grid grid-cols-12 gap-4 items-center${isUnavailable ? " opacity-50" : ""}`}
+                        className={`py-6 grid grid-cols-[5rem_minmax(0,1fr)] gap-x-4 gap-y-3 md:gap-4 md:grid-cols-12 md:items-center${isUnavailable ? " opacity-50" : ""}`}
                       >
                         {/* Product Image & Info */}
-                        <div className="col-span-12 md:col-span-6 flex items-center gap-4">
+                        <div className="contents md:col-span-6 md:flex md:items-center md:gap-4">
                           <Link
                             href={`/product/${item.handle}`}
-                            className="flex-shrink-0 w-20 h-20 bg-gray-100 rounded-lg overflow-hidden"
+                            className="flex-shrink-0 w-20 h-20 row-span-2 max-[389px]:row-span-1 bg-gray-100 rounded-lg overflow-hidden"
                           >
                             {item.image ? (
                               <Image
@@ -303,67 +401,85 @@ export default function CartPage() {
                             >
                               {item.title}
                             </Link>
-                            {isUnavailable ? (
-                              <span className="inline-flex items-center gap-1 text-xs text-cs-red mt-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
-                                Out of Stock — excluded from order
+                            <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                              {/* Unit price on mobile (desktop has its own Price column) */}
+                              <span className="md:hidden text-sm">
+                                {onSale && (
+                                  <span className="text-gray-400 line-through mr-1">
+                                    {formatPrice(item.compareAtPrice!, item.currencyCode, {
+                                      showCents: true,
+                                    })}
+                                  </span>
+                                )}
+                                <span
+                                  className={
+                                    onSale
+                                      ? "text-cs-red font-medium"
+                                      : isUnavailable
+                                        ? "text-gray-400 line-through"
+                                        : "text-gray-700"
+                                  }
+                                >
+                                  {formatPrice(item.price, item.currencyCode, { showCents: true })}
+                                </span>
                               </span>
-                            ) : item.digital ? (
-                              <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
-                                Online Course
-                              </span>
-                            ) : item.currentlyNotInStock ? (
-                              <span className="inline-flex items-center gap-1 text-xs text-cs-orange mt-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-cs-orange" />
-                                Delivery in {siteConfig.leadTime.estimatedDays}
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center gap-1 text-xs text-cs-green mt-1">
-                                <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
-                                In Stock
-                              </span>
-                            )}
+                              {isUnavailable ? (
+                                <span className="inline-flex items-center gap-1 text-xs text-cs-red">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-cs-red" />
+                                  Out of Stock — excluded from order
+                                </span>
+                              ) : item.digital ? (
+                                <span className="inline-flex items-center gap-1 text-xs text-cs-green">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
+                                  Online Course
+                                </span>
+                              ) : item.currentlyNotInStock ? (
+                                <span className="inline-flex items-center gap-1 text-xs text-cs-orange">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-cs-orange" />
+                                  Delivery in {siteConfig.leadTime.estimatedDays}
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-1 text-xs text-cs-green">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-cs-green" />
+                                  In Stock
+                                </span>
+                              )}
+                            </div>
+
+                            {/* Desktop: text Remove link under the status */}
                             <button
-                              onClick={() => {
-                                capture("product_removed_from_cart", {
-                                  product_handle: item.handle,
-                                  product_title: item.title,
-                                  price: item.price,
-                                  currency_code: item.currencyCode,
-                                  quantity: item.quantity,
-                                });
-                                removeItem(item.variantId);
-                              }}
-                              className="mt-1 text-sm text-gray-500 hover:text-cs-red transition-colors flex items-center gap-1 block"
+                              onClick={handleRemove}
+                              className="hidden md:flex mt-1 text-sm text-gray-500 hover:text-cs-red transition-colors items-center gap-1"
                             >
-                              <svg
-                                className="w-4 h-4"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={1.5}
-                                  d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
-                                />
-                              </svg>
+                              {trashIcon}
                               Remove
                             </button>
                           </div>
                         </div>
 
-                        {/* Price */}
-                        <div className="col-span-4 md:col-span-2 text-center">
-                          <span className="md:hidden text-sm text-gray-500 mr-2">Price:</span>
-                          {item.compareAtPrice &&
-                          item.compareAtPrice > item.price &&
-                          !isUnavailable ? (
+                        {/* Mobile: stepper + bin on the left, line total on the right.
+                            Sits in the column beside the image, or spans the full row on
+                            narrow phones where the column is too tight. */}
+                        <div className="md:hidden col-start-2 max-[389px]:col-span-2 max-[389px]:col-start-1 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+                          <div className="flex items-center gap-1">
+                            {stepper}
+                            <button
+                              onClick={handleRemove}
+                              className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:text-cs-red hover:bg-gray-100 transition-colors"
+                              aria-label={`Remove ${item.title}`}
+                            >
+                              {trashIcon}
+                            </button>
+                          </div>
+                          <span className="ml-auto">{lineTotal}</span>
+                        </div>
+
+                        {/* Price (desktop) */}
+                        <div className="hidden md:block md:col-span-2 text-center">
+                          {onSale ? (
                             <span className="flex flex-col items-center gap-0.5">
                               <span className="text-gray-400 line-through text-sm">
-                                {formatPrice(item.compareAtPrice, item.currencyCode, {
+                                {formatPrice(item.compareAtPrice!, item.currencyCode, {
                                   showCents: true,
                                 })}
                               </span>
@@ -382,91 +498,13 @@ export default function CartPage() {
                           )}
                         </div>
 
-                        {/* Quantity */}
-                        <div className="col-span-4 md:col-span-2 flex justify-center">
-                          {isUnavailable ? (
-                            <span className="text-sm text-gray-400">—</span>
-                          ) : (
-                            <div className="flex items-center border rounded-lg">
-                              <button
-                                onClick={() => {
-                                  capture("cart_quantity_changed", {
-                                    product_handle: item.handle,
-                                    product_title: item.title,
-                                    previous_quantity: item.quantity,
-                                    new_quantity: item.quantity - 1,
-                                    direction: "decrease",
-                                  });
-                                  updateQuantity(item.variantId, item.quantity - 1);
-                                }}
-                                disabled={item.quantity <= 1}
-                                className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                                aria-label="Decrease quantity"
-                              >
-                                <svg
-                                  className="w-3 h-3"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M20 12H4"
-                                  />
-                                </svg>
-                              </button>
-                              <span className="w-10 text-center text-sm font-medium">
-                                {item.quantity}
-                              </span>
-                              <button
-                                onClick={() => {
-                                  capture("cart_quantity_changed", {
-                                    product_handle: item.handle,
-                                    product_title: item.title,
-                                    previous_quantity: item.quantity,
-                                    new_quantity: item.quantity + 1,
-                                    direction: "increase",
-                                  });
-                                  updateQuantity(item.variantId, item.quantity + 1);
-                                }}
-                                className="w-11 h-11 flex items-center justify-center text-gray-600 hover:bg-gray-100 transition-colors"
-                                aria-label="Increase quantity"
-                              >
-                                <svg
-                                  className="w-3 h-3"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M12 4v16m8-8H4"
-                                  />
-                                </svg>
-                              </button>
-                            </div>
-                          )}
+                        {/* Quantity (desktop) */}
+                        <div className="hidden md:flex md:col-span-2 justify-center">
+                          {stepper ?? <span className="text-sm text-gray-400">—</span>}
                         </div>
 
-                        {/* Line Total */}
-                        <div className="col-span-4 md:col-span-2 text-right">
-                          <span className="md:hidden text-sm text-gray-500 mr-2">Total:</span>
-                          <span
-                            className={
-                              isUnavailable
-                                ? "text-gray-400 line-through"
-                                : "font-semibold text-navy"
-                            }
-                          >
-                            {formatPrice(item.price * item.quantity, item.currencyCode, {
-                              showCents: true,
-                            })}
-                          </span>
-                        </div>
+                        {/* Line Total (desktop) */}
+                        <div className="hidden md:block md:col-span-2 text-right">{lineTotal}</div>
                       </div>
                     );
                   })}
@@ -714,7 +752,6 @@ export default function CartPage() {
                   </div>
                 </div>
               </div>
-
             </div>
           )}
         </div>
@@ -737,8 +774,19 @@ export default function CartPage() {
               {isCheckingOut ? (
                 <>
                   <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    />
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    />
                   </svg>
                   Redirecting...
                 </>
@@ -746,15 +794,18 @@ export default function CartPage() {
                 <>
                   Proceed to Checkout
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </>
               )}
             </button>
           </div>
-          {checkoutError && (
-            <p className="text-xs text-cs-red mt-2 text-center">{checkoutError}</p>
-          )}
+          {checkoutError && <p className="text-xs text-cs-red mt-2 text-center">{checkoutError}</p>}
         </div>
       )}
     </>
