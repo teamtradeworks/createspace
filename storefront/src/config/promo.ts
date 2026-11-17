@@ -61,6 +61,15 @@ export function activeNavPromo(now: Date = new Date(), promos: Promo[] = PROMOS)
 
 export const PROMOS: Promo[] = [
   {
+    badge: "Black Friday Sale",
+    heading: "Up to 20% off robots, science kits and more.",
+    body: "Ends 30 November.",
+    cta: { label: "Shop the sale", href: "/shop?sale=true" },
+    startsAt: "2026-11-19",
+    endsAt: "2026-11-30",
+    navLabel: "Black Friday Sale",
+  },
+  {
     badge: "School Holiday Sale",
     heading: "20% off selected products.",
     body: "Ends 30 September.",
