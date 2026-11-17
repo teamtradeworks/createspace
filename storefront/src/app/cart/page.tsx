@@ -360,13 +360,13 @@ export default function CartPage() {
                     return (
                       <div
                         key={item.variantId}
-                        className={`py-6 flex gap-4 md:grid md:grid-cols-12 md:items-center${isUnavailable ? " opacity-50" : ""}`}
+                        className={`py-6 grid grid-cols-[5rem_minmax(0,1fr)] gap-x-4 gap-y-3 md:gap-4 md:grid-cols-12 md:items-center${isUnavailable ? " opacity-50" : ""}`}
                       >
                         {/* Product Image & Info */}
                         <div className="contents md:col-span-6 md:flex md:items-center md:gap-4">
                           <Link
                             href={`/product/${item.handle}`}
-                            className="flex-shrink-0 w-20 h-20 bg-gray-100 rounded-lg overflow-hidden"
+                            className="flex-shrink-0 w-20 h-20 row-span-2 max-[389px]:row-span-1 bg-gray-100 rounded-lg overflow-hidden"
                           >
                             {item.image ? (
                               <Image
@@ -454,22 +454,24 @@ export default function CartPage() {
                               {trashIcon}
                               Remove
                             </button>
-
-                            {/* Mobile: stepper + bin on the left, line total on the right */}
-                            <div className="md:hidden mt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
-                              <div className="flex items-center gap-1">
-                                {stepper}
-                                <button
-                                  onClick={handleRemove}
-                                  className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:text-cs-red hover:bg-gray-100 transition-colors"
-                                  aria-label={`Remove ${item.title}`}
-                                >
-                                  {trashIcon}
-                                </button>
-                              </div>
-                              <span className="ml-auto">{lineTotal}</span>
-                            </div>
                           </div>
+                        </div>
+
+                        {/* Mobile: stepper + bin on the left, line total on the right.
+                            Sits in the column beside the image, or spans the full row on
+                            narrow phones where the column is too tight. */}
+                        <div className="md:hidden col-start-2 max-[389px]:col-span-2 max-[389px]:col-start-1 flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+                          <div className="flex items-center gap-1">
+                            {stepper}
+                            <button
+                              onClick={handleRemove}
+                              className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:text-cs-red hover:bg-gray-100 transition-colors"
+                              aria-label={`Remove ${item.title}`}
+                            >
+                              {trashIcon}
+                            </button>
+                          </div>
+                          <span className="ml-auto">{lineTotal}</span>
                         </div>
 
                         {/* Price (desktop) */}
