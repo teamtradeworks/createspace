@@ -3,6 +3,8 @@ import {
   isPromoActive,
   activePromos,
   activeNavPromo,
+  activePromoSection,
+  PROMO_SECTION_IDS,
   PROMOS,
   type Promo,
 } from "@/config/promo";
@@ -108,6 +110,82 @@ describe("PROMOS config", () => {
   it("never ends a promo before it starts", () => {
     for (const p of PROMOS) {
       if (p.startsAt && p.endsAt) expect(p.startsAt <= p.endsAt).toBe(true);
+    }
+  });
+});
+
+describe("activePromoSection", () => {
+  it("gives the homepage hero to the Black Friday section during the sale", () => {
+    const active = activePromoSection("homeHero", new Date("2026-11-25T10:00:00Z"));
+    expect(active?.id).toBe("black-friday-home-hero");
+    expect(active?.promo.badge).toBe("Black Friday Sale");
+  });
+
+  it("switches on at midnight SAST on 19 Nov and stays on through 30 Nov", () => {
+    // 00:00 SAST on 19 Nov = 22:00 UTC on 18 Nov
+    expect(activePromoSection("homeHero", new Date("2026-11-18T22:00:00Z"))?.id).toBe(
+      "black-friday-home-hero",
+    );
+    // 23:59 SAST on 30 Nov = 21:59 UTC
+    expect(activePromoSection("homeHero", new Date("2026-11-30T21:59:00Z"))?.id).toBe(
+      "black-friday-home-hero",
+    );
+  });
+
+  it("falls back to the default (null) before the sale starts or after it ends (SAST)", () => {
+    expect(activePromoSection("homeHero", new Date("2026-11-18T21:59:00Z"))).toBeNull();
+    expect(activePromoSection("homeHero", new Date("2026-11-30T22:00:01Z"))).toBeNull();
+  });
+
+  it("leaves a slot the live promo does not fill on its default", () => {
+    const heroOnly: Promo = { ...promo(), sections: { homeHero: "black-friday-home-hero" } };
+    expect(
+      activePromoSection("shopHeader", new Date("2026-11-25T10:00:00Z"), [heroOnly]),
+    ).toBeNull();
+  });
+
+  it("gives the shop header to the Black Friday section during the sale", () => {
+    expect(activePromoSection("shopHeader", new Date("2026-11-25T10:00:00Z"))?.id).toBe(
+      "black-friday-shop-header",
+    );
+  });
+
+  it("ignores live promos without sections", () => {
+    expect(activePromoSection("homeHero", new Date("2026-01-01T00:00:00Z"), [promo()])).toBeNull();
+  });
+
+  it("skips an expired promo and uses the next live one for the slot", () => {
+    const now = new Date("2026-06-15T10:00:00Z");
+    const expired: Promo = {
+      ...promo("2026-06-01"),
+      badge: "Old",
+      sections: { homeHero: "black-friday-home-hero" },
+    };
+    const live: Promo = {
+      ...promo("2026-06-30"),
+      badge: "Live",
+      sections: { homeHero: "black-friday-home-hero" },
+    };
+    expect(activePromoSection("homeHero", now, [expired, live])?.promo.badge).toBe("Live");
+  });
+});
+
+describe("PROMOS sections", () => {
+  it("only reference registered section ids for known slots", () => {
+    for (const p of PROMOS) {
+      for (const [slot, id] of Object.entries(p.sections ?? {})) {
+        expect(Object.keys(PROMO_SECTION_IDS)).toContain(slot);
+        expect(
+          PROMO_SECTION_IDS[slot as keyof typeof PROMO_SECTION_IDS] as readonly string[],
+        ).toContain(id);
+      }
+    }
+  });
+
+  it("only give sections to promos with both dates, so they always end", () => {
+    for (const p of PROMOS.filter((p) => p.sections)) {
+      expect(p.startsAt, p.badge).toBeTruthy();
+      expect(p.endsAt, p.badge).toBeTruthy();
     }
   });
 });

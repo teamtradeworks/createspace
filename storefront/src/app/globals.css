@@ -317,3 +317,22 @@ body {
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
+
+/* Black Friday hero stamp: a slight tilt and a gentle bob (decorative). */
+.hero-stamp {
+  transform: rotate(-10deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-stamp {
+    animation: hero-stamp-bob 4s ease-in-out infinite;
+  }
+}
+@keyframes hero-stamp-bob {
+  0%,
+  100% {
+    transform: rotate(-10deg) translateY(0);
+  }
+  50% {
+    transform: rotate(-6deg) translateY(-6px);
+  }
+}
