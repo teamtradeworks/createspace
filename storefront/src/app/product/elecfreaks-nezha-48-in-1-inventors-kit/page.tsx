@@ -40,7 +40,7 @@ export default async function NezhaInventorsKitPage() {
         product={product}
         tagline="Build robots, cars and smart gadgets from 400+ bricks, then code them with a BBC micro:bit to move and react."
         highlights={[
-          "48 builds with free step-by-step guides and ready-made code",
+          "48 projects and activities with free step-by-step guides and ready-made code",
           "8 sensors and lights, 2 motors and a servo that plug straight in",
           "No soldering and no batteries to buy: the controller recharges by USB",
           "Needs a BBC micro:bit (not included, add one below)",
@@ -127,8 +127,8 @@ export default async function NezhaInventorsKitPage() {
 
       {/* Project Showcase */}
       <ProjectShowcase
-        title="48 builds, from blinking lights to walking robots"
-        highlight="48 projects with free online assembly guides and ready-made code"
+        title="48 projects, from blinking lights to walking robots"
+        highlight="34 builds, 10 coding activities and 4 challenges, each with a free online guide and ready-made code"
         subtitle="Every project stands alone, so your child can jump to whatever grabs them. Some of the builds below use an add-on PlanetX sensor, sold separately; we've noted which."
         projects={[
           {
@@ -174,7 +174,7 @@ export default async function NezhaInventorsKitPage() {
             image: `${BASE_IMG}/projects/gesture-recognition-car.jpg`,
           },
         ]}
-        moreText="With just the kit, your child can build 48 projects, including a line-following car, a walking robot, a mechanical crab, a forklift and a moon rover"
+        moreText="With the kit and one micro:bit, your child can make 46 of the 48, including a line-following car, a walking robot, a mechanical crab and a forklift. The other two, a moon rover and a washing machine, use a second micro:bit as a remote control."
         background="white"
       />
 
@@ -294,7 +294,7 @@ export default async function NezhaInventorsKitPage() {
       {/* Final CTA */}
       <CallToAction
         title="Get inventing"
-        subtitle="48 builds, 400+ bricks and a rechargeable controller. Add a micro:bit and your child is ready to start."
+        subtitle="48 projects, 400+ bricks and a rechargeable controller. Add a micro:bit and your child is ready to start."
         primaryLabel="Add to Cart"
         primaryHref="#product-actions"
         secondaryLabel="Browse More Kits"
@@ -315,7 +315,7 @@ export async function generateMetadata() {
   return {
     title: `${product.title} | CREATESPACE`,
     description:
-      "Build and code 48 robots, cars and gadgets with 400+ LEGO Technic-compatible bricks, 8 sensors and motors. No soldering, ages 8+. micro:bit not included.",
+      "48 coding projects: build robots, cars and gadgets from 400+ LEGO Technic-compatible bricks, sensors and motors. No soldering, ages 8+. micro:bit not included.",
     alternates: {
       canonical: "/product/elecfreaks-nezha-48-in-1-inventors-kit",
     },
