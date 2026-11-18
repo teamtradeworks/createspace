@@ -8,6 +8,7 @@ import {
   SHOP_PRODUCT_LIMIT,
 } from "@/lib/shopify";
 import Hero from "@/components/Hero";
+import PromoSlot from "@/components/promo-sections/PromoSlot";
 import AgeGroups from "@/components/AgeGroups";
 import PromoBand from "@/components/PromoBand";
 import FeaturedProducts from "@/components/FeaturedProducts";
@@ -73,9 +74,12 @@ export default function Home() {
     <>
       <ScrollDepthTracker event="home_page_scroll_depth" />
 
-      {/* Static hero - renders immediately, no data dependency */}
+      {/* Static hero - renders immediately, no data dependency. A live promo
+          can swap in its own hero (config/promo.ts `sections.homeHero`). */}
       <TrackedSection name="Hero" page="home">
-        <Hero />
+        <PromoSlot slot="homeHero">
+          <Hero />
+        </PromoSlot>
       </TrackedSection>
 
       {/* Current promotion — full-width strip directly under the hero (config/promo.ts) */}

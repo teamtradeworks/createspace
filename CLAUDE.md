@@ -411,6 +411,10 @@ Product-specific images are stored in `assets/product/[product-handle]/` with th
 - Not all images need to be used - select the most relevant ones
 - Copy images to `storefront/public/images/products/[handle]/` before using on the website
 
+## Promo sections
+
+A promo in `storefront/src/config/promo.ts` can replace the homepage hero or the `/shop` header with a custom section for its dates, by id: `sections: { homeHero: "black-friday-home-hero" }`. The custom sections live in `storefront/src/components/promo-sections/` (registered by id in `registry.ts`); the defaults (`Hero.tsx`, `ShopHeader.tsx`) are never edited for a promo. Follow `storefront/src/components/promo-sections/README.md` when adding one: keep the same style and size as the default, exactly one `<h1>`, and its own copy and images.
+
 # Marketing & Analytics
 
 The `marketing/` folder contains user behaviour analysis, optimisation recommendations, and campaign planning. Refer to it when working on analytics, tracking, conversion optimisation, or marketing-related tasks.

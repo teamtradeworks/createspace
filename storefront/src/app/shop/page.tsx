@@ -6,7 +6,8 @@ import {
 } from "@/lib/shopify";
 import { Metadata } from "next";
 import ShopGallery from "@/components/ShopGallery";
-import PageHeader from "@/components/PageHeader";
+import ShopHeader from "@/components/ShopHeader";
+import PromoSlot from "@/components/promo-sections/PromoSlot";
 import PageViewTracker from "@/components/PageViewTracker";
 
 export const metadata: Metadata = {
@@ -45,16 +46,11 @@ export default async function ShopPage({ searchParams }: Props) {
     <main className="min-h-screen bg-gray-50">
       <PageViewTracker event="shop_all_viewed" />
 
-      {/* Header band — shared PageHeader (a minimal take on the home hero). */}
-      <PageHeader
-        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Shop" }]}
-        title={
-          <>
-            STEM kits for <span className="text-cs-orange">curious kids</span>
-          </>
-        }
-        subtitle="From first circuits to advanced coding, sorted by age and skill."
-      />
+      {/* Header band. A live promo can swap in its own header
+          (config/promo.ts `sections.shopHeader`). */}
+      <PromoSlot slot="shopHeader">
+        <ShopHeader />
+      </PromoSlot>
 
       {/* Products with inline filters */}
       <ShopGallery

@@ -23,8 +23,30 @@
 // first in this list wins. Keep it to 19 characters or fewer (a test checks):
 // any longer and it crowds the desktop bar at 1024px.
 //
+// `sections` swaps whole page sections for custom promo versions while the
+// promo is live, e.g. `sections: { homeHero: "black-friday-home-hero" }`.
+// Each value is the id of a section registered in
+// components/promo-sections/registry.ts (the ids are listed below). Outside the
+// promo's dates, or for any slot left out, the page shows its default section,
+// unchanged. If several live promos fill the same slot, the first in this list
+// wins. See components/promo-sections/README.md before building a new one.
+//
 // A `cta.href` of "#subscribe" opens the newsletter sign-up popup instead of
 // navigating.
+
+// Page slots a promo can take over, and the ids of the custom sections that can
+// fill each one. Add an id here when you register a new section.
+export const PROMO_SECTION_IDS = {
+  /** The homepage hero (default: components/Hero.tsx). */
+  homeHero: ["black-friday-home-hero"],
+  /** The header band on /shop (default: components/ShopHeader.tsx). */
+  shopHeader: ["black-friday-shop-header"],
+} as const satisfies Record<string, readonly string[]>;
+
+export type PromoSlot = keyof typeof PROMO_SECTION_IDS;
+export type PromoSectionId<S extends PromoSlot> = (typeof PROMO_SECTION_IDS)[S][number];
+export type PromoSections = { [S in PromoSlot]?: PromoSectionId<S> };
+
 export type PromoSegment = string | { text: string; href: string };
 
 export type Promo = {
@@ -36,6 +58,7 @@ export type Promo = {
   startsAt?: string;
   endsAt?: string;
   navLabel?: string;
+  sections?: PromoSections;
 };
 
 export type NavPromo = { label: string; href: string };
@@ -59,6 +82,20 @@ export function activeNavPromo(now: Date = new Date(), promos: Promo[] = PROMOS)
   return promo?.navLabel ? { label: promo.navLabel, href: promo.cta.href } : null;
 }
 
+// The live promo that takes over `slot`, and the id of its section, if any.
+// Null means the page shows its default section.
+export function activePromoSection<S extends PromoSlot>(
+  slot: S,
+  now: Date = new Date(),
+  promos: Promo[] = PROMOS,
+): { promo: Promo; id: PromoSectionId<S> } | null {
+  for (const promo of promos) {
+    const id = promo.sections?.[slot];
+    if (id && isPromoActive(promo, now)) return { promo, id: id as PromoSectionId<S> };
+  }
+  return null;
+}
+
 export const PROMOS: Promo[] = [
   {
     badge: "Black Friday Sale",
@@ -68,6 +105,7 @@ export const PROMOS: Promo[] = [
     startsAt: "2026-11-19",
     endsAt: "2026-11-30",
     navLabel: "Black Friday Sale",
+    sections: { homeHero: "black-friday-home-hero", shopHeader: "black-friday-shop-header" },
   },
   {
     badge: "School Holiday Sale",
