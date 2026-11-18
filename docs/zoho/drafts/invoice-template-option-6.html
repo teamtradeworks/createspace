@@ -1,0 +1,220 @@
+<style type="text/css" media="all">
+    #lineitem tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    .cs-label {
+        margin-top: 0;
+        font-size: 7pt;
+        color: #5a6080;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+    .cs-th {
+        font-size: 7pt;
+        color: #0C1446;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 0 10px 8px 10px;
+        border-bottom: 1.5px solid #0C1446;
+        vertical-align: bottom;
+        word-wrap: break-word;
+    }
+    .cs-td {
+        font-size: 9.5pt;
+        color: #0C1446;
+        padding: 10px 10px;
+        vertical-align: top;
+        word-wrap: break-word;
+    }
+    .cs-sum-label {
+        padding: 5px 16px 5px 0;
+        text-align: right;
+        color: #5a6080;
+    }
+    .cs-sum-value {
+        width: 120px;
+        padding: 5px 0 5px 0;
+        text-align: right;
+        color: #0C1446;
+    }
+    .cs-bank-label {
+        padding: 0 12px 3px 0;
+        color: #5a6080;
+        white-space: nowrap;
+    }
+    .cs-bank-value {
+        padding: 0 0 3px 0;
+        color: #0C1446;
+        font-weight: bold;
+        white-space: nowrap;
+    }
+</style>
+<div style="font-family: 'Open Sans', Arial, sans-serif; font-size: 9.5pt; color: #0C1446; line-height: 1.45;">
+    <div style="padding: 0.4in 0.5in 0 0.5in;">
+
+        <!-- Header -->
+        <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; border-collapse: collapse; table-layout: fixed;">
+            <tbody>
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">%ScaledLogoImage%</td>
+                    <td style="width: 50%; vertical-align: top; text-align: right;">
+                        <div style="font-size: 22pt; font-weight: bold; color: #0C1446; line-height: 1; white-space: nowrap;">Tax Invoice</div>
+                        <div style="margin-top: 7px; font-size: 10pt; color: #5a6080; white-space: nowrap;">%InvoiceNumber%</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Billed to, details, amount due -->
+        <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; margin-top: 40px; border-collapse: collapse; table-layout: fixed;">
+            <tbody>
+                <tr>
+                    <td style="width: 40%; vertical-align: top; padding-right: 20px; word-wrap: break-word;">
+                        <div class="cs-label" id="tmp_billing_address_label">Billed To</div>
+                        <div style="margin-top: 6px; font-size: 10.5pt; font-weight: bold; color: #0C1446;">%CustomerName%</div>
+                        <div style="margin-top: 1px; color: #3c4366;"><span id="tmp_billing_address" style="white-space: pre-wrap;">%CustomerBAddress%<br />%CustomerBCity% %CustomerBState%<br />%CustomerBCountry%</span></div>
+                    </td>
+                    <td style="width: 30%; vertical-align: top; padding-right: 20px;">
+                        <div class="cs-label">Invoice Date</div>
+                        <div style="margin-top: 4px; font-weight: bold; color: #0C1446;">%InvoiceDate%</div>
+                        <div class="cs-label" style="margin-top: 12px;">Payment Terms</div>
+                        <div style="margin-top: 4px; font-weight: bold; color: #0C1446;"><span id="tmp_payment_terms">%PaymentTerms%</span></div>
+                    </td>
+                    <td style="width: 30%; vertical-align: top; text-align: right;">
+                        <div class="cs-label">Amount Due</div>
+                        <div style="margin-top: 3px; font-size: 18pt; font-weight: bold; color: #0C1446; line-height: 1.15; white-space: nowrap;">R %InvoiceTotal%</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Line items -->
+        <table cellspacing="0" cellpadding="0" border="0" class="pcs-itemtable" style="width: 100%; margin-top: 38px; table-layout: fixed; border-spacing: 0; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <td class="cs-th" style="text-align: left; padding-left: 0;">Item</td>
+                    <td class="cs-th" style="text-align: right; width: 7%;">Qty</td>
+                    <td class="cs-th" style="text-align: right; width: 14%;">Unit Price</td>
+                    <td class="cs-th" style="text-align: right; width: 11%;">Discount</td>
+                    <td class="cs-th" style="text-align: right; width: 15%;">Discounted Price</td>
+                    <td class="cs-th" style="text-align: right; width: 15%; padding-right: 0;">Amount</td>
+                </tr>
+            </thead>
+            <tbody id="lineitem">
+                <tr>
+                    <td class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; padding-left: 0;"><span id="tmp_item_name" style="font-weight: bold; word-wrap: break-word;">%ItemName%</span></td>
+                    <td class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; text-align: right;"><span id="tmp_item_qty">%ItemQty%</span></td>
+                    <td class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; text-align: right;"><span id="tmp_item_rate">%ItemRate%</span></td>
+                    <td class="cs-td" id="tmp_item_discount" style="border-bottom: 0.75px solid #d3d6e2; text-align: right;">%ItemDiscount%</td>
+                    <td class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; text-align: right;">%ItemDiscountedRate%</td>
+                    <td class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; text-align: right; font-weight: bold; padding-right: 0;">%ItemAmount%</td>
+                </tr>
+            </tbody>
+            <tbody id="headerItem">
+                <tr>
+                    <td colspan="6" class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; font-weight: bold; padding-left: 0;">%ItemHeaderName%</td>
+                </tr>
+            </tbody>
+            <tbody id="subtotalItem">
+                <tr>
+                    <td colspan="5" class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; text-align: right; font-weight: bold;">%LineItemSubTotalLabel%</td>
+                    <td class="cs-td" style="border-bottom: 0.75px solid #d3d6e2; text-align: right; font-weight: bold; padding-right: 0;">%LineItemSubTotalAmount%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Totals -->
+        <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; margin-top: 10px; border-collapse: collapse; table-layout: fixed; page-break-inside: avoid;">
+            <tbody>
+                <tr>
+                    <td style="width: 55%;"></td>
+                    <td style="width: 45%; vertical-align: top;">
+                        <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; font-size: 9.5pt; border-collapse: collapse;">
+                            <tbody>
+                                <tr>
+                                    <td class="cs-sum-label">Subtotal</td>
+                                    <td class="cs-sum-value" id="tmp_subtotal">%InvoiceSubTotal%</td>
+                                </tr>
+                                <tr>
+                                    <td class="cs-sum-label">Delivery</td>
+                                    <td class="cs-sum-value">%ShippingCharge%</td>
+                                </tr>
+                            </tbody>
+                            <tbody id="taxItems">
+                                <tr>
+                                    <td class="cs-sum-label">Tax (15%)</td>
+                                    <td class="cs-sum-value">%TaxValue%</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 10px 16px 0 0; border-top: 1.5px solid #0C1446; text-align: right; font-size: 10pt; font-weight: bold; color: #0C1446;">Total</td>
+                                    <td id="tmp_total" style="padding: 10px 0 0 0; border-top: 1.5px solid #0C1446; text-align: right; font-size: 13pt; font-weight: bold; color: #0C1446; white-space: nowrap;">R %InvoiceTotal%</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 6px 16px 0 0; text-align: right; font-size: 8.5pt; color: #5a6080;">You saved</td>
+                                    <td style="padding: 6px 0 0 0; text-align: right; font-size: 8.5pt; font-weight: bold; color: #0C1446;">%TotalDiscount%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Payment -->
+        <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; margin-top: 40px; border-collapse: collapse; table-layout: fixed; page-break-inside: avoid; border: 1px solid #0C1446;">
+            <tbody>
+                <tr>
+                    <td style="width: 55%; vertical-align: top; padding: 16px 20px 16px 18px;">
+                        <div class="cs-label">Banking Details</div>
+                        <table cellspacing="0" cellpadding="0" border="0" style="margin-top: 8px; font-size: 9pt; line-height: 1.35; border-collapse: collapse;">
+                            <tbody>
+                                <tr><td class="cs-bank-label">Account name</td><td class="cs-bank-value">Tradeworks Online (Pty) Ltd</td></tr>
+                                <tr><td class="cs-bank-label">Bank</td><td class="cs-bank-value">FNB</td></tr>
+                                <tr><td class="cs-bank-label">Account type</td><td class="cs-bank-value">Cheque</td></tr>
+                                <tr><td class="cs-bank-label">Account number</td><td class="cs-bank-value">62901501454</td></tr>
+                                <tr><td class="cs-bank-label">Branch code</td><td class="cs-bank-value">200912</td></tr>
+                                <tr><td class="cs-bank-label">Reference</td><td class="cs-bank-value">%InvoiceNumber%</td></tr>
+                            </tbody>
+                        </table>
+                    </td>
+                    <td style="width: 45%; vertical-align: top; padding: 16px 18px 16px 0;">
+                        <div class="cs-label">Proof of Payment</div>
+                        <div style="margin-top: 8px; font-size: 9pt; color: #3c4366;">Please use the invoice number as your payment reference and send proof of payment to</div>
+                        <div style="margin-top: 4px; font-size: 10pt; font-weight: bold; color: #0C1446;">info@thecreatespace.co.za</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Footer -->
+        <table cellspacing="0" cellpadding="0" border="0" style="width: 100%; margin-top: 40px; border-collapse: collapse; table-layout: fixed; border-top: 0.75px solid #d3d6e2; page-break-inside: avoid; font-size: 7.5pt; line-height: 1.5; color: #5a6080;">
+            <tbody>
+                <tr>
+                    <td style="width: 34%; vertical-align: top; padding: 12px 16px 0 0;">
+                        <div style="font-weight: bold; color: #0C1446;">Tradeworks Online (Pty) Ltd</div>
+                        <div>Registration No.: 2021/432299/07</div>
+                        <div>VAT No.: 4450302973</div>
+                    </td>
+                    <td style="width: 33%; vertical-align: top; padding: 12px 16px 0 0;">
+                        <div>Unit E1, Firgrove Business Park</div>
+                        <div>3 Quantum Road</div>
+                        <div>Somerset West</div>
+                        <div>South Africa, 7130</div>
+                    </td>
+                    <td style="width: 33%; vertical-align: top; padding: 12px 0 0 0; text-align: right;">
+                        <div><b style="color: #0C1446;">info@thecreatespace.co.za</b></div>
+                        <div>Phone +27 81 587 5357</div>
+                        <div>WhatsApp +27 75 624 6775</div>
+                        <div>www.thecreatespace.co.za</div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
