@@ -22,6 +22,21 @@
       "viewProductLink": false
     },
     {
+      "parentHandle": "elecfreaks-tpbot-car-kit",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 15,
+      "description": "TPBot needs a BBC micro:bit to be programmed (its built-in self-driving mode works without one). Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
+      "parentHandle": "elecfreaks-tpbot-car-kit",
+      "addonHandle": "varta-long-life-aaa-alkaline-battery",
+      "quantity": 4,
+      "discountPercent": 0,
+      "description": "TPBot runs on 4 x AAA batteries (not included). Add them here so it's ready to drive.",
+      "viewProductLink": false
+    },
+    {
       "parentHandle": "elecfreaks-micro-bit-tinker-kit",
       "addonHandle": "varta-long-life-aaa-alkaline-battery",
       "quantity": 2,
