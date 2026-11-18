@@ -140,6 +140,13 @@
       "viewProductLink": false
     },
     {
+      "parentHandle": "elecfreaks-nezha-48-in-1-inventors-kit",
+      "addonHandle": "bbc-micro-bit-go",
+      "discountPercent": 15,
+      "description": "This kit needs a BBC micro:bit to run (not included). Add one here at a discounted price.",
+      "viewProductLink": true
+    },
+    {
       "parentHandle": "bbc-micro-bit-essential-stem-lab-tinker-kit-bundle",
       "addonHandle": "bbc-micro-bit-go",
       "discountPercent": 0,
