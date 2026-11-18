@@ -1,4 +1,4 @@
-export type Stamp = { top: string; big: string; bottom: string };
+type Stamp = { top: string; big: string; bottom: string };
 
 // The round red "Up to 20% off" stamp for the Black Friday sections (decorative: the subhead says the same).
 // Tilt and bob come from `.hero-stamp` in globals.css.
