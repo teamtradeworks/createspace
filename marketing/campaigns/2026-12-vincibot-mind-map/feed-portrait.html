@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>VinciBot mind map, feed portrait</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="mind-map.css">
+  <style>
+    .canvas {
+      background:
+        radial-gradient(520px 420px at 540px 700px, rgba(60, 199, 247, 0.22), transparent 70%),
+        radial-gradient(420px 360px at 880px 300px, rgba(172, 77, 255, 0.16), transparent 70%),
+        var(--cs-navy);
+    }
+    .top { top: 56px; }
+    .branches { height: 1350px; }
+    .hub { left: 540px; top: 700px; }
+    .foot { bottom: 60px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+
+    <header class="top">
+      <span class="kicker">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="currentColor"/></svg>
+        Christmas gift idea · Ages 8-12
+      </span>
+      <h1>One gift.<br><em>So many ways to play.</em></h1>
+    </header>
+
+    <!-- Branches: hub centre is (540, 700). Node picture centres sit at the path ends. -->
+    <svg class="branches" viewBox="0 0 1080 1350" aria-hidden="true">
+      <path d="M540 700 Q 380 560 190 400" stroke="#FFD500"/>
+      <path d="M540 700 Q 350 690 150 690" stroke="#93DB21"/>
+      <path d="M540 700 Q 380 820 180 980" stroke="#3CC7F7"/>
+      <path d="M540 700 Q 700 560 890 400" stroke="#AC4DFF"/>
+      <path d="M540 700 Q 730 690 930 690" stroke="#FF8B00"/>
+      <path d="M540 700 Q 700 820 900 980" stroke="#FFFFFF"/>
+      <!-- sub-branches to the chips -->
+      <path d="M347 692 Q 340 670 330 640" stroke="#93DB21" stroke-width="4"/>
+      <path d="M370 830 Q 390 920 420 1000" stroke="#3CC7F7" stroke-width="4"/>
+    </svg>
+
+    <!-- Hub -->
+    <div class="hub">
+      <svg class="bow" viewBox="0 0 150 80" aria-hidden="true">
+        <path d="M75 52 C 50 10, 8 8, 12 38 C 16 64, 55 60, 75 52 Z" fill="#F70B28"/>
+        <path d="M75 52 C 100 10, 142 8, 138 38 C 134 64, 95 60, 75 52 Z" fill="#F70B28"/>
+        <path d="M75 52 C 62 62, 52 74, 44 80 M75 52 C 88 62, 98 74, 106 80" stroke="#F70B28" stroke-width="9" stroke-linecap="round" fill="none"/>
+        <circle cx="75" cy="50" r="13" fill="#C10820"/>
+      </svg>
+      <img src="images/vincibot-front-white.jpg" alt="VinciBot coding robot">
+      <span class="hub-name">VinciBot</span>
+    </div>
+
+    <!-- Nodes (top = picture top; picture centre = top + 90) -->
+    <div class="node" style="left:190px; top:310px; --c: var(--cs-yellow)">
+      <div class="pic"><img src="images/vincibot-drawing-plane.jpg" alt="VinciBot holding a marker beside the plane it drew"></div>
+      <div class="label">Draws pictures</div>
+    </div>
+    <div class="node" style="left:150px; top:600px; --c: var(--cs-green)">
+      <div class="pic"><img src="images/vincibot-following-line.jpg" alt="VinciBot following a black line track"></div>
+      <div class="label">Follows lines</div>
+    </div>
+    <div class="node" style="left:180px; top:890px; --c: var(--cs-blue)">
+      <div class="pic"><img src="images/blocks-and-python-code.jpg" alt="The same VinciBot program in blocks and in Python"></div>
+      <div class="label">Blocks first,<br>then Python</div>
+    </div>
+    <div class="node" style="left:890px; top:310px; --c: var(--cs-purple)">
+      <div class="pic"><img src="images/vincibot-lights-music.jpg" alt="VinciBot with glowing ears, dancing to music"></div>
+      <div class="label">Lights up and<br>plays music</div>
+    </div>
+    <div class="node" style="left:930px; top:600px; --c: var(--cs-orange)">
+      <div class="pic"><img src="images/vincibot-lego-build.jpg" alt="VinciBot built into a LEGO conveyor"></div>
+      <div class="label">Builds with<br>LEGO bricks</div>
+    </div>
+    <div class="node" style="left:900px; top:890px; --c: var(--cs-white)">
+      <div class="pic"><img src="images/vincibot-with-remote.jpg" alt="Hand pointing the remote at VinciBot"></div>
+      <div class="label">Drives by remote</div>
+    </div>
+
+    <!-- Chips -->
+    <span class="chip" style="left:236px; top:592px; --c: var(--cs-green)"><b>8</b> sensors</span>
+    <span class="chip" style="left:340px; top:996px; --c: var(--cs-blue)"><b>93</b> activities</span>
+
+    <!-- Sparkles -->
+    <svg class="spark" style="left:96px; top:250px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+    <svg class="spark" style="left:968px; top:250px; width:24px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+    <svg class="spark" style="left:700px; top:470px; width:22px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+    <svg class="spark" style="left:660px; top:1010px; width:28px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z"/></svg>
+
+    <footer class="foot">
+      <img src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+      <span class="cta">Shop VinciBot</span>
+    </footer>
+
+  </main>
+</body>
+</html>
