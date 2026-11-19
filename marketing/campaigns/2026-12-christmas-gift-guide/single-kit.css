@@ -1,0 +1,210 @@
+/* Christmas gift guide: single-kit option.
+   The "72 robots" / Black Friday layout (2026-11-black-friday-sale/sale.css)
+   without the sale: white ground, big navy headline with one yellow-highlighted
+   number, cut-out product on a pale blue card, price and age in the footer.
+   No red anywhere, because red means saving and there is no saving. The
+   festive touch is a navy pill with one yellow star (brief.md: on brand,
+   no snow, no red-and-green). */
+
+:root {
+  --margin: 72px;
+  --card: #eef8fd;
+  --body-ink: #4a5270;
+}
+
+.canvas {
+  display: flex;
+  flex-direction: column;
+  padding: var(--margin);
+  background: var(--cs-white);
+  color: var(--cs-navy);
+  font-family: var(--cs-font);
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wordmark {
+  display: block;
+  height: 48px;
+  width: auto;
+}
+
+.gift-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 17px 30px 18px 24px;
+  border-radius: 9999px;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.gift-pill svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  fill: var(--cs-yellow);
+}
+
+h1 {
+  margin: 56px 0 0;
+  font-size: 100px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+h1 > span {
+  display: block;
+}
+
+.marker {
+  position: relative;
+  z-index: 0;
+  font-weight: 700;
+}
+
+.marker::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -4px;
+  right: -14px;
+  top: 0.4em;
+  bottom: 0.1em;
+  background: var(--cs-yellow);
+  border-radius: 6px 10px 8px 4px;
+  transform: rotate(-1.5deg);
+}
+
+.body {
+  max-width: 740px;
+  margin: 32px 0 0;
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--body-ink);
+  text-wrap: pretty;
+}
+
+.card {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  margin: 40px calc(-1 * var(--margin)) 0 0;
+  background: var(--card);
+  border-radius: 24px 0 0 24px;
+}
+
+.card .build,
+.card .case {
+  position: absolute;
+  object-fit: contain;
+}
+
+/* A few twinkles in the empty space beside the headline. */
+.canvas {
+  position: relative;
+}
+
+.sparkles {
+  position: absolute;
+  top: 262px;
+  right: 92px;
+  width: 160px;
+  height: auto;
+}
+
+.sparkles .s1 { fill: var(--cs-yellow); }
+.sparkles .s2 { fill: var(--cs-blue); }
+.sparkles .s3 { fill: var(--cs-orange); }
+
+.card .build {
+  left: 3%;
+  top: 20%;
+  height: 68%;
+  width: auto;
+  transform: rotate(-4deg);
+  filter: drop-shadow(0 22px 18px rgba(12, 20, 70, 0.18));
+}
+
+.card .case {
+  right: 36px;
+  bottom: 28px;
+  height: 58%;
+  width: auto;
+  filter: drop-shadow(0 14px 16px rgba(12, 20, 70, 0.2));
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  margin-top: 40px;
+}
+
+.product {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 10px 0 0;
+  line-height: 1;
+}
+
+.price b {
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.age-pill {
+  align-self: center;
+  padding: 7px 16px 8px;
+  border: 2px solid rgba(12, 20, 70, 0.25);
+  border-radius: 9999px;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* Ad CTA: Launch Orange, navy label (white on orange fails AA). */
+.cta {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  padding: 0 40px 2px 44px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--cs-navy);
+}
+
+.cta svg {
+  width: 30px;
+  height: 30px;
+  flex: none;
+}
