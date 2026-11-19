@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   VideoEmbed,
   FeatureGrid,
   ProjectShowcase,
@@ -42,8 +41,6 @@ export default async function NatGeoSpyScienceKitPage() {
         addons={addons}
       />
 
-      {/* gray (fixed) */}
-      <QuickInfoBadges product={product} />
 
       {/* white */}
       <VideoEmbed

@@ -24,15 +24,15 @@ Each section maps to a specific component. Build pages by composing these sectio
 
 #### 1. HeroSection (Required)
 
-Everything a parent needs for a quick "yes/no" decision. Product title, pricing, discounts, images, availability, delivery info, and add-to-cart are all **pulled automatically from Shopify** — no need to write this into custom content.
+The decision card: everything a parent needs for a quick "yes/no" in the first two phone screens. Title, pricing, discounts, images, availability, the fit facts (age, batteries, projects, guide, coding, soldering, from metafields), delivery info and the single orange add-to-cart are all **pulled automatically from Shopify** — no need to write this into custom content. On phones a sticky bar carries the price and button down the page.
 
 **Component:** `HeroSection`
 
-The only custom content for the hero is a benefit-led tagline and 3-4 highlight bullet points. Pass `addons` for upselling.
+The custom content for the hero is a benefit-led tagline, 3-4 highlight bullet points (shown below the button, so do not repeat the fit facts there), and a `heroImage`: a lifestyle photo of the child mid-build or the finished build from `assets/product/[slug]/lifestyle/`, which leads the gallery ahead of the box shot. Pass `addons` for the post-add offer.
 
-#### 2. QuickInfoBadges (Required)
+#### 2. QuickInfoBadges (Retired for metafield facts)
 
-Quick-reference badges immediately after the hero. Displays as an "At a Glance" section. All badges (age range, batteries, projects, guide, soldering, coding platform) are **derived automatically from Shopify product metafields** — just pass the product object.
+The hero now shows the metafield facts, so **do not add `<QuickInfoBadges product={product} />`** to pages. Keep the component only where a page passes manual `badges` for facts the metafields cannot express.
 
 **Component:** `QuickInfoBadges`
 
@@ -48,7 +48,7 @@ Quick-reference badges immediately after the hero. Displays as an "At a Glance" 
 
 #### 4. VideoEmbed (Recommended)
 
-Show the product in action. A 15-60 second video is worth a thousand photos. Place after QuickInfoBadges or alongside a FeatureGrid to provide visual proof.
+Show the product in action. A 15-60 second video is worth a thousand photos. Place straight after the hero or alongside a FeatureGrid to provide visual proof.
 
 **Component:** `VideoEmbed`
 
@@ -123,7 +123,7 @@ Image + text side-by-side for storytelling. **Not a fixed position** — scatter
 
 **Good placement spots:**
 - Between VideoEmbed and FeatureGrid
-- Between QuickInfoBadges and FeatureGrid
+- Between the hero and FeatureGrid
 - Between FeatureGrid and ProjectShowcase
 
 ---
@@ -134,8 +134,7 @@ Image + text side-by-side for storytelling. **Not a fixed position** — scatter
 
 Never use the same background colour on two consecutive sections. Follow this general pattern:
 
-- **HeroSection** → (no background prop — built-in)
-- **QuickInfoBadges** → gray (fixed)
+- **HeroSection** → (no background prop — built-in, white)
 - **VideoEmbed** → `gray`
 - **Content sections** → alternate `white` and `gray`, using ImageTextBlocks between dense sections
 - **CallToAction** → `navy` (always)
@@ -175,11 +174,10 @@ These components exist in the codebase but must not be used on any product page:
 Use when the product is straightforward with fewer features to highlight:
 
 1. HeroSection
-2. QuickInfoBadges
-3. FeatureGrid
-4. ProductFAQ
-5. WhatsIncluded
-6. CallToAction
+2. FeatureGrid
+3. ProductFAQ
+4. WhatsIncluded
+5. CallToAction
 
 ### Full page (flagship products)
 
@@ -251,10 +249,10 @@ Each product page must have exactly one `<h1>` tag. The `HeroSection` component 
 Before launching a product page:
 
 **Content & Design:**
-- [ ] Hero image is high quality and shows finished product
+- [ ] `heroImage` is a lifestyle photo of the child mid-build or the finished build, not the box
 - [ ] Price is clearly visible above the fold
 - [ ] Tagline is benefit-led and concise
-- [ ] "At a Glance" badges show (product metafields configured in Shopify)
+- [ ] Fit facts show in the hero (product metafields configured in Shopify) and are not repeated in the highlights
 - [ ] "What's in the Box" is complete
 - [ ] Requirements addressed in FAQ (batteries, tools, software)
 - [ ] At least one lifestyle photo is included (from `assets/product/[slug]/lifestyle/`)
@@ -282,7 +280,7 @@ All components are in `storefront/src/components/product-sections/`. For full pr
 | Component           | Required?   | Position          | Background Options           |
 | ------------------- | ----------- | ----------------- | ---------------------------- |
 | HeroSection         | Yes         | 1. Hook           | — (built-in)                 |
-| QuickInfoBadges     | Yes         | 2. Hook           | gray (fixed)                 |
+| QuickInfoBadges     | Manual badges only | 2. Hook    | gray (fixed)                 |
 | ~~NumberedSteps~~   | ~~Excluded~~ | —                | —                            |
 | VideoEmbed          | Recommended | 4. Convince       | white, gray, navy            |
 | FeatureGrid         | Optional    | 5. Educate        | white, gray, navy            |

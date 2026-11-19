@@ -91,7 +91,6 @@ Import all components from `@/components/product-sections`:
 ```tsx
 import {
   HeroSection,
-  QuickInfoBadges,
   SkillTags,
   NumberedSteps,
   VideoEmbed,
@@ -116,7 +115,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   // ... other imports
 } from "@/components/product-sections";
 
@@ -147,16 +145,9 @@ export default async function ProductNamePage() {
         product={product}
         tagline="..."
         highlights={[...]}
+        heroImage="/images/products/{slug}/{child-or-build-photo}.jpg"
+        heroImageAlt="..."
         addons={addons}
-      />
-
-      {/* Required: Quick Info Badges */}
-      <QuickInfoBadges
-        age="..."
-        skill="beginner|intermediate|advanced"
-        supervision={true|false}
-        batteries="..."
-        badges={[...]}
       />
 
       {/* Optional sections based on content... */}
@@ -232,8 +223,7 @@ ls -la assets/product/{slug}/logo/
 Based on the research content, determine:
 
 **Required sections (always include):**
-- HeroSection
-- QuickInfoBadges
+- HeroSection (pass `heroImage`: a lifestyle photo of the child mid-build or the finished build; the hero shows the metafield fit facts itself, so do not add QuickInfoBadges)
 - WhatsIncluded
 - CallToAction
 - RelatedProducts
@@ -413,7 +403,7 @@ The skill produces:
 Before completing, verify:
 
 - [ ] Content file was read: `assets/product/{slug}/content.md`
-- [ ] All required sections included (HeroSection, QuickInfoBadges, WhatsIncluded, CallToAction, RelatedProducts)
+- [ ] All required sections included (HeroSection with `heroImage`, WhatsIncluded, CallToAction, RelatedProducts); no `<QuickInfoBadges product={product} />`
 - [ ] `<ProductJsonLd product={product} />` included for schema.org structured data
 - [ ] `openGraph.images` included in `generateMetadata` for social sharing
 - [ ] HeroSection receives `product` prop (dynamic data) - no hardcoded prices/availability

@@ -416,9 +416,9 @@
       "name": "Add to Cart",
       "kind": "button",
       "refersTo": "button-add-to-cart",
-      "description": "The product hero purchase button: outlined navy, filling navy on hover, Sprout Green once added. The one call to action that is not orange.",
-      "html": "<button class=\"ds-btn-cart\" type=\"button\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.5L22 8H6\"/><circle cx=\"10\" cy=\"20\" r=\"1\"/><circle cx=\"18\" cy=\"20\" r=\"1\"/></svg> Add to cart</button>",
-      "css": ".ds-btn-cart { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 320px; padding: 16px 24px; background: transparent; color: #0C1446; font-weight: 600; font-size: 16px; line-height: 24px; border: 2px solid #0C1446; border-radius: 8px; cursor: pointer; transition: background 150ms, color 150ms; } .ds-btn-cart:hover { background: #0C1446; color: #FFFFFF; } .ds-btn-cart:active { transform: translateY(1px); } .ds-btn-cart:disabled { opacity: 0.5; cursor: not-allowed; } .ds-btn-cart:focus-visible { outline: 2px solid #0C1446; outline-offset: 2px; }"
+      "description": "The product hero purchase button: Launch Orange with a navy label and the price, filling navy on hover, Sprout Green with navy text once added. The only purchase control in the hero; no stepper, no second button.",
+      "html": "<button class=\"ds-btn-cart\" type=\"button\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.5L22 8H6\"/><circle cx=\"10\" cy=\"20\" r=\"1\"/><circle cx=\"18\" cy=\"20\" r=\"1\"/></svg> Add to cart · R 1,480</button>",
+      "css": ".ds-btn-cart { font-family: Outfit, sans-serif; display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 320px; padding: 16px 24px; background: #FF8B00; color: #0C1446; font-weight: 600; font-size: 18px; line-height: 28px; border: none; border-radius: 8px; cursor: pointer; transition: background 150ms, color 150ms; } .ds-btn-cart:hover { background: #0C1446; color: #FFFFFF; } .ds-btn-cart:active { transform: translateY(1px); } .ds-btn-cart:disabled { background: #F3F4F6; color: #4B5563; cursor: not-allowed; } .ds-btn-cart:focus-visible { outline: 2px solid #0C1446; outline-offset: 2px; }"
     },
     {
       "name": "Form Submit",
@@ -498,7 +498,7 @@
     "overview": "CREATESPACE looks like a workbench set up under a clear night sky. Deep Space Navy is the sky: a calm, trustworthy ground that fills the hero, the header and footer, the education and newsletter bands and the page headers. Against it, the brand's toy-bright accents (orange, blue, purple, green, yellow, red) behave like kit pieces scattered on the bench: they light up single words, prices, badges and the outlined illustrations of robots, planets and atoms that drift at the edges of a section. White pages are the bench itself, where product photography and plain-language copy do the selling.\n\nThe feel is friendly and confident rather than loud. One typeface, Outfit, does everything: SemiBold for headings and buttons, Regular for reading, heavier weights only for prices and badges. Shapes are soft (8px buttons, 16px cards, full pills for anything that reads as a label) and surfaces are flat; depth comes from blurred blue and purple glows on navy and from faint navy-tinted lift on hover, never from heavy drop shadows. Motion is quick and opt-in: content fades up as it arrives, cards stagger in, controls nudge down a pixel when pressed, and all of it switches off under reduced motion.\n\nThe storefront is designed for a parent on a phone deciding whether a kit fits their child, so every surface leads with the thing the child will make, states the age and the price plainly, and keeps the single orange action in reach. Three looks are confirmed rejections: the discount toy shop (wall-to-wall sale red, starbursts, cluttered grids of boxes), corporate edtech (stock classrooms, grey SaaS cards, jargon-led heroes), and the childish cartoon (bubble lettering, confetti, mascot-driven layouts). The site talks to the parent, not the child.",
     "keyCharacteristics": [
       "Navy or white ground, always; accents are highlights, never backgrounds.",
-      "Launch Orange is the action colour: every call to action is orange, with the navy add-to-cart as the one deliberate exception.",
+      "Launch Orange is the action colour: every call to action is orange, including the product hero's add-to-cart (orange with a navy label); the navy quick-add on product cards is the one deliberate exception.",
       "Rocket Red marks money and urgency: discount badges, sale prices, the promo badge, errors.",
       "One family, Outfit: SemiBold headlines, Regular body, Bold only for prices, stats and badges.",
       "Soft, friendly corners and pill-shaped labels.",
@@ -514,7 +514,7 @@
       },
       {
         "name": "The Orange Means Go Rule",
-        "body": "Launch Orange is the fill for every call to action that moves the visitor on (browse, for schools, contact, subscribe), on navy and on white alike. Secondary actions are outlined ghosts in white or navy, never a second accent colour. The two purchase buttons are the deliberate exception: the add-to-cart is an outlined navy button and the card quick-add is navy-filled; both turn orange or navy on hover and Sprout Green once the item is in the cart.",
+        "body": "Launch Orange is the fill for every call to action that moves the visitor on (browse, for schools, contact, subscribe), on navy and on white alike. Secondary actions are outlined ghosts in white or navy, never a second accent colour. The product hero's add-to-cart is orange with a navy label (white on orange fails AA) and fills navy on hover; the card quick-add is the one navy-filled purchase button. Both turn Sprout Green with navy text once the item is in the cart.",
         "section": "colors"
       },
       {
@@ -545,7 +545,7 @@
     ],
     "dos": [
       "Do ground every section on Deep Space Navy, Clean White or Workbench Mist, and let the accents appear as small, bright shapes.",
-      "Do make every call to action Launch Orange with a white SemiBold label, 16px by 32px padding and 8px corners; use a navy label only on full-width form submits, and keep the add-to-cart as an outlined navy button.",
+      "Do make every call to action Launch Orange with a white SemiBold label, 16px by 32px padding and 8px corners; use a navy label on full-width form submits and on the product hero's add-to-cart.",
       "Do reserve Rocket Red for discount badges, sale prices, the promo badge, out-of-stock and errors.",
       "Do highlight one or two words of a headline in orange or blue, keeping the rest navy or white.",
       "Do keep headlines at Outfit SemiBold (600) in sentence case; save 700 and 800 for prices, stats and badges.",

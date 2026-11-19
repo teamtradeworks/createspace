@@ -245,7 +245,11 @@ Can also use image paths (e.g., `/images/icons/custom.svg`) or add new SVG files
 
 ## HeroSection
 
-Product hero with image gallery, pricing, delivery info, and add-to-cart. Requires Shopify product data.
+The decision card. A parent on a phone sees, in order: the gallery (led by `heroImage` when a page supplies a lifestyle photo), brand, title, rating, tagline, the fit facts, the price and stock line, one orange add-to-cart button with the price on it, then the highlights, delivery and trust facts, and category chips. Requires Shopify product data.
+
+**Fit facts** are derived from the product metafields by `getFitFacts` in `src/lib/product-fit.ts` and written in parent language (Age "8 to 12", Batteries "3 x AA, not in the box", Projects "15 projects", Instructions, Coding, Soldering "None needed"). Facts whose metafield is missing are left out. They sit above the price so the fit question is answered before the ask; do not repeat them in `highlights`.
+
+**Purchase block** (`ProductActions`): a single full-width orange button labelled "Add to cart · R 1,480". There is no quantity stepper (quantity is changed in the cart) and no "Buy it now". After adding, an inline nudge confirms, links to the cart, and offers each available add-on with its own Add button; the nudge stays open while an add-on is still on offer. On phones a sticky bottom bar (thumbnail, title, price, age, Add to cart) slides in once the hero button scrolls off the top of the screen, and the floating WhatsApp button and cart toast lift above it. Out of stock replaces the button with a disabled "Out of stock" and a WhatsApp link to ask when it is back; the delivery promise is hidden.
 
 **Props:**
 
@@ -253,11 +257,17 @@ Product hero with image gallery, pricing, delivery info, and add-to-cart. Requir
 |------|------|----------|---------|-------------|
 | `product` | `ProductDetail` | Yes | — | Shopify product data |
 | `tagline` | `string` | No | — | Short tagline under title |
-| `highlights` | `string[]` | No | — | Key feature bullet points with checkmarks |
-| `heroImage` | `string` | No | — | Custom hero image (prepended to gallery) |
-| `addons` | `SerializedAddon[]` | No | — | Product add-ons for upselling |
+| `highlights` | `string[]` | No | — | Benefit bullet points with ticks, shown below the button |
+| `heroImage` | `string` | No | — | Lifestyle photo shown first in the gallery, cropped to fill the frame. Prefer a child mid-build or the finished build over the box |
+| `heroImageAlt` | `string` | No | product title | Alt text for `heroImage` |
+| `addons` | `SerializedAddon[]` | No | — | Add-ons offered after the item is in the cart |
+| `canonicalPath` | `string` | No | `/product/{handle}` | Breadcrumb path when the folder name differs from the handle |
+| `digital` | `boolean` | No | derived | Force digital treatment (no delivery facts, "Available now") |
+| `vendorOverride` | `string` | No | — | Replace the brand label |
+| `insertVideosAfterImage` | `number` | No | — | Insert Shopify videos after this image index |
+| `interleaveMedia` | `boolean` | No | `false` | Alternate images and videos in the gallery |
 
-**Already includes:** Breadcrumb, image gallery, title, price, availability, delivery info, add-to-cart button.
+**Already includes:** Breadcrumb, gallery, title, rating, fit facts, price, stock line, add-to-cart with sticky phone bar, highlights, delivery and trust facts, category chips. Also fires `product_price_visible` and `product_atc_visible` once each when those elements come into view.
 
 **Example:**
 ```tsx
@@ -265,10 +275,12 @@ Product hero with image gallery, pricing, delivery info, and add-to-cart. Requir
   product={product}
   tagline="The perfect introduction to electronics"
   highlights={[
-    "15+ hands-on projects",
-    "No soldering required",
-    "Comprehensive guidebook included",
+    "Build a robot that actually drives",
+    "Picture instructions they can follow alone",
+    "Grows with them: block code first, text code later",
   ]}
+  heroImage="/images/products/example/child-building-robot.jpg"
+  heroImageAlt="Child building the robot at the kitchen table"
   addons={addons}
 />
 ```
@@ -458,13 +470,14 @@ Grid of project cards with image thumbnails. Shows off projects, challenges, and
 
 ## QuickInfoBadges
 
-Displays key product information at a glance using icon badges. All badges are **derived automatically from Shopify product metafields** — just pass the product object.
+Icon badges in a band under the hero. **No longer used for metafield facts:** the HeroSection now carries age, batteries, projects, guide, coding and soldering as fit facts above the price, so passing `product` here would repeat them. Use it only with manual `badges` for page-specific facts the metafields cannot express (a bundle's kit count, a book's page count).
 
 **Props:**
 
 | Prop | Type | Required | Default | Description |
 |------|------|----------|---------|-------------|
-| `product` | `ProductDetail` | No | — | Shopify product data (badges derived from metafields) |
+| `badges` | `ManualBadge[]` | No | — | `{ icon, label, value }` entries to show |
+| `product` | `ProductDetail` | No | — | Legacy: derives badges from metafields. Do not pass on product pages; the hero already shows these |
 
 **Badges derived from metafields:**
 
@@ -479,7 +492,12 @@ Displays key product information at a glance using icon badges. All badges are *
 
 **Example:**
 ```tsx
-<QuickInfoBadges product={product} />
+<QuickInfoBadges
+  badges={[
+    { icon: "tag", label: "Kits", value: "3 in the bundle" },
+    { icon: "time", label: "Build time", value: "About an hour" },
+  ]}
+/>
 ```
 
 ---

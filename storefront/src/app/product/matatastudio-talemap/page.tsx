@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   ExtensionBanner,
-  QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
   WhatsIncluded,
@@ -58,8 +57,6 @@ export default async function TaleMatPage() {
         parentProductHref={parentProductHref}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Collaboration */}
       <ImageTextBlock

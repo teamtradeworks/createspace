@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -45,8 +44,6 @@ export default async function UltimateMega2560StarterKitPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Components Overview */}
       <ImageTextBlock

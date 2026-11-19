@@ -90,7 +90,6 @@ Import components from `@/components/product-sections`:
 ```tsx
 import {
   HeroSection,
-  QuickInfoBadges,
   SkillTags,
   VideoEmbed,
   FeatureGrid,
@@ -120,8 +119,8 @@ Required sections in bold. See `simple-product-content-framework.md` for full ru
 
 | # | Section | Status |
 |---|---|---|
-| 1 | **HeroSection** | Required |
-| 2 | **QuickInfoBadges** | Required |
+| 1 | **HeroSection** (with `heroImage`; shows the fit facts itself) | Required |
+| 2 | ~~QuickInfoBadges~~ (the hero carries the metafield facts) | Do not add |
 | 3 | SkillTags | Optional |
 | 4 | VideoEmbed | Optional |
 | 5 | FeatureGrid | Recommended |
@@ -262,7 +261,7 @@ Before completing, verify:
 - [ ] Content file was read: `assets/product/{slug}/content.md`
 - [ ] Every specific fact (mission names, counts, contents, specs, safety claims, age ranges) is traceable to `content.md` — nothing invented
 - [ ] Simple content framework was read: `assets/brand/simple-product-content-framework.md`
-- [ ] Required sections included: HeroSection, QuickInfoBadges, ProductFAQ, WhatsIncluded, CallToAction
+- [ ] Required sections included: HeroSection with `heroImage`, ProductFAQ, WhatsIncluded, CallToAction; no `<QuickInfoBadges product={product} />`
 - [ ] **NumberedSteps is NOT included**
 - [ ] Hero tagline is experiential, not outcome-led
 - [ ] No coding/electronics/soldering/platform language anywhere unless genuinely a feature
