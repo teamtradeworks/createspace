@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--
+  "Shopping for someone in particular?" box for the Black Friday email, as one
+  image for a Shopify Messaging Image section. Laid out at the email's 600px
+  width and rendered at 2x (1200px wide) by the command at the bottom.
+  An image takes one link, so the pills are not separately tappable: link the
+  whole image to /shop.
+
+  Render (from this folder):
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless \
+      --hide-scrollbars --allow-file-access-from-files --force-device-scale-factor=2 \
+      --window-size=600,300 --screenshot=exports/email-finder.png "file://$PWD/email-finder.html"
+-->
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <title>Shopping for someone in particular?</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <style>
+    html, body { margin: 0; width: 600px; height: 300px; background: #fff; overflow: hidden; }
+    body { font-family: var(--cs-font); color: var(--cs-navy); }
+    .box {
+      margin: 12px 24px;
+      height: 276px;
+      box-sizing: border-box;
+      padding: 26px 20px 0;
+      border-radius: 16px;
+      background: #f3e6ff;
+      text-align: center;
+    }
+    h2 { margin: 0; font-size: 23px; font-weight: 600; line-height: 1.2; letter-spacing: -0.01em; }
+    p { margin: 6px 0 18px; font-size: 15px; color: #4a5270; }
+    .row { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
+    .row span {
+      padding: 6px 15px 7px;
+      border-radius: 999px;
+      background: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .age span { font-size: 15px; padding: 6px 18px 7px; }
+    .a1 { background: var(--cs-yellow) !important; }
+    .a2 { background: var(--cs-green) !important; }
+    .a3 { background: var(--cs-blue) !important; }
+    .a4 { background: var(--cs-orange) !important; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>Shopping for someone in particular?</h2>
+    <p>Filter our shop by age, category and brand to find kits that fit.</p>
+    <div class="row age"><span class="a1">3 to 5</span><span class="a2">6 to 8</span><span class="a3">9 to 12</span><span class="a4">13+</span></div>
+    <div class="row"><span>Robotics &amp; Coding</span><span>Space &amp; Astronomy</span><span>Chemistry</span></div>
+    <div class="row"><span>Makerzoid</span><span>MatataStudio</span><span>Robotico</span></div>
+    <div class="row"><span>Snap Circuits</span><span>National Geographic</span></div>
+  </div>
+</body>
+</html>

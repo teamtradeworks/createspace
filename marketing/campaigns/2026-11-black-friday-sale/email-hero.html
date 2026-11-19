@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+  Black Friday newsletter hero. Email image (1200 x 800, shows at 600 x 400).
+  Goes in the Image section at the top of the Shopify Messaging email
+  (see email-shopify-messaging.md), straight under a navy Header section so
+  the top of the email reads as one navy block.
+  Navy ground, white "Black Friday", yellow "Up to 20% off" tag, red date pill
+  (red marks the sale), VinciBot drawing photo on the right.
+  No button and no logo on the image: the email's Header and Button sections
+  carry those, so they still work with images blocked.
+-->
+<html lang="en-ZA" data-canvas="email-hero">
+<head>
+  <meta charset="utf-8">
+  <title>Black Friday: up to 20% off STEM kits</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="sale.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      padding: 76px 72px;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cs-yellow);
+    }
+
+    h1 {
+      margin: 22px 0 0;
+      font-size: 156px;
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      align-self: flex-start;
+      margin-top: 36px;
+      padding: 14px 30px 18px;
+      border-radius: 14px;
+      background: var(--cs-yellow);
+      color: var(--cs-navy);
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      transform: rotate(-2deg);
+    }
+
+    .sale-pill {
+      align-self: flex-start;
+      margin-top: 44px;
+      font-size: 26px;
+      padding: 17px 28px 18px;
+    }
+
+    .photo {
+      position: absolute;
+      top: 110px;
+      right: 64px;
+      width: 470px;
+      height: 580px;
+      border-radius: 36px;
+      overflow: hidden;
+      background: #fff;
+      transform: rotate(2.5deg);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 40% 50%;
+    }
+
+    .doodle {
+      position: absolute;
+      width: 110px;
+      height: auto;
+    }
+    .doodle.planet { z-index: 1; right: 470px; top: 64px; width: 120px; transform: rotate(-12deg); }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <p class="eyebrow">The sale is on</p>
+    <h1>Black<br>Friday</h1>
+    <span class="tag">Up to 20% off</span>
+    <span class="sale-pill">19 to 30 Nov</span>
+    <img class="doodle planet" src="../../creative/kit/illustrations/planet-1.svg" alt="">
+    <div class="photo"><img src="images/vincibot-drawing-plane.jpg" alt=""></div>
+  </main>
+</body>
+</html>
