@@ -1,0 +1,186 @@
+/*
+ * Marble run Christmas review: styles shared by feed-portrait, feed-square
+ * and story. Fonts, CI colours and the reset come from
+ * ../../creative/kit/brand.css; the canvas size from canvas.js. Each canvas
+ * file overrides positions and sizes in its own <style> block; the values
+ * here are the feed-portrait layout.
+ */
+:root {
+  --margin: 72px;
+  --ink: #0c1446;
+  --slate: #4b5563;
+  --bow: #f70b28;
+  --bow-dark: #b5061b;
+  --bow-light: #ff5168;
+}
+
+* { margin: 0; padding: 0; }
+img { display: block; }
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-family: var(--cs-font);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glow Not Shadow: soft blue and purple light behind the photo and card */
+.glow { position: absolute; border-radius: 50%; filter: blur(110px); pointer-events: none; }
+.glow--blue { background: rgb(60 199 247 / 0.28); width: 720px; height: 600px; left: 360px; top: 380px; }
+.glow--purple { background: rgb(172 77 255 / 0.26); width: 680px; height: 600px; left: -160px; top: 700px; }
+
+/* ---------- Baubles hanging from the top ---------- */
+.lights { position: absolute; left: 0; top: 0; width: 1080px; height: 420px; overflow: visible; }
+.lights .string { stroke: #2b3577; stroke-width: 2.5; }
+
+.wordmark { position: absolute; left: var(--margin); top: 80px; height: 38px; width: auto; }
+
+.kicker {
+  position: absolute;
+  left: var(--margin);
+  top: 172px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cs-yellow);
+}
+.kicker svg { width: 26px; height: 26px; }
+.kicker path { fill: currentColor; }
+
+h1 {
+  position: absolute;
+  left: var(--margin);
+  width: 760px;
+  top: 220px;
+  font-size: 88px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+h1 em { font-style: normal; color: var(--cs-orange); }
+
+/* Names the product straight under the headline */
+.lede {
+  position: absolute;
+  left: var(--margin);
+  top: 418px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: rgb(255 255 255 / 0.88);
+}
+.lede b { font-weight: 600; color: var(--cs-white); }
+.lede .age { color: var(--cs-blue); font-weight: 600; }
+
+/* The box, propped against the photo so the product is unmistakable */
+.box {
+  position: absolute;
+  left: 716px;
+  top: 922px;
+  width: 312px;
+  height: auto;
+  transform: rotate(5deg);
+  filter: drop-shadow(0 22px 26px rgb(2 5 26 / 0.6)) drop-shadow(0 3px 6px rgb(2 5 26 / 0.4));
+}
+
+/* The photo, lying at a slight angle */
+.photo {
+  position: absolute;
+  left: 330px;
+  top: 500px;
+  width: 680px;
+  height: 500px;
+  border-radius: 18px;
+  overflow: hidden;
+  transform: rotate(2deg);
+  box-shadow: 0 30px 60px -10px rgb(2 5 26 / 0.6), 0 4px 10px rgb(2 5 26 / 0.35);
+  outline: 10px solid var(--cs-white);
+}
+.photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* The review card, tied with a red bow like a present */
+.review {
+  position: absolute;
+  left: 48px;
+  top: 748px;
+  width: 560px;
+  padding: 46px 46px 38px 48px;
+  border-radius: 18px;
+  background: var(--cs-white);
+  color: var(--ink);
+  transform: rotate(-2deg);
+  box-shadow: 0 30px 60px -10px rgb(2 5 26 / 0.65), 0 4px 10px rgb(2 5 26 / 0.35);
+}
+.stars { display: flex; gap: 6px; margin-bottom: 20px; }
+.stars svg { width: 40px; height: 40px; }
+.stars path { fill: var(--cs-yellow); stroke: #e0a800; stroke-width: 1.2; stroke-linejoin: round; }
+
+blockquote {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1.36;
+  letter-spacing: -0.005em;
+}
+blockquote b { font-weight: 600; }
+
+.who {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 2px solid #e4e8f3;
+  font-size: 21px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+
+.bow {
+  position: absolute;
+  right: -50px;
+  top: -70px;
+  width: 180px;
+  height: 158px;
+  overflow: visible;
+  transform: rotate(10deg);
+  filter: drop-shadow(0 8px 10px rgb(2 5 26 / 0.35));
+}
+
+.twinkle { position: absolute; display: block; }
+.twinkle path { fill: currentColor; }
+
+/* Footer */
+.buy {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: 60px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 32px;
+}
+
+/* Orange Means Go: navy label on Launch Orange */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  padding: 0 40px 0 44px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  color: var(--cs-navy);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cta svg { width: 30px; height: 30px; }
