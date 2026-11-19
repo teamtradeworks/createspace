@@ -34,6 +34,8 @@
     "google-business-portrait": { w: 1080, h: 1920, safe: { top: 90, right: 0, bottom: 90, left: 0 } },
     // IAB display banners bought directly from publishers (e.g. Parenting Hub)
     "display-mrec": { w: 300, h: 250, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
+    // Email images (Shopify Messaging, Resend): 600px column, drawn at 2x
+    "email-hero": { w: 1200, h: 800, safe: { top: 0, right: 0, bottom: 0, left: 0 } },
   };
 
   // Trim sizes in mm, portrait. Append "-landscape" to the name to rotate.

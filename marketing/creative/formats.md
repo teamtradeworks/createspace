@@ -48,6 +48,18 @@ Notes:
 - It shows at actual size, so keep type at 12px or larger and the headline to six words or fewer.
 - `render.sh` exports at 1x. If the publisher asks for a retina file, render again with Chrome's `--force-device-scale-factor=2` for a 600 x 500 PNG. Most publisher ad servers cap files at about 150KB.
 
+## Screen (email)
+
+| Canvas | Size (px) | Ratio | Where it runs | Keep clear |
+|---|---|---|---|---|
+| `email-hero` | 1200 x 800 | 3:2 | Hero image at the top of a newsletter (Shopify Messaging Image section, or react-email). Shows at 600 x 400, and at about 375px wide on a phone | Nothing enforced. Keep type at 56px or larger so it stays readable at phone width |
+
+Notes:
+
+- Many inboxes block images until the reader taps "show images", so the email repeats the headline and dates in a live Text section, and the image needs alt text.
+- Keep buttons out of the image: a native Button section is tappable everywhere and stays readable with images off.
+- Export to JPEG at about quality 85 if the PNG is over 300KB; Shopify Messaging accepts both.
+
 ## Print
 
 All print canvases are built with **3mm bleed** on every side and a **5mm safe margin** inside the trim line. `render.sh` exports two PDFs from the same file: one with bleed for a print shop, one trimmed for an office printer.
