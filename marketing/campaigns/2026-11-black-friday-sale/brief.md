@@ -123,6 +123,10 @@ Small numbers, different seasons, and a Meta purchase isn't necessarily a Robot 
 
 **Same series, two more products (Superbot, VinciBot).** The "200+ builds" layout repeated for the next two best sellers with a 20% sale and healthy stock: Superbot (#4 by 12-month sales, 138 in stock) with "26+ builds. One box. R 300 off." and the built racing car in front of its box; VinciBot (#5, the biggest rand saving at R 520, and a second brand for ages 8 to 12) with "8 sensors. One robot. R 520 off." and the robot with its box, remote and challenge booklet. Tale-Bot Pro (#3) stays out for its 2.8 months of stock; Smart Robot Premium (#6) would repeat the Robot Master's "200+ models" message.
 
+**Instagram organic post, yellow (`feed-portrait-instagram-yellow.html`, 2026-11-23).** For the @thecreatespace.za grid, where the last dozen posts are almost all navy. The owner asked to move off the blue ground so this one stands out, so it grounds on Spark Yellow. That is a one-off exception to the Navy-or-White Ground Rule for this post only, not a new system ground. Big navy "BLACK FRIDAY", a red "Up to 20% off" sticker (the only red), the built dinosaur and the Robot Master case on a faint white sunburst, and a navy footer with the dates, free delivery over R 1,500, and an orange "Link in bio" chip (orange stays on navy, so Orange Means Go holds). Organic post, so no UTM link on the image; the bio link carries the traffic.
+
+**Instagram story, yellow (`story-instagram-yellow.html`, 2026-11-23).** Story version of the yellow post, sharing `instagram-yellow.css`. The sticker sits beside the headline, and the top and bottom 270px carry no copy. The empty navy space at the bottom is for the Instagram link sticker, and the orange "Shop the sale" chip has a down arrow pointing to it. Add the link sticker when posting, pointing to `https://www.thecreatespace.co.za/shop?sale=true&utm_source=instagram&utm_medium=social&utm_campaign=2026-11-black-friday-sale&utm_content=story-instagram-yellow`.
+
 **Range.** White ground, headline "Up to 20% off the kits they'll actually use.", a 2 x 2 grid of four product cards (photo, red -20% badge, name, age, struck was-price and red now-price), footer with dates and the CTA.
 
 ## Test: rand saving vs percentage
@@ -204,6 +208,16 @@ Everything else matches: price line (struck was-price, red now-price), pill, CTA
 - Superbot, VinciBot, Build it code it drive it: replace "down from R ..." with "20% off" in the primary text, e.g. "The Makerzoid Superbot is 20% off for Black Friday, now R 1,180." Headlines: "Makerzoid Superbot, 20% off", "VinciBot coding robot, 20% off", "Build it. Code it. Drive it. 20% off".
 - Real engineering: "20% off for Black Friday, until 30 November." Headline "Real engineering, 20% off".
 - Keep "Was R ... Free delivery over R 1,500." as the description on both twins, so only the saving's wording differs.
+
+**Instagram organic post (yellow)**
+
+> Black Friday is on at CREATESPACE! Up to 20% off 35 STEM kits for kids who like to build, code, tinker and explore.
+>
+> Sort the Christmas present now, and it'll still be on the go in January.
+>
+> The sale runs 23 to 30 November, with free delivery on orders over R 1,500. Shop through the link in our bio.
+>
+> #BlackFriday #BlackFridaySA #STEMtoys #STEMforkids #ChristmasGifts #SouthAfrica
 
 **Range**
 
