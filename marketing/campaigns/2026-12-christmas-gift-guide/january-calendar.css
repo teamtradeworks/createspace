@@ -1,0 +1,314 @@
+/*
+ * Christmas gift guide: the January calendar.
+ * The navy ground is the fridge door. A printed January calendar hangs on it,
+ * filled in by a child in marker; each kit's entries are highlighted in the
+ * colour of the magnet holding that kit's photo beside the calendar.
+ *
+ * Fonts, CI colours and the reset come from ../../creative/kit/brand.css;
+ * the canvas size comes from canvas.js (data-canvas on <html>).
+ * Shared by feed-portrait-january, feed-square-january and story-january.
+ * Each canvas file sets the layout variables in its own <style> block.
+ */
+
+@font-face {
+  font-family: "Caveat";
+  src: url("../../creative/kit/fonts/Caveat.ttf") format("truetype");
+  font-weight: 400 700;
+  font-display: block;
+}
+
+:root {
+  --margin: 72px;
+  --ink: #16205e;            /* marker navy, a step lighter than the ground */
+  --pencil: #6b7280;         /* the odd non-kit entry, written in pencil */
+  --cal-line: #e4e7f0;       /* print hairline */
+  --weekend: #f5f7fb;
+  --slate: #4b5563;
+
+  /* one colour per kit: magnet and highlighter match */
+  --kit-robot: #ff8b00;
+  --kit-circuits: #3cc7f7;
+  --kit-vinci: #93db21;
+  --hl-robot: rgb(255 139 0 / 0.42);
+  --hl-circuits: rgb(60 199 247 / 0.45);
+  --hl-vinci: rgb(147 219 33 / 0.55);
+
+  /* calendar geometry, overridden per canvas */
+  --cal-pad: 26px;
+  --cal-head: 84px;
+  --dow: 40px;
+  --cell: 128px;
+  --note: 38px;
+  --daynum: 24px;
+}
+
+* { margin: 0; padding: 0; }
+img { display: block; }
+ol, ul { list-style: none; }
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-family: var(--cs-font);
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Soft blue and purple light (Glow Not Shadow Rule) */
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+}
+.glow--blue { background: rgb(60 199 247 / 0.26); }
+.glow--purple { background: rgb(172 77 255 / 0.22); }
+
+.wordmark {
+  position: absolute;
+  left: var(--margin);
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+h1 {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+h1 em {
+  font-style: normal;
+  color: var(--cs-orange);
+}
+
+/* ---------- the calendar page ---------- */
+
+.cal {
+  position: absolute;
+  background: var(--cs-white);
+  border-radius: 6px;
+  color: var(--cs-navy);
+  padding: var(--cal-pad);
+  transform: rotate(var(--cal-rot, -1.2deg));
+  box-shadow: 0 30px 60px -10px rgb(2 5 26 / 0.6), 0 4px 10px rgb(2 5 26 / 0.35);
+}
+
+.cal-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  height: var(--cal-head);
+  padding: 0 4px;
+}
+.cal-head h2 {
+  font-size: calc(var(--cal-head) * 0.72);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.cal-head .year {
+  font-size: calc(var(--cal-head) * 0.4);
+  font-weight: 500;
+  color: var(--slate);
+}
+
+/* The printed grid and the handwriting share one template, stacked */
+.cal-body { position: relative; }
+.days,
+.notes {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: var(--dow) repeat(5, var(--cell));
+}
+.days {
+  gap: 2px;
+  background: var(--cal-line);
+  border: 2px solid var(--cal-line);
+  border-radius: 3px;
+}
+.notes {
+  position: absolute;
+  inset: 0;
+}
+
+.days li.dow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-size: calc(var(--dow) * 0.5);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.days li {
+  position: relative;
+  background: var(--cs-white);
+}
+.days li:not(.dow):nth-child(7n + 6),
+.days li:not(.dow):nth-child(7n + 7) { background: var(--weekend); }
+.days li.blank { background: #fbfcfd; }
+.days li b {
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  font-size: var(--daynum);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--slate);
+}
+.days li small {
+  position: absolute;
+  left: 9px;
+  right: 6px;
+  bottom: 8px;
+  font-size: calc(var(--daynum) * 0.62);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--slate);  /* not red: red means saving */
+}
+
+/* ---------- the handwriting ---------- */
+
+.note {
+  align-self: start;
+  margin-top: calc(var(--daynum) + 16px);
+  padding: 0 8px 0 12px;
+  font-family: "Caveat", cursive;
+  font-weight: 700;
+  font-size: var(--note);
+  line-height: 0.98;
+  color: var(--ink);
+  transform: rotate(var(--r, -2deg));
+  transform-origin: left top;
+}
+.note span {
+  /* marker highlighter: a fat stroke behind the lower part of each line */
+  background: linear-gradient(180deg, transparent 34%, var(--hl) 34%, var(--hl) 92%, transparent 92%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  padding: 0 4px;
+  border-radius: 3px;
+}
+.note--robot { --hl: var(--hl-robot); }
+.note--circuits { --hl: var(--hl-circuits); }
+.note--vinci { --hl: var(--hl-vinci); }
+.note--pencil {
+  font-weight: 500;
+  color: var(--pencil);
+}
+
+/* ---------- photos stuck on the fridge ---------- */
+
+.stuck {
+  position: absolute;
+  width: var(--photo-w);
+}
+.print {
+  position: relative;
+  background: var(--cs-white);
+  padding: 9px;
+  border-radius: 3px;
+  transform: rotate(var(--r, 2deg));
+  box-shadow: 0 18px 36px -8px rgb(2 5 26 / 0.6), 0 3px 6px rgb(2 5 26 / 0.35);
+}
+.print img {
+  width: 100%;
+  height: var(--photo-h);
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+/* Fridge magnet: a glossy disc in the kit's colour */
+.magnet {
+  position: absolute;
+  z-index: 2;
+  width: var(--magnet, 50px);
+  height: var(--magnet, 50px);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 30%, rgb(255 255 255 / 0.6), rgb(255 255 255 / 0) 42%),
+    var(--c);
+  box-shadow: 0 7px 12px -2px rgb(2 5 26 / 0.55), inset 0 -4px 6px rgb(0 0 0 / 0.16);
+}
+.print .magnet {
+  left: 50%;
+  top: calc(var(--magnet, 50px) * -0.42);
+  margin-left: calc(var(--magnet, 50px) * -0.5);
+}
+
+.kitname {
+  margin-top: 18px;
+  font-size: var(--kitname, 28px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--cs-white);
+}
+.age {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  font-size: var(--kitage, 26px);
+  font-weight: 500;
+  color: rgb(255 255 255 / 0.82);
+}
+.age::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--c);
+  flex-shrink: 0;
+}
+
+.stuck--robot { --c: var(--kit-robot); }
+.stuck--circuits { --c: var(--kit-circuits); }
+.stuck--vinci { --c: var(--kit-vinci); }
+
+/* ---------- footer ---------- */
+
+.buy {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
+.facts {
+  font-size: 32px;
+  line-height: 1.3;
+  font-weight: 500;
+  color: var(--cs-white);
+}
+
+/* Primary action: Launch Orange with a navy label (white on orange fails AA) */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  padding: 0 40px 0 44px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  color: var(--cs-navy);
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.cta svg { width: 30px; height: 30px; }

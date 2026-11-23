@@ -51,6 +51,9 @@ Cut from five kits to three on 2026-11-09 (Hayley: too much copy), then Tale-Bot
 | `feed-portrait.html` | `meta-portrait` | Meta feed (lead asset) | `https://www.thecreatespace.co.za/shop?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=feed-portrait` | 200 OK 2026-11-09 |
 | `feed-square.html` | `meta-square` | Meta feed | `https://www.thecreatespace.co.za/shop?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=feed-square` | 200 OK 2026-11-09 |
 | `story.html` | `meta-story` | Meta stories | `https://www.thecreatespace.co.za/shop?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=story` | 200 OK 2026-11-09 |
+| `feed-portrait-january.html` | `meta-portrait` | Meta feed (January calendar version) | `https://www.thecreatespace.co.za/shop?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=feed-portrait-january` | 200 OK 2026-11-19 |
+| `feed-square-january.html` | `meta-square` | Meta feed (January calendar version) | `https://www.thecreatespace.co.za/shop?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=feed-square-january` | 200 OK 2026-11-19 |
+| `story-january.html` | `meta-story` | Meta stories (January calendar version) | `https://www.thecreatespace.co.za/shop?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=story-january` | 200 OK 2026-11-19 |
 | `feed-portrait-robot-master.html` | `meta-portrait` | Meta feed (single-kit option, added 2026-11-19) | `https://www.thecreatespace.co.za/product/makerzoid-robot-master-premium?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=feed-portrait-robot-master` | Not yet checked |
 | `feed-square-robot-master.html` | `meta-square` | Meta feed (single-kit option) | `https://www.thecreatespace.co.za/product/makerzoid-robot-master-premium?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=feed-square-robot-master` | Not yet checked |
 | `story-robot-master.html` | `meta-story` | Meta stories (single-kit option) | `https://www.thecreatespace.co.za/product/makerzoid-robot-master-premium?utm_source=meta&utm_medium=paid&utm_campaign=2026-12-christmas-gift-guide&utm_content=story-robot-master` | Not yet checked |
@@ -60,6 +63,8 @@ Cut from five kits to three on 2026-11-09 (Hayley: too much copy), then Tale-Bot
 The wish-list ads land on the unfiltered `/shop` because there's no gift page and the three kits span categories and ages. The on-image CTA reads "Shop STEM gifts" rather than "Shop the list" for that reason.
 
 **Design:** a child's wish list to Father Christmas on a tilted notepad page, each wish ticked and matched to the real kit and its age, with a taped photo beside it. Shared styles in `wish-list.css`.
+
+**Design, January calendar version:** the navy ground is a fridge door with a printed January 2027 calendar held on by a magnet, filled in by a child in marker ("built robot #37!", "burglar alarm caught my brother!", "VinciBot in Python now!"). Each kit's photo sits beside or above the calendar under a coloured magnet (orange Makerzoid, blue Snap Circuits, green VinciBot), and that kit's calendar entries are highlighted in the same colour. Same kits, ages, headline and footer as the wish list version. In the story, brand illustrations fill the top and bottom 270px that Instagram covers; no text sits there. Shared styles in `january-calendar.css`.
 
 ## Imagery
 
