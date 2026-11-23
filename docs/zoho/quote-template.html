@@ -84,6 +84,33 @@
         padding: 0;
         display: block;
     }
+    /* Delivery shows FREE when %ShippingCharge% is zero: the amount is written into the cell's class, so a zero becomes cs-ship-0.00 */
+    .cs-free {
+        display: none;
+        font-weight: bold;
+    }
+    .cs-ship-0\.00 .cs-free,
+    .cs-ship-R0\.00 .cs-free {
+        display: inline;
+    }
+    .cs-ship-0\.00 .cs-amt,
+    .cs-ship-R0\.00 .cs-amt {
+        display: none;
+    }
+    /* An item line named "Delivery ..." at 0.00 shows FREE: the item name and amount are written into the row's class */
+    .cs-show-free {
+        display: none;
+    }
+    .cs-name-Delivery.cs-amt-0\.00 .cs-show-free,
+    .cs-name-delivery.cs-amt-0\.00 .cs-show-free,
+    .cs-name-DELIVERY.cs-amt-0\.00 .cs-show-free {
+        display: inline;
+    }
+    .cs-name-Delivery.cs-amt-0\.00 .cs-show-amt,
+    .cs-name-delivery.cs-amt-0\.00 .cs-show-amt,
+    .cs-name-DELIVERY.cs-amt-0\.00 .cs-show-amt {
+        display: none;
+    }
 </style>
 <div style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 9.5pt; color: #0C1446; line-height: 1.45;">
     <div style="padding: 0.12in 0.15in 0 0.15in;">
@@ -151,13 +178,13 @@
                 </tr>
             </thead>
             <tbody id="lineitem">
-                <tr>
+                <tr class="cs-item-row cs-name-%ItemName% cs-amt-%ItemAmount%">
                     <td class="cs-td" style="padding-left: 0;"><span id="tmp_item_name" style="font-weight: bold; word-wrap: break-word;">%ItemName%</span></td>
                     <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_qty">%ItemQty%</span></td>
-                    <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_rate">%ItemRate%</span></td>
+                    <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_rate" class="cs-show-amt">%ItemRate%</span><span class="cs-show-free">FREE</span></td>
                     <td class="cs-td" id="tmp_item_discount" style="text-align: right;">%ItemDiscount%</td>
                     <td class="cs-td" style="text-align: right;">%DiscountAmount%</td>
-                    <td class="cs-td" style="text-align: right; font-weight: bold; padding-right: 0;">%ItemAmount%</td>
+                    <td class="cs-td" style="text-align: right; font-weight: bold; padding-right: 0;"><span class="cs-show-amt">%ItemAmount%</span><span class="cs-show-free">FREE</span></td>
                 </tr>
             </tbody>
             <tbody id="headerItem">
@@ -184,6 +211,10 @@
                                 <tr>
                                     <td class="cs-sum-label">Subtotal</td>
                                     <td class="cs-sum-value" id="tmp_subtotal" style="padding-right: 0;">%EstimateSubTotal%</td>
+                                </tr>
+                                <tr>
+                                    <td class="cs-sum-label">Delivery</td>
+                                    <td class="cs-sum-value cs-ship-%ShippingCharge%" style="padding-right: 0;"><span class="cs-amt">%ShippingCharge%</span><span class="cs-free">FREE</span></td>
                                 </tr>
                             </tbody>
                             <tbody id="taxItems">
@@ -222,7 +253,10 @@
                         </table>
                     </td>
                     <td style="width: 38%; vertical-align: top; padding: 16px 0 0 0;">
-                        <div style="font-size: 9pt; color: #3c4366;">Prices are valid until the date above and subject to stock availability.</div>
+                        <div class="cs-label">Delivery</div>
+                        <div style="margin-top: 8px; font-size: 9pt; color: #3c4366;">Quotation includes delivery via door-to-door courier to your address.</div>
+                        <div class="cs-label" style="margin-top: 18px;">Validity</div>
+                        <div style="margin-top: 8px; font-size: 9pt; color: #3c4366;">Prices are valid until the date above and subject to stock availability.</div>
                     </td>
                 </tr>
             </tbody>

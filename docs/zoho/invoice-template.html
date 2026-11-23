@@ -84,6 +84,19 @@
         padding: 0;
         display: block;
     }
+    /* Delivery shows FREE when %ShippingCharge% is zero: the amount is written into the cell's class, so a zero becomes cs-ship-0.00 */
+    .cs-free {
+        display: none;
+        font-weight: bold;
+    }
+    .cs-ship-0\.00 .cs-free,
+    .cs-ship-R0\.00 .cs-free {
+        display: inline;
+    }
+    .cs-ship-0\.00 .cs-amt,
+    .cs-ship-R0\.00 .cs-amt {
+        display: none;
+    }
 </style>
 <div style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 9.5pt; color: #0C1446; line-height: 1.45;">
     <div style="padding: 0.12in 0.15in 0 0.15in;">
@@ -183,7 +196,7 @@
                                 </tr>
                                 <tr>
                                     <td class="cs-sum-label">Delivery</td>
-                                    <td class="cs-sum-value" style="padding-right: 0;">%ShippingCharge%</td>
+                                    <td class="cs-sum-value cs-ship-%ShippingCharge%" style="padding-right: 0;"><span class="cs-amt">%ShippingCharge%</span><span class="cs-free">FREE</span></td>
                                 </tr>
                             </tbody>
                             <tbody id="taxItems">
@@ -224,6 +237,8 @@
                     <td style="width: 38%; vertical-align: top; padding: 16px 0 0 0;">
                         <div class="cs-label">Proof of Payment</div>
                         <div style="margin-top: 8px; font-size: 9pt; color: #3c4366;">Please use the invoice number as your payment reference and send proof of payment to <b style="color: #0C1446;">info@thecreatespace.co.za</b></div>
+                        <div class="cs-label" style="margin-top: 18px;">Delivery</div>
+                        <div style="margin-top: 8px; font-size: 9pt; color: #3c4366;">The total includes delivery. We send your order with The Courier Guy, door to door anywhere in South Africa, once payment reflects.</div>
                     </td>
                 </tr>
             </tbody>
