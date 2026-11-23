@@ -25,12 +25,17 @@ All five Snap Circuits kits are back in stock, so parents who were waiting can o
 | File | Canvas | Channel | Landing URL |
 |---|---|---|---|
 | `ig-portrait.html` | `meta-portrait` | Instagram feed (organic) | `https://www.thecreatespace.co.za/shop?brand=snap-circuits` (link in bio) |
+| `story-shop.html` | `meta-story` | Instagram story (organic). No text on the image: add a "Shop Snap Circuits" link sticker in the clear navy band under the photos. | `https://www.thecreatespace.co.za/shop?brand=snap-circuits` (link sticker) |
 
 ## Imagery
 
 | File in `images/` | Source | Shows |
 |---|---|---|
 | `snap-circuits-boy-pressing-switch.jpg` | `assets/product/snap-circuits-explorer-junior/lifestyle/boys-hand-in-motion-pressing-a-switch.png` | A child pressing the switch on a built Explorer Junior circuit. Chosen over the darker Arcade board photo, which is a low-res upscale and looked grainy at 1080px. |
+
+| `snap-circuits-my-home-kids-building.jpg` | `assets/product/snap-circuits-my-home/lifestyle/girl-and-boy-playing-with-my-home.jpeg` | Two kids building the My Home kit. Story, main photo. |
+| `snap-circuits-beginner-glowing-board.jpg` | `assets/product/snap-circuits-beginner/end-user/kid-playing-with-board.jpg` | A child pressing a switch on a lit-up Beginner board. Story, left photo. |
+| `snap-circuits-classic-300-girl-smiling.jpg` | `assets/product/snap-circuits-classic-300/lifestyle/girl-smiling-with-kit.png` | A girl smiling over a Classic 300 build. Story, right photo. |
 
 ## Caption (Instagram)
 
