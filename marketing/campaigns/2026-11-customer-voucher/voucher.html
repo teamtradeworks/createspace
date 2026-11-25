@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+  10% off customer voucher. One image per customer, sent by email or WhatsApp.
+
+  Don't edit the code in here by hand. Make a customer's copy with:
+    marketing/campaigns/2026-11-customer-voucher/make-voucher.sh CODE [YYYY-MM-DD]
+  The date is the day the customer receives it (defaults to today); the voucher
+  shows the use-by date 30 days later.
+
+  Previewing in a browser also works: voucher.html?code=ABC123&issued=2026-11-25
+-->
+<html lang="en-ZA" data-canvas="email-hero">
+<head>
+  <meta charset="utf-8">
+  <title>CREATESPACE 10% off voucher</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      padding: 64px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* Glow behind the ticket (The Glow Not Shadow Rule) */
+    .glow {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(110px);
+      pointer-events: none;
+    }
+    .glow--blue { width: 560px; height: 420px; left: 120px; top: 230px; background: rgba(60, 199, 247, 0.25); }
+    .glow--purple { width: 520px; height: 400px; right: 80px; top: 260px; background: rgba(172, 77, 255, 0.2); }
+
+    .art {
+      position: absolute;
+      pointer-events: none;
+    }
+    /* Peeps over the ticket's top edge; the ticket hides its body */
+    .art--robot { width: 215px; right: 80px; top: 4px; z-index: 1; transform: rotate(4deg); }
+    .art--nut { width: 70px; left: 40px; bottom: 120px; opacity: 0.85; transform: rotate(14deg); }
+
+    header {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    header img { height: 46px; display: block; }
+    .kicker {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cs-blue);
+      padding-left: 28px;
+      border-left: 2px solid rgba(255, 255, 255, 0.2);
+      line-height: 46px;
+    }
+
+    /* The ticket: a white paper object lying on the navy ground */
+    .ticket {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 372px 1fr;
+      height: 452px;
+      background: var(--cs-white);
+      color: var(--cs-navy);
+      border-radius: 24px;
+      transform: rotate(-1.2deg);
+      box-shadow: 0 30px 60px -10px rgba(2, 5, 26, 0.6), 0 4px 10px rgba(2, 5, 26, 0.35);
+    }
+    /* Notches where the stub tears off */
+    .ticket::before,
+    .ticket::after {
+      content: "";
+      position: absolute;
+      left: 372px;
+      width: 56px;
+      height: 56px;
+      margin-left: -28px;
+      border-radius: 50%;
+      background: var(--cs-navy);
+    }
+    .ticket::before { top: -28px; }
+    .ticket::after { bottom: -28px; }
+
+    .stub {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 0 0 52px;
+      border-right: 4px dashed #e4e7f0;
+    }
+    .stub__num {
+      font-size: 178px;
+      font-weight: 800;
+      line-height: 0.85;
+      letter-spacing: -8px;
+      color: var(--cs-red);
+      margin-left: -6px;
+    }
+    .stub__off {
+      font-size: 76px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      line-height: 1;
+      margin-top: 14px;
+    }
+    .stub__what {
+      font-size: 30px;
+      font-weight: 400;
+      color: #4a5270;
+      margin-top: 18px;
+    }
+
+    .body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 56px 0 60px;
+      min-width: 0;
+    }
+    .label {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--cs-orange);
+    }
+    .code {
+      margin-top: 14px;
+      height: 132px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px dashed var(--cs-navy);
+      border-radius: 16px;
+      background: #f9fafb;
+      padding: 0 28px;
+      overflow: hidden;
+    }
+    .code span {
+      font-size: 68px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+    .expiry {
+      margin-top: 24px;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .expiry em {
+      font-style: normal;
+      color: var(--cs-orange);
+    }
+    .terms {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+      font-size: 25px;
+      line-height: 1.5;
+      color: #4a5270;
+    }
+    .terms li {
+      position: relative;
+      padding-left: 26px;
+    }
+    .terms li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 15px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--cs-orange);
+    }
+
+    footer {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 28px;
+    }
+    footer p { margin: 0; color: rgba(255, 255, 255, 0.75); }
+    footer strong { color: var(--cs-white); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <main class="canvas" data-code="YOURCODE" data-issued="">
+    <div class="glow glow--blue"></div>
+    <div class="glow glow--purple"></div>
+    <img class="art art--robot" src="../../creative/kit/illustrations/robot-4.svg" alt="">
+    <img class="art art--nut" src="../../creative/kit/illustrations/nut-2.svg" alt="">
+
+    <header>
+      <img src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE">
+      <span class="kicker">A voucher just for you</span>
+    </header>
+
+    <section class="ticket">
+      <div class="stub">
+        <div class="stub__num">10%</div>
+        <div class="stub__off">OFF</div>
+        <div class="stub__what">your next order</div>
+      </div>
+      <div class="body">
+        <div class="label">Your code</div>
+        <div class="code"><span id="code">YOURCODE</span></div>
+        <p class="expiry">Use it by <em id="expiry">25 December 2026</em></p>
+        <ul class="terms">
+          <li>Free delivery on orders over R 1,500 still applies</li>
+          <li>Can't be combined with other promotions</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>Apply code at checkout.</p>
+      <p><strong>www.thecreatespace.co.za</strong></p>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var main = document.querySelector(".canvas");
+      var params = new URLSearchParams(location.search);
+      var code = (params.get("code") || main.getAttribute("data-code") || "YOURCODE").trim().toUpperCase();
+      var issuedRaw = params.get("issued") || main.getAttribute("data-issued");
+
+      // Valid for 30 days from the day the customer receives it
+      var issued = issuedRaw ? new Date(issuedRaw + "T12:00:00") : new Date();
+      var expiry = new Date(issued.getTime());
+      expiry.setDate(expiry.getDate() + 30);
+      document.getElementById("expiry").textContent = expiry.toLocaleDateString("en-ZA", {
+        day: "numeric", month: "long", year: "numeric"
+      });
+
+      // Shrink long codes until they fit the box
+      var el = document.getElementById("code");
+      el.textContent = code;
+      function fit() {
+        var room = el.parentElement.clientWidth - 56;
+        var size = 68;
+        el.style.fontSize = "";
+        while (el.scrollWidth > room && size > 30) {
+          size -= 2;
+          el.style.fontSize = size + "px";
+        }
+      }
+      fit();
+      if (document.fonts) document.fonts.ready.then(fit);
+    })();
+  </script>
+</body>
+</html>
