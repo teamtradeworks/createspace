@@ -11,7 +11,20 @@ interface TrackingState {
   isIntersecting: boolean;
 }
 
-export default function useSectionTracking(sectionName: string, page: string) {
+interface SectionTrackingOptions {
+  /**
+   * Fraction of the section that must be on screen before it counts as viewed.
+   * Sections taller than a phone screen (the hero) can never reach the 0.5
+   * default, so they pass a lower value.
+   */
+  threshold?: number;
+}
+
+export default function useSectionTracking(
+  sectionName: string,
+  page: string,
+  { threshold = 0.5 }: SectionTrackingOptions = {},
+) {
   const ref = useRef<HTMLDivElement>(null);
   const state = useRef<TrackingState>({
     visibleSince: null,
@@ -67,7 +80,7 @@ export default function useSectionTracking(sectionName: string, page: string) {
           flush();
         }
       },
-      { threshold: 0.5 },
+      { threshold },
     );
 
     observer.observe(el);
@@ -80,7 +93,7 @@ export default function useSectionTracking(sectionName: string, page: string) {
       window.removeEventListener("beforeunload", flush);
       flush();
     };
-  }, [sectionName, page]);
+  }, [sectionName, page, threshold]);
 
   return ref;
 }

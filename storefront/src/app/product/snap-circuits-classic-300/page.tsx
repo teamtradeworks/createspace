@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
   ProjectShowcase,
@@ -46,8 +45,6 @@ export default async function SnapCircuitsClassic300Page() {
         addons={addons}
       />
 
-      {/* At a Glance */}
-      <QuickInfoBadges product={product} />
 
       {/* Lifestyle: Child with kit */}
       <ImageTextBlock

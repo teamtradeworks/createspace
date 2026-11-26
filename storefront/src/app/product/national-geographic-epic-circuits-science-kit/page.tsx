@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   VideoEmbed,
   FeatureGrid,
   ImageTextBlock,
@@ -46,8 +45,6 @@ export default async function NatGeoEpicCircuitsPage() {
         addons={addons}
       />
 
-      {/* gray (fixed) */}
-      <QuickInfoBadges product={product} />
 
       {/* white */}
       <VideoEmbed

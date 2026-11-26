@@ -26,7 +26,7 @@ export default function CartToast() {
     <div
       role="status"
       aria-live="polite"
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed bottom-6 max-lg:[.sticky-buy_&]:bottom-24 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
         visible ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"
       }`}
     >

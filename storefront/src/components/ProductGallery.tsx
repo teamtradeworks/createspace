@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 
 export type GalleryItem =
-  | { type: "image"; url: string; altText: string }
+  | { type: "image"; url: string; altText: string; cover?: boolean }
   | { type: "video"; url: string; mimeType: string; previewUrl: string; altText: string };
 
 interface ProductGalleryProps {
@@ -62,7 +62,8 @@ export default function ProductGallery({
             src={selected.url}
             alt={selected.altText || title}
             fill
-            className="object-contain p-4"
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className={selected.cover ? "object-cover" : "object-contain p-4"}
             priority
           />
         )}
@@ -136,7 +137,7 @@ export default function ProductGallery({
 
       {/* Thumbnails */}
       {galleryItems.length > 1 && (
-        <div className="flex gap-3 overflow-x-auto pb-2">
+        <div className="flex gap-3 overflow-x-auto pb-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {galleryItems.map((item, index) => (
             <button
               key={index}
@@ -154,6 +155,7 @@ export default function ProductGallery({
                     src={item.previewUrl}
                     alt={item.altText || `${title} video thumbnail`}
                     fill
+                    sizes="80px"
                     className="object-cover"
                   />
                   {/* Play icon overlay */}
@@ -174,6 +176,7 @@ export default function ProductGallery({
                   src={item.url}
                   alt={item.altText || `${title} thumbnail ${index + 1}`}
                   fill
+                  sizes="80px"
                   className="object-cover"
                 />
               )}

@@ -5,7 +5,6 @@ import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
   FeatureGrid,
-  QuickInfoBadges,
   WhatsIncluded,
   ImageTextBlock,
   ProductFAQ,
@@ -36,7 +35,6 @@ export default async function TaleBotProClassroomSetPage() {
       {/* Hero Section */}
       <HeroSection
         product={product}
-        stockQuantity={1}
         tagline="Bring screen-free coding to every learner in your Foundation Phase classroom"
         highlights={[
           "6 robots, serving groups of 3–4 learners simultaneously across a full class",
@@ -47,8 +45,6 @@ export default async function TaleBotProClassroomSetPage() {
         addons={addons}
       />
 
-      {/* Quick Info Badges */}
-      <QuickInfoBadges product={product} />
 
       {/* Video Section */}
       <VideoEmbed

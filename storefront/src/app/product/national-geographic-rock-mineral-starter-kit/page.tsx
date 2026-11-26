@@ -4,7 +4,6 @@ import { resolveAddonsForHandle, serializeAddons } from "@/lib/product-addons";
 import ProductJsonLd from "@/components/ProductJsonLd";
 import {
   HeroSection,
-  QuickInfoBadges,
   FeatureGrid,
   ImageTextBlock,
   ProductReviews,
@@ -42,8 +41,6 @@ export default async function NatGeoRockMineralStarterKitPage() {
         addons={addons}
       />
 
-      {/* gray (fixed) */}
-      <QuickInfoBadges product={product} />
 
       {/* white */}
       <FeatureGrid
