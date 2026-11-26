@@ -97,6 +97,317 @@
     .cs-ship-R0\.00 .cs-amt {
         display: none;
     }
+    /* Column and total labels: "(incl. VAT)" stays lower case under the upper-case headings */
+    .cs-incl {
+        display: block;
+        text-transform: none;
+        letter-spacing: 0;
+        font-weight: normal;
+    }
+
+    /* Whole numbers without decimals: the value is written into the cell's class (cs-q-2.00, cs-d-10.00).
+       A listed value hides the raw number and prints the clean one; anything else prints as Zoho sends it. */
+    .cs-q-1\.00 .cs-raw { display: none; } .cs-q-1\.00:after { content: "1"; }
+    .cs-q-2\.00 .cs-raw { display: none; } .cs-q-2\.00:after { content: "2"; }
+    .cs-q-3\.00 .cs-raw { display: none; } .cs-q-3\.00:after { content: "3"; }
+    .cs-q-4\.00 .cs-raw { display: none; } .cs-q-4\.00:after { content: "4"; }
+    .cs-q-5\.00 .cs-raw { display: none; } .cs-q-5\.00:after { content: "5"; }
+    .cs-q-6\.00 .cs-raw { display: none; } .cs-q-6\.00:after { content: "6"; }
+    .cs-q-7\.00 .cs-raw { display: none; } .cs-q-7\.00:after { content: "7"; }
+    .cs-q-8\.00 .cs-raw { display: none; } .cs-q-8\.00:after { content: "8"; }
+    .cs-q-9\.00 .cs-raw { display: none; } .cs-q-9\.00:after { content: "9"; }
+    .cs-q-10\.00 .cs-raw { display: none; } .cs-q-10\.00:after { content: "10"; }
+    .cs-q-11\.00 .cs-raw { display: none; } .cs-q-11\.00:after { content: "11"; }
+    .cs-q-12\.00 .cs-raw { display: none; } .cs-q-12\.00:after { content: "12"; }
+    .cs-q-13\.00 .cs-raw { display: none; } .cs-q-13\.00:after { content: "13"; }
+    .cs-q-14\.00 .cs-raw { display: none; } .cs-q-14\.00:after { content: "14"; }
+    .cs-q-15\.00 .cs-raw { display: none; } .cs-q-15\.00:after { content: "15"; }
+    .cs-q-16\.00 .cs-raw { display: none; } .cs-q-16\.00:after { content: "16"; }
+    .cs-q-17\.00 .cs-raw { display: none; } .cs-q-17\.00:after { content: "17"; }
+    .cs-q-18\.00 .cs-raw { display: none; } .cs-q-18\.00:after { content: "18"; }
+    .cs-q-19\.00 .cs-raw { display: none; } .cs-q-19\.00:after { content: "19"; }
+    .cs-q-20\.00 .cs-raw { display: none; } .cs-q-20\.00:after { content: "20"; }
+    .cs-q-21\.00 .cs-raw { display: none; } .cs-q-21\.00:after { content: "21"; }
+    .cs-q-22\.00 .cs-raw { display: none; } .cs-q-22\.00:after { content: "22"; }
+    .cs-q-23\.00 .cs-raw { display: none; } .cs-q-23\.00:after { content: "23"; }
+    .cs-q-24\.00 .cs-raw { display: none; } .cs-q-24\.00:after { content: "24"; }
+    .cs-q-25\.00 .cs-raw { display: none; } .cs-q-25\.00:after { content: "25"; }
+    .cs-q-26\.00 .cs-raw { display: none; } .cs-q-26\.00:after { content: "26"; }
+    .cs-q-27\.00 .cs-raw { display: none; } .cs-q-27\.00:after { content: "27"; }
+    .cs-q-28\.00 .cs-raw { display: none; } .cs-q-28\.00:after { content: "28"; }
+    .cs-q-29\.00 .cs-raw { display: none; } .cs-q-29\.00:after { content: "29"; }
+    .cs-q-30\.00 .cs-raw { display: none; } .cs-q-30\.00:after { content: "30"; }
+    .cs-q-31\.00 .cs-raw { display: none; } .cs-q-31\.00:after { content: "31"; }
+    .cs-q-32\.00 .cs-raw { display: none; } .cs-q-32\.00:after { content: "32"; }
+    .cs-q-33\.00 .cs-raw { display: none; } .cs-q-33\.00:after { content: "33"; }
+    .cs-q-34\.00 .cs-raw { display: none; } .cs-q-34\.00:after { content: "34"; }
+    .cs-q-35\.00 .cs-raw { display: none; } .cs-q-35\.00:after { content: "35"; }
+    .cs-q-36\.00 .cs-raw { display: none; } .cs-q-36\.00:after { content: "36"; }
+    .cs-q-37\.00 .cs-raw { display: none; } .cs-q-37\.00:after { content: "37"; }
+    .cs-q-38\.00 .cs-raw { display: none; } .cs-q-38\.00:after { content: "38"; }
+    .cs-q-39\.00 .cs-raw { display: none; } .cs-q-39\.00:after { content: "39"; }
+    .cs-q-40\.00 .cs-raw { display: none; } .cs-q-40\.00:after { content: "40"; }
+    .cs-q-41\.00 .cs-raw { display: none; } .cs-q-41\.00:after { content: "41"; }
+    .cs-q-42\.00 .cs-raw { display: none; } .cs-q-42\.00:after { content: "42"; }
+    .cs-q-43\.00 .cs-raw { display: none; } .cs-q-43\.00:after { content: "43"; }
+    .cs-q-44\.00 .cs-raw { display: none; } .cs-q-44\.00:after { content: "44"; }
+    .cs-q-45\.00 .cs-raw { display: none; } .cs-q-45\.00:after { content: "45"; }
+    .cs-q-46\.00 .cs-raw { display: none; } .cs-q-46\.00:after { content: "46"; }
+    .cs-q-47\.00 .cs-raw { display: none; } .cs-q-47\.00:after { content: "47"; }
+    .cs-q-48\.00 .cs-raw { display: none; } .cs-q-48\.00:after { content: "48"; }
+    .cs-q-49\.00 .cs-raw { display: none; } .cs-q-49\.00:after { content: "49"; }
+    .cs-q-50\.00 .cs-raw { display: none; } .cs-q-50\.00:after { content: "50"; }
+    .cs-q-51\.00 .cs-raw { display: none; } .cs-q-51\.00:after { content: "51"; }
+    .cs-q-52\.00 .cs-raw { display: none; } .cs-q-52\.00:after { content: "52"; }
+    .cs-q-53\.00 .cs-raw { display: none; } .cs-q-53\.00:after { content: "53"; }
+    .cs-q-54\.00 .cs-raw { display: none; } .cs-q-54\.00:after { content: "54"; }
+    .cs-q-55\.00 .cs-raw { display: none; } .cs-q-55\.00:after { content: "55"; }
+    .cs-q-56\.00 .cs-raw { display: none; } .cs-q-56\.00:after { content: "56"; }
+    .cs-q-57\.00 .cs-raw { display: none; } .cs-q-57\.00:after { content: "57"; }
+    .cs-q-58\.00 .cs-raw { display: none; } .cs-q-58\.00:after { content: "58"; }
+    .cs-q-59\.00 .cs-raw { display: none; } .cs-q-59\.00:after { content: "59"; }
+    .cs-q-60\.00 .cs-raw { display: none; } .cs-q-60\.00:after { content: "60"; }
+    .cs-q-61\.00 .cs-raw { display: none; } .cs-q-61\.00:after { content: "61"; }
+    .cs-q-62\.00 .cs-raw { display: none; } .cs-q-62\.00:after { content: "62"; }
+    .cs-q-63\.00 .cs-raw { display: none; } .cs-q-63\.00:after { content: "63"; }
+    .cs-q-64\.00 .cs-raw { display: none; } .cs-q-64\.00:after { content: "64"; }
+    .cs-q-65\.00 .cs-raw { display: none; } .cs-q-65\.00:after { content: "65"; }
+    .cs-q-66\.00 .cs-raw { display: none; } .cs-q-66\.00:after { content: "66"; }
+    .cs-q-67\.00 .cs-raw { display: none; } .cs-q-67\.00:after { content: "67"; }
+    .cs-q-68\.00 .cs-raw { display: none; } .cs-q-68\.00:after { content: "68"; }
+    .cs-q-69\.00 .cs-raw { display: none; } .cs-q-69\.00:after { content: "69"; }
+    .cs-q-70\.00 .cs-raw { display: none; } .cs-q-70\.00:after { content: "70"; }
+    .cs-q-71\.00 .cs-raw { display: none; } .cs-q-71\.00:after { content: "71"; }
+    .cs-q-72\.00 .cs-raw { display: none; } .cs-q-72\.00:after { content: "72"; }
+    .cs-q-73\.00 .cs-raw { display: none; } .cs-q-73\.00:after { content: "73"; }
+    .cs-q-74\.00 .cs-raw { display: none; } .cs-q-74\.00:after { content: "74"; }
+    .cs-q-75\.00 .cs-raw { display: none; } .cs-q-75\.00:after { content: "75"; }
+    .cs-q-76\.00 .cs-raw { display: none; } .cs-q-76\.00:after { content: "76"; }
+    .cs-q-77\.00 .cs-raw { display: none; } .cs-q-77\.00:after { content: "77"; }
+    .cs-q-78\.00 .cs-raw { display: none; } .cs-q-78\.00:after { content: "78"; }
+    .cs-q-79\.00 .cs-raw { display: none; } .cs-q-79\.00:after { content: "79"; }
+    .cs-q-80\.00 .cs-raw { display: none; } .cs-q-80\.00:after { content: "80"; }
+    .cs-q-81\.00 .cs-raw { display: none; } .cs-q-81\.00:after { content: "81"; }
+    .cs-q-82\.00 .cs-raw { display: none; } .cs-q-82\.00:after { content: "82"; }
+    .cs-q-83\.00 .cs-raw { display: none; } .cs-q-83\.00:after { content: "83"; }
+    .cs-q-84\.00 .cs-raw { display: none; } .cs-q-84\.00:after { content: "84"; }
+    .cs-q-85\.00 .cs-raw { display: none; } .cs-q-85\.00:after { content: "85"; }
+    .cs-q-86\.00 .cs-raw { display: none; } .cs-q-86\.00:after { content: "86"; }
+    .cs-q-87\.00 .cs-raw { display: none; } .cs-q-87\.00:after { content: "87"; }
+    .cs-q-88\.00 .cs-raw { display: none; } .cs-q-88\.00:after { content: "88"; }
+    .cs-q-89\.00 .cs-raw { display: none; } .cs-q-89\.00:after { content: "89"; }
+    .cs-q-90\.00 .cs-raw { display: none; } .cs-q-90\.00:after { content: "90"; }
+    .cs-q-91\.00 .cs-raw { display: none; } .cs-q-91\.00:after { content: "91"; }
+    .cs-q-92\.00 .cs-raw { display: none; } .cs-q-92\.00:after { content: "92"; }
+    .cs-q-93\.00 .cs-raw { display: none; } .cs-q-93\.00:after { content: "93"; }
+    .cs-q-94\.00 .cs-raw { display: none; } .cs-q-94\.00:after { content: "94"; }
+    .cs-q-95\.00 .cs-raw { display: none; } .cs-q-95\.00:after { content: "95"; }
+    .cs-q-96\.00 .cs-raw { display: none; } .cs-q-96\.00:after { content: "96"; }
+    .cs-q-97\.00 .cs-raw { display: none; } .cs-q-97\.00:after { content: "97"; }
+    .cs-q-98\.00 .cs-raw { display: none; } .cs-q-98\.00:after { content: "98"; }
+    .cs-q-99\.00 .cs-raw { display: none; } .cs-q-99\.00:after { content: "99"; }
+    .cs-q-100\.00 .cs-raw { display: none; } .cs-q-100\.00:after { content: "100"; }
+    .cs-q-101\.00 .cs-raw { display: none; } .cs-q-101\.00:after { content: "101"; }
+    .cs-q-102\.00 .cs-raw { display: none; } .cs-q-102\.00:after { content: "102"; }
+    .cs-q-103\.00 .cs-raw { display: none; } .cs-q-103\.00:after { content: "103"; }
+    .cs-q-104\.00 .cs-raw { display: none; } .cs-q-104\.00:after { content: "104"; }
+    .cs-q-105\.00 .cs-raw { display: none; } .cs-q-105\.00:after { content: "105"; }
+    .cs-q-106\.00 .cs-raw { display: none; } .cs-q-106\.00:after { content: "106"; }
+    .cs-q-107\.00 .cs-raw { display: none; } .cs-q-107\.00:after { content: "107"; }
+    .cs-q-108\.00 .cs-raw { display: none; } .cs-q-108\.00:after { content: "108"; }
+    .cs-q-109\.00 .cs-raw { display: none; } .cs-q-109\.00:after { content: "109"; }
+    .cs-q-110\.00 .cs-raw { display: none; } .cs-q-110\.00:after { content: "110"; }
+    .cs-q-111\.00 .cs-raw { display: none; } .cs-q-111\.00:after { content: "111"; }
+    .cs-q-112\.00 .cs-raw { display: none; } .cs-q-112\.00:after { content: "112"; }
+    .cs-q-113\.00 .cs-raw { display: none; } .cs-q-113\.00:after { content: "113"; }
+    .cs-q-114\.00 .cs-raw { display: none; } .cs-q-114\.00:after { content: "114"; }
+    .cs-q-115\.00 .cs-raw { display: none; } .cs-q-115\.00:after { content: "115"; }
+    .cs-q-116\.00 .cs-raw { display: none; } .cs-q-116\.00:after { content: "116"; }
+    .cs-q-117\.00 .cs-raw { display: none; } .cs-q-117\.00:after { content: "117"; }
+    .cs-q-118\.00 .cs-raw { display: none; } .cs-q-118\.00:after { content: "118"; }
+    .cs-q-119\.00 .cs-raw { display: none; } .cs-q-119\.00:after { content: "119"; }
+    .cs-q-120\.00 .cs-raw { display: none; } .cs-q-120\.00:after { content: "120"; }
+    .cs-q-121\.00 .cs-raw { display: none; } .cs-q-121\.00:after { content: "121"; }
+    .cs-q-122\.00 .cs-raw { display: none; } .cs-q-122\.00:after { content: "122"; }
+    .cs-q-123\.00 .cs-raw { display: none; } .cs-q-123\.00:after { content: "123"; }
+    .cs-q-124\.00 .cs-raw { display: none; } .cs-q-124\.00:after { content: "124"; }
+    .cs-q-125\.00 .cs-raw { display: none; } .cs-q-125\.00:after { content: "125"; }
+    .cs-q-126\.00 .cs-raw { display: none; } .cs-q-126\.00:after { content: "126"; }
+    .cs-q-127\.00 .cs-raw { display: none; } .cs-q-127\.00:after { content: "127"; }
+    .cs-q-128\.00 .cs-raw { display: none; } .cs-q-128\.00:after { content: "128"; }
+    .cs-q-129\.00 .cs-raw { display: none; } .cs-q-129\.00:after { content: "129"; }
+    .cs-q-130\.00 .cs-raw { display: none; } .cs-q-130\.00:after { content: "130"; }
+    .cs-q-131\.00 .cs-raw { display: none; } .cs-q-131\.00:after { content: "131"; }
+    .cs-q-132\.00 .cs-raw { display: none; } .cs-q-132\.00:after { content: "132"; }
+    .cs-q-133\.00 .cs-raw { display: none; } .cs-q-133\.00:after { content: "133"; }
+    .cs-q-134\.00 .cs-raw { display: none; } .cs-q-134\.00:after { content: "134"; }
+    .cs-q-135\.00 .cs-raw { display: none; } .cs-q-135\.00:after { content: "135"; }
+    .cs-q-136\.00 .cs-raw { display: none; } .cs-q-136\.00:after { content: "136"; }
+    .cs-q-137\.00 .cs-raw { display: none; } .cs-q-137\.00:after { content: "137"; }
+    .cs-q-138\.00 .cs-raw { display: none; } .cs-q-138\.00:after { content: "138"; }
+    .cs-q-139\.00 .cs-raw { display: none; } .cs-q-139\.00:after { content: "139"; }
+    .cs-q-140\.00 .cs-raw { display: none; } .cs-q-140\.00:after { content: "140"; }
+    .cs-q-141\.00 .cs-raw { display: none; } .cs-q-141\.00:after { content: "141"; }
+    .cs-q-142\.00 .cs-raw { display: none; } .cs-q-142\.00:after { content: "142"; }
+    .cs-q-143\.00 .cs-raw { display: none; } .cs-q-143\.00:after { content: "143"; }
+    .cs-q-144\.00 .cs-raw { display: none; } .cs-q-144\.00:after { content: "144"; }
+    .cs-q-145\.00 .cs-raw { display: none; } .cs-q-145\.00:after { content: "145"; }
+    .cs-q-146\.00 .cs-raw { display: none; } .cs-q-146\.00:after { content: "146"; }
+    .cs-q-147\.00 .cs-raw { display: none; } .cs-q-147\.00:after { content: "147"; }
+    .cs-q-148\.00 .cs-raw { display: none; } .cs-q-148\.00:after { content: "148"; }
+    .cs-q-149\.00 .cs-raw { display: none; } .cs-q-149\.00:after { content: "149"; }
+    .cs-q-150\.00 .cs-raw { display: none; } .cs-q-150\.00:after { content: "150"; }
+    .cs-q-151\.00 .cs-raw { display: none; } .cs-q-151\.00:after { content: "151"; }
+    .cs-q-152\.00 .cs-raw { display: none; } .cs-q-152\.00:after { content: "152"; }
+    .cs-q-153\.00 .cs-raw { display: none; } .cs-q-153\.00:after { content: "153"; }
+    .cs-q-154\.00 .cs-raw { display: none; } .cs-q-154\.00:after { content: "154"; }
+    .cs-q-155\.00 .cs-raw { display: none; } .cs-q-155\.00:after { content: "155"; }
+    .cs-q-156\.00 .cs-raw { display: none; } .cs-q-156\.00:after { content: "156"; }
+    .cs-q-157\.00 .cs-raw { display: none; } .cs-q-157\.00:after { content: "157"; }
+    .cs-q-158\.00 .cs-raw { display: none; } .cs-q-158\.00:after { content: "158"; }
+    .cs-q-159\.00 .cs-raw { display: none; } .cs-q-159\.00:after { content: "159"; }
+    .cs-q-160\.00 .cs-raw { display: none; } .cs-q-160\.00:after { content: "160"; }
+    .cs-q-161\.00 .cs-raw { display: none; } .cs-q-161\.00:after { content: "161"; }
+    .cs-q-162\.00 .cs-raw { display: none; } .cs-q-162\.00:after { content: "162"; }
+    .cs-q-163\.00 .cs-raw { display: none; } .cs-q-163\.00:after { content: "163"; }
+    .cs-q-164\.00 .cs-raw { display: none; } .cs-q-164\.00:after { content: "164"; }
+    .cs-q-165\.00 .cs-raw { display: none; } .cs-q-165\.00:after { content: "165"; }
+    .cs-q-166\.00 .cs-raw { display: none; } .cs-q-166\.00:after { content: "166"; }
+    .cs-q-167\.00 .cs-raw { display: none; } .cs-q-167\.00:after { content: "167"; }
+    .cs-q-168\.00 .cs-raw { display: none; } .cs-q-168\.00:after { content: "168"; }
+    .cs-q-169\.00 .cs-raw { display: none; } .cs-q-169\.00:after { content: "169"; }
+    .cs-q-170\.00 .cs-raw { display: none; } .cs-q-170\.00:after { content: "170"; }
+    .cs-q-171\.00 .cs-raw { display: none; } .cs-q-171\.00:after { content: "171"; }
+    .cs-q-172\.00 .cs-raw { display: none; } .cs-q-172\.00:after { content: "172"; }
+    .cs-q-173\.00 .cs-raw { display: none; } .cs-q-173\.00:after { content: "173"; }
+    .cs-q-174\.00 .cs-raw { display: none; } .cs-q-174\.00:after { content: "174"; }
+    .cs-q-175\.00 .cs-raw { display: none; } .cs-q-175\.00:after { content: "175"; }
+    .cs-q-176\.00 .cs-raw { display: none; } .cs-q-176\.00:after { content: "176"; }
+    .cs-q-177\.00 .cs-raw { display: none; } .cs-q-177\.00:after { content: "177"; }
+    .cs-q-178\.00 .cs-raw { display: none; } .cs-q-178\.00:after { content: "178"; }
+    .cs-q-179\.00 .cs-raw { display: none; } .cs-q-179\.00:after { content: "179"; }
+    .cs-q-180\.00 .cs-raw { display: none; } .cs-q-180\.00:after { content: "180"; }
+    .cs-q-181\.00 .cs-raw { display: none; } .cs-q-181\.00:after { content: "181"; }
+    .cs-q-182\.00 .cs-raw { display: none; } .cs-q-182\.00:after { content: "182"; }
+    .cs-q-183\.00 .cs-raw { display: none; } .cs-q-183\.00:after { content: "183"; }
+    .cs-q-184\.00 .cs-raw { display: none; } .cs-q-184\.00:after { content: "184"; }
+    .cs-q-185\.00 .cs-raw { display: none; } .cs-q-185\.00:after { content: "185"; }
+    .cs-q-186\.00 .cs-raw { display: none; } .cs-q-186\.00:after { content: "186"; }
+    .cs-q-187\.00 .cs-raw { display: none; } .cs-q-187\.00:after { content: "187"; }
+    .cs-q-188\.00 .cs-raw { display: none; } .cs-q-188\.00:after { content: "188"; }
+    .cs-q-189\.00 .cs-raw { display: none; } .cs-q-189\.00:after { content: "189"; }
+    .cs-q-190\.00 .cs-raw { display: none; } .cs-q-190\.00:after { content: "190"; }
+    .cs-q-191\.00 .cs-raw { display: none; } .cs-q-191\.00:after { content: "191"; }
+    .cs-q-192\.00 .cs-raw { display: none; } .cs-q-192\.00:after { content: "192"; }
+    .cs-q-193\.00 .cs-raw { display: none; } .cs-q-193\.00:after { content: "193"; }
+    .cs-q-194\.00 .cs-raw { display: none; } .cs-q-194\.00:after { content: "194"; }
+    .cs-q-195\.00 .cs-raw { display: none; } .cs-q-195\.00:after { content: "195"; }
+    .cs-q-196\.00 .cs-raw { display: none; } .cs-q-196\.00:after { content: "196"; }
+    .cs-q-197\.00 .cs-raw { display: none; } .cs-q-197\.00:after { content: "197"; }
+    .cs-q-198\.00 .cs-raw { display: none; } .cs-q-198\.00:after { content: "198"; }
+    .cs-q-199\.00 .cs-raw { display: none; } .cs-q-199\.00:after { content: "199"; }
+    .cs-q-200\.00 .cs-raw { display: none; } .cs-q-200\.00:after { content: "200"; }
+    .cs-d-0\.00 .cs-raw { display: none; } .cs-d-0\.00:after { content: "0%"; }
+    .cs-d-1\.00 .cs-raw { display: none; } .cs-d-1\.00:after { content: "1%"; }
+    .cs-d-2\.00 .cs-raw { display: none; } .cs-d-2\.00:after { content: "2%"; }
+    .cs-d-3\.00 .cs-raw { display: none; } .cs-d-3\.00:after { content: "3%"; }
+    .cs-d-4\.00 .cs-raw { display: none; } .cs-d-4\.00:after { content: "4%"; }
+    .cs-d-5\.00 .cs-raw { display: none; } .cs-d-5\.00:after { content: "5%"; }
+    .cs-d-6\.00 .cs-raw { display: none; } .cs-d-6\.00:after { content: "6%"; }
+    .cs-d-7\.00 .cs-raw { display: none; } .cs-d-7\.00:after { content: "7%"; }
+    .cs-d-8\.00 .cs-raw { display: none; } .cs-d-8\.00:after { content: "8%"; }
+    .cs-d-9\.00 .cs-raw { display: none; } .cs-d-9\.00:after { content: "9%"; }
+    .cs-d-10\.00 .cs-raw { display: none; } .cs-d-10\.00:after { content: "10%"; }
+    .cs-d-11\.00 .cs-raw { display: none; } .cs-d-11\.00:after { content: "11%"; }
+    .cs-d-12\.00 .cs-raw { display: none; } .cs-d-12\.00:after { content: "12%"; }
+    .cs-d-13\.00 .cs-raw { display: none; } .cs-d-13\.00:after { content: "13%"; }
+    .cs-d-14\.00 .cs-raw { display: none; } .cs-d-14\.00:after { content: "14%"; }
+    .cs-d-15\.00 .cs-raw { display: none; } .cs-d-15\.00:after { content: "15%"; }
+    .cs-d-16\.00 .cs-raw { display: none; } .cs-d-16\.00:after { content: "16%"; }
+    .cs-d-17\.00 .cs-raw { display: none; } .cs-d-17\.00:after { content: "17%"; }
+    .cs-d-18\.00 .cs-raw { display: none; } .cs-d-18\.00:after { content: "18%"; }
+    .cs-d-19\.00 .cs-raw { display: none; } .cs-d-19\.00:after { content: "19%"; }
+    .cs-d-20\.00 .cs-raw { display: none; } .cs-d-20\.00:after { content: "20%"; }
+    .cs-d-21\.00 .cs-raw { display: none; } .cs-d-21\.00:after { content: "21%"; }
+    .cs-d-22\.00 .cs-raw { display: none; } .cs-d-22\.00:after { content: "22%"; }
+    .cs-d-23\.00 .cs-raw { display: none; } .cs-d-23\.00:after { content: "23%"; }
+    .cs-d-24\.00 .cs-raw { display: none; } .cs-d-24\.00:after { content: "24%"; }
+    .cs-d-25\.00 .cs-raw { display: none; } .cs-d-25\.00:after { content: "25%"; }
+    .cs-d-26\.00 .cs-raw { display: none; } .cs-d-26\.00:after { content: "26%"; }
+    .cs-d-27\.00 .cs-raw { display: none; } .cs-d-27\.00:after { content: "27%"; }
+    .cs-d-28\.00 .cs-raw { display: none; } .cs-d-28\.00:after { content: "28%"; }
+    .cs-d-29\.00 .cs-raw { display: none; } .cs-d-29\.00:after { content: "29%"; }
+    .cs-d-30\.00 .cs-raw { display: none; } .cs-d-30\.00:after { content: "30%"; }
+    .cs-d-31\.00 .cs-raw { display: none; } .cs-d-31\.00:after { content: "31%"; }
+    .cs-d-32\.00 .cs-raw { display: none; } .cs-d-32\.00:after { content: "32%"; }
+    .cs-d-33\.00 .cs-raw { display: none; } .cs-d-33\.00:after { content: "33%"; }
+    .cs-d-34\.00 .cs-raw { display: none; } .cs-d-34\.00:after { content: "34%"; }
+    .cs-d-35\.00 .cs-raw { display: none; } .cs-d-35\.00:after { content: "35%"; }
+    .cs-d-36\.00 .cs-raw { display: none; } .cs-d-36\.00:after { content: "36%"; }
+    .cs-d-37\.00 .cs-raw { display: none; } .cs-d-37\.00:after { content: "37%"; }
+    .cs-d-38\.00 .cs-raw { display: none; } .cs-d-38\.00:after { content: "38%"; }
+    .cs-d-39\.00 .cs-raw { display: none; } .cs-d-39\.00:after { content: "39%"; }
+    .cs-d-40\.00 .cs-raw { display: none; } .cs-d-40\.00:after { content: "40%"; }
+    .cs-d-41\.00 .cs-raw { display: none; } .cs-d-41\.00:after { content: "41%"; }
+    .cs-d-42\.00 .cs-raw { display: none; } .cs-d-42\.00:after { content: "42%"; }
+    .cs-d-43\.00 .cs-raw { display: none; } .cs-d-43\.00:after { content: "43%"; }
+    .cs-d-44\.00 .cs-raw { display: none; } .cs-d-44\.00:after { content: "44%"; }
+    .cs-d-45\.00 .cs-raw { display: none; } .cs-d-45\.00:after { content: "45%"; }
+    .cs-d-46\.00 .cs-raw { display: none; } .cs-d-46\.00:after { content: "46%"; }
+    .cs-d-47\.00 .cs-raw { display: none; } .cs-d-47\.00:after { content: "47%"; }
+    .cs-d-48\.00 .cs-raw { display: none; } .cs-d-48\.00:after { content: "48%"; }
+    .cs-d-49\.00 .cs-raw { display: none; } .cs-d-49\.00:after { content: "49%"; }
+    .cs-d-50\.00 .cs-raw { display: none; } .cs-d-50\.00:after { content: "50%"; }
+    .cs-d-51\.00 .cs-raw { display: none; } .cs-d-51\.00:after { content: "51%"; }
+    .cs-d-52\.00 .cs-raw { display: none; } .cs-d-52\.00:after { content: "52%"; }
+    .cs-d-53\.00 .cs-raw { display: none; } .cs-d-53\.00:after { content: "53%"; }
+    .cs-d-54\.00 .cs-raw { display: none; } .cs-d-54\.00:after { content: "54%"; }
+    .cs-d-55\.00 .cs-raw { display: none; } .cs-d-55\.00:after { content: "55%"; }
+    .cs-d-56\.00 .cs-raw { display: none; } .cs-d-56\.00:after { content: "56%"; }
+    .cs-d-57\.00 .cs-raw { display: none; } .cs-d-57\.00:after { content: "57%"; }
+    .cs-d-58\.00 .cs-raw { display: none; } .cs-d-58\.00:after { content: "58%"; }
+    .cs-d-59\.00 .cs-raw { display: none; } .cs-d-59\.00:after { content: "59%"; }
+    .cs-d-60\.00 .cs-raw { display: none; } .cs-d-60\.00:after { content: "60%"; }
+    .cs-d-61\.00 .cs-raw { display: none; } .cs-d-61\.00:after { content: "61%"; }
+    .cs-d-62\.00 .cs-raw { display: none; } .cs-d-62\.00:after { content: "62%"; }
+    .cs-d-63\.00 .cs-raw { display: none; } .cs-d-63\.00:after { content: "63%"; }
+    .cs-d-64\.00 .cs-raw { display: none; } .cs-d-64\.00:after { content: "64%"; }
+    .cs-d-65\.00 .cs-raw { display: none; } .cs-d-65\.00:after { content: "65%"; }
+    .cs-d-66\.00 .cs-raw { display: none; } .cs-d-66\.00:after { content: "66%"; }
+    .cs-d-67\.00 .cs-raw { display: none; } .cs-d-67\.00:after { content: "67%"; }
+    .cs-d-68\.00 .cs-raw { display: none; } .cs-d-68\.00:after { content: "68%"; }
+    .cs-d-69\.00 .cs-raw { display: none; } .cs-d-69\.00:after { content: "69%"; }
+    .cs-d-70\.00 .cs-raw { display: none; } .cs-d-70\.00:after { content: "70%"; }
+    .cs-d-71\.00 .cs-raw { display: none; } .cs-d-71\.00:after { content: "71%"; }
+    .cs-d-72\.00 .cs-raw { display: none; } .cs-d-72\.00:after { content: "72%"; }
+    .cs-d-73\.00 .cs-raw { display: none; } .cs-d-73\.00:after { content: "73%"; }
+    .cs-d-74\.00 .cs-raw { display: none; } .cs-d-74\.00:after { content: "74%"; }
+    .cs-d-75\.00 .cs-raw { display: none; } .cs-d-75\.00:after { content: "75%"; }
+    .cs-d-76\.00 .cs-raw { display: none; } .cs-d-76\.00:after { content: "76%"; }
+    .cs-d-77\.00 .cs-raw { display: none; } .cs-d-77\.00:after { content: "77%"; }
+    .cs-d-78\.00 .cs-raw { display: none; } .cs-d-78\.00:after { content: "78%"; }
+    .cs-d-79\.00 .cs-raw { display: none; } .cs-d-79\.00:after { content: "79%"; }
+    .cs-d-80\.00 .cs-raw { display: none; } .cs-d-80\.00:after { content: "80%"; }
+    .cs-d-81\.00 .cs-raw { display: none; } .cs-d-81\.00:after { content: "81%"; }
+    .cs-d-82\.00 .cs-raw { display: none; } .cs-d-82\.00:after { content: "82%"; }
+    .cs-d-83\.00 .cs-raw { display: none; } .cs-d-83\.00:after { content: "83%"; }
+    .cs-d-84\.00 .cs-raw { display: none; } .cs-d-84\.00:after { content: "84%"; }
+    .cs-d-85\.00 .cs-raw { display: none; } .cs-d-85\.00:after { content: "85%"; }
+    .cs-d-86\.00 .cs-raw { display: none; } .cs-d-86\.00:after { content: "86%"; }
+    .cs-d-87\.00 .cs-raw { display: none; } .cs-d-87\.00:after { content: "87%"; }
+    .cs-d-88\.00 .cs-raw { display: none; } .cs-d-88\.00:after { content: "88%"; }
+    .cs-d-89\.00 .cs-raw { display: none; } .cs-d-89\.00:after { content: "89%"; }
+    .cs-d-90\.00 .cs-raw { display: none; } .cs-d-90\.00:after { content: "90%"; }
+    .cs-d-91\.00 .cs-raw { display: none; } .cs-d-91\.00:after { content: "91%"; }
+    .cs-d-92\.00 .cs-raw { display: none; } .cs-d-92\.00:after { content: "92%"; }
+    .cs-d-93\.00 .cs-raw { display: none; } .cs-d-93\.00:after { content: "93%"; }
+    .cs-d-94\.00 .cs-raw { display: none; } .cs-d-94\.00:after { content: "94%"; }
+    .cs-d-95\.00 .cs-raw { display: none; } .cs-d-95\.00:after { content: "95%"; }
+    .cs-d-96\.00 .cs-raw { display: none; } .cs-d-96\.00:after { content: "96%"; }
+    .cs-d-97\.00 .cs-raw { display: none; } .cs-d-97\.00:after { content: "97%"; }
+    .cs-d-98\.00 .cs-raw { display: none; } .cs-d-98\.00:after { content: "98%"; }
+    .cs-d-99\.00 .cs-raw { display: none; } .cs-d-99\.00:after { content: "99%"; }
+    .cs-d-100\.00 .cs-raw { display: none; } .cs-d-100\.00:after { content: "100%"; }
 </style>
 <div style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 9.5pt; color: #0C1446; line-height: 1.45;">
     <div style="padding: 0.12in 0.15in 0 0.15in;">
@@ -153,18 +464,18 @@
                 <tr>
                     <td class="cs-th" style="text-align: left; padding-left: 0;">Item</td>
                     <td class="cs-th" style="text-align: right; width: 10%;">Qty</td>
-                    <td class="cs-th" style="text-align: right; width: 13%;">Unit Price</td>
+                    <td class="cs-th" style="text-align: right; width: 13%;">Unit Price<span class="cs-incl">(incl. VAT)</span></td>
                     <td class="cs-th" style="text-align: right; width: 13%;">Discount</td>
-                    <td class="cs-th" style="text-align: right; width: 15%;">Discount Amount</td>
-                    <td class="cs-th" style="text-align: right; width: 15%; padding-right: 0;">Amount</td>
+                    <td class="cs-th" style="text-align: right; width: 15%;">Discount Amount<span class="cs-incl">(incl. VAT)</span></td>
+                    <td class="cs-th" style="text-align: right; width: 15%; padding-right: 0;">Amount<span class="cs-incl">(incl. VAT)</span></td>
                 </tr>
             </thead>
             <tbody id="lineitem">
                 <tr>
                     <td class="cs-td" style="padding-left: 0;"><span id="tmp_item_name" style="font-weight: bold; word-wrap: break-word;">%ItemName%</span></td>
-                    <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_qty">%ItemQty%</span></td>
+                    <td class="cs-td cs-q-%ItemQty%" style="text-align: right; white-space: nowrap;"><span id="tmp_item_qty" class="cs-raw">%ItemQty%</span></td>
                     <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_rate">%ItemRate%</span></td>
-                    <td class="cs-td" id="tmp_item_discount" style="text-align: right;">%ItemDiscount%</td>
+                    <td class="cs-td cs-d-%ItemDiscount%" id="tmp_item_discount" style="text-align: right;"><span class="cs-raw">%ItemDiscount%&#37;</span></td>
                     <td class="cs-td" style="text-align: right;">%DiscountAmount%</td>
                     <td class="cs-td" style="text-align: right; font-weight: bold; padding-right: 0;">%ItemAmount%</td>
                 </tr>
@@ -207,7 +518,7 @@
                             </tbody>
                             <tbody>
                                 <tr>
-                                    <td style="padding: 10px 16px 10px 0; border-top: 1.5px solid #0C1446; border-bottom: 1.5px solid #0C1446; text-align: right; font-size: 8pt; font-weight: bold; letter-spacing: 1.4px; text-transform: uppercase; color: #0C1446;">Total Due</td>
+                                    <td style="padding: 10px 16px 10px 0; border-top: 1.5px solid #0C1446; border-bottom: 1.5px solid #0C1446; text-align: right; font-size: 8pt; font-weight: bold; letter-spacing: 1.4px; text-transform: uppercase; color: #0C1446;">Total Due <span style="text-transform: none; letter-spacing: 0;">(incl. VAT):</span></td>
                                     <td id="tmp_total" style="padding: 10px 0; border-top: 1.5px solid #0C1446; border-bottom: 1.5px solid #0C1446; text-align: right; font-size: 13pt; font-weight: bold; color: #0C1446; white-space: nowrap;">%InvoiceTotal%</td>
                                 </tr>
                             </tbody>
