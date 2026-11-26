@@ -158,7 +158,7 @@
     .d84\.00 .r{display:none}.d84\.00:after{content:"84%"} .d85\.00 .r{display:none}.d85\.00:after{content:"85%"} .d86\.00 .r{display:none}.d86\.00:after{content:"86%"} .d87\.00 .r{display:none}.d87\.00:after{content:"87%"} .d88\.00 .r{display:none}.d88\.00:after{content:"88%"} .d89\.00 .r{display:none}.d89\.00:after{content:"89%"}
     .d90\.00 .r{display:none}.d90\.00:after{content:"90%"} .d91\.00 .r{display:none}.d91\.00:after{content:"91%"} .d92\.00 .r{display:none}.d92\.00:after{content:"92%"} .d93\.00 .r{display:none}.d93\.00:after{content:"93%"} .d94\.00 .r{display:none}.d94\.00:after{content:"94%"} .d95\.00 .r{display:none}.d95\.00:after{content:"95%"}
     .d96\.00 .r{display:none}.d96\.00:after{content:"96%"} .d97\.00 .r{display:none}.d97\.00:after{content:"97%"} .d98\.00 .r{display:none}.d98\.00:after{content:"98%"} .d99\.00 .r{display:none}.d99\.00:after{content:"99%"} .d100\.00 .r{display:none}.d100\.00:after{content:"100%"}
-    /* Zoho adds a <br> at the end of each cell. Hide it after the number span and the "(incl. VAT)" label so they stay on the first line */
+    /* Zoho adds a line break at the end of each cell. Hide it after the number span and the incl. VAT label so they stay on the first line */
     .r + br,
     .cs-incl + br {
         display: none;
@@ -232,7 +232,7 @@
                     <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_rate">%ItemRate%</span></td>
                     <td class="cs-td d%ItemDiscount%" id="tmp_item_discount" style="text-align: right;"><span class="r">%ItemDiscount%&#37;</span></td>
                     <td class="cs-td" style="text-align: right;">%DiscountAmount%</td>
-                    <td class="cs-td" style="text-align: right; font-weight: bold; padding-right: 0;">%AmountWithTax%</td>
+                    <td class="cs-td" style="text-align: right; font-weight: bold; padding-right: 0;">%ItemAmount%</td>
                 </tr>
             </tbody>
             <tbody id="headerItem">
