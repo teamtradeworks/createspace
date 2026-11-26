@@ -1,0 +1,150 @@
+/*
+ * Shared styles for the MatataStudio Christmas by-age ads.
+ * Defaults are the 4:5 feed portrait; feed-square.html and story.html
+ * override sizes and positions in their own <style> block.
+ */
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-family: var(--cs-font);
+}
+.glow { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+.glow--blue { width: 700px; height: 600px; left: -160px; top: 420px; background: rgba(60, 199, 247, 0.2); }
+.glow--purple { width: 640px; height: 600px; right: -160px; top: 640px; background: rgba(172, 77, 255, 0.2); }
+
+/* ---------- Message ---------- */
+.copy { position: absolute; left: 72px; right: 72px; top: 60px; }
+h1 {
+  margin: 0;
+  font-size: 84px;
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+}
+h1 em { font-style: normal; color: var(--cs-orange); }
+.lead {
+  margin: 22px 0 0;
+  font-size: 38px;
+  line-height: 1.3;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ---------- The present: four cards tied with one ribbon ---------- */
+.present {
+  position: absolute;
+  left: 72px;
+  right: 72px;
+  top: 350px;
+  height: 808px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 24px;
+  height: 100%;
+}
+/* Ribbon fills the gutters exactly, so the block reads as one wrapped box */
+.ribbon {
+  position: absolute;
+  background: linear-gradient(90deg, #c8061f, var(--cs-red) 30%, var(--cs-red) 70%, #c8061f);
+  z-index: 1;
+}
+.ribbon--v { left: calc(50% - 12px); top: -26px; bottom: -22px; width: 24px; }
+.ribbon--h { top: calc(50% - 12px); left: -30px; right: -30px; height: 24px;
+  background: linear-gradient(180deg, #c8061f, var(--cs-red) 30%, var(--cs-red) 70%, #c8061f); }
+.bow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 230px;
+  transform: translate(-50%, -52%);
+  z-index: 2;
+  filter: drop-shadow(0 8px 14px rgba(2, 5, 26, 0.45));
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--cs-white);
+  color: var(--cs-navy);
+  border-radius: 16px;
+  padding: 20px 24px 22px;
+  overflow: hidden;
+}
+.age {
+  align-self: flex-start;
+  padding: 9px 18px 10px;
+  border-radius: 9999px;
+  background: var(--c);
+  color: var(--ink, var(--cs-white));
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.card--right .age { align-self: flex-end; }
+.shot {
+  flex: 1;
+  min-height: 0;
+  margin: 0 -12px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shot img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.brand {
+  font-size: 29px;
+  font-weight: 500;
+  color: #4b5563;
+  line-height: 1.2;
+}
+.name {
+  margin-top: 4px;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.card--right .brand, .card--right .name { text-align: right; }
+
+.c-35  { --c: var(--cs-red); }
+.c-68  { --c: var(--cs-green); --ink: var(--cs-navy); }
+.c-912 { --c: var(--cs-blue);  --ink: var(--cs-navy); }
+.c-13  { --c: var(--cs-purple); }
+
+/* ---------- Footer ---------- */
+.foot {
+  position: absolute;
+  left: 72px;
+  right: 72px;
+  bottom: 52px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.foot-left img { display: block; height: 40px; width: auto; }
+.foot-left p {
+  margin: 14px 0 0;
+  font-size: 32px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.72);
+}
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  height: 96px;
+  padding: 0 40px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  color: var(--cs-navy);
+  font-size: 36px;
+  font-weight: 600;
+}
+.cta svg { width: 30px; height: 30px; }
