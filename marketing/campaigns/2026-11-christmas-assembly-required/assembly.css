@@ -1,0 +1,302 @@
+/*
+ * Christmas: some assembly required.
+ * A kit's instruction sheet lying on navy gift wrap. Shared by every size
+ * of this campaign; per-canvas geometry sits under [data-canvas] selectors.
+ */
+
+:root {
+  --margin: 72px;
+  --paper-drop: 0 30px 60px -10px rgba(2, 5, 26, 0.6), 0 4px 10px rgba(2, 5, 26, 0.35);
+  --rule: #e4e7f0;
+  --muted-ink: #4a5270;
+}
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  color: var(--cs-white);
+  font-family: var(--cs-font);
+  /* Navy gift wrap: hand-scattered white and Spark Yellow stars (stars.svg, drawn once at 1080 x 1350, no repeat) */
+  background-color: var(--cs-navy);
+  background-image: url("stars.svg");
+  background-size: 1080px 1350px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+.glow-blue {
+  width: 760px;
+  height: 620px;
+  left: -120px;
+  top: 520px;
+  background: rgba(60, 199, 247, 0.25);
+}
+.glow-purple {
+  width: 680px;
+  height: 560px;
+  right: -160px;
+  top: 640px;
+  background: rgba(172, 77, 255, 0.2);
+}
+
+/* ---------- Top: logo and headline ---------- */
+
+.logo {
+  position: absolute;
+  left: var(--margin);
+  top: 60px;
+  height: 48px;
+  width: auto;
+}
+
+.headline {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  top: 166px;
+  margin: 0;
+  font-weight: 600;
+  font-size: 96px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.headline em {
+  font-style: normal;
+  color: var(--cs-orange);
+}
+
+.sub {
+  position: absolute;
+  left: var(--margin);
+  top: 374px;
+  margin: 0;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* ---------- The instruction sheet ---------- */
+
+.sheet {
+  position: absolute;
+  left: 64px;
+  top: 450px;
+  width: 952px;
+  height: 710px;
+  padding: 30px 36px 0;
+  background: var(--cs-white);
+  color: var(--cs-navy);
+  border-radius: 6px;
+  box-shadow: var(--paper-drop);
+  transform: rotate(-1deg);
+}
+
+.sheet-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--cs-navy);
+}
+.sheet-title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.sheet-meta {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--muted-ink);
+}
+
+.steps {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 22px;
+}
+
+.frame {
+  margin: 0;
+  height: 210px;
+  border: 2px solid var(--cs-navy);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 14px 0 0;
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+.num {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--cs-navy);
+  color: var(--cs-white);
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Orange chevrons in the gutter carry the eye 1 to 2 and 3 to 4 */
+.step {
+  position: relative;
+}
+.arrow {
+  position: absolute;
+  left: 100%;
+  top: 85px;
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: var(--cs-orange);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ---------- Footer ---------- */
+
+.footer {
+  position: absolute;
+  left: var(--margin);
+  right: var(--margin);
+  bottom: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.facts p {
+  margin: 0;
+  line-height: 1.2;
+}
+.fact-main {
+  font-size: 32px;
+  font-weight: 600;
+}
+.fact-sub {
+  margin-top: 6px !important;
+  font-size: 28px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 96px;
+  padding: 0 40px;
+  border-radius: 12px;
+  background: var(--cs-orange);
+  color: var(--cs-navy);
+  font-size: 36px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.cta svg {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* =====================================================================
+ * Square (1080 x 1080): same stack, compressed. Stars: stars-square.svg
+ * ===================================================================== */
+
+[data-canvas="meta-square"] .canvas {
+  background-image: url("stars-square.svg");
+  background-size: 1080px 1080px;
+}
+[data-canvas="meta-square"] .glow-blue { top: 320px; }
+[data-canvas="meta-square"] .glow-purple { top: 460px; }
+[data-canvas="meta-square"] .logo { left: 64px; top: 48px; height: 40px; }
+[data-canvas="meta-square"] .headline { left: 64px; right: 64px; top: 118px; font-size: 76px; }
+[data-canvas="meta-square"] .sub { left: 64px; top: 214px; font-size: 34px; }
+[data-canvas="meta-square"] .sheet { top: 288px; height: 624px; padding: 22px 32px 0; }
+[data-canvas="meta-square"] .sheet-head { padding-bottom: 14px; }
+[data-canvas="meta-square"] .sheet-title,
+[data-canvas="meta-square"] .sheet-meta { font-size: 20px; }
+[data-canvas="meta-square"] .steps { margin-top: 16px; row-gap: 14px; }
+[data-canvas="meta-square"] .frame { height: 202px; }
+[data-canvas="meta-square"] .cap { margin-top: 10px; font-size: 28px; gap: 12px; }
+[data-canvas="meta-square"] .num { width: 44px; height: 44px; font-size: 24px; }
+[data-canvas="meta-square"] .arrow { top: 81px; }
+[data-canvas="meta-square"] .footer { left: 64px; right: 64px; bottom: 44px; }
+[data-canvas="meta-square"] .fact-main { font-size: 28px; }
+[data-canvas="meta-square"] .fact-sub { font-size: 24px; }
+[data-canvas="meta-square"] .cta { height: 84px; padding: 0 34px; font-size: 32px; }
+[data-canvas="meta-square"] .cta svg { width: 30px; height: 30px; }
+
+
+/* =====================================================================
+ * Story (1080 x 1920): content runs from about 230px to 1690px. That sits
+ * a little inside Meta's 270px zones, where only the profile row and the
+ * reply bar overlap; no text goes nearer the edges. Stars: stars-story.svg
+ * ===================================================================== */
+
+[data-canvas="meta-story"] .canvas {
+  background-image: url("stars-story.svg");
+  background-size: 1080px 1920px;
+}
+[data-canvas="meta-story"] .glow-blue { top: 820px; }
+[data-canvas="meta-story"] .glow-purple { top: 940px; }
+[data-canvas="meta-story"] .logo { top: 232px; height: 52px; }
+[data-canvas="meta-story"] .headline { top: 318px; font-size: 108px; }
+[data-canvas="meta-story"] .sub { top: 548px; font-size: 48px; }
+[data-canvas="meta-story"] .sheet { top: 630px; height: 748px; padding: 30px 36px 0; }
+[data-canvas="meta-story"] .frame { height: 224px; }
+[data-canvas="meta-story"] .steps { row-gap: 24px; }
+[data-canvas="meta-story"] .cap { font-size: 36px; }
+[data-canvas="meta-story"] .num { width: 56px; height: 56px; font-size: 30px; }
+[data-canvas="meta-story"] .arrow { top: 92px; }
+
+/* Footer stacks: kit name and details, then a full-width button */
+[data-canvas="meta-story"] .footer {
+  bottom: 230px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 30px;
+}
+[data-canvas="meta-story"] .fact-main { font-size: 46px; }
+[data-canvas="meta-story"] .fact-sub { margin-top: 10px !important; font-size: 34px; }
+[data-canvas="meta-story"] .cta {
+  justify-content: center;
+  height: 116px;
+  font-size: 46px;
+  gap: 18px;
+}
+[data-canvas="meta-story"] .cta svg { width: 42px; height: 42px; }
