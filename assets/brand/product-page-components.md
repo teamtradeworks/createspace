@@ -257,6 +257,8 @@ Product hero with image gallery, pricing, delivery info, and add-to-cart. Requir
 | `heroImage` | `string` | No | — | Custom hero image (prepended to gallery) |
 | `addons` | `SerializedAddon[]` | No | — | Product add-ons for upselling |
 
+**Add-on box:** add-ons come from `storefront/src/config/product-addons.json`. An add-on with a `discountPercent` above 0 shows its discounted price, a "Save R X with this kit" tag, and a note under the box that bundle savings are applied automatically at checkout. **The website only displays that discount: checkout charges full price unless a matching automatic discount exists in Shopify admin** (the micro:bit Go deal is the "15% off BBC micro:bit Go" Buy X get Y discount).
+
 **Already includes:** Breadcrumb, image gallery, title, price, availability, delivery info, add-to-cart button.
 
 **Example:**

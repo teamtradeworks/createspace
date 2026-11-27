@@ -55,6 +55,7 @@ export default function ProductActions({
   const [showUpsellModal, setShowUpsellModal] = useState(false);
   const [upsellAction, setUpsellAction] = useState<"cart" | "buy">("cart");
   const { addItem } = useCart();
+  const hasBundleDeal = addons.some((a) => a.discountPercent > 0);
 
   const handleQuantityChange = (delta: number) => {
     setQuantity((prev) => Math.max(1, prev + delta));
@@ -463,13 +464,15 @@ export default function ProductActions({
                             : addon.formattedOriginalPrice}
                         </span>
                       </div>
-                      {addon.discountPercent > 0 && (
-                        <span className="inline-block mt-0.5 px-1.5 py-0.5 text-xs font-semibold bg-cs-green/10 text-cs-green rounded whitespace-nowrap">
-                          Save {addon.discountPercent}%
-                        </span>
-                      )}
                     </div>
                   </div>
+                  {addon.discountPercent > 0 && (
+                    <p className="mt-1.5">
+                      <span className="inline-block px-1.5 py-0.5 text-xs font-semibold bg-cs-green/10 text-cs-green rounded">
+                        Save {addon.formattedSavings} with this kit
+                      </span>
+                    </p>
+                  )}
                   {quantity > 1 && selectedAddons.has(addon.handle) && (
                     <p className="text-xs text-gray-500 mt-1">
                       {quantity}x @{" "}
@@ -483,6 +486,11 @@ export default function ProductActions({
               </label>
             ))}
           </div>
+          {hasBundleDeal && (
+            <p className="text-xs text-gray-500 mt-3">
+              Bundle savings are applied automatically at checkout.
+            </p>
+          )}
         </div>
       )}
 

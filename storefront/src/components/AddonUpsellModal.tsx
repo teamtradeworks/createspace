@@ -128,7 +128,7 @@ export default function AddonUpsellModal({ addons, onConfirm, onSkip }: AddonUps
                   </span>
                   {addon.discountPercent > 0 && (
                     <span className="px-1.5 py-0.5 text-xs font-semibold bg-cs-green/10 text-cs-green rounded">
-                      Save {addon.discountPercent}%
+                      Save {addon.formattedSavings} with this kit
                     </span>
                   )}
                 </div>
