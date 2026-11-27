@@ -43,6 +43,8 @@ export function getBundleAddonHandles(rules: BundleRule[] = DEFAULT_RULES): Set<
  * Carts saved before bundle savings were calculated stored the add-on at its
  * discounted price with the full price as compareAtPrice. Restore the full
  * unit price so the saving is only counted once, by getBundleSavings.
+ * Only run this on carts saved before CART_FORMAT_VERSION (see
+ * migrateStoredCart): a micro:bit Go on a genuine Shopify sale looks the same.
  */
 export function normaliseBundleLine(
   item: CartItem,
@@ -56,6 +58,22 @@ export function normaliseBundleLine(
     return { ...item, price: item.compareAtPrice, compareAtPrice: undefined };
   }
   return item;
+}
+
+/**
+ * Version of the cart saved in localStorage. Version 2 stores bundle add-ons at
+ * full price; carts with no version are from before that.
+ */
+export const CART_FORMAT_VERSION = "2";
+
+/** Repair a cart read from localStorage, if it was saved in the old format. */
+export function migrateStoredCart(
+  items: CartItem[],
+  storedVersion: string | null,
+  rules: BundleRule[] = DEFAULT_RULES,
+): CartItem[] {
+  if (storedVersion === CART_FORMAT_VERSION) return items;
+  return items.map((item) => normaliseBundleLine(item, rules));
 }
 
 /**

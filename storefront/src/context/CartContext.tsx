@@ -6,7 +6,8 @@ import {
   BundleSaving,
   getBundleSavings,
   getTotalBundleSaving,
-  normaliseBundleLine,
+  CART_FORMAT_VERSION,
+  migrateStoredCart,
 } from "@/lib/bundle-pricing";
 
 export interface CartItem {
@@ -65,6 +66,7 @@ export function getCartSubtotal(items: CartItem[]): number {
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 const CART_STORAGE_KEY = "createspace-cart";
+const CART_VERSION_KEY = "createspace-cart-version";
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [items, setItems] = useState<CartItem[]>([]);
@@ -78,8 +80,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     let parsedItems: CartItem[] = [];
     if (storedCart) {
       try {
-        parsedItems = (JSON.parse(storedCart) as CartItem[]).map((item) =>
-          normaliseBundleLine(item),
+        parsedItems = migrateStoredCart(
+          JSON.parse(storedCart) as CartItem[],
+          safeGetItem(CART_VERSION_KEY),
         );
         // eslint-disable-next-line react-hooks/set-state-in-effect -- Hydrating state from localStorage on mount
         setItems(parsedItems);
@@ -126,6 +129,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     if (isHydrated) {
       safeSetItem(CART_STORAGE_KEY, JSON.stringify(items));
+      safeSetItem(CART_VERSION_KEY, CART_FORMAT_VERSION);
     }
   }, [items, isHydrated]);
 
@@ -135,8 +139,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const currencyCode = items[0]?.currencyCode || "ZAR";
 
   const addItem = (item: Omit<CartItem, "quantity">, quantity = 1) => {
-    // Bundle add-ons are stored at full price; getBundleSavings applies the discount
-    const newItem = normaliseBundleLine({ ...item, quantity });
+    // Keep the price as given (it may be a genuine sale); bundle add-ons arrive at
+    // full price and getBundleSavings applies the discount
+    const newItem: CartItem = { ...item, quantity };
     setItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.variantId === newItem.variantId);
 

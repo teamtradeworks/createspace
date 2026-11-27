@@ -3,6 +3,8 @@ import {
   getBundleSavings,
   getTotalBundleSaving,
   normaliseBundleLine,
+  migrateStoredCart,
+  CART_FORMAT_VERSION,
 } from "@/lib/bundle-pricing";
 import { getCartSubtotal, type CartItem } from "@/context/CartContext";
 
@@ -84,5 +86,21 @@ describe("normaliseBundleLine", () => {
   it("leaves other sale items alone", () => {
     const sale = line(CUTEBOT, 1, 1000, { compareAtPrice: 1200 });
     expect(normaliseBundleLine(sale)).toBe(sale);
+  });
+});
+
+describe("migrateStoredCart", () => {
+  it("repairs a micro:bit saved at the old discounted price in an unversioned cart", () => {
+    const legacy = [line(CUTEBOT, 1, 1200), line(MICROBIT, 1, 382.5, { compareAtPrice: 450 })];
+    expect(migrateStoredCart(legacy, null)[1]).toMatchObject({
+      price: 450,
+      compareAtPrice: undefined,
+    });
+  });
+
+  it("keeps a genuine micro:bit Go sale price in a current cart", () => {
+    const sale = [line(MICROBIT, 1, 400, { compareAtPrice: 450 })];
+    expect(migrateStoredCart(sale, CART_FORMAT_VERSION)).toBe(sale);
+    expect(getCartSubtotal(sale)).toBe(400);
   });
 });
