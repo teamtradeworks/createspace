@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<!--
+  Black Friday day-of organic Instagram STORY (Fri 27 Nov 2026), 1080 x 1920.
+  Story version of feed-portrait-instagram-today.html, with no CTA on the
+  image (owner's call; add a link sticker when posting if wanted). Copy stays
+  out of the top and bottom 270px (profile bar, reply bar).
+  Feed notes follow. White ground, so it breaks up a navy grid and
+  doesn't repeat the yellow post from 23 Nov. A tear-off calendar tile marks
+  the day; four sale kits carry their own struck was-price and red now-price,
+  so the discount is named once ("Up to 20% off") and never as a saving.
+  Facts: brief.md (up to 20% off, 23 to 30 Nov; kit count dropped 2026-11-27 as some left the sale, prices per row).
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>Black Friday is today (story)</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    :root { --margin: 64px; --mist: #F4F6FA; --muted: #4A5270; }
+
+    .canvas {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: var(--cs-white);
+      color: var(--cs-navy);
+      font-family: var(--cs-font);
+      overflow: hidden;
+    }
+
+    /* Header: copy left, calendar tile right */
+    .top {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 244px;
+      gap: 32px;
+      padding: 60px var(--margin) 0;
+    }
+    .wordmark { display: block; height: 42px; width: auto; }
+    h1 {
+      margin: 40px 0 0;
+      font-size: 112px;
+      font-weight: 600;
+      line-height: 0.96;
+      letter-spacing: -0.035em;
+    }
+    h1 .hl {
+      position: relative;
+      display: inline-block;
+      z-index: 0;
+    }
+    h1 .hl::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: -10px; right: -12px;
+      top: 0.2em; bottom: 0.02em;
+      background: var(--cs-yellow);
+      border-radius: 10px;
+      transform: rotate(-1.5deg);
+    }
+    .lead {
+      margin: 30px 0 0;
+      font-size: 36px;
+      line-height: 1.25;
+      color: var(--muted);
+    }
+    .lead b { color: var(--cs-navy); font-weight: 600; }
+
+    /* Tear-off calendar page */
+    .cal {
+      margin-top: 52px;
+      align-self: start;
+      width: 244px;
+      border-radius: 18px;
+      background: var(--cs-white);
+      box-shadow: 0 0 0 3px var(--cs-navy), 10px 12px 0 3px var(--cs-yellow);
+      transform: rotate(5deg);
+      overflow: hidden;
+      text-align: center;
+    }
+    .cal .day {
+      display: block;
+      position: relative;
+      padding: 20px 0 16px;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    /* binder rings */
+    .cal .day::before, .cal .day::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--cs-white);
+    }
+    .cal .day::before { left: 46px; }
+    .cal .day::after  { right: 46px; }
+    .cal .date {
+      display: block;
+      padding-top: 10px;
+      font-size: 156px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+    .cal .month {
+      display: block;
+      padding: 2px 0 24px;
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* Product grid */
+    .grid {
+      flex: 1;
+      min-height: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 16px;
+      padding: 72px var(--margin) 40px;
+    }
+    .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      border-radius: 18px;
+      background: var(--mist);
+      overflow: hidden;
+    }
+    .card .photo {
+      position: relative;
+      flex: 1;
+      min-height: 0;
+    }
+    .card .photo img {
+      position: absolute;
+      inset: 40px 18px 0;
+      width: calc(100% - 36px);
+      height: calc(100% - 40px);
+      object-fit: contain;
+      mix-blend-mode: multiply;
+      filter: drop-shadow(0 12px 12px rgba(12,20,70,0.14));
+    }
+    .card .photo img.flat { filter: none; }
+    .card .info { padding: 4px 24px 20px; }
+    .card .name {
+      margin: 0;
+      font-size: 27px;
+      font-weight: 600;
+      line-height: 1.15;
+    }
+    .card .price {
+      margin: 6px 0 0;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .card .now { font-size: 36px; font-weight: 700; color: var(--cs-red); letter-spacing: -0.01em; }
+    .card .was { font-size: 26px; font-weight: 500; color: var(--muted); text-decoration: line-through; text-decoration-thickness: 2px; }
+
+    /* Sale pill floating over the grid seam */
+    .pill {
+      position: absolute;
+      left: 50%;
+      top: 72px;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      height: 56px;
+      padding: 0 28px;
+      border-radius: 999px;
+      background: var(--cs-red);
+      color: var(--cs-white);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow: 0 0 0 6px var(--cs-white);
+    }
+    .pill::before {
+      content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cs-white);
+    }
+
+    .footer {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 38px var(--margin) 42px;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+    }
+    .footer p { margin: 0; font-size: 29px; line-height: 1.3; color: rgba(255,255,255,0.75); }
+    .footer p b { display: block; color: var(--cs-white); font-weight: 600; font-size: 35px; }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      height: 96px;
+      padding: 0 40px;
+      border-radius: 12px;
+      background: var(--cs-orange);
+      color: var(--cs-navy);
+      font-size: 36px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Story overrides */
+    .sky { position: absolute; inset: 0 0 auto 0; height: 270px; z-index: 1; pointer-events: none; }
+    .sky img { position: absolute; display: block; }
+    .sky .planet { width: 180px; left: 48px; top: 70px; transform: rotate(-14deg); }
+    .sky .code   { width: 92px; left: 360px; top: 150px; transform: rotate(8deg); }
+    .sky .nut    { width: 72px; left: 600px; top: 84px; transform: rotate(18deg); }
+    .sky .robot  { width: 150px; right: 60px; top: 70px; transform: rotate(-8deg); }
+    .top { padding-top: 300px; grid-template-columns: 1fr 260px; }
+    h1 { margin-top: 0; font-size: 124px; }
+    .cal { margin-top: 10px; width: 260px; }
+    .cal .date { font-size: 168px; }
+    .lead { font-size: 40px; margin-top: 36px; }
+    .grid { padding-top: 80px; padding-bottom: 48px; gap: 18px; }
+    .pill { top: 80px; height: 64px; font-size: 27px; padding: 0 32px; }
+    .card .name { font-size: 30px; }
+    .card .now { font-size: 42px; }
+    .card .was { font-size: 29px; }
+    .card .info { padding: 6px 28px 26px; }
+    .footer {
+      justify-content: center;
+      text-align: center;
+      padding: 48px var(--margin) 300px;
+    }
+    .footer p { font-size: 32px; }
+    .footer p b { font-size: 42px; margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="sky" aria-hidden="true">
+      <img class="planet" src="../../creative/kit/illustrations/planet-1.svg" alt="">
+      <img class="code" src="../../creative/kit/illustrations/code-2.svg" alt="">
+      <img class="nut" src="../../creative/kit/illustrations/nut-1.svg" alt="">
+      <img class="robot" src="../../creative/kit/illustrations/robot-2.svg" alt="">
+    </div>
+    <div class="top">
+      <div>
+        <h1>Black Friday<br>is <span class="hl">today.</span></h1>
+        <p class="lead"><b>STEM kits</b> to build, code and explore.</p>
+      </div>
+      <div class="cal" aria-label="Friday 27 November">
+        <span class="day">Fri</span>
+        <span class="date">27</span>
+        <span class="month">Nov</span>
+      </div>
+    </div>
+
+    <div class="grid" style="position: relative;">
+      <span class="pill">Up to 20% off</span>
+
+      <div class="card">
+        <div class="photo"><img src="images/robot-master-dinosaur-build.png" alt="Walking dinosaur robot built from the Makerzoid Robot Master Premium"></div>
+        <div class="info">
+          <p class="name">Makerzoid Robot Master Premium</p>
+          <p class="price"><span class="now">R 1,900</span><span class="was">R 2,380</span></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo"><img src="images/vincibot-remote-box-cutout.png" alt="MatataStudio VinciBot with its box and remote"></div>
+        <div class="info">
+          <p class="name">MatataStudio VinciBot</p>
+          <p class="price"><span class="now">R 2,060</span><span class="was">R 2,580</span></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo"><img src="images/superbot-car-box-cutout.png" alt="Makerzoid Superbot racing car in front of its box"></div>
+        <div class="info">
+          <p class="name">Makerzoid Superbot</p>
+          <p class="price"><span class="now">R 1,180</span><span class="was">R 1,480</span></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="photo"><img class="flat" src="images/nasa-lunar-telescope-white.jpg" alt="NASA Lunar Telescope on its tripod"></div>
+        <div class="info">
+          <p class="name">NASA Lunar Telescope</p>
+          <p class="price"><span class="now">R 920</span><span class="was">R 1,150</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p><b>Sale ends 30 November</b>Free delivery over R 1,500</p>
+    </div>
+  </main>
+</body>
+</html>

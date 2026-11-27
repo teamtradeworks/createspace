@@ -30,7 +30,7 @@ Other subjects to test: "Cyber Monday: the sale ends tonight", or "Prices go bac
 | 10 | Text | Purple tint (`#F3E6FF`), centred | Heading "Not sure which kit is best?", then "Drop us a message on WhatsApp and we'll help you." |
 | 11 | Button | Purple tint | "Chat on WhatsApp", green (`#93DB21`) with navy text, to `https://wa.me/27756246775?text=Hi%20CREATESPACE%2C%20I%27m%20not%20sure%20which%20kit%20is%20best` (WhatsApp number from `storefront/src/config/site.json`; the message is pre-filled so it arrives with context) |
 | 12 | Text | Yellow (`#FFD500`), centred | **Free delivery on orders over R 1,500** / Sent with The Courier Guy, 1 to 3 days to your door. |
-| 13 | Text | White, centred | There are 35 kits in the sale, from first circuits to coding robots. Have a look before midnight. |
+| 13 | Text | White, centred | The sale runs from first circuits to coding robots. Have a look before midnight. |
 | 14 | Button | White | "See everything on sale", navy with white text, to `/shop?sale=true` |
 | 15 | Text | White | Thanks for shopping with us this week, / **The CREATESPACE Team** |
 | 16 | Footer | Navy | Unchanged |

@@ -46,7 +46,7 @@ What the winners share, and what these ads copy: a white ground, one big navy he
 
 ## Subject
 
-**Sale:** Black Friday, 23 to 30 November 2026. 35 products across Makerzoid, MatataStudio, Blockaroo, NASA, National Geographic, Robotico and Snap Circuits, 10% to 20% off. Source: `black-friday-2026-sale-pricing.pdf` (updated 10 November 2026, supplied by the owner 2026-11-16).
+**Sale:** Black Friday, 23 to 30 November 2026. Originally 35 products (some have since been taken out of the sale, 2026-11-27, so no asset quotes a count) across Makerzoid, MatataStudio, Blockaroo, NASA, National Geographic, Robotico and Snap Circuits, 10% to 20% off. Source: `black-friday-2026-sale-pricing.pdf` (updated 10 November 2026, supplied by the owner 2026-11-16).
 
 | Product | Shopify handle | Was | Now | Off | Saving |
 |---|---|---|---|---|---|
@@ -62,7 +62,7 @@ What the winners share, and what these ads copy: a white ground, one big navy he
 |---|---|---|---|
 | Sale dates | 23 to 30 November 2026 | Owner, 2026-11-16; `2026-10-vip-black-friday/brief.md` | 2026-11-16 |
 | Discount | Up to 20% off (range 10% to 20%) | Sale pricing PDF, 2026-11-10 | 2026-11-16 |
-| Products in the sale | 35 | Sale pricing PDF | 2026-11-16 |
+| Products in the sale | No count: started at 35, some removed | Owner, 2026-11-27 | 2026-11-27 |
 | Prices above | Was / now per row | Sale pricing PDF | 2026-11-16 |
 | Robot Master Premium | 200+ builds, ages 6 to 14, 600+ pieces | `assets/product/makerzoid-robot-master-premium/content.md` via `2026-10-robot-master-notes/brief.md` | 2026-10-21 |
 | Smart Robot | 72 robots, 300 pieces, ages 6+ | `2026-10-makerzoid-72-robots/brief.md` | 2026-10-26 |
@@ -126,6 +126,10 @@ Small numbers, different seasons, and a Meta purchase isn't necessarily a Robot 
 **Instagram organic post, yellow (`feed-portrait-instagram-yellow.html`, 2026-11-23).** For the @thecreatespace.za grid, where the last dozen posts are almost all navy. The owner asked to move off the blue ground so this one stands out, so it grounds on Spark Yellow. That is a one-off exception to the Navy-or-White Ground Rule for this post only, not a new system ground. Big navy "BLACK FRIDAY", a red "Up to 20% off" sticker (the only red), the built dinosaur and the Robot Master case on a faint white sunburst, and a navy footer with the dates, free delivery over R 1,500, and an orange "Link in bio" chip (orange stays on navy, so Orange Means Go holds). Organic post, so no UTM link on the image; the bio link carries the traffic.
 
 **Instagram story, yellow (`story-instagram-yellow.html`, 2026-11-23).** Story version of the yellow post, sharing `instagram-yellow.css`. The sticker sits beside the headline, and the top and bottom 270px carry no copy. The empty navy space at the bottom is for the Instagram link sticker, and the orange "Shop the sale" chip has a down arrow pointing to it. Add the link sticker when posting, pointing to `https://www.thecreatespace.co.za/shop?sale=true&utm_source=instagram&utm_medium=social&utm_campaign=2026-11-black-friday-sale&utm_content=story-instagram-yellow`.
+
+**Instagram organic post, day of (`feed-portrait-instagram-today.html`, 2026-11-27).** For Black Friday itself. White ground, no logo (the owner asked for it off; the account name sits above the post), so it breaks up the navy grid and doesn't repeat the yellow post from the 23rd. Headline "Black Friday is today." with "today." on a yellow highlight, a tilted tear-off calendar page (navy "Fri" strip, "27 Nov") with a yellow offset, and the lead "STEM kits to build, code and explore." The discount is named once, in a red "Up to 20% off" pill on the grid seam; four kits (Robot Master Premium, VinciBot, Superbot, NASA Lunar Telescope) each show a red now-price and struck was-price, with no per-card saving badges. Navy footer: "Sale ends 30 November", free delivery over R 1,500, orange "Link in bio" chip.
+
+**Instagram story, day of (`story-instagram-today.html`, 2026-11-27).** Story version of the day-of post, with no CTA on the image (owner's call). Same headline, calendar page, pill and four kits, scaled up; brand illustrations (planet, code, nut, robot) fill the top 270px, and the navy footer carries the end date and free delivery above the bottom 270px. Add a link sticker when posting if wanted: `https://www.thecreatespace.co.za/shop?sale=true&utm_source=instagram&utm_medium=social&utm_campaign=2026-11-black-friday-sale&utm_content=story-instagram-today`.
 
 **Instagram organic post, Cyber Monday (`feed-portrait-instagram-cyber-monday.html`, 2026-11-27).** For 30 November, the last day of the sale. Follows the yellow Black Friday post and shares `instagram-yellow.css`, so the two read as a pair on the grid (same one-off yellow exception). Big navy "CYBER MONDAY" with a tilted navy "Last day!" tag in yellow, the same red "Up to 20% off" sticker, and three sale kits in place of one: the Robot Master dinosaur build, VinciBot with its box, and the Superbot racing car. Footer: "Monday 30 November", free delivery over R 1,500, orange "Link in bio". "Tonight" depends on prices staying live until 23:59 on the 30th, as for the Cyber Monday email.
 
@@ -217,7 +221,7 @@ Everything else matches: price line (struck was-price, red now-price), pill, CTA
 
 **Instagram organic post (yellow)**
 
-> Black Friday is on at CREATESPACE! Up to 20% off 35 STEM kits for kids who like to build, code, tinker and explore.
+> Black Friday is on at CREATESPACE! Up to 20% off STEM kits for kids who like to build, code, tinker and explore.
 >
 > Sort the Christmas present now, and it'll still be on the go in January.
 >
@@ -225,9 +229,17 @@ Everything else matches: price line (struck was-price, red now-price), pill, CTA
 >
 > #BlackFriday #BlackFridaySA #STEMtoys #STEMforkids #ChristmasGifts #SouthAfrica
 
+**Instagram organic post (day of, 27 Nov)**
+
+> It's Black Friday! Up to 20% off STEM kits to build, code and explore. Sale ends 30 November, with free delivery over R 1,500.
+>
+> Shop through the link in our bio.
+>
+> #BlackFriday #BlackFridaySA #STEMtoys #STEMforkids
+
 **Instagram organic post (Cyber Monday)**
 
-> Last day! Our Black Friday sale ends tonight, so this is your final chance to get up to 20% off 35 STEM kits.
+> Last day! Our Black Friday sale ends tonight, so this is your final chance to get up to 20% off STEM kits.
 >
 > Coding robots, Makerzoid builds, circuits and telescopes: the kind of present that's still getting played with long after Christmas.
 >
@@ -237,7 +249,7 @@ Everything else matches: price line (struck was-price, red now-price), pill, CTA
 
 **Range**
 
-- **Primary text:** Our Black Friday sale is on. Up to 20% off 35 STEM kits, from coding robots and Makerzoid builds to telescopes and science sets. Sorted for Christmas, and they'll still be playing with it in January. Ends 30 November.
+- **Primary text:** Our Black Friday sale is on. Up to 20% off STEM kits, from coding robots and Makerzoid builds to telescopes and science sets. Sorted for Christmas, and they'll still be playing with it in January. Ends 30 November.
 - **Headline:** Black Friday: up to 20% off STEM kits
 - **Description:** 23 to 30 Nov. Free delivery over R 1,500.
 - **Button:** Shop now
@@ -250,7 +262,7 @@ Everything else matches: price line (struck was-price, red now-price), pill, CTA
 ## Open questions
 
 - **Are the sale prices scheduled in Shopify?** Check on 23 November that compare-at prices match this brief before activating the ads. The Shopify catalogue MCP (`createspace-shopify`) failed to connect today, so live prices weren't checked.
-- **Does `/shop?sale=true` list all 35 products** once the prices are live? Check it in the browser on the 23rd.
+- **Does `/shop?sale=true` list every product still in the sale** once the prices are live? Check it in the browser on the 23rd.
 - Robotico UNO R3 shows 0 stock in Shopify. Leave it out of any ad until stock is confirmed.
 - A sharper dinosaur cut-out would help: ours is 646px wide and shows at about 1.1x. If the July 2025 sale ad's source file still exists, swap it in.
 - Avoid `2026-09-stem-range/images/obj-robot-master-builds.jpg`: its box reads "100+ in 1", which may be the Standard kit.
