@@ -467,7 +467,8 @@ export default function CartPage() {
                                 {bundleSaving.units === item.quantity
                                   ? "Bundle saving"
                                   : `Bundle saving on ${bundleSaving.units} of ${item.quantity}`}
-                                : -{formatPrice(bundleSaving.amount, item.currencyCode, {
+                                : -
+                                {formatPrice(bundleSaving.amount, item.currencyCode, {
                                   showCents: true,
                                 })}
                               </p>
@@ -531,7 +532,9 @@ export default function CartPage() {
                         </div>
 
                         {/* Line Total (desktop) */}
-                        <div className="hidden md:block md:col-span-2 text-right">{lineTotalEl}</div>
+                        <div className="hidden md:block md:col-span-2 text-right">
+                          {lineTotalEl}
+                        </div>
                       </div>
                     );
                   })}

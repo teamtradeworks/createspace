@@ -12,7 +12,7 @@ import type { CartItem } from "@/context/CartContext";
  * add-on quantity), so a second micro:bit with only one kit is full price.
  */
 
-export interface BundleRule {
+interface BundleRule {
   parentHandle: string;
   addonHandle: string;
   discountPercent: number;
@@ -35,7 +35,7 @@ function roundCents(amount: number): number {
 }
 
 /** Handles of products that can be discounted as part of a bundle. */
-export function getBundleAddonHandles(rules: BundleRule[] = DEFAULT_RULES): Set<string> {
+function getBundleAddonHandles(rules: BundleRule[] = DEFAULT_RULES): Set<string> {
   return new Set(rules.map((rule) => rule.addonHandle));
 }
 
@@ -46,10 +46,7 @@ export function getBundleAddonHandles(rules: BundleRule[] = DEFAULT_RULES): Set<
  * Only run this on carts saved before CART_FORMAT_VERSION (see
  * migrateStoredCart): a micro:bit Go on a genuine Shopify sale looks the same.
  */
-export function normaliseBundleLine(
-  item: CartItem,
-  rules: BundleRule[] = DEFAULT_RULES,
-): CartItem {
+export function normaliseBundleLine(item: CartItem, rules: BundleRule[] = DEFAULT_RULES): CartItem {
   if (
     getBundleAddonHandles(rules).has(item.handle) &&
     item.compareAtPrice !== undefined &&
