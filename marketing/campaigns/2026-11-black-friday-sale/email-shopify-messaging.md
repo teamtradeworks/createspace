@@ -3,7 +3,7 @@
 Built only from Shopify Messaging sections (Header, Image, Text, Button, Product, footer), each with its own background colour. Built on the owner's draft of 18 Nov: same finder block, delivery strip and sign-off, with colour added, and products shown in matched pairs a parent could buy together. Preview: `email-preview.html` (screenshot `exports/email-preview.png`).
 
 - **Send:** Thursday 19 November 2026, morning (RockitSales switches prices at 00:00)
-- **Sale:** 19 to 30 November 2026, up to 20% off 35 kits
+- **Sale:** 19 to 30 November 2026, up to 20% off STEM kits
 
 ## Email settings
 
@@ -33,7 +33,7 @@ Tints, not full-strength accents, behind the products: red sale prices and navy 
 |---|---|---|---|
 | 1 | Header | Navy | Logo for dark backgrounds (`marketing/creative/kit/logo/logo-on-navy.png`) |
 | 2 | Image | Navy | `exports/email-hero.jpg` (1200 x 800). Alt: "Black Friday, 19 to 30 November. Up to 20% off STEM kits." Links to `/shop?sale=true` |
-| 3 | Text | Navy, white text, centred | Up to 20% off 35 STEM kits until 30 November. A good time to get the Christmas list sorted, before December gets busy. |
+| 3 | Text | Navy, white text, centred | Up to 20% off STEM kits until 30 November. A good time to get the Christmas list sorted, before December gets busy. |
 | 4 | Button | Navy | "Shop the sale", orange with navy text, to `/shop?sale=true` |
 | 5 | Text | Red, white text, centred, small caps | UP TO 20% OFF · ENDS 30 NOVEMBER |
 | 6 | Text | Blue tint | Small label "ROBOTS AND CODING", heading "Two of our most popular robot kits" |
@@ -42,7 +42,7 @@ Tints, not full-strength accents, behind the products: red sale prices and navy 
 | 9 | Product | Yellow tint | NASA Lunar Telescope, National Geographic Mega Space Activity Kit |
 | 10 | Text | Green tint | "ELECTRONICS", heading "For kids who want to know how things work", then "Snap Circuits for ages 8 to 12, Arduino for 12 and up." |
 | 11 | Product | Green tint | Snap Circuits Explorer Junior, Robotico Arduino Ultimate MEGA 2560 Starter Kit |
-| 12 | Text | White, centred | That's six of 35. There's lots more on sale. |
+| 12 | Text | White, centred | That's just six. There's lots more on sale. |
 | 13 | Button | White | "See everything on sale", navy with white text, to `/shop?sale=true` |
 | 14 | Finder block (from the draft) | White, inner box purple tint | Brand pills now: Makerzoid, MatataStudio, Snap Circuits, National Geographic, Robotico (added Makerzoid and Robotico, so every brand in the email has a pill) |
 | 15 | Text | Yellow, centred | **Free delivery on orders over R 1,500** / Sent with The Courier Guy, 1 to 3 days to your door. |
