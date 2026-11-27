@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+  Christmas range option. Meta feed portrait (1080 x 1350).
+  The Black Friday range ad (2026-11-black-friday-sale/feed-portrait-range.html)
+  without the sale: same four top-selling kits as small catalogue cards, but
+  no discount badges, no prices and no red (red means saving). Each card shows
+  the kit and its age instead. Festive touch as in single-kit.css: navy pill
+  with a yellow star and a few sparkles. Facts: brief.md.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>Gifts they'll still be playing with in January</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="single-kit.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="range.css">
+  <style>
+    h1 { margin-top: 44px; font-size: 84px; }
+    .sparkles { top: 150px; right: 80px; width: 150px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="topbar">
+      <span class="gift-pill">Christmas gift ideas</span>
+    </div>
+
+    <h1>
+      <span>Gifts they'll</span>
+      <span>still be playing</span>
+      <span>with in <span class="marker">January.</span></span>
+    </h1>
+
+    <svg class="sparkles" viewBox="0 0 200 160" aria-hidden="true">
+      <path class="s1" d="M120 10 C124 40 130 46 160 50 C130 54 124 60 120 90 C116 60 110 54 80 50 C110 46 116 40 120 10Z"/>
+      <path class="s2" d="M50 80 C52 96 56 100 72 102 C56 104 52 108 50 124 C48 108 44 104 28 102 C44 100 48 96 50 80Z"/>
+      <path class="s3" d="M170 110 C171 120 174 123 184 124 C174 125 171 128 170 138 C169 128 166 125 156 124 C166 123 169 120 170 110Z"/>
+    </svg>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="spark" viewBox="0 0 80 80"><path d="M40 0 C44 30 50 36 80 40 C50 44 44 50 40 80 C36 50 30 44 0 40 C30 36 36 30 40 0Z"/></symbol>
+    </svg>
+    <!-- beside the pill -->
+    <svg class="spark y" style="left:236px;top:62px;width:44px;height:44px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark b" style="left:196px;top:116px;width:24px;height:24px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark o" style="left:808px;top:64px;width:26px;height:26px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark y" style="left:846px;top:100px;width:36px;height:36px" aria-hidden="true"><use href="#spark"/></svg>
+    <!-- right of the headline -->
+    <svg class="spark b" style="left:784px;top:300px;width:40px;height:40px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark y" style="left:908px;top:330px;width:60px;height:60px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark o" style="left:700px;top:392px;width:28px;height:28px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark b" style="left:990px;top:420px;width:22px;height:22px" aria-hidden="true"><use href="#spark"/></svg>
+    <!-- footer gap -->
+    <svg class="spark y" style="left:470px;top:1196px;width:40px;height:40px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark o" style="left:530px;top:1244px;width:24px;height:24px" aria-hidden="true"><use href="#spark"/></svg>
+
+    <div class="grid">
+      <div class="item">
+        <div class="photo"><img src="images/robot-master-premium-case.png" alt="Makerzoid Robot Master Premium storage case"></div>
+        <div class="meta"><p class="name">Makerzoid Robot<br>Master Premium</p><span class="age-pill">6 to 14</span></div>
+      </div>
+      <div class="item">
+        <div class="photo"><img src="images/vincibot-remote-and-box-white.jpg" alt="MatataStudio VinciBot with its box and remote"></div>
+        <div class="meta"><p class="name">MatataStudio<br>VinciBot</p><span class="age-pill">8 to 12</span></div>
+      </div>
+      <div class="item">
+        <div class="photo"><img src="images/nasa-lunar-telescope-white.jpg" alt="NASA Lunar Telescope on its tripod"></div>
+        <div class="meta"><p class="name">NASA Lunar<br>Telescope</p><span class="age-pill">8+</span></div>
+      </div>
+      <div class="item">
+        <div class="photo"><img src="images/makerzoid-smart-robot-box-and-builds.jpg" alt="Makerzoid Smart Robot box with twelve builds"></div>
+        <div class="meta"><p class="name">Makerzoid<br>Smart Robot</p><span class="age-pill">6+</span></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="note"><b>Free delivery</b><br>on orders over R 1,500</p>
+      <span class="cta">Shop STEM gifts</span>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+  Christmas range option, story (1080 x 1920). Adapted from
+  feed-portrait-range.html, sized up to fill the story frame.
+  Facts: brief.md.
+-->
+<html lang="en-ZA" data-canvas="meta-story">
+<head>
+  <meta charset="utf-8">
+  <title>Gifts they'll still be playing with in January</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="single-kit.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <link rel="stylesheet" href="range.css">
+  <style>
+    /* Content starts at 190px and stops 210px above the bottom, as in
+       story-robot-master.html (what Instagram's overlays actually cover).
+       Check the Ads Manager preview before launch. */
+    .canvas { padding: 190px var(--margin) 210px; }
+    .gift-pill { font-size: 34px; gap: 16px; padding: 20px 38px 21px; }
+    h1 { margin-top: 56px; font-size: 104px; }
+    .grid { margin-top: 56px; }
+    .item { padding: 24px 26px 26px; }
+    .name { font-size: 35px; }
+    .item .age-pill { font-size: 29px; padding: 8px 18px 9px; }
+    .meta { margin-top: 14px; }
+    .footer { margin-top: 48px; }
+    .note { font-size: 38px; }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="topbar">
+      <span class="gift-pill">Christmas gift ideas</span>
+    </div>
+
+    <h1>
+      <span>Gifts they'll</span>
+      <span>still be playing</span>
+      <span>with in <span class="marker">January.</span></span>
+    </h1>
+
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <symbol id="spark" viewBox="0 0 80 80"><path d="M40 0 C44 30 50 36 80 40 C50 44 44 50 40 80 C36 50 30 44 0 40 C30 36 36 30 40 0Z"/></symbol>
+    </svg>
+    <svg class="spark y" style="left:214px;top:184px;width:48px;height:48px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark b" style="left:170px;top:246px;width:26px;height:26px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark o" style="left:838px;top:188px;width:28px;height:28px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark y" style="left:880px;top:232px;width:40px;height:40px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark y" style="left:880px;top:346px;width:72px;height:72px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark b" style="left:800px;top:470px;width:44px;height:44px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark o" style="left:960px;top:470px;width:28px;height:28px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark y" style="left:830px;top:590px;width:30px;height:30px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark b" style="left:1000px;top:560px;width:24px;height:24px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark y" style="left:476px;top:1616px;width:42px;height:42px" aria-hidden="true"><use href="#spark"/></svg>
+    <svg class="spark o" style="left:536px;top:1668px;width:24px;height:24px" aria-hidden="true"><use href="#spark"/></svg>
+
+    <div class="grid">
+      <div class="item">
+        <div class="photo"><img src="images/robot-master-premium-case.png" alt="Makerzoid Robot Master Premium storage case"></div>
+        <div class="meta"><p class="name">Makerzoid Robot<br>Master Premium</p><span class="age-pill">6 to 14</span></div>
+      </div>
+      <div class="item">
+        <div class="photo"><img src="images/vincibot-remote-and-box-white.jpg" alt="MatataStudio VinciBot with its box and remote"></div>
+        <div class="meta"><p class="name">MatataStudio<br>VinciBot</p><span class="age-pill">8 to 12</span></div>
+      </div>
+      <div class="item">
+        <div class="photo"><img src="images/nasa-lunar-telescope-white.jpg" alt="NASA Lunar Telescope on its tripod"></div>
+        <div class="meta"><p class="name">NASA Lunar<br>Telescope</p><span class="age-pill">8+</span></div>
+      </div>
+      <div class="item">
+        <div class="photo"><img src="images/makerzoid-smart-robot-box-and-builds.jpg" alt="Makerzoid Smart Robot box with twelve builds"></div>
+        <div class="meta"><p class="name">Makerzoid<br>Smart Robot</p><span class="age-pill">6+</span></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p class="note"><b>Free delivery</b><br>on orders over R 1,500</p>
+      <span class="cta">Shop STEM gifts</span>
+    </div>
+  </main>
+</body>
+</html>
