@@ -84,6 +84,85 @@
         padding: 0;
         display: block;
     }
+    /* Delivery shows FREE when %ShippingCharge% is zero: the amount is written into the cell's class, so a zero becomes cs-ship-0.00 */
+    .cs-free {
+        display: none;
+        font-weight: bold;
+    }
+    .cs-ship-0\.00 .cs-free,
+    .cs-ship-R0\.00 .cs-free {
+        display: inline;
+    }
+    .cs-ship-0\.00 .cs-amt,
+    .cs-ship-R0\.00 .cs-amt {
+        display: none;
+    }
+    /* Column and total labels: "(incl. VAT)" stays lower case under the upper-case headings */
+    .cs-incl {
+        display: block;
+        text-transform: none;
+        letter-spacing: 0;
+        font-weight: normal;
+    }
+
+    /* Whole numbers without decimals: the value is written into the cell's class (q2.00, d10.00).
+       A listed value hides the raw number and prints the clean one; anything else prints as Zoho sends it. */
+    .q1\.00 .r{display:none}.q1\.00:after{content:"1"} .q2\.00 .r{display:none}.q2\.00:after{content:"2"} .q3\.00 .r{display:none}.q3\.00:after{content:"3"} .q4\.00 .r{display:none}.q4\.00:after{content:"4"} .q5\.00 .r{display:none}.q5\.00:after{content:"5"} .q6\.00 .r{display:none}.q6\.00:after{content:"6"}
+    .q7\.00 .r{display:none}.q7\.00:after{content:"7"} .q8\.00 .r{display:none}.q8\.00:after{content:"8"} .q9\.00 .r{display:none}.q9\.00:after{content:"9"} .q10\.00 .r{display:none}.q10\.00:after{content:"10"} .q11\.00 .r{display:none}.q11\.00:after{content:"11"} .q12\.00 .r{display:none}.q12\.00:after{content:"12"}
+    .q13\.00 .r{display:none}.q13\.00:after{content:"13"} .q14\.00 .r{display:none}.q14\.00:after{content:"14"} .q15\.00 .r{display:none}.q15\.00:after{content:"15"} .q16\.00 .r{display:none}.q16\.00:after{content:"16"} .q17\.00 .r{display:none}.q17\.00:after{content:"17"} .q18\.00 .r{display:none}.q18\.00:after{content:"18"}
+    .q19\.00 .r{display:none}.q19\.00:after{content:"19"} .q20\.00 .r{display:none}.q20\.00:after{content:"20"} .q21\.00 .r{display:none}.q21\.00:after{content:"21"} .q22\.00 .r{display:none}.q22\.00:after{content:"22"} .q23\.00 .r{display:none}.q23\.00:after{content:"23"} .q24\.00 .r{display:none}.q24\.00:after{content:"24"}
+    .q25\.00 .r{display:none}.q25\.00:after{content:"25"} .q26\.00 .r{display:none}.q26\.00:after{content:"26"} .q27\.00 .r{display:none}.q27\.00:after{content:"27"} .q28\.00 .r{display:none}.q28\.00:after{content:"28"} .q29\.00 .r{display:none}.q29\.00:after{content:"29"} .q30\.00 .r{display:none}.q30\.00:after{content:"30"}
+    .q31\.00 .r{display:none}.q31\.00:after{content:"31"} .q32\.00 .r{display:none}.q32\.00:after{content:"32"} .q33\.00 .r{display:none}.q33\.00:after{content:"33"} .q34\.00 .r{display:none}.q34\.00:after{content:"34"} .q35\.00 .r{display:none}.q35\.00:after{content:"35"} .q36\.00 .r{display:none}.q36\.00:after{content:"36"}
+    .q37\.00 .r{display:none}.q37\.00:after{content:"37"} .q38\.00 .r{display:none}.q38\.00:after{content:"38"} .q39\.00 .r{display:none}.q39\.00:after{content:"39"} .q40\.00 .r{display:none}.q40\.00:after{content:"40"} .q41\.00 .r{display:none}.q41\.00:after{content:"41"} .q42\.00 .r{display:none}.q42\.00:after{content:"42"}
+    .q43\.00 .r{display:none}.q43\.00:after{content:"43"} .q44\.00 .r{display:none}.q44\.00:after{content:"44"} .q45\.00 .r{display:none}.q45\.00:after{content:"45"} .q46\.00 .r{display:none}.q46\.00:after{content:"46"} .q47\.00 .r{display:none}.q47\.00:after{content:"47"} .q48\.00 .r{display:none}.q48\.00:after{content:"48"}
+    .q49\.00 .r{display:none}.q49\.00:after{content:"49"} .q50\.00 .r{display:none}.q50\.00:after{content:"50"} .q51\.00 .r{display:none}.q51\.00:after{content:"51"} .q52\.00 .r{display:none}.q52\.00:after{content:"52"} .q53\.00 .r{display:none}.q53\.00:after{content:"53"} .q54\.00 .r{display:none}.q54\.00:after{content:"54"}
+    .q55\.00 .r{display:none}.q55\.00:after{content:"55"} .q56\.00 .r{display:none}.q56\.00:after{content:"56"} .q57\.00 .r{display:none}.q57\.00:after{content:"57"} .q58\.00 .r{display:none}.q58\.00:after{content:"58"} .q59\.00 .r{display:none}.q59\.00:after{content:"59"} .q60\.00 .r{display:none}.q60\.00:after{content:"60"}
+    .q61\.00 .r{display:none}.q61\.00:after{content:"61"} .q62\.00 .r{display:none}.q62\.00:after{content:"62"} .q63\.00 .r{display:none}.q63\.00:after{content:"63"} .q64\.00 .r{display:none}.q64\.00:after{content:"64"} .q65\.00 .r{display:none}.q65\.00:after{content:"65"} .q66\.00 .r{display:none}.q66\.00:after{content:"66"}
+    .q67\.00 .r{display:none}.q67\.00:after{content:"67"} .q68\.00 .r{display:none}.q68\.00:after{content:"68"} .q69\.00 .r{display:none}.q69\.00:after{content:"69"} .q70\.00 .r{display:none}.q70\.00:after{content:"70"} .q71\.00 .r{display:none}.q71\.00:after{content:"71"} .q72\.00 .r{display:none}.q72\.00:after{content:"72"}
+    .q73\.00 .r{display:none}.q73\.00:after{content:"73"} .q74\.00 .r{display:none}.q74\.00:after{content:"74"} .q75\.00 .r{display:none}.q75\.00:after{content:"75"} .q76\.00 .r{display:none}.q76\.00:after{content:"76"} .q77\.00 .r{display:none}.q77\.00:after{content:"77"} .q78\.00 .r{display:none}.q78\.00:after{content:"78"}
+    .q79\.00 .r{display:none}.q79\.00:after{content:"79"} .q80\.00 .r{display:none}.q80\.00:after{content:"80"} .q81\.00 .r{display:none}.q81\.00:after{content:"81"} .q82\.00 .r{display:none}.q82\.00:after{content:"82"} .q83\.00 .r{display:none}.q83\.00:after{content:"83"} .q84\.00 .r{display:none}.q84\.00:after{content:"84"}
+    .q85\.00 .r{display:none}.q85\.00:after{content:"85"} .q86\.00 .r{display:none}.q86\.00:after{content:"86"} .q87\.00 .r{display:none}.q87\.00:after{content:"87"} .q88\.00 .r{display:none}.q88\.00:after{content:"88"} .q89\.00 .r{display:none}.q89\.00:after{content:"89"} .q90\.00 .r{display:none}.q90\.00:after{content:"90"}
+    .q91\.00 .r{display:none}.q91\.00:after{content:"91"} .q92\.00 .r{display:none}.q92\.00:after{content:"92"} .q93\.00 .r{display:none}.q93\.00:after{content:"93"} .q94\.00 .r{display:none}.q94\.00:after{content:"94"} .q95\.00 .r{display:none}.q95\.00:after{content:"95"} .q96\.00 .r{display:none}.q96\.00:after{content:"96"}
+    .q97\.00 .r{display:none}.q97\.00:after{content:"97"} .q98\.00 .r{display:none}.q98\.00:after{content:"98"} .q99\.00 .r{display:none}.q99\.00:after{content:"99"} .q100\.00 .r{display:none}.q100\.00:after{content:"100"} .q101\.00 .r{display:none}.q101\.00:after{content:"101"} .q102\.00 .r{display:none}.q102\.00:after{content:"102"}
+    .q103\.00 .r{display:none}.q103\.00:after{content:"103"} .q104\.00 .r{display:none}.q104\.00:after{content:"104"} .q105\.00 .r{display:none}.q105\.00:after{content:"105"} .q106\.00 .r{display:none}.q106\.00:after{content:"106"} .q107\.00 .r{display:none}.q107\.00:after{content:"107"} .q108\.00 .r{display:none}.q108\.00:after{content:"108"}
+    .q109\.00 .r{display:none}.q109\.00:after{content:"109"} .q110\.00 .r{display:none}.q110\.00:after{content:"110"} .q111\.00 .r{display:none}.q111\.00:after{content:"111"} .q112\.00 .r{display:none}.q112\.00:after{content:"112"} .q113\.00 .r{display:none}.q113\.00:after{content:"113"} .q114\.00 .r{display:none}.q114\.00:after{content:"114"}
+    .q115\.00 .r{display:none}.q115\.00:after{content:"115"} .q116\.00 .r{display:none}.q116\.00:after{content:"116"} .q117\.00 .r{display:none}.q117\.00:after{content:"117"} .q118\.00 .r{display:none}.q118\.00:after{content:"118"} .q119\.00 .r{display:none}.q119\.00:after{content:"119"} .q120\.00 .r{display:none}.q120\.00:after{content:"120"}
+    .q121\.00 .r{display:none}.q121\.00:after{content:"121"} .q122\.00 .r{display:none}.q122\.00:after{content:"122"} .q123\.00 .r{display:none}.q123\.00:after{content:"123"} .q124\.00 .r{display:none}.q124\.00:after{content:"124"} .q125\.00 .r{display:none}.q125\.00:after{content:"125"} .q126\.00 .r{display:none}.q126\.00:after{content:"126"}
+    .q127\.00 .r{display:none}.q127\.00:after{content:"127"} .q128\.00 .r{display:none}.q128\.00:after{content:"128"} .q129\.00 .r{display:none}.q129\.00:after{content:"129"} .q130\.00 .r{display:none}.q130\.00:after{content:"130"} .q131\.00 .r{display:none}.q131\.00:after{content:"131"} .q132\.00 .r{display:none}.q132\.00:after{content:"132"}
+    .q133\.00 .r{display:none}.q133\.00:after{content:"133"} .q134\.00 .r{display:none}.q134\.00:after{content:"134"} .q135\.00 .r{display:none}.q135\.00:after{content:"135"} .q136\.00 .r{display:none}.q136\.00:after{content:"136"} .q137\.00 .r{display:none}.q137\.00:after{content:"137"} .q138\.00 .r{display:none}.q138\.00:after{content:"138"}
+    .q139\.00 .r{display:none}.q139\.00:after{content:"139"} .q140\.00 .r{display:none}.q140\.00:after{content:"140"} .q141\.00 .r{display:none}.q141\.00:after{content:"141"} .q142\.00 .r{display:none}.q142\.00:after{content:"142"} .q143\.00 .r{display:none}.q143\.00:after{content:"143"} .q144\.00 .r{display:none}.q144\.00:after{content:"144"}
+    .q145\.00 .r{display:none}.q145\.00:after{content:"145"} .q146\.00 .r{display:none}.q146\.00:after{content:"146"} .q147\.00 .r{display:none}.q147\.00:after{content:"147"} .q148\.00 .r{display:none}.q148\.00:after{content:"148"} .q149\.00 .r{display:none}.q149\.00:after{content:"149"} .q150\.00 .r{display:none}.q150\.00:after{content:"150"}
+    .q151\.00 .r{display:none}.q151\.00:after{content:"151"} .q152\.00 .r{display:none}.q152\.00:after{content:"152"} .q153\.00 .r{display:none}.q153\.00:after{content:"153"} .q154\.00 .r{display:none}.q154\.00:after{content:"154"} .q155\.00 .r{display:none}.q155\.00:after{content:"155"} .q156\.00 .r{display:none}.q156\.00:after{content:"156"}
+    .q157\.00 .r{display:none}.q157\.00:after{content:"157"} .q158\.00 .r{display:none}.q158\.00:after{content:"158"} .q159\.00 .r{display:none}.q159\.00:after{content:"159"} .q160\.00 .r{display:none}.q160\.00:after{content:"160"} .q161\.00 .r{display:none}.q161\.00:after{content:"161"} .q162\.00 .r{display:none}.q162\.00:after{content:"162"}
+    .q163\.00 .r{display:none}.q163\.00:after{content:"163"} .q164\.00 .r{display:none}.q164\.00:after{content:"164"} .q165\.00 .r{display:none}.q165\.00:after{content:"165"} .q166\.00 .r{display:none}.q166\.00:after{content:"166"} .q167\.00 .r{display:none}.q167\.00:after{content:"167"} .q168\.00 .r{display:none}.q168\.00:after{content:"168"}
+    .q169\.00 .r{display:none}.q169\.00:after{content:"169"} .q170\.00 .r{display:none}.q170\.00:after{content:"170"} .q171\.00 .r{display:none}.q171\.00:after{content:"171"} .q172\.00 .r{display:none}.q172\.00:after{content:"172"} .q173\.00 .r{display:none}.q173\.00:after{content:"173"} .q174\.00 .r{display:none}.q174\.00:after{content:"174"}
+    .q175\.00 .r{display:none}.q175\.00:after{content:"175"} .q176\.00 .r{display:none}.q176\.00:after{content:"176"} .q177\.00 .r{display:none}.q177\.00:after{content:"177"} .q178\.00 .r{display:none}.q178\.00:after{content:"178"} .q179\.00 .r{display:none}.q179\.00:after{content:"179"} .q180\.00 .r{display:none}.q180\.00:after{content:"180"}
+    .q181\.00 .r{display:none}.q181\.00:after{content:"181"} .q182\.00 .r{display:none}.q182\.00:after{content:"182"} .q183\.00 .r{display:none}.q183\.00:after{content:"183"} .q184\.00 .r{display:none}.q184\.00:after{content:"184"} .q185\.00 .r{display:none}.q185\.00:after{content:"185"} .q186\.00 .r{display:none}.q186\.00:after{content:"186"}
+    .q187\.00 .r{display:none}.q187\.00:after{content:"187"} .q188\.00 .r{display:none}.q188\.00:after{content:"188"} .q189\.00 .r{display:none}.q189\.00:after{content:"189"} .q190\.00 .r{display:none}.q190\.00:after{content:"190"} .q191\.00 .r{display:none}.q191\.00:after{content:"191"} .q192\.00 .r{display:none}.q192\.00:after{content:"192"}
+    .q193\.00 .r{display:none}.q193\.00:after{content:"193"} .q194\.00 .r{display:none}.q194\.00:after{content:"194"} .q195\.00 .r{display:none}.q195\.00:after{content:"195"} .q196\.00 .r{display:none}.q196\.00:after{content:"196"} .q197\.00 .r{display:none}.q197\.00:after{content:"197"} .q198\.00 .r{display:none}.q198\.00:after{content:"198"}
+    .q199\.00 .r{display:none}.q199\.00:after{content:"199"} .q200\.00 .r{display:none}.q200\.00:after{content:"200"}
+    .d0\.00 .r{display:none}.d0\.00:after{content:"0%"} .d1\.00 .r{display:none}.d1\.00:after{content:"1%"} .d2\.00 .r{display:none}.d2\.00:after{content:"2%"} .d3\.00 .r{display:none}.d3\.00:after{content:"3%"} .d4\.00 .r{display:none}.d4\.00:after{content:"4%"} .d5\.00 .r{display:none}.d5\.00:after{content:"5%"}
+    .d6\.00 .r{display:none}.d6\.00:after{content:"6%"} .d7\.00 .r{display:none}.d7\.00:after{content:"7%"} .d8\.00 .r{display:none}.d8\.00:after{content:"8%"} .d9\.00 .r{display:none}.d9\.00:after{content:"9%"} .d10\.00 .r{display:none}.d10\.00:after{content:"10%"} .d11\.00 .r{display:none}.d11\.00:after{content:"11%"}
+    .d12\.00 .r{display:none}.d12\.00:after{content:"12%"} .d13\.00 .r{display:none}.d13\.00:after{content:"13%"} .d14\.00 .r{display:none}.d14\.00:after{content:"14%"} .d15\.00 .r{display:none}.d15\.00:after{content:"15%"} .d16\.00 .r{display:none}.d16\.00:after{content:"16%"} .d17\.00 .r{display:none}.d17\.00:after{content:"17%"}
+    .d18\.00 .r{display:none}.d18\.00:after{content:"18%"} .d19\.00 .r{display:none}.d19\.00:after{content:"19%"} .d20\.00 .r{display:none}.d20\.00:after{content:"20%"} .d21\.00 .r{display:none}.d21\.00:after{content:"21%"} .d22\.00 .r{display:none}.d22\.00:after{content:"22%"} .d23\.00 .r{display:none}.d23\.00:after{content:"23%"}
+    .d24\.00 .r{display:none}.d24\.00:after{content:"24%"} .d25\.00 .r{display:none}.d25\.00:after{content:"25%"} .d26\.00 .r{display:none}.d26\.00:after{content:"26%"} .d27\.00 .r{display:none}.d27\.00:after{content:"27%"} .d28\.00 .r{display:none}.d28\.00:after{content:"28%"} .d29\.00 .r{display:none}.d29\.00:after{content:"29%"}
+    .d30\.00 .r{display:none}.d30\.00:after{content:"30%"} .d31\.00 .r{display:none}.d31\.00:after{content:"31%"} .d32\.00 .r{display:none}.d32\.00:after{content:"32%"} .d33\.00 .r{display:none}.d33\.00:after{content:"33%"} .d34\.00 .r{display:none}.d34\.00:after{content:"34%"} .d35\.00 .r{display:none}.d35\.00:after{content:"35%"}
+    .d36\.00 .r{display:none}.d36\.00:after{content:"36%"} .d37\.00 .r{display:none}.d37\.00:after{content:"37%"} .d38\.00 .r{display:none}.d38\.00:after{content:"38%"} .d39\.00 .r{display:none}.d39\.00:after{content:"39%"} .d40\.00 .r{display:none}.d40\.00:after{content:"40%"} .d41\.00 .r{display:none}.d41\.00:after{content:"41%"}
+    .d42\.00 .r{display:none}.d42\.00:after{content:"42%"} .d43\.00 .r{display:none}.d43\.00:after{content:"43%"} .d44\.00 .r{display:none}.d44\.00:after{content:"44%"} .d45\.00 .r{display:none}.d45\.00:after{content:"45%"} .d46\.00 .r{display:none}.d46\.00:after{content:"46%"} .d47\.00 .r{display:none}.d47\.00:after{content:"47%"}
+    .d48\.00 .r{display:none}.d48\.00:after{content:"48%"} .d49\.00 .r{display:none}.d49\.00:after{content:"49%"} .d50\.00 .r{display:none}.d50\.00:after{content:"50%"} .d51\.00 .r{display:none}.d51\.00:after{content:"51%"} .d52\.00 .r{display:none}.d52\.00:after{content:"52%"} .d53\.00 .r{display:none}.d53\.00:after{content:"53%"}
+    .d54\.00 .r{display:none}.d54\.00:after{content:"54%"} .d55\.00 .r{display:none}.d55\.00:after{content:"55%"} .d56\.00 .r{display:none}.d56\.00:after{content:"56%"} .d57\.00 .r{display:none}.d57\.00:after{content:"57%"} .d58\.00 .r{display:none}.d58\.00:after{content:"58%"} .d59\.00 .r{display:none}.d59\.00:after{content:"59%"}
+    .d60\.00 .r{display:none}.d60\.00:after{content:"60%"} .d61\.00 .r{display:none}.d61\.00:after{content:"61%"} .d62\.00 .r{display:none}.d62\.00:after{content:"62%"} .d63\.00 .r{display:none}.d63\.00:after{content:"63%"} .d64\.00 .r{display:none}.d64\.00:after{content:"64%"} .d65\.00 .r{display:none}.d65\.00:after{content:"65%"}
+    .d66\.00 .r{display:none}.d66\.00:after{content:"66%"} .d67\.00 .r{display:none}.d67\.00:after{content:"67%"} .d68\.00 .r{display:none}.d68\.00:after{content:"68%"} .d69\.00 .r{display:none}.d69\.00:after{content:"69%"} .d70\.00 .r{display:none}.d70\.00:after{content:"70%"} .d71\.00 .r{display:none}.d71\.00:after{content:"71%"}
+    .d72\.00 .r{display:none}.d72\.00:after{content:"72%"} .d73\.00 .r{display:none}.d73\.00:after{content:"73%"} .d74\.00 .r{display:none}.d74\.00:after{content:"74%"} .d75\.00 .r{display:none}.d75\.00:after{content:"75%"} .d76\.00 .r{display:none}.d76\.00:after{content:"76%"} .d77\.00 .r{display:none}.d77\.00:after{content:"77%"}
+    .d78\.00 .r{display:none}.d78\.00:after{content:"78%"} .d79\.00 .r{display:none}.d79\.00:after{content:"79%"} .d80\.00 .r{display:none}.d80\.00:after{content:"80%"} .d81\.00 .r{display:none}.d81\.00:after{content:"81%"} .d82\.00 .r{display:none}.d82\.00:after{content:"82%"} .d83\.00 .r{display:none}.d83\.00:after{content:"83%"}
+    .d84\.00 .r{display:none}.d84\.00:after{content:"84%"} .d85\.00 .r{display:none}.d85\.00:after{content:"85%"} .d86\.00 .r{display:none}.d86\.00:after{content:"86%"} .d87\.00 .r{display:none}.d87\.00:after{content:"87%"} .d88\.00 .r{display:none}.d88\.00:after{content:"88%"} .d89\.00 .r{display:none}.d89\.00:after{content:"89%"}
+    .d90\.00 .r{display:none}.d90\.00:after{content:"90%"} .d91\.00 .r{display:none}.d91\.00:after{content:"91%"} .d92\.00 .r{display:none}.d92\.00:after{content:"92%"} .d93\.00 .r{display:none}.d93\.00:after{content:"93%"} .d94\.00 .r{display:none}.d94\.00:after{content:"94%"} .d95\.00 .r{display:none}.d95\.00:after{content:"95%"}
+    .d96\.00 .r{display:none}.d96\.00:after{content:"96%"} .d97\.00 .r{display:none}.d97\.00:after{content:"97%"} .d98\.00 .r{display:none}.d98\.00:after{content:"98%"} .d99\.00 .r{display:none}.d99\.00:after{content:"99%"} .d100\.00 .r{display:none}.d100\.00:after{content:"100%"}
+    /* Zoho adds a line break at the end of each cell. Hide it after the number span and the incl. VAT label so they stay on the first line */
+    .r + br,
+    .cs-incl + br {
+        display: none;
+    }
 </style>
 <div style="font-family: Open Sans, Helvetica, Arial, sans-serif; font-size: 9.5pt; color: #0C1446; line-height: 1.45;">
     <div style="padding: 0.12in 0.15in 0 0.15in;">
@@ -140,18 +219,18 @@
                 <tr>
                     <td class="cs-th" style="text-align: left; padding-left: 0;">Item</td>
                     <td class="cs-th" style="text-align: right; width: 10%;">Qty</td>
-                    <td class="cs-th" style="text-align: right; width: 13%;">Unit Price</td>
+                    <td class="cs-th" style="text-align: right; width: 13%;">Unit Price<span class="cs-incl">(incl. VAT)</span></td>
                     <td class="cs-th" style="text-align: right; width: 13%;">Discount</td>
-                    <td class="cs-th" style="text-align: right; width: 15%;">Discount Amount</td>
-                    <td class="cs-th" style="text-align: right; width: 15%; padding-right: 0;">Amount</td>
+                    <td class="cs-th" style="text-align: right; width: 15%;">Discount Amount<span class="cs-incl">(incl. VAT)</span></td>
+                    <td class="cs-th" style="text-align: right; width: 15%; padding-right: 0;">Amount<span class="cs-incl">(incl. VAT)</span></td>
                 </tr>
             </thead>
             <tbody id="lineitem">
                 <tr>
                     <td class="cs-td" style="padding-left: 0;"><span id="tmp_item_name" style="font-weight: bold; word-wrap: break-word;">%ItemName%</span></td>
-                    <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_qty">%ItemQty%</span></td>
+                    <td class="cs-td q%ItemQty%" style="text-align: right; white-space: nowrap;"><span id="tmp_item_qty" class="r">%ItemQty%</span></td>
                     <td class="cs-td" style="text-align: right; white-space: nowrap;"><span id="tmp_item_rate">%ItemRate%</span></td>
-                    <td class="cs-td" id="tmp_item_discount" style="text-align: right;">%ItemDiscount%</td>
+                    <td class="cs-td d%ItemDiscount%" id="tmp_item_discount" style="text-align: right;"><span class="r">%ItemDiscount%&#37;</span></td>
                     <td class="cs-td" style="text-align: right;">%DiscountAmount%</td>
                     <td class="cs-td" style="text-align: right; font-weight: bold; padding-right: 0;">%ItemAmount%</td>
                 </tr>
@@ -183,7 +262,7 @@
                                 </tr>
                                 <tr>
                                     <td class="cs-sum-label">Delivery</td>
-                                    <td class="cs-sum-value" style="padding-right: 0;">%ShippingCharge%</td>
+                                    <td class="cs-sum-value cs-ship-%ShippingCharge%" style="padding-right: 0;"><span class="cs-amt">%ShippingCharge%</span><span class="cs-free">FREE</span></td>
                                 </tr>
                             </tbody>
                             <tbody id="taxItems">
@@ -194,7 +273,7 @@
                             </tbody>
                             <tbody>
                                 <tr>
-                                    <td style="padding: 10px 16px 10px 0; border-top: 1.5px solid #0C1446; border-bottom: 1.5px solid #0C1446; text-align: right; font-size: 8pt; font-weight: bold; letter-spacing: 1.4px; text-transform: uppercase; color: #0C1446;">Total Due</td>
+                                    <td style="padding: 10px 16px 10px 0; border-top: 1.5px solid #0C1446; border-bottom: 1.5px solid #0C1446; text-align: right; font-size: 8pt; font-weight: bold; letter-spacing: 1.4px; text-transform: uppercase; color: #0C1446;">Total Due <span style="text-transform: none; letter-spacing: 0;">(incl. VAT):</span></td>
                                     <td id="tmp_total" style="padding: 10px 0; border-top: 1.5px solid #0C1446; border-bottom: 1.5px solid #0C1446; text-align: right; font-size: 13pt; font-weight: bold; color: #0C1446; white-space: nowrap;">%InvoiceTotal%</td>
                                 </tr>
                             </tbody>
@@ -224,6 +303,8 @@
                     <td style="width: 38%; vertical-align: top; padding: 16px 0 0 0;">
                         <div class="cs-label">Proof of Payment</div>
                         <div style="margin-top: 8px; font-size: 9pt; color: #3c4366;">Please use the invoice number as your payment reference and send proof of payment to <b style="color: #0C1446;">info@thecreatespace.co.za</b></div>
+                        <div class="cs-label" style="margin-top: 18px;">Delivery</div>
+                        <div style="margin-top: 8px; font-size: 9pt; color: #3c4366;">Invoice includes delivery via door-to-door courier to your address.</div>
                     </td>
                 </tr>
             </tbody>

@@ -19,7 +19,7 @@ Zoho fills `%Name%` placeholders when it builds the PDF. In the editor, a placeh
 | Date | `%InvoiceDate%` | `%EstimateDate%` |
 | Valid until | n/a | `%ExpiryDate%` |
 | Subtotal | `%InvoiceSubTotal%` | `%EstimateSubTotal%` |
-| Delivery | `%ShippingCharge%` | n/a (Zoho has no shipping field on quotes; add delivery as an item line) |
+| Delivery | `%ShippingCharge%` | `%ShippingCharge%` (Shipping Charges box on the quote; or an item line whose name starts with "Delivery") |
 | Total | `%InvoiceTotal%` | `%EstimateTotal%` |
 
 Item lines, both templates: `%ItemName%`, `%ItemQty%`, `%ItemRate%`, `%ItemDiscount%`, `%DiscountAmount%`, `%ItemAmount%`. VAT rows: `%TaxValue%`.
@@ -32,5 +32,9 @@ Keep the `tbody` ids (`lineitem`, `headerItem`, `subtotalItem`, `taxItems`) and 
 - **Fonts don't inherit into tables.** The stylesheet sets the font and size on every `td`.
 - **Text renders about 10% larger than in Chrome.** Leave slack in column widths.
 - **Only the total carries the currency symbol.** Zoho prints `%InvoiceTotal%` and `%EstimateTotal%` as `R1,234.00`; every other amount has no R.
-- **No conditional content.** A row can't be hidden when its value is empty or zero, so rows like a discount total were removed rather than left blank.
+- **No conditional content in HTML.** A row can't be hidden when its value is empty or zero, so rows like a discount total were removed rather than left blank.
+
+## FREE delivery
+
+Each template ends with a small script that prints **FREE** instead of `0.00` for delivery: the invoice's Delivery total (`cs-delivery-amount`), and on quotes any item line whose name starts with "Delivery" (`cs-item-row`, `cs-item-name`, `cs-item-rate`, `cs-item-amount`). If Zoho doesn't run the script, the amount simply prints as `0.00`. Both templates also carry a Delivery terms note saying the total includes delivery by The Courier Guy.
 - **Fixed-layout tables take column widths from the first row.** Avoid a full-width (`colspan`) first row in a two-column table; put dividers on the table border instead.
