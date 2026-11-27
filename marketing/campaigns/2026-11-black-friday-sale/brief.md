@@ -131,6 +131,12 @@ Small numbers, different seasons, and a Meta purchase isn't necessarily a Robot 
 
 **Instagram story, day of (`story-instagram-today.html`, 2026-11-27).** Story version of the day-of post, with no CTA on the image (owner's call). Same headline, calendar page, pill and four kits, scaled up; brand illustrations (planet, code, nut, robot) fill the top 270px, and the navy footer carries the end date and free delivery above the bottom 270px. Add a link sticker when posting if wanted: `https://www.thecreatespace.co.za/shop?sale=true&utm_source=instagram&utm_medium=social&utm_campaign=2026-11-black-friday-sale&utm_content=story-instagram-today`.
 
+**Instagram organic post, Cyber Monday (`feed-portrait-instagram-cyber-monday.html`, 2026-11-27).** For 30 November, the last day of the sale. Follows the yellow Black Friday post and shares `instagram-yellow.css`, so the two read as a pair on the grid (same one-off yellow exception). Big navy "CYBER MONDAY" with a tilted navy "Last day!" tag in yellow, the same red "Up to 20% off" sticker, and three sale kits in place of one: the Robot Master dinosaur build, VinciBot with its box, and the Superbot racing car. Footer: "Monday 30 November", free delivery over R 1,500, orange "Link in bio". "Tonight" depends on prices staying live until 23:59 on the 30th, as for the Cyber Monday email.
+
+**Instagram organic post, Cyber Monday robot (`feed-portrait-instagram-cyber-monday-robot.html`, 2026-11-27).** Alternative to the yellow Cyber Monday post, matching the chosen email hero (option G) so the email and the grid look the same on the day. Navy ground, no logo (the owner took it off, since the post sits on our own profile), yellow "Last day of the sale" eyebrow, white "CYBER MONDAY", tilted yellow "Up to 20% off" tag and the red "Ends tonight" pill, with our blue brand robot and five brand icons on a dashed orbit in the lower right. Footer adds the date, free delivery over R 1,500 and the orange "Link in bio". Brand-led rather than product-led. Uses the same caption as the yellow version.
+
+**Instagram story, Cyber Monday robot (`story-instagram-cyber-monday-robot.html`, 2026-11-27).** Story version of the robot post, no logo. Copy stays between 270px and 1520px, the orbit and robot sit centred under the copy, and everything is lifted so the space from 1520px down is empty navy. The owner adds their own CTA there when posting, so there's no CTA button on the image. Add the link sticker when posting, pointing to `https://www.thecreatespace.co.za/shop?sale=true&utm_source=instagram&utm_medium=social&utm_campaign=2026-11-black-friday-sale&utm_content=story-instagram-cyber-monday-robot`.
+
 **Range.** White ground, headline "Up to 20% off the kits they'll actually use.", a 2 x 2 grid of four product cards (photo, red -20% badge, name, age, struck was-price and red now-price), footer with dates and the CTA.
 
 ## Test: rand saving vs percentage
@@ -230,6 +236,16 @@ Everything else matches: price line (struck was-price, red now-price), pill, CTA
 > Shop through the link in our bio.
 >
 > #BlackFriday #BlackFridaySA #STEMtoys #STEMforkids
+
+**Instagram organic post (Cyber Monday)**
+
+> Last day! Our Black Friday sale ends tonight, so this is your final chance to get up to 20% off STEM kits.
+>
+> Coding robots, Makerzoid builds, circuits and telescopes: the kind of present that's still getting played with long after Christmas.
+>
+> Free delivery on orders over R 1,500. Shop through the link in our bio before midnight.
+>
+> #CyberMonday #CyberMondaySA #BlackFridaySA #STEMtoys #STEMforkids #ChristmasGifts #SouthAfrica
 
 **Range**
 
