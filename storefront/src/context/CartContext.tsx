@@ -2,6 +2,12 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { safeGetItem, safeSetItem } from "@/lib/safe-storage";
+import {
+  BundleSaving,
+  getBundleSavings,
+  getTotalBundleSaving,
+  normaliseBundleLine,
+} from "@/lib/bundle-pricing";
 
 export interface CartItem {
   id: string;
@@ -21,7 +27,10 @@ export interface CartItem {
 interface CartContextType {
   items: CartItem[];
   itemCount: number;
+  /** Subtotal after bundle savings, matching what Shopify checkout charges. */
   subtotal: number;
+  /** Bundle saving per cart line, keyed by variantId. */
+  bundleSavings: Map<string, BundleSaving>;
   currencyCode: string;
   isHydrated: boolean;
   addItem: (item: Omit<CartItem, "quantity">, quantity?: number) => void;
@@ -44,9 +53,13 @@ export function getCartItemCount(items: CartItem[]): number {
   return getAvailableItems(items).reduce((total, item) => total + item.quantity, 0);
 }
 
-/** Calculate subtotal of available items. */
+/** Calculate subtotal of available items, after bundle savings. */
 export function getCartSubtotal(items: CartItem[]): number {
-  return getAvailableItems(items).reduce((total, item) => total + item.price * item.quantity, 0);
+  const gross = getAvailableItems(items).reduce(
+    (total, item) => total + item.price * item.quantity,
+    0,
+  );
+  return gross - getTotalBundleSaving(getBundleSavings(items));
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -65,7 +78,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     let parsedItems: CartItem[] = [];
     if (storedCart) {
       try {
-        parsedItems = JSON.parse(storedCart);
+        parsedItems = (JSON.parse(storedCart) as CartItem[]).map((item) =>
+          normaliseBundleLine(item),
+        );
         // eslint-disable-next-line react-hooks/set-state-in-effect -- Hydrating state from localStorage on mount
         setItems(parsedItems);
       } catch (e) {
@@ -116,9 +131,12 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
   const itemCount = getCartItemCount(items);
   const subtotal = getCartSubtotal(items);
+  const bundleSavings = getBundleSavings(items);
   const currencyCode = items[0]?.currencyCode || "ZAR";
 
-  const addItem = (newItem: Omit<CartItem, "quantity">, quantity = 1) => {
+  const addItem = (item: Omit<CartItem, "quantity">, quantity = 1) => {
+    // Bundle add-ons are stored at full price; getBundleSavings applies the discount
+    const newItem = normaliseBundleLine({ ...item, quantity });
     setItems((prevItems) => {
       const existingItem = prevItems.find((item) => item.variantId === newItem.variantId);
 
@@ -130,7 +148,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         );
       }
 
-      return [...prevItems, { ...newItem, quantity }];
+      return [...prevItems, newItem];
     });
 
     setCartAnimKey((k) => k + 1);
@@ -161,6 +179,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         items,
         itemCount,
         subtotal,
+        bundleSavings,
         currencyCode,
         isHydrated,
         addItem,
