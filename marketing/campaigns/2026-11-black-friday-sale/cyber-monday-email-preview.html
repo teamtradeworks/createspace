@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--
+  Preview of the Cyber Monday email as it will look once built in Shopify
+  Messaging from cyber-monday-email-shopify-messaging.md. Each block is one Shopify
+  Messaging section with its own background colour (labelled on the left on
+  wide screens). A mock for checking layout and copy, not sent from here.
+  Product photos stand in for the ones Shopify pulls from each product.
+-->
+<html lang="en-ZA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cyber Monday email preview</title>
+  <style>
+    :root {
+      --navy: #0c1446; --red: #f70b28; --orange: #ff8b00; --yellow: #ffd500;
+      --blue-tint: #dcf4fd; --green-tint: #eaf8d4; --yellow-tint: #fff4bf; --purple-tint: #f3e6ff;
+      --muted: #4a5270; --line: #e3e7ef;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #e9ecf3; color: var(--navy); font-family: Helvetica, Arial, sans-serif; }
+    .inbox { max-width: 600px; margin: 24px auto 8px; padding: 0 16px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+    .inbox b { color: var(--navy); }
+    .email { max-width: 600px; margin: 0 auto 48px; background: #fff; }
+    .s { position: relative; }
+    .s::before {
+      content: attr(data-s);
+      position: absolute; right: calc(100% + 16px); top: 12px;
+      font: 600 11px/1 Helvetica, Arial, sans-serif; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--muted); white-space: nowrap;
+    }
+    @media (max-width: 900px) { .s::before { display: none; } }
+
+    .navy { background: var(--navy); color: #fff; }
+    .red { background: var(--red); color: #fff; }
+    .yellow { background: var(--yellow); }
+    .t-blue { background: var(--blue-tint); }
+    .t-green { background: var(--green-tint); }
+    .t-yellow { background: var(--yellow-tint); }
+    .t-purple { background: var(--purple-tint); }
+
+    .header { padding: 24px 0 20px; text-align: center; }
+    .header img { width: 180px; display: inline-block; }
+    .hero img { display: block; width: 100%; height: auto; }
+
+    .text { padding: 28px 40px 12px; font-size: 16px; line-height: 1.55; }
+    .text > :last-child { margin-bottom: 0; }
+    .text h2 { margin: 0 0 8px; font-size: 24px; line-height: 1.2; }
+    .text p { margin: 0 0 12px; }
+    .text.center { text-align: center; }
+    .text .label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+
+    .strip { padding: 12px 24px; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .strip.lower { text-transform: none; letter-spacing: 0; font-size: 15px; font-weight: 400; line-height: 1.5; padding: 16px 24px; }
+
+    .button { padding: 8px 40px 32px; text-align: center; }
+    .button a {
+      display: inline-block; padding: 15px 34px; border-radius: 999px;
+      background: var(--orange); color: var(--navy); font-weight: 700; font-size: 16px; text-decoration: none;
+    }
+    .button.dark a { background: var(--navy); color: #fff; }
+    .button.whatsapp a { background: #93db21; color: var(--navy); }
+
+    .products { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px 40px 32px; }
+    .product .ph { aspect-ratio: 1; background: #fff; border-radius: 12px; display: grid; place-items: center; overflow: hidden; }
+    .product img { width: 88%; height: 88%; object-fit: contain; }
+    .product h3 { margin: 12px 0 4px; font-size: 15px; line-height: 1.3; }
+    .product .price { margin: 0; font-size: 15px; }
+    .product .price b { color: var(--red); margin-right: 6px; }
+    .product .price s { color: var(--muted); }
+
+    .finder { margin: 0 24px 32px; padding: 24px 20px; border-radius: 16px; text-align: center; }
+    .finder h2 { margin: 0 0 6px; font-size: 22px; }
+    .finder p { margin: 0 0 16px; font-size: 15px; color: var(--muted); }
+    .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 10px; }
+    .row a { padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: none; background: #fff; }
+    .row .a1 { background: var(--yellow); } .row .a2 { background: #93db21; } .row .a3 { background: #3cc7f7; } .row .a4 { background: var(--orange); }
+
+    .signoff { padding: 28px 40px 32px; font-size: 16px; line-height: 1.6; }
+    .footer { padding: 28px 40px 32px; font-size: 12px; line-height: 1.7; }
+    .footer a { color: #fff; }
+
+    @media (max-width: 480px) {
+      .text, .button, .products, .signoff, .footer { padding-left: 20px; padding-right: 20px; }
+      .products { gap: 12px; }
+      .finder { margin-left: 12px; margin-right: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="inbox">
+    <b>CREATESPACE</b> · <b>Last day: up to 20% off ends tonight</b><br>
+    Cyber Monday is the final day of our Black Friday sale. Here's what's still on.
+  </div>
+
+  <div class="email">
+    <div class="s header navy" data-s="1 Header · navy"><img src="../../creative/kit/logo/logo-on-navy.png" alt="CREATESPACE"></div>
+
+    <div class="s hero navy" data-s="2 Image"><img src="exports/cyber-monday-email-hero-g.jpg" alt="Cyber Monday, last day of the sale. Up to 20% off STEM kits, ends tonight."></div>
+
+    <div class="s text center navy" data-s="3 Text · navy">
+      <p>It's the last day of our Black Friday sale, with up to 20% off selected kits. Get your Christmas presents sorted early, and at an awesome price too!</p>
+    </div>
+
+    <div class="s button navy" data-s="4 Button · navy"><a href="#">Shop before it ends</a></div>
+
+    <div class="s strip red" data-s="5 Text · red">Last day · Sale ends tonight</div>
+
+    <div class="s text t-blue" data-s="6 Text · blue tint">
+      <span class="label">Robots and coding</span>
+      <h2>Kits to build, code and tinker with</h2>
+      <p>From robots they build and code at 6, to wiring up their own circuits at 13.</p>
+    </div>
+    <div class="s products t-blue" data-s="7 Product · blue tint">
+      <div class="product">
+        <div class="ph"><img src="images/vincibot-robot-box-remote.jpg" alt=""></div>
+        <h3>MatataStudio VinciBot Coding Robot</h3>
+        <p class="price"><b>R 2,040</b><s>R 2,550</s></p>
+      </div>
+      <div class="product">
+        <div class="ph"><img src="images/robot-master-premium-case.png" alt=""></div>
+        <h3>Makerzoid Robot Master Premium</h3>
+        <p class="price"><b>R 1,904</b><s>R 2,380</s></p>
+      </div>
+      <div class="product">
+        <div class="ph"><img src="images/makerzoid-superbot-car-and-box.jpg" alt=""></div>
+        <h3>Makerzoid Superbot</h3>
+        <p class="price"><b>R 1,184</b><s>R 1,480</s></p>
+      </div>
+      <div class="product">
+        <div class="ph"><img src="images/robotico-ultimate-uno-r3-kit.jpg" alt=""></div>
+        <h3>Robotico Ultimate UNO R3 Starter Kit</h3>
+        <p class="price"><b>R 1,105</b><s>R 1,300</s></p>
+      </div>
+    </div>
+
+    <div class="s text t-yellow" data-s="8 Text · yellow tint">
+      <span class="label">Space</span>
+      <h2>For the kid who looks up</h2>
+      <p>Two gifts for curious stargazers, both under R 1,000.</p>
+    </div>
+    <div class="s products t-yellow" data-s="9 Product · yellow tint">
+      <div class="product">
+        <div class="ph"><img src="images/nasa-lunar-telescope-white.jpg" alt=""></div>
+        <h3>NASA Lunar Telescope</h3>
+        <p class="price"><b>R 920</b><s>R 1,150</s></p>
+      </div>
+      <div class="product">
+        <div class="ph"><img src="images/natgeo-mega-space-kit-box.jpg" alt=""></div>
+        <h3>National Geographic Mega Space Activity Kit</h3>
+        <p class="price"><b>R 496</b><s>R 620</s></p>
+      </div>
+    </div>
+
+    <div class="s text center t-purple" data-s="10 Text · purple tint" style="padding-top:32px">
+      <h2>Not sure which kit is best?</h2>
+      <p>Drop us a message on WhatsApp and we'll help you.</p>
+    </div>
+    <div class="s button whatsapp t-purple" data-s="11 Button · purple tint"><a href="https://wa.me/27756246775?text=Hi%20CREATESPACE%2C%20I%27m%20not%20sure%20which%20kit%20is%20best">Chat on WhatsApp</a></div>
+
+    <div class="s strip lower yellow" data-s="12 Text · yellow">
+      <b>Free delivery on orders over R 1,500</b><br>Sent with The Courier Guy, 1 to 3 days to your door.
+    </div>
+
+    <div class="s text center" data-s="13 Text" style="padding-top:32px">
+      <p>There are 35 kits in the sale, from first circuits to coding robots. Have a look before midnight.</p>
+    </div>
+    <div class="s button dark" data-s="14 Button"><a href="#">See everything on sale</a></div>
+
+    <div class="s signoff" data-s="15 Text">
+      Thanks for shopping with us this week,<br><b>The CREATESPACE Team</b>
+    </div>
+
+    <div class="s footer navy" data-s="16 Footer · navy">
+      <b>CREATESPACE</b><br>
+      info@thecreatespace.co.za<br><br>
+      <a href="#">Unsubscribe</a><br>
+      © 2026 CREATESPACE
+    </div>
+  </div>
+</body>
+</html>

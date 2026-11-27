@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+  Cyber Monday (last day of the Black Friday sale) newsletter hero.
+  Email image (1200 x 800, shows at 600 x 400). Goes in the Image section at
+  the top of the Shopify Messaging email (see
+  cyber-monday-email-shopify-messaging.md), under a navy Header section.
+  Option D: same left side and yellow disc as option B, with the VinciBot
+  robot, its box and remote (cut out with macOS Vision)
+  in place of the Robot Master. VinciBot is the biggest rand saving (R 510).
+  No button and no logo on the image: the Header and Button sections carry
+  those, so the email still works with images blocked.
+-->
+<html lang="en-ZA" data-canvas="email-hero">
+<head>
+  <meta charset="utf-8">
+  <title>Cyber Monday: last day, up to 20% off STEM kits</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="sale.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      padding: 76px 72px;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cs-yellow);
+    }
+
+    h1 {
+      margin: 22px 0 0;
+      font-size: 126px;
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      align-self: flex-start;
+      margin-top: 36px;
+      padding: 14px 30px 18px;
+      border-radius: 14px;
+      background: var(--cs-yellow);
+      color: var(--cs-navy);
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      transform: rotate(-2deg);
+    }
+
+    .sale-pill {
+      align-self: flex-start;
+      margin-top: 44px;
+      font-size: 26px;
+      padding: 17px 28px 18px;
+    }
+
+    .disc {
+      position: absolute;
+      top: 120px;
+      right: 70px;
+      width: 520px;
+      height: 520px;
+      border-radius: 50%;
+      background: var(--cs-yellow);
+    }
+
+    .product {
+      position: absolute;
+      top: 240px;
+      right: 45px;
+      width: 510px;
+      height: auto;
+      filter: drop-shadow(0 26px 34px rgba(0, 0, 0, 0.4));
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <p class="eyebrow">Last day of the sale</p>
+    <h1>Cyber<br>Monday</h1>
+    <span class="tag">Up to 20% off</span>
+    <span class="sale-pill">Ends tonight</span>
+    <div class="disc"></div>
+    <img class="product" src="images/vincibot-remote-box-cutout.png" alt="">
+  </main>
+</body>
+</html>
