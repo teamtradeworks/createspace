@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { capture } from "@/lib/analytics";
-import { useCart, getAvailableItems } from "@/context/CartContext";
+import { useCart, getAvailableItems, type CartItem } from "@/context/CartContext";
 import { gtmViewCart, gtmBeginCheckout } from "@/lib/gtm";
 import { formatPrice } from "@/lib/shopify";
 import {
@@ -25,14 +25,26 @@ const CHECKOUT_ITEM_MESSAGE =
   "One of the items in your cart couldn't be added to checkout. Please review your cart and try again.";
 
 export default function CartPage() {
-  const { items, itemCount, subtotal, currencyCode, isHydrated, updateQuantity, removeItem } =
-    useCart();
+  const {
+    items,
+    itemCount,
+    subtotal,
+    bundleSavings,
+    currencyCode,
+    isHydrated,
+    updateQuantity,
+    removeItem,
+  } = useCart();
+
+  const lineTotal = (item: CartItem) =>
+    item.price * item.quantity - (bundleSavings.get(item.variantId)?.amount ?? 0);
 
   const totalDiscount = getAvailableItems(items).reduce((sum, item) => {
-    if (item.compareAtPrice && item.compareAtPrice > item.price) {
-      return sum + (item.compareAtPrice - item.price) * item.quantity;
-    }
-    return sum;
+    const saleSaving =
+      item.compareAtPrice && item.compareAtPrice > item.price
+        ? (item.compareAtPrice - item.price) * item.quantity
+        : 0;
+    return sum + saleSaving + (bundleSavings.get(item.variantId)?.amount ?? 0);
   }, 0);
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [checkoutError, setCheckoutError] = useState<string | null>(null);
@@ -46,7 +58,7 @@ export default function CartPage() {
   const allDigital = availableItems.length > 0 && availableItems.every((item) => item.digital);
   const physicalSubtotal = availableItems
     .filter((item) => !item.digital)
-    .reduce((sum, item) => sum + item.price * item.quantity, 0);
+    .reduce((sum, item) => sum + lineTotal(item), 0);
   const deliveryCost = allDigital ? 0 : calculateDeliveryCost(physicalSubtotal);
 
   // Reset the checkout button if the user returns via the browser's bfcache
@@ -346,15 +358,20 @@ export default function CartPage() {
                         </button>
                       </div>
                     );
-                    const lineTotal = (
+                    const bundleSaving = isUnavailable
+                      ? undefined
+                      : bundleSavings.get(item.variantId);
+                    const lineTotalEl = (
                       <span
                         className={
                           isUnavailable ? "text-gray-400 line-through" : "font-semibold text-navy"
                         }
                       >
-                        {formatPrice(item.price * item.quantity, item.currencyCode, {
-                          showCents: true,
-                        })}
+                        {formatPrice(
+                          isUnavailable ? item.price * item.quantity : lineTotal(item),
+                          item.currencyCode,
+                          { showCents: true },
+                        )}
                       </span>
                     );
                     return (
@@ -445,6 +462,17 @@ export default function CartPage() {
                                 </span>
                               )}
                             </div>
+                            {bundleSaving && (
+                              <p className="mt-1 text-xs font-medium text-cs-red">
+                                {bundleSaving.units === item.quantity
+                                  ? "Bundle saving"
+                                  : `Bundle saving on ${bundleSaving.units} of ${item.quantity}`}
+                                : -
+                                {formatPrice(bundleSaving.amount, item.currencyCode, {
+                                  showCents: true,
+                                })}
+                              </p>
+                            )}
 
                             {/* Desktop: text Remove link under the status */}
                             <button
@@ -471,7 +499,7 @@ export default function CartPage() {
                               {trashIcon}
                             </button>
                           </div>
-                          <span className="ml-auto">{lineTotal}</span>
+                          <span className="ml-auto">{lineTotalEl}</span>
                         </div>
 
                         {/* Price (desktop) */}
@@ -504,7 +532,9 @@ export default function CartPage() {
                         </div>
 
                         {/* Line Total (desktop) */}
-                        <div className="hidden md:block md:col-span-2 text-right">{lineTotal}</div>
+                        <div className="hidden md:block md:col-span-2 text-right">
+                          {lineTotalEl}
+                        </div>
                       </div>
                     );
                   })}
