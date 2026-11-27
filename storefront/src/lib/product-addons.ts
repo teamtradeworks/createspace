@@ -27,6 +27,15 @@ export interface ResolvedAddon {
 }
 
 /**
+ * Format an add-on amount, keeping the cents when there are any, so a
+ * discounted R 382.50 isn't shown as R 382 (it must match the cart and checkout).
+ */
+export function formatAddonAmount(amount: number, currencyCode: string): string {
+  const rounded = Math.round(amount * 100) / 100;
+  return formatPrice(rounded, currencyCode, { showCents: !Number.isInteger(rounded) });
+}
+
+/**
  * Get add-on configurations for a product by its handle
  */
 export function getAddonConfigsForHandle(parentHandle: string): AddonConfig[] {
@@ -77,10 +86,10 @@ export async function resolveAddonsForHandle(parentHandle: string): Promise<Reso
       originalPrice,
       discountedPrice,
       currencyCode: variant.price.currencyCode,
-      formattedOriginalPrice: formatPrice(originalPrice.toString(), variant.price.currencyCode),
-      formattedDiscountedPrice: formatPrice(discountedPrice.toFixed(2), variant.price.currencyCode),
+      formattedOriginalPrice: formatAddonAmount(originalPrice, variant.price.currencyCode),
+      formattedDiscountedPrice: formatAddonAmount(discountedPrice, variant.price.currencyCode),
       savings,
-      formattedSavings: formatPrice(savings.toFixed(2), variant.price.currencyCode),
+      formattedSavings: formatAddonAmount(savings, variant.price.currencyCode),
       description: config.description,
       viewProductLink: config.viewProductLink ?? true,
     });

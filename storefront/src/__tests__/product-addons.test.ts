@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
+  formatAddonAmount,
   getAddonConfigsForHandle,
   serializeAddons,
   type ResolvedAddon,
@@ -132,5 +133,16 @@ describe("serializeAddons", () => {
 
   it("returns empty array for empty input", () => {
     expect(serializeAddons([])).toEqual([]);
+  });
+});
+
+describe("formatAddonAmount", () => {
+  it("keeps cents on a discounted price so it matches checkout", () => {
+    expect(formatAddonAmount(450 * 0.85, "ZAR")).toBe("R\u00a0382.50");
+    expect(formatAddonAmount(450 * 0.15, "ZAR")).toBe("R\u00a067.50");
+  });
+
+  it("leaves whole amounts without cents", () => {
+    expect(formatAddonAmount(1200, "ZAR")).toBe("R\u00a01,200");
   });
 });
