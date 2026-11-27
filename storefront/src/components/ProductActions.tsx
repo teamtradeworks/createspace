@@ -106,21 +106,16 @@ export default function ProductActions({
         quantity,
       );
 
-      // Add selected add-ons to cart (with discounted price)
+      // Add selected add-ons to cart
       const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
       for (const addon of selectedAddonsData) {
-        const addonPrice =
-          addon.discountPercent > 0
-            ? addon.discountedPrice / addon.quantity
-            : addon.originalPrice / addon.quantity;
+        // Full price: the cart works out the bundle saving from the kits in it
         addItem(
           {
             id: addon.productId,
             variantId: addon.variantId,
             title: addon.title,
-            price: addonPrice,
-            compareAtPrice:
-              addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
+            price: addon.originalPrice / addon.quantity,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,
             handle: addon.handle,
@@ -241,21 +236,16 @@ export default function ProductActions({
         quantity,
       );
 
-      // Add selected add-ons to cart (with discounted price)
+      // Add selected add-ons to cart
       const selectedAddonsData = addons.filter((addon) => addonHandles.has(addon.handle));
       for (const addon of selectedAddonsData) {
-        const addonPrice =
-          addon.discountPercent > 0
-            ? addon.discountedPrice / addon.quantity
-            : addon.originalPrice / addon.quantity;
+        // Full price: the cart works out the bundle saving from the kits in it
         addItem(
           {
             id: addon.productId,
             variantId: addon.variantId,
             title: addon.title,
-            price: addonPrice,
-            compareAtPrice:
-              addon.discountPercent > 0 ? addon.originalPrice / addon.quantity : undefined,
+            price: addon.originalPrice / addon.quantity,
             currencyCode: addon.currencyCode,
             image: addon.image || undefined,
             handle: addon.handle,
