@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--
+  Cyber Monday organic Instagram post, robot version. Feed portrait
+  (1080 x 1350). The Instagram take on the chosen Cyber Monday email hero
+  (cyber-monday-email-hero-g.html): navy ground, yellow eyebrow, big white
+  "CYBER MONDAY", tilted yellow "Up to 20% off" tag, red "Ends tonight" sale
+  pill, and our blue brand robot (creative/kit/illustrations/robot-2.svg) with
+  code, lightbulb, nut, planet and chip on a faint dashed orbit. Brand-led,
+  not product-led. Alternative to feed-portrait-instagram-cyber-monday.html.
+  No logo on the image (owner's call, 2026-11-27): the post sits on our own
+  profile. Footer adds the date, free delivery and the orange "Link in bio" (orange on navy, so Orange Means Go holds).
+  Facts: brief.md (up to 20% off, ends 30 Nov, free delivery over R 1,500).
+  "Tonight" relies on prices staying live until 23:59 on 30 Nov.
+-->
+<html lang="en-ZA" data-canvas="meta-portrait">
+<head>
+  <meta charset="utf-8">
+  <title>Cyber Monday, last day of the sale (robot)</title>
+  <link rel="stylesheet" href="../../creative/kit/brand.css">
+  <link rel="stylesheet" href="sale.css">
+  <script src="../../creative/kit/canvas.js"></script>
+  <style>
+    .canvas {
+      position: relative;
+      padding: 0;
+      background: var(--cs-navy);
+      color: var(--cs-white);
+    }
+
+    .top {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      padding: 110px 72px 0;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 34px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--cs-yellow);
+    }
+
+    h1 {
+      margin: 24px 0 0;
+      font-size: 172px;
+      font-weight: 700;
+      line-height: 0.88;
+      letter-spacing: -0.035em;
+      text-transform: uppercase;
+    }
+
+    .tag {
+      align-self: flex-start;
+      margin-top: 40px;
+      padding: 16px 34px 22px;
+      border-radius: 16px;
+      background: var(--cs-yellow);
+      color: var(--cs-navy);
+      font-size: 76px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      transform: rotate(-2deg);
+    }
+
+    .sale-pill {
+      align-self: flex-start;
+      margin-top: 44px;
+      font-size: 28px;
+      padding: 18px 30px 19px;
+    }
+
+    /* Orbit, icons and robot in the lower right, centred on (690, 895). */
+    .orbit {
+      position: absolute;
+      left: 400px;
+      top: 650px;
+      width: 580px;
+      height: 490px;
+      border: 3px dashed rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      transform: rotate(-12deg);
+    }
+
+    .robot {
+      position: absolute;
+      left: 545px;
+      top: 735px;
+      width: 290px;
+      height: auto;
+      transform: rotate(-6deg);
+      filter: drop-shadow(0 24px 30px rgba(0, 0, 0, 0.45));
+    }
+
+    .el {
+      position: absolute;
+      height: auto;
+      filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.35));
+    }
+    .el.code   { width: 116px; left: 418px; top: 862px;  transform: rotate(-14deg); }
+    .el.bulb   { width: 96px;  left: 900px; top: 600px;  transform: rotate(14deg); }
+    .el.nut    { width: 90px;  left: 950px; top: 880px;  transform: rotate(18deg); }
+    .el.planet { width: 150px; left: 640px; top: 1080px; transform: rotate(-8deg); }
+    .el.chip   { width: 80px;  left: 470px; top: 1020px; transform: rotate(-16deg); }
+
+    .footer {
+      position: absolute;
+      z-index: 2;
+      left: 72px;
+      right: 72px;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 34px 0 44px;
+      border-top: 2px solid rgba(255, 255, 255, 0.16);
+    }
+    .footer p { margin: 0; font-size: 30px; line-height: 1.3; color: rgba(255,255,255,0.75); }
+    .footer p b { display: block; color: var(--cs-white); font-weight: 600; font-size: 38px; }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      height: 96px;
+      padding: 0 38px;
+      border-radius: 12px;
+      background: var(--cs-orange);
+      color: var(--cs-navy);
+      font-size: 36px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <main class="canvas">
+    <div class="orbit" aria-hidden="true"></div>
+    <img class="el code" src="../../creative/kit/illustrations/code-1.svg" alt="">
+    <img class="el bulb" src="../../creative/kit/illustrations/lightbulb.svg" alt="">
+    <img class="el nut" src="../../creative/kit/illustrations/nut-2.svg" alt="">
+    <img class="el planet" src="../../creative/kit/illustrations/planet-1.svg" alt="">
+    <img class="el chip" src="../../creative/kit/illustrations/chip-2.svg" alt="">
+    <img class="robot" src="../../creative/kit/illustrations/robot-2.svg" alt="">
+
+    <div class="top">
+      <p class="eyebrow">Last day of the sale</p>
+      <h1>Cyber<br>Monday</h1>
+      <span class="tag">Up to 20% off</span>
+      <span class="sale-pill">Ends tonight</span>
+    </div>
+
+    <div class="footer">
+      <p><b>Monday 30 November</b>Free delivery over R 1,500</p>
+      <span class="cta">Link in bio</span>
+    </div>
+  </main>
+</body>
+</html>
